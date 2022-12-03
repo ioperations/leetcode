@@ -1,0 +1,33 @@
+[package]
+name = "tt"
+version = "0.1.1"
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+# subprocess = "0.1.12"
+# progress_bar = "0.1.3"
+# rbtree = "0.1"
+# pbr = "1.0.4"
+# reqwest = { version = "0.11", features = ["json"] }
+tokio = { version = "1", features = ["full"] }
+backtrace = "0.3"
+automod = "1.0"
+rand = "0.8.5"
+#serde_json = { version = "1.0", default-features=false,features = ["alloc"] }
+#serde = { version="1.0",features=["derive"] }
+
+#
+#[[bin]]
+#name = "z"           # The name of the target.
+#path = "src/z.rs"    # The source file of the target.
+#test = true            # Is tested by default.
+#doctest = true         # Documentation examples are tested by default.
+#bench = true           # Is benchmarked by default.
+#doc = true             # Is documented by default.
+#plugin = false         # Used as a compiler plugin (deprecated).
+#proc-macro = false     # Set to `true` for a proc-macro library.
+#harness = true         # Use libtest harness.
+#edition = "2018"       # The edition of the target.
+#required-features = [] # Features required to build this target (N/A for lib).

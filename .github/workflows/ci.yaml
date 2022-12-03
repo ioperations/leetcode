@@ -1,0 +1,46 @@
+name: test and dryrun
+
+# Run this workflow every time a new commit pushed to your repository
+on:
+  push:
+  pull_request:
+  schedule: [cron: "40 1 * * *"]
+
+env:
+  RUSTFLAGS: -Dwarnings
+
+jobs:
+  build-test:
+    name: Build on ${{matrix.container }}
+    runs-on: ubuntu-latest
+    container: ${{ matrix.container }}
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v2
+      - uses: dtolnay/rust-toolchain@nightly
+        with:
+          components: rustfmt
+      - run: sudo apt update && sudo apt install cmake build-essential libgtest-dev clang-12 -y
+      - run: |
+          git clone https://github.com/google/benchmark.git --depth 1
+          cd benchmark
+          cmake -E make_directory "build"
+          cmake -E chdir "build" cmake -DBENCHMARK_DOWNLOAD_DEPENDENCIES=on -DCMAKE_BUILD_TYPE=Release ../
+          sudo cmake --build "build" --config Release --target install
+      - run: |
+          pwd && ls && ls -R
+          cmake -B build 
+          cmake --build build
+          make -C build test
+      - run: cargo test -j$(nproc)
+
+  outdated:
+    name: Outdated
+    runs-on: ubuntu-latest
+    if: github.event_name != 'pull_request'
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v3
+      - uses: dtolnay/install@cargo-outdated
+      - run: cargo update
+      - run: cargo outdated --workspace --exit-code 1

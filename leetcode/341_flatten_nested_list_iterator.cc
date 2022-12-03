@@ -1,0 +1,157 @@
+/*
+You are given a nested list of integers nestedList. Each element is either an
+integer or a list whose elements may also be integers or other lists. Implement
+an iterator to flatten it.
+
+Implement the NestedIterator class:
+
+NestedIterator(List<NestedInteger> nestedList) Initializes the iterator with the
+nested list nestedList. int next() Returns the next integer in the nested list.
+boolean hasNext() Returns true if there are still some integers in the nested
+list and false otherwise. Your code will be tested with the following
+pseudocode:
+
+initialize iterator with nestedList
+res = []
+while iterator.hasNext()
+    append iterator.next() to the end of res
+return res
+    If res matches the expected flattened list, then your code will be judged as
+correct.
+*/
+
+#include <vector>
+using namespace std;
+
+// This is the interface that allows for creating nested lists.
+// You should not implement it, or speculate about its implementation
+class NestedInteger {
+    bool is_integer;
+    int val;
+    vector<NestedInteger> vec;
+
+   public:
+    // Return true if this NestedInteger holds a single integer, rather than a
+    // nested list.
+    NestedInteger(vector<int> in) {}
+    NestedInteger() {}
+    NestedInteger(int i) {
+        is_integer = true;
+        val = i;
+    }
+    ~NestedInteger() { vec.clear(); }
+
+    void AddNestedInteger(NestedInteger& in) {
+        is_integer = false;
+        vec.push_back(in);
+    }
+
+    bool IsInteger() const { return is_integer; }
+
+    // Return the single integer that this NestedInteger holds, if it holds a
+    // single integer The result is undefined if this NestedInteger holds a
+    // nested list
+    int GetInteger() const { return val; };
+
+    // Return the nested list that this NestedInteger holds, if it holds a
+    // nested list The result is undefined if this NestedInteger holds a single
+    // integer const
+    vector<NestedInteger>& GetList() { return vec; };
+};
+
+class NestedIterator {
+    int i;
+    vector<int> faltterned;
+
+    void FlatternAdd(vector<int>& dest, NestedInteger& now) {
+        if (now.IsInteger()) {
+            dest.push_back(now.GetInteger());
+        }
+
+        else {
+            for (auto& ptr : now.GetList()) {
+                FlatternAdd(dest, ptr);
+            }
+        }
+    }
+
+   public:
+    NestedIterator(vector<NestedInteger>& nested_list) {
+        for (auto& ptr : nested_list) {
+            FlatternAdd(faltterned, ptr);
+        }
+        i = 0;
+    }
+    NestedIterator(NestedInteger& nested_list) {
+        FlatternAdd(faltterned, nested_list);
+        i = 0;
+    }
+
+    int next() { return faltterned[i++]; }
+
+    bool hasNext() { return i < (int)faltterned.size(); }
+};
+
+/**
+ * Your NestedIterator object will be instantiated and called as such:
+ * NestedIterator i(nestedList);
+ * while (i.hasNext()) cout << i.next();
+ */
+
+#include <gtest/gtest.h>
+
+#include <iostream>
+
+TEST(t0, t1) {
+    // vector<NestedInteger> nestedList = {{1,1},2,{1,1}};
+
+    NestedInteger i1(1);
+    NestedInteger n1;
+    n1.AddNestedInteger(i1);
+    n1.AddNestedInteger(i1);
+
+    NestedInteger n;
+
+    n.AddNestedInteger(n1);
+
+    NestedInteger i2(2);
+    n.AddNestedInteger(i2);
+    n.AddNestedInteger(n1);
+    EXPECT_EQ(n.IsInteger(), false);
+    EXPECT_EQ(n.GetList().size(), 3);
+};
+
+TEST(t0, t2) {
+    // vector<NestedInteger> nestedList = {{1,1},2,{1,1}};
+
+    NestedInteger i1(1);
+    NestedInteger n1;
+    n1.AddNestedInteger(i1);
+    n1.AddNestedInteger(i1);
+
+    NestedInteger n;
+
+    n.AddNestedInteger(n1);
+
+    NestedInteger i2(2);
+    n.AddNestedInteger(i2);
+    n.AddNestedInteger(n1);
+
+    vector<int> output = {1, 1, 2, 1, 1};
+    // Explanation: By calling next repeatedly until hasNext returns false, the
+    // order of elements returned by next should be: [1,1,2,1,1].
+    std::vector<int> v;
+    // vector<NestedInteger> integer;
+
+    NestedIterator i(n);
+
+    while (i.hasNext()) {
+        v.push_back(i.next());
+    }
+    EXPECT_EQ(v, output);
+}
+
+int main(int argc, char* argv[]) {
+    testing::InitGoogleTest(&argc, argv);
+    return RUN_ALL_TESTS();
+}

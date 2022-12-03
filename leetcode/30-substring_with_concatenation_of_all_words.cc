@@ -1,0 +1,126 @@
+// 151/176 test passed
+/**
+"pjzkrkevzztxductzzxmxsvwjkxpvukmfjywwetvfnujhweiybwvvsrfequzkhossmootkmyxgjgfordrpapjuunmqnxxdrqrfgkrsjqbszgiqlcfnrpjlcwdrvbumtotzylshdvccdmsqoadfrpsvnwpizlwszrtyclhgilklydbmfhuywotjmktnwrfvizvnmfvvqfiokkdprznnnjycttprkxpuykhmpchiksyucbmtabiqkisgbhxngmhezrrqvayfsxauampdpxtafniiwfvdufhtwajrbkxtjzqjnfocdhekumttuqwovfjrgulhekcpjszyynadxhnttgmnxkduqmmyhzfnjhducesctufqbumxbamalqudeibljgbspeotkgvddcwgxidaiqcvgwykhbysjzlzfbupkqunuqtraxrlptivshhbihtsigtpipguhbhctcvubnhqipncyxfjebdnjyetnlnvmuxhzsdahkrscewabejifmxombiamxvauuitoltyymsarqcuuoezcbqpdaprxmsrickwpgwpsoplhugbikbkotzrtqkscekkgwjycfnvwfgdzogjzjvpcvixnsqsxacfwndzvrwrycwxrcismdhqapoojegggkocyrdtkzmiekhxoppctytvphjynrhtcvxcobxbcjjivtfjiwmduhzjokkbctweqtigwfhzorjlkpuuliaipbtfldinyetoybvugevwvhhhweejogrghllsouipabfafcxnhukcbtmxzshoyyufjhzadhrelweszbfgwpkzlwxkogyogutscvuhcllphshivnoteztpxsaoaacgxyaztuixhunrowzljqfqrahosheukhahhbiaxqzfmmwcjxountkevsvpbzjnilwpoermxrtlfroqoclexxisrdhvfsindffslyekrzwzqkpeocilatftymodgztjgybtyheqgcpwogdcjlnlesefgvimwbxcbzvaibspdjnrpqtyeilkcspknyylbwndvkffmzuriilxagyerjptbgeqgebiaqnvdubrtxibhvakcyotkfonmseszhczapxdlauexehhaireihxsplgdgmxfvaevrbadbwjbdrkfbbjjkgcztkcbwagtcnrtqryuqixtzhaakjlurnumzyovawrcjiwabuwretmdamfkxrgqgcdgbrdbnugzecbgyxxdqmisaqcyjkqrntxqmdrczxbebemcblftxplafnyoxqimkhcykwamvdsxjezkpgdpvopddptdfbprjustquhlazkjfluxrzopqdstulybnqvyknrchbphcarknnhhovweaqawdyxsqsqahkepluypwrzjegqtdoxfgzdkydeoxvrfhxusrujnmjzqrrlxglcmkiykldbiasnhrjbjekystzilrwkzhontwmehrfsrzfaqrbbxncphbzuuxeteshyrveamjsfiaharkcqxefghgceeixkdgkuboupxnwhnfigpkwnqdvzlydpidcljmflbccarbiegsmweklwngvygbqpescpeichmfidgsjmkvkofvkuehsmkkbocgejoiqcnafvuokelwuqsgkyoekaroptuvekfvmtxtqshcwsztkrzwrpabqrrhnlerxjojemcxel"
+["dhvf","sind","ffsl","yekr","zwzq","kpeo","cila","tfty","modg","ztjg","ybty","heqg","cpwo","gdcj","lnle","sefg","vimw","bxcb"]
+
+*/
+#include <algorithm>
+#include <set>
+#include <string>
+#include <vector>
+
+class Solution {
+   public:
+    Solution(){};
+    virtual ~Solution(){};
+    std::vector<int> FindSubString(std::string s,
+                                   std::vector<std::string>& words) {
+        std::sort(
+            words.begin(), words.end(),
+            [](std::string& left, std::string& right) { return left > right; });
+
+        std::set<int> ret;
+        do {
+            std::string tmp = "";
+            for (auto ptr : words) {
+                tmp += ptr;
+            }
+            auto ret1 = AllSubString(s, tmp);
+
+            ret.insert(ret1.begin(), ret1.end());
+            // ret1 != -1 ? (void)(ret.emplace(ret1)) : (void)0;
+        } while (std::prev_permutation(words.begin(), words.end()));
+        std::vector<int> retvec(ret.begin(), ret.end());
+        return retvec;
+    }
+
+   private:
+    int IsOnlyOnce(const std::string& tofind, const std::string& candidate) {
+        auto it = tofind.find(candidate);
+        if (it != std::string::npos) {
+            return tofind.substr(it, tofind.size()).find(candidate) !=
+                           std::string::npos
+                       ? it
+                       : -1;
+        }
+        return -1;
+    }
+    static std::set<int> AllSubString(const std::string& tofind,
+                                      const std::string& candidate,
+                                      int index = 0) {
+        auto it = tofind.find(candidate);
+        if (it != std::string::npos) {
+            std::string substr = tofind.substr(it + 1, tofind.size());
+            auto ret2 = AllSubString(substr, candidate, it + 1 + index);
+            ret2.emplace(it + index);
+            return ret2;
+        }
+        return std::set<int>{};
+    }
+};
+
+#include <gtest/gtest.h>
+
+#include <iostream>
+
+TEST(t0, t1) {
+    Solution* s = new Solution();
+    std::string str = "wordgoodgoodgoodbestword";
+    std::vector<std::string> words{"word", "good", "best", "word"};
+    auto ret = s->FindSubString(str, words);
+
+    std::set<int> expect{};
+    std::set<int> retset(ret.begin(), ret.end());
+    EXPECT_EQ(retset, expect);
+
+    delete s;
+}
+
+TEST(t0, t2) {
+    Solution s;
+    std::string str = "barfoofoobarthefoobarman";
+    std::vector<std::string> words{"bar", "foo", "the"};
+    auto ret = s.FindSubString(str, words);
+
+    std::set<int> expect{6, 9, 12};
+    std::set<int> retset(ret.begin(), ret.end());
+    EXPECT_EQ(retset, expect);
+}
+
+TEST(t0, t3) {
+    Solution s;
+    std::string str = "barfoothefoobarman";
+    std::vector<std::string> words{"bar", "foo"};
+    auto ret = s.FindSubString(str, words);
+
+    std::set<int> expect{0, 9};
+    std::set<int> retset(ret.begin(), ret.end());
+    EXPECT_EQ(retset, expect);
+}
+
+TEST(t0, t4) {
+    Solution s;
+    std::string str = "foobarfoobar";
+    std::vector<std::string> words{"bar", "foo"};
+    auto ret = s.FindSubString(str, words);
+
+    std::set<int> expect{0, 3, 6};
+    std::set<int> retset(ret.begin(), ret.end());
+    EXPECT_EQ(retset, expect);
+}
+
+TEST(t0, t5) {
+    Solution s;
+    std::string str = "aaaaaaaaaaaaaa";
+    std::vector<std::string> words{"aa", "aa"};
+    auto ret = s.FindSubString(str, words);
+
+    std::set<int> expect{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    std::set<int> retset(ret.begin(), ret.end());
+    EXPECT_EQ(retset, expect);
+}
+
+int main(int argc, char* argv[]) {
+    testing::InitGoogleTest(&argc, argv);
+    return RUN_ALL_TESTS();
+}
