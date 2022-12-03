@@ -14,6 +14,29 @@ impl ListNode {
 }
 
 #[allow(unused)]
+fn list_into_vec(head: &Option<Box<ListNode>>) -> Vec<i32> {
+    if let Some(h) = head {
+        let mut v = list_into_vec(&h.next);
+        v.insert(0, h.val);
+        return v;
+    }
+
+    vec![]
+}
+
+#[allow(unused)]
+fn build_list_from_vec(vec: &[i32]) -> Option<Box<ListNode>> {
+    if vec.is_empty() {
+        return None;
+    }
+    let ret = build_list_from_vec(&vec[1..]);
+    let mut head = Box::new(ListNode::new(vec[0]));
+    head.next = ret;
+
+    Some(head)
+}
+
+#[allow(unused)]
 pub fn swap_pairs(mut head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
     let mut list = ListNode::new(0);
     let mut tail = &mut list.next;
@@ -71,31 +94,9 @@ mod tests {
     #[test]
     fn swap_pairs_test() {
         // head = [1,2,3,4]
-        let z = Some(Box::new(ListNode {
-            val: 1,
-            next: Some(Box::new(ListNode {
-                val: 2,
-                next: Some(Box::new(ListNode {
-                    val: 3,
-                    next: Some(Box::new(ListNode { val: 4, next: None })),
-                })),
-            })),
-        }));
+        let z = build_list_from_vec(&[1, 2, 3, 4]);
         let ret = swap_pairs(z);
-        if let Some(v) = ret {
-            assert_eq!(v.val, 2);
-            if let Some(v2) = v.next {
-                assert_eq!(v2.val, 1);
-                if let Some(v3) = v2.next {
-                    assert_eq!(v3.val, 4);
-                    if let Some(v4) = v3.next {
-                        assert_eq!(v4.val, 3);
-                        return;
-                    }
-                }
-            }
-        }
-
-        panic!("unreachable");
+        let v = list_into_vec(&ret);
+        assert_eq!(v, vec![2, 1, 4, 3]);
     }
 }
