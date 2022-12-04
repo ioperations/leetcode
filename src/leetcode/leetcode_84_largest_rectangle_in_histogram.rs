@@ -43,6 +43,7 @@ impl Solution {
     /// https://leetcode.com/problems/largest-rectangle-in-histogram/
     /// Time Complexity:    O(`len_hts`)
     /// Space Complexity:   O(`len_hts`)
+    #[allow(unused)]
     pub fn largest_rectangle_area_v2(heights: Vec<i32>) -> i32 {
         let len_hts: usize = heights.len();
         let mut stk: VecDeque<usize> = VecDeque::new();
