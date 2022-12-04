@@ -4,6 +4,7 @@ mod dyn_t;
 mod edit_distance;
 mod find_media_sorted_arrays;
 // mod gat;
+mod fibonacci;
 mod generator;
 mod link_list;
 mod list;

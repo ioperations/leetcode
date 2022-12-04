@@ -1,6 +1,7 @@
 // #![feature(generic_associated_types)]
 #![feature(type_alias_impl_trait)]
 #![feature(generators, generator_trait)]
+#![feature(test)]
 pub mod classic;
 
 mod leetcode {
