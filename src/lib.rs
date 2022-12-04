@@ -32,7 +32,7 @@ pub mod lib {
     /// # Example
     /// ```
     /// # let args = 4;
-    /// # let ansert = crate::tt::lib::add_one(args);
+    /// # let ansert = crate::leetcode::lib::add_one(args);
     /// #
     /// # assert_eq!(5,ansert);
     /// ```
