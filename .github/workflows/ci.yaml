@@ -32,7 +32,7 @@ jobs:
           cmake -B build 
           cmake --build build
           make -C build test
-      - run: cargo test -j$(nproc)
+      - run: cargo test --benches -j$(nproc)
 
   outdated:
     name: Outdated
