@@ -221,7 +221,7 @@ mod tests {
     fn case1_test() {
         let root = [1, 2, 2, 3, 4, 4, 3];
         let output = true;
-        let root = root.into_iter().map(Some).collect::<Vec<Option<i32>>>();
+        let root = root.iter().map(|i| Some(*i)).collect::<Vec<Option<i32>>>();
         let root = build_binary_tree(&root);
         let ret = Solution::is_symmetric(root);
         assert_eq!(ret, output);
@@ -232,12 +232,12 @@ mod tests {
         let root = [1, 2, 2, -1, 3, -1, 3];
         let output = false;
         let root = root
-            .into_iter()
+            .iter()
             .map(|i| {
-                if i == -1 {
+                if *i == -1 {
                     return None;
                 }
-                Some(i)
+                Some(*i)
             })
             .collect::<Vec<Option<i32>>>();
         let root = build_binary_tree(&root);
@@ -249,12 +249,12 @@ mod tests {
         let root = [1, 2, 2, -1, 3, -1, 3];
         let output = false;
         let root = root
-            .into_iter()
+            .iter()
             .map(|i| {
-                if i == -1 {
+                if *i == -1 {
                     return None;
                 }
-                Some(i)
+                Some(*i)
             })
             .collect::<Vec<Option<i32>>>();
         b.iter(|| {
@@ -273,7 +273,7 @@ mod tests_v2 {
     fn case1_test() {
         let root = [1, 2, 2, 3, 4, 4, 3];
         let output = true;
-        let root = root.into_iter().map(Some).collect::<Vec<Option<i32>>>();
+        let root = root.iter().map(|i| Some(*i)).collect::<Vec<Option<i32>>>();
         let root = build_binary_tree(&root);
         let ret = Solution::is_symmetric_v2(root);
         assert_eq!(ret, output);
@@ -284,12 +284,12 @@ mod tests_v2 {
         let root = [1, 2, 2, -1, 3, -1, 3];
         let output = false;
         let root = root
-            .into_iter()
+            .iter()
             .map(|i| {
-                if i == -1 {
+                if *i == -1 {
                     return None;
                 }
-                Some(i)
+                Some(*i)
             })
             .collect::<Vec<Option<i32>>>();
         let root = build_binary_tree(&root);
@@ -302,12 +302,12 @@ mod tests_v2 {
         let root = [1, 2, 2, -1, 3, -1, 3];
         let output = false;
         let root = root
-            .into_iter()
+            .iter()
             .map(|i| {
-                if i == -1 {
+                if *i == -1 {
                     return None;
                 }
-                Some(i)
+                Some(*i)
             })
             .collect::<Vec<Option<i32>>>();
         b.iter(|| {
@@ -326,7 +326,7 @@ mod tests_my_defination {
     fn case1_test() {
         let root = [1, 2, 2, 4, 4, 3, 3];
         let output = true;
-        let root = root.into_iter().map(Some).collect::<Vec<Option<i32>>>();
+        let root = root.iter().map(|i| Some(*i)).collect::<Vec<Option<i32>>>();
         let root = build_binary_tree(&root);
         let ret = Solution::is_symmetric_my_defination(root);
         assert_eq!(ret, output);
@@ -337,12 +337,12 @@ mod tests_my_defination {
         let root = [1, 2, 2, -1, 3, -1, 3];
         let output = false;
         let root = root
-            .into_iter()
+            .iter()
             .map(|i| {
-                if i == -1 {
+                if *i == -1 {
                     return None;
                 }
-                Some(i)
+                Some(*i)
             })
             .collect::<Vec<Option<i32>>>();
         let root = build_binary_tree(&root);
@@ -354,8 +354,7 @@ mod tests_my_defination {
     fn bench_my_defination(b: &mut test::Bencher) {
         let root = [1, 2, 2, -1, 3, -1, 3];
         let output = false;
-        let root = root
-            .into_iter()
+        let root = IntoIterator::into_iter(root)
             .map(|i| {
                 if i == -1 {
                     return None;
