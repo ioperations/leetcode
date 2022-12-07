@@ -72,23 +72,20 @@ impl Solution {
         match root {
             Some(head) => {
                 let head_value: i32 = head.borrow().val;
-                println!("head_value : {head_value}");
-                if head_value <= low {
-                    if head_value == low {
-                        return head_value
-                            + Self::range_sum_bst(head.borrow_mut().right.take(), low, high);
-                    }
-                    return Self::range_sum_bst(head.borrow_mut().right.take(), low, high);
-                } else if head_value >= high {
-                    if head_value == high {
-                        return head_value
-                            + Self::range_sum_bst(head.borrow_mut().left.take(), low, high);
-                    }
-                    return Self::range_sum_bst(head.borrow_mut().left.take(), low, high);
+                let extra = if head_value == high  || head_value == low  {
+                    head_value
                 } else {
-                    return Self::range_sum_bst(head.borrow_mut().left.take(), low, high)
-                        + Self::range_sum_bst(head.borrow_mut().right.take(), low, high)
-                        + head_value;
+                    0
+                };
+
+                if head_value <= low {
+                    return extra + Self::range_sum_bst_v1(head.borrow_mut().right.take(), low, high);
+                } else if head_value >= high {
+                    return extra + Self::range_sum_bst_v1(head.borrow_mut().left.take(), low, high);
+                } else {
+                    let left = Self::range_sum_bst_v1(head.borrow_mut().left.take(), low, high);
+                    let right =  Self::range_sum_bst_v1(head.borrow_mut().right.take(), low, high);
+                    return left + right +  head_value;
                 }
             }
             None => 0,
@@ -238,6 +235,75 @@ mod tests_rec {
     }
 }
 
+#[cfg(test)]
+mod tests_v1 {
+    use super::*;
+
+    #[test]
+    fn case1_test() {
+        let root = [10, 5, 15, 3, 7, -1, 18];
+        let low = 7;
+        let high = 15;
+        let output = 32;
+        // Explanation: Nodes 7, 10, and 15 are in the range [7, 15]. 7 + 10 + 15 = 32.
+        let root = root
+            .iter()
+            .map(|i| {
+                if *i == -1 {
+                    return None;
+                }
+                Some(*i)
+            })
+            .collect::<Vec<Option<i32>>>();
+        let root = build_binary_tree(&root);
+        let ret = Solution::range_sum_bst_v1(root, low, high);
+        assert_eq!(ret, output);
+    }
+
+    #[test]
+    fn case2_test() {
+        let root = [10, 5, 15, 3, 7, 13, 18, 1, -1, 6];
+        let low = 6;
+        let high = 10;
+        let output = 23;
+        // Nodes 6, 7, and 10 are in the range [6, 10]. 6 + 7 + 10 = 23.
+        let root = root
+            .iter()
+            .map(|i| {
+                if *i == -1 {
+                    return None;
+                }
+                Some(*i)
+            })
+            .collect::<Vec<Option<i32>>>();
+        let root = build_binary_tree(&root);
+        let ret = Solution::range_sum_bst_v1(root, low, high);
+        assert_eq!(ret, output);
+    }
+
+    #[bench]
+    fn bench_v1(b: &mut test::Bencher) {
+        let root = [10, 5, 15, 3, 7, 13, 18, 1, -1, 6];
+        let low = 6;
+        let high = 10;
+        let output = 23;
+        // Nodes 6, 7, and 10 are in the range [6, 10]. 6 + 7 + 10 = 23.
+        let root = root
+            .iter()
+            .map(|i| {
+                if *i == -1 {
+                    return None;
+                }
+                Some(*i)
+            })
+            .collect::<Vec<Option<i32>>>();
+        b.iter(|| {
+            let root = build_binary_tree(&root);
+            let ret = Solution::range_sum_bst_v1(root, low, high);
+            assert_eq!(ret, output);
+        })
+    }
+}
 #[cfg(test)]
 mod tests_ite {
     use super::*;
