@@ -25,6 +25,7 @@ impl Solution {
         nums.iter().any(|&num| !set.insert(num))
     }
 
+    #[allow(unused)]
     pub fn contains_duplicate_v3(mut nums: Vec<i32>) -> bool {
         nums.sort_unstable();
         nums.iter().zip(nums.iter().skip(1)).any(|(&a, &b)| a == b)

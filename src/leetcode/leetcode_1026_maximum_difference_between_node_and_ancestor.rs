@@ -51,6 +51,7 @@ impl Solution {
     }
 }
 
+#[allow(unused)]
 struct MinMax {
     min: i32,
     max: i32,
@@ -58,6 +59,7 @@ struct MinMax {
 }
 
 impl Solution {
+    #[allow(unused)]
     fn min_max(node_ref: Rc<RefCell<TreeNode<i32>>>) -> MinMax {
         let node = node_ref.borrow();
         let mut a = MinMax {
@@ -82,6 +84,7 @@ impl Solution {
             a
         }
     }
+    #[allow(unused)]
     pub fn max_ancestor_diff(root: Option<Rc<RefCell<TreeNode<i32>>>>) -> i32 {
         if let Some(node_ref) = root {
             Self::min_max(Rc::clone(&node_ref)).answer

@@ -148,6 +148,7 @@ where
 
 #[cfg(test)]
 mod tests {
+
     use super::*;
 
     #[test]
@@ -174,5 +175,40 @@ mod tests {
         let ret = Solution::max_product(root);
         assert_eq!(ret, output);
         // Remove the red edge and get 2 binary trees with sum 15 and 6.Their product is 90 (15*6)
+    }
+
+    #[allow(unused)]
+    #[derive(Debug)]
+    struct Testfiled {
+        pub val: i32,
+    }
+
+    impl Testfiled {
+        #[allow(unused)]
+        fn new(i: i32) -> Self {
+            Self { val: i }
+        }
+    }
+
+    #[test]
+    fn casessss3_test() {
+        let z = (0..)
+            .map(|i| Rc::new(RefCell::new(Box::new(Testfiled::new(i)))))
+            .take(20)
+            .collect::<Vec<_>>();
+
+        println!(
+            "{:#?}",
+            z.iter()
+                .zip(z.iter().skip(2))
+                .map(|(i, j)| {
+                    if j.borrow().val == 4 {
+                        j.borrow_mut().val = 5;
+                    }
+                    (i, j)
+                })
+                .take(4)
+                .collect::<Vec<_>>()
+        );
     }
 }
