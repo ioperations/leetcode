@@ -21,8 +21,7 @@ impl Solution {
         let mut dp = matrix;
         let v = len - 1;
 
-        for i in (1..len) {
-            let i = len - i - 1;
+        for i in (0..(len - 1)).rev() {
             for j in (0..len) {
                 if j == 0 {
                     dp[i][j] += dp[i + 1][j].min(dp[i + 1][j + 1]);
