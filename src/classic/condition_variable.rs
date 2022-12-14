@@ -48,9 +48,9 @@ mod tests {
 
         let job_producer = thread::spawn(move || {
             let (started, cond) = &*pair;
-            for _ in 0..10 {
+            for _ in 0..1 {
                 println!("before sleep ...");
-                thread::sleep(time::Duration::from_secs(3));
+                thread::sleep(time::Duration::from_millis(1));
                 println!("after sleep ...");
 
                 let mut started = started.lock().unwrap();
@@ -115,9 +115,9 @@ mod tests {
         });
         let job_producer = thread::spawn(move || {
             let (started, cond) = &*pair;
-            for _ in 0..10 {
+            for _ in 0..1 {
                 println!("before sleep");
-                thread::sleep(time::Duration::from_secs(3));
+                thread::sleep(time::Duration::from_millis(1));
                 println!("after sleep");
                 let mut started = started.lock().unwrap();
                 started.ok = true;
@@ -155,9 +155,9 @@ mod tests {
         });
         let job_producer = thread::spawn(move || {
             let (started, cond) = &*pair;
-            for _ in 0..10 {
+            for _ in 0..1 {
                 println!(" before sleep ...");
-                thread::sleep(time::Duration::from_secs(3));
+                thread::sleep(time::Duration::from_millis(1));
                 println!("after sleep ...");
                 let mut started = started.lock().unwrap();
                 *started = true;
