@@ -54,6 +54,9 @@ impl Solution {
 #[cfg(test)]
 mod tests {
     use super::*;
+    extern crate test;
+
+    #[allow(unused)]
     fn build_list(node: Vec<i32>) -> Option<Box<ListNode>> {
         if node.is_empty() {
             return None;
@@ -71,18 +74,53 @@ mod tests {
         ret
     }
 
+    #[allow(unused)]
+    fn build_list_iter(node: Vec<i32>) -> Option<Box<ListNode>> {
+        if node.is_empty() {
+            return None;
+        }
+        let mut node = node.iter().copied().rev().collect::<Vec<i32>>();
+        let mut ret: ListNode = ListNode::new(0);
+
+        for i in node {
+            let mut thisnode = Box::new(ListNode::new(i));
+            thisnode.next = ret.next.take();
+            ret.next = Some(thisnode);
+        }
+        ret.next
+    }
+
+    #[bench]
+    fn bench_build_list_iter(b: &mut test::Bencher) {
+        let vec = vec![10; 100];
+        b.iter(|| {
+            let _ = build_list_iter(vec.clone());
+        })
+    }
+
     /// 将数组转换成自定义链表
     fn convert_vec_to_list(nodes: Vec<Vec<i32>>) -> Vec<Option<Box<ListNode>>> {
         let mut ret: Vec<Option<Box<ListNode>>> = vec![];
         for i in nodes {
-            let list = build_list(i);
+            let list = build_list_iter(i);
+            ret.push(list);
+        }
+        ret
+    }
+
+    /// 将数组转换成自定义链表
+    fn convert_vec_to_list_iter(nodes: Vec<Vec<i32>>) -> Vec<Option<Box<ListNode>>> {
+        let mut ret: Vec<Option<Box<ListNode>>> = vec![];
+        for i in nodes {
+            let list = build_list_iter(i);
             ret.push(list);
         }
         ret
     }
 
     /// 将自定义链表转换成数组
-    fn convert_list_to_vec(lists: Option<Box<ListNode>>) -> Vec<i32> {
+    #[allow(unused)]
+    fn convert_list_to_vec_old(lists: Option<Box<ListNode>>) -> Vec<i32> {
         match lists {
             Some(val) => {
                 let mut sub = match &val.next {
@@ -92,8 +130,24 @@ mod tests {
                 sub.insert(0, val.val);
                 sub
             }
-            None => return vec![],
+            None => vec![],
         }
+    }
+
+    /// 将自定义链表转换成数组
+    fn convert_list_to_vec(lists: Option<Box<ListNode>>) -> Vec<i32> {
+        convert_list_to_vec_iter(lists)
+    }
+
+    /// 将自定义链表转换成数组
+    fn convert_list_to_vec_iter(lists: Option<Box<ListNode>>) -> Vec<i32> {
+        let mut lists = lists;
+        let mut ret = vec![];
+        while let Some(node) = lists {
+            ret.push(node.val);
+            lists = node.next;
+        }
+        ret
     }
 
     #[test]
@@ -131,6 +185,24 @@ mod tests {
     }
 
     #[test]
+    fn basic_22_test() {
+        let vec = vec![vec![1, 2, 3], vec![2]];
+        let list_expected = vec![
+            Some(Box::new(ListNode {
+                val: 1,
+                next: Some(Box::new(ListNode {
+                    val: 2,
+                    next: Some(Box::new(ListNode::new(3))),
+                })),
+            })),
+            Some(Box::new(ListNode::new(2))),
+        ];
+
+        let list = convert_vec_to_list_iter(vec);
+        assert_eq!(list_expected, list);
+    }
+
+    #[test]
     fn basic_3_test() {
         let mut vec: Vec<Vec<i32>> = vec![vec![]];
         vec.resize(10, vec![]);
@@ -147,6 +219,22 @@ mod tests {
         }
     }
 
+    #[test]
+    fn basic_33_test() {
+        let mut vec: Vec<Vec<i32>> = vec![vec![]];
+        vec.resize(10, vec![]);
+        for k in &mut vec {
+            for j in 0..1000 {
+                k.push(j);
+            }
+        }
+        let z = vec.clone();
+        let list = convert_vec_to_list_iter(vec);
+        for (i, k) in list.into_iter().enumerate() {
+            let v = convert_list_to_vec_iter(k);
+            assert_eq!(z[i], v);
+        }
+    }
     #[test]
     fn case1_test() {
         let input = vec![vec![1, 4, 5], vec![1, 3, 4], vec![2, 6]];
