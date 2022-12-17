@@ -1,4 +1,4 @@
-name: test and dryrun
+name: leetcode.rs
 
 # Run this workflow every time a new commit pushed to your repository
 on:
@@ -10,16 +10,13 @@ env:
   RUSTFLAGS: -Dwarnings
 
 jobs:
-  build-test:
-    name: Build on ${{matrix.container }}
+  cc-test:
+    name: cc test case
     runs-on: ubuntu-latest
     container: ${{ matrix.container }}
     timeout-minutes: 45
     steps:
-      - uses: actions/checkout@v2
-      - uses: dtolnay/rust-toolchain@nightly
-        with:
-          components: rustfmt
+      - uses: actions/checkout@v3
       - run: sudo apt update && sudo apt install cmake build-essential libgtest-dev clang-12 -y
       - run: |
           git clone https://github.com/google/benchmark.git --depth 1
@@ -28,13 +25,21 @@ jobs:
           cmake -E chdir "build" cmake -DBENCHMARK_DOWNLOAD_DEPENDENCIES=on -DCMAKE_BUILD_TYPE=Release ../
           sudo cmake --build "build" --config Release --target install
       - run: |
-          pwd && ls && ls -R
-          cmake -B build 
-          cmake --build build
-          make -C build test
+          cmake -B build && cmake --build build && make -C build test
+
+  rs-test:
+    name: rust test case
+    runs-on: ubuntu-latest
+    container: ${{ matrix.container }}
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v2
+      - uses: dtolnay/rust-toolchain@nightly
+        with:
+          components: rustfmt
       - run: cargo test --benches -j$(nproc)
 
-  outdated:
+  rs-outdated:
     name: Outdated
     runs-on: ubuntu-latest
     if: github.event_name != 'pull_request'
