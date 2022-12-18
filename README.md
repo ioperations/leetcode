@@ -1,4 +1,4 @@
-## cpp + rust Solution for leetcode online jugde
+## cpp + rust Solution for leetcode online judge
 
 #### cpp dependency
 
@@ -10,3 +10,5 @@
 
 - rand
 - tokio together with syn quote ...
+
+![img](./flamegraph.svg)
