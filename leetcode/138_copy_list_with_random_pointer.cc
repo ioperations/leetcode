@@ -128,8 +128,8 @@ std::vector<std::vector<std::optional<int>>> RestoreNode(Node* node) {
     }
 
     ite = node;
-    while (ite != nullptr && ite->next != nullptr) {
-        Node* now = ite->next;
+    while (ite != nullptr) {
+        Node* now = ite;
         ite = now->next;
         delete now;
     }
