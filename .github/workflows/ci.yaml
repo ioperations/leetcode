@@ -38,18 +38,18 @@ jobs:
         with:
           components: rustfmt
       - run: cargo test --benches -j$(nproc)
-      # - run: sudo apt update && sudo apt install linux-tools-common linux-tools-generic linux-tools-`uname -r` -y
-      # - run: cargo install flamegraph
-      # - run: cargo flamegraph --unit-test --
-      # - name: flamegraph
-      #   uses: "marvinpinto/action-automatic-releases@latest"
-      #   with:
-      #     repo_token: "${{ secrets.GITHUB_TOKEN }}"
-      #     automatic_release_tag: "latest"
-      #     prerelease: true
-      #     title: "flame graph"
-      #     files: |
-      #       flamegraph.svg
+      - run: sudo apt update && sudo apt install linux-tools-common linux-tools-generic linux-tools-`uname -r` -y
+      - run: cargo install flamegraph
+      - run: sudo cargo flamegraph --unit-test --
+      - name: flamegraph
+        uses: "marvinpinto/action-automatic-releases@latest"
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          automatic_release_tag: "latest"
+          prerelease: true
+          title: "flame graph"
+          files: |
+            flamegraph.svg
 
   rs-outdated:
     name: Outdated
