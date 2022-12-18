@@ -40,6 +40,10 @@ jobs:
       - run: cargo test --benches -j$(nproc)
       - run: sudo apt update && sudo apt install linux-tools-common linux-tools-generic linux-tools-`uname -r` -y
       - run: cargo install flamegraph
+      - name: create symlink
+        run: sudo ln -f -s $HOME/.cargo/bin/* /usr/bin/
+      - name: rustup default nightly
+        run: sudo rustup default nightly
       - run: sudo cargo flamegraph --unit-test --
       - name: flamegraph
         uses: "marvinpinto/action-automatic-releases@latest"
