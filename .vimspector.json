@@ -5,7 +5,12 @@
       "filetypes": ["rust"],
       "configuration": {
         "request": "launch",
-        "program": "${workspaceRoot}/target/debug/${fileDirname}"
+        "program": "${Executable}",
+        // "args": ["${Args}"],
+        "stopAtEntry": true,
+        "cwd": "${workspaceRoot}",
+        "environment": [],
+        "externalConsole": true
       }
     },
     "go:launch": {
