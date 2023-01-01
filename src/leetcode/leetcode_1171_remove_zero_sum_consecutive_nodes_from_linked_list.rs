@@ -19,50 +19,80 @@ impl ListNode {
         ListNode { next: None, val }
     }
 }
+
+#[allow(unused)]
+pub fn from_vec(v: Vec<i32>) -> Option<Box<ListNode>> {
+    let mut head = None;
+    let n = v.len();
+    for i in (0..n).rev() {
+        let x = v[i];
+        head = Some(Box::new(ListNode { val: x, next: head }))
+    }
+    head
+}
+
+#[allow(unused)]
+pub fn to_vec(head: Option<Box<ListNode>>) -> Vec<i32> {
+    let mut ans = vec![];
+    let mut p = &head;
+    while let Some(node) = p {
+        ans.push(node.val);
+        p = &node.next;
+    }
+    ans
+}
+
 #[allow(unused)]
 struct Solution;
-use std::collections::HashMap;
 impl Solution {
     #[allow(unused)]
     pub fn remove_zero_sum_sublists(head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
-        let mut head = head;
-        let mut data = vec![];
-        let (mut index, mut sum) = (0, 0);
-        let mut from_index: HashMap<i32, i32> = HashMap::new();
-        let mut to_index = HashMap::new();
+        use std::collections::HashMap;
 
-        to_index.insert(0, -1);
-        while let Some(mut node) = head {
-            head = node.next.take();
-            sum += node.val;
-            node.next = None;
-            data.push(node);
+        let mut v = to_vec(head);
+        let mut partial_sum = vec![0; v.len() + 1];
 
-            if let Some(i) = to_index.get(&sum) {
-                data.pop();
-                let (start, end) = (*i as usize + 1, index as usize);
-                for k in start..end {
-                    if let Some(a) = from_index.get(&(k as i32)) {
-                        to_index.remove(a);
-                        from_index.remove(&(k as i32));
-                        data.pop();
+        let mut map = HashMap::<i32, i32>::new();
+        let mut sum = 0;
+        map.insert(0, 1);
+        for i in 0..v.len() {
+            sum += v[i];
+            partial_sum[i + 1] = sum;
+            *map.entry(sum).or_default() += 1;
+        }
+
+        for (&key, &val) in map.iter() {
+            if val > 1 {
+                let mut lo = std::i32::MIN;
+                let mut hi = std::i32::MAX;
+                for i in 0..partial_sum.len() {
+                    if partial_sum[i] == key {
+                        lo = i as i32;
+                        break;
                     }
                 }
-                continue;
+                for i in (0..partial_sum.len()).rev() {
+                    if partial_sum[i] == key {
+                        hi = i as i32;
+                        break;
+                    }
+                }
+                //                println!("sum = {}, lo = {}, hi = {}", key, lo, hi);
+                if lo > std::i32::MIN && hi < std::i32::MAX && hi > lo {
+                    for j in lo + 1..=hi {
+                        partial_sum[j as usize] = std::i32::MAX;
+                    }
+                }
             }
-
-            to_index.insert(sum, index);
-            from_index.insert(index, sum);
-            index += 1;
         }
-
-        let mut ret = None;
-        let mut tail = &mut ret;
-        for p in data {
-            tail = &mut tail.insert(p).next;
+        //        println!("{:?}", partial_sum);
+        let mut ans = vec![];
+        for i in 1..partial_sum.len() {
+            if partial_sum[i] != std::i32::MAX {
+                ans.push(v[i - 1]);
+            }
         }
-
-        ret
+        from_vec(ans)
     }
 }
 
