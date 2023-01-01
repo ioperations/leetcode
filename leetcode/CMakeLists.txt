@@ -28,6 +28,16 @@ enable_testing()
 
 file(GLOB source_list "*.cc")
 
+if(ENABLE_COVERAGE)
+    if (CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+        # using Clang
+        SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} --coverage")
+    elseif (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
+        # using GCC
+        SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fprofile-arcs -ftest-coverage")
+    endif()
+endif()
+
 foreach (CXX_SRC ${source_list})
     string(REGEX REPLACE "\\.cc" "" OBJ ${CXX_SRC})
     string(REGEX REPLACE "${CMAKE_CURRENT_SOURCE_DIR}/" "" OBJ ${OBJ})
