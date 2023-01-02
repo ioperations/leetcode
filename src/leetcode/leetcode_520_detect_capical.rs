@@ -21,8 +21,12 @@ impl Solution {
             return true;
         }
 
-        let word = word.chars().skip(1).collect::<Vec<char>>();
-        all_upper::<true>(&word) || all_upper::<false>(&word)
+        let word = word.chars().collect::<Vec<char>>();
+        if ('a'..='z').contains(&word[0]) {
+            all_upper::<true>(&word[1..])
+        } else {
+            all_upper::<true>(&word[1..]) || all_upper::<false>(&word[1..])
+        }
     }
 }
 
@@ -41,6 +45,14 @@ mod tests {
     #[test]
     fn case2_test() {
         let word = "FlaG";
+        let output = false;
+        let ret = Solution::detect_capital_use(word.into());
+        assert_eq!(ret, output);
+    }
+
+    #[test]
+    fn case3_test() {
+        let word = "mL";
         let output = false;
         let ret = Solution::detect_capital_use(word.into());
         assert_eq!(ret, output);
