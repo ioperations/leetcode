@@ -53,16 +53,6 @@ impl Solution {
 #[cfg(test)]
 mod tests {
     use super::*;
-    #[allow(unused)]
-    fn list_into_vec(lists: Option<Box<ListNode>>) -> Vec<i32> {
-        let mut lists = lists;
-        let mut ret = vec![];
-        while let Some(node) = lists {
-            ret.push(node.val);
-            lists = node.next;
-        }
-        ret
-    }
 
     #[allow(unused)]
     fn build_list_from_vec(node: &[i32]) -> Option<Box<ListNode>> {

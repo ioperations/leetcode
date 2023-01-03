@@ -40,19 +40,6 @@ impl Solution {
             .map(|node| 1 + Self::get_max_depth(&node.left).max(Self::get_max_depth(&node.right)))
             .unwrap_or(0)
     }
-
-    #[allow(unused)]
-    fn max_depthv1<T>(root: Option<Rc<RefCell<TreeNode<T>>>>, depth: i32) -> i32 {
-        if root.is_none() {
-            return depth;
-        }
-        let mut depth = depth;
-        depth += 1;
-        let root = root.unwrap();
-        depth = Self::max_depthv1(root.as_ref().borrow_mut().left.take(), depth);
-        depth = Self::max_depthv1(root.as_ref().borrow_mut().right.take(), depth);
-        depth
-    }
 }
 
 use std::collections::VecDeque;
@@ -97,36 +84,6 @@ where
         i += 1;
     }
     Some(root)
-}
-
-/// expect binary tree equal to input
-#[allow(unused)]
-fn expect_binary_tree<T>(input: &[Option<T>], root: Option<Rc<RefCell<TreeNode<T>>>>)
-where
-    T: std::cmp::PartialEq + std::fmt::Debug + Copy,
-{
-    // pass
-    let mut i = 0;
-    let size = input.len();
-    if i == size {
-        return;
-    }
-
-    let mut q: VecDeque<Rc<RefCell<TreeNode<T>>>> = VecDeque::new();
-    q.push_back(root.as_ref().unwrap().clone());
-    while !q.is_empty() {
-        let n1 = q.pop_front().unwrap();
-        assert_eq!(Some(n1.as_ref().borrow().val), input[i]);
-        i += 1;
-        if let Some(v) = &n1.as_ref().borrow().left {
-            q.push_back(v.clone());
-        };
-        if let Some(v) = &n1.as_ref().borrow().right {
-            q.push_back(v.clone());
-        };
-    }
-
-    assert_eq!(i, size);
 }
 
 #[cfg(test)]

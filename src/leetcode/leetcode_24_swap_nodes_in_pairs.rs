@@ -100,3 +100,17 @@ mod tests {
         assert_eq!(v, vec![2, 1, 4, 3]);
     }
 }
+
+#[cfg(test)]
+mod tests_v2 {
+    use super::*;
+
+    #[test]
+    fn swap_pairs_test() {
+        // head = [1,2,3,4]
+        let z = build_list_from_vec(&[1, 2, 3, 4]);
+        let ret = swap_pairs_v2(z);
+        let v = list_into_vec(&ret);
+        assert_eq!(v, vec![2, 1, 4, 3]);
+    }
+}

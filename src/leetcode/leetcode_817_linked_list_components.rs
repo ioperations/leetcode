@@ -38,17 +38,6 @@ impl Solution {
 }
 
 #[allow(unused)]
-fn list_into_vec(head: &Option<Box<ListNode<i32>>>) -> Vec<i32> {
-    if let Some(h) = head {
-        let mut v = list_into_vec(&h.next);
-        v.insert(0, h.val);
-        return v;
-    }
-
-    vec![]
-}
-
-#[allow(unused)]
 fn build_list_from_vec(vec: &[i32]) -> Option<Box<ListNode<i32>>> {
     if vec.is_empty() {
         return None;

@@ -82,3 +82,24 @@ mod tests {
         assert_eq!(ret, "100");
     }
 }
+
+#[cfg(test)]
+mod tests_v2 {
+    use super::*;
+
+    #[test]
+    fn add_binary_1_test() {
+        let a: String = String::from("1111");
+        let b: String = String::from("10101");
+        let ret = add_binary_2(a, b);
+        assert_eq!(ret, "100100");
+    }
+
+    #[test]
+    fn add_binary_2_test() {
+        let a = String::from("11");
+        let b = String::from("1");
+        let ret = add_binary_2(a, b);
+        assert_eq!(ret, "100");
+    }
+}
