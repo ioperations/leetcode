@@ -22,7 +22,7 @@ impl Solution {
             }
         }
 
-        fn calculate_times(i: usize) -> Option<usize> {
+        fn calculate_times(i: i32) -> Option<i32> {
             match i {
                 0 | 1 => None,
                 2 | 3 => Some(1),
@@ -39,8 +39,8 @@ impl Solution {
 
         let mut i: i32 = 0;
         for v in tasks {
-            if let Some(v) = calculate_times(v) {
-                i += v as i32;
+            if let Some(v) = calculate_times(v as i32) {
+                i += v;
             } else {
                 return -1;
             }
@@ -63,7 +63,7 @@ impl Solution {
 
         use std::collections::HashMap;
 
-        fn calculate_times(i: usize) -> Option<usize> {
+        fn calculate_times(i: i32) -> Option<i32> {
             match i {
                 0 | 1 => None,
                 2 | 3 => Some(1),
@@ -74,7 +74,7 @@ impl Solution {
                 },
             }
         };
-        let tasks: Vec<usize> = {
+        let tasks: Vec<i32> = {
             let mut hash = HashMap::new();
             for v in tasks {
                 hash.entry(v).and_modify(|k| *k += 1).or_insert(1);
@@ -85,7 +85,7 @@ impl Solution {
         let mut i: i32 = 0;
         for v in tasks {
             if let Some(v) = calculate_times(v) {
-                i += v as i32;
+                i += v;
             } else {
                 return -1;
             }
