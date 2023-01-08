@@ -25,7 +25,7 @@ mod tests {
     use threadpool::ThreadPool;
     extern crate test;
 
-    static BENCH_SIZE: u32 = 2000;
+    static BENCH_SIZE: u32 = 20;
 
     #[bench]
     fn bench_sync(b: &mut test::Bencher) {
