@@ -7,6 +7,7 @@ Note: You may not engage in multiple transactions simultaneously (i.e., you must
 use std::collections::HashMap;
 
 #[derive(PartialEq, Eq, Hash, Copy, Clone)]
+#[allow(unused)]
 enum Invested {
     Yes,
     No,
@@ -36,6 +37,7 @@ impl Solution {
         sell[l - 1]
     }
 
+    #[allow(unused)]
     fn dp(
         prices: &[i32],
         day: usize,
@@ -60,6 +62,7 @@ impl Solution {
     }
 
     // https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/solutions/2520407/rust-dp-solution-evolution-with-comments/?q=rust+dp&orderBy=most_relevant
+    #[allow(unused)]
     pub fn max_profit_v2(prices: Vec<i32>) -> i32 {
         Self::dp(&prices, 0, Invested::No, &mut HashMap::new())
     }

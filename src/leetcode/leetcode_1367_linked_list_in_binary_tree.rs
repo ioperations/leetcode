@@ -3,6 +3,7 @@ Return True if all the elements in the linked list starting from the head corres
 In this context downward path means a path that starts at some node and goes downwards.*/
 
 #[derive(PartialEq, Eq, Clone, Debug)]
+#[allow(unused)]
 pub struct ListNode<T> {
     pub val: T,
     pub next: Option<Box<ListNode<T>>>,
@@ -10,6 +11,7 @@ pub struct ListNode<T> {
 
 impl<T> ListNode<T> {
     #[inline]
+    #[allow(unused)]
     fn new(val: T) -> Self {
         ListNode { next: None, val }
     }
@@ -17,6 +19,7 @@ impl<T> ListNode<T> {
 
 // Definition for a binary tree node.
 #[derive(Debug, PartialEq, Eq)]
+#[allow(unused)]
 pub struct TreeNode<T> {
     pub val: T,
     pub left: Option<Rc<RefCell<TreeNode<T>>>>,
@@ -25,6 +28,7 @@ pub struct TreeNode<T> {
 
 impl<T> TreeNode<T> {
     #[inline]
+    #[allow(unused)]
     pub fn new(val: T) -> Self {
         TreeNode {
             val,

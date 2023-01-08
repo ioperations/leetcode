@@ -5,6 +5,7 @@ Return an integer array answer where answer[i] is the value of the next greater 
 
 // Definition for singly-linked list.
 #[derive(PartialEq, Eq, Clone, Debug)]
+#[allow(unused)]
 pub struct ListNode {
     pub val: i32,
     pub next: Option<Box<ListNode>>,
@@ -12,6 +13,7 @@ pub struct ListNode {
 
 impl ListNode {
     #[inline]
+    #[allow(unused)]
     fn new(val: i32) -> Self {
         ListNode { next: None, val }
     }

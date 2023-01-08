@@ -18,5 +18,4 @@ mod str;
 mod sum;
 mod tree_dfs;
 mod trie;
-mod z2;
-mod z3;
+mod reverse;
