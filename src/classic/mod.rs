@@ -5,6 +5,7 @@ mod edit_distance;
 mod find_media_sorted_arrays;
 // mod gat;
 mod fibonacci;
+mod fibonacci_bench;
 mod generator;
 mod iteration;
 mod link_list;
