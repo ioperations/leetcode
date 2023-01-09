@@ -84,7 +84,7 @@ where
 #[allow(unused)]
 fn expect_binary_tree<T: std::cmp::PartialEq + std::fmt::Debug + Copy>(
     input: &[Option<T>],
-    root: Option<Rc<RefCell<TreeNode<T>>>>,
+    root: &Option<Rc<RefCell<TreeNode<T>>>>,
 ) {
     // pass
     let mut i = 0;
@@ -114,7 +114,7 @@ fn expect_binary_tree<T: std::cmp::PartialEq + std::fmt::Debug + Copy>(
 fn test_v1_test() {
     let v: Vec<Option<i32>> = vec![Some(1), Some(2), Some(3), Some(4), Some(5), Some(6)];
     let root = build_binary_tree::<i32>(&v[..]);
-    expect_binary_tree(&v[..], root.clone());
+    expect_binary_tree(&v[..], &root);
 
     let ret = Solution::count_nodes(root);
     assert_eq!(ret, 6);
@@ -124,7 +124,7 @@ fn test_v1_test() {
 fn test_v2_test() {
     let v: Vec<Option<i32>> = vec![Some(1)];
     let root = build_binary_tree::<i32>(&v[..]);
-    expect_binary_tree(&v[..], root.clone());
+    expect_binary_tree(&v[..], &root);
 
     let ret = Solution::count_nodes(root);
     assert_eq!(ret, 1);
@@ -134,7 +134,7 @@ fn test_v2_test() {
 fn test_v3_test() {
     let v: Vec<Option<i32>> = vec![];
     let root = build_binary_tree(&v[..]);
-    expect_binary_tree(&v[..], root.clone());
+    expect_binary_tree(&v[..], &root);
 
     let ret = Solution::count_nodes(root);
     assert_eq!(ret, 0);

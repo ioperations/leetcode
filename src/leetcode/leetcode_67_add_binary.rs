@@ -34,9 +34,9 @@ pub fn add_binary(a: &str, b: &str) -> String {
 
 #[allow(unused)]
 fn add_binary_2(a: &str, b: &str) -> String {
-    let mut carry = 0;
-
     use std::iter;
+
+    let mut carry = 0;
     let mut z = a
         .as_bytes()
         .iter()

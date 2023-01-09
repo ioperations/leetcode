@@ -1,12 +1,12 @@
 #[allow(dead_code)]
 fn greetings(s: &str) {
-    println!("{s}")
+    println!("{s}");
 }
 
 #[allow(unused)]
 fn reverse_str(str_slice: &str) -> String {
     if str_slice.is_empty() {
-        String::from("")
+        String::new()
     } else {
         let mut ret = reverse_str(&str_slice[1..]);
         ret.push_str(&str_slice[0..1]);

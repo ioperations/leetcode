@@ -14,55 +14,55 @@ impl Solution {
     #[allow(unused)]
     pub fn spiral_order(matrix: &[Vec<i32>]) -> Vec<i32> {
         assert!(!matrix.is_empty());
-        let m = matrix.len() as i32;
-        let n = matrix[0].len() as i32;
+        let row = matrix.len() as i32;
+        let column = matrix[0].len() as i32;
         let mut dir = Direction::Right;
-        let mut i = 0;
-        let mut vec = Vec::with_capacity((m * n) as usize);
+        let mut index = 0;
+        let mut vec = Vec::with_capacity((row * column) as usize);
         let mut current_position: (i32, i32) = (0, -1);
         let mut hasmap = HashSet::new();
 
-        while i < m * n {
-            let (x, y) = &mut current_position;
+        while index < row * column {
+            let (x_pos, y_pos) = &mut current_position;
             match dir {
                 Direction::Right => {
-                    if *y + 1 >= n || hasmap.contains(&(*x, *y + 1)) {
+                    if *y_pos + 1 >= column || hasmap.contains(&(*x_pos, *y_pos + 1)) {
                         dir = Direction::Down;
                     } else {
-                        *y += 1;
-                        vec.push(matrix[*x as usize][*y as usize]);
-                        hasmap.insert((*x, *y));
-                        i += 1;
+                        *y_pos += 1;
+                        vec.push(matrix[*x_pos as usize][*y_pos as usize]);
+                        hasmap.insert((*x_pos, *y_pos));
+                        index += 1;
                     }
                 }
                 Direction::Down => {
-                    if *x + 1 >= m || hasmap.contains(&(*x + 1, *y)) {
+                    if *x_pos + 1 >= row || hasmap.contains(&(*x_pos + 1, *y_pos)) {
                         dir = Direction::Left;
                     } else {
-                        *x += 1;
-                        vec.push(matrix[*x as usize][*y as usize]);
-                        hasmap.insert((*x, *y));
-                        i += 1;
+                        *x_pos += 1;
+                        vec.push(matrix[*x_pos as usize][*y_pos as usize]);
+                        hasmap.insert((*x_pos, *y_pos));
+                        index += 1;
                     }
                 }
                 Direction::Left => {
-                    if *y - 1 < 0 || hasmap.contains(&(*x, *y - 1)) {
+                    if *y_pos - 1 < 0 || hasmap.contains(&(*x_pos, *y_pos - 1)) {
                         dir = Direction::UP;
                     } else {
-                        *y -= 1;
-                        vec.push(matrix[*x as usize][*y as usize]);
-                        hasmap.insert((*x, *y));
-                        i += 1;
+                        *y_pos -= 1;
+                        vec.push(matrix[*x_pos as usize][*y_pos as usize]);
+                        hasmap.insert((*x_pos, *y_pos));
+                        index += 1;
                     }
                 }
                 Direction::UP => {
-                    if *x - 1 < 0 || hasmap.contains(&(*x - 1, *y)) {
+                    if *x_pos - 1 < 0 || hasmap.contains(&(*x_pos - 1, *y_pos)) {
                         dir = Direction::Right;
                     } else {
-                        *x -= 1;
-                        vec.push(matrix[*x as usize][*y as usize]);
-                        hasmap.insert((*x, *y));
-                        i += 1;
+                        *x_pos -= 1;
+                        vec.push(matrix[*x_pos as usize][*y_pos as usize]);
+                        hasmap.insert((*x_pos, *y_pos));
+                        index += 1;
                     }
                 }
             }

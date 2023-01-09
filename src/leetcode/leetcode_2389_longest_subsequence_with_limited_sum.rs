@@ -8,24 +8,23 @@ struct Solution;
 #[allow(unused)]
 impl Solution {
     fn answer_queries(nums: Vec<i32>, queries: Vec<i32>) -> Vec<i32> {
-        let len_ns: usize = nums.len();
-        let len_qs: usize = queries.len();
+        let nums_lens: usize = nums.len();
+        let queue_lens: usize = queries.len();
         let nums: Vec<i32> = {
             let mut nums = nums;
             nums.sort_unstable();
             nums
         };
-        let mut ans: Vec<i32> = vec![0; len_qs];
+        let mut ans: Vec<i32> = vec![0; queue_lens];
         for (idx_q, query) in queries.into_iter().enumerate() {
             let mut sum = 0;
-            for (idx_n, iterm) in nums.iter().enumerate().take(len_ns) {
+            for (idx_n, iterm) in nums.iter().enumerate().take(nums_lens) {
                 sum += iterm;
                 if sum > query {
                     ans[idx_q] = idx_n as i32;
                     break;
-                } else {
-                    ans[idx_q] = idx_n as i32 + 1;
                 }
+                ans[idx_q] = idx_n as i32 + 1;
             }
         }
         ans

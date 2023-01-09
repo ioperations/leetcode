@@ -5,7 +5,7 @@ struct Solution;
 
 impl Solution {
     #[allow(unused)]
-    pub fn permute(nums: Vec<i32>) -> Vec<Vec<i32>> {
+    pub fn permute(nums: &[i32]) -> Vec<Vec<i32>> {
         fn backtrack(nums: &[i32], sub: &[i32], res: &mut Vec<Vec<i32>>) {
             if nums.is_empty() {
                 res.push(sub.to_vec());
@@ -19,7 +19,7 @@ impl Solution {
             }
         }
         let mut res: Vec<Vec<i32>> = vec![];
-        backtrack(&nums, &[], &mut res);
+        backtrack(nums, &[], &mut res);
         res
     }
 }
@@ -39,7 +39,7 @@ mod tests {
             vec![3, 1, 2],
             vec![3, 2, 1],
         ];
-        let ret = Solution::permute(nums);
+        let ret = Solution::permute(&nums);
         assert_eq!(ret, output);
     }
 
@@ -47,7 +47,7 @@ mod tests {
     fn case2_test() {
         let nums = vec![0, 1];
         let output = vec![vec![0, 1], vec![1, 0]];
-        let ret = Solution::permute(nums);
+        let ret = Solution::permute(&nums);
         assert_eq!(ret, output);
     }
 
@@ -55,7 +55,7 @@ mod tests {
     fn case3_test() {
         let nums = vec![1];
         let output = vec![vec![1]];
-        let ret = Solution::permute(nums);
+        let ret = Solution::permute(&nums);
         assert_eq!(ret, output);
     }
 }

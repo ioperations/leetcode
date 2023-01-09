@@ -5,21 +5,20 @@ use std::collections::HashSet;
 struct Solution;
 impl Solution {
     #[allow(unused)]
-    pub fn contains_duplicate(nums: Vec<i32>) -> bool {
+    pub fn contains_duplicate(nums: &[i32]) -> bool {
         let mut hash_set = HashSet::with_capacity(nums.len());
 
         for i in nums {
             if hash_set.contains(&i) {
                 return true;
-            } else {
-                hash_set.insert(i);
             }
+            hash_set.insert(i);
         }
         false
     }
 
     #[allow(unused)]
-    pub fn contains_duplicate_v2(nums: Vec<i32>) -> bool {
+    pub fn contains_duplicate_v2(nums: &[i32]) -> bool {
         let mut set = HashSet::with_capacity(nums.len());
 
         nums.iter().any(|&num| !set.insert(num))
@@ -40,7 +39,7 @@ mod tests {
     #[test]
     fn case1_test() {
         let nums = [1, 2, 3, 1];
-        let ret = Solution::contains_duplicate(nums.into());
+        let ret = Solution::contains_duplicate(&nums);
         let output = true;
         assert_eq!(ret, output);
     }
@@ -48,14 +47,14 @@ mod tests {
     #[test]
     fn case2_test() {
         let nums = [1, 2, 3, 4];
-        let ret = Solution::contains_duplicate(nums.into());
+        let ret = Solution::contains_duplicate(&nums);
         let output = false;
         assert_eq!(ret, output);
     }
     #[test]
     fn case3_test() {
         let nums = [1, 1, 1, 3, 3, 4, 3, 2, 4, 2];
-        let ret = Solution::contains_duplicate(nums.into());
+        let ret = Solution::contains_duplicate(&nums);
         let output = true;
         assert_eq!(ret, output);
     }
@@ -64,8 +63,8 @@ mod tests {
     fn bench_v1(b: &mut test::Bencher) {
         let output = true;
         b.iter(|| {
-            let nums = [1, 1, 1, 3, 3, 4, 3, 2, 4, 2].into();
-            let ret = Solution::contains_duplicate(nums);
+            let nums = [1, 1, 1, 3, 3, 4, 3, 2, 4, 2];
+            let ret = Solution::contains_duplicate(&nums);
             assert_eq!(ret, output);
         })
     }
@@ -79,7 +78,7 @@ mod tests_v2 {
     #[test]
     fn case1_test() {
         let nums = [1, 2, 3, 1];
-        let ret = Solution::contains_duplicate_v2(nums.into());
+        let ret = Solution::contains_duplicate_v2(&nums);
         let output = true;
         assert_eq!(ret, output);
     }
@@ -87,14 +86,14 @@ mod tests_v2 {
     #[test]
     fn case2_test() {
         let nums = [1, 2, 3, 4];
-        let ret = Solution::contains_duplicate_v2(nums.into());
+        let ret = Solution::contains_duplicate_v2(&nums);
         let output = false;
         assert_eq!(ret, output);
     }
     #[test]
     fn case3_test() {
         let nums = [1, 1, 1, 3, 3, 4, 3, 2, 4, 2];
-        let ret = Solution::contains_duplicate_v2(nums.into());
+        let ret = Solution::contains_duplicate_v2(&nums);
         let output = true;
         assert_eq!(ret, output);
     }
@@ -103,8 +102,8 @@ mod tests_v2 {
     fn bench_v2(b: &mut test::Bencher) {
         let output = true;
         b.iter(|| {
-            let nums = [1, 1, 1, 3, 3, 4, 3, 2, 4, 2].into();
-            let ret = Solution::contains_duplicate_v2(nums);
+            let nums = [1, 1, 1, 3, 3, 4, 3, 2, 4, 2];
+            let ret = Solution::contains_duplicate_v2(&nums);
             assert_eq!(ret, output);
         })
     }

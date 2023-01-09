@@ -28,14 +28,13 @@ impl RandomizedSet {
     fn insert(&self, val: i32) -> bool {
         let contains = self.map.borrow().contains_key(&val);
 
-        match contains {
-            true => false,
-            false => {
-                self.map.borrow_mut().insert(val, self.vec.borrow().len());
-                self.vec.borrow_mut().push(val);
+        if contains {
+            false
+        } else {
+            self.map.borrow_mut().insert(val, self.vec.borrow().len());
+            self.vec.borrow_mut().push(val);
 
-                true
-            }
+            true
         }
     }
 

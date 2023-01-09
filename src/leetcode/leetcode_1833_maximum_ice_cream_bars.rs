@@ -11,7 +11,7 @@ impl Solution {
     #[allow(unused)]
     pub fn max_ice_cream(costs: Vec<i32>, coins: i32) -> i32 {
         let mut costs = costs;
-        costs.sort();
+        costs.sort_unstable();
         /*
          * using scan is a little stupid cause it's not worthwhile in some input
          */

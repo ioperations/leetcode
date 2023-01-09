@@ -6,13 +6,13 @@ Return the maximum number of bags that could have full capacity after placing th
 struct Solution;
 impl Solution {
     #[allow(unused)]
-    pub fn maximum_bags(capacity: Vec<i32>, rocks: Vec<i32>, additional_rocks: i32) -> i32 {
+    pub fn maximum_bags(capacity: &[i32], rocks: &[i32], additional_rocks: i32) -> i32 {
         let mut left = capacity
             .iter()
             .zip(rocks.iter())
             .map(|(&c, &i)| c - i)
             .collect::<Vec<i32>>();
-        left.sort();
+        left.sort_unstable();
         // 用additional_rocks 把left当中所有元素消为零,使得left当中为零的元素最多
         // 应该不用扫完
         left.into_iter()
@@ -38,7 +38,7 @@ mod tests {
         let rocks = [1, 2, 4, 4];
         let additional_rocks = 2;
         let output = 3;
-        let ret = Solution::maximum_bags(capacity.into(), rocks.into(), additional_rocks);
+        let ret = Solution::maximum_bags(&capacity, &rocks, additional_rocks);
         assert_eq!(ret, output);
         // Explanation:
         // Place 1 rock in bag 0 and 1 rock in bag 1.
@@ -56,7 +56,7 @@ mod tests {
         let rocks = [2, 2, 0];
         let additional_rocks = 100;
         let output = 3;
-        let ret = Solution::maximum_bags(capacity.into(), rocks.into(), additional_rocks);
+        let ret = Solution::maximum_bags(&capacity, &rocks, additional_rocks);
         assert_eq!(ret, output);
         // Explanation:
         // Place 8 rocks in bag 0 and 2 rocks in bag 2.

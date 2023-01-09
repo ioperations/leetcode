@@ -84,11 +84,10 @@ impl Solution {
                 } else if head_value >= high {
                     return extra
                         + Self::range_sum_bst_v1(head.borrow_mut().left.take(), low, high);
-                } else {
-                    let left = Self::range_sum_bst_v1(head.borrow_mut().left.take(), low, high);
-                    let right = Self::range_sum_bst_v1(head.borrow_mut().right.take(), low, high);
-                    return left + right + head_value;
                 }
+                let left = Self::range_sum_bst_v1(head.borrow_mut().left.take(), low, high);
+                let right = Self::range_sum_bst_v1(head.borrow_mut().right.take(), low, high);
+                left + right + head_value
             }
             None => 0,
         }

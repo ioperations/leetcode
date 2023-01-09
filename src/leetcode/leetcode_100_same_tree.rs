@@ -26,8 +26,8 @@ struct Solution;
 impl Solution {
     #[allow(unused)]
     fn is_same_tree<T>(
-        p: Option<Rc<RefCell<TreeNode<T>>>>,
-        q: Option<Rc<RefCell<TreeNode<T>>>>,
+        p: &mut Option<Rc<RefCell<TreeNode<T>>>>,
+        q: &mut Option<Rc<RefCell<TreeNode<T>>>>,
     ) -> bool
     where
         T: std::cmp::PartialEq,
@@ -43,16 +43,16 @@ impl Solution {
             return false;
         }
 
-        let p = p.unwrap();
-        let q = q.unwrap();
+        let p = p.as_mut().unwrap();
+        let q = q.as_mut().unwrap();
         let ok = q.borrow().val == p.borrow().val;
 
         ok && Self::is_same_tree(
-            p.as_ref().borrow_mut().left.take(),
-            q.as_ref().borrow_mut().left.take(),
+            &mut p.as_ref().borrow_mut().left.take(),
+            &mut q.as_ref().borrow_mut().left.take(),
         ) && Self::is_same_tree(
-            p.as_ref().borrow_mut().right.take(),
-            q.as_ref().borrow_mut().right.take(),
+            &mut p.as_ref().borrow_mut().right.take(),
+            &mut q.as_ref().borrow_mut().right.take(),
         )
     }
 }
@@ -93,7 +93,7 @@ where
             z1.as_ref().borrow_mut().right =
                 Some(Rc::new(RefCell::new(TreeNode::<T>::new(input[i].unwrap()))));
         } else {
-            z1.as_ref().borrow_mut().right = None
+            z1.as_ref().borrow_mut().right = None;
         }
         queue.push_back(z1.borrow().right.as_ref().unwrap().clone());
         i += 1;
@@ -103,7 +103,7 @@ where
 
 /// expect binary tree equal to input
 #[allow(unused)]
-fn expect_binary_tree<T>(input: &[Option<T>], root: Option<Rc<RefCell<TreeNode<T>>>>)
+fn expect_binary_tree<T>(input: &[Option<T>], root: &Option<Rc<RefCell<TreeNode<T>>>>)
 where
     T: std::cmp::PartialEq + std::fmt::Debug + Copy,
 {
@@ -140,38 +140,38 @@ mod tests {
         let p = vec![Some(1), Some(2), Some(3)];
         let q = vec![Some(1), Some(2), Some(3)];
         let tree = build_binary_tree(&p[..]);
-        expect_binary_tree(&p[..], tree);
+        expect_binary_tree(&p[..], &tree);
         let tree2 = build_binary_tree(&q[..]);
-        expect_binary_tree(&q[..], tree2);
+        expect_binary_tree(&q[..], &tree2);
     }
 
     #[test]
     fn case1_test() {
         let p = vec![Some(1), Some(2), Some(3)];
         let q = vec![Some(1), Some(2), Some(3)];
-        let tree1 = build_binary_tree(&p[..]);
-        let tree2 = build_binary_tree(&q[..]);
-        let ret = Solution::is_same_tree(tree1, tree2);
-        assert_eq!(ret, true);
+        let mut tree1 = build_binary_tree(&p[..]);
+        let mut tree2 = build_binary_tree(&q[..]);
+        let ret = Solution::is_same_tree(&mut tree1, &mut tree2);
+        assert!(ret);
     }
 
     #[test]
     fn case2_test() {
         let p = vec![Some(1), Some(2)];
         let q = vec![Some(1), Some(2)];
-        let tree1 = build_binary_tree(&p[..]);
-        let tree2 = build_binary_tree(&q[..]);
-        let ret = Solution::is_same_tree(tree1, tree2);
-        assert_eq!(ret, true);
+        let mut tree1 = build_binary_tree(&p[..]);
+        let mut tree2 = build_binary_tree(&q[..]);
+        let ret = Solution::is_same_tree(&mut tree1, &mut tree2);
+        assert!(ret);
     }
 
     #[test]
     fn case3_test() {
         let p = vec![Some(1), Some(2), Some(1)];
         let q = vec![Some(1), Some(1), Some(2)];
-        let tree1 = build_binary_tree(&p[..]);
-        let tree2 = build_binary_tree(&q[..]);
-        let ret = Solution::is_same_tree(tree1, tree2);
-        assert_eq!(ret, false);
+        let mut tree1 = build_binary_tree(&p[..]);
+        let mut tree2 = build_binary_tree(&q[..]);
+        let ret = Solution::is_same_tree(&mut tree1, &mut tree2);
+        assert!(!ret);
     }
 }

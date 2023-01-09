@@ -13,7 +13,7 @@ struct Solution;
 
 impl Solution {
     #[allow(unused)]
-    pub fn simplify_path(path: String) -> String {
+    pub fn simplify_path(path: &str) -> String {
         let s: Vec<&str> = path.split('/').collect();
         let mut v: Vec<&str> = vec!["/"];
 
@@ -50,7 +50,7 @@ mod tests {
 
     #[test]
     fn case1_test() {
-        let path = "/home/".into();
+        let path = "/home/";
         let output: String = "/home".into();
         // Explanation: Note that there is no trailing slash after the last directory name.
         let ret = Solution::simplify_path(path);
@@ -59,7 +59,7 @@ mod tests {
 
     #[test]
     fn case2_test() {
-        let path = "/../".into();
+        let path = "/../";
         let output: String = "/".into();
         // Explanation: Note that there is no trailing slash after the last directory name.
         let ret = Solution::simplify_path(path);
@@ -68,7 +68,7 @@ mod tests {
 
     #[test]
     fn case3_test() {
-        let path = "/home//foo/".into();
+        let path = "/home//foo/";
         let output: String = "/home/foo".into();
         // Explanation: Note that there is no trailing slash after the last directory name.
         let ret = Solution::simplify_path(path);
@@ -77,7 +77,7 @@ mod tests {
 
     #[test]
     fn case4_test() {
-        let path = "/a/./b/../../c/".into();
+        let path = "/a/./b/../../c/";
         let output: String = "/c".into();
         // Explanation: Note that there is no trailing slash after the last directory name.
         let ret = Solution::simplify_path(path);

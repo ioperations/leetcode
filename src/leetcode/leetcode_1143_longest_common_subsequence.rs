@@ -8,16 +8,16 @@ struct Solution;
 
 impl Solution {
     #[allow(unused)]
-    pub fn longest_common_subsequence(text1: String, text2: String) -> i32 {
+    pub fn longest_common_subsequence(text1: &str, text2: &str) -> i32 {
         let n = text1.len();
         let m = text2.len();
         let mut table = vec![vec![0; m + 1]; n + 1];
         for (i, ch1) in text1.chars().enumerate() {
             for (j, ch2) in text2.chars().enumerate() {
                 if ch1 == ch2 {
-                    table[i + 1][j + 1] = table[i][j] + 1
+                    table[i + 1][j + 1] = table[i][j] + 1;
                 } else {
-                    table[i + 1][j + 1] = table[i][j + 1].max(table[i + 1][j])
+                    table[i + 1][j + 1] = table[i][j + 1].max(table[i + 1][j]);
                 }
             }
         }
@@ -35,7 +35,7 @@ mod tests {
         let text2 = "ace";
         let output = 3;
         // Explanation: The longest common subsequence is "ace" and its length is 3.
-        let ret = Solution::longest_common_subsequence(text1.into(), text2.into());
+        let ret = Solution::longest_common_subsequence(text1, text2);
         assert_eq!(ret, output);
     }
 
@@ -45,7 +45,7 @@ mod tests {
         let text2 = "abc";
         let output = 3;
         // The longest common subsequence is "abc" and its length is 3.
-        let ret = Solution::longest_common_subsequence(text1.into(), text2.into());
+        let ret = Solution::longest_common_subsequence(text1, text2);
         assert_eq!(ret, output);
     }
 
@@ -55,7 +55,7 @@ mod tests {
         let text2 = "def";
         let output = 0;
         // There is no such common subsequence, so the result is 0.
-        let ret = Solution::longest_common_subsequence(text1.into(), text2.into());
+        let ret = Solution::longest_common_subsequence(text1, text2);
         assert_eq!(ret, output);
     }
 }

@@ -22,7 +22,7 @@ struct Node {
 
 impl Solution {
     #[allow(unused)]
-    pub fn job_scheduling(start_time: Vec<i32>, end_time: Vec<i32>, profit: Vec<i32>) -> i32 {
+    pub fn job_scheduling(start_time: &[i32], end_time: &[i32], profit: &[i32]) -> i32 {
         //
         let len = start_time.len();
         let mut nodes = vec![];
@@ -32,7 +32,7 @@ impl Solution {
                 start_time: start_time[i],
                 end_time: end_time[i],
                 profit: profit[i],
-            })
+            });
         }
 
         nodes.sort_by_key(|n| n.start_time);
@@ -41,7 +41,7 @@ impl Solution {
         Self::helper(&context, 0, 0, 0)
     }
 
-    /// in [start_time] and with [choosen] , how mach profit can we get
+    // in [start_time] and with [choosen] , how mach profit can we get
     #[allow(unused)]
     pub fn helper(
         context: &Context,
@@ -93,7 +93,7 @@ mod tests {
         /* Explanation: The subset chosen is the first and fourth job.
          * Time range [1-3]+[3-6] , we get profit of 120 = 50 + 70.
          */
-        let ret = Solution::job_scheduling(start_time, end_time, profit);
+        let ret = Solution::job_scheduling(&start_time, &end_time, &profit);
         assert_eq!(ret, output);
     }
 
@@ -108,7 +108,7 @@ mod tests {
          * The subset chosen is the first, fourth and fifth job.
          * Profit obtained 150 = 20 + 70 + 60.
          */
-        let ret = Solution::job_scheduling(start_time, end_time, profit);
+        let ret = Solution::job_scheduling(&start_time, &end_time, &profit);
         assert_eq!(ret, output);
     }
 
@@ -119,7 +119,7 @@ mod tests {
         let profit = vec![5, 6, 4];
         let output = 6;
 
-        let ret = Solution::job_scheduling(start_time, end_time, profit);
+        let ret = Solution::job_scheduling(&start_time, &end_time, &profit);
         assert_eq!(ret, output);
     }
 
@@ -130,7 +130,7 @@ mod tests {
         let profit = vec![2, 9, 1, 19, 5, 7, 3, 19];
         let output = 41;
 
-        let ret = Solution::job_scheduling(start_time, end_time, profit);
+        let ret = Solution::job_scheduling(&start_time, &end_time, &profit);
         assert_eq!(ret, output);
     }
 }

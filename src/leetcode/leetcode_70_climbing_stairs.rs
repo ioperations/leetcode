@@ -13,7 +13,7 @@ impl Solution {
         let mut vec = vec![0; (n + 1) as usize];
         vec[0] = 1;
         vec[1] = 1;
-        for i in (2..n + 1) {
+        for i in (2..=n) {
             let i: usize = i as usize;
             vec[i] = vec[i - 1] + vec[i - 2];
         }

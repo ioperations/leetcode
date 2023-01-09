@@ -32,15 +32,15 @@ struct Solution;
 
 impl Solution {
     #[allow(unused)]
-    pub fn max_product(root: Option<Rc<RefCell<TreeNode<i32>>>>) -> i32 {
+    pub fn max_product(root: &Option<Rc<RefCell<TreeNode<i32>>>>) -> i32 {
         /*
          * The number of nodes in the tree is in the range [2, 5 * 104].
          * 1 <= Node.val <= 104
          */
         let mod_math = 1_000_000_000 + 7;
-        let sum = Self::get_sum(&root);
+        let sum = Self::get_sum(root);
         let mut max_product: i64 = 0;
-        Self::get_max_product(&root, &mut max_product, sum);
+        Self::get_max_product(root, &mut max_product, sum);
         (max_product % mod_math) as i32
     }
     fn get_max_product(
@@ -109,41 +109,11 @@ where
                 Some(Rc::new(RefCell::new(TreeNode::<T>::new(input[i].unwrap()))));
             queue.push_back(z1.borrow().right.as_ref().unwrap().clone());
         } else {
-            z1.as_ref().borrow_mut().right = None
+            z1.as_ref().borrow_mut().right = None;
         }
         i += 1;
     }
     Some(root)
-}
-
-/// expect binary tree equal to input
-#[allow(unused)]
-fn expect_binary_tree<T>(input: &[Option<T>], root: Option<Rc<RefCell<TreeNode<T>>>>)
-where
-    T: std::cmp::PartialEq + std::fmt::Debug + Copy,
-{
-    // pass
-    let mut i = 0;
-    let size = input.len();
-    if i == size {
-        return;
-    }
-
-    let mut q: VecDeque<Rc<RefCell<TreeNode<T>>>> = VecDeque::new();
-    q.push_back(root.as_ref().unwrap().clone());
-    while !q.is_empty() {
-        let n1 = q.pop_front().unwrap();
-        assert_eq!(Some(n1.as_ref().borrow().val), input[i]);
-        i += 1;
-        if let Some(v) = &n1.as_ref().borrow().left {
-            q.push_back(v.clone());
-        };
-        if let Some(v) = &n1.as_ref().borrow().right {
-            q.push_back(v.clone());
-        };
-    }
-
-    assert_eq!(i, size);
 }
 
 #[cfg(test)]
@@ -156,7 +126,7 @@ mod tests {
         let root = [1, 2, 3, 4, 5, 6].map(Some);
         let root = build_binary_tree(&root);
         let output = 110;
-        let ret = Solution::max_product(root);
+        let ret = Solution::max_product(&root);
         assert_eq!(ret, output);
         // Explanation: Remove the red edge and get 2 binary trees with sum 11 and 10. Their product is 110 (11*10)
     }
@@ -172,7 +142,7 @@ mod tests {
         });
         let root = build_binary_tree(&root);
         let output = 90;
-        let ret = Solution::max_product(root);
+        let ret = Solution::max_product(&root);
         assert_eq!(ret, output);
         // Remove the red edge and get 2 binary trees with sum 15 and 6.Their product is 90 (15*6)
     }

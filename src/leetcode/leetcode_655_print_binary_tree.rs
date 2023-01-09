@@ -39,17 +39,17 @@ impl Solution {
     #[allow(unused)]
     pub fn print_tree(root: Option<Rc<RefCell<TreeNode<i32>>>>) -> Vec<Vec<String>> {
         if let Some(v) = root {
-            let mut q = VecDeque::new();
-            q.push_back((Some(v), 0));
+            let mut queue = VecDeque::new();
+            queue.push_back((Some(v), 0));
             let mut value: Vec<Option<i32>> = vec![];
             let mut height: i32 = 0;
-            while !q.is_empty() {
-                let (r, count) = q.pop_front().unwrap();
+            while !queue.is_empty() {
+                let (r, count) = queue.pop_front().unwrap();
                 if let Some(n) = r {
                     height = count;
                     value.push(Some(n.as_ref().borrow().val));
-                    q.push_back((n.as_ref().borrow_mut().left.take(), count + 1));
-                    q.push_back((n.as_ref().borrow_mut().right.take(), count + 1));
+                    queue.push_back((n.as_ref().borrow_mut().left.take(), count + 1));
+                    queue.push_back((n.as_ref().borrow_mut().right.take(), count + 1));
                 } else {
                     value.push(None);
                 }
@@ -64,36 +64,36 @@ impl Solution {
                 .collect::<Vec<Option<i32>>>();
 
             let height = height;
-            let m: i32 = height + 1;
-            let n: i32 = 2_i32.pow((height + 1) as u32) - 1;
-            let mut matrix = vec![vec![String::new(); n as usize]; m as usize];
+            let m_v: i32 = height + 1;
+            let n_v: i32 = 2_i32.pow((height + 1) as u32) - 1;
+            let mut matrix = vec![vec![String::new(); n_v as usize]; m_v as usize];
 
-            let v: (i32, i32) = (0, (n - 1) / 2);
+            let v: (i32, i32) = (0, (n_v - 1) / 2);
 
-            let mut i = 0;
-            matrix[v.0 as usize][v.1 as usize] = format!("{}", value[i].unwrap());
+            let mut index = 0;
+            matrix[v.0 as usize][v.1 as usize] = format!("{}", value[index].unwrap());
             let mut q = VecDeque::new();
 
             let len = value.len();
             q.push_back(v);
-            while !q.is_empty() && (i + 1) < len {
-                let (r, c) = q.pop_front().unwrap();
-                i += 1;
-                if let Some(v) = value[i] {
-                    let c = c - 2_i32.pow((height - r - 1) as u32);
-                    let r = r + 1;
+            while !q.is_empty() && (index + 1) < len {
+                let (r_v, c_v) = q.pop_front().unwrap();
+                index += 1;
+                if let Some(v) = value[index] {
+                    let c = c_v - 2_i32.pow((height - r_v - 1) as u32);
+                    let r = r_v + 1;
                     matrix[r as usize][c as usize] = format!("{v}");
                     q.push_back((r, c));
                 }
 
-                i += 1;
-                if i >= len {
+                index += 1;
+                if index >= len {
                     break;
                 }
 
-                if let Some(v) = value[i] {
-                    let c = c + (2_i32.pow((height - r - 1) as u32));
-                    let r = r + 1;
+                if let Some(v) = value[index] {
+                    let c = c_v + (2_i32.pow((height - r_v - 1) as u32));
+                    let r = r_v + 1;
                     matrix[r as usize][c as usize] = format!("{v}");
                     q.push_back((r, c));
                 }

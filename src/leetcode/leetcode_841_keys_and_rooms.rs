@@ -10,7 +10,7 @@ struct Solution;
 
 impl Solution {
     #[allow(unused)]
-    pub fn can_visit_all_rooms(rooms: Vec<Vec<i32>>) -> bool {
+    pub fn can_visit_all_rooms(rooms: &[Vec<i32>]) -> bool {
         let mut accessible = vec![false; rooms.len()];
         accessible[0] = true;
         let mut stack = vec![0];
@@ -40,7 +40,7 @@ mod tests {
     fn case1_test() {
         let roomes = vec![vec![1], vec![2], vec![3], vec![]];
         let output = true;
-        let ret = Solution::can_visit_all_rooms(roomes);
+        let ret = Solution::can_visit_all_rooms(&roomes);
         assert_eq!(ret, output);
         /*
          We visit room 0 and pick up key 1.
@@ -55,7 +55,7 @@ mod tests {
     fn case2_test() {
         let roomes = vec![vec![1, 3], vec![3, 0, 1], vec![2], vec![0]];
         let output = false;
-        let ret = Solution::can_visit_all_rooms(roomes);
+        let ret = Solution::can_visit_all_rooms(&roomes);
         assert_eq!(ret, output);
         // We can not enter room number 2 since the only key that unlocks it is in that room.
     }

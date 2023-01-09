@@ -31,6 +31,7 @@ impl Solution {
                     nums.contains(val)
                 })
             })
+            .take(1000)
             .fuse()
             .fold((0, false), |(cnt, pre), b| (i32::from(b && !pre) + cnt, b))
             .0

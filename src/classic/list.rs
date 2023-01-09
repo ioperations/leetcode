@@ -5,7 +5,7 @@ fn list_usage() {
     let list = linked_list::LinkedList::from([1, 2, 3, 4]);
 
     let ret = list.into_iter().map(|x| x * 2).collect::<LinkedList<i32>>();
-    println!("{ret:#?}")
+    println!("{ret:#?}");
 }
 
 #[cfg(test)]

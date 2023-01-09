@@ -80,7 +80,7 @@ mod tests {
                 ok: false,
                 id: 0,
                 type_str: "",
-                message: String::from(""),
+                message: String::new(),
             }
         }
     }

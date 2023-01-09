@@ -52,9 +52,7 @@ impl Solution {
         //establish Even and Odd lists
         let mut odd_head = head?;
         let mut odd_tail = &mut odd_head.next;
-        let mut even_head = if let Some(node) = odd_tail.take() {
-            node
-        } else {
+        let Some(mut even_head)  = odd_tail.take() else {
             return Some(odd_head);
         };
         let mut even_tail = &mut even_head.next;

@@ -27,7 +27,7 @@ where
     }
 
     #[allow(unused)]
-    fn insert(&mut self, path: Vec<K>, v: V) {
+    fn insert(&mut self, path: &[K], v: V) {
         if path.is_empty() {
             match self.value {
                 Some(_) => {
@@ -45,17 +45,17 @@ where
         self.children
             .entry(path[0].clone())
             .or_insert_with(|| Trie::new())
-            .insert(path[1..].to_vec(), v)
+            .insert(&path[1..], v);
     }
 
     #[allow(unused)]
-    fn fetch(&self, path: Vec<K>) -> Option<V> {
+    fn fetch(&self, path: &[K]) -> Option<V> {
         match path.len() {
             0 => self.value.clone(),
             _ => self
                 .children
                 .get(&path[0])
-                .and_then(|child| child.fetch(path[1..].to_vec())),
+                .and_then(|child| child.fetch(&path[1..])),
             // _ => self
             //     .children
             //     .get(&path[0])
@@ -72,20 +72,20 @@ mod tests {
     #[test]
     fn fetch_works() {
         let mut t = Trie::new();
-        t.insert(vec![1], 3);
-        let f = t.fetch(vec![1]);
+        t.insert(&[1], 3);
+        let f = t.fetch(&[1]);
         assert_eq!(f, Some(3));
     }
 
     #[test]
     fn deep_fetch_works() {
         let mut t = Trie::new();
-        t.insert(vec![1, 2, 3], 4);
+        t.insert(&[1, 2, 3], 4);
 
-        let v1 = t.fetch(vec![1]);
+        let v1 = t.fetch(&[1]);
         assert_eq!(v1, None);
 
-        let v2 = t.fetch(vec![1, 2, 3]);
+        let v2 = t.fetch(&[1, 2, 3]);
         assert_eq!(v2, Some(4));
     }
 
@@ -94,40 +94,40 @@ mod tests {
     #[should_panic]
     fn insert_panics_if_exists() {
         let mut t = Trie::new();
-        t.insert(vec![1], 3);
+        t.insert(&[1], 3);
     }
 
     #[test]
     fn insert_works_if_none() {
         let mut t = Trie::new();
-        t.insert(vec![1, 2, 3], 4);
-        t.insert(vec![1, 2], 5);
+        t.insert(&[1, 2, 3], 4);
+        t.insert(&[1, 2], 5);
 
-        assert_eq!(t.fetch(vec![1]), None);
-        assert_eq!(t.fetch(vec![1, 2]), Some(5));
-        assert_eq!(t.fetch(vec![1, 2, 3]), Some(4));
+        assert_eq!(t.fetch(&[1]), None);
+        assert_eq!(t.fetch(&[1, 2]), Some(5));
+        assert_eq!(t.fetch(&[1, 2, 3]), Some(4));
     }
 
     #[test]
     fn works_with_multiple_types() {
         let mut t = Trie::new();
-        t.insert(vec![1, 2, 3], "hello");
-        t.insert(vec![1, 3, 4], "goodbye");
+        t.insert(&[1, 2, 3], "hello");
+        t.insert(&[1, 3, 4], "goodbye");
 
-        assert_eq!(t.fetch(vec![1]), None);
-        assert_eq!(t.fetch(vec![1, 2, 3]), Some("hello"));
-        assert_eq!(t.fetch(vec![1, 3, 4]), Some("goodbye"));
+        assert_eq!(t.fetch(&[1]), None);
+        assert_eq!(t.fetch(&[1, 2, 3]), Some("hello"));
+        assert_eq!(t.fetch(&[1, 3, 4]), Some("goodbye"));
     }
 
     #[test]
     fn should_return_none() {
         let mut t = Trie::new();
-        t.insert(vec![1, 2, 3], "hello");
-        t.insert(vec![1, 3, 4], "goodbye");
+        t.insert(&[1, 2, 3], "hello");
+        t.insert(&[1, 3, 4], "goodbye");
 
-        assert_eq!(t.fetch(vec![1]), None);
-        assert_eq!(t.fetch(vec![1, 2, 3]), Some("hello"));
-        assert_eq!(t.fetch(vec![1, 3, 4]), Some("goodbye"));
-        assert_eq!(t.fetch(vec![1, 4]), None);
+        assert_eq!(t.fetch(&[1]), None);
+        assert_eq!(t.fetch(&[1, 2, 3]), Some("hello"));
+        assert_eq!(t.fetch(&[1, 3, 4]), Some("goodbye"));
+        assert_eq!(t.fetch(&[1, 4]), None);
     }
 }

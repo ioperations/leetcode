@@ -10,7 +10,7 @@ impl Solution {
         let mut count = 1;
         while count * count <= n {
             let sq = count * count;
-            for i in sq..n + 1 {
+            for i in sq..=n {
                 dp[i as usize] = (dp[(i - sq) as usize] + 1).min(dp[i as usize]);
             }
             count += 1;

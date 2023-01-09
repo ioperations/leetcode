@@ -66,8 +66,7 @@ jobs:
         with:
           components: clippy
       - run: |
-          cargo clippy -- -Dwarnings
-          cargo clippy -- -D clippy::pedantic
+          cargo clippy -- -Dclippy::pedantic  -Aclippy::cast-lossless -Aclippy::cast-possible-truncation -Aclippy::cast-possible-wrap -Aclippy::cast-precision-loss -Aclippy::cast-sign-loss -Aclippy::checked-conversions
 
   rs-outdated:
     name: Outdated

@@ -15,7 +15,7 @@ struct Solution;
 
 impl Solution {
     #[allow(unused)]
-    pub fn close_strings(word1: String, word2: String) -> bool {
+    pub fn close_strings(word1: &str, word2: &str) -> bool {
         if word1.len() != word2.len() {
             return false;
         }
@@ -42,7 +42,7 @@ impl Solution {
     }
 
     #[allow(unused)]
-    pub fn close_strings_v2(word1: String, word2: String) -> bool {
+    pub fn close_strings_v2(word1: &str, word2: &str) -> bool {
         let mut counts1 = [0; 26];
         let mut counts2 = [0; 26];
         for &b in word1.as_bytes() {
@@ -66,8 +66,8 @@ mod tests {
 
     #[test]
     fn case1_test() {
-        let word1 = "abc".into();
-        let word2 = "bca".into();
+        let word1 = "abc";
+        let word2 = "bca";
         let output = true;
         /*
         Explanation: You can attain word2 from word1 in 2 operations.
@@ -81,8 +81,8 @@ mod tests {
 
     #[test]
     fn case2_test() {
-        let word1 = "a".into();
-        let word2 = "aa".into();
+        let word1 = "a";
+        let word2 = "aa";
         let output = false;
         /*
         It is impossible to attain word2 from word1, or vice versa, in any number of operations.
@@ -94,8 +94,8 @@ mod tests {
 
     #[test]
     fn case3_test() {
-        let word1 = "cabbba".into();
-        let word2 = "abbccc".into();
+        let word1 = "cabbba";
+        let word2 = "abbccc";
         let output = true;
         /*
         You can attain word2 from word1 in 3 operations.
@@ -110,8 +110,8 @@ mod tests {
 
     #[test]
     fn case4_test() {
-        let word1 = "uau".into();
-        let word2 = "ssx".into();
+        let word1 = "uau";
+        let word2 = "ssx";
         let output = false;
         /*
         You can attain word2 from word1 in 3 operations.
@@ -131,8 +131,8 @@ mod tests_v2 {
 
     #[test]
     fn case1_test() {
-        let word1 = "abc".into();
-        let word2 = "bca".into();
+        let word1 = "abc";
+        let word2 = "bca";
         let output = true;
         /*
         Explanation: You can attain word2 from word1 in 2 operations.
@@ -146,8 +146,8 @@ mod tests_v2 {
 
     #[test]
     fn case2_test() {
-        let word1 = "a".into();
-        let word2 = "aa".into();
+        let word1 = "a";
+        let word2 = "aa";
         let output = false;
         /*
         It is impossible to attain word2 from word1, or vice versa, in any number of operations.
@@ -159,8 +159,8 @@ mod tests_v2 {
 
     #[test]
     fn case3_test() {
-        let word1 = "cabbba".into();
-        let word2 = "abbccc".into();
+        let word1 = "cabbba";
+        let word2 = "abbccc";
         let output = true;
         /*
         You can attain word2 from word1 in 3 operations.
@@ -175,8 +175,8 @@ mod tests_v2 {
 
     #[test]
     fn case4_test() {
-        let word1 = "uau".into();
-        let word2 = "ssx".into();
+        let word1 = "uau";
+        let word2 = "ssx";
         let output = false;
         /*
         You can attain word2 from word1 in 3 operations.

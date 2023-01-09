@@ -25,9 +25,9 @@ struct Solution;
 
 impl Solution {
     #[allow(unused)]
-    fn distribute_coins(root: Option<Rc<RefCell<TreeNode<i32>>>>) -> i32 {
+    fn distribute_coins(root: &Option<Rc<RefCell<TreeNode<i32>>>>) -> i32 {
         let mut steps = 0;
-        Self::helper(&root, &mut steps);
+        Self::helper(root, &mut steps);
         steps
     }
 
@@ -96,7 +96,7 @@ mod tests {
     fn case1_test() {
         let v = vec![Some(3), Some(0), Some(0)];
         let tree = build_binary_tree(&v[..]);
-        let ret = Solution::distribute_coins(tree);
+        let ret = Solution::distribute_coins(&tree);
         assert_eq!(ret, 2);
     }
 
@@ -104,7 +104,7 @@ mod tests {
     fn case2_test() {
         let v = vec![Some(0), Some(3), Some(0)];
         let tree = build_binary_tree(&v[..]);
-        let ret = Solution::distribute_coins(tree);
+        let ret = Solution::distribute_coins(&tree);
         assert_eq!(ret, 3);
     }
 }

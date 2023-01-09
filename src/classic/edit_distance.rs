@@ -40,7 +40,7 @@ mod str {
                         // insertion
                         cur[j] + 1,
                         // match or substitution
-                        pre + if ca == cb { 0 } else { 1 },
+                        pre + usize::from(ca != cb),
                     ),
                 );
                 pre = tmp;

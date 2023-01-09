@@ -9,13 +9,7 @@ struct Solution;
 
 impl Solution {
     #[allow(unused)]
-    pub fn halves_are_alike(s: String) -> bool {
-        let len = s.len();
-
-        if len % 2 == 1 {
-            return false;
-        }
-
+    pub fn halves_are_alike(s: &str) -> bool {
         fn same(first: &[u8], second: &[u8]) -> bool {
             let vowels = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'];
 
@@ -41,12 +35,17 @@ impl Solution {
             count == count1
         }
 
+        let len = s.len();
+        if len % 2 == 1 {
+            return false;
+        }
+
         let s = s.as_bytes();
         same(&s[0..(len / 2)], &s[(len / 2)..])
     }
 
     #[allow(unused)]
-    pub fn halves_are_alike_v2(s: String) -> bool {
+    pub fn halves_are_alike_v2(s: &str) -> bool {
         let s: Vec<_> = s.chars().collect();
         let vowels = "AEIOUaeiou";
         s[..s.len() / 2]
@@ -66,7 +65,7 @@ mod tests {
 
     #[test]
     fn case1_test() {
-        let s = "book".into();
+        let s = "book";
         let ret = Solution::halves_are_alike(s);
         //  a = "bo" and b = "ok". a has 1 vowel and b has 1 vowel. Therefore, they are alike.
         assert!(ret);
@@ -74,7 +73,7 @@ mod tests {
 
     #[test]
     fn case2_test() {
-        let s = "textbook".into();
+        let s = "textbook";
         let ret = Solution::halves_are_alike(s);
         // a = "text" and b = "book". a has 1 vowel whereas b has 2. Therefore, they are not alike.
         // Notice that the vowel o is counted twice.
@@ -83,7 +82,7 @@ mod tests {
 
     #[test]
     fn case3_test() {
-        let s = "book".into();
+        let s = "book";
         let ret = Solution::halves_are_alike_v2(s);
         //  a = "bo" and b = "ok". a has 1 vowel and b has 1 vowel. Therefore, they are alike.
         assert!(ret);
@@ -91,7 +90,7 @@ mod tests {
 
     #[test]
     fn case4_test() {
-        let s = "textbook".into();
+        let s = "textbook";
         let ret = Solution::halves_are_alike_v2(s);
         // a = "text" and b = "book". a has 1 vowel whereas b has 2. Therefore, they are not alike.
         // Notice that the vowel o is counted twice.

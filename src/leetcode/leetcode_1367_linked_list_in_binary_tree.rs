@@ -46,8 +46,8 @@ struct Solution;
 impl Solution {
     #[allow(unused)]
     pub fn is_sub_path(
-        head: Option<Box<ListNode<i32>>>,
-        root: Option<Rc<RefCell<TreeNode<i32>>>>,
+        head: &Option<Box<ListNode<i32>>>,
+        root: &Option<Rc<RefCell<TreeNode<i32>>>>,
     ) -> bool {
         Self::try_check_path(head.as_deref(), root.as_deref())
     }
@@ -55,7 +55,7 @@ impl Solution {
     #[allow(unused)]
     fn try_check_path(head: Option<&ListNode<i32>>, root: Option<&RefCell<TreeNode<i32>>>) -> bool {
         Self::check_path(head, root)
-            || root.map(|cell| cell.borrow()).map_or(false, |root| {
+            || root.map(std::cell::RefCell::borrow).map_or(false, |root| {
                 Self::try_check_path(head, root.left.as_deref())
                     || Self::try_check_path(head, root.right.as_deref())
             })
@@ -64,7 +64,7 @@ impl Solution {
     #[allow(unused)]
     fn check_path(head: Option<&ListNode<i32>>, root: Option<&RefCell<TreeNode<i32>>>) -> bool {
         head.map_or(true, |head| {
-            root.map(|root| root.borrow()).map_or(false, |root| {
+            root.map(std::cell::RefCell::borrow).map_or(false, |root| {
                 root.val == head.val
                     && (Self::check_path(head.next.as_deref(), root.left.as_deref())
                         || Self::check_path(head.next.as_deref(), root.right.as_deref()))
@@ -159,7 +159,7 @@ mod tests {
         let root = build_binary_tree(&root);
         let output = true;
         // Explanation: Nodes in blue form a subpath in the binary Tree.
-        let ret = Solution::is_sub_path(head, root);
+        let ret = Solution::is_sub_path(&head, &root);
         assert_eq!(ret, output);
     }
 
@@ -182,7 +182,7 @@ mod tests {
         let head = build_link_list(&head);
         let root = build_binary_tree(&root);
         let output = true;
-        let ret = Solution::is_sub_path(head, root);
+        let ret = Solution::is_sub_path(&head, &root);
         assert_eq!(ret, output);
     }
 }

@@ -35,12 +35,12 @@ struct Solution;
 impl Solution {
     #[allow(unused)]
     pub fn max_ancestor_diff_v2(root: Option<Rc<RefCell<TreeNode<i32>>>>) -> i32 {
-        fn helper(root: Rc<RefCell<TreeNode<i32>>>) -> ((i32, i32), i32) {
+        fn helper(root: &Rc<RefCell<TreeNode<i32>>>) -> ((i32, i32), i32) {
             ((0, 0), 0)
         }
         if let Some(v) = root {
             let val = v.borrow().val;
-            let ret = helper(v);
+            let ret = helper(&v);
             return val
                 .abs_diff(ret.0 .0)
                 .max(val.abs_diff(ret.0 .1))
@@ -60,7 +60,7 @@ struct MinMax {
 
 impl Solution {
     #[allow(unused)]
-    fn min_max(node_ref: Rc<RefCell<TreeNode<i32>>>) -> MinMax {
+    fn min_max(node_ref: &Rc<RefCell<TreeNode<i32>>>) -> MinMax {
         let node = node_ref.borrow();
         let mut a = MinMax {
             min: node.val,
@@ -72,7 +72,7 @@ impl Solution {
         } else {
             let children = vec![&node.left, &node.right];
             for child_option in children.iter().copied().flatten() {
-                let c = Self::min_max(Rc::clone(child_option));
+                let c = Self::min_max(&Rc::clone(child_option));
                 a.answer = cmp::max(a.answer, c.answer);
                 a.answer = cmp::max(a.answer, (node.val - c.min).abs());
                 a.answer = cmp::max(a.answer, (node.val - c.max).abs());
@@ -83,9 +83,9 @@ impl Solution {
         }
     }
     #[allow(unused)]
-    pub fn max_ancestor_diff(root: Option<Rc<RefCell<TreeNode<i32>>>>) -> i32 {
+    pub fn max_ancestor_diff(root: &Option<Rc<RefCell<TreeNode<i32>>>>) -> i32 {
         if let Some(node_ref) = root {
-            Self::min_max(Rc::clone(&node_ref)).answer
+            Self::min_max(&Rc::clone(node_ref)).answer
         } else {
             panic!("bad_input");
         }
@@ -127,7 +127,7 @@ where
                 Some(Rc::new(RefCell::new(TreeNode::<T>::new(input[i].unwrap()))));
             queue.push_back(z1.borrow().right.as_ref().unwrap().clone());
         } else {
-            z1.as_ref().borrow_mut().right = None
+            z1.as_ref().borrow_mut().right = None;
         }
         i += 1;
     }
@@ -156,7 +156,8 @@ mod tests {
          * |10 - 13| = 3
          * Among all possible differences, the maximum value of 7 is obtained by |8 - 1| = 7.
          */
-        let ret = Solution::max_ancestor_diff(build_binary_tree(&root));
+        let root = build_binary_tree(&root);
+        let ret = Solution::max_ancestor_diff(&root);
         assert_eq!(ret, output);
     }
 
@@ -170,7 +171,8 @@ mod tests {
             Some(i)
         });
         let output = 3;
-        let ret = Solution::max_ancestor_diff(build_binary_tree(&root));
+        let root = build_binary_tree(&root);
+        let ret = Solution::max_ancestor_diff(&root);
         assert_eq!(ret, output);
     }
 }

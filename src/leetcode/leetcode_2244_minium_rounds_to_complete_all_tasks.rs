@@ -34,8 +34,8 @@ impl Solution {
             }
         };
         let mut tasks = tasks;
-        tasks.sort();
-        let tasks: Vec<usize> = tasks.group_by(|a, b| a == b).map(|z| z.len()).collect();
+        tasks.sort_unstable();
+        let tasks: Vec<usize> = tasks.group_by(|a, b| a == b).map(<[i32]>::len).collect();
 
         let mut i: i32 = 0;
         for v in tasks {

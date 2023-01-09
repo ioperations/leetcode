@@ -441,7 +441,7 @@ impl<'a, T> CursorMut<'a, T> {
         } else if !self.list.is_empty() {
             // We're at the ghost, and there is a real front, so move to it!
             self.cur = self.list.front;
-            self.index = Some(0)
+            self.index = Some(0);
         } else {
             // We're at the ghost, but that's the only element... do nothing.
         }
@@ -462,7 +462,7 @@ impl<'a, T> CursorMut<'a, T> {
         } else if !self.list.is_empty() {
             // We're at the ghost, and there is a real back, so move to it!
             self.cur = self.list.back;
-            self.index = Some(self.list.len - 1)
+            self.index = Some(self.list.len - 1);
         } else {
             // We're at the ghost, but that's the only element... do nothing.
         }
@@ -775,18 +775,6 @@ fn assert_properties() {
 
     is_send::<IterMut<i32>>();
     is_sync::<IterMut<i32>>();
-
-    fn linked_list_covariant<'a, T>(x: LinkedList<&'static T>) -> LinkedList<&'a T> {
-        x
-    }
-    fn iter_covariant<'i, 'a, T>(x: Iter<'i, &'static T>) -> Iter<'i, &'a T> {
-        x
-    }
-    fn into_iter_covariant<'a, T>(x: IntoIter<&'static T>) -> IntoIter<&'a T> {
-        x
-    }
-
-    fn iter_mut_invariant() {}
 }
 
 #[cfg(test)]

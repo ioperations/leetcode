@@ -61,7 +61,7 @@ impl Solution {
 
             ret.into_iter()
                 .rev()
-                .skip_while(|x| x.is_none())
+                .skip_while(std::option::Option::is_none)
                 .collect::<Vec<Option<T>>>()
                 .into_iter()
                 .rev()
@@ -120,19 +120,20 @@ impl Solution {
             T: Copy + std::cmp::PartialEq,
         {
             if let Some(v) = root {
-                let (leftv, leftz) = is_symmetric_internal(v.as_ref().borrow_mut().left.take());
-                if !leftz {
+                let (left_value, left_ok) =
+                    is_symmetric_internal(v.as_ref().borrow_mut().left.take());
+                if !left_ok {
                     return (None, false);
                 }
-                let (rightv, rightz) = is_symmetric_internal(v.as_ref().borrow_mut().right.take());
+                let (right_value, right_ok) =
+                    is_symmetric_internal(v.as_ref().borrow_mut().right.take());
 
-                if !rightz {
+                if !right_ok {
                     return (None, false);
                 }
-                return match (leftv, rightv) {
+                return match (left_value, right_value) {
                     (Some(left), Some(right)) => (Some(v.as_ref().borrow_mut().val), left == right),
-                    (Some(_), None) => (None, false),
-                    (None, Some(_)) => (None, false),
+                    (Some(_), None) | (None, Some(_)) => (None, false),
                     (None, None) => (Some(v.as_ref().borrow_mut().val), true),
                 };
             }
@@ -178,7 +179,7 @@ where
                 Some(Rc::new(RefCell::new(TreeNode::<T>::new(input[i].unwrap()))));
             queue.push_back(z1.borrow().right.as_ref().unwrap().clone());
         } else {
-            z1.as_ref().borrow_mut().right = None
+            z1.as_ref().borrow_mut().right = None;
         }
         i += 1;
     }
@@ -207,7 +208,7 @@ where
 
     ret.into_iter()
         .rev()
-        .skip_while(|x| x.is_none())
+        .skip_while(std::option::Option::is_none)
         .collect::<Vec<Option<T>>>()
         .into_iter()
         .rev()

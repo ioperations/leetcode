@@ -41,11 +41,11 @@ impl Solution {
     {
         let mut vals: Vec<T> = Vec::new();
         Self::read(root, &mut vals);
-        Self::build(root, vals);
+        Self::build(root, &vals);
     }
 
     #[allow(unused)]
-    pub fn build<T>(mut root: &mut Option<Rc<RefCell<TreeNode<T>>>>, vals: Vec<T>)
+    pub fn build<T>(mut root: &mut Option<Rc<RefCell<TreeNode<T>>>>, vals: &[T])
     where
         T: Clone + Copy,
     {
@@ -59,10 +59,7 @@ impl Solution {
             root.as_mut().unwrap().borrow_mut().val = vals[0];
         }
         root.as_mut().unwrap().borrow_mut().left = None;
-        Self::build(
-            &mut root.as_mut().unwrap().borrow_mut().right,
-            vals[1..].to_vec(),
-        );
+        Self::build(&mut root.as_mut().unwrap().borrow_mut().right, &vals[1..]);
     }
 
     #[allow(unused)]
@@ -142,7 +139,7 @@ where
             z1.as_ref().borrow_mut().right =
                 Some(Rc::new(RefCell::new(TreeNode::<T>::new(input[i].unwrap()))));
         } else {
-            z1.as_ref().borrow_mut().right = None
+            z1.as_ref().borrow_mut().right = None;
         }
         queue.push_back(z1.borrow().right.as_ref().unwrap().clone());
         i += 1;

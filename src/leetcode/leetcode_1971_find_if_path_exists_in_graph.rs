@@ -8,10 +8,10 @@ struct Solution;
 use std::collections::{HashSet, VecDeque};
 impl Solution {
     #[allow(unused)]
-    pub fn valid_path(n: i32, edges: Vec<Vec<i32>>, start: i32, end: i32) -> bool {
+    pub fn valid_path(n: i32, edges: &[Vec<i32>], start: i32, end: i32) -> bool {
         let graph: Vec<HashSet<usize>> = {
             let mut tmp: Vec<HashSet<usize>> = vec![HashSet::new(); n as usize];
-            for edge in edges.iter() {
+            for edge in edges {
                 let u = edge[0] as usize;
                 let v = edge[1] as usize;
 
@@ -34,7 +34,7 @@ impl Solution {
                         return true;
                     }
 
-                    for &next in graph[cur].iter() {
+                    for &next in &graph[cur] {
                         if seen.insert(next) {
                             queue.push_back(next);
                         }
@@ -57,7 +57,7 @@ mod tests {
         let source = 0;
         let destination = 2;
         let output = true;
-        let ret = Solution::valid_path(n, edges, source, destination);
+        let ret = Solution::valid_path(n, &edges, source, destination);
         /*
          * There are two paths from vertex 0 to vertex 2:
          * - 0 → 1 → 2
@@ -73,7 +73,7 @@ mod tests {
         let source = 0;
         let destination = 5;
         let output = false;
-        let ret = Solution::valid_path(n, edges, source, destination);
+        let ret = Solution::valid_path(n, &edges, source, destination);
         // There is no path from vertex 0 to vertex 5.
         assert_eq!(ret, output);
     }

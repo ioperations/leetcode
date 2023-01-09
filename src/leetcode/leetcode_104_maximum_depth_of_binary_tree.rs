@@ -25,20 +25,19 @@ struct Solution;
 
 impl Solution {
     #[allow(unused)]
-    fn max_depth<T>(root: Option<Rc<RefCell<TreeNode<T>>>>) -> i32
+    fn max_depth<T>(root: &Option<Rc<RefCell<TreeNode<T>>>>) -> i32
     where
         T: Copy,
     {
-        Self::get_max_depth(&root)
+        Self::get_max_depth(root)
         // Self::max_depthv1(root, 0)
     }
 
     #[allow(unused)]
     fn get_max_depth<T>(node: &Option<Rc<RefCell<TreeNode<T>>>>) -> i32 {
-        node.as_ref()
-            .map(|node| node.borrow())
-            .map(|node| 1 + Self::get_max_depth(&node.left).max(Self::get_max_depth(&node.right)))
-            .unwrap_or(0)
+        node.as_ref().map(|node| node.borrow()).map_or(0, |node| {
+            1 + Self::get_max_depth(&node.left).max(Self::get_max_depth(&node.right))
+        })
     }
 }
 
@@ -79,7 +78,7 @@ where
                 Some(Rc::new(RefCell::new(TreeNode::<T>::new(input[i].unwrap()))));
             queue.push_back(z1.borrow().right.as_ref().unwrap().clone());
         } else {
-            z1.as_ref().borrow_mut().right = None
+            z1.as_ref().borrow_mut().right = None;
         }
         i += 1;
     }
@@ -95,7 +94,7 @@ mod tests {
         let vec = vec![Some(3), Some(9), Some(20), None, None, Some(15), Some(7)];
 
         let tree = build_binary_tree(&vec[..]);
-        let ret = Solution::max_depth(tree);
+        let ret = Solution::max_depth(&tree);
         assert_eq!(ret, 3);
     }
 
@@ -104,7 +103,7 @@ mod tests {
         let vec = vec![Some(1), None, Some(2)];
 
         let tree = build_binary_tree(&vec[..]);
-        let ret = Solution::max_depth(tree);
+        let ret = Solution::max_depth(&tree);
         assert_eq!(ret, 2);
     }
 }

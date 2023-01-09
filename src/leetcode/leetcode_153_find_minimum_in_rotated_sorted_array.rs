@@ -13,7 +13,7 @@ struct Solution;
 
 impl Solution {
     #[allow(unused)]
-    pub fn find_min(nums: Vec<i32>) -> i32 {
+    pub fn find_min(nums: &[i32]) -> i32 {
         let mut l: usize = 1;
         let mut h: usize = nums.len();
         let n = nums.len();
@@ -31,7 +31,7 @@ impl Solution {
     #[allow(unused)]
     pub fn find_min_o_n_(nums: Vec<i32>) -> i32 {
         let mut nums = nums;
-        nums.sort();
+        nums.sort_unstable();
         nums[0]
     }
 }
@@ -45,7 +45,7 @@ mod tests {
         let nums = vec![3, 4, 5, 1, 2];
         let output = 1;
         // Explanation: The original array was [1,2,3,4,5] rotated 3 times.
-        let ret = Solution::find_min(nums);
+        let ret = Solution::find_min(&nums);
         assert_eq!(ret, output);
     }
 
@@ -54,7 +54,7 @@ mod tests {
         let nums = vec![4, 5, 6, 7, 0, 1, 2];
         let output = 0;
         // Explanation: The original array was [0,1,2,4,5,6,7] and it was rotated 4 times.
-        let ret = Solution::find_min(nums);
+        let ret = Solution::find_min(&nums);
         assert_eq!(ret, output);
     }
 
@@ -63,7 +63,7 @@ mod tests {
         let nums = vec![11, 13, 15, 17];
         let output = 11;
         // Explanation: The original array was [11,13,15,17] and it was rotated 4 times.
-        let ret = Solution::find_min(nums);
+        let ret = Solution::find_min(&nums);
         assert_eq!(ret, output);
     }
 
@@ -72,7 +72,7 @@ mod tests {
         let nums = vec![4, 5, 6, 7, 2];
         let output = 2;
         // Explanation: The original array was [2,4,5,6,7] and it was rotated 4 times.
-        let ret = Solution::find_min(nums);
+        let ret = Solution::find_min(&nums);
         assert_eq!(ret, output);
     }
 
@@ -142,7 +142,7 @@ mod tests {
                 974, 975, 976, 977, 978, 979, 980, 981, 982, 983, 984, 985, 986, 987, 988, 989,
                 990, 991, 992, 993, 994, 995, 996, 997, 998, 999,
             ];
-            Solution::find_min(nums);
+            Solution::find_min(&nums);
         })
     }
 }

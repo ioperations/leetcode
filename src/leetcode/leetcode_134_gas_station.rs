@@ -7,7 +7,7 @@ Given two integer arrays gas and cost, return the starting gas station's index i
 struct Solution;
 impl Solution {
     #[allow(unused)]
-    pub fn can_complete_circuit(gas: Vec<i32>, cost: Vec<i32>) -> i32 {
+    pub fn can_complete_circuit(gas: &[i32], cost: &[i32]) -> i32 {
         #[cfg(test)]
         {
             if gas.len() != cost.len() {
@@ -51,7 +51,7 @@ mod tests {
          * Travel to station 3. The cost is 5. Your gas is just enough to travel back to station 3.
          * Therefore, return 3 as the starting index.
          */
-        let ret = Solution::can_complete_circuit(gas.into(), cost.into());
+        let ret = Solution::can_complete_circuit(&gas, &cost);
         assert_eq!(ret, output);
     }
 
@@ -69,7 +69,7 @@ mod tests {
          * You cannot travel back to station 2, as it requires 4 unit of gas but you only have 3.
          * Therefore, you can't travel around the circuit once no matter where you start.
          */
-        let ret = Solution::can_complete_circuit(gas.into(), cost.into());
+        let ret = Solution::can_complete_circuit(&gas, &cost);
         assert_eq!(ret, output);
     }
 }

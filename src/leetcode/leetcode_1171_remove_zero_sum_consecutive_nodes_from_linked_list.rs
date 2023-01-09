@@ -21,20 +21,20 @@ impl ListNode {
 }
 
 #[allow(unused)]
-pub fn from_vec(v: Vec<i32>) -> Option<Box<ListNode>> {
+pub fn from_vec(v: &[i32]) -> Option<Box<ListNode>> {
     let mut head = None;
     let n = v.len();
     for i in (0..n).rev() {
         let x = v[i];
-        head = Some(Box::new(ListNode { val: x, next: head }))
+        head = Some(Box::new(ListNode { val: x, next: head }));
     }
     head
 }
 
 #[allow(unused)]
-pub fn to_vec(head: Option<Box<ListNode>>) -> Vec<i32> {
+pub fn to_vec(head: &Option<Box<ListNode>>) -> Vec<i32> {
     let mut ans = vec![];
-    let mut p = &head;
+    let mut p = head;
     while let Some(node) = p {
         ans.push(node.val);
         p = &node.next;
@@ -46,7 +46,7 @@ pub fn to_vec(head: Option<Box<ListNode>>) -> Vec<i32> {
 struct Solution;
 impl Solution {
     #[allow(unused)]
-    pub fn remove_zero_sum_sublists(head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
+    pub fn remove_zero_sum_sublists(head: &Option<Box<ListNode>>) -> Option<Box<ListNode>> {
         use std::collections::HashMap;
 
         let mut v = to_vec(head);
@@ -61,7 +61,7 @@ impl Solution {
             *map.entry(sum).or_default() += 1;
         }
 
-        for (&key, &val) in map.iter() {
+        for (&key, &val) in &map {
             if val > 1 {
                 let mut lo = std::i32::MIN;
                 let mut hi = std::i32::MAX;
@@ -92,7 +92,7 @@ impl Solution {
                 ans.push(v[i - 1]);
             }
         }
-        from_vec(ans)
+        from_vec(&ans)
     }
 }
 
@@ -134,7 +134,7 @@ mod tests {
         let output1 = vec![3, 1];
         let output2 = vec![1, 2, 1];
         let head = build_list_iter(head.into());
-        let ret = Solution::remove_zero_sum_sublists(head);
+        let ret = Solution::remove_zero_sum_sublists(&head);
         let ret = convert_list_to_vec_iter(ret);
         assert!(ret == output1 || ret == output2);
         // let Note: The answer [1,2,1] would also be accepted.;
@@ -145,7 +145,7 @@ mod tests {
         let head = [1, 2, 3, -3, 4];
         let output1 = vec![1, 2, 4];
         let head = build_list_iter(head.into());
-        let ret = Solution::remove_zero_sum_sublists(head);
+        let ret = Solution::remove_zero_sum_sublists(&head);
         let ret = convert_list_to_vec_iter(ret);
         assert!(ret == output1);
         // let Note: The answer [1,2,1] would also be accepted.;
@@ -156,7 +156,7 @@ mod tests {
         let head = [1, 2, 3, -3, -2];
         let output1 = vec![1];
         let head = build_list_iter(head.into());
-        let ret = Solution::remove_zero_sum_sublists(head);
+        let ret = Solution::remove_zero_sum_sublists(&head);
         let ret = convert_list_to_vec_iter(ret);
         assert!(ret == output1);
         // let Note: The answer [1,2,1] would also be accepted.;
