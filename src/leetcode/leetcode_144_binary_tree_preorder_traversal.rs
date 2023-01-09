@@ -40,7 +40,7 @@ impl Solution {
         if let Some(root) = root {
             vec.push(root.borrow().val);
             Self::preorder_traversal_recursive(&root.borrow_mut().left, vec);
-            Self::preorder_traversal_recursive(&root.as_ref().borrow_mut().right, vec);
+            Self::preorder_traversal_recursive(&root.borrow_mut().right, vec);
         }
     }
 }

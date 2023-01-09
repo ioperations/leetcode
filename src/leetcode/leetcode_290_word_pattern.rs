@@ -38,7 +38,7 @@ mod tests {
         let pattern = "abba";
         let s = "dog cat cat dog";
         let output = true;
-        let ret = Solution::word_pattern(&pattern, &s);
+        let ret = Solution::word_pattern(pattern, s);
         assert_eq!(ret, output);
     }
 
@@ -47,7 +47,7 @@ mod tests {
         let pattern = "abba";
         let s = "dog cat cat fish";
         let output = false;
-        let ret = Solution::word_pattern(&pattern, &s);
+        let ret = Solution::word_pattern(pattern, s);
         assert_eq!(ret, output);
     }
 
@@ -56,7 +56,7 @@ mod tests {
         let pattern = "aaaa";
         let s = "dog cat cat dog";
         let output = false;
-        let ret = Solution::word_pattern(&pattern, &s);
+        let ret = Solution::word_pattern(pattern, s);
         assert_eq!(ret, output);
     }
 }
