@@ -65,8 +65,8 @@ impl Solution {
             if val > 1 {
                 let mut lo = std::i32::MIN;
                 let mut hi = std::i32::MAX;
-                for i in 0..partial_sum.len() {
-                    if partial_sum[i] == key {
+                for (i, &v) in partial_sum.iter().enumerate() {
+                    if v == key {
                         lo = i as i32;
                         break;
                     }

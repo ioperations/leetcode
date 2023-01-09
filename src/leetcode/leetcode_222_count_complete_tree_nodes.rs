@@ -85,7 +85,7 @@ where
 fn expect_binary_tree<T: std::cmp::PartialEq + std::fmt::Debug + Copy>(
     input: &[Option<T>],
     root: Option<Rc<RefCell<TreeNode<T>>>>,
-) -> () {
+) {
     // pass
     let mut i = 0;
     let size = input.len();

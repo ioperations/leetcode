@@ -71,15 +71,13 @@ impl Solution {
             a
         } else {
             let children = vec![&node.left, &node.right];
-            for child_option in children.iter() {
-                if let Some(child) = child_option {
-                    let c = Self::min_max(Rc::clone(child));
-                    a.answer = cmp::max(a.answer, c.answer);
-                    a.answer = cmp::max(a.answer, (node.val - c.min).abs());
-                    a.answer = cmp::max(a.answer, (node.val - c.max).abs());
-                    a.min = cmp::min(a.min, c.min);
-                    a.max = cmp::max(a.max, c.max);
-                }
+            for child_option in children.iter().copied().flatten() {
+                let c = Self::min_max(Rc::clone(child_option));
+                a.answer = cmp::max(a.answer, c.answer);
+                a.answer = cmp::max(a.answer, (node.val - c.min).abs());
+                a.answer = cmp::max(a.answer, (node.val - c.max).abs());
+                a.min = cmp::min(a.min, c.min);
+                a.max = cmp::max(a.max, c.max);
             }
             a
         }

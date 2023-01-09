@@ -14,7 +14,7 @@ impl Solution {
         let mut nums = nums;
 
         if len < 2 {
-            return *nums.iter().max().unwrap() as i32;
+            return *nums.iter().max().unwrap();
         }
 
         (for i in (0..len).rev() {
@@ -22,7 +22,7 @@ impl Solution {
                 nums[i] += *nums[(i + 2)..len].iter().max().unwrap();
             }
         });
-        *nums.iter().max().unwrap() as i32
+        *nums.iter().max().unwrap()
     }
 }
 

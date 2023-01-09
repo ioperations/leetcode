@@ -17,7 +17,7 @@ impl Solution {
             let i: usize = i as usize;
             vec[i] = vec[i - 1] + vec[i - 2];
         }
-        return vec[n as usize];
+        vec[n as usize]
     }
 }
 

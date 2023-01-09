@@ -16,9 +16,9 @@ impl Solution {
         let m = grid.len();
         let n = grid[0].len();
         let cur = (|| {
-            for i in 0..m {
-                for j in 0..n {
-                    if grid[i][j] == 1 {
+            for (i, iter) in grid.iter().enumerate().take(m) {
+                for (j, &v) in iter.iter().enumerate().take(n) {
+                    if v == 1 {
                         return (i, j);
                     }
                 }
@@ -27,9 +27,9 @@ impl Solution {
         })();
         let target = {
             let mut res = 0;
-            for i in 0..m {
-                for j in 0..n {
-                    if grid[i][j] == 0 {
+            for iter in grid.iter().take(m) {
+                for &v in iter.iter().take(n) {
+                    if v == 0 {
                         res += 1;
                     }
                 }
@@ -59,7 +59,7 @@ impl Solution {
             if grid[i][j] == -1 || route.contains(&pos) {
                 return 0;
             };
-            return Self::dfs(grid, bounds, pos, target, route);
+            Self::dfs(grid, bounds, pos, target, route)
         };
         let mut res = 0;
         if i > 0 {

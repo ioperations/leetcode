@@ -43,7 +43,7 @@ impl MyQueue {
 
     #[allow(unused)]
     fn empty(&self) -> bool {
-        self.innner.len() == 0
+        self.innner.is_empty()
     }
 }
 
@@ -69,6 +69,6 @@ mod tests {
         assert_eq!(ret, 1);
         let ret = obj.pop();
         assert_eq!(ret, 1);
-        assert_eq!(obj.empty(), false);
+        assert!(!obj.empty());
     }
 }

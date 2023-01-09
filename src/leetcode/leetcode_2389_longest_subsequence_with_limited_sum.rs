@@ -18,8 +18,8 @@ impl Solution {
         let mut ans: Vec<i32> = vec![0; len_qs];
         for (idx_q, query) in queries.into_iter().enumerate() {
             let mut sum = 0;
-            for idx_n in 0..len_ns {
-                sum += nums[idx_n];
+            for (idx_n, iterm) in nums.iter().enumerate().take(len_ns) {
+                sum += iterm;
                 if sum > query {
                     ans[idx_q] = idx_n as i32;
                     break;
@@ -28,7 +28,7 @@ impl Solution {
                 }
             }
         }
-        return ans;
+        ans
     }
 }
 

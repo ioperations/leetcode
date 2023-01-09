@@ -37,7 +37,7 @@ impl Solution {
          * The number of nodes in the tree is in the range [2, 5 * 104].
          * 1 <= Node.val <= 104
          */
-        let mod_math = 1000_000_000 + 7;
+        let mod_math = 1_000_000_000 + 7;
         let sum = Self::get_sum(&root);
         let mut max_product: i64 = 0;
         Self::get_max_product(&root, &mut max_product, sum);

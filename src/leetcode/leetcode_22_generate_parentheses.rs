@@ -16,7 +16,7 @@ impl Solution {
                 res.append(&mut back_track(s.clone() + "(", open - 1, close + 1));
             }
             if close > 0 {
-                res.append(&mut back_track(s.clone() + ")", open, close - 1));
+                res.append(&mut back_track(s + ")", open, close - 1));
             }
             res
         }

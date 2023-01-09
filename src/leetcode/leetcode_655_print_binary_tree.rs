@@ -82,7 +82,7 @@ impl Solution {
                 if let Some(v) = value[i] {
                     let c = c - 2_i32.pow((height - r - 1) as u32);
                     let r = r + 1;
-                    matrix[r as usize][c as usize] = format!("{}", v);
+                    matrix[r as usize][c as usize] = format!("{v}");
                     q.push_back((r, c));
                 }
 
@@ -94,7 +94,7 @@ impl Solution {
                 if let Some(v) = value[i] {
                     let c = c + (2_i32.pow((height - r - 1) as u32));
                     let r = r + 1;
-                    matrix[r as usize][c as usize] = format!("{}", v);
+                    matrix[r as usize][c as usize] = format!("{v}");
                     q.push_back((r, c));
                 }
             }

@@ -103,7 +103,7 @@ where
 
 /// expect binary tree equal to input
 #[allow(unused)]
-fn expect_binary_tree<T>(input: &[Option<T>], root: Option<Rc<RefCell<TreeNode<T>>>>) -> ()
+fn expect_binary_tree<T>(input: &[Option<T>], root: Option<Rc<RefCell<TreeNode<T>>>>)
 where
     T: std::cmp::PartialEq + std::fmt::Debug + Copy,
 {

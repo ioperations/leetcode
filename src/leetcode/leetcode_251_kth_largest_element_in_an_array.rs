@@ -20,7 +20,7 @@ impl Solution {
         let mut minheap = BinaryHeap::with_capacity(k);
 
         nums.into_iter().for_each(|i| minheap.push(Reverse(i)));
-        while minheap.len() > k as usize {
+        while minheap.len() > k {
             minheap.pop();
         }
         minheap.peek().unwrap().0
@@ -34,7 +34,7 @@ impl Solution {
         // nums.into_iter().for_each(|i| maxheap.push(i));
 
         let mut maxheap = BinaryHeap::from(nums);
-        while (k as usize) > 1 {
+        while k > 1 {
             maxheap.pop();
             k -= 1;
         }
@@ -46,7 +46,7 @@ impl Solution {
     pub fn find_kth_largest_max_heap_alternative_version(nums: Vec<i32>, k: i32) -> i32 {
         let mut maxheap = BinaryHeap::from(nums);
         let mut max = maxheap.into_sorted_vec();
-        max[max.len() as usize - k as usize]
+        max[max.len() - k as usize]
     }
 }
 

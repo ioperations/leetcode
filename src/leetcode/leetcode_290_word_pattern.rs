@@ -25,11 +25,7 @@ impl Solution {
             }
             bijection_mapping.insert(c, words[i]);
         }
-        if bijection_mapping.len() != word_set.len() {
-            false
-        } else {
-            true
-        }
+        bijection_mapping.len() == word_set.len()
     }
 }
 

@@ -30,7 +30,7 @@ impl Solution {
             t = t.max(c + g);
         }
 
-        return t;
+        t
     }
 }
 

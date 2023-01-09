@@ -15,7 +15,7 @@ You must do this by modifying the input array in-place with O(1) extra memory.
 #[allow(unused)]
 struct Solution;
 impl Solution {
-    #[allow(unused)]
+    #[allow(unused, clippy::mut_range_bound)]
     pub fn remove_duplicates(nums: &mut Vec<i32>) -> i32 {
         match nums.len() {
             0 | 1 => nums.len() as i32,
@@ -49,7 +49,7 @@ mod tests {
         let nums_expeced = [1, 1, 2, 2, 3];
         assert_eq!(ret, output);
         for (i, val) in nums_expeced.iter().enumerate() {
-            assert_eq!(*val, nums[i], "{:?}", nums);
+            assert_eq!(*val, nums[i], "{nums:?}");
         }
         // assert_eq!(nums);
     }
@@ -66,7 +66,7 @@ mod tests {
         let nums_expeced = [0, 0, 1, 1, 2, 3, 3];
         assert_eq!(ret, output);
         for (i, val) in nums_expeced.iter().enumerate() {
-            assert_eq!(*val, nums[i], "{:?}", nums);
+            assert_eq!(*val, nums[i], "{nums:?}");
         }
     }
 }
