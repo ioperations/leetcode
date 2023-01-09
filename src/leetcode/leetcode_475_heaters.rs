@@ -13,7 +13,7 @@ struct Solution;
 
 impl Solution {
     #[allow(unused)]
-    pub fn find_radius(houses: Vec<i32>, heaters: Vec<i32>) -> i32 {
+    pub fn find_radius(houses: &[i32], heaters: &[i32]) -> i32 {
         houses
             .iter()
             .map(
@@ -38,7 +38,7 @@ mod tests {
     fn case1_test() {
         let houses = vec![1, 2, 3];
         let heaters = vec![2];
-        let ret = Solution::find_radius(houses, heaters);
+        let ret = Solution::find_radius(&houses, &heaters);
         assert_eq!(ret, 1);
         /*The only heater was placed in the position 2, and if we use the radius 1 standard, then all the houses can be warmed.*/
     }
@@ -47,7 +47,7 @@ mod tests {
     fn case2_test() {
         let houses = vec![1, 2, 3, 4];
         let heaters = vec![1, 4];
-        let ret = Solution::find_radius(houses, heaters);
+        let ret = Solution::find_radius(&houses, &heaters);
         assert_eq!(ret, 1);
         /*The two heater was placed in the position 1 and 4. We need to use radius 1 standard, then all the houses can be warmed.
          */
@@ -56,7 +56,7 @@ mod tests {
     fn case3_test() {
         let houses = vec![1, 5];
         let heaters = vec![2];
-        let ret = Solution::find_radius(houses, heaters);
+        let ret = Solution::find_radius(&houses, &heaters);
         assert_eq!(ret, 3);
     }
 }

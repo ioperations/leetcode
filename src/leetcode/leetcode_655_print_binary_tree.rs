@@ -57,7 +57,7 @@ impl Solution {
             let value = value
                 .into_iter()
                 .rev()
-                .skip_while(|n| n.is_none())
+                .skip_while(std::option::Option::is_none)
                 .collect::<Vec<Option<i32>>>()
                 .into_iter()
                 .rev()
@@ -66,7 +66,7 @@ impl Solution {
             let height = height;
             let m: i32 = height + 1;
             let n: i32 = 2_i32.pow((height + 1) as u32) - 1;
-            let mut matrix = vec![vec![String::from(""); n as usize]; m as usize];
+            let mut matrix = vec![vec![String::new(); n as usize]; m as usize];
 
             let v: (i32, i32) = (0, (n - 1) / 2);
 
@@ -140,7 +140,7 @@ where
                 Some(Rc::new(RefCell::new(TreeNode::<T>::new(input[i].unwrap()))));
             queue.push_back(z1.borrow().right.as_ref().unwrap().clone());
         } else {
-            z1.as_ref().borrow_mut().right = None
+            z1.as_ref().borrow_mut().right = None;
         }
         i += 1;
     }

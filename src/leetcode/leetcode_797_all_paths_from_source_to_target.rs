@@ -32,8 +32,8 @@ impl Solution {
     }
 
     #[allow(unused)]
-    pub fn all_paths_source_target(graph: Vec<Vec<i32>>) -> Vec<Vec<i32>> {
-        Self::dfs(&graph, 0, (graph.len() - 1) as i32, &mut vec![], vec![])
+    pub fn all_paths_source_target(graph: &[Vec<i32>]) -> Vec<Vec<i32>> {
+        Self::dfs(graph, 0, (graph.len() - 1) as i32, &mut vec![], vec![])
     }
 }
 
@@ -50,7 +50,7 @@ mod tests {
             .into_iter()
             .collect::<HashSet<Vec<i32>>>();
         //Explanation: There are two paths: 0 -> 1 -> 3 and 0 -> 2 -> 3.
-        let ret: HashSet<Vec<i32>> = Solution::all_paths_source_target(graph)
+        let ret: HashSet<Vec<i32>> = Solution::all_paths_source_target(&graph)
             .into_iter()
             .collect();
         assert_eq!(ret, output);
@@ -69,7 +69,7 @@ mod tests {
         .into_iter()
         .collect::<HashSet<Vec<i32>>>();
         //Explanation: There are two paths: 0 -> 1 -> 3 and 0 -> 2 -> 3.
-        let ret: HashSet<Vec<i32>> = Solution::all_paths_source_target(graph)
+        let ret: HashSet<Vec<i32>> = Solution::all_paths_source_target(&graph)
             .into_iter()
             .collect();
 

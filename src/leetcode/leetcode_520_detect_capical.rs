@@ -9,7 +9,7 @@ Given a string word, return true if the usage of capitals in it is right.*/
 struct Solution;
 impl Solution {
     #[allow(unused)]
-    pub fn detect_capital_use(word: String) -> bool {
+    pub fn detect_capital_use(word: &str) -> bool {
         fn all_upper<const T: bool>(words: &[char]) -> bool {
             if T {
                 words.iter().all(|&c| ('a'..='z').contains(&c))
@@ -38,7 +38,7 @@ mod tests {
     fn case1_test() {
         let word = "USA";
         let output = true;
-        let ret = Solution::detect_capital_use(word.into());
+        let ret = Solution::detect_capital_use(word);
         assert_eq!(ret, output);
     }
 
@@ -46,7 +46,7 @@ mod tests {
     fn case2_test() {
         let word = "FlaG";
         let output = false;
-        let ret = Solution::detect_capital_use(word.into());
+        let ret = Solution::detect_capital_use(word);
         assert_eq!(ret, output);
     }
 
@@ -54,7 +54,7 @@ mod tests {
     fn case3_test() {
         let word = "mL";
         let output = false;
-        let ret = Solution::detect_capital_use(word.into());
+        let ret = Solution::detect_capital_use(word);
         assert_eq!(ret, output);
     }
 }

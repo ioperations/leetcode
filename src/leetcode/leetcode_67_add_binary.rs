@@ -1,5 +1,5 @@
 #[allow(unused)]
-pub fn add_binary(a: String, b: String) -> String {
+pub fn add_binary(a: &str, b: &str) -> String {
     use std::iter;
     let mut carry = 0;
     let mut cur_sum = 0;
@@ -33,7 +33,7 @@ pub fn add_binary(a: String, b: String) -> String {
 }
 
 #[allow(unused)]
-fn add_binary_2(a: String, b: String) -> String {
+fn add_binary_2(a: &str, b: &str) -> String {
     let mut carry = 0;
 
     use std::iter;
@@ -48,7 +48,6 @@ fn add_binary_2(a: String, b: String) -> String {
             let this_bit = (*a - b'0') + (*b - b'0') + carry;
             carry = this_bit / 2;
             match this_bit % 2 {
-                0 => '0',
                 1 => '1',
                 _ => '0',
             }
@@ -70,7 +69,7 @@ mod tests {
     fn add_binary_1_test() {
         let a: String = String::from("1111");
         let b: String = String::from("10101");
-        let ret = add_binary(a, b);
+        let ret = add_binary(a.as_str(), b.as_str());
         assert_eq!(ret, "100100");
     }
 
@@ -78,7 +77,7 @@ mod tests {
     fn add_binary_2_test() {
         let a = String::from("11");
         let b = String::from("1");
-        let ret = add_binary(a, b);
+        let ret = add_binary(a.as_str(), b.as_str());
         assert_eq!(ret, "100");
     }
 }
@@ -91,7 +90,7 @@ mod tests_v2 {
     fn add_binary_1_test() {
         let a: String = String::from("1111");
         let b: String = String::from("10101");
-        let ret = add_binary_2(a, b);
+        let ret = add_binary_2(a.as_str(), b.as_str());
         assert_eq!(ret, "100100");
     }
 
@@ -99,7 +98,7 @@ mod tests_v2 {
     fn add_binary_2_test() {
         let a = String::from("11");
         let b = String::from("1");
-        let ret = add_binary_2(a, b);
+        let ret = add_binary_2(a.as_str(), b.as_str());
         assert_eq!(ret, "100");
     }
 }

@@ -18,7 +18,7 @@ enum Invested {
 struct Solution;
 impl Solution {
     #[allow(unused)]
-    pub fn max_profit(prices: Vec<i32>) -> i32 {
+    pub fn max_profit(prices: &[i32]) -> i32 {
         let l = prices.len();
         if l == 1 {
             return 0;
@@ -63,8 +63,8 @@ impl Solution {
 
     // https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/solutions/2520407/rust-dp-solution-evolution-with-comments/?q=rust+dp&orderBy=most_relevant
     #[allow(unused)]
-    pub fn max_profit_v2(prices: Vec<i32>) -> i32 {
-        Self::dp(&prices, 0, Invested::No, &mut HashMap::new())
+    pub fn max_profit_v2(prices: &[i32]) -> i32 {
+        Self::dp(prices, 0, Invested::No, &mut HashMap::new())
     }
 }
 
@@ -76,7 +76,7 @@ mod tests {
     fn case1_test() {
         let prices = [1, 2, 3, 0, 2];
         let output = 3;
-        let ret = Solution::max_profit(prices.into());
+        let ret = Solution::max_profit(&prices);
         assert_eq!(ret, output);
         // Explanation: transactions = [buy, sell, cooldown, buy, sell]
     }
@@ -85,7 +85,7 @@ mod tests {
     fn case2_test() {
         let prices = [1];
         let output = 0;
-        let ret = Solution::max_profit(prices.into());
+        let ret = Solution::max_profit(&prices);
         assert_eq!(ret, output);
         // Explanation: transactions = [buy, sell, cooldown, buy, sell]
     }
@@ -99,7 +99,7 @@ mod tests_v2 {
     fn case1_test() {
         let prices = [1, 2, 3, 0, 2];
         let output = 3;
-        let ret = Solution::max_profit_v2(prices.into());
+        let ret = Solution::max_profit_v2(&prices);
         assert_eq!(ret, output);
         // Explanation: transactions = [buy, sell, cooldown, buy, sell]
     }
@@ -108,7 +108,7 @@ mod tests_v2 {
     fn case2_test() {
         let prices = [1];
         let output = 0;
-        let ret = Solution::max_profit_v2(prices.into());
+        let ret = Solution::max_profit_v2(&prices);
         assert_eq!(ret, output);
         // Explanation: transactions = [buy, sell, cooldown, buy, sell]
     }

@@ -12,7 +12,7 @@ impl Solution {
         let len_qs: usize = queries.len();
         let nums: Vec<i32> = {
             let mut nums = nums;
-            nums.sort();
+            nums.sort_unstable();
             nums
         };
         let mut ans: Vec<i32> = vec![0; len_qs];

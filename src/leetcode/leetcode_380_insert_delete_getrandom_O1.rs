@@ -21,7 +21,7 @@ struct RandomizedSet {
 impl RandomizedSet {
     #[allow(unused)]
     fn new() -> Self {
-        Default::default()
+        RandomizedSet::default()
     }
 
     #[allow(unused)]
@@ -43,19 +43,18 @@ impl RandomizedSet {
     fn remove(&self, val: i32) -> bool {
         let contains = self.map.borrow().contains_key(&val);
 
-        match contains {
-            false => false,
-            true => {
-                let len = self.vec.borrow().len();
-                let index = *self.map.borrow().get(&val).unwrap();
-                let last_elem = self.vec.borrow()[len - 1];
-                self.vec.borrow_mut()[index] = last_elem;
-                self.map.borrow_mut().insert(last_elem, index);
-                self.vec.borrow_mut().remove(len - 1);
-                self.map.borrow_mut().remove(&val);
+        if contains {
+            let len = self.vec.borrow().len();
+            let index = *self.map.borrow().get(&val).unwrap();
+            let last_elem = self.vec.borrow()[len - 1];
+            self.vec.borrow_mut()[index] = last_elem;
+            self.map.borrow_mut().insert(last_elem, index);
+            self.vec.borrow_mut().remove(len - 1);
+            self.map.borrow_mut().remove(&val);
 
-                true
-            }
+            true
+        } else {
+            false
         }
     }
 

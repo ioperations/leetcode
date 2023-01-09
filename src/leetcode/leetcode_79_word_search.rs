@@ -22,7 +22,7 @@ struct Context {
 
 impl Solution {
     #[allow(unused)]
-    pub fn exist(board: Vec<Vec<char>>, word: String) -> bool {
+    pub fn exist(board: Vec<Vec<char>>, word: &str) -> bool {
         assert!(!board.is_empty());
         let mut board = board;
         let row = board.len();
@@ -118,7 +118,7 @@ mod tests {
             vec!['A', 'D', 'E', 'E'],
         ];
         let word = String::from("ABCCED");
-        let ret = Solution::exist(v, word);
+        let ret = Solution::exist(v, word.as_str());
         assert!(ret);
     }
 
@@ -139,7 +139,7 @@ mod tests {
             vec!['A', 'D', 'E', 'E'],
         ];
         let word = String::from("SEE");
-        let ret = Solution::exist(v, word);
+        let ret = Solution::exist(v, word.as_str());
         assert!(ret);
     }
 
@@ -161,7 +161,7 @@ mod tests {
             vec!['A', 'D', 'E', 'E'],
         ];
         let word = String::from("ABCB");
-        let ret = Solution::exist(v, word);
+        let ret = Solution::exist(v, word.as_str());
         assert!(!ret);
     }
 
@@ -186,7 +186,7 @@ mod tests {
             vec!['A', 'A', 'A', 'A', 'A', 'A'],
         ];
         let word = String::from("AAAAAAAAAAAAAAB");
-        let ret = Solution::exist(v, word);
+        let ret = Solution::exist(v, word.as_str());
         assert!(!ret);
     }
 }

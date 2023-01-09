@@ -147,41 +147,11 @@ where
                 Some(Rc::new(RefCell::new(TreeNode::<T>::new(input[i].unwrap()))));
             queue.push_back(z1.borrow().right.as_ref().unwrap().clone());
         } else {
-            z1.as_ref().borrow_mut().right = None
+            z1.as_ref().borrow_mut().right = None;
         }
         i += 1;
     }
     Some(root)
-}
-
-/// expect binary tree equal to input
-#[allow(unused)]
-fn expect_binary_tree<T>(input: &[Option<T>], root: Option<Rc<RefCell<TreeNode<T>>>>)
-where
-    T: std::cmp::PartialEq + std::fmt::Debug + Copy,
-{
-    // pass
-    let mut i = 0;
-    let size = input.len();
-    if i == size {
-        return;
-    }
-
-    let mut q: VecDeque<Rc<RefCell<TreeNode<T>>>> = VecDeque::new();
-    q.push_back(root.as_ref().unwrap().clone());
-    while !q.is_empty() {
-        let n1 = q.pop_front().unwrap();
-        assert_eq!(Some(n1.as_ref().borrow().val), input[i]);
-        i += 1;
-        if let Some(v) = &n1.as_ref().borrow().left {
-            q.push_back(v.clone());
-        };
-        if let Some(v) = &n1.as_ref().borrow().right {
-            q.push_back(v.clone());
-        };
-    }
-
-    assert_eq!(i, size);
 }
 
 #[cfg(test)]

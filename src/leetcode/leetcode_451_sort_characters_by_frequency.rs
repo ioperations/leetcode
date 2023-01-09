@@ -6,7 +6,7 @@ Return the sorted string. If there are multiple answers, return any of them.*/
 struct Solution;
 impl Solution {
     #[allow(unused)]
-    pub fn frequency_sort(s: String) -> String {
+    pub fn frequency_sort(s: &str) -> String {
         let mut vec = Vec::with_capacity(26 + 26 + 10 + 100);
 
         (0..(26 + 26 + 10 + 100)).all(|i| {
@@ -20,7 +20,7 @@ impl Solution {
 
         vec.sort_by(|a, b| b.1.partial_cmp(&a.1).unwrap());
 
-        let mut s = String::from("");
+        let mut s = String::new();
 
         for (i, j) in vec {
             if j > 0 {
@@ -40,7 +40,7 @@ mod tests {
 
     #[test]
     fn case1_test() {
-        let s = "tree".into();
+        let s = "tree";
         let output = [String::from("eert"), String::from("eetr")]
             .iter()
             .cloned()
@@ -55,7 +55,7 @@ mod tests {
 
     #[test]
     fn case2_test() {
-        let s = "cccaaa".into();
+        let s = "cccaaa";
         let output = ["aaaccc".into(), "cccaaa".into()]
             .iter()
             .cloned()
@@ -70,7 +70,7 @@ mod tests {
 
     #[test]
     fn case3_test() {
-        let s = "Aabb".into();
+        let s = "Aabb";
         let output = ["bbAa".into(), "bbaA".into()]
             .iter()
             .cloned()

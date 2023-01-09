@@ -20,7 +20,7 @@ impl Solution {
             }
             res
         }
-        back_track("".to_string(), n, 0)
+        back_track(String::new(), n, 0)
     }
 }
 

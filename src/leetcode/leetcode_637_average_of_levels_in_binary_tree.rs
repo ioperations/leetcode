@@ -43,7 +43,7 @@ impl Solution {
                 } else {
                     v.push(cur_sum / cur_count as f64);
                     cur_level += 1;
-                    cur_sum = z.0.as_ref().borrow().val as f64;
+                    cur_sum = f64::from(z.0.as_ref().borrow().val);
                     cur_count = 1;
                 }
                 if let Some(n) = z.0.as_ref().borrow_mut().left.take() {
@@ -54,7 +54,7 @@ impl Solution {
                 };
             }
             if cur_count != 0 {
-                v.push(cur_sum / cur_count as f64);
+                v.push(cur_sum / f64::from(cur_count));
             }
         }
         v
@@ -98,7 +98,7 @@ where
                 Some(Rc::new(RefCell::new(TreeNode::<T>::new(input[i].unwrap()))));
             queue.push_back(z1.borrow().right.as_ref().unwrap().clone());
         } else {
-            z1.as_ref().borrow_mut().right = None
+            z1.as_ref().borrow_mut().right = None;
         }
         i += 1;
     }

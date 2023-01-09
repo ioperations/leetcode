@@ -6,10 +6,10 @@ use std::collections::VecDeque;
 struct Solution;
 impl Solution {
     #[allow(unused)]
-    pub fn largest_rectangle_area(heights: Vec<i32>) -> i32 {
+    pub fn largest_rectangle_area(heights: &[i32]) -> i32 {
         // 1 <= heights.len() <= 10^5
         // 0 <= heights[i] <= 10^4
-        Self::max_area(&heights)
+        Self::max_area(heights)
     }
 
     #[allow(unused)]
@@ -39,12 +39,12 @@ impl Solution {
         res
     }
 
-    /// @author: Leon
-    /// https://leetcode.com/problems/largest-rectangle-in-histogram/
-    /// Time Complexity:    O(`len_hts`)
-    /// Space Complexity:   O(`len_hts`)
+    // @author: Leon
+    // https://leetcode.com/problems/largest-rectangle-in-histogram/
+    // Time Complexity:    O(`len_hts`)
+    // Space Complexity:   O(`len_hts`)
     #[allow(unused)]
-    pub fn largest_rectangle_area_v2(heights: Vec<i32>) -> i32 {
+    pub fn largest_rectangle_area_v2(heights: &[i32]) -> i32 {
         let len_hts: usize = heights.len();
         let mut stk: VecDeque<usize> = VecDeque::new();
         let mut largest: i32 = 0;
@@ -91,7 +91,7 @@ mod tests {
         Explanation: The above is a histogram where width of each bar is 1.
         The largest rectangle is shown in the red area, which has an area = 10 units.
         */
-        let ret = Solution::largest_rectangle_area(heights.into());
+        let ret = Solution::largest_rectangle_area(&heights);
         assert_eq!(ret, output);
     }
 
@@ -99,7 +99,7 @@ mod tests {
     fn case2_test() {
         let heights = [2, 4];
         let output = 4;
-        let ret = Solution::largest_rectangle_area(heights.into());
+        let ret = Solution::largest_rectangle_area(&heights);
         assert_eq!(ret, output);
     }
     #[test]
@@ -110,7 +110,7 @@ mod tests {
         Explanation: The above is a histogram where width of each bar is 1.
         The largest rectangle is shown in the red area, which has an area = 10 units.
         */
-        let ret = Solution::largest_rectangle_area_v2(heights.into());
+        let ret = Solution::largest_rectangle_area_v2(&heights);
         assert_eq!(ret, output);
     }
 
@@ -118,7 +118,7 @@ mod tests {
     fn case4_test() {
         let heights = [2, 4];
         let output = 4;
-        let ret = Solution::largest_rectangle_area_v2(heights.into());
+        let ret = Solution::largest_rectangle_area_v2(&heights);
         assert_eq!(ret, output);
     }
 
@@ -126,7 +126,7 @@ mod tests {
     fn case1(b: &mut test::Bencher) {
         let heights = [2, 1, 5, 6, 2, 3];
         b.iter(|| {
-            Solution::largest_rectangle_area(heights.into());
+            Solution::largest_rectangle_area(&heights);
         })
     }
 
@@ -134,7 +134,7 @@ mod tests {
     fn case2(b: &mut test::Bencher) {
         let heights = [2, 1, 5, 6, 2, 3];
         b.iter(|| {
-            Solution::largest_rectangle_area_v2(heights.into());
+            Solution::largest_rectangle_area_v2(&heights);
         })
     }
 }

@@ -57,10 +57,10 @@ impl Solution {
                     sum += node.val;
                 }
                 if node.val > low {
-                    stack.push(node.left.clone())
+                    stack.push(node.left.clone());
                 }
                 if node.val < high {
-                    stack.push(node.right.clone())
+                    stack.push(node.right.clone());
                 }
             }
         }
@@ -72,20 +72,22 @@ impl Solution {
         match root {
             Some(head) => {
                 let head_value: i32 = head.borrow().val;
-                let extra = if head_value == high  || head_value == low  {
+                let extra = if head_value == high || head_value == low {
                     head_value
                 } else {
                     0
                 };
 
                 if head_value <= low {
-                    return extra + Self::range_sum_bst_v1(head.borrow_mut().right.take(), low, high);
+                    return extra
+                        + Self::range_sum_bst_v1(head.borrow_mut().right.take(), low, high);
                 } else if head_value >= high {
-                    return extra + Self::range_sum_bst_v1(head.borrow_mut().left.take(), low, high);
+                    return extra
+                        + Self::range_sum_bst_v1(head.borrow_mut().left.take(), low, high);
                 } else {
                     let left = Self::range_sum_bst_v1(head.borrow_mut().left.take(), low, high);
-                    let right =  Self::range_sum_bst_v1(head.borrow_mut().right.take(), low, high);
-                    return left + right +  head_value;
+                    let right = Self::range_sum_bst_v1(head.borrow_mut().right.take(), low, high);
+                    return left + right + head_value;
                 }
             }
             None => 0,
@@ -129,41 +131,11 @@ where
                 Some(Rc::new(RefCell::new(TreeNode::<T>::new(input[i].unwrap()))));
             queue.push_back(z1.borrow().right.as_ref().unwrap().clone());
         } else {
-            z1.as_ref().borrow_mut().right = None
+            z1.as_ref().borrow_mut().right = None;
         }
         i += 1;
     }
     Some(root)
-}
-
-/// expect binary tree equal to input
-#[allow(unused)]
-fn expect_binary_tree<T>(input: &[Option<T>], root: Option<Rc<RefCell<TreeNode<T>>>>)
-where
-    T: std::cmp::PartialEq + std::fmt::Debug + Copy,
-{
-    // pass
-    let mut i = 0;
-    let size = input.len();
-    if i == size {
-        return;
-    }
-
-    let mut q: VecDeque<Rc<RefCell<TreeNode<T>>>> = VecDeque::new();
-    q.push_back(root.as_ref().unwrap().clone());
-    while !q.is_empty() {
-        let n1 = q.pop_front().unwrap();
-        assert_eq!(Some(n1.as_ref().borrow().val), input[i]);
-        i += 1;
-        if let Some(v) = &n1.as_ref().borrow().left {
-            q.push_back(v.clone());
-        };
-        if let Some(v) = &n1.as_ref().borrow().right {
-            q.push_back(v.clone());
-        };
-    }
-
-    assert_eq!(i, size);
 }
 
 #[cfg(test)]

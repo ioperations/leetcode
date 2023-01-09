@@ -12,7 +12,7 @@ use std::collections::HashSet;
 struct Solution;
 impl Solution {
     #[allow(unused)]
-    pub fn unique_paths_iii(grid: Vec<Vec<i32>>) -> i32 {
+    pub fn unique_paths_iii(grid: &[Vec<i32>]) -> i32 {
         let m = grid.len();
         let n = grid[0].len();
         let cur = (|| {
@@ -37,7 +37,7 @@ impl Solution {
             res + 1
         };
         let mut route = HashSet::new();
-        Self::dfs(&grid, (m - 1, n - 1), cur, target, &mut route)
+        Self::dfs(grid, (m - 1, n - 1), cur, target, &mut route)
     }
 
     #[allow(unused)]
@@ -90,7 +90,7 @@ mod tests {
         // Explanation: We have the following two paths:
         // 1. (0,0),(0,1),(0,2),(0,3),(1,3),(1,2),(1,1),(1,0),(2,0),(2,1),(2,2)
         // 2. (0,0),(1,0),(2,0),(2,1),(1,1),(0,1),(0,2),(0,3),(1,3),(1,2),(2,2)
-        let ret = Solution::unique_paths_iii(grid);
+        let ret = Solution::unique_paths_iii(&grid);
         assert_eq!(ret, output);
     }
 
@@ -103,7 +103,7 @@ mod tests {
         // 2. (0,0),(0,1),(1,1),(1,0),(2,0),(2,1),(2,2),(1,2),(0,2),(0,3),(1,3),(2,3)
         // 3. (0,0),(1,0),(2,0),(2,1),(2,2),(1,2),(1,1),(0,1),(0,2),(0,3),(1,3),(2,3)
         // 4. (0,0),(1,0),(2,0),(2,1),(1,1),(0,1),(0,2),(0,3),(1,3),(1,2),(2,2),(2,3)
-        let ret = Solution::unique_paths_iii(grid);
+        let ret = Solution::unique_paths_iii(&grid);
         assert_eq!(ret, output);
     }
 
@@ -113,7 +113,7 @@ mod tests {
         let output = 0;
         // There is no path that walks over every empty square exactly once.
         // Note that the starting and ending square can be anywhere in the grid.
-        let ret = Solution::unique_paths_iii(grid);
+        let ret = Solution::unique_paths_iii(&grid);
         assert_eq!(ret, output);
     }
 }

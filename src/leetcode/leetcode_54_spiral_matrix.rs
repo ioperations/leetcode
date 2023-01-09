@@ -12,7 +12,7 @@ enum Direction {
 
 impl Solution {
     #[allow(unused)]
-    pub fn spiral_order(matrix: Vec<Vec<i32>>) -> Vec<i32> {
+    pub fn spiral_order(matrix: &[Vec<i32>]) -> Vec<i32> {
         assert!(!matrix.is_empty());
         let m = matrix.len() as i32;
         let n = matrix[0].len() as i32;
@@ -80,7 +80,7 @@ mod tests {
     fn case1_test() {
         let matrix = vec![vec![1, 2, 3], vec![4, 5, 6], vec![7, 8, 9]];
         let output = vec![1, 2, 3, 6, 9, 8, 7, 4, 5];
-        let ret = Solution::spiral_order(matrix);
+        let ret = Solution::spiral_order(&matrix);
         assert_eq!(ret, output);
     }
 
@@ -88,7 +88,7 @@ mod tests {
     fn case2_test() {
         let matrix = vec![vec![1, 2, 3, 4], vec![5, 6, 7, 8], vec![9, 10, 11, 12]];
         let output = vec![1, 2, 3, 4, 8, 12, 11, 10, 9, 5, 6, 7];
-        let ret = Solution::spiral_order(matrix);
+        let ret = Solution::spiral_order(&matrix);
         assert_eq!(ret, output);
     }
 }

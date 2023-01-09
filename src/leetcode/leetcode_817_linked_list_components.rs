@@ -22,10 +22,10 @@ struct Solution;
 
 impl Solution {
     #[allow(unused)]
-    pub fn num_components(head: Option<Box<ListNode<i32>>>, nums: Vec<i32>) -> i32 {
-        let nums: HashSet<_> = nums.into_iter().collect();
+    pub fn num_components(head: &Option<Box<ListNode<i32>>>, nums: &[i32]) -> i32 {
+        let nums: HashSet<_> = nums.iter().collect();
         (0..)
-            .scan(&head, |node, _| {
+            .scan(head, |node, _| {
                 node.as_deref().map(|ListNode { val, next }| {
                     *node = next;
                     nums.contains(val)
@@ -60,7 +60,7 @@ mod tests {
         let output = 2;
         // Explanation: 0 and 1 are connected, so [0, 1] and [3] are the two connected components.
         let link_list = build_list_from_vec(&head);
-        let ret = Solution::num_components(link_list, nums.into());
+        let ret = Solution::num_components(&link_list, &nums);
         assert_eq!(ret, output);
     }
 
@@ -72,7 +72,7 @@ mod tests {
         // 0 and 1 are connected, 3 and 4 are connected, so [0, 1] and [3, 4] are the two connected components.
         let link_list = build_list_from_vec(&head);
 
-        let ret = Solution::num_components(link_list, nums.into());
+        let ret = Solution::num_components(&link_list, &nums);
         assert_eq!(ret, output);
     }
 }
