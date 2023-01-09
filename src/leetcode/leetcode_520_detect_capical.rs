@@ -12,9 +12,9 @@ impl Solution {
     pub fn detect_capital_use(word: &str) -> bool {
         fn all_upper<const T: bool>(words: &[char]) -> bool {
             if T {
-                words.iter().all(|&c| ('a'..='z').contains(&c))
+                words.iter().all(|&c| c.is_ascii_lowercase())
             } else {
-                words.iter().all(|&c| ('A'..='Z').contains(&c))
+                words.iter().all(|&c| c.is_ascii_uppercase())
             }
         }
         if word.is_empty() || word.len() == 1 {
@@ -22,7 +22,7 @@ impl Solution {
         }
 
         let word = word.chars().collect::<Vec<char>>();
-        if ('a'..='z').contains(&word[0]) {
+        if word[0].is_ascii_lowercase() {
             all_upper::<true>(&word[1..])
         } else {
             all_upper::<true>(&word[1..]) || all_upper::<false>(&word[1..])

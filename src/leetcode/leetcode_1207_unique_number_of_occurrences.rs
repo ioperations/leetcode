@@ -22,7 +22,7 @@ impl Solution {
             hasmap.entry(i).and_modify(|e| *e += 1).or_insert(0);
         }
 
-        let v = hasmap.values().into_iter().copied().collect::<Vec<usize>>();
+        let v = hasmap.values().copied().collect::<Vec<usize>>();
 
         !_contains_duplicate(&v)
     }

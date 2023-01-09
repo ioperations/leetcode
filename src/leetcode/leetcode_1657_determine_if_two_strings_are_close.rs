@@ -26,8 +26,8 @@ impl Solution {
             hm.entry(*i as char).and_modify(|e| *e += 1).or_insert(0);
         }
 
-        let mut v = hm.values().copied().into_iter().collect::<Vec<usize>>();
-        let s1 = hm.keys().copied().into_iter().collect::<HashSet<char>>();
+        let mut v = hm.values().copied().collect::<Vec<usize>>();
+        let s1 = hm.keys().copied().collect::<HashSet<char>>();
         v.sort_unstable();
 
         let mut hm = HashMap::new();
@@ -35,8 +35,8 @@ impl Solution {
             hm.entry(*i as char).and_modify(|e| *e += 1).or_insert(0);
         }
 
-        let mut v1 = hm.values().copied().into_iter().collect::<Vec<usize>>();
-        let s2 = hm.keys().copied().into_iter().collect::<HashSet<char>>();
+        let mut v1 = hm.values().copied().collect::<Vec<usize>>();
+        let s2 = hm.keys().copied().collect::<HashSet<char>>();
         v1.sort_unstable();
         v == v1 && s1 == s2
     }
