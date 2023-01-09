@@ -20,7 +20,7 @@ impl Producer {
     pub fn start(&self) {
         let pair = self.cvar.clone();
         thread::spawn(move || loop {
-            let &(ref lock, ref cvar) = &*pair;
+            let (lock, cvar) = &*pair;
             std::thread::sleep(time::Duration::from_millis(100));
             let mut status = lock.lock().unwrap();
             *status = true;
@@ -46,11 +46,11 @@ impl<'a> Consumer<'a> {
         let prod = self.producer.get_cvar().clone();
         let name = self.name.clone();
         thread::spawn(move || {
-            let &(ref lock, ref cvar) = &*prod;
+            let (lock, cvar) = &*prod;
             let mut fetched = lock.lock().unwrap();
             loop {
                 fetched = cvar.wait(fetched).unwrap();
-                println!("Recieved {}", name);
+                println!("Recieved {name}");
             }
         });
     }

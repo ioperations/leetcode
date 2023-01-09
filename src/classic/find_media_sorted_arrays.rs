@@ -1,7 +1,7 @@
 pub mod find_median_sorted_arrays {
 
     #[allow(dead_code)]
-    pub fn find_median_sorted_arrays(nums1: &mut Vec<i32>, nums2: &mut Vec<i32>) -> Vec<i32> {
+    pub fn find_median_sorted_arrays(nums1: &mut Vec<i32>, nums2: &[i32]) -> Vec<i32> {
         for i in nums2.iter() {
             nums1.push(*i);
         }
@@ -52,9 +52,9 @@ pub mod find_median_sorted_arrays {
         #[test]
         pub fn find_median_sorted_arrays_test() {
             let mut nums1 = vec![1, 2, 3];
-            let mut nums2 = vec![4, 5, 6];
+            let nums2 = vec![4, 5, 6];
 
-            let ret = find_median_sorted_arrays(&mut nums1, &mut nums2);
+            let ret = find_median_sorted_arrays(&mut nums1, &nums2);
             let expected = vec![1, 2, 3, 4, 5, 6];
             assert!(ret == expected);
         }

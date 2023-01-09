@@ -50,7 +50,7 @@ mod tests {
         };
 
         t.dfs(|node| {
-            println!("{}", node);
+            println!("{node}");
         });
     }
 }

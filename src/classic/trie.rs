@@ -32,7 +32,7 @@ where
             match self.value {
                 Some(_) => {
                     let bt = Backtrace::new();
-                    println!("{:?}", bt);
+                    println!("{bt:?}");
                     panic!("key exists")
                 }
                 None => {

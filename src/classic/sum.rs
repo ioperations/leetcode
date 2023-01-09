@@ -54,7 +54,7 @@ mod tests {
         summary(&post);
         summary(&weibo);
 
-        println!("{:?}", post);
-        println!("{:?}", weibo);
+        println!("{post:?}");
+        println!("{weibo:?}");
     }
 }

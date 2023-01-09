@@ -29,6 +29,6 @@ mod tests {
             t.push(z.clone());
         }
 
-        println!("{:?}", t);
+        println!("{t:?}");
     }
 }

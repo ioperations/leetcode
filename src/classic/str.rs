@@ -1,16 +1,16 @@
 #[allow(dead_code)]
 fn greetings(s: &str) {
-    println!("{}", s)
+    println!("{s}")
 }
 
 #[allow(unused)]
 fn reverse_str(str_slice: &str) -> String {
     if str_slice.is_empty() {
-        return String::from("");
+        String::from("")
     } else {
         let mut ret = reverse_str(&str_slice[1..]);
         ret.push_str(&str_slice[0..1]);
-        return ret;
+        ret
     }
 }
 
@@ -31,7 +31,7 @@ mod tests {
         s.push_str(" world");
         s += "!";
 
-        println!("{}", s)
+        println!("{s}")
     }
 
     #[test]
@@ -42,7 +42,7 @@ mod tests {
             let s3 = String::from(&s1) + s2.as_str();
             assert_eq!(s3, "hello,world!");
         }
-        println!("{}", s1);
+        println!("{s1}");
     }
 
     #[test]

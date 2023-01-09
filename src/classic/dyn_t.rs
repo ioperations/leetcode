@@ -93,12 +93,12 @@ mod summary {
 
     #[allow(dead_code)]
     pub fn return_impl_trait(_: bool) -> impl Summary {
-        return Post {
+        Post {
             email: String::from("unknown@unknown.com"),
             name: String::from("undefined"),
             id: 0,
             sex: Sex::Other(String::from("private")),
-        };
+        }
     }
 }
 
@@ -111,13 +111,13 @@ mod tests {
     #[test]
     fn returns_summarizable_test() {
         let string = summary::returns_summarizable(true).summary();
-        println!("{}", string)
+        println!("{string}")
     }
 
     #[test]
     fn returns_summarizable2_test() {
         let string = summary::returns_summarizable(false).summary();
-        println!("{}", string)
+        println!("{string}")
     }
 
     #[test]
@@ -128,6 +128,6 @@ mod tests {
          * dyn trait 是动态的，在运行期间才能确定的
          */
         let post = summary::return_impl_trait(true).summary();
-        println!("{}", post);
+        println!("{post}");
     }
 }
