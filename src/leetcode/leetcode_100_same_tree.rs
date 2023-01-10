@@ -137,8 +137,23 @@ mod tests {
 
     #[test]
     fn case0_test() {
-        let p = vec![Some(1), Some(2), Some(3)];
-        let q = vec![Some(1), Some(2), Some(3)];
+        let null = 1000;
+        let p = [1, 2, 3]
+            .map(|i| {
+                if i == null {
+                    return None;
+                }
+                Some(i)
+            })
+            .to_vec();
+        let q = [1, 2, 3]
+            .map(|i| {
+                if i == null {
+                    return None;
+                }
+                Some(i)
+            })
+            .to_vec();
         let tree = build_binary_tree(&p[..]);
         expect_binary_tree(&p[..], &tree);
         let tree2 = build_binary_tree(&q[..]);
@@ -147,8 +162,23 @@ mod tests {
 
     #[test]
     fn case1_test() {
-        let p = vec![Some(1), Some(2), Some(3)];
-        let q = vec![Some(1), Some(2), Some(3)];
+        let null = 1000;
+        let p = [1, 2, 3]
+            .map(|i| {
+                if i == null {
+                    return None;
+                }
+                Some(i)
+            })
+            .to_vec();
+        let q = [1, 2, 3]
+            .map(|i| {
+                if i == null {
+                    return None;
+                }
+                Some(i)
+            })
+            .to_vec();
         let mut tree1 = build_binary_tree(&p[..]);
         let mut tree2 = build_binary_tree(&q[..]);
         let ret = Solution::is_same_tree(&mut tree1, &mut tree2);
@@ -157,8 +187,23 @@ mod tests {
 
     #[test]
     fn case2_test() {
-        let p = vec![Some(1), Some(2)];
-        let q = vec![Some(1), Some(2)];
+        let null = 1000;
+        let p = [1, 2]
+            .map(|i| {
+                if i == null {
+                    return None;
+                }
+                Some(i)
+            })
+            .to_vec();
+        let q = [1, 2]
+            .map(|i| {
+                if i == null {
+                    return None;
+                }
+                Some(i)
+            })
+            .to_vec();
         let mut tree1 = build_binary_tree(&p[..]);
         let mut tree2 = build_binary_tree(&q[..]);
         let ret = Solution::is_same_tree(&mut tree1, &mut tree2);
@@ -167,8 +212,23 @@ mod tests {
 
     #[test]
     fn case3_test() {
-        let p = vec![Some(1), Some(2), Some(1)];
-        let q = vec![Some(1), Some(1), Some(2)];
+        let null = 1000;
+        let p = [1, 2, 1]
+            .map(|i| {
+                if i == null {
+                    return None;
+                }
+                Some(i)
+            })
+            .to_vec();
+        let q = [1, 1, 2]
+            .map(|i| {
+                if i == null {
+                    return None;
+                }
+                Some(i)
+            })
+            .to_vec();
         let mut tree1 = build_binary_tree(&p[..]);
         let mut tree2 = build_binary_tree(&q[..]);
         let ret = Solution::is_same_tree(&mut tree1, &mut tree2);
