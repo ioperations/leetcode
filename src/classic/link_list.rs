@@ -1018,13 +1018,13 @@ mod test {
     #[test]
     fn test_debug() {
         let list: LinkedList<i32> = (0..10).collect();
-        assert_eq!(format!("{:?}", list), "[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]");
+        assert_eq!(format!("{list:?}"), "[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]");
 
         let list: LinkedList<&str> = vec!["just", "one", "test", "more"]
             .iter()
             .copied()
             .collect();
-        assert_eq!(format!("{:?}", list), r#"["just", "one", "test", "more"]"#);
+        assert_eq!(format!("{list:?}"), r#"["just", "one", "test", "more"]"#);
     }
 
     #[test]

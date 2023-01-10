@@ -153,7 +153,7 @@ mod tests {
         let v = vec![-10, -3, 0, 5, 9];
         let ret = Solution::sorted_array_to_bst(&v[..]);
         let ret = flatten_binary_tree(ret);
-        println!("ret =>  {:?}", ret);
+        println!("ret =>  {ret:?}");
         let mut set = HashSet::new();
         set.insert(vec![Some(0), Some(-3), Some(9), Some(10), None, Some(9)]);
         set.insert(vec![
