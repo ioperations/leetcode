@@ -119,7 +119,7 @@ mod tests {
         let ret = Solution::average_of_levels(t1);
         let mut i = 0;
         for j in ret {
-            assert_eq!(j, output[i as usize]);
+            assert!((j - output[i as usize]).abs() < std::f64::EPSILON);
             i += 1;
         }
 
@@ -134,7 +134,7 @@ mod tests {
         let ret = Solution::average_of_levels(t1);
         let mut i = 0;
         for j in ret {
-            assert_eq!(j, output[i as usize]);
+            assert!((j - output[i as usize]).abs() < std::f64::EPSILON);
             i += 1;
         }
 
@@ -149,7 +149,7 @@ mod tests {
         let ret = Solution::average_of_levels(t1);
         let mut i = 0;
         for j in ret {
-            assert_eq!(j, output[i as usize]);
+            assert!((j - output[i as usize]).abs() < std::f64::EPSILON);
             i += 1;
         }
 

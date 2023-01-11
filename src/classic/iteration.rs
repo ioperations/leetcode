@@ -23,7 +23,7 @@ mod tests {
                 Some(z)
             })
             .take(20)
-            .try_fold(0, |acc: i32, v| acc.checked_add(v));
+            .try_fold(0, i32::checked_add);
         //.collect::<Vec<i32>>();
         println!("{ret:?}");
     }

@@ -58,7 +58,7 @@ impl<'a> Consumer<'a> {
 
 #[cfg(test)]
 mod testmod {
-    use super::*;
+    use super::{Arc, Condvar, Consumer, Mutex, Producer};
 
     #[test]
     fn producer_consumer_test() {

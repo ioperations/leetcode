@@ -14,7 +14,7 @@ mod tests {
 
     #[test]
     fn list_usage_test() {
-        list_usage()
+        list_usage();
     }
 
     #[test]

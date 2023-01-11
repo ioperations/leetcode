@@ -190,7 +190,7 @@ mod tests {
 
     #[test]
     fn case5_test() {
-        let null = -100000;
+        let null = -100_000;
         let root = [-1, -2, 10, -6, null, -3, -6].map(|i| {
             if null == i {
                 return None;
@@ -205,7 +205,7 @@ mod tests {
 
     #[test]
     fn case6_test() {
-        let null = -100000;
+        let null = -100_000;
         let root = [-6, null, 3, 2].map(|i| {
             if null == i {
                 return None;
@@ -220,7 +220,7 @@ mod tests {
 
     #[test]
     fn case7_test() {
-        let null = -100000;
+        let null = -100_000;
         let root = [-1, 5, null, 4, null, null, 2, -4].map(|i| {
             if null == i {
                 return None;
@@ -235,7 +235,7 @@ mod tests {
 
     #[test]
     fn case8_test() {
-        let null = -100000;
+        let null = -100_000;
         let root = [-1, null, 6, null, -4].map(|i| {
             if null == i {
                 return None;

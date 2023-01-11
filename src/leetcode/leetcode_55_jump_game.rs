@@ -65,7 +65,7 @@ mod tests {
             // You will always arrive at index 3 no matter what. Its maximum jump length is 0, which makes it impossible to reach the last index.
             let ret = Solution::can_jump(&nums);
             assert_eq!(ret, output);
-        })
+        });
     }
 }
 
@@ -100,6 +100,6 @@ mod tests_v2 {
             // You will always arrive at index 3 no matter what. Its maximum jump length is 0, which makes it impossible to reach the last index.
             let ret = Solution::can_jump_v2(&nums);
             assert_eq!(ret, output);
-        })
+        });
     }
 }

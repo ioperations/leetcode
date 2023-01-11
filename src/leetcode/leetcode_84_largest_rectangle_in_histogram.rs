@@ -127,7 +127,7 @@ mod tests {
         let heights = [2, 1, 5, 6, 2, 3];
         b.iter(|| {
             Solution::largest_rectangle_area(&heights);
-        })
+        });
     }
 
     #[bench]
@@ -135,6 +135,6 @@ mod tests {
         let heights = [2, 1, 5, 6, 2, 3];
         b.iter(|| {
             Solution::largest_rectangle_area_v2(&heights);
-        })
+        });
     }
 }

@@ -91,8 +91,6 @@ mod tests {
     #[test]
     fn reverse_list2_test() {
         let ret = reverse_list(Option::None);
-        if ret.is_some() {
-            panic!("not ok");
-        }
+        assert!(ret.is_none(), "not ok");
     }
 }

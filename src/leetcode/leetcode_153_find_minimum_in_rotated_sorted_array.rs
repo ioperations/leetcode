@@ -142,14 +142,14 @@ mod tests {
                 974, 975, 976, 977, 978, 979, 980, 981, 982, 983, 984, 985, 986, 987, 988, 989,
                 990, 991, 992, 993, 994, 995, 996, 997, 998, 999,
             ];
-            Solution::find_min(&nums);
-        })
+            let _ = Solution::find_min(&nums);
+        });
     }
 }
 
 #[cfg(test)]
 mod testsv2 {
-    use super::*;
+    use super::{test, Solution};
 
     #[test]
     fn case1_test() {
@@ -253,7 +253,7 @@ mod testsv2 {
                 974, 975, 976, 977, 978, 979, 980, 981, 982, 983, 984, 985, 986, 987, 988, 989,
                 990, 991, 992, 993, 994, 995, 996, 997, 998, 999,
             ];
-            Solution::find_min_o_n_(nums);
-        })
+            let _ = Solution::find_min_o_n_(nums);
+        });
     }
 }

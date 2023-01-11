@@ -111,13 +111,13 @@ mod tests {
     #[test]
     fn returns_summarizable_test() {
         let string = summary::returns_summarizable(true).summary();
-        println!("{string}")
+        println!("{string}");
     }
 
     #[test]
     fn returns_summarizable2_test() {
         let string = summary::returns_summarizable(false).summary();
-        println!("{string}")
+        println!("{string}");
     }
 
     #[test]

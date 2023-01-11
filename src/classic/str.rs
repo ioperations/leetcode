@@ -21,7 +21,7 @@ mod tests {
     #[test]
     fn function_name_test() {
         let s: Box<str> = "hello, world".into();
-        greetings(s.into_string().as_str())
+        greetings(s.into_string().as_str());
     }
 
     #[test]
@@ -31,7 +31,7 @@ mod tests {
         s.push_str(" world");
         s += "!";
 
-        println!("{s}")
+        println!("{s}");
     }
 
     #[test]

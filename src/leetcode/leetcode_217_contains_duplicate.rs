@@ -66,7 +66,7 @@ mod tests {
             let nums = [1, 1, 1, 3, 3, 4, 3, 2, 4, 2];
             let ret = Solution::contains_duplicate(&nums);
             assert_eq!(ret, output);
-        })
+        });
     }
 }
 
@@ -105,7 +105,7 @@ mod tests_v2 {
             let nums = [1, 1, 1, 3, 3, 4, 3, 2, 4, 2];
             let ret = Solution::contains_duplicate_v2(&nums);
             assert_eq!(ret, output);
-        })
+        });
     }
 }
 
@@ -145,6 +145,6 @@ mod tests_v3 {
             let nums = [1, 1, 1, 3, 3, 4, 3, 2, 4, 2].into();
             let ret = Solution::contains_duplicate_v3(nums);
             assert_eq!(ret, output);
-        })
+        });
     }
 }

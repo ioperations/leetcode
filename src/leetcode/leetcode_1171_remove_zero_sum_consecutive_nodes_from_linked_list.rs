@@ -113,7 +113,7 @@ mod tests {
     }
 
     #[allow(unused)]
-    fn build_list_iter(node: Vec<i32>) -> Option<Box<ListNode>> {
+    fn build_list_iter(node: &[i32]) -> Option<Box<ListNode>> {
         if node.is_empty() {
             return None;
         }
@@ -133,7 +133,7 @@ mod tests {
         let head = [1, 2, -3, 3, 1];
         let output1 = vec![3, 1];
         let output2 = vec![1, 2, 1];
-        let head = build_list_iter(head.into());
+        let head = build_list_iter(&head);
         let ret = Solution::remove_zero_sum_sublists(&head);
         let ret = convert_list_to_vec_iter(ret);
         assert!(ret == output1 || ret == output2);
@@ -144,7 +144,7 @@ mod tests {
     fn case2_test() {
         let head = [1, 2, 3, -3, 4];
         let output1 = vec![1, 2, 4];
-        let head = build_list_iter(head.into());
+        let head = build_list_iter(&head);
         let ret = Solution::remove_zero_sum_sublists(&head);
         let ret = convert_list_to_vec_iter(ret);
         assert!(ret == output1);
@@ -155,7 +155,7 @@ mod tests {
     fn case3_test() {
         let head = [1, 2, 3, -3, -2];
         let output1 = vec![1];
-        let head = build_list_iter(head.into());
+        let head = build_list_iter(&head);
         let ret = Solution::remove_zero_sum_sublists(&head);
         let ret = convert_list_to_vec_iter(ret);
         assert!(ret == output1);

@@ -11,17 +11,6 @@ struct Solution;
 impl Solution {
     #[allow(unused)]
     pub fn minimum_rounds(tasks: Vec<i32>) -> i32 {
-        // 1 <= tasks.length <= 105
-        // 1 <= tasks[i] <= 109
-
-        #[cfg(test)]
-        {
-            assert!(!tasks.is_empty() && tasks.len() < 100_000);
-            for v in &tasks {
-                assert!((1..=1_000_000_000).contains(v));
-            }
-        }
-
         fn calculate_times(i: i32) -> Option<i32> {
             match i {
                 0 | 1 => None,
@@ -33,6 +22,17 @@ impl Solution {
                 },
             }
         };
+
+        #[cfg(test)]
+        {
+            // 1 <= tasks.length <= 105
+            // 1 <= tasks[i] <= 109
+            assert!(!tasks.is_empty() && tasks.len() < 100_000);
+            for v in &tasks {
+                assert!((1..=1_000_000_000).contains(v));
+            }
+        }
+
         let mut tasks = tasks;
         tasks.sort_unstable();
         let tasks: Vec<usize> = tasks.group_by(|a, b| a == b).map(<[i32]>::len).collect();
@@ -52,17 +52,6 @@ impl Solution {
     pub fn minimum_rounds_v2(tasks: Vec<i32>) -> i32 {
         // 1 <= tasks.length <= 105
         // 1 <= tasks[i] <= 109
-
-        #[cfg(test)]
-        {
-            assert!(!tasks.is_empty() && tasks.len() < 100_000);
-            for v in &tasks {
-                assert!((1..=1_000_000_000).contains(v));
-            }
-        }
-
-        use std::collections::HashMap;
-
         fn calculate_times(i: i32) -> Option<i32> {
             match i {
                 0 | 1 => None,
@@ -74,6 +63,16 @@ impl Solution {
                 },
             }
         };
+        use std::collections::HashMap;
+
+        #[cfg(test)]
+        {
+            assert!(!tasks.is_empty() && tasks.len() < 100_000);
+            for v in &tasks {
+                assert!((1..=1_000_000_000).contains(v));
+            }
+        }
+
         let tasks: Vec<i32> = {
             let mut hash = HashMap::new();
             for v in tasks {

@@ -75,7 +75,7 @@ mod tests {
     }
 
     #[allow(unused)]
-    fn build_list_iter(node: Vec<i32>) -> Option<Box<ListNode>> {
+    fn build_list_iter(node: &[i32]) -> Option<Box<ListNode>> {
         if node.is_empty() {
             return None;
         }
@@ -94,15 +94,15 @@ mod tests {
     fn bench_build_list_iter(b: &mut test::Bencher) {
         let vec = vec![10; 100];
         b.iter(|| {
-            let _ = build_list_iter(vec.clone());
-        })
+            let _ = build_list_iter(&vec);
+        });
     }
 
     /// 将数组转换成自定义链表
     fn convert_vec_to_list(nodes: Vec<Vec<i32>>) -> Vec<Option<Box<ListNode>>> {
         let mut ret: Vec<Option<Box<ListNode>>> = vec![];
         for i in nodes {
-            let list = build_list_iter(i);
+            let list = build_list_iter(&i);
             ret.push(list);
         }
         ret
@@ -112,7 +112,7 @@ mod tests {
     fn convert_vec_to_list_iter(nodes: Vec<Vec<i32>>) -> Vec<Option<Box<ListNode>>> {
         let mut ret: Vec<Option<Box<ListNode>>> = vec![];
         for i in nodes {
-            let list = build_list_iter(i);
+            let list = build_list_iter(&i);
             ret.push(list);
         }
         ret

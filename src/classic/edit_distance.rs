@@ -58,13 +58,13 @@ mod tests {
     fn edit_distance_test() {
         let a = "hello";
         let b = "hell";
-        assert_eq!(edit_distance_fn(a, b), 1)
+        assert_eq!(edit_distance_fn(a, b), 1);
     }
 
     #[test]
     fn edit_distance2_test() {
         let a = "hello";
         let b = "world";
-        assert_eq!(edit_distance_fn(a, b), 4)
+        assert_eq!(edit_distance_fn(a, b), 4);
     }
 }

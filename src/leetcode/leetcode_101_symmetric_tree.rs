@@ -262,7 +262,7 @@ mod tests {
             let root = build_binary_tree(&root);
             let ret = Solution::is_symmetric(root);
             assert_eq!(ret, output);
-        })
+        });
     }
 }
 
@@ -315,7 +315,7 @@ mod tests_v2 {
             let root = build_binary_tree(&root);
             let ret = Solution::is_symmetric_v2(root);
             assert_eq!(ret, output);
-        })
+        });
     }
 }
 
@@ -367,6 +367,6 @@ mod tests_my_defination {
             let root = build_binary_tree(&root);
             let ret = Solution::is_symmetric_my_defination(root);
             assert_eq!(ret, output);
-        })
+        });
     }
 }

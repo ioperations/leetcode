@@ -202,7 +202,7 @@ mod tests_rec {
             let root = build_binary_tree(&root);
             let ret = Solution::range_sum_bst(root, low, high);
             assert_eq!(ret, output);
-        })
+        });
     }
 }
 
@@ -272,7 +272,7 @@ mod tests_v1 {
             let root = build_binary_tree(&root);
             let ret = Solution::range_sum_bst_v1(root, low, high);
             assert_eq!(ret, output);
-        })
+        });
     }
 }
 #[cfg(test)]
@@ -341,6 +341,6 @@ mod tests_ite {
             let root = build_binary_tree(&root);
             let ret = Solution::range_sum_bst_v2(root, low, high);
             assert_eq!(ret, output);
-        })
+        });
     }
 }

@@ -59,7 +59,7 @@ mod tests {
                 })
                 .unwrap();
             assert_eq!(res, value);
-        })
+        });
     }
 
     #[bench]
@@ -118,7 +118,7 @@ mod tests {
                         .unwrap();
                     assert_eq!(res, value);
                 });
-            })
+            });
         }
     }
 
@@ -164,6 +164,6 @@ mod tests {
                     .unwrap(),
                 value
             );
-        })
+        });
     }
 }

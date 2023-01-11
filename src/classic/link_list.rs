@@ -983,6 +983,11 @@ mod test {
         assert!(n >= n);
     }
 
+    #[allow(
+        clippy::zero_divided_by_zero,
+        clippy::neg_cmp_op_on_partial_ord,
+        clippy::many_single_char_names
+    )]
     #[test]
     fn test_ord_nan() {
         let nan = 0.0f64 / 0.0;
@@ -1100,7 +1105,7 @@ mod test {
         cursor.splice_after(Some(8).into_iter().collect());
         // check_links(&m);
         assert_eq!(
-            m.iter().cloned().collect::<Vec<_>>(),
+            m.iter().copied().collect::<Vec<_>>(),
             &[7, 1, 8, 2, 3, 4, 5, 6]
         );
         let mut cursor = m.cursor_mut();
@@ -1110,7 +1115,7 @@ mod test {
         cursor.splice_after(Some(10).into_iter().collect());
         check_links(&m);
         assert_eq!(
-            m.iter().cloned().collect::<Vec<_>>(),
+            m.iter().copied().collect::<Vec<_>>(),
             &[10, 7, 1, 8, 2, 3, 4, 5, 6, 9]
         );
 
@@ -1144,7 +1149,7 @@ mod test {
         cursor.splice_before(q);
         check_links(&m);
         assert_eq!(
-            m.iter().cloned().collect::<Vec<_>>(),
+            m.iter().copied().collect::<Vec<_>>(),
             &[200, 201, 202, 203, 1, 100, 101, 102, 103, 8, 2, 3, 4, 5, 6]
         );
         let mut cursor = m.cursor_mut();
@@ -1168,7 +1173,7 @@ mod test {
         );
         check_links(&m);
         assert_eq!(
-            m.iter().cloned().collect::<Vec<_>>(),
+            m.iter().copied().collect::<Vec<_>>(),
             &[200, 201, 202, 203, 1, 100, 101]
         );
     }

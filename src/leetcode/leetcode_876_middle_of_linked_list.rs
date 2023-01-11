@@ -148,13 +148,13 @@ mod tests {
         b.iter(|| {
             let head = build_list_from_vec(&head);
             Solution::middle_node(head);
-        })
+        });
     }
 }
 
 #[cfg(test)]
 mod testsv2 {
-    use super::*;
+    use super::{build_list_from_vec, list_into_vec, test, Solution};
 
     #[test]
     fn case1_test() {
@@ -184,6 +184,6 @@ mod testsv2 {
         b.iter(|| {
             let head = build_list_from_vec(&head);
             Solution::middle_node_v2(head);
-        })
+        });
     }
 }

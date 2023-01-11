@@ -3,12 +3,9 @@ mod tests {
     pub fn next_permutation(nums: &mut [i32]) -> bool {
         use std::cmp::Ordering;
         // or use feature(array_windows) on nightly
-        let last_ascending = match nums.windows(2).rposition(|w| w[0] < w[1]) {
-            Some(i) => i,
-            None => {
+        let Some(last_ascending) = nums.windows(2).rposition(|w| w[0] < w[1]) else {
                 nums.reverse();
                 return false;
-            }
         };
 
         let swap_with = nums[last_ascending + 1..]

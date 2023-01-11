@@ -133,7 +133,7 @@ mod tests {
             let ret = Solution::odd_even_list(list);
             let ret = list_into_vec(&ret);
             assert_eq!(ret, output.to_vec());
-        })
+        });
     }
 }
 
@@ -170,6 +170,6 @@ mod tests_dummy {
             let ret = Solution::odd_even_list_dummy(list);
             let ret = list_into_vec(&ret);
             assert_eq!(ret, output.to_vec());
-        })
+        });
     }
 }

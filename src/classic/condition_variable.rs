@@ -151,7 +151,7 @@ mod tests {
             while !*lock {
                 lock = cond.wait(lock).unwrap();
             }
-            println!("get condition true")
+            println!("get condition true");
         });
         let job_producer = thread::spawn(move || {
             let (started, cond) = &*pair;
