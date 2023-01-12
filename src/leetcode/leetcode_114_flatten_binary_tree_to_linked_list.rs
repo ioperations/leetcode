@@ -45,7 +45,7 @@ impl Solution {
     }
 
     #[allow(unused)]
-    pub fn build<T>(mut root: &mut Option<Rc<RefCell<TreeNode<T>>>>, vals: &[T])
+    pub fn build<T>(root: &mut Option<Rc<RefCell<TreeNode<T>>>>, vals: &[T])
     where
         T: Clone + Copy,
     {

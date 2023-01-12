@@ -141,7 +141,7 @@ mod tests {
 
     #[test]
     fn case1_test() {
-        let null = -10000;
+        let null = -10_000;
         let head = [4, 2, 8];
         let root = [
             1, 4, 4, null, 2, 2, null, 1, null, 6, 8, null, null, null, null, 1, 3,
@@ -165,7 +165,7 @@ mod tests {
 
     #[test]
     fn case2_test() {
-        let null = -10000;
+        let null = -10_000;
         let head = [1, 4, 2, 6];
         let root = [
             1, 4, 4, null, 2, 2, null, 1, null, 6, 8, null, null, null, null, 1, 3,

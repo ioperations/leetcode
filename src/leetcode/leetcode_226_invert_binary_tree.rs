@@ -1,6 +1,5 @@
-/*Given the root of a binary tree, invert the tree, and return its root.*/
-use std::cell::RefCell;
-use std::rc::Rc;
+// Given the root of a binary tree, invert the tree, and return its root.
+use std::{cell::RefCell, collections::VecDeque, rc::Rc};
 
 /// Definition for a binary tree node.
 #[derive(Debug, PartialEq, Eq)]
@@ -39,7 +38,6 @@ impl Solution {
         None
     }
 }
-use std::collections::VecDeque;
 
 /// build binary tree from &[i32]
 #[allow(unused)]
@@ -118,24 +116,8 @@ mod tests {
 
     #[test]
     fn case1_test() {
-        let root = vec![
-            Some(4),
-            Some(2),
-            Some(7),
-            Some(1),
-            Some(3),
-            Some(6),
-            Some(9),
-        ];
-        let output = vec![
-            Some(4),
-            Some(7),
-            Some(2),
-            Some(9),
-            Some(6),
-            Some(3),
-            Some(1),
-        ];
+        let root = [4, 2, 7, 1, 3, 6, 9].map(Some);
+        let output = [4, 7, 2, 9, 6, 3, 1].map(Some);
 
         let r = build_binary_tree(&root);
         let r = Solution::invert_tree(r);
@@ -145,8 +127,8 @@ mod tests {
 
     #[test]
     fn case2_test() {
-        let root = vec![Some(2), Some(1), Some(3)];
-        let output = vec![Some(2), Some(3), Some(1)];
+        let root = [2, 1, 3].map(Some);
+        let output = [2, 3, 1].map(Some);
 
         let r = build_binary_tree(&root);
         let r = Solution::invert_tree(r);

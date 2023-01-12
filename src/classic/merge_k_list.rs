@@ -83,8 +83,10 @@ mod tests {
         let mut ret: ListNode = ListNode::new(0);
 
         for i in node {
-            let mut thisnode = Box::new(ListNode::new(i));
-            thisnode.next = ret.next.take();
+            let mut thisnode = Box::new(ListNode {
+                val: i,
+                next: ret.next.take(),
+            });
             ret.next = Some(thisnode);
         }
         ret.next
@@ -100,7 +102,7 @@ mod tests {
 
     /// 将数组转换成自定义链表
     fn convert_vec_to_list(nodes: Vec<Vec<i32>>) -> Vec<Option<Box<ListNode>>> {
-        let mut ret: Vec<Option<Box<ListNode>>> = vec![];
+        let mut ret: Vec<Option<Box<ListNode>>> = Vec::with_capacity(nodes.len());
         for i in nodes {
             let list = build_list_iter(&i);
             ret.push(list);
@@ -110,7 +112,7 @@ mod tests {
 
     /// 将数组转换成自定义链表
     fn convert_vec_to_list_iter(nodes: Vec<Vec<i32>>) -> Vec<Option<Box<ListNode>>> {
-        let mut ret: Vec<Option<Box<ListNode>>> = vec![];
+        let mut ret: Vec<Option<Box<ListNode>>> = Vec::with_capacity(nodes.len());
         for i in nodes {
             let list = build_list_iter(&i);
             ret.push(list);

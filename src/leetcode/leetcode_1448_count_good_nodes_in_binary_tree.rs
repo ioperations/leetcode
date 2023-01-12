@@ -30,7 +30,7 @@ impl Solution {
     Return the number of good nodes in the binary tree.
     */
     #[allow(unused)]
-    fn good_nodes(r: Option<Rc<RefCell<TreeNode<i32>>>>) -> i32 {
+    fn good_nodes(r: &Option<Rc<RefCell<TreeNode<i32>>>>) -> i32 {
         if let Some(n) = r {
             let mut count = 0;
             let val = n.as_ref().borrow().val;
@@ -40,7 +40,7 @@ impl Solution {
         0
     }
 
-    fn fun(node: Option<Rc<RefCell<TreeNode<i32>>>>, val: i32, count: &mut i32) {
+    fn fun(node: Option<&Rc<RefCell<TreeNode<i32>>>>, val: i32, count: &mut i32) {
         if node.is_none() {
             return;
         }
@@ -49,8 +49,8 @@ impl Solution {
             *count += 1;
         }
         let z = node.as_ref().borrow().val.max(val);
-        Self::fun(node.as_ref().borrow_mut().left.take(), z, count);
-        Self::fun(node.as_ref().borrow_mut().right.take(), z, count);
+        Self::fun(node.borrow_mut().left.as_ref(), z, count);
+        Self::fun(node.borrow_mut().right.as_ref(), z, count);
     }
 }
 
@@ -106,7 +106,7 @@ mod tests {
     fn case1_test() {
         let root = vec![Some(3), Some(1), Some(4), Some(3), None, Some(1), Some(5)];
         let tree = build_binary_tree(&root[..]);
-        let ret = Solution::good_nodes(tree);
+        let ret = Solution::good_nodes(&tree);
         assert_eq!(ret, 4);
     }
 
@@ -114,7 +114,7 @@ mod tests {
     fn case2_test() {
         let root = vec![Some(3), Some(3), None, Some(4), Some(2)];
         let tree = build_binary_tree(&root[..]);
-        let ret = Solution::good_nodes(tree);
+        let ret = Solution::good_nodes(&tree);
         assert_eq!(ret, 3);
     }
 
@@ -122,7 +122,7 @@ mod tests {
     fn case3_test() {
         let root = vec![Some(1)];
         let tree = build_binary_tree(&root[..]);
-        let ret = Solution::good_nodes(tree);
+        let ret = Solution::good_nodes(&tree);
         assert_eq!(ret, 1);
     }
 
@@ -130,7 +130,7 @@ mod tests {
     fn case4_test() {
         let root = vec![Some(9), None, Some(3), Some(6)];
         let tree = build_binary_tree(&root[..]);
-        let ret = Solution::good_nodes(tree);
+        let ret = Solution::good_nodes(&tree);
         assert_eq!(ret, 1);
     }
 }

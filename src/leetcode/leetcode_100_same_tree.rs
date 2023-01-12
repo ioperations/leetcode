@@ -26,8 +26,8 @@ struct Solution;
 impl Solution {
     #[allow(unused)]
     fn is_same_tree<T>(
-        p: &mut Option<Rc<RefCell<TreeNode<T>>>>,
-        q: &mut Option<Rc<RefCell<TreeNode<T>>>>,
+        p: &Option<Rc<RefCell<TreeNode<T>>>>,
+        q: &Option<Rc<RefCell<TreeNode<T>>>>,
     ) -> bool
     where
         T: std::cmp::PartialEq,
@@ -36,24 +36,14 @@ impl Solution {
             return true;
         }
 
-        if p.is_none() && q.is_some() {
-            return false;
-        }
-        if p.is_some() && q.is_none() {
-            return false;
-        }
+        if let (Some(p), Some(q)) = (p, q) {
+            let ok = q.borrow().val == p.borrow().val;
 
-        let p = p.as_mut().unwrap();
-        let q = q.as_mut().unwrap();
-        let ok = q.borrow().val == p.borrow().val;
-
-        ok && Self::is_same_tree(
-            &mut p.as_ref().borrow_mut().left.take(),
-            &mut q.as_ref().borrow_mut().left.take(),
-        ) && Self::is_same_tree(
-            &mut p.as_ref().borrow_mut().right.take(),
-            &mut q.as_ref().borrow_mut().right.take(),
-        )
+            ok && Self::is_same_tree(&p.borrow_mut().left, &q.borrow_mut().left)
+                && Self::is_same_tree(&p.borrow_mut().right, &q.borrow_mut().right)
+        } else {
+            false
+        }
     }
 }
 
@@ -179,9 +169,9 @@ mod tests {
                 Some(i)
             })
             .to_vec();
-        let mut tree1 = build_binary_tree(&p[..]);
-        let mut tree2 = build_binary_tree(&q[..]);
-        let ret = Solution::is_same_tree(&mut tree1, &mut tree2);
+        let tree1 = build_binary_tree(&p[..]);
+        let tree2 = build_binary_tree(&q[..]);
+        let ret = Solution::is_same_tree(&tree1, &tree2);
         assert!(ret);
     }
 
@@ -204,9 +194,9 @@ mod tests {
                 Some(i)
             })
             .to_vec();
-        let mut tree1 = build_binary_tree(&p[..]);
-        let mut tree2 = build_binary_tree(&q[..]);
-        let ret = Solution::is_same_tree(&mut tree1, &mut tree2);
+        let tree1 = build_binary_tree(&p[..]);
+        let tree2 = build_binary_tree(&q[..]);
+        let ret = Solution::is_same_tree(&tree1, &tree2);
         assert!(ret);
     }
 
@@ -229,9 +219,9 @@ mod tests {
                 Some(i)
             })
             .to_vec();
-        let mut tree1 = build_binary_tree(&p[..]);
-        let mut tree2 = build_binary_tree(&q[..]);
-        let ret = Solution::is_same_tree(&mut tree1, &mut tree2);
+        let tree1 = build_binary_tree(&p[..]);
+        let tree2 = build_binary_tree(&q[..]);
+        let ret = Solution::is_same_tree(&tree1, &tree2);
         assert!(!ret);
     }
 }
