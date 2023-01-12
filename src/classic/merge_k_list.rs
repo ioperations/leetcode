@@ -57,34 +57,15 @@ mod tests {
     extern crate test;
 
     #[allow(unused)]
-    fn build_list(node: Vec<i32>) -> Option<Box<ListNode>> {
-        if node.is_empty() {
-            return None;
-        }
-        let mut node = node;
-        let mut ret: Option<Box<ListNode>> = Some(Box::new(ListNode::new(node[0])));
-        node.remove(0);
-        let ret2 = build_list(node);
-        match &mut ret {
-            Some(ok) => {
-                let _ = std::mem::replace(&mut ok.next, ret2);
-            }
-            None => {}
-        }
-        ret
-    }
-
-    #[allow(unused)]
     fn build_list_iter(node: &[i32]) -> Option<Box<ListNode>> {
         if node.is_empty() {
             return None;
         }
-        let mut node = node.iter().copied().rev().collect::<Vec<i32>>();
         let mut ret: ListNode = ListNode::new(0);
 
-        for i in node {
+        for i in node.iter().rev() {
             let mut thisnode = Box::new(ListNode {
-                val: i,
+                val: *i,
                 next: ret.next.take(),
             });
             ret.next = Some(thisnode);
@@ -118,22 +99,6 @@ mod tests {
             ret.push(list);
         }
         ret
-    }
-
-    /// 将自定义链表转换成数组
-    #[allow(unused)]
-    fn convert_list_to_vec_old(lists: Option<Box<ListNode>>) -> Vec<i32> {
-        match lists {
-            Some(val) => {
-                let mut sub = match &val.next {
-                    Some(_z) => convert_list_to_vec(val.next),
-                    None => vec![],
-                };
-                sub.insert(0, val.val);
-                sub
-            }
-            None => vec![],
-        }
     }
 
     /// 将自定义链表转换成数组

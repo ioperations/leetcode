@@ -2,9 +2,8 @@
 The first node is considered odd, and the second node is even, and so on.
 Note that the relative order inside both the even and odd groups should remain as it was in the input.
 You must solve the problem in O(1) extra space complexity and O(n) time complexity.*/
-// Definition for singly-linked list.
-extern crate test;
 
+// Definition for singly-linked list.
 #[derive(PartialEq, Eq, Clone, Debug)]
 pub struct ListNode {
     pub val: i32,
@@ -90,20 +89,26 @@ fn list_into_vec(head: &Option<Box<ListNode>>) -> Vec<i32> {
 }
 
 #[allow(unused)]
-fn build_list_from_vec(vec: &[i32]) -> Option<Box<ListNode>> {
-    if vec.is_empty() {
+fn build_list_from_vec(node: &[i32]) -> Option<Box<ListNode>> {
+    if node.is_empty() {
         return None;
     }
-    let ret = build_list_from_vec(&vec[1..]);
-    let mut head = Box::new(ListNode::new(vec[0]));
-    head.next = ret;
+    let mut ret: ListNode = ListNode::new(0);
 
-    Some(head)
+    for i in node.iter().rev() {
+        let mut thisnode = Box::new(ListNode {
+            val: *i,
+            next: ret.next.take(),
+        });
+        ret.next = Some(thisnode);
+    }
+    ret.next
 }
 
 #[cfg(test)]
 mod tests {
     use super::*;
+    extern crate test;
 
     #[test]
     fn case1_test() {
@@ -140,6 +145,7 @@ mod tests {
 #[cfg(test)]
 mod tests_dummy {
     use super::*;
+    extern crate test;
 
     #[test]
     fn case1_test() {
