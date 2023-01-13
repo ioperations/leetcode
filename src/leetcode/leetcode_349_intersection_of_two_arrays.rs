@@ -1,5 +1,7 @@
-struct Solution {}
 use std::collections::HashSet;
+
+#[allow(unused)]
+struct Solution {}
 
 impl Solution {
     #[allow(unused)]

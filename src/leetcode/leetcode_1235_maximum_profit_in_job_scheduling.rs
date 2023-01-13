@@ -1,8 +1,8 @@
-/*We have n jobs, where every job is scheduled to be done from startTime[i] to endTime[i], obtaining a profit of profit[i].
-
-You're given the startTime, endTime and profit arrays, return the maximum profit you can take such that there are no two jobs in the subset with overlapping time range.
-If you choose a job that ends at time X you will be able to start another job that starts at time X.
- */
+// We have n jobs, where every job is scheduled to be done from startTime[i] to endTime[i], obtaining a profit of profit[i].
+//
+// You're given the startTime, endTime and profit arrays,
+// return the maximum profit you can take such that there are no two jobs in the subset with overlapping time range.
+// If you choose a job that ends at time X you will be able to start another job that starts at time X.
 
 #[allow(unused)]
 struct Solution;
@@ -90,7 +90,8 @@ mod tests {
         let profit = vec![50, 10, 40, 70];
         let output = 120;
 
-        /* Explanation: The subset chosen is the first and fourth job.
+        /*
+         * Explanation: The subset chosen is the first and fourth job.
          * Time range [1-3]+[3-6] , we get profit of 120 = 50 + 70.
          */
         let ret = Solution::job_scheduling(&start_time, &end_time, &profit);

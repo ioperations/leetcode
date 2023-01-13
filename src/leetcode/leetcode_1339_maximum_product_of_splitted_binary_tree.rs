@@ -1,10 +1,10 @@
-/*Given the root of a binary tree, split the binary tree into two subtrees by removing one edge such that the product of the sums of the subtrees is maximized.
+// Given the root of a binary tree, split the binary tree into two subtrees by removing one edge
+// such that the product of the sums of the subtrees is maximized.
+// Return the maximum product of the sums of the two subtrees.
+// Since the answer may be too large, return it modulo 109 + 7.
+// Note that you need to maximize the answer before taking the mod and not after taking it.
 
-Return the maximum product of the sums of the two subtrees. Since the answer may be too large, return it modulo 109 + 7.
-
-Note that you need to maximize the answer before taking the mod and not after taking it.
-
-*/
+use std::{cell::RefCell, collections::VecDeque, rc::Rc};
 
 // Definition for a binary tree node.
 #[derive(Debug, PartialEq, Eq)]
@@ -24,8 +24,6 @@ impl<T> TreeNode<T> {
         }
     }
 }
-use std::cell::RefCell;
-use std::rc::Rc;
 
 #[allow(unused)]
 struct Solution;
@@ -72,8 +70,6 @@ impl Solution {
     }
 }
 
-use std::collections::VecDeque;
-
 /// build binary tree from &[i32]
 #[allow(unused)]
 fn build_binary_tree<T>(input: &[Option<T>]) -> Option<Rc<RefCell<TreeNode<T>>>>
@@ -118,7 +114,6 @@ where
 
 #[cfg(test)]
 mod tests {
-
     use super::*;
 
     #[test]

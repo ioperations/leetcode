@@ -1,13 +1,12 @@
-/*
-    Given the root of a binary tree, find the maximum value
-    v for which there exist different nodes a and b where
-    v = |a.val - b.val| and a is an ancestor of b.
-    A node a is an ancestor of b if either:
-    any child of a is equal to b or any child of a is an ancestor of b.
-*/
+// Given the root of a binary tree, find the maximum value
+//     v for which there exist different nodes a and b where
+//     v = |a.val - b.val| and a is an ancestor of b.
+//     A node a is an ancestor of b if either:
+//     any child of a is equal to b or any child of a is an ancestor of b.
+
+use std::{cell::RefCell, cmp, collections::VecDeque, rc::Rc};
 
 // Definition for a binary tree node.
-#[derive(Debug, PartialEq, Eq)]
 pub struct TreeNode<T> {
     pub val: T,
     pub left: Option<Rc<RefCell<TreeNode<T>>>>,
@@ -24,32 +23,9 @@ impl<T> TreeNode<T> {
         }
     }
 }
-use std::cell::RefCell;
-use std::cmp;
-use std::collections::VecDeque;
-use std::rc::Rc;
 
 #[allow(unused)]
 struct Solution;
-
-impl Solution {
-    #[allow(unused)]
-    pub fn max_ancestor_diff_v2(root: Option<Rc<RefCell<TreeNode<i32>>>>) -> i32 {
-        fn helper(root: &Rc<RefCell<TreeNode<i32>>>) -> ((i32, i32), i32) {
-            ((0, 0), 0)
-        }
-        if let Some(v) = root {
-            let val = v.borrow().val;
-            let ret = helper(&v);
-            return val
-                .abs_diff(ret.0 .0)
-                .max(val.abs_diff(ret.0 .1))
-                .max(ret.1 as u32) as i32;
-        }
-
-        0
-    }
-}
 
 #[allow(unused)]
 struct MinMax {

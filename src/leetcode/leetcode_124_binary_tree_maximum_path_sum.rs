@@ -1,10 +1,12 @@
-/*A path in a binary tree is a sequence of nodes where each pair of adjacent nodes in the sequence has an edge connecting them. A node can only appear in the sequence at most once. Note that the path does not need to pass through the root.
+// A path in a binary tree is a sequence of nodes where each pair of adjacent nodes
+// in the sequence has an edge connecting them.
+// A node can only appear in the sequence at most once.
+// Note that the path does not need to pass through the root.
+//
+// The path sum of a path is the sum of the node's values in the path.
+// Given the root of a binary tree, return the maximum path sum of any non-empty path.
 
-The path sum of a path is the sum of the node's values in the path.
-
-Given the root of a binary tree, return the maximum path sum of any non-empty path.
-
-*/
+use std::{cell::RefCell, collections::VecDeque, rc::Rc};
 
 // Definition for a binary tree node.
 #[derive(Debug, PartialEq, Eq)]
@@ -25,8 +27,7 @@ impl<T> TreeNode<T> {
         }
     }
 }
-use std::cell::RefCell;
-use std::rc::Rc;
+
 #[allow(unused)]
 struct Solution;
 
@@ -85,7 +86,6 @@ impl Solution {
         as_routine.max(v)
     }
 }
-use std::collections::VecDeque;
 /// build binary tree from &[i32]
 #[allow(unused)]
 fn build_binary_tree<T>(input: &[Option<T>]) -> Option<Rc<RefCell<TreeNode<T>>>>

@@ -1,8 +1,7 @@
-/*Given the head of a singly linked list, return the middle node of the linked list.
-If there are two middle nodes, return the second middle node.*/
+// Given the head of a singly linked list, return the middle node of the linked list.
+// If there are two middle nodes, return the second middle node.
 
 // Definition for singly-linked list.
-extern crate test;
 
 #[derive(PartialEq, Eq, Clone, Debug)]
 pub struct ListNode {
@@ -124,6 +123,7 @@ fn build_list_from_vec(node: &[i32]) -> Option<Box<ListNode>> {
 #[cfg(test)]
 mod tests {
     use super::*;
+    extern crate test;
 
     #[test]
     fn case1_test() {
@@ -159,7 +159,8 @@ mod tests {
 
 #[cfg(test)]
 mod testsv2 {
-    use super::{build_list_from_vec, list_into_vec, test, Solution};
+    use super::{build_list_from_vec, list_into_vec, Solution};
+    extern crate test;
 
     #[test]
     fn case1_test() {

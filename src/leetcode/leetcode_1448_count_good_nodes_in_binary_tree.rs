@@ -1,5 +1,4 @@
-use std::cell::RefCell;
-use std::rc::Rc;
+use std::{cell::RefCell, collections::VecDeque, rc::Rc};
 
 /// Definition for a binary tree node.
 #[derive(Debug, PartialEq, Eq)]
@@ -24,11 +23,11 @@ impl<T> TreeNode<T> {
 struct Solution;
 
 impl Solution {
-    /*Given a binary tree root, a node X in the tree is named good if in the path
-    from root to X there are no nodes with a value greater than X.
-
-    Return the number of good nodes in the binary tree.
-    */
+    /*
+     * Given a binary tree root, a node X in the tree is named good if in the path
+     * from root to X there are no nodes with a value greater than X.
+     * Return the number of good nodes in the binary tree.
+     */
     #[allow(unused)]
     fn good_nodes(r: &Option<Rc<RefCell<TreeNode<i32>>>>) -> i32 {
         if let Some(n) = r {
@@ -53,8 +52,6 @@ impl Solution {
         Self::fun(node.borrow_mut().right.as_ref(), z, count);
     }
 }
-
-use std::collections::VecDeque;
 
 /// build binary tree from &[i32]
 #[allow(unused)]

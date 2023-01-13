@@ -23,6 +23,7 @@ fn helper(head: Option<Box<ListNode>>, reversed: Option<Box<ListNode>>) -> Optio
         reversed
     }
 }
+
 #[allow(unused)]
 pub fn reverse_list(head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
     helper(head, None)

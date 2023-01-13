@@ -1,17 +1,13 @@
-/*
-Given the root of a binary tree, flatten the tree into a "linked list":
+// Given the root of a binary tree, flatten the tree into a "linked list":
+//
+// The "linked list" should use the same TreeNode class where the right child
+// pointer points to the next node in the list and the left child pointer is always
+// null. The "linked list" should be in the same order as a pre-order traversal of
+// the binary tree
 
-The "linked list" should use the same TreeNode class where the right child
-pointer points to the next node in the list and the left child pointer is always
-null. The "linked list" should be in the same order as a pre-order traversal of
-the binary tree
-*/
+use std::{cell::RefCell, collections::VecDeque, rc::Rc};
 
-//* Definition for a binary tree node.
 /// Definition for a binary tree node.
-use std::cell::RefCell;
-use std::rc::Rc;
-
 #[derive(Debug, PartialEq, Eq)]
 pub struct TreeNode<T> {
     pub val: T,
@@ -103,8 +99,6 @@ impl Solution {
     }
 }
 
-use std::collections::VecDeque;
-
 /// build binary tree from &[i32]
 #[allow(unused)]
 fn build_binary_tree<T>(input: &[Option<T>]) -> Option<Rc<RefCell<TreeNode<T>>>>
@@ -148,7 +142,7 @@ where
 }
 
 #[allow(unused)]
-fn right_expect<T>(root: Option<Rc<RefCell<TreeNode<T>>>>, vec: &[Option<T>])
+fn right_expect<T>(root: &Option<Rc<RefCell<TreeNode<T>>>>, vec: &[Option<T>])
 where
     T: std::fmt::Debug + std::cmp::PartialEq + Copy,
 {
@@ -162,8 +156,8 @@ where
         assert!(vec[0].is_some());
         assert_eq!(n.as_ref().borrow().val, vec[0].unwrap());
         assert!(n.as_ref().borrow_mut().left.is_none());
+        right_expect(&n.as_ref().borrow_mut().right, &vec[1..]);
     }
-    right_expect(root.unwrap().as_ref().borrow_mut().right.take(), &vec[1..]);
 }
 
 #[cfg(test)]
@@ -173,33 +167,33 @@ mod tests {
     #[test]
     fn case1_test() {
         let t = vec![Some(1), Some(2), Some(5), Some(3), Some(4), Some(6)];
-        let mut tr = build_binary_tree(&t[..]);
-        let tr1 = build_binary_tree(&t[..]);
+        let mut tr = build_binary_tree(&t);
+        let tr1 = build_binary_tree(&t);
         let expected: Vec<Option<i32>> = Solution::pre_order(tr1);
 
         Solution::flatten(&mut tr);
-        right_expect(tr, &expected[..]);
+        right_expect(&tr, &expected);
     }
 
     #[test]
     fn case2_test() {
         let t: Vec<Option<i32>> = vec![];
-        let mut tr = build_binary_tree(&t[..]);
-        let tr1 = build_binary_tree(&t[..]);
+        let mut tr = build_binary_tree(&t);
+        let tr1 = build_binary_tree(&t);
         let expected: Vec<Option<i32>> = Solution::pre_order(tr1);
 
         Solution::flatten(&mut tr);
-        right_expect(tr, &expected[..]);
+        right_expect(&tr, &expected);
     }
 
     #[test]
     fn case3_test() {
         let t = vec![Some(0)];
-        let mut tr = build_binary_tree(&t[..]);
-        let tr1 = build_binary_tree(&t[..]);
+        let mut tr = build_binary_tree(&t);
+        let tr1 = build_binary_tree(&t);
         let expected: Vec<Option<i32>> = Solution::pre_order(tr1);
 
         Solution::flatten(&mut tr);
-        right_expect(tr, &expected[..]);
+        right_expect(&tr, &expected);
     }
 }

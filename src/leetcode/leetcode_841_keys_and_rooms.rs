@@ -1,9 +1,9 @@
-/*There are n rooms labeled from 0 to n - 1 and all the rooms are locked except for room 0. Your
-goal is to visit all the rooms. However, you cannot enter a locked room without having its key.
-When you visit a room, you may find a set of distinct keys in it. Each key has a number on it,
-denoting which room it unlocks, and you can take all of them with you to unlock the other rooms.
-Given an array rooms where rooms[i] is the set of keys that you can obtain if you visited room i,
-return true if you can visit all the rooms, or false otherwise*/
+// There are n rooms labeled from 0 to n - 1 and all the rooms are locked except for room 0. Your
+// goal is to visit all the rooms. However, you cannot enter a locked room without having its key.
+// When you visit a room, you may find a set of distinct keys in it. Each key has a number on it,
+// denoting which room it unlocks, and you can take all of them with you to unlock the other rooms.
+// Given an array rooms where rooms[i] is the set of keys that you can obtain if you visited room i,
+// return true if you can visit all the rooms, or false otherwise
 
 #[allow(unused)]
 struct Solution;
@@ -38,7 +38,7 @@ mod tests {
 
     #[test]
     fn case1_test() {
-        let roomes = vec![vec![1], vec![2], vec![3], vec![]];
+        let roomes = [vec![1], vec![2], vec![3], vec![]];
         let output = true;
         let ret = Solution::can_visit_all_rooms(&roomes);
         assert_eq!(ret, output);
@@ -53,7 +53,7 @@ mod tests {
 
     #[test]
     fn case2_test() {
-        let roomes = vec![vec![1, 3], vec![3, 0, 1], vec![2], vec![0]];
+        let roomes = [vec![1, 3], vec![3, 0, 1], vec![2], vec![0]];
         let output = false;
         let ret = Solution::can_visit_all_rooms(&roomes);
         assert_eq!(ret, output);

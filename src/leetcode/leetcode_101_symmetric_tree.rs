@@ -1,9 +1,8 @@
-/*Given the root of a binary tree, check whether it is a mirror of itself (i.e., symmetric around its center).*/
-
-extern crate test;
+// Given the root of a binary tree, check whether it is a mirror of itself (i.e., symmetric around its center).
+use std::cell::RefCell;
+use std::rc::Rc;
 
 // Definition for a binary tree node.
-#[derive(Debug, PartialEq, Eq)]
 struct TreeNode<T> {
     pub val: T,
     pub left: Option<Rc<RefCell<TreeNode<T>>>>,
@@ -20,8 +19,6 @@ impl<T> TreeNode<T> {
         }
     }
 }
-use std::cell::RefCell;
-use std::rc::Rc;
 
 #[allow(unused)]
 struct Solution;
@@ -186,37 +183,10 @@ where
     Some(root)
 }
 
-/// expect binary tree equal to input
-#[allow(unused)]
-fn flatten_binary_tree<T>(root: Option<Rc<RefCell<TreeNode<T>>>>) -> Vec<Option<T>>
-where
-    T: std::cmp::PartialEq + std::fmt::Debug + Copy,
-{
-    let mut q: VecDeque<Option<Rc<RefCell<TreeNode<T>>>>> = VecDeque::new();
-    let mut ret: Vec<Option<T>> = vec![];
-    q.push_back(root);
-    while !q.is_empty() {
-        let n1 = q.pop_front().unwrap();
-        if let Some(n) = &n1 {
-            ret.push(Some(n.as_ref().borrow().val));
-            q.push_back(n.as_ref().borrow_mut().left.take());
-            q.push_back(n.as_ref().borrow_mut().right.take());
-        } else {
-            ret.push(None);
-        }
-    }
-
-    ret.into_iter()
-        .rev()
-        .skip_while(std::option::Option::is_none)
-        .collect::<Vec<Option<T>>>()
-        .into_iter()
-        .rev()
-        .collect::<Vec<Option<T>>>()
-}
 #[cfg(test)]
 mod tests {
     use super::*;
+    extern crate test;
 
     #[test]
     fn case1_test() {
@@ -269,6 +239,7 @@ mod tests {
 #[cfg(test)]
 mod tests_v2 {
     use super::*;
+    extern crate test;
 
     #[test]
     fn case1_test() {
@@ -322,6 +293,7 @@ mod tests_v2 {
 #[cfg(test)]
 mod tests_my_defination {
     use super::*;
+    extern crate test;
 
     #[test]
     fn case1_test() {

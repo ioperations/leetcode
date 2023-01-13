@@ -1,6 +1,6 @@
-/*
-Given a string s, sort it in decreasing order based on the frequency of the characters. The frequency of a character is the number of times it appears in the string.
-Return the sorted string. If there are multiple answers, return any of them.*/
+// Given a string s, sort it in decreasing order based on the frequency of the characters.
+// The frequency of a character is the number of times it appears in the string.
+// Return the sorted string. If there are multiple answers, return any of them.
 
 #[allow(unused)]
 struct Solution;
@@ -46,9 +46,9 @@ mod tests {
             .cloned()
             .collect::<HashSet<String>>();
         /*
-        Explanation: 'e' appears twice while 'r' and 't' both appear once.
-        So 'e' must appear before both 'r' and 't'. Therefore "eetr" is also a valid answer.
-        */
+         * Explanation: 'e' appears twice while 'r' and 't' both appear once.
+         * So 'e' must appear before both 'r' and 't'. Therefore "eetr" is also a valid answer.
+         */
         let ret = Solution::frequency_sort(s);
         assert!(output.contains(&ret));
     }
@@ -61,9 +61,9 @@ mod tests {
             .cloned()
             .collect::<HashSet<String>>();
         /*
-        Both 'c' and 'a' appear three times, so both "cccaaa" and "aaaccc" are valid answers.
-        Note that "cacaca" is incorrect, as the same characters must be together.
-        */
+         * Both 'c' and 'a' appear three times, so both "cccaaa" and "aaaccc" are valid answers.
+         * Note that "cacaca" is incorrect, as the same characters must be together.
+         */
         let ret = Solution::frequency_sort(s);
         assert!(output.contains(&ret));
     }
@@ -76,9 +76,9 @@ mod tests {
             .cloned()
             .collect::<HashSet<String>>();
         /*
-         "bbaA" is also a valid answer, but "Aabb" is incorrect.
-        Note that 'A' and 'a' are treated as two different characters.
-        */
+         * "bbaA" is also a valid answer, but "Aabb" is incorrect.
+         * Note that 'A' and 'a' are treated as two different characters.
+         */
         let ret = Solution::frequency_sort(s);
         assert!(output.contains(&ret));
     }

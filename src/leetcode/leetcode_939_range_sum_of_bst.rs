@@ -1,7 +1,5 @@
-/*Given the root node of a binary search tree and two integers low and high, return the sum of values of all nodes with a value in the inclusive range [low, high].↳
-*/
-
-extern crate test;
+// Given the root node of a binary search tree and two integers low and high,
+// return the sum of values of all nodes with a value in the inclusive range [low, high].
 
 // Definition for a binary tree node.
 #[derive(Debug, PartialEq, Eq)]
@@ -140,6 +138,7 @@ where
 #[cfg(test)]
 mod tests_rec {
     use super::*;
+    extern crate test;
 
     #[test]
     fn case1_test() {
@@ -209,6 +208,7 @@ mod tests_rec {
 #[cfg(test)]
 mod tests_v1 {
     use super::*;
+    extern crate test;
 
     #[test]
     fn case1_test() {
@@ -278,6 +278,7 @@ mod tests_v1 {
 #[cfg(test)]
 mod tests_ite {
     use super::*;
+    extern crate test;
 
     #[test]
     fn case1_test() {

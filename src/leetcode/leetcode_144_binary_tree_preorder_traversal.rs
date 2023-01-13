@@ -1,6 +1,6 @@
-/*
-* Given the root of a binary tree, return the preorder traversal of its nodes' values.
-*/
+// Given the root of a binary tree, return the preorder traversal of its nodes' values.
+
+use std::{cell::RefCell, collections::VecDeque, rc::Rc};
 
 // Definition for a binary tree node.
 #[derive(Debug, PartialEq, Eq)]
@@ -22,8 +22,6 @@ impl<T> TreeNode<T> {
         }
     }
 }
-use std::cell::RefCell;
-use std::rc::Rc;
 
 #[allow(unused)]
 struct Solution;
@@ -45,7 +43,6 @@ impl Solution {
     }
 }
 
-use std::collections::VecDeque;
 /// build binary tree from &[i32]
 #[allow(unused)]
 fn build_binary_tree<T>(input: &[Option<T>]) -> Option<Rc<RefCell<TreeNode<T>>>>

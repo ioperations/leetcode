@@ -1,5 +1,4 @@
-/* Given an array of integers heights representing the histogram's bar height where the width of each bar is 1, return the area of the largest rectangle in the histogram.*/
-extern crate test;
+// Given an array of integers heights representing the histogram's bar height where the width of each bar is 1, return the area of the largest rectangle in the histogram.
 
 use std::collections::VecDeque;
 #[allow(unused)]
@@ -82,6 +81,7 @@ impl Solution {
 #[cfg(test)]
 mod tests {
     use super::*;
+    extern crate test;
 
     #[test]
     fn case1_test() {

@@ -1,9 +1,10 @@
-/*Given an array of integers arr, return true if the number of occurrences of each value in the array is unique, or false otherwise.
-*/
+// Given an array of integers arr, return true if the number of occurrences of each value in the array is unique, or false otherwise.
 
 use std::{collections::HashMap, usize};
+
 #[allow(unused)]
 struct Solution;
+
 impl Solution {
     #[allow(unused)]
     pub fn unique_occurrences(arr: Vec<i32>) -> bool {

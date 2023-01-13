@@ -1,8 +1,7 @@
-/*Given the head of a linked list, we repeatedly delete consecutive sequences of nodes that sum to 0 until there are no such sequences.
-After doing so, return the head of the final linked list.  You may return any such answer.
-
-
-(Note that in the examples below, all sequences are serializations of ListNode objects.)*/
+// Given the head of a linked list, we repeatedly delete consecutive sequences of nodes that sum to 0 until there are no such sequences.
+// After doing so, return the head of the final linked list.  You may return any such answer.
+//
+// (Note that in the examples below, all sequences are serializations of ListNode objects.)
 
 // Definition for singly-linked list.
 #[allow(unused)]
@@ -44,6 +43,7 @@ pub fn to_vec(head: &Option<Box<ListNode>>) -> Vec<i32> {
 
 #[allow(unused)]
 struct Solution;
+
 impl Solution {
     #[allow(unused)]
     pub fn remove_zero_sum_sublists(head: &Option<Box<ListNode>>) -> Option<Box<ListNode>> {

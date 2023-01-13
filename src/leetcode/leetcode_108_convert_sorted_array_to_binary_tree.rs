@@ -1,5 +1,4 @@
-use std::cell::RefCell;
-use std::rc::Rc;
+use std::{cell::RefCell, collections::VecDeque, rc::Rc};
 
 /// Definition for a binary tree node.
 #[derive(Debug, PartialEq, Eq)]
@@ -52,8 +51,6 @@ impl Solution {
         Some(root)
     }
 }
-
-use std::collections::VecDeque;
 
 /// build binary tree from &[i32]
 #[allow(unused)]
@@ -134,16 +131,16 @@ mod tests {
 
     #[test]
     fn case0_test() {
-        let tree = vec![Some(1), Some(2), Some(3), Some(4)];
-        let v = build_binary_tree(&tree[..]);
+        let tree = [Some(1), Some(2), Some(3), Some(4)];
+        let v = build_binary_tree(&tree);
         let ret = flatten_binary_tree(v);
         assert_eq!(ret, tree);
     }
 
     #[test]
     fn case1_test() {
-        let tree = vec![Some(-10), Some(-3), Some(0), Some(5), Some(9)];
-        let v = build_binary_tree(&tree[..]);
+        let tree = [Some(-10), Some(-3), Some(0), Some(5), Some(9)];
+        let v = build_binary_tree(&tree);
         let ret = flatten_binary_tree(v);
         assert_eq!(ret, tree);
     }
@@ -151,21 +148,13 @@ mod tests {
     #[test]
     fn case2_test() {
         let v = vec![-10, -3, 0, 5, 9];
-        let ret = Solution::sorted_array_to_bst(&v[..]);
+        let ret = Solution::sorted_array_to_bst(&v);
         let ret = flatten_binary_tree(ret);
         println!("ret =>  {ret:?}");
         let mut hashset = HashSet::new();
-        hashset.insert(vec![Some(0), Some(-3), Some(9), Some(10), None, Some(9)]);
-        hashset.insert(vec![
-            Some(0),
-            Some(-10),
-            Some(5),
-            None,
-            Some(-3),
-            None,
-            Some(9),
-        ]);
+        hashset.insert([Some(0), Some(-3), Some(9), Some(10), None, Some(9)].to_vec());
+        hashset.insert([Some(0), Some(-10), Some(5), None, Some(-3), None, Some(9)].to_vec());
 
-        assert!(hashset.contains(&ret[..]));
+        assert!(hashset.contains(&ret));
     }
 }

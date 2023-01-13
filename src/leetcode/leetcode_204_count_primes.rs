@@ -1,5 +1,6 @@
 #[allow(unused)]
 struct Solution;
+
 impl Solution {
     #[allow(unused)]
     pub fn count_primes(n: i32) -> i32 {

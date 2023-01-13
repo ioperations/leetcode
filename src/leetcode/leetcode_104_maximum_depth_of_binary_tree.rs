@@ -1,5 +1,4 @@
-use std::cell::RefCell;
-use std::rc::Rc;
+use std::{cell::RefCell, collections::VecDeque, rc::Rc};
 
 /// Definition for a binary tree node.
 #[derive(Debug, PartialEq, Eq)]
@@ -40,8 +39,6 @@ impl Solution {
         })
     }
 }
-
-use std::collections::VecDeque;
 
 /// build binary tree from &[i32]
 #[allow(unused)]

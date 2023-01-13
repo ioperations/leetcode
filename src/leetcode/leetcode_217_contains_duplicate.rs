@@ -1,8 +1,10 @@
-/*Given an integer array nums, return true if any value appears at least twice in the array, and return false if every element is distinct.*/
+// Given an integer array nums, return true if any value appears at least twice in the array,
+// and return false if every element is distinct.
 
 use std::collections::HashSet;
 #[allow(unused)]
 struct Solution;
+
 impl Solution {
     #[allow(unused)]
     pub fn contains_duplicate(nums: &[i32]) -> bool {
