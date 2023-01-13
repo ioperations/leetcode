@@ -3,7 +3,6 @@
 use std::{cell::RefCell, collections::VecDeque, rc::Rc};
 
 // Definition for a binary tree node.
-#[derive(Debug, PartialEq, Eq)]
 #[allow(unused)]
 pub struct TreeNode<T> {
     pub val: T,

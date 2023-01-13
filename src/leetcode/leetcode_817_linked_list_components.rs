@@ -3,7 +3,6 @@
 
 use std::collections::HashSet;
 // Definition for singly-linked list.
-#[derive(PartialEq, Eq, Clone, Debug)]
 pub struct ListNode<T> {
     pub val: T,
     pub next: Option<Box<ListNode<T>>>,

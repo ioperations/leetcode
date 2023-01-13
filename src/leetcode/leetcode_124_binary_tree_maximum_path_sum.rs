@@ -9,7 +9,6 @@
 use std::{cell::RefCell, collections::VecDeque, rc::Rc};
 
 // Definition for a binary tree node.
-#[derive(Debug, PartialEq, Eq)]
 pub struct TreeNode<T> {
     pub val: T,
     pub left: Option<Rc<RefCell<TreeNode<T>>>>,
@@ -68,24 +67,8 @@ impl Solution {
         let (a, b) = helper(root);
         a.unwrap().max(b.unwrap())
     }
-
-    #[allow(unused)]
-    pub fn max_path_sum_v2(root: Option<Rc<RefCell<TreeNode<i32>>>>) -> i32 {
-        fn helper(root: Option<Rc<RefCell<TreeNode<i32>>>>) -> (i32, i32) {
-            // how many can we get when root is
-            // how many can
-            if let Some(v) = root {
-                let (left, h) = helper(v.borrow_mut().left.take());
-                let (right, r) = helper(v.borrow_mut().right.take());
-                let z = left + right + v.borrow().val;
-                return (left.max(right).max(z), h.max(r));
-            }
-            (0, 0)
-        }
-        let (as_routine, v) = helper(root);
-        as_routine.max(v)
-    }
 }
+
 /// build binary tree from &[i32]
 #[allow(unused)]
 fn build_binary_tree<T>(input: &[Option<T>]) -> Option<Rc<RefCell<TreeNode<T>>>>

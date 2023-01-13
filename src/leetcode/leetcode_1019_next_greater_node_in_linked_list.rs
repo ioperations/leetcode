@@ -6,7 +6,6 @@
 // If the ith node does not have a next greater node, set answer[i] = 0.
 
 // Definition for singly-linked list.
-#[derive(PartialEq, Eq, Clone, Debug)]
 #[allow(unused)]
 pub struct ListNode {
     pub val: i32,

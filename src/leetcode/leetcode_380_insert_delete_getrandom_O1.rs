@@ -23,11 +23,6 @@ struct RandomizedSet {
 
 impl RandomizedSet {
     #[allow(unused)]
-    fn new() -> Self {
-        RandomizedSet::default()
-    }
-
-    #[allow(unused)]
     fn insert(&self, val: i32) -> bool {
         let contains = self.map.borrow().contains_key(&val);
 

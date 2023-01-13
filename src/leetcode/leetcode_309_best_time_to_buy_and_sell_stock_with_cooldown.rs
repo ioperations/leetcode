@@ -18,6 +18,7 @@ enum Invested {
 
 #[allow(unused)]
 struct Solution;
+
 impl Solution {
     #[allow(unused)]
     pub fn max_profit(prices: &[i32]) -> i32 {

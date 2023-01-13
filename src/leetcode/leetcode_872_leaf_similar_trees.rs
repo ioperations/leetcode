@@ -5,8 +5,9 @@
 // Two binary trees are considered leaf-similar if their leaf value sequence is the same.
 // Return true if and only if the two given trees with head nodes root1 and root2 are leaf-similar.
 
+use std::{cell::RefCell, collections::VecDeque, rc::Rc};
+
 // Definition for a binary tree node.
-#[derive(Debug, PartialEq, Eq)]
 pub struct TreeNode<T> {
     pub val: T,
     pub left: Option<Rc<RefCell<TreeNode<T>>>>,
@@ -23,12 +24,10 @@ impl<T> TreeNode<T> {
         }
     }
 }
-use std::cell::RefCell;
-use std::collections::VecDeque;
-use std::rc::Rc;
 
 #[allow(unused)]
 struct Solution;
+
 impl Solution {
     #[allow(unused)]
     pub fn leaf_similar<T>(
