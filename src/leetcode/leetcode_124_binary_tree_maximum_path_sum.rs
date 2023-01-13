@@ -35,8 +35,8 @@ impl Solution {
     pub fn max_path_sum(root: &Option<Rc<RefCell<TreeNode<i32>>>>) -> i32 {
         fn helper(root: &Option<Rc<RefCell<TreeNode<i32>>>>) -> (Option<i32>, Option<i32>) {
             if let Some(v) = root {
-                let left = helper(&v.borrow_mut().left);
-                let right = helper(&v.borrow_mut().right);
+                let left = helper(&v.borrow().left);
+                let right = helper(&v.borrow().right);
                 let z = v.borrow().val;
                 return match (left, right) {
                     ((Some(l), Some(v)), (Some(r), Some(v2))) => {

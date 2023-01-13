@@ -37,8 +37,8 @@ impl Solution {
         if let (Some(p), Some(q)) = (p, q) {
             let ok = q.borrow().val == p.borrow().val;
 
-            ok && Self::is_same_tree(&p.borrow_mut().left, &q.borrow_mut().left)
-                && Self::is_same_tree(&p.borrow_mut().right, &q.borrow_mut().right)
+            ok && Self::is_same_tree(&p.borrow().left, &q.borrow().left)
+                && Self::is_same_tree(&p.borrow().right, &q.borrow().right)
         } else {
             false
         }

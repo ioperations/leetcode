@@ -24,12 +24,12 @@ struct Solution;
 
 impl Solution {
     #[allow(unused)]
-    pub fn count_nodes(root: Option<Rc<RefCell<TreeNode<i32>>>>) -> i32 {
+    pub fn count_nodes(root: &Option<Rc<RefCell<TreeNode<i32>>>>) -> i32 {
         match root {
             None => 0,
             Some(n) => {
-                let mut n = n.as_ref().borrow_mut();
-                1 + Self::count_nodes(n.left.take()) + Self::count_nodes(n.right.take())
+                let n = n.as_ref().borrow();
+                1 + Self::count_nodes(&n.left) + Self::count_nodes(&n.right)
             }
         }
     }
@@ -115,7 +115,7 @@ fn test_v1_test() {
     let root = build_binary_tree::<i32>(&v);
     expect_binary_tree(&v, &root);
 
-    let ret = Solution::count_nodes(root);
+    let ret = Solution::count_nodes(&root);
     assert_eq!(ret, 6);
 }
 
@@ -125,7 +125,7 @@ fn test_v2_test() {
     let root = build_binary_tree::<i32>(&v);
     expect_binary_tree(&v, &root);
 
-    let ret = Solution::count_nodes(root);
+    let ret = Solution::count_nodes(&root);
     assert_eq!(ret, 1);
 }
 
@@ -135,6 +135,6 @@ fn test_v3_test() {
     let root = build_binary_tree(&v);
     expect_binary_tree(&v, &root);
 
-    let ret = Solution::count_nodes(root);
+    let ret = Solution::count_nodes(&root);
     assert_eq!(ret, 0);
 }

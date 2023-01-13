@@ -47,8 +47,8 @@ impl Solution {
             *count += 1;
         }
         let z = node.as_ref().borrow().val.max(val);
-        Self::fun(node.borrow_mut().left.as_ref(), z, count);
-        Self::fun(node.borrow_mut().right.as_ref(), z, count);
+        Self::fun(node.borrow().left.as_ref(), z, count);
+        Self::fun(node.borrow().right.as_ref(), z, count);
     }
 }
 

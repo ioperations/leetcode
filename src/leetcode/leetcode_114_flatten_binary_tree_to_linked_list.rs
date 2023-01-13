@@ -58,21 +58,19 @@ impl Solution {
     }
 
     #[allow(unused)]
-    pub fn read<T>(root: &mut Option<Rc<RefCell<TreeNode<T>>>>, vals: &mut Vec<T>)
+    pub fn read<T>(root: &Option<Rc<RefCell<TreeNode<T>>>>, vals: &mut Vec<T>)
     where
         T: Copy,
     {
-        if root.is_none() {
-            return;
+        if let Some(root) = root {
+            vals.push(root.as_ref().borrow().val);
+            Self::read(&root.as_ref().borrow().left, vals);
+            Self::read(&root.as_ref().borrow().right, vals);
         }
-
-        vals.push(root.as_mut().unwrap().borrow().val);
-        Self::read(&mut root.as_mut().unwrap().borrow_mut().left, vals);
-        Self::read(&mut root.as_mut().unwrap().borrow_mut().right, vals);
     }
 
     #[allow(unused)]
-    pub fn pre_order<T>(root: Option<Rc<RefCell<TreeNode<T>>>>) -> Vec<Option<T>>
+    pub fn pre_order<T>(root: &Option<Rc<RefCell<TreeNode<T>>>>) -> Vec<Option<T>>
     where
         T: Copy,
     {
@@ -82,19 +80,16 @@ impl Solution {
     }
 
     #[allow(unused)]
-    pub fn pre_order_v1<T>(root: Option<Rc<RefCell<TreeNode<T>>>>, v: &mut Vec<Option<T>>)
+    pub fn pre_order_v1<T>(root: &Option<Rc<RefCell<TreeNode<T>>>>, v: &mut Vec<Option<T>>)
     where
         T: Copy,
     {
-        if root.is_none() {
-            return;
+        if let Some(root) = root {
+            v.push(Some(root.as_ref().borrow().val));
+
+            Self::pre_order_v1(&root.as_ref().borrow().left, v);
+            Self::pre_order_v1(&root.as_ref().borrow().right, v);
         }
-
-        let root = root.unwrap();
-        v.push(Some(root.as_ref().borrow().val));
-
-        Self::pre_order_v1(root.as_ref().borrow_mut().left.take(), v);
-        Self::pre_order_v1(root.as_ref().borrow_mut().right.take(), v);
     }
 }
 
@@ -168,7 +163,7 @@ mod tests {
         let t = vec![Some(1), Some(2), Some(5), Some(3), Some(4), Some(6)];
         let mut tr = build_binary_tree(&t);
         let tr1 = build_binary_tree(&t);
-        let expected: Vec<Option<i32>> = Solution::pre_order(tr1);
+        let expected: Vec<Option<i32>> = Solution::pre_order(&tr1);
 
         Solution::flatten(&mut tr);
         right_expect(&tr, &expected);
@@ -179,7 +174,7 @@ mod tests {
         let t: Vec<Option<i32>> = vec![];
         let mut tr = build_binary_tree(&t);
         let tr1 = build_binary_tree(&t);
-        let expected: Vec<Option<i32>> = Solution::pre_order(tr1);
+        let expected: Vec<Option<i32>> = Solution::pre_order(&tr1);
 
         Solution::flatten(&mut tr);
         right_expect(&tr, &expected);
@@ -190,7 +185,7 @@ mod tests {
         let t = vec![Some(0)];
         let mut tr = build_binary_tree(&t);
         let tr1 = build_binary_tree(&t);
-        let expected: Vec<Option<i32>> = Solution::pre_order(tr1);
+        let expected: Vec<Option<i32>> = Solution::pre_order(&tr1);
 
         Solution::flatten(&mut tr);
         right_expect(&tr, &expected);

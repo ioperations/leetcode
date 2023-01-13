@@ -66,8 +66,10 @@ mod tests {
         let mut ret: ListNode = ListNode::new(0);
 
         for i in node {
-            let mut thisnode = Box::new(ListNode::new(i));
-            thisnode.next = ret.next.take();
+            let mut thisnode = Box::new(ListNode {
+                val: i,
+                next: ret.next.take(),
+            });
             ret.next = Some(thisnode);
         }
         ret.next

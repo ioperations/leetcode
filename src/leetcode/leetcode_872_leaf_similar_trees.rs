@@ -31,8 +31,8 @@ struct Solution;
 impl Solution {
     #[allow(unused)]
     pub fn leaf_similar<T>(
-        root1: Option<Rc<RefCell<TreeNode<T>>>>,
-        root2: Option<Rc<RefCell<TreeNode<T>>>>,
+        root1: &Option<Rc<RefCell<TreeNode<T>>>>,
+        root2: &Option<Rc<RefCell<TreeNode<T>>>>,
     ) -> bool
     where
         T: std::cmp::PartialEq + Copy,
@@ -57,7 +57,7 @@ impl Solution {
     }
 
     #[allow(unused)]
-    fn preorder<T>(root: Option<Rc<RefCell<TreeNode<T>>>>, res: &mut Vec<T>)
+    fn preorder<T>(root: &Option<Rc<RefCell<TreeNode<T>>>>, res: &mut Vec<T>)
     where
         T: Copy,
     {
@@ -65,8 +65,8 @@ impl Solution {
             if n.borrow().left.is_none() && n.borrow().right.is_none() {
                 res.push(n.borrow().val);
             }
-            Self::preorder(n.borrow().left.clone(), res);
-            Self::preorder(n.borrow().right.clone(), res);
+            Self::preorder(&n.borrow().left, res);
+            Self::preorder(&n.borrow().right, res);
         }
     }
 
@@ -176,7 +176,7 @@ mod tests {
             Some(i)
         });
         let output = true;
-        let ret = Solution::leaf_similar(build_binary_tree(&root1), build_binary_tree(&root2));
+        let ret = Solution::leaf_similar(&build_binary_tree(&root1), &build_binary_tree(&root2));
         assert_eq!(ret, output);
     }
 
@@ -191,7 +191,7 @@ mod tests {
             Some(i)
         });
         let output = false;
-        let ret = Solution::leaf_similar(build_binary_tree(&root1), build_binary_tree(&root2));
+        let ret = Solution::leaf_similar(&build_binary_tree(&root1), &build_binary_tree(&root2));
         assert_eq!(ret, output);
     }
 }

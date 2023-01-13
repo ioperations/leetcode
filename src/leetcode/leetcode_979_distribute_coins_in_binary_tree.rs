@@ -32,8 +32,8 @@ impl Solution {
     #[allow(unused)]
     fn helper(node: &Option<Rc<RefCell<TreeNode<i32>>>>, steps: &mut i32) -> i32 {
         if let Some(node) = node {
-            let left = Self::helper(&node.as_ref().borrow_mut().left, steps);
-            let right = Self::helper(&node.as_ref().borrow_mut().right, steps);
+            let left = Self::helper(&node.as_ref().borrow().left, steps);
+            let right = Self::helper(&node.as_ref().borrow().right, steps);
             *steps += left.abs() + right.abs();
 
             return left + right - 1 + node.as_ref().borrow().val;
