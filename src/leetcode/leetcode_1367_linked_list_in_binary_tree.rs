@@ -3,6 +3,7 @@
 // correspond to some downward path connected in the binary tree otherwise return False.
 // In this context downward path means a path that starts at some node and goes downwards.
 
+use super::leetcode_binary_tree::TreeNode;
 use std::{cell::RefCell, rc::Rc};
 
 #[allow(unused)]
@@ -16,26 +17,6 @@ impl<T> ListNode<T> {
     #[allow(unused)]
     fn new(val: T) -> Self {
         ListNode { next: None, val }
-    }
-}
-
-// Definition for a binary tree node.
-#[allow(unused)]
-pub struct TreeNode<T> {
-    pub val: T,
-    pub left: Option<Rc<RefCell<TreeNode<T>>>>,
-    pub right: Option<Rc<RefCell<TreeNode<T>>>>,
-}
-
-impl<T> TreeNode<T> {
-    #[inline]
-    #[allow(unused)]
-    pub fn new(val: T) -> Self {
-        TreeNode {
-            val,
-            left: None,
-            right: None,
-        }
     }
 }
 
@@ -74,50 +55,8 @@ impl Solution {
 
 #[cfg(test)]
 mod tests {
+    use super::super::leetcode_binary_tree::build_binary_tree;
     use super::*;
-    use std::collections::VecDeque;
-
-    /// build binary tree from &[i32]
-    #[allow(unused)]
-    fn build_binary_tree<T>(input: &[Option<T>]) -> Option<Rc<RefCell<TreeNode<T>>>>
-    where
-        T: Copy,
-    {
-        let size = input.len();
-        if size == 0 {
-            return None;
-        }
-
-        let mut queue: VecDeque<Rc<RefCell<TreeNode<T>>>> = VecDeque::new();
-        let root = Rc::new(RefCell::new(TreeNode::<T>::new(input[0].unwrap())));
-        queue.push_back(root.clone());
-        let mut i = 1;
-
-        while i < size {
-            let z1 = queue.pop_front().unwrap();
-            if input[i].is_some() {
-                z1.as_ref().borrow_mut().left =
-                    Some(Rc::new(RefCell::new(TreeNode::<T>::new(input[i].unwrap()))));
-                queue.push_back(z1.borrow().left.as_ref().unwrap().clone());
-            } else {
-                z1.as_ref().borrow_mut().left = None;
-            }
-
-            i += 1;
-            if i >= size {
-                break;
-            }
-            if input[i].is_some() {
-                z1.as_ref().borrow_mut().right =
-                    Some(Rc::new(RefCell::new(TreeNode::<T>::new(input[i].unwrap()))));
-                queue.push_back(z1.borrow().right.as_ref().unwrap().clone());
-            } else {
-                z1.as_ref().borrow_mut().right = None;
-            }
-            i += 1;
-        }
-        Some(root)
-    }
 
     #[allow(unused)]
     fn build_link_list<T>(node: &[T]) -> Option<Box<ListNode<T>>>

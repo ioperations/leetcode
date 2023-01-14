@@ -119,7 +119,7 @@ impl KvIterator for TestIteratorV3 {
             // write!(&mut self.value, "value_{:05}", self.idx).unwrap();
 
             self.idx += 1;
-            Some((&self.key[..], &self.value[..]))
+            Some((&self.key, &self.value))
         }
     }
 }
