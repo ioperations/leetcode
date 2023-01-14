@@ -1,6 +1,4 @@
-/// Definition for a binary tree node.
 use super::leetcode_binary_tree::TreeNode;
-
 use std::collections::VecDeque;
 use std::{cell::RefCell, rc::Rc};
 

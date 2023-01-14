@@ -2,25 +2,17 @@
 // If there are two middle nodes, return the second middle node.
 
 // Definition for singly-linked list.
+use super::leetcode_linklist::ListNode;
 
-#[derive(Clone)]
-pub struct ListNode {
-    pub val: i32,
-    pub next: Option<Box<ListNode>>,
-}
-
-impl ListNode {
-    #[inline]
-    fn new(val: i32) -> Self {
-        ListNode { next: None, val }
-    }
-}
 #[allow(unused)]
 struct Solution;
 
 impl Solution {
     #[allow(unused)]
-    pub fn middle_node(head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
+    pub fn middle_node<T>(head: Option<Box<ListNode<T>>>) -> Option<Box<ListNode<T>>>
+    where
+        T: Clone + Copy,
+    {
         let (mut iter, mut iter_slow) = (head.clone(), head);
         let mut count = 0;
         while let Some(node) = iter {
@@ -39,7 +31,10 @@ impl Solution {
     }
 
     #[allow(unused)]
-    pub fn middle_node_v2(head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
+    pub fn middle_node_v2<T>(head: Option<Box<ListNode<T>>>) -> Option<Box<ListNode<T>>>
+    where
+        T: Copy,
+    {
         head.as_ref()?;
         let head = head.unwrap();
         let mut fast_p = &head;
@@ -70,7 +65,10 @@ impl Solution {
     }
 
     #[allow(unused)]
-    fn copy_values(new_head: &mut ListNode, old_head: &ListNode) {
+    fn copy_values<T>(new_head: &mut ListNode<T>, old_head: &ListNode<T>)
+    where
+        T: Copy,
+    {
         let mut old_head = old_head;
         let mut new_tail = new_head;
         loop {
@@ -92,38 +90,12 @@ impl Solution {
         }
     }
 }
-#[allow(unused)]
-fn list_into_vec(head: &Option<Box<ListNode>>) -> Vec<i32> {
-    if let Some(h) = head {
-        let mut v = list_into_vec(&h.next);
-        v.insert(0, h.val);
-        return v;
-    }
-
-    vec![]
-}
-
-#[allow(unused)]
-fn build_list_from_vec(node: &[i32]) -> Option<Box<ListNode>> {
-    if node.is_empty() {
-        return None;
-    }
-    let mut ret = ListNode::new(0);
-
-    for i in node.iter().rev() {
-        let mut thisnode = Box::new(ListNode {
-            val: *i,
-            next: ret.next.take(),
-        });
-        ret.next = Some(thisnode);
-    }
-    ret.next
-}
 
 #[cfg(test)]
 mod tests {
     use super::*;
     extern crate test;
+    use super::super::leetcode_linklist::{build_list_from_vec, list_into_vec};
 
     #[test]
     fn case1_test() {
@@ -159,7 +131,8 @@ mod tests {
 
 #[cfg(test)]
 mod testsv2 {
-    use super::{build_list_from_vec, list_into_vec, Solution};
+    use super::super::leetcode_linklist::{build_list_from_vec, list_into_vec};
+    use super::Solution;
     extern crate test;
 
     #[test]

@@ -5,30 +5,20 @@
 // Note that the relative order inside both the even and odd groups should remain as it was in the input.
 // You must solve the problem in O(1) extra space complexity and O(n) time complexity.
 
-// Definition for singly-linked list.
-#[allow(unused)]
-pub struct ListNode {
-    pub val: i32,
-    pub next: Option<Box<ListNode>>,
-}
-
-impl ListNode {
-    #[allow(unused)]
-    #[inline]
-    fn new(val: i32) -> Self {
-        ListNode { next: None, val }
-    }
-}
+use super::leetcode_linklist::ListNode;
 
 #[allow(unused)]
 struct Solution;
 
 impl Solution {
     #[allow(unused)]
-    pub fn odd_even_list_dummy(head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
+    pub fn odd_even_list_dummy<T>(head: Option<Box<ListNode<T>>>) -> Option<Box<ListNode<T>>>
+    where
+        T: Default,
+    {
         let mut head = head;
-        let mut odd_dummy_head = ListNode::new(-1);
-        let mut even_dummy_head = ListNode::new(-1);
+        let mut odd_dummy_head = ListNode::new(Default::default());
+        let mut even_dummy_head = ListNode::new(Default::default());
         let mut odd_cur = &mut odd_dummy_head;
         let mut even_cur = &mut even_dummy_head;
 
@@ -50,7 +40,7 @@ impl Solution {
     }
 
     #[allow(unused)]
-    pub fn odd_even_list(head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
+    pub fn odd_even_list<T>(head: Option<Box<ListNode<T>>>) -> Option<Box<ListNode<T>>> {
         //establish Even and Odd lists
         let mut odd_head = head?;
         let mut odd_tail = &mut odd_head.next;
@@ -80,38 +70,11 @@ impl Solution {
     }
 }
 
-#[allow(unused)]
-fn list_into_vec(head: &Option<Box<ListNode>>) -> Vec<i32> {
-    if let Some(h) = head {
-        let mut v = list_into_vec(&h.next);
-        v.insert(0, h.val);
-        return v;
-    }
-
-    vec![]
-}
-
-#[allow(unused)]
-fn build_list_from_vec(node: &[i32]) -> Option<Box<ListNode>> {
-    if node.is_empty() {
-        return None;
-    }
-    let mut ret: ListNode = ListNode::new(0);
-
-    for i in node.iter().rev() {
-        let mut thisnode = Box::new(ListNode {
-            val: *i,
-            next: ret.next.take(),
-        });
-        ret.next = Some(thisnode);
-    }
-    ret.next
-}
-
 #[cfg(test)]
 mod tests {
     use super::*;
     extern crate test;
+    use super::super::leetcode_linklist::{build_list_from_vec, list_into_vec};
 
     #[test]
     fn case1_test() {
@@ -150,6 +113,7 @@ mod tests {
 mod tests_dummy {
     use super::*;
     extern crate test;
+    use super::super::leetcode_linklist::{build_list_from_vec, list_into_vec};
 
     #[test]
     fn case1_test() {

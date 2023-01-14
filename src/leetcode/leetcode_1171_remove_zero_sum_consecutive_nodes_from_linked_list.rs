@@ -3,52 +3,19 @@
 //
 // (Note that in the examples below, all sequences are serializations of ListNode objects.)
 
-// Definition for singly-linked list.
-#[allow(unused)]
-pub struct ListNode {
-    pub val: i32,
-    pub next: Option<Box<ListNode>>,
-}
-
-impl ListNode {
-    #[allow(unused)]
-    #[inline]
-    fn new(val: i32) -> Self {
-        ListNode { next: None, val }
-    }
-}
-
-#[allow(unused)]
-pub fn from_vec(v: &[i32]) -> Option<Box<ListNode>> {
-    let mut head = None;
-    let n = v.len();
-    for i in (0..n).rev() {
-        let x = v[i];
-        head = Some(Box::new(ListNode { val: x, next: head }));
-    }
-    head
-}
-
-#[allow(unused)]
-pub fn to_vec(head: &Option<Box<ListNode>>) -> Vec<i32> {
-    let mut ans = vec![];
-    let mut p = head;
-    while let Some(node) = p {
-        ans.push(node.val);
-        p = &node.next;
-    }
-    ans
-}
+use super::leetcode_linklist::{build_list_from_vec, list_into_vec, ListNode};
 
 #[allow(unused)]
 struct Solution;
 
 impl Solution {
     #[allow(unused)]
-    pub fn remove_zero_sum_sublists(head: &Option<Box<ListNode>>) -> Option<Box<ListNode>> {
+    pub fn remove_zero_sum_sublists(
+        head: &Option<Box<ListNode<i32>>>,
+    ) -> Option<Box<ListNode<i32>>> {
         use std::collections::HashMap;
 
-        let mut v = to_vec(head);
+        let mut v = list_into_vec(head);
         let mut partial_sum = vec![0; v.len() + 1];
 
         let mut map = HashMap::<i32, i32>::new();
@@ -91,52 +58,23 @@ impl Solution {
                 ans.push(v[i - 1]);
             }
         }
-        from_vec(&ans)
+        build_list_from_vec(&ans)
     }
 }
 
 #[cfg(test)]
 mod tests {
     use super::*;
-
-    /// 将自定义链表转换成数组
-    #[allow(unused)]
-    fn convert_list_to_vec_iter(lists: Option<Box<ListNode>>) -> Vec<i32> {
-        let mut lists = lists;
-        let mut ret = vec![];
-        while let Some(node) = lists {
-            ret.push(node.val);
-            lists = node.next;
-        }
-        ret
-    }
-
-    #[allow(unused)]
-    fn build_list_iter(node: &[i32]) -> Option<Box<ListNode>> {
-        if node.is_empty() {
-            return None;
-        }
-        let mut node = node.iter().copied().rev().collect::<Vec<i32>>();
-        let mut ret: ListNode = ListNode::new(0);
-
-        for i in node {
-            let mut thisnode = Box::new(ListNode {
-                val: i,
-                next: ret.next.take(),
-            });
-            ret.next = Some(thisnode);
-        }
-        ret.next
-    }
+    use super::{build_list_from_vec, list_into_vec};
 
     #[test]
     fn case1_test() {
         let head = [1, 2, -3, 3, 1];
         let output1 = vec![3, 1];
         let output2 = vec![1, 2, 1];
-        let head = build_list_iter(&head);
+        let head = build_list_from_vec(&head);
         let ret = Solution::remove_zero_sum_sublists(&head);
-        let ret = convert_list_to_vec_iter(ret);
+        let ret = list_into_vec(&ret);
         assert!(ret == output1 || ret == output2);
         // let Note: The answer [1,2,1] would also be accepted.;
     }
@@ -145,9 +83,9 @@ mod tests {
     fn case2_test() {
         let head = [1, 2, 3, -3, 4];
         let output1 = vec![1, 2, 4];
-        let head = build_list_iter(&head);
+        let head = build_list_from_vec(&head);
         let ret = Solution::remove_zero_sum_sublists(&head);
-        let ret = convert_list_to_vec_iter(ret);
+        let ret = list_into_vec(&ret);
         assert!(ret == output1);
         // let Note: The answer [1,2,1] would also be accepted.;
     }
@@ -156,9 +94,9 @@ mod tests {
     fn case3_test() {
         let head = [1, 2, 3, -3, -2];
         let output1 = vec![1];
-        let head = build_list_iter(&head);
+        let head = build_list_from_vec(&head);
         let ret = Solution::remove_zero_sum_sublists(&head);
-        let ret = convert_list_to_vec_iter(ret);
+        let ret = list_into_vec(&ret);
         assert!(ret == output1);
         // let Note: The answer [1,2,1] would also be accepted.;
     }

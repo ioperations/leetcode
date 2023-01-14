@@ -1,19 +1,8 @@
 // You are given the head of a linked list containing unique integer values and an integer array nums that is a subset of the linked list values.
 // Return the number of connected components in nums where two values are connected if they appear consecutively in the linked list.
 
+use super::leetcode_linklist::ListNode;
 use std::collections::HashSet;
-// Definition for singly-linked list.
-pub struct ListNode<T> {
-    pub val: T,
-    pub next: Option<Box<ListNode<T>>>,
-}
-
-impl<T> ListNode<T> {
-    #[inline]
-    fn new(val: T) -> Self {
-        ListNode { next: None, val }
-    }
-}
 
 #[allow(unused)]
 struct Solution;
@@ -36,25 +25,9 @@ impl Solution {
     }
 }
 
-#[allow(unused)]
-fn build_list_from_vec(node: &[i32]) -> Option<Box<ListNode<i32>>> {
-    if node.is_empty() {
-        return None;
-    }
-    let mut ret = ListNode::new(0);
-
-    for i in node.iter().rev() {
-        let mut thisnode = Box::new(ListNode {
-            val: *i,
-            next: ret.next.take(),
-        });
-        ret.next = Some(thisnode);
-    }
-    ret.next
-}
-
 #[cfg(test)]
 mod tests {
+    use super::super::leetcode_linklist::build_list_from_vec;
     use super::*;
 
     #[test]

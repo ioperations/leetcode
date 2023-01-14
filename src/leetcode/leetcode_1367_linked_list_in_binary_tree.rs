@@ -4,21 +4,8 @@
 // In this context downward path means a path that starts at some node and goes downwards.
 
 use super::leetcode_binary_tree::TreeNode;
+use super::leetcode_linklist::ListNode;
 use std::{cell::RefCell, rc::Rc};
-
-#[allow(unused)]
-pub struct ListNode<T> {
-    pub val: T,
-    pub next: Option<Box<ListNode<T>>>,
-}
-
-impl<T> ListNode<T> {
-    #[inline]
-    #[allow(unused)]
-    fn new(val: T) -> Self {
-        ListNode { next: None, val }
-    }
-}
 
 #[allow(unused)]
 struct Solution;
@@ -56,28 +43,8 @@ impl Solution {
 #[cfg(test)]
 mod tests {
     use super::super::leetcode_binary_tree::build_binary_tree;
+    use super::super::leetcode_linklist::build_list_from_vec;
     use super::*;
-
-    #[allow(unused)]
-    fn build_link_list<T>(node: &[T]) -> Option<Box<ListNode<T>>>
-    where
-        T: Copy,
-    {
-        if node.is_empty() {
-            return None;
-        }
-        let mut node = node.iter().copied().rev().collect::<Vec<T>>();
-        let mut ret: ListNode<T> = ListNode::new(node[0]);
-
-        for i in node {
-            let mut thisnode = Box::new(ListNode {
-                val: i,
-                next: ret.next.take(),
-            });
-            ret.next = Some(thisnode);
-        }
-        ret.next
-    }
 
     #[test]
     fn case1_test() {
@@ -95,7 +62,7 @@ mod tests {
             Some(i)
         })
         .collect::<Vec<Option<i32>>>();
-        let head = build_link_list(&head);
+        let head = build_list_from_vec(&head);
         let root = build_binary_tree(&root);
         let output = true;
         // Explanation: Nodes in blue form a subpath in the binary Tree.
@@ -119,7 +86,7 @@ mod tests {
             Some(i)
         })
         .collect::<Vec<Option<i32>>>();
-        let head = build_link_list(&head);
+        let head = build_list_from_vec(&head);
         let root = build_binary_tree(&root);
         let output = true;
         let ret = Solution::is_sub_path(&head, &root);
