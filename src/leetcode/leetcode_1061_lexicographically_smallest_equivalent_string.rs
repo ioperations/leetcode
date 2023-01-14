@@ -19,7 +19,7 @@ struct Solution;
 impl Solution {
     #[allow(unused)]
     pub fn smallest_equivalent_string(s1: &str, s2: &str, base_str: &str) -> String {
-        let mut p = (0..26).into_iter().collect();
+        let mut p = (0..26).collect();
 
         s1.as_bytes()
             .iter()
