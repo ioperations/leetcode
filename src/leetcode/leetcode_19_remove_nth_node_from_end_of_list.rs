@@ -6,6 +6,7 @@ struct Solution;
 
 impl Solution {
     #[allow(unused)]
+    #[allow(clippy::borrow_as_ptr)]
     pub fn remove_nth_from_end<T>(
         head: Option<Box<ListNode<T>>>,
         n: i32,
