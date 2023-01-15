@@ -62,6 +62,37 @@ mod tests {
         });
     }
 
+    use rayon::prelude::*;
+
+    #[bench]
+    fn bench_simd_sync(b: &mut test::Bencher) {
+        let value: u32 = (0..BENCH_SIZE).into_par_iter().map(fibonacci).reduce(
+            || (0_u32),
+            |acc, e| {
+                if let Some(res) = acc.checked_add(e) {
+                    res
+                } else {
+                    acc
+                }
+            },
+        );
+        println!("value is  {value}");
+
+        b.iter(|| {
+            let res = (0..BENCH_SIZE).into_par_iter().map(fibonacci).reduce(
+                || (0),
+                |acc, e| {
+                    if let Some(res) = acc.checked_add(e) {
+                        res
+                    } else {
+                        acc
+                    }
+                },
+            );
+            assert_eq!(res, value);
+        });
+    }
+
     #[bench]
     fn bench_actor(b: &mut test::Bencher) {
         #[allow(unused)]
