@@ -80,7 +80,7 @@ mod tests {
 
         b.iter(|| {
             let res = (0..BENCH_SIZE).into_par_iter().map(fibonacci).reduce(
-                || (0),
+                || (0_u32),
                 |acc, e| {
                     if let Some(res) = acc.checked_add(e) {
                         res
