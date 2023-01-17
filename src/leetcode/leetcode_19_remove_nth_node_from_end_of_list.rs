@@ -54,8 +54,8 @@ impl Solution {
         });
 
         unsafe {
+            let mut slow = &mut dummy as *mut Box<ListNode<T>>;
             let mut fast = &dummy as *const Box<ListNode<T>>;
-            let mut slower = &mut dummy as *mut Box<ListNode<T>>;
 
             while (*fast).next.is_some() {
                 fast = (*fast).next.as_ref().unwrap();
@@ -64,9 +64,9 @@ impl Solution {
                 } else {
                     break;
                 }
-                slower = (*slower).next.as_mut().unwrap();
+                slow = (*slow).next.as_mut().unwrap();
             }
-            (*slower).next = (*slower).next.take().unwrap().next;
+            (*slow).next = (*slow).next.take().unwrap().next;
         }
         dummy.next
     }
