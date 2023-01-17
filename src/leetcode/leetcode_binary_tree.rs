@@ -145,3 +145,78 @@ pub fn expect_binary_tree<T: std::cmp::PartialEq + std::fmt::Debug + Copy>(
 
     assert_eq!(i, size);
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[allow(unused)]
+    fn expect_vec_of_option<T>(left: &[Option<T>], right: &[Option<T>])
+    where
+        T: std::fmt::Debug + PartialEq,
+    {
+        assert_eq!(left.len(), right.len());
+        left.iter().zip(right.iter()).for_each(|(left, right)| {
+            match (left, right) {
+                (Some(ref left), Some(ref right)) => {
+                    assert_eq!(left, right);
+                    true
+                }
+                (None, Some(_)) | (Some(_), None) => {
+                    panic!("not ok ");
+                    true
+                }
+                (None, None) => true,
+            };
+        });
+    }
+
+    #[test]
+    fn case0_test() {
+        let null = 1000;
+        let p = [1, 2, 3]
+            .map(|i| {
+                if i == null {
+                    return None;
+                }
+                Some(i)
+            })
+            .to_vec();
+        let q = [1, 2, 3]
+            .map(|i| {
+                if i == null {
+                    return None;
+                }
+                Some(i)
+            })
+            .to_vec();
+        let tree = build_binary_tree(&p);
+        expect_binary_tree(&p, &tree);
+        let tree2 = build_binary_tree(&q);
+        expect_binary_tree(&q, &tree2);
+        let ret = flatten_binary_tree(tree);
+        expect_vec_of_option(&ret, &p);
+        let ret = flatten_binary_tree(tree2);
+        expect_vec_of_option(&ret, &q);
+    }
+
+    #[test]
+    fn case1_test() {
+        let p: Vec<Option<i32>> = vec![];
+        let tree = build_binary_tree(&p);
+        expect_binary_tree(&p, &tree);
+        right_expect(&tree, &[]);
+        let ret = flatten_binary_tree(tree);
+        expect_vec_of_option(&ret, &p);
+    }
+
+    #[test]
+    fn case2_test() {
+        let p: Vec<Option<i32>> = vec![Some(1)];
+        let tree = build_binary_tree(&p);
+        expect_binary_tree(&p, &tree);
+        right_expect(&tree, &[Some(1)]);
+        let ret = flatten_binary_tree(tree);
+        expect_vec_of_option(&ret, &p);
+    }
+}

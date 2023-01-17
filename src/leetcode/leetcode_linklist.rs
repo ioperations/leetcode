@@ -47,3 +47,40 @@ where
     }
     ret.next
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn case1_test() {
+        let vec = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
+        let link_list = build_list_from_vec(&vec);
+        let ret = list_into_vec(&link_list);
+        assert_eq!(ret, vec);
+    }
+
+    #[test]
+    fn case2_test() {
+        let vec: Vec<i32> = vec![];
+        let link_list = build_list_from_vec(&vec);
+        let ret = list_into_vec(&link_list);
+        assert_eq!(ret, vec);
+    }
+
+    #[test]
+    fn case3_test() {
+        let vec = [9, 8, 7, 6, 5, 4, 3, 2, 1, 0];
+        let link_list = build_list_from_vec(&vec);
+        let ret = list_into_vec(&link_list);
+        assert_eq!(ret, vec);
+    }
+
+    #[test]
+    fn case4_test() {
+        let vec = [0];
+        let link_list = build_list_from_vec(&vec);
+        let ret = list_into_vec(&link_list);
+        assert_eq!(ret, vec);
+    }
+}

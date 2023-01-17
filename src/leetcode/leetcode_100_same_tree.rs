@@ -30,35 +30,8 @@ impl Solution {
 
 #[cfg(test)]
 mod tests {
-    use super::super::leetcode_binary_tree::{
-        build_binary_tree, expect_binary_tree,
-    };
+    use super::super::leetcode_binary_tree::build_binary_tree;
     use super::*;
-
-    #[test]
-    fn case0_test() {
-        let null = 1000;
-        let p = [1, 2, 3]
-            .map(|i| {
-                if i == null {
-                    return None;
-                }
-                Some(i)
-            })
-            .to_vec();
-        let q = [1, 2, 3]
-            .map(|i| {
-                if i == null {
-                    return None;
-                }
-                Some(i)
-            })
-            .to_vec();
-        let tree = build_binary_tree(&p);
-        expect_binary_tree(&p, &tree);
-        let tree2 = build_binary_tree(&q);
-        expect_binary_tree(&q, &tree2);
-    }
 
     #[test]
     fn case1_test() {
