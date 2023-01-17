@@ -9,7 +9,9 @@ mod tests {
         };
 
         let swap_with = nums[last_ascending + 1..]
-            .binary_search_by(|n| i32::cmp(&nums[last_ascending], n).then(Ordering::Less))
+            .binary_search_by(|n| {
+                i32::cmp(&nums[last_ascending], n).then(Ordering::Less)
+            })
             .unwrap_err(); // cannot fail because the binary search will never succeed
         nums.swap(last_ascending, last_ascending + swap_with);
         nums[last_ascending + 1..].reverse();

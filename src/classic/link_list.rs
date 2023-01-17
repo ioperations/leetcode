@@ -1119,23 +1119,23 @@ mod test {
             &[10, 7, 1, 8, 2, 3, 4, 5, 6, 9]
         );
 
-        /* remove_current not impl'd
-        let mut cursor = m.cursor_mut();
-        cursor.move_next();
-        cursor.move_prev();
-        assert_eq!(cursor.remove_current(), None);
-        cursor.move_next();
-        cursor.move_next();
-        assert_eq!(cursor.remove_current(), Some(7));
-        cursor.move_prev();
-        cursor.move_prev();
-        cursor.move_prev();
-        assert_eq!(cursor.remove_current(), Some(9));
-        cursor.move_next();
-        assert_eq!(cursor.remove_current(), Some(10));
-        check_links(&m);
-        assert_eq!(m.iter().cloned().collect::<Vec<_>>(), &[1, 8, 2, 3, 4, 5, 6]);
-        */
+        // remove_current not impl'd
+        // let mut cursor = m.cursor_mut();
+        // cursor.move_next();
+        // cursor.move_prev();
+        // assert_eq!(cursor.remove_current(), None);
+        // cursor.move_next();
+        // cursor.move_next();
+        // assert_eq!(cursor.remove_current(), Some(7));
+        // cursor.move_prev();
+        // cursor.move_prev();
+        // cursor.move_prev();
+        // assert_eq!(cursor.remove_current(), Some(9));
+        // cursor.move_next();
+        // assert_eq!(cursor.remove_current(), Some(10));
+        // check_links(&m);
+        // assert_eq!(m.iter().cloned().collect::<Vec<_>>(), &[1, 8, 2, 3, 4, 5,
+        // 6]);
 
         let mut m: LinkedList<u32> = LinkedList::new();
         m.extend([1, 8, 2, 3, 4, 5, 6]);

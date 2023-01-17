@@ -5,18 +5,18 @@ symmetric around its center).
 
 struct TreeNode {
     int val;
-    TreeNode* left;
-    TreeNode* right;
+    TreeNode *left;
+    TreeNode *right;
     TreeNode() : val(0), left(nullptr), right(nullptr) {}
     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
-    TreeNode(int x, TreeNode* left, TreeNode* right)
+    TreeNode(int x, TreeNode *left, TreeNode *right)
         : val(x), left(left), right(right) {}
 };
 #include <vector>
 
 class Solution {
    public:
-    bool IsSymmetric(TreeNode* root) {
+    bool IsSymmetric(TreeNode *root) {
         if (root == nullptr) {
             return true;
         }
@@ -40,7 +40,7 @@ class Solution {
         return true;
     }
 
-    void InorderLeft(TreeNode* root, std::vector<int>& vec) {
+    void InorderLeft(TreeNode *root, std::vector<int> &vec) {
         if (root == nullptr) {
             return;
         }
@@ -49,7 +49,7 @@ class Solution {
         vec.push_back(root->val);
         InorderLeft(root->right, vec);
     }
-    void InorderRight(TreeNode* root, std::vector<int>& vec) {
+    void InorderRight(TreeNode *root, std::vector<int> &vec) {
         if (root == nullptr) {
             return;
         }
@@ -129,7 +129,7 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, false);
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

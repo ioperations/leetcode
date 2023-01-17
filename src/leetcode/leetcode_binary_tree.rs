@@ -20,7 +20,9 @@ impl<T> TreeNode<T> {
 
 /// build binary tree from &[T]
 #[allow(unused)]
-pub fn build_binary_tree<T>(input: &[Option<T>]) -> Option<Rc<RefCell<TreeNode<T>>>>
+pub fn build_binary_tree<T>(
+    input: &[Option<T>],
+) -> Option<Rc<RefCell<TreeNode<T>>>>
 where
     T: Copy,
 {
@@ -37,8 +39,9 @@ where
     while i < size {
         let z1 = queue.pop_front().unwrap();
         if input[i].is_some() {
-            z1.as_ref().borrow_mut().left =
-                Some(Rc::new(RefCell::new(TreeNode::<T>::new(input[i].unwrap()))));
+            z1.as_ref().borrow_mut().left = Some(Rc::new(RefCell::new(
+                TreeNode::<T>::new(input[i].unwrap()),
+            )));
             queue.push_back(z1.borrow().left.as_ref().unwrap().clone());
         } else {
             z1.as_ref().borrow_mut().left = None;
@@ -49,8 +52,9 @@ where
             break;
         }
         if input[i].is_some() {
-            z1.as_ref().borrow_mut().right =
-                Some(Rc::new(RefCell::new(TreeNode::<T>::new(input[i].unwrap()))));
+            z1.as_ref().borrow_mut().right = Some(Rc::new(RefCell::new(
+                TreeNode::<T>::new(input[i].unwrap()),
+            )));
             queue.push_back(z1.borrow().right.as_ref().unwrap().clone());
         } else {
             z1.as_ref().borrow_mut().right = None;
@@ -62,7 +66,9 @@ where
 
 /// expect binary tree equal to input
 #[allow(unused)]
-pub fn flatten_binary_tree<T>(root: Option<Rc<RefCell<TreeNode<T>>>>) -> Vec<Option<T>>
+pub fn flatten_binary_tree<T>(
+    root: Option<Rc<RefCell<TreeNode<T>>>>,
+) -> Vec<Option<T>>
 where
     T: std::cmp::PartialEq + std::fmt::Debug + Copy,
 {
@@ -90,8 +96,10 @@ where
 }
 
 #[allow(unused)]
-pub fn right_expect<T>(root: &Option<Rc<RefCell<TreeNode<T>>>>, vec: &[Option<T>])
-where
+pub fn right_expect<T>(
+    root: &Option<Rc<RefCell<TreeNode<T>>>>,
+    vec: &[Option<T>],
+) where
     T: std::fmt::Debug + std::cmp::PartialEq + Copy,
 {
     if vec.is_empty() && root.is_none() {

@@ -122,11 +122,9 @@ mod tests {
 
     #[test]
     fn reutrn_impl_test() {
-        /*
-         * impl trait 和dyn trait都是高级特性 `鸭子模型`的实现
-         * impl trait 是静态的，在编译期间就可以确定的
-         * dyn trait 是动态的，在运行期间才能确定的
-         */
+        // impl trait 和dyn trait都是高级特性 `鸭子模型`的实现
+        // impl trait 是静态的，在编译期间就可以确定的
+        // dyn trait 是动态的，在运行期间才能确定的
         let post = summary::return_impl_trait(true).summary();
         println!("{post}");
     }

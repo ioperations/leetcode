@@ -1,7 +1,7 @@
 // Evaluate the value of an arithmetic expression in Reverse Polish Notation.
-// Valid operators are +, -, *, and /. Each operand may be an integer or another expression.
-// Note that division between two integers should truncate toward zero.
-// It is guaranteed that the given RPN expression is always valid.
+// Valid operators are +, -, *, and /. Each operand may be an integer or another
+// expression. Note that division between two integers should truncate toward
+// zero. It is guaranteed that the given RPN expression is always valid.
 // That means the expression would always evaluate to a result,
 // and there will not be any division by zero operation.
 
@@ -74,15 +74,13 @@ mod tests {
         .map(String::from);
 
         let output = 22;
-        /*
-        ((10 * (6 / ((9 + 3) * -11))) + 17) + 5
-        = ((10 * (6 / (12 * -11))) + 17) + 5
-        = ((10 * (6 / -132)) + 17) + 5
-        = ((10 * 0) + 17) + 5
-        = (0 + 17) + 5
-        = 17 + 5
-        = 22
-        */
+        // ((10 * (6 / ((9 + 3) * -11))) + 17) + 5
+        // = ((10 * (6 / (12 * -11))) + 17) + 5
+        // = ((10 * (6 / -132)) + 17) + 5
+        // = ((10 * 0) + 17) + 5
+        // = (0 + 17) + 5
+        // = 17 + 5
+        // = 22
         let ret = Solution::eval_rpn(&tokens);
         assert_eq!(output, ret);
     }

@@ -2,19 +2,17 @@
 // falling path through matrix.
 // A falling path starts at any element in the first row and chooses
 // the element in the next row that is either directly below or
-// diagonally left/right. Specifically, the next element from position (row, col)
-// will be (row + 1, col - 1), (row + 1, col), or (row + 1, col + 1).
+// diagonally left/right. Specifically, the next element from position (row,
+// col) will be (row + 1, col - 1), (row + 1, col), or (row + 1, col + 1).
 
 #[allow(unused)]
 struct Solution;
 impl Solution {
     #[allow(unused)]
     pub fn min_falling_path_sum(matrix: Vec<Vec<i32>>) -> i32 {
-        /*
-         * n == matrix.length == matrix[i].length
-         * 1 <= n <= 100
-         * -100 <= matrix[i][j] <= -100
-         */
+        // n == matrix.length == matrix[i].length
+        // 1 <= n <= 100
+        // -100 <= matrix[i][j] <= -100
         let len = matrix.len();
         let mut dp = matrix;
         let v = len - 1;
@@ -26,7 +24,9 @@ impl Solution {
                 } else if j == v {
                     dp[i][j] += dp[i + 1][j].min(dp[i + 1][j - 1]);
                 } else {
-                    dp[i][j] += dp[i + 1][j].min(dp[i + 1][j - 1]).min(dp[i + 1][j + 1]);
+                    dp[i][j] += dp[i + 1][j]
+                        .min(dp[i + 1][j - 1])
+                        .min(dp[i + 1][j + 1]);
                 }
             }
         }

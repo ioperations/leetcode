@@ -15,7 +15,11 @@ impl Solution {
     }
 
     #[allow(unused)]
-    fn helper<T>(nums: &[T], start: i32, end: i32) -> Option<Rc<RefCell<TreeNode<T>>>>
+    fn helper<T>(
+        nums: &[T],
+        start: i32,
+        end: i32,
+    ) -> Option<Rc<RefCell<TreeNode<T>>>>
     where
         T: Copy,
     {
@@ -35,7 +39,9 @@ impl Solution {
 
 #[cfg(test)]
 mod tests {
-    use super::super::leetcode_binary_tree::{build_binary_tree, flatten_binary_tree};
+    use super::super::leetcode_binary_tree::{
+        build_binary_tree, flatten_binary_tree,
+    };
     use std::collections::HashSet;
 
     use super::*;
@@ -63,8 +69,13 @@ mod tests {
         let ret = flatten_binary_tree(ret);
         println!("ret =>  {ret:?}");
         let mut hashset = HashSet::new();
-        hashset.insert([Some(0), Some(-3), Some(9), Some(10), None, Some(9)].to_vec());
-        hashset.insert([Some(0), Some(-10), Some(5), None, Some(-3), None, Some(9)].to_vec());
+        hashset.insert(
+            [Some(0), Some(-3), Some(9), Some(10), None, Some(9)].to_vec(),
+        );
+        hashset.insert(
+            [Some(0), Some(-10), Some(5), None, Some(-3), None, Some(9)]
+                .to_vec(),
+        );
 
         assert!(hashset.contains(&ret));
     }

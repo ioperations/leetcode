@@ -1,5 +1,5 @@
-// Given the head of a singly linked list, return the middle node of the linked list.
-// If there are two middle nodes, return the second middle node.
+// Given the head of a singly linked list, return the middle node of the linked
+// list. If there are two middle nodes, return the second middle node.
 
 // Definition for singly-linked list.
 use super::leetcode_linklist::ListNode;
@@ -9,7 +9,9 @@ struct Solution;
 
 impl Solution {
     #[allow(unused)]
-    pub fn middle_node<T>(head: Option<Box<ListNode<T>>>) -> Option<Box<ListNode<T>>>
+    pub fn middle_node<T>(
+        head: Option<Box<ListNode<T>>>,
+    ) -> Option<Box<ListNode<T>>>
     where
         T: Clone + Copy,
     {
@@ -31,7 +33,9 @@ impl Solution {
     }
 
     #[allow(unused)]
-    pub fn middle_node_v2<T>(head: Option<Box<ListNode<T>>>) -> Option<Box<ListNode<T>>>
+    pub fn middle_node_v2<T>(
+        head: Option<Box<ListNode<T>>>,
+    ) -> Option<Box<ListNode<T>>>
     where
         T: Copy,
     {
@@ -56,9 +60,10 @@ impl Solution {
             slow_p = slow_p.next.as_ref().unwrap();
         }
 
-        // because the method's signature is intended 'move' the original list in and 'move'
-        // the middle of it out, which is not possible by Rust (because the ownership rules don't
-        // allow it), so we have to create a new list.
+        // because the method's signature is intended 'move' the original list
+        // in and 'move' the middle of it out, which is not possible by
+        // Rust (because the ownership rules don't allow it), so we have
+        // to create a new list.
         let mut new_head = ListNode::new(slow_p.val);
         Solution::copy_values(&mut new_head, slow_p);
         Some(Box::new(new_head))
@@ -78,10 +83,11 @@ impl Solution {
                     let mut new_node = ListNode::new(next_node.val);
                     new_tail.next = Some(Box::new(new_node));
 
-                    // the '{}' around 'new_tail' is used to move (but not borrow) it into a temporary
-                    // variable, so we are free to set new value to the original variable, without causing
-                    // an "already borrowed" error.
-                    // see: https://stackoverflow.com/questions/37986640/cannot-obtain-a-mutable-reference-when-iterating-a-recursive-structure-cannot-b
+                    // the '{}' around 'new_tail' is used to move (but not
+                    // borrow) it into a temporary variable,
+                    // so we are free to set new value to the original variable,
+                    // without causing an "already borrowed"
+                    // error. see: https://stackoverflow.com/questions/37986640/cannot-obtain-a-mutable-reference-when-iterating-a-recursive-structure-cannot-b
                     new_tail = { new_tail }.next.as_mut().unwrap();
 
                     old_head = next_node;
@@ -116,7 +122,8 @@ mod tests {
         let ret = Solution::middle_node(head);
         let ret = list_into_vec(&ret);
         assert_eq!(ret, output);
-        // Explanation: Since the list has two middle nodes with values 3 and 4, we return the second one.
+        // Explanation: Since the list has two middle nodes with values 3 and 4,
+        // we return the second one.
     }
 
     #[bench]
@@ -154,7 +161,8 @@ mod testsv2 {
         let ret = Solution::middle_node_v2(head);
         let ret = list_into_vec(&ret);
         assert_eq!(ret, output);
-        // Explanation: Since the list has two middle nodes with values 3 and 4, we return the second one.
+        // Explanation: Since the list has two middle nodes with values 3 and 4,
+        // we return the second one.
     }
 
     #[bench]

@@ -1,7 +1,9 @@
-// Given the head of a linked list, we repeatedly delete consecutive sequences of nodes that sum to 0 until there are no such sequences.
-// After doing so, return the head of the final linked list.  You may return any such answer.
+// Given the head of a linked list, we repeatedly delete consecutive sequences
+// of nodes that sum to 0 until there are no such sequences. After doing so,
+// return the head of the final linked list.  You may return any such answer.
 //
-// (Note that in the examples below, all sequences are serializations of ListNode objects.)
+// (Note that in the examples below, all sequences are serializations of
+// ListNode objects.)
 
 use super::leetcode_linklist::{build_list_from_vec, list_into_vec, ListNode};
 
@@ -43,7 +45,8 @@ impl Solution {
                         break;
                     }
                 }
-                //                println!("sum = {}, lo = {}, hi = {}", key, lo, hi);
+                //                println!("sum = {}, lo = {}, hi = {}", key,
+                // lo, hi);
                 if lo > std::i32::MIN && hi < std::i32::MAX && hi > lo {
                     for j in lo + 1..=hi {
                         partial_sum[j as usize] = std::i32::MAX;

@@ -1,7 +1,7 @@
 // You are given an integer array nums.
 // You are initially positioned at the array's first index,
-// and each element in the array represents your maximum jump length at that position.
-// Return true if you can reach the last index, or false otherwise
+// and each element in the array represents your maximum jump length at that
+// position. Return true if you can reach the last index, or false otherwise
 
 #[allow(unused)]
 struct Solution;
@@ -43,7 +43,8 @@ mod tests {
     fn case1_test() {
         let nums = [2, 3, 1, 1, 4];
         let output = true;
-        // Explanation: Jump 1 step from index 0 to 1, then 3 steps to the last index.
+        // Explanation: Jump 1 step from index 0 to 1, then 3 steps to the last
+        // index.
         let ret = Solution::can_jump(&nums);
         assert_eq!(ret, output);
     }
@@ -52,7 +53,8 @@ mod tests {
     fn case2_test() {
         let nums = [3, 2, 1, 0, 4];
         let output = false;
-        // You will always arrive at index 3 no matter what. Its maximum jump length is 0, which makes it impossible to reach the last index.
+        // You will always arrive at index 3 no matter what. Its maximum jump
+        // length is 0, which makes it impossible to reach the last index.
         let ret = Solution::can_jump(&nums);
         assert_eq!(ret, output);
     }
@@ -62,7 +64,9 @@ mod tests {
         let output = false;
         let nums = [3, 2, 1, 0, 4];
         b.iter(|| {
-            // You will always arrive at index 3 no matter what. Its maximum jump length is 0, which makes it impossible to reach the last index.
+            // You will always arrive at index 3 no matter what. Its maximum
+            // jump length is 0, which makes it impossible to reach the last
+            // index.
             let ret = Solution::can_jump(&nums);
             assert_eq!(ret, output);
         });
@@ -78,7 +82,8 @@ mod tests_v2 {
     fn case1_test() {
         let nums = [2, 3, 1, 1, 4];
         let output = true;
-        // Explanation: Jump 1 step from index 0 to 1, then 3 steps to the last index.
+        // Explanation: Jump 1 step from index 0 to 1, then 3 steps to the last
+        // index.
         let ret = Solution::can_jump_v2(&nums);
         assert_eq!(ret, output);
     }
@@ -87,7 +92,8 @@ mod tests_v2 {
     fn case2_test() {
         let nums = [3, 2, 1, 0, 4];
         let output = false;
-        // You will always arrive at index 3 no matter what. Its maximum jump length is 0, which makes it impossible to reach the last index.
+        // You will always arrive at index 3 no matter what. Its maximum jump
+        // length is 0, which makes it impossible to reach the last index.
         let ret = Solution::can_jump_v2(&nums);
         assert_eq!(ret, output);
     }
@@ -97,7 +103,9 @@ mod tests_v2 {
         let nums = [3, 2, 1, 0, 4];
         let output = false;
         b.iter(|| {
-            // You will always arrive at index 3 no matter what. Its maximum jump length is 0, which makes it impossible to reach the last index.
+            // You will always arrive at index 3 no matter what. Its maximum
+            // jump length is 0, which makes it impossible to reach the last
+            // index.
             let ret = Solution::can_jump_v2(&nums);
             assert_eq!(ret, output);
         });

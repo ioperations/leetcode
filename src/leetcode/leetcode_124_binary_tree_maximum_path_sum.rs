@@ -1,10 +1,11 @@
-// A path in a binary tree is a sequence of nodes where each pair of adjacent nodes
-// in the sequence has an edge connecting them.
+// A path in a binary tree is a sequence of nodes where each pair of adjacent
+// nodes in the sequence has an edge connecting them.
 // A node can only appear in the sequence at most once.
 // Note that the path does not need to pass through the root.
 //
 // The path sum of a path is the sum of the node's values in the path.
-// Given the root of a binary tree, return the maximum path sum of any non-empty path.
+// Given the root of a binary tree, return the maximum path sum of any non-empty
+// path.
 
 use super::leetcode_binary_tree::TreeNode;
 use std::{cell::RefCell, rc::Rc};
@@ -15,7 +16,9 @@ struct Solution;
 impl Solution {
     #[allow(unused)]
     pub fn max_path_sum(root: &Option<Rc<RefCell<TreeNode<i32>>>>) -> i32 {
-        fn helper(root: &Option<Rc<RefCell<TreeNode<i32>>>>) -> (Option<i32>, Option<i32>) {
+        fn helper(
+            root: &Option<Rc<RefCell<TreeNode<i32>>>>,
+        ) -> (Option<i32>, Option<i32>) {
             if let Some(v) = root {
                 let left = helper(&v.borrow().left);
                 let right = helper(&v.borrow().right);
@@ -35,7 +38,8 @@ impl Solution {
                             ),
                         );
                     }
-                    ((Some(l), Some(v)), (None, None)) | ((None, None), (Some(l), Some(v))) => {
+                    ((Some(l), Some(v)), (None, None))
+                    | ((None, None), (Some(l), Some(v))) => {
                         return (Some(z.max(l + z)), Some(v.max(l + z).max(z)));
                     }
                     ((None, None), ((None, None))) => {
@@ -63,7 +67,8 @@ mod tests {
         let root = build_binary_tree(&root);
         let ret = Solution::max_path_sum(&root);
         assert_eq!(ret, output);
-        // Explanation: The optimal path is 2 -> 1 -> 3 with a path sum of 2 + 1 + 3 = 6.
+        // Explanation: The optimal path is 2 -> 1 -> 3 with a path sum of 2 + 1
+        // + 3 = 6.
     }
 
     #[test]
@@ -79,7 +84,8 @@ mod tests {
         let root = build_binary_tree(&root);
         let ret = Solution::max_path_sum(&root);
         assert_eq!(ret, output);
-        // The optimal path is 15 -> 20 -> 7 with a path sum of 15 + 20 + 7 = 42.
+        // The optimal path is 15 -> 20 -> 7 with a path sum of 15 + 20 + 7 =
+        // 42.
     }
 
     #[test]

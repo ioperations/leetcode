@@ -1,4 +1,5 @@
-// Given the root of a binary tree, check whether it is a mirror of itself (i.e., symmetric around its center).
+// Given the root of a binary tree, check whether it is a mirror of itself
+// (i.e., symmetric around its center).
 use std::{cell::RefCell, collections::VecDeque, rc::Rc};
 
 use super::leetcode_binary_tree::TreeNode;
@@ -20,7 +21,8 @@ impl Solution {
         where
             T: std::cmp::PartialEq + Copy,
         {
-            let mut q: VecDeque<Option<Rc<RefCell<TreeNode<T>>>>> = VecDeque::new();
+            let mut q: VecDeque<Option<Rc<RefCell<TreeNode<T>>>>> =
+                VecDeque::new();
             let mut ret: Vec<Option<T>> = vec![];
             q.push_back(root);
             while !q.is_empty() {
@@ -49,8 +51,12 @@ impl Solution {
         }
 
         if let Some(v) = root {
-            let left = flatten_binary_tree(v.as_ref().borrow_mut().left.take(), true);
-            let right = flatten_binary_tree(v.as_ref().borrow_mut().right.take(), false);
+            let left =
+                flatten_binary_tree(v.as_ref().borrow_mut().left.take(), true);
+            let right = flatten_binary_tree(
+                v.as_ref().borrow_mut().right.take(),
+                false,
+            );
             return left == right;
         }
         true
@@ -91,11 +97,15 @@ impl Solution {
 
     // 我的实现跑题了，但看起来也是很巧妙,可以自己构造一种场景
     #[allow(unused)]
-    pub fn is_symmetric_my_defination<T>(root: Option<Rc<RefCell<TreeNode<T>>>>) -> bool
+    pub fn is_symmetric_my_defination<T>(
+        root: Option<Rc<RefCell<TreeNode<T>>>>,
+    ) -> bool
     where
         T: Copy + std::cmp::PartialEq,
     {
-        fn is_symmetric_internal<T>(root: Option<Rc<RefCell<TreeNode<T>>>>) -> (Option<T>, bool)
+        fn is_symmetric_internal<T>(
+            root: Option<Rc<RefCell<TreeNode<T>>>>,
+        ) -> (Option<T>, bool)
         where
             T: Copy + std::cmp::PartialEq,
         {
@@ -112,7 +122,9 @@ impl Solution {
                     return (None, false);
                 }
                 return match (left_value, right_value) {
-                    (Some(left), Some(right)) => (Some(v.as_ref().borrow_mut().val), left == right),
+                    (Some(left), Some(right)) => {
+                        (Some(v.as_ref().borrow_mut().val), left == right)
+                    }
                     (Some(_), None) | (None, Some(_)) => (None, false),
                     (None, None) => (Some(v.as_ref().borrow_mut().val), true),
                 };

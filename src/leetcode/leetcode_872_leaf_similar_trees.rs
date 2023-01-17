@@ -1,9 +1,11 @@
 // Consider all the leaves of a binary tree, from left to right order,
 // the values of those leaves form a leaf value sequence.
-// For example, in the given tree above, the leaf value sequence is (6, 7, 4, 9, 8).
+// For example, in the given tree above, the leaf value sequence is (6, 7, 4, 9,
+// 8).
 //
-// Two binary trees are considered leaf-similar if their leaf value sequence is the same.
-// Return true if and only if the two given trees with head nodes root1 and root2 are leaf-similar.
+// Two binary trees are considered leaf-similar if their leaf value sequence is
+// the same. Return true if and only if the two given trees with head nodes
+// root1 and root2 are leaf-similar.
 
 use super::leetcode_binary_tree::TreeNode;
 use std::{cell::RefCell, collections::VecDeque, rc::Rc};
@@ -118,7 +120,10 @@ mod tests {
             Some(i)
         });
         let output = true;
-        let ret = Solution::leaf_similar(&build_binary_tree(&root1), &build_binary_tree(&root2));
+        let ret = Solution::leaf_similar(
+            &build_binary_tree(&root1),
+            &build_binary_tree(&root2),
+        );
         assert_eq!(ret, output);
     }
 
@@ -133,7 +138,10 @@ mod tests {
             Some(i)
         });
         let output = false;
-        let ret = Solution::leaf_similar(&build_binary_tree(&root1), &build_binary_tree(&root2));
+        let ret = Solution::leaf_similar(
+            &build_binary_tree(&root1),
+            &build_binary_tree(&root2),
+        );
         assert_eq!(ret, output);
     }
 }
@@ -162,7 +170,10 @@ mod tests_v2 {
             Some(i)
         });
         let output = false;
-        let ret = Solution::leaf_similar_v2(build_binary_tree(&root1), build_binary_tree(&root2));
+        let ret = Solution::leaf_similar_v2(
+            build_binary_tree(&root1),
+            build_binary_tree(&root2),
+        );
         assert_eq!(ret, output);
     }
 
@@ -177,7 +188,10 @@ mod tests_v2 {
             Some(i)
         });
         let output = false;
-        let ret = Solution::leaf_similar_v2(build_binary_tree(&root1), build_binary_tree(&root2));
+        let ret = Solution::leaf_similar_v2(
+            build_binary_tree(&root1),
+            build_binary_tree(&root2),
+        );
         assert_eq!(ret, output);
     }
 }

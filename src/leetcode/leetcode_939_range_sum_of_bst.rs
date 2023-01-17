@@ -1,5 +1,6 @@
 // Given the root node of a binary search tree and two integers low and high,
-// return the sum of values of all nodes with a value in the inclusive range [low, high].
+// return the sum of values of all nodes with a value in the inclusive range
+// [low, high].
 
 use super::leetcode_binary_tree::TreeNode;
 use std::{cell::RefCell, rc::Rc};
@@ -9,7 +10,11 @@ struct Solution;
 
 impl Solution {
     #[allow(unused)]
-    pub fn range_sum_bst(root: &Option<Rc<RefCell<TreeNode<i32>>>>, low: i32, high: i32) -> i32 {
+    pub fn range_sum_bst(
+        root: &Option<Rc<RefCell<TreeNode<i32>>>>,
+        low: i32,
+        high: i32,
+    ) -> i32 {
         match root {
             None => 0,
             Some(node) => {
@@ -28,7 +33,11 @@ impl Solution {
     }
 
     #[allow(unused)]
-    pub fn range_sum_bst_v2(root: Option<Rc<RefCell<TreeNode<i32>>>>, low: i32, high: i32) -> i32 {
+    pub fn range_sum_bst_v2(
+        root: Option<Rc<RefCell<TreeNode<i32>>>>,
+        low: i32,
+        high: i32,
+    ) -> i32 {
         let mut stack = vec![root];
         let mut sum = 0;
 
@@ -51,7 +60,11 @@ impl Solution {
     }
 
     #[allow(unused)]
-    pub fn range_sum_bst_v1(root: &Option<Rc<RefCell<TreeNode<i32>>>>, low: i32, high: i32) -> i32 {
+    pub fn range_sum_bst_v1(
+        root: &Option<Rc<RefCell<TreeNode<i32>>>>,
+        low: i32,
+        high: i32,
+    ) -> i32 {
         match root {
             Some(head) => {
                 let head_value: i32 = head.borrow().val;
@@ -62,12 +75,24 @@ impl Solution {
                 };
 
                 if head_value <= low {
-                    return extra + Self::range_sum_bst_v1(&head.borrow().right, low, high);
+                    return extra
+                        + Self::range_sum_bst_v1(
+                            &head.borrow().right,
+                            low,
+                            high,
+                        );
                 } else if head_value >= high {
-                    return extra + Self::range_sum_bst_v1(&head.borrow().left, low, high);
+                    return extra
+                        + Self::range_sum_bst_v1(
+                            &head.borrow().left,
+                            low,
+                            high,
+                        );
                 }
-                let left = Self::range_sum_bst_v1(&head.borrow().left, low, high);
-                let right = Self::range_sum_bst_v1(&head.borrow().right, low, high);
+                let left =
+                    Self::range_sum_bst_v1(&head.borrow().left, low, high);
+                let right =
+                    Self::range_sum_bst_v1(&head.borrow().right, low, high);
                 left + right + head_value
             }
             None => 0,
@@ -87,7 +112,8 @@ mod tests_rec {
         let low = 7;
         let high = 15;
         let output = 32;
-        // Explanation: Nodes 7, 10, and 15 are in the range [7, 15]. 7 + 10 + 15 = 32.
+        // Explanation: Nodes 7, 10, and 15 are in the range [7, 15]. 7 + 10 +
+        // 15 = 32.
         let root = root
             .iter()
             .map(|i| {
@@ -158,7 +184,8 @@ mod tests_v1 {
         let low = 7;
         let high = 15;
         let output = 32;
-        // Explanation: Nodes 7, 10, and 15 are in the range [7, 15]. 7 + 10 + 15 = 32.
+        // Explanation: Nodes 7, 10, and 15 are in the range [7, 15]. 7 + 10 +
+        // 15 = 32.
         let root = root
             .iter()
             .map(|i| {
@@ -229,7 +256,8 @@ mod tests_ite {
         let low = 7;
         let high = 15;
         let output = 32;
-        // Explanation: Nodes 7, 10, and 15 are in the range [7, 15]. 7 + 10 + 15 = 32.
+        // Explanation: Nodes 7, 10, and 15 are in the range [7, 15]. 7 + 10 +
+        // 15 = 32.
         let root = root
             .iter()
             .map(|i| {

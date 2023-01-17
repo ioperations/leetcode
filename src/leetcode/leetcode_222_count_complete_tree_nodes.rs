@@ -37,13 +37,16 @@ impl Solution {
 
 #[cfg(test)]
 mod tests {
-    use super::super::leetcode_binary_tree::{build_binary_tree, expect_binary_tree};
+    use super::super::leetcode_binary_tree::{
+        build_binary_tree, expect_binary_tree,
+    };
     use super::*;
     extern crate test;
 
     #[test]
     fn test_v1_test() {
-        let v: Vec<Option<i32>> = vec![Some(1), Some(2), Some(3), Some(4), Some(5), Some(6)];
+        let v: Vec<Option<i32>> =
+            vec![Some(1), Some(2), Some(3), Some(4), Some(5), Some(6)];
         let root = build_binary_tree::<i32>(&v);
         expect_binary_tree(&v, &root);
 
@@ -73,7 +76,8 @@ mod tests {
 
     #[bench]
     fn bench_recursive(b: &mut test::Bencher) {
-        let v: Vec<Option<i32>> = vec![Some(1), Some(2), Some(3), Some(4), Some(5), Some(6)];
+        let v: Vec<Option<i32>> =
+            vec![Some(1), Some(2), Some(3), Some(4), Some(5), Some(6)];
         b.iter(|| {
             let root = build_binary_tree::<i32>(&v);
 
@@ -85,13 +89,16 @@ mod tests {
 
 #[cfg(test)]
 mod tests_iter {
-    use super::super::leetcode_binary_tree::{build_binary_tree, expect_binary_tree};
+    use super::super::leetcode_binary_tree::{
+        build_binary_tree, expect_binary_tree,
+    };
     use super::*;
     extern crate test;
 
     #[test]
     fn test_v1_test() {
-        let v: Vec<Option<i32>> = vec![Some(1), Some(2), Some(3), Some(4), Some(5), Some(6)];
+        let v: Vec<Option<i32>> =
+            vec![Some(1), Some(2), Some(3), Some(4), Some(5), Some(6)];
         let root = build_binary_tree::<i32>(&v);
         expect_binary_tree(&v, &root);
 
@@ -121,7 +128,8 @@ mod tests_iter {
 
     #[bench]
     fn bench_iter(b: &mut test::Bencher) {
-        let v: Vec<Option<i32>> = vec![Some(1), Some(2), Some(3), Some(4), Some(5), Some(6)];
+        let v: Vec<Option<i32>> =
+            vec![Some(1), Some(2), Some(3), Some(4), Some(5), Some(6)];
         b.iter(|| {
             let root = build_binary_tree::<i32>(&v);
 

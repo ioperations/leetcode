@@ -48,7 +48,7 @@ mod str {
         }
         cur[len_b - 1]
     }
-} /* EditDistance */
+} // EditDistance
 
 #[cfg(test)]
 mod tests {

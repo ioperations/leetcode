@@ -6,9 +6,10 @@
 // bool remove(int val) Removes an item val from the set if present.
 // Returns true if the item was present, false otherwise.
 // int getRandom() Returns a random element from the current set of elements
-// (it's guaranteed that at least one element exists when this method is called).
-// Each element must have the same probability of being returned.
-// You must implement the functions of the class such that each function works in average O(1) time complexity.
+// (it's guaranteed that at least one element exists when this method is
+// called). Each element must have the same probability of being returned.
+// You must implement the functions of the class such that each function works
+// in average O(1) time complexity.
 use rand::{thread_rng, Rng};
 
 use std::cell::RefCell;
@@ -78,6 +79,9 @@ mod tests {
         assert!(ret == 1 || ret == 2);
         assert!(randomized_set.remove(1)); // Removes 1 from the set, returns true. Set now contains [2].
         assert!(!randomized_set.insert(2)); // 2 was already in the set, so return false.
-        assert_eq!(randomized_set.get_random(), 2); // Since 2 is the only number in the set, getRandom() will always return 2.
+        assert_eq!(randomized_set.get_random(), 2); // Since 2 is the only
+                                                    // number in the set,
+                                                    // getRandom() will always
+                                                    // return 2.
     }
 }

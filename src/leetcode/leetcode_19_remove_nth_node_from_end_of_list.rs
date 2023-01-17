@@ -1,6 +1,8 @@
-// Given the head of a linked list, remove the nth node from the end of the list and return its head.
+// Given the head of a linked list, remove the nth node from the end of the list
+// and return its head.
 
 use super::leetcode_linklist::ListNode;
+
 #[allow(unused)]
 struct Solution;
 
@@ -44,7 +46,9 @@ impl Solution {
 
     #[allow(unused)]
     #[allow(clippy::borrow_as_ptr)]
-    pub fn remove_middle_node<T>(head: Option<Box<ListNode<T>>>) -> Option<Box<ListNode<T>>>
+    pub fn remove_middle_node<T>(
+        head: Option<Box<ListNode<T>>>,
+    ) -> Option<Box<ListNode<T>>>
     where
         T: Copy + Default,
     {

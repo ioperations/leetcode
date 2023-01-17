@@ -1,5 +1,8 @@
 #[allow(dead_code)]
-pub fn find_median_sorted_arrays(nums1: &mut Vec<i32>, nums2: &[i32]) -> Vec<i32> {
+pub fn find_median_sorted_arrays(
+    nums1: &mut Vec<i32>,
+    nums2: &[i32],
+) -> Vec<i32> {
     for i in nums2.iter() {
         nums1.push(*i);
     }

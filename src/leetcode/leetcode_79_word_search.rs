@@ -1,9 +1,9 @@
-// Given an m x n grid of characters board and a string word, return true if word
-// exists in the grid.
+// Given an m x n grid of characters board and a string word, return true if
+// word exists in the grid.
 //
-// The word can be constructed from letters of sequentially adjacent cells, where
-// adjacent cells are horizontally or vertically neighboring. The same letter cell
-// may not be used more than once.
+// The word can be constructed from letters of sequentially adjacent cells,
+// where adjacent cells are horizontally or vertically neighboring. The same
+// letter cell may not be used more than once.
 
 #[allow(unused)]
 struct Solution;
@@ -101,15 +101,13 @@ mod tests {
 
     #[test]
     fn case1_test() {
-        /*
-             ___ ___ ___ ___
-            | A | B | C | E |
-            |_-_|_-_|_-_|___|
-            | S | F | C | S |
-            |___|___|_-_|___|
-            | A | D | E | E |
-            |___|_-_|_-_|___|
-        */
+        // ___ ___ ___ ___
+        // | A | B | C | E |
+        // |_-_|_-_|_-_|___|
+        // | S | F | C | S |
+        // |___|___|_-_|___|
+        // | A | D | E | E |
+        // |___|_-_|_-_|___|
         let v = vec![
             vec!['A', 'B', 'C', 'E'],
             vec!['S', 'F', 'C', 'S'],
@@ -122,15 +120,13 @@ mod tests {
 
     #[test]
     fn case2_test() {
-        /*
-             ___ ___ ___ ___
-            | A | B | C | E |
-            |___|___|___|___|
-            | S | F | C | S |
-            |___|___|___|_-_|
-            | A | F | D | E |
-            |___|___|_-_|_-_|
-        */
+        // ___ ___ ___ ___
+        // | A | B | C | E |
+        // |___|___|___|___|
+        // | S | F | C | S |
+        // |___|___|___|_-_|
+        // | A | F | D | E |
+        // |___|___|_-_|_-_|
         let v = vec![
             vec!['A', 'B', 'C', 'E'],
             vec!['S', 'F', 'C', 'S'],
@@ -143,15 +139,13 @@ mod tests {
 
     #[test]
     fn case3_test() {
-        /*
-             ___ ___ ___ ___
-            | A | B | C | E |
-            |___|___|___|___|
-            | S | F | C | S |
-            |___|___|___|___|
-            | A | F | D | E |
-            |___|___|___|___|
-        */
+        // ___ ___ ___ ___
+        // | A | B | C | E |
+        // |___|___|___|___|
+        // | S | F | C | S |
+        // |___|___|___|___|
+        // | A | F | D | E |
+        // |___|___|___|___|
 
         let v = vec![
             vec!['A', 'B', 'C', 'E'],
@@ -165,15 +159,13 @@ mod tests {
 
     #[test]
     fn case4_test() {
-        /*
-             ___ ___ ___ ___
-            | A | B | C | E |
-            |___|___|___|___|
-            | S | F | C | S |
-            |___|___|___|___|
-            | A | F | D | E |
-            |___|___|___|___|
-        */
+        // ___ ___ ___ ___
+        // | A | B | C | E |
+        // |___|___|___|___|
+        // | S | F | C | S |
+        // |___|___|___|___|
+        // | A | F | D | E |
+        // |___|___|___|___|
 
         let v = vec![
             vec!['A', 'A', 'A', 'A', 'A', 'A'],

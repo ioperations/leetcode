@@ -5,11 +5,9 @@ use std::{cell::RefCell, rc::Rc};
 struct Solution;
 
 impl Solution {
-    /*
-     * Given a binary tree root, a node X in the tree is named good if in the path
-     * from root to X there are no nodes with a value greater than X.
-     * Return the number of good nodes in the binary tree.
-     */
+    // Given a binary tree root, a node X in the tree is named good if in the
+    // path from root to X there are no nodes with a value greater than X.
+    // Return the number of good nodes in the binary tree.
     #[allow(unused)]
     fn good_nodes(r: &Option<Rc<RefCell<TreeNode<i32>>>>) -> i32 {
         if let Some(n) = r {
@@ -21,7 +19,11 @@ impl Solution {
         0
     }
 
-    fn fun(node: Option<&Rc<RefCell<TreeNode<i32>>>>, val: i32, count: &mut i32) {
+    fn fun(
+        node: Option<&Rc<RefCell<TreeNode<i32>>>>,
+        val: i32,
+        count: &mut i32,
+    ) {
         if node.is_none() {
             return;
         }
@@ -42,7 +44,8 @@ mod tests {
 
     #[test]
     fn case1_test() {
-        let root = vec![Some(3), Some(1), Some(4), Some(3), None, Some(1), Some(5)];
+        let root =
+            vec![Some(3), Some(1), Some(4), Some(3), None, Some(1), Some(5)];
         let tree = build_binary_tree(&root);
         let ret = Solution::good_nodes(&tree);
         assert_eq!(ret, 4);

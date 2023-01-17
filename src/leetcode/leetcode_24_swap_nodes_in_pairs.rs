@@ -6,7 +6,9 @@ struct Solution;
 
 impl Solution {
     #[allow(unused)]
-    pub fn swap_pairs<T>(mut head: Option<Box<ListNode<T>>>) -> Option<Box<ListNode<T>>>
+    pub fn swap_pairs<T>(
+        mut head: Option<Box<ListNode<T>>>,
+    ) -> Option<Box<ListNode<T>>>
     where
         T: Default,
     {
@@ -38,11 +40,15 @@ impl Solution {
     }
 
     #[allow(unused)]
-    pub fn swap_pairs_v2<T>(head: Option<Box<ListNode<T>>>) -> Option<Box<ListNode<T>>> {
+    pub fn swap_pairs_v2<T>(
+        head: Option<Box<ListNode<T>>>,
+    ) -> Option<Box<ListNode<T>>> {
         Self::swap_pairs_helper(head)
     }
 
-    pub fn swap_pairs_helper<T>(head: Option<Box<ListNode<T>>>) -> Option<Box<ListNode<T>>> {
+    pub fn swap_pairs_helper<T>(
+        head: Option<Box<ListNode<T>>>,
+    ) -> Option<Box<ListNode<T>>> {
         let mut head = head;
         if let Some(mut first) = head.take() {
             if let Some(mut second) = first.next.take() {

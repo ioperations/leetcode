@@ -4,8 +4,8 @@
 // 0 representing empty squares we can walk over.
 // -1 representing obstacles that we cannot walk over.
 //
-// Return the number of 4-directional walks from the starting square to the ending square,
-// that walk over every non-obstacle square exactly once.
+// Return the number of 4-directional walks from the starting square to the
+// ending square, that walk over every non-obstacle square exactly once.
 
 use std::collections::HashSet;
 
@@ -101,10 +101,11 @@ mod tests {
         let grid = vec![vec![1, 0, 0, 0], vec![0, 0, 0, 0], vec![0, 0, 0, 2]];
         let output = 4;
         //          We have the following four paths:
-        // 1. (0,0),(0,1),(0,2),(0,3),(1,3),(1,2),(1,1),(1,0),(2,0),(2,1),(2,2),(2,3)
-        // 2. (0,0),(0,1),(1,1),(1,0),(2,0),(2,1),(2,2),(1,2),(0,2),(0,3),(1,3),(2,3)
-        // 3. (0,0),(1,0),(2,0),(2,1),(2,2),(1,2),(1,1),(0,1),(0,2),(0,3),(1,3),(2,3)
-        // 4. (0,0),(1,0),(2,0),(2,1),(1,1),(0,1),(0,2),(0,3),(1,3),(1,2),(2,2),(2,3)
+        // 1. (0,0),(0,1),(0,2),(0,3),(1,3),(1,2),(1,1),(1,0),(2,0),(2,1),(2,2),
+        // (2,3) 2. (0,0),(0,1),(1,1),(1,0),(2,0),(2,1),(2,2),(1,2),(0,
+        // 2),(0,3),(1,3),(2,3) 3. (0,0),(1,0),(2,0),(2,1),(2,2),(1,2),
+        // (1,1),(0,1),(0,2),(0,3),(1,3),(2,3) 4. (0,0),(1,0),(2,0),(2,
+        // 1),(1,1),(0,1),(0,2),(0,3),(1,3),(1,2),(2,2),(2,3)
         let ret = Solution::unique_paths_iii(&grid);
         assert_eq!(ret, output);
     }

@@ -26,7 +26,9 @@ impl Solution {
             let (x_pos, y_pos) = &mut current_position;
             match dir {
                 Direction::Right => {
-                    if *y_pos + 1 >= column || hasmap.contains(&(*x_pos, *y_pos + 1)) {
+                    if *y_pos + 1 >= column
+                        || hasmap.contains(&(*x_pos, *y_pos + 1))
+                    {
                         dir = Direction::Down;
                     } else {
                         *y_pos += 1;
@@ -36,7 +38,9 @@ impl Solution {
                     }
                 }
                 Direction::Down => {
-                    if *x_pos + 1 >= row || hasmap.contains(&(*x_pos + 1, *y_pos)) {
+                    if *x_pos + 1 >= row
+                        || hasmap.contains(&(*x_pos + 1, *y_pos))
+                    {
                         dir = Direction::Left;
                     } else {
                         *x_pos += 1;
@@ -46,7 +50,8 @@ impl Solution {
                     }
                 }
                 Direction::Left => {
-                    if *y_pos - 1 < 0 || hasmap.contains(&(*x_pos, *y_pos - 1)) {
+                    if *y_pos - 1 < 0 || hasmap.contains(&(*x_pos, *y_pos - 1))
+                    {
                         dir = Direction::UP;
                     } else {
                         *y_pos -= 1;
@@ -56,7 +61,8 @@ impl Solution {
                     }
                 }
                 Direction::UP => {
-                    if *x_pos - 1 < 0 || hasmap.contains(&(*x_pos - 1, *y_pos)) {
+                    if *x_pos - 1 < 0 || hasmap.contains(&(*x_pos - 1, *y_pos))
+                    {
                         dir = Direction::Right;
                     } else {
                         *x_pos -= 1;
@@ -86,7 +92,8 @@ mod tests {
 
     #[test]
     fn case2_test() {
-        let matrix = vec![vec![1, 2, 3, 4], vec![5, 6, 7, 8], vec![9, 10, 11, 12]];
+        let matrix =
+            vec![vec![1, 2, 3, 4], vec![5, 6, 7, 8], vec![9, 10, 11, 12]];
         let output = vec![1, 2, 3, 4, 8, 12, 11, 10, 9, 5, 6, 7];
         let ret = Solution::spiral_order(&matrix);
         assert_eq!(ret, output);

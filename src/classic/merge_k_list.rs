@@ -29,7 +29,9 @@ struct Solution {}
 
 impl Solution {
     #[allow(unused)]
-    pub fn merge_k_lists(lists: Vec<Option<Box<ListNode>>>) -> Option<Box<ListNode>> {
+    pub fn merge_k_lists(
+        lists: Vec<Option<Box<ListNode>>>,
+    ) -> Option<Box<ListNode>> {
         type BH<T> = std::collections::BinaryHeap<T>;
         let mut pq: BH<Box<ListNode>> = std::collections::BinaryHeap::new();
         for list in lists.into_iter().flatten() {
@@ -83,7 +85,8 @@ mod tests {
 
     /// 将数组转换成自定义链表
     fn convert_vec_to_list(nodes: Vec<Vec<i32>>) -> Vec<Option<Box<ListNode>>> {
-        let mut ret: Vec<Option<Box<ListNode>>> = Vec::with_capacity(nodes.len());
+        let mut ret: Vec<Option<Box<ListNode>>> =
+            Vec::with_capacity(nodes.len());
         for i in nodes {
             let list = build_list_iter(&i);
             ret.push(list);
@@ -92,8 +95,11 @@ mod tests {
     }
 
     /// 将数组转换成自定义链表
-    fn convert_vec_to_list_iter(nodes: Vec<Vec<i32>>) -> Vec<Option<Box<ListNode>>> {
-        let mut ret: Vec<Option<Box<ListNode>>> = Vec::with_capacity(nodes.len());
+    fn convert_vec_to_list_iter(
+        nodes: Vec<Vec<i32>>,
+    ) -> Vec<Option<Box<ListNode>>> {
+        let mut ret: Vec<Option<Box<ListNode>>> =
+            Vec::with_capacity(nodes.len());
         for i in nodes {
             let list = build_list_iter(&i);
             ret.push(list);

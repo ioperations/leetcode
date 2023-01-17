@@ -1,8 +1,9 @@
-// Given the root of a binary tree, split the binary tree into two subtrees by removing one edge
-// such that the product of the sums of the subtrees is maximized.
-// Return the maximum product of the sums of the two subtrees.
+// Given the root of a binary tree, split the binary tree into two subtrees by
+// removing one edge such that the product of the sums of the subtrees is
+// maximized. Return the maximum product of the sums of the two subtrees.
 // Since the answer may be too large, return it modulo 109 + 7.
-// Note that you need to maximize the answer before taking the mod and not after taking it.
+// Note that you need to maximize the answer before taking the mod and not after
+// taking it.
 
 use super::leetcode_binary_tree::TreeNode;
 use std::{cell::RefCell, rc::Rc};
@@ -13,10 +14,8 @@ struct Solution;
 impl Solution {
     #[allow(unused)]
     pub fn max_product(root: &Option<Rc<RefCell<TreeNode<i32>>>>) -> i32 {
-        /*
-         * The number of nodes in the tree is in the range [2, 5 * 104].
-         * 1 <= Node.val <= 104
-         */
+        // The number of nodes in the tree is in the range [2, 5 * 104].
+        // 1 <= Node.val <= 104
         let mod_math = 1_000_000_000 + 7;
         let sum = Self::get_sum(root);
         let mut max_product: i64 = 0;
@@ -29,8 +28,10 @@ impl Solution {
         sum: i64,
     ) -> i64 {
         if let Some(n) = node {
-            let left = Self::get_max_product(&n.borrow().left, max_product, sum);
-            let right = Self::get_max_product(&n.borrow().right, max_product, sum);
+            let left =
+                Self::get_max_product(&n.borrow().left, max_product, sum);
+            let right =
+                Self::get_max_product(&n.borrow().right, max_product, sum);
             let cur_sum = left + right + n.borrow().val as i64;
             let product = cur_sum * (sum - cur_sum);
             if product > *max_product {
@@ -64,7 +65,8 @@ mod tests {
         let output = 110;
         let ret = Solution::max_product(&root);
         assert_eq!(ret, output);
-        // Explanation: Remove the red edge and get 2 binary trees with sum 11 and 10. Their product is 110 (11*10)
+        // Explanation: Remove the red edge and get 2 binary trees with sum 11
+        // and 10. Their product is 110 (11*10)
     }
 
     #[test]
@@ -80,7 +82,8 @@ mod tests {
         let output = 90;
         let ret = Solution::max_product(&root);
         assert_eq!(ret, output);
-        // Remove the red edge and get 2 binary trees with sum 15 and 6.Their product is 90 (15*6)
+        // Remove the red edge and get 2 binary trees with sum 15 and 6.Their
+        // product is 90 (15*6)
     }
 
     #[allow(unused)]

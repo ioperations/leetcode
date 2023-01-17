@@ -1,4 +1,6 @@
-// Given an array of integers heights representing the histogram's bar height where the width of each bar is 1, return the area of the largest rectangle in the histogram.
+// Given an array of integers heights representing the histogram's bar height
+// where the width of each bar is 1, return the area of the largest rectangle in
+// the histogram.
 
 use std::collections::VecDeque;
 #[allow(unused)]
@@ -49,7 +51,9 @@ impl Solution {
         let mut largest: i32 = 0;
         let mut idx: usize = 0;
         while idx < len_hts {
-            while !stk.is_empty() && heights[idx] < heights[*stk.back().unwrap()] {
+            while !stk.is_empty()
+                && heights[idx] < heights[*stk.back().unwrap()]
+            {
                 let shortest = heights[stk.pop_back().unwrap()];
                 let width = (idx
                     - if stk.is_empty() {
@@ -87,10 +91,9 @@ mod tests {
     fn case1_test() {
         let heights = [2, 1, 5, 6, 2, 3];
         let output = 10;
-        /*
-        Explanation: The above is a histogram where width of each bar is 1.
-        The largest rectangle is shown in the red area, which has an area = 10 units.
-        */
+        // Explanation: The above is a histogram where width of each bar is 1.
+        // The largest rectangle is shown in the red area, which has an area =
+        // 10 units.
         let ret = Solution::largest_rectangle_area(&heights);
         assert_eq!(ret, output);
     }
@@ -106,10 +109,9 @@ mod tests {
     fn case3_test() {
         let heights = [2, 1, 5, 6, 2, 3];
         let output = 10;
-        /*
-        Explanation: The above is a histogram where width of each bar is 1.
-        The largest rectangle is shown in the red area, which has an area = 10 units.
-        */
+        // Explanation: The above is a histogram where width of each bar is 1.
+        // The largest rectangle is shown in the red area, which has an area =
+        // 10 units.
         let ret = Solution::largest_rectangle_area_v2(&heights);
         assert_eq!(ret, output);
     }

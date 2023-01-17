@@ -1,4 +1,5 @@
-// Given the root of a binary tree, return the preorder traversal of its nodes' values.
+// Given the root of a binary tree, return the preorder traversal of its nodes'
+// values.
 
 use super::leetcode_binary_tree::TreeNode;
 use std::{cell::RefCell, rc::Rc};
@@ -8,14 +9,19 @@ struct Solution;
 
 impl Solution {
     #[allow(unused)]
-    pub fn preorder_traversal(root: &Option<Rc<RefCell<TreeNode<i32>>>>) -> Vec<i32> {
+    pub fn preorder_traversal(
+        root: &Option<Rc<RefCell<TreeNode<i32>>>>,
+    ) -> Vec<i32> {
         let mut vec = Vec::new();
         Self::preorder_traversal_recursive(root, &mut vec);
         vec
     }
 
     #[allow(unused)]
-    fn preorder_traversal_recursive(root: &Option<Rc<RefCell<TreeNode<i32>>>>, vec: &mut Vec<i32>) {
+    fn preorder_traversal_recursive(
+        root: &Option<Rc<RefCell<TreeNode<i32>>>>,
+        vec: &mut Vec<i32>,
+    ) {
         if let Some(root) = root {
             vec.push(root.borrow().val);
             Self::preorder_traversal_recursive(&root.borrow().left, vec);

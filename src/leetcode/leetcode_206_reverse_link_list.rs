@@ -20,12 +20,16 @@ impl Solution {
     }
 
     #[allow(unused)]
-    pub fn reverse_list<T>(head: Option<Box<ListNode<T>>>) -> Option<Box<ListNode<T>>> {
+    pub fn reverse_list<T>(
+        head: Option<Box<ListNode<T>>>,
+    ) -> Option<Box<ListNode<T>>> {
         Self::helper(head, None)
     }
 
     #[allow(unused)]
-    pub fn reverse_list_v2<T>(head: Option<Box<ListNode<T>>>) -> Option<Box<ListNode<T>>> {
+    pub fn reverse_list_v2<T>(
+        head: Option<Box<ListNode<T>>>,
+    ) -> Option<Box<ListNode<T>>> {
         let mut prev: Option<Box<ListNode<T>>> = None;
         let mut curr = head;
 

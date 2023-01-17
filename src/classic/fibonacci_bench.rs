@@ -113,7 +113,11 @@ mod tests {
         impl Handler<Fibonacci> for SyncActor {
             type Result = Result<u32, ()>;
 
-            fn handle(&mut self, msg: Fibonacci, _: &mut Self::Context) -> Self::Result {
+            fn handle(
+                &mut self,
+                msg: Fibonacci,
+                _: &mut Self::Context,
+            ) -> Self::Result {
                 Ok(fibonacci(msg.0))
             }
         }
@@ -135,18 +139,20 @@ mod tests {
             b.iter(|| {
                 system.block_on(async {
                     let addr = SyncArbiter::start(4, || SyncActor);
-                    let res = join_all((0..BENCH_SIZE).map(|i| addr.send(Fibonacci(i))))
-                        .await
-                        .into_iter()
-                        .map(|v| v.unwrap().unwrap())
-                        .reduce(|acc, e| {
-                            if let Some(res) = acc.checked_add(e) {
-                                res
-                            } else {
-                                acc
-                            }
-                        })
-                        .unwrap();
+                    let res = join_all(
+                        (0..BENCH_SIZE).map(|i| addr.send(Fibonacci(i))),
+                    )
+                    .await
+                    .into_iter()
+                    .map(|v| v.unwrap().unwrap())
+                    .reduce(|acc, e| {
+                        if let Some(res) = acc.checked_add(e) {
+                            res
+                        } else {
+                            acc
+                        }
+                    })
+                    .unwrap();
                     assert_eq!(res, value);
                 });
             });
@@ -156,23 +162,36 @@ mod tests {
     #[ignore = "FIXME: 🦀 do not know why, the result is not match!!!"]
     #[bench]
     fn bench_threadpool(b: &mut test::Bencher) {
-        let value: u32 = (0..BENCH_SIZE)
-            .map(fibonacci)
-            .reduce(|acc, e| {
-                if let Some(res) = acc.checked_add(e) {
-                    res
-                } else {
-                    acc
-                }
-            })
-            .unwrap();
+        let value = {
+            let (tx, rx) = channel();
+            let n_workers = 1;
+            let pool = ThreadPool::new(n_workers);
+            for i in 0..BENCH_SIZE {
+                let tx = tx.clone();
+                pool.execute(move || {
+                    let fib = fibonacci(i);
+                    tx.send(fib)
+                        .expect("channel will be there waiting for the pool");
+                });
+            }
 
+            rx.iter()
+                .take(BENCH_SIZE as usize)
+                .reduce(|acc, e| {
+                    if let Some(res) = acc.checked_add(e) {
+                        res
+                    } else {
+                        acc
+                    }
+                })
+                .unwrap()
+        };
         println!("value is  {value}");
 
-        let n_workers = 4;
-        let pool = ThreadPool::new(n_workers);
         b.iter(|| {
             let (tx, rx) = channel();
+            let n_workers = 4;
+            let pool = ThreadPool::new(n_workers);
             for i in 0..BENCH_SIZE {
                 let tx = tx.clone();
                 pool.execute(move || {

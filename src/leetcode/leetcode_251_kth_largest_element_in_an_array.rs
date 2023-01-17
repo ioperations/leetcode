@@ -44,7 +44,10 @@ impl Solution {
     }
 
     #[allow(unused)]
-    pub fn find_kth_largest_max_heap_alternative_version(nums: Vec<i32>, k: i32) -> i32 {
+    pub fn find_kth_largest_max_heap_alternative_version(
+        nums: Vec<i32>,
+        k: i32,
+    ) -> i32 {
         let mut maxheap = BinaryHeap::from(nums);
         let mut max = maxheap.into_sorted_vec();
         max[max.len() - k as usize]
@@ -107,7 +110,8 @@ mod tests {
     fn max_heap_altertive_case1_test() {
         let nums = vec![3, 2, 1, 5, 6, 4];
         let k = 2;
-        let ret = Solution::find_kth_largest_max_heap_alternative_version(nums, k);
+        let ret =
+            Solution::find_kth_largest_max_heap_alternative_version(nums, k);
         assert_eq!(ret, 5);
     }
 
@@ -115,7 +119,8 @@ mod tests {
     fn max_heap_altertive_case2_test() {
         let nums = vec![3, 2, 3, 1, 2, 4, 5, 5, 6];
         let k = 4;
-        let ret = Solution::find_kth_largest_max_heap_alternative_version(nums, k);
+        let ret =
+            Solution::find_kth_largest_max_heap_alternative_version(nums, k);
         assert_eq!(ret, 4);
     }
 }

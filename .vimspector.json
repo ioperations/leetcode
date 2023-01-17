@@ -6,7 +6,7 @@
       "configuration": {
         "request": "launch",
         "program": "${Executable}",
-        // "args": ["${Args}"],
+        "args": ["*${Args}"],
         "stopAtEntry": true,
         "cwd": "${workspaceRoot}",
         "environment": [],

@@ -1,9 +1,10 @@
 // Given the head of a singly linked list,
-// group all the nodes with odd indices together followed by the nodes with even indices,
-// and return the reordered list.
+// group all the nodes with odd indices together followed by the nodes with even
+// indices, and return the reordered list.
 // The first node is considered odd, and the second node is even, and so on.
-// Note that the relative order inside both the even and odd groups should remain as it was in the input.
-// You must solve the problem in O(1) extra space complexity and O(n) time complexity.
+// Note that the relative order inside both the even and odd groups should
+// remain as it was in the input. You must solve the problem in O(1) extra space
+// complexity and O(n) time complexity.
 
 use super::leetcode_linklist::ListNode;
 
@@ -12,7 +13,9 @@ struct Solution;
 
 impl Solution {
     #[allow(unused)]
-    pub fn odd_even_list_dummy<T>(head: Option<Box<ListNode<T>>>) -> Option<Box<ListNode<T>>>
+    pub fn odd_even_list_dummy<T>(
+        head: Option<Box<ListNode<T>>>,
+    ) -> Option<Box<ListNode<T>>>
     where
         T: Default,
     {
@@ -40,8 +43,10 @@ impl Solution {
     }
 
     #[allow(unused)]
-    pub fn odd_even_list<T>(head: Option<Box<ListNode<T>>>) -> Option<Box<ListNode<T>>> {
-        //establish Even and Odd lists
+    pub fn odd_even_list<T>(
+        head: Option<Box<ListNode<T>>>,
+    ) -> Option<Box<ListNode<T>>> {
+        // establish Even and Odd lists
         let mut odd_head = head?;
         let mut odd_tail = &mut odd_head.next;
         let Some(mut even_head)  = odd_tail.take() else {
@@ -49,21 +54,23 @@ impl Solution {
         };
         let mut even_tail = &mut even_head.next;
 
-        //iterate over remaining nodes and alternate appends to Even and Odd
+        // iterate over remaining nodes and alternate appends to Even and Odd
         let mut rest = even_tail.take();
         let mut even = false;
         while let Some(mut node) = rest {
             rest = node.next.take();
             if even {
                 *even_tail = Some(node);
-                even_tail = even_tail.as_mut().map(|node| &mut node.next).unwrap();
+                even_tail =
+                    even_tail.as_mut().map(|node| &mut node.next).unwrap();
             } else {
                 *odd_tail = Some(node);
-                odd_tail = odd_tail.as_mut().map(|node| &mut node.next).unwrap();
+                odd_tail =
+                    odd_tail.as_mut().map(|node| &mut node.next).unwrap();
             }
             even = !even;
         }
-        //Place Even at the end of Odd
+        // Place Even at the end of Odd
         *odd_tail = Some(even_head);
 
         Some(odd_head)

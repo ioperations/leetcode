@@ -30,7 +30,8 @@ mod tests {
     fn case1_test() {
         let n = 10;
         let output = 4;
-        // Explanation: There are 4 prime numbers less than 10, they are 2, 3, 5, 7.
+        // Explanation: There are 4 prime numbers less than 10, they are 2, 3,
+        // 5, 7.
         let ret = Solution::count_primes(n);
         assert_eq!(ret, output);
     }
@@ -39,7 +40,8 @@ mod tests {
     fn case2_test() {
         let n = 0;
         let output = 0;
-        // Explanation: There are 4 prime numbers less than 10, they are 2, 3, 5, 7.
+        // Explanation: There are 4 prime numbers less than 10, they are 2, 3,
+        // 5, 7.
         let ret = Solution::count_primes(n);
         assert_eq!(ret, output);
     }
@@ -48,7 +50,8 @@ mod tests {
     fn case3_test() {
         let n = 1;
         let output = 0;
-        // Explanation: There are 4 prime numbers less than 10, they are 2, 3, 5, 7.
+        // Explanation: There are 4 prime numbers less than 10, they are 2, 3,
+        // 5, 7.
         let ret = Solution::count_primes(n);
         assert_eq!(ret, output);
     }

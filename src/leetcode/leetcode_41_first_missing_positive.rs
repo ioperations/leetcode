@@ -1,5 +1,6 @@
-// Given an unsorted integer array nums, return the smallest missing positive integer.
-// You must implement an algorithm that runs in O(n) time and uses constant extra space.
+// Given an unsorted integer array nums, return the smallest missing positive
+// integer. You must implement an algorithm that runs in O(n) time and uses
+// constant extra space.
 
 #[allow(unused)]
 struct Solution;
@@ -12,7 +13,10 @@ impl Solution {
 
         let mut nums = nums;
         for i in 0..nums.len() {
-            while (nums[i] > 0) && (nums[i] < nums.len() as i32) && (nums[i] != i as i32 + 1) {
+            while (nums[i] > 0)
+                && (nums[i] < nums.len() as i32)
+                && (nums[i] != i as i32 + 1)
+            {
                 let j = nums[i] as usize - 1;
                 if nums[j] == nums[i] {
                     break;

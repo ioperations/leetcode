@@ -1,7 +1,8 @@
 // Given a directed acyclic graph (DAG) of n nodes labeled from 0 to n - 1,
-// find all possible paths from node 0 to node n - 1 and return them in any order.↳
-// The graph is given as follows: graph[i] is a list of all nodes
-// you can visit from node i (i.e., there is a directed edge from node i to node graph[i][j]).
+// find all possible paths from node 0 to node n - 1 and return them in any
+// order.↳ The graph is given as follows: graph[i] is a list of all nodes
+// you can visit from node i (i.e., there is a directed edge from node i to node
+// graph[i][j]).
 
 #[allow(unused)]
 struct Solution;
@@ -49,7 +50,7 @@ mod tests {
         let output = vec![vec![0, 1, 3], vec![0, 2, 3]]
             .into_iter()
             .collect::<HashSet<Vec<i32>>>();
-        //Explanation: There are two paths: 0 -> 1 -> 3 and 0 -> 2 -> 3.
+        // Explanation: There are two paths: 0 -> 1 -> 3 and 0 -> 2 -> 3.
         let ret: HashSet<Vec<i32>> = Solution::all_paths_source_target(&graph)
             .into_iter()
             .collect();
@@ -58,7 +59,8 @@ mod tests {
 
     #[test]
     fn case2_test() {
-        let graph = vec![vec![4, 3, 1], vec![3, 2, 4], vec![3], vec![4], vec![]];
+        let graph =
+            vec![vec![4, 3, 1], vec![3, 2, 4], vec![3], vec![4], vec![]];
         let output = vec![
             vec![0, 4],
             vec![0, 3, 4],
@@ -68,7 +70,7 @@ mod tests {
         ]
         .into_iter()
         .collect::<HashSet<Vec<i32>>>();
-        //Explanation: There are two paths: 0 -> 1 -> 3 and 0 -> 2 -> 3.
+        // Explanation: There are two paths: 0 -> 1 -> 3 and 0 -> 2 -> 3.
         let ret: HashSet<Vec<i32>> = Solution::all_paths_source_target(&graph)
             .into_iter()
             .collect();

@@ -7,7 +7,8 @@ mod tests {
         let pair = Arc::new((Mutex::new(false), Condvar::new()));
         let pair2 = pair.clone();
 
-        // Inside of our lock, spawn a new thread, and then wait for it to start.
+        // Inside of our lock, spawn a new thread, and then wait for it to
+        // start.
         thread::spawn(move || {
             let (lock, cvar) = &*pair2;
             let mut started = lock.lock().unwrap();

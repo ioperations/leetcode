@@ -1,9 +1,9 @@
 // Given the root of a binary tree, flatten the tree into a "linked list":
 //
 // The "linked list" should use the same TreeNode class where the right child
-// pointer points to the next node in the list and the left child pointer is always
-// null. The "linked list" should be in the same order as a pre-order traversal of
-// the binary tree
+// pointer points to the next node in the list and the left child pointer is
+// always null. The "linked list" should be in the same order as a pre-order
+// traversal of the binary tree
 
 use super::leetcode_binary_tree::TreeNode;
 use std::{cell::RefCell, rc::Rc};
@@ -53,7 +53,9 @@ impl Solution {
     }
 
     #[allow(unused)]
-    pub fn pre_order<T>(root: &Option<Rc<RefCell<TreeNode<T>>>>) -> Vec<Option<T>>
+    pub fn pre_order<T>(
+        root: &Option<Rc<RefCell<TreeNode<T>>>>,
+    ) -> Vec<Option<T>>
     where
         T: Copy,
     {
@@ -63,8 +65,10 @@ impl Solution {
     }
 
     #[allow(unused)]
-    pub fn pre_order_v1<T>(root: &Option<Rc<RefCell<TreeNode<T>>>>, v: &mut Vec<Option<T>>)
-    where
+    pub fn pre_order_v1<T>(
+        root: &Option<Rc<RefCell<TreeNode<T>>>>,
+        v: &mut Vec<Option<T>>,
+    ) where
         T: Copy,
     {
         if let Some(root) = root {

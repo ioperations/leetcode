@@ -1,4 +1,5 @@
-// Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.
+// Given n pairs of parentheses, write a function to generate all combinations
+// of well-formed parentheses.
 
 #[allow(unused)]
 struct Solution;
@@ -12,7 +13,11 @@ impl Solution {
                 return vec![s];
             }
             if open > 0 {
-                res.append(&mut back_track(s.clone() + "(", open - 1, close + 1));
+                res.append(&mut back_track(
+                    s.clone() + "(",
+                    open - 1,
+                    close + 1,
+                ));
             }
             if close > 0 {
                 res.append(&mut back_track(s + ")", open, close - 1));

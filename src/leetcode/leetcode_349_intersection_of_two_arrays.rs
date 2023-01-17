@@ -19,7 +19,8 @@ impl Solution {
 
     #[allow(unused)]
     pub fn intersection_v2(nums1: &[i32], nums2: &[i32]) -> Vec<i32> {
-        let mut h: std::collections::HashSet<i32> = std::collections::HashSet::new();
+        let mut h: std::collections::HashSet<i32> =
+            std::collections::HashSet::new();
         let mut v: Vec<i32> = vec![];
         for &i in nums1.iter() {
             if nums2.iter().any(|x| *x == i) {

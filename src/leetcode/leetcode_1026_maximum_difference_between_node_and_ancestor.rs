@@ -66,14 +66,13 @@ mod tests {
             Some(i)
         });
         let output = 7;
-        /*
-         * Explanation: We have various ancestor-node differences, some of which are given below :
-         * |8 - 3| = 5
-         * |3 - 7| = 4
-         * |8 - 1| = 7
-         * |10 - 13| = 3
-         * Among all possible differences, the maximum value of 7 is obtained by |8 - 1| = 7.
-         */
+        // Explanation: We have various ancestor-node differences, some of which
+        // are given below : |8 - 3| = 5
+        // |3 - 7| = 4
+        // |8 - 1| = 7
+        // |10 - 13| = 3
+        // Among all possible differences, the maximum value of 7 is obtained by
+        // |8 - 1| = 7.
         let root = build_binary_tree(&root);
         let ret = Solution::max_ancestor_diff(&root);
         assert_eq!(ret, output);
