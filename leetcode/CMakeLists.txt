@@ -49,8 +49,6 @@ set(leetcode ${OBJ_FILES})
 
 
 foreach (curlist ${leetcode})
-    #  string(REGEX REPLACE "/" "" test1 ${curlist})
-    # file(RELATIVE_PATH buildDirRelFilePath "${CMAKE_CURRENT_LIST_DIR}" "${curlist}")
     get_filename_component(test1 ${curlist} NAME_WLE)
     get_filename_component(dirname ${curlist} DIRECTORY)
     add_executable(${test1} ${test1}.cc)
