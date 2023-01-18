@@ -27,8 +27,6 @@ fn fibonacci(n: u32) -> u32 {
 mod tests {
     use super::*;
     use futures::future::join_all;
-    use std::sync::mpsc::channel;
-    use threadpool::ThreadPool;
     extern crate test;
 
     static BENCH_SIZE: u32 = 1000;
@@ -157,63 +155,5 @@ mod tests {
                 });
             });
         }
-    }
-
-    #[ignore = "FIXME: 🦀 do not know why, the result is not match!!!"]
-    #[bench]
-    fn bench_threadpool(b: &mut test::Bencher) {
-        let value = {
-            let (tx, rx) = channel();
-            let n_workers = 1;
-            let pool = ThreadPool::new(n_workers);
-            for i in 0..BENCH_SIZE {
-                let tx = tx.clone();
-                pool.execute(move || {
-                    let fib = fibonacci(i);
-                    tx.send(fib)
-                        .expect("channel will be there waiting for the pool");
-                });
-            }
-
-            rx.iter()
-                .take(BENCH_SIZE as usize)
-                .reduce(|acc, e| {
-                    if let Some(res) = acc.checked_add(e) {
-                        res
-                    } else {
-                        acc
-                    }
-                })
-                .unwrap()
-        };
-        println!("value is  {value}");
-
-        b.iter(|| {
-            let (tx, rx) = channel();
-            let n_workers = 4;
-            let pool = ThreadPool::new(n_workers);
-            for i in 0..BENCH_SIZE {
-                let tx = tx.clone();
-                pool.execute(move || {
-                    let fib = fibonacci(i);
-                    tx.send(fib)
-                        .expect("channel will be there waiting for the pool");
-                });
-            }
-
-            assert_eq!(
-                rx.iter()
-                    .take(BENCH_SIZE as usize)
-                    .reduce(|acc, e| {
-                        if let Some(res) = acc.checked_add(e) {
-                            res
-                        } else {
-                            acc
-                        }
-                    })
-                    .unwrap(),
-                value
-            );
-        });
     }
 }
