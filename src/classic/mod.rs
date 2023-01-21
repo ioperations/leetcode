@@ -7,6 +7,7 @@ mod find_media_sorted_arrays;
 mod fibonacci;
 mod fibonacci_bench;
 mod generator;
+mod hashfunc;
 mod iteration;
 mod link_list;
 mod list;
