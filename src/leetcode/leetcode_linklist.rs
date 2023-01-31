@@ -1,3 +1,5 @@
+use tracing::debug;
+
 // Definition for singly-linked list.
 #[allow(unused)]
 #[derive(Clone)]
@@ -29,10 +31,12 @@ where
 }
 
 #[allow(unused)]
+#[tracing::instrument(level = "debug", skip_all)]
 pub fn build_list_from_vec<T>(node: &[T]) -> Option<Box<ListNode<T>>>
 where
     T: Default + Copy,
 {
+    debug!("build list from vec called!");
     if node.is_empty() {
         return None;
     }

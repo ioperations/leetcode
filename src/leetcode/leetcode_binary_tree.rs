@@ -1,5 +1,7 @@
 use std::{cell::RefCell, collections::VecDeque, rc::Rc};
 
+use tracing::debug;
+
 /// Definition for a binary tree node.
 pub struct TreeNode<T> {
     pub val: T,
@@ -20,12 +22,14 @@ impl<T> TreeNode<T> {
 
 /// build binary tree from &[T]
 #[allow(unused)]
+#[tracing::instrument(level = "debug", skip_all)]
 pub fn build_binary_tree<T>(
     input: &[Option<T>],
 ) -> Option<Rc<RefCell<TreeNode<T>>>>
 where
     T: Copy,
 {
+    debug!("build_binay_tree called!");
     let size = input.len();
     if size == 0 {
         return None;
@@ -66,12 +70,14 @@ where
 
 /// expect binary tree equal to input
 #[allow(unused)]
+#[tracing::instrument(level = "debug", skip_all)]
 pub fn flatten_binary_tree<T>(
     root: Option<Rc<RefCell<TreeNode<T>>>>,
 ) -> Vec<Option<T>>
 where
     T: std::cmp::PartialEq + std::fmt::Debug + Copy,
 {
+    debug!("flatten_binary_tree called!");
     let mut q: VecDeque<Option<Rc<RefCell<TreeNode<T>>>>> = VecDeque::new();
     let mut ret: Vec<Option<T>> = vec![];
     q.push_back(root);

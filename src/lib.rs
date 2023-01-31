@@ -12,6 +12,18 @@
 #![cfg_attr(feature = "cargo-clippy", allow(clippy::cast_sign_loss))]
 #![cfg_attr(feature = "cargo-clippy", allow(clippy::checked_conversions))]
 
+#[cfg(test)]
+use ctor::ctor;
+
+#[cfg(test)]
+use tracing_subscriber::{fmt, layer::SubscriberExt, util::SubscriberInitExt};
+
+#[cfg(test)]
+#[ctor]
+fn register_tracing() {
+    tracing_subscriber::registry().with(fmt::layer()).init();
+}
+
 mod classic;
 
 mod leetcode {
