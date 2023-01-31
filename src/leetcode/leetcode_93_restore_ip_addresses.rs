@@ -66,7 +66,7 @@ mod tests {
         let ret = ret.into_iter().collect::<HashSet<String>>();
         let output = output
             .into_iter()
-            .map(|i| i.to_string())
+            .map(std::string::ToString::to_string)
             .collect::<HashSet<String>>();
         assert_eq!(ret, output);
     }
@@ -79,7 +79,7 @@ mod tests {
         let ret = ret.into_iter().collect::<HashSet<String>>();
         let output = output
             .into_iter()
-            .map(|i| i.to_string())
+            .map(std::string::ToString::to_string)
             .collect::<HashSet<String>>();
         assert_eq!(ret, output);
     }
@@ -98,7 +98,7 @@ mod tests {
         let ret = ret.into_iter().collect::<HashSet<String>>();
         let output = output
             .into_iter()
-            .map(|i| i.to_string())
+            .map(std::string::ToString::to_string)
             .collect::<HashSet<String>>();
         assert_eq!(ret, output);
     }
