@@ -18,8 +18,11 @@ struct Context {
     decision: bool,
 }
 
+use tracing::debug;
+
 impl Solution {
     #[allow(unused)]
+    #[tracing::instrument(level = "debug", skip_all)]
     pub fn exist(board: Vec<Vec<char>>, word: &str) -> bool {
         assert!(!board.is_empty());
         let mut board = board;
@@ -34,6 +37,8 @@ impl Solution {
             dir: vec![1, 0, -1, 0, 1],
             decision: false,
         };
+
+        debug!("entering backtrack row:{row}, column:{column}");
 
         for i in 0..row {
             for j in 0..column {
