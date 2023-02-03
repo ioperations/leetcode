@@ -28,7 +28,7 @@ fn register_tracing() {
     // Sets up the machinery needed to export data to Jaeger
     // There are other OTel crates that provide pipelines for the vendors
     // mentioned earlier.
-    let tracer = opentelemetry_jaeger::new_pipeline()
+    let tracer = opentelemetry_jaeger::new_agent_pipeline()
         .with_service_name("leetcode.rs")
         .install_simple()
         .unwrap();

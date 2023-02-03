@@ -23,11 +23,11 @@ tracing = "0.1"
 tracing-subscriber = { version = "0.3"}
 ctor = "0.1"
 # Implements the types defined in the Otel spec
-opentelemetry = "0.17.0"
+opentelemetry = "0.18"
 # Integration between the tracing crate and the opentelemetry crate
-tracing-opentelemetry = "0.17.2" 
+tracing-opentelemetry = "0.18" 
 # Allows you to export data to Jaeger
-opentelemetry-jaeger = "0.16.0"
+opentelemetry-jaeger = "0.17"
 #serde_json = { version = "1.0", default-features=false,features = ["alloc"] }
 #serde = { version="1.0",features=["derive"] }
 
