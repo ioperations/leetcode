@@ -86,6 +86,7 @@ mod tests {
         let destination = 5;
         let output = false;
         let ret = Solution::valid_path(n, &edges, source, destination);
+
         // There is no path from vertex 0 to vertex 5.
         assert_eq!(ret, output);
     }

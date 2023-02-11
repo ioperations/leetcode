@@ -760,6 +760,7 @@ unsafe impl<'a, T: Send> Send for IterMut<'a, T> {}
 unsafe impl<'a, T: Sync> Sync for IterMut<'a, T> {}
 
 #[allow(dead_code)]
+#[allow(clippy::extra_unused_type_parameters)]
 fn assert_properties() {
     fn is_send<T: Send>() {}
     fn is_sync<T: Sync>() {}
