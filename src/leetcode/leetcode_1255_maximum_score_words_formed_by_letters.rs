@@ -78,17 +78,7 @@ impl Solution {
                 return before;
             }
 
-            if !visibility[i] {
-                // next step;
-                return myimpl(
-                    i + 1,
-                    words,
-                    visibility,
-                    letters,
-                    score,
-                    before,
-                );
-            } else if check_if_can_take(&words[i], letters) {
+            if visibility[i] && check_if_can_take(&words[i], letters) {
                 // case 1. take the str
                 let leters_bk = letters.clone();
                 take(&words[i], letters);
