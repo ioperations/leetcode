@@ -52,60 +52,6 @@ class Solution {
 
 #include <iostream>
 
-TreeNode *AddToRoot(TreeNode *root, int val) {
-    if (root == nullptr) {
-        return nullptr;
-    }
-    if (val < root->val) {
-        if (root->left) {
-            TreeNode *head = AddToRoot(root->left, val);
-            root->left = head;
-            return root;
-        }
-        root->left = new TreeNode(val);
-
-    } else {
-        if (root->right) {
-            TreeNode *head = AddToRoot(root->right, val);
-            root->right = head;
-            return root;
-        }
-        root->right = new TreeNode(val);
-    }
-    return root;
-}
-
-TreeNode *AddToRoot(TreeNode *root, const std::vector<int> &elements) {
-    for (auto &ptr : elements) {
-        root = AddToRoot(root, ptr);
-    }
-    return root;
-}
-
-TreeNode *ConstructTree(const std::vector<int> &elements) {
-    if (!elements.size()) {
-        return nullptr;
-    }
-
-    TreeNode *root = new TreeNode(elements[0]);
-
-    for (int i = 1; i < (int)elements.size(); i++) {
-        root = AddToRoot(root, elements[i]);
-    }
-
-    return root;
-}
-
-void FreeRoot(TreeNode *root) {
-    if (root == nullptr) {
-        return;
-    }
-
-    FreeRoot(root->left);
-    FreeRoot(root->right);
-    delete root;
-}
-
 void InOrderTranverse(TreeNode *root, std::vector<int> &vec) {
     if (root == nullptr) {
         return;
@@ -134,10 +80,10 @@ TEST(t, t1) {
 
     std::vector<int> to_delete = {3, 5};
     TreeNode n(1);
-    TreeNode n1(2);
+    TreeNode n_number_one(2);
     TreeNode n2(4);
-    n.left = &n1;
-    n1.left = &n2;
+    n.left = &n_number_one;
+    n_number_one.left = &n2;
     TreeNode l1(6);
     TreeNode l2(7);
     std::vector<TreeNode *> expected = {&n, &l1, &l2};
