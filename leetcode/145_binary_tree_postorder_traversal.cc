@@ -1,24 +1,19 @@
 //* Definition for a binary tree node.
-struct TreeNode {
-    int val;
-    TreeNode *left;
-    TreeNode *right;
-    TreeNode() : val(0), left(nullptr), right(nullptr) {}
-    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
-    TreeNode(int x, TreeNode *left, TreeNode *right)
-        : val(x), left(left), right(right) {}
-};
 #include <vector>
+
+#include "datastruct_base.hh"
 
 class Solution {
    public:
-    std::vector<int> PostorderTraversal(TreeNode *root) {
+    template <typename T>
+    std::vector<int> PostorderTraversal(TreeNode<T> *root) {
         std::vector<int> ret;
         Tranverse(root, ret);
         return ret;
     }
 
-    void Tranverse(TreeNode *root, std::vector<int> &val) {
+    template <typename T>
+    void Tranverse(TreeNode<T> *root, std::vector<int> &val) {
         if (root == nullptr) {
             return;
         }
@@ -30,66 +25,12 @@ class Solution {
     }
 };
 
-TreeNode *AddToRoot(TreeNode *root, int val) {
-    if (root == nullptr) {
-        return nullptr;
-    }
-    if (val < root->val) {
-        if (root->left) {
-            TreeNode *head = AddToRoot(root->left, val);
-            root->left = head;
-            return root;
-        }
-        root->left = new TreeNode(val);
-
-    } else {
-        if (root->right) {
-            TreeNode *head = AddToRoot(root->right, val);
-            root->right = head;
-            return root;
-        }
-        root->right = new TreeNode(val);
-    }
-    return root;
-}
-
-TreeNode *AddToRoot(TreeNode *root, const std::vector<int> &elements) {
-    for (auto &ptr : elements) {
-        root = AddToRoot(root, ptr);
-    }
-    return root;
-}
-
-TreeNode *ConstructTree(const std::vector<int> &elements) {
-    if (!elements.size()) {
-        return nullptr;
-    }
-
-    TreeNode *root = new TreeNode(elements[0]);
-
-    for (int i = 1; i < (int)elements.size(); i++) {
-        root = AddToRoot(root, elements[i]);
-    }
-
-    return root;
-}
-
-void FreeRoot(TreeNode *root) {
-    if (root == nullptr) {
-        return;
-    }
-
-    FreeRoot(root->left);
-    FreeRoot(root->right);
-    delete root;
-}
-
 #include <gtest/gtest.h>
 
 #include <iostream>
 
 TEST(t0, t1) {
-    TreeNode *root = ConstructTree(std::vector<int>{1, 2, 3});
+    TreeNode<int> *root = ConstructTree(std::vector<int>{1, 2, 3});
     Solution s;
     std::vector<int> ret = s.PostorderTraversal(root);
 
@@ -98,7 +39,7 @@ TEST(t0, t1) {
     FreeRoot(root);
 }
 TEST(t0, t2) {
-    TreeNode *root = ConstructTree(std::vector<int>{});
+    TreeNode<int> *root = ConstructTree(std::vector<int>{});
     Solution s;
     std::vector<int> ret = s.PostorderTraversal(root);
 
@@ -107,7 +48,7 @@ TEST(t0, t2) {
     FreeRoot(root);
 }
 TEST(t0, t3) {
-    TreeNode *root = ConstructTree(std::vector<int>{1});
+    TreeNode<int> *root = ConstructTree(std::vector<int>{1});
     Solution s;
     std::vector<int> ret = s.PostorderTraversal(root);
 

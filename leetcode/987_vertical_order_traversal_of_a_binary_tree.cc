@@ -15,17 +15,10 @@ Return the vertical order traversal of the binary tree.*/
 
 //* Definition for a binary tree node.
 #include <cstddef>
-struct TreeNode {
-    int val;
-    TreeNode *left;
-    TreeNode *right;
-    TreeNode() : val(0), left(nullptr), right(nullptr) {}
-    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
-    TreeNode(int x, TreeNode *left, TreeNode *right)
-        : val(x), left(left), right(right) {}
-};
 #include <queue>
 #include <vector>
+
+#include "datastruct_base.hh"
 
 using namespace std;
 
@@ -49,17 +42,18 @@ struct Mystruct {
 
 class Solution {
    public:
-    vector<vector<int>> VerticalTraversal(TreeNode *root) {
-        queue<pair<TreeNode *, int>> q;
+    template <typename T>
+    vector<vector<T>> VerticalTraversal(TreeNode<T> *root) {
+        queue<pair<TreeNode<T> *, int>> q;
         map<int, vector<int>> mp;
         q.push(make_pair(root, 0));
         while (q.size()) {
             int n = q.size();
             map<int, priority_queue<int, vector<int>, greater<int>>> tmp;
             for (int i = 0; i < n; i++) {
-                pair<TreeNode *, int> curr = q.front();
+                pair<TreeNode<T> *, int> curr = q.front();
                 q.pop();
-                TreeNode *node = curr.first;
+                auto *node = curr.first;
                 int col = curr.second;
                 tmp[col].push(node->val);
                 if (node->left) {
@@ -87,12 +81,13 @@ class Solution {
         return ans;
     }
 
-    vector<vector<int>> VerticalTraversal1(TreeNode *root) {
-        vector<vector<int>> ret;
+    template <typename T>
+    vector<vector<T>> VerticalTraversal1(TreeNode<T> *root) {
+        vector<vector<T>> ret;
         if (root == nullptr) return ret;
         priority_queue<Mystruct> q;
 
-        queue<std::pair<TreeNode *, int>> navigate;
+        queue<std::pair<TreeNode<T> *, int>> navigate;
         navigate.push({root, 0});
 
         while (navigate.size()) {
@@ -136,90 +131,9 @@ class Solution {
 
 #include <gtest/gtest.h>
 
-#include <iostream>
-#include <optional>
 #define null optional<int>()
-#include <algorithm>
-#include <optional>
-#include <queue>
-#include <string>
-#include <vector>
 
 using namespace std;
-
-// Decodes your encoded data to tree.
-TreeNode *ConstructBinaryTree(std::vector<std::optional<int>> &data) {
-    data.resize(data.size() * 3 + 11);
-    if (data.size() == 0) return nullptr;
-
-    if (!data[0].has_value()) return nullptr;
-    TreeNode *root = new TreeNode(data[0].value());
-    queue<TreeNode *> q;
-    q.push(root);
-
-    int i = 1;
-
-    while (!q.empty()) {
-        TreeNode *cur = q.front();
-        q.pop();
-
-        if (!data[i].has_value()) {
-            cur->left = NULL;
-        } else {
-            TreeNode *left_n = new TreeNode(data[i].value());
-            cur->left = left_n;
-            q.push(left_n);
-        }
-        i++;
-
-        if (!data[i].has_value()) {
-            cur->right = NULL;
-        } else {
-            TreeNode *right_n = new TreeNode(data[i].value());
-            cur->right = right_n;
-            q.push(right_n);
-        }
-        i++;
-    }
-    return root;
-}
-
-// Function to print tree nodes in
-// InOrder fashion
-void InOrder(TreeNode *root, std::vector<string> &vec) {
-    if (root != nullptr) {
-        InOrder(root->left, vec);
-        vec.push_back(std::to_string(root->val));
-
-        InOrder(root->right, vec);
-    }
-}
-
-void BfsSearch(TreeNode *root, std::vector<int> &vec) {
-    queue<TreeNode *> q;
-    q.push(root);
-
-    while (q.size()) {
-        TreeNode *tmp = q.front();
-
-        q.pop();
-
-        if (tmp != nullptr) {
-            q.push(tmp->left);
-            q.push(tmp->right);
-            vec.push_back(tmp->val);
-        }
-    }
-}
-
-void FreeTreeNode(TreeNode *root) {
-    if (root == nullptr) return;
-
-    FreeTreeNode(root->left);
-    FreeTreeNode(root->right);
-
-    delete root;
-}
 
 TEST(t0, t1) {
     vector<optional<int>> root = {3, 9, 20, null, null, 15, 7};
