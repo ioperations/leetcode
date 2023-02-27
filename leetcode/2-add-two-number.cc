@@ -4,15 +4,15 @@
 
 struct ListNode {
     int val;
-    ListNode* next;
+    ListNode *next;
     ListNode() : val(0), next(nullptr) {}
     ListNode(int x) : val(x), next(nullptr) {}
-    ListNode(int x, ListNode* next) : val(x), next(next) {}
+    ListNode(int x, ListNode *next) : val(x), next(next) {}
 };
 
 class Solution {
    public:
-    ListNode* AddTwoNumbers(ListNode* l1, ListNode* l2) {
+    ListNode *AddTwoNumbers(ListNode *l1, ListNode *l2) {
         for (int i = 0; l1 || l2 || carrier; i++) {
             int va = 0;
             if (l1 && l2) {
@@ -26,7 +26,7 @@ class Solution {
             }
             carrier = va >= 10 ? 1 : 0;
             va = va % 10;
-            ListNode* n = new ListNode(va);
+            ListNode *n = new ListNode(va);
             // 保存 head
             if (i == 0) {
                 head = n;
@@ -53,8 +53,8 @@ class Solution {
 
    private:
     mutable int carrier = 0;
-    ListNode* head = nullptr;
-    ListNode* pre = nullptr;
+    ListNode *head = nullptr;
+    ListNode *pre = nullptr;
     /*
 
       n -> n1 -> n2 -> n3
@@ -65,7 +65,7 @@ class Solution {
 
     */
    public:
-    void FreeListNode(ListNode* n) {
+    void FreeListNode(ListNode *n) {
         if (!n) {
             return;
         }
@@ -76,7 +76,7 @@ class Solution {
     }
 };
 
-void PrintNode(ListNode* n) {
+void PrintNode(ListNode *n) {
     std::cout << std::endl;
 
     for (int _ = 0; n; _++) {
@@ -117,11 +117,11 @@ int main() {
     PrintNode(&l2);
 
     {
-        ListNode* t1 = new ListNode(2);
-        ListNode* t1_1 = new ListNode(4);
-        ListNode* t1_2 = new ListNode(3);
-        ListNode* t1_3 = new ListNode(5);
-        ListNode* t1_4 = new ListNode(9);
+        ListNode *t1 = new ListNode(2);
+        ListNode *t1_1 = new ListNode(4);
+        ListNode *t1_2 = new ListNode(3);
+        ListNode *t1_3 = new ListNode(5);
+        ListNode *t1_4 = new ListNode(9);
         t1->next = t1_1;
         t1_1->next = t1_2;
         t1_2->next = t1_3;
@@ -130,7 +130,7 @@ int main() {
         s.FreeListNode(t1);
     }
 
-    ListNode* ret = s.AddTwoNumbers(&l1, &l2);
+    ListNode *ret = s.AddTwoNumbers(&l1, &l2);
 
     PrintNode(ret);
     s.FreeListNode(ret);

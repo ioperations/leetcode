@@ -18,7 +18,7 @@ using namespace std;
 class Solution {
    private:
     vector<vector<int>> dp;
-    bool Backtrack(int curr, int& max_int, int& desire, int mask, int player) {
+    bool Backtrack(int curr, int &max_int, int &desire, int mask, int player) {
         if (dp[player][mask] != -1) {
             return dp[player][mask];
         }
@@ -86,7 +86,7 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, expected);
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

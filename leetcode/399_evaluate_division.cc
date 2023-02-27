@@ -43,9 +43,9 @@ class Solution {
         return -1;  // when destionation cannot be reached with from this
                     // recursive call return -1
     }
-    vector<double> CalcEquation(vector<vector<string>>& eq,
-                                vector<double>& values,
-                                vector<vector<string>>& queries) {
+    vector<double> CalcEquation(vector<vector<string>> &eq,
+                                vector<double> &values,
+                                vector<vector<string>> &queries) {
         for (int i = 0; i < (int)values.size();
              i++)  // this loop is for creating graph
         {
@@ -104,7 +104,7 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

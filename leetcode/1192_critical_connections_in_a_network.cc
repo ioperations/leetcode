@@ -21,7 +21,7 @@ class Solution {
     // You can search "find bridges graph" in youtube or google to understand
     // algorithm, that is easiest way.
     vector<vector<int>> CriticalConnections(int n,
-                                            vector<vector<int>>& connections) {
+                                            vector<vector<int>> &connections) {
         vector<vector<int>> adj(n);
         for (auto c : connections) {
             adj[c[0]].push_back(c[1]);
@@ -81,7 +81,7 @@ TEST(t0, t2) {
     EXPECT_EQ(output, ret);
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

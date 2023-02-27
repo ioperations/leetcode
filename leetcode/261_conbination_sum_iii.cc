@@ -19,7 +19,7 @@ class Solution {
         return ans;
     }
 
-    void Process(std::vector<std::vector<int>>& ans, std::vector<int> temp,
+    void Process(std::vector<std::vector<int>> &ans, std::vector<int> temp,
                  int sum, int index, int k, int n) {
         if (sum == n && (int)temp.size() == k) {
             ans.push_back(temp);
@@ -76,7 +76,7 @@ TEST(t0, t3) {
     // is 1+2+3+4 = 10 and since 10 > 1, there are no valid combination.
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

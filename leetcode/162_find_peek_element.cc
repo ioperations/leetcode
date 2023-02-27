@@ -21,7 +21,7 @@ class Solution {
      * @param @nums 数组
      * @return 最大的局部值所在的偏移量
      */
-    int FindPeakElement(vector<int>& nums)
+    int FindPeakElement(vector<int> &nums)
         __attribute__((deprecated("use v2 instead"))) {
         // O(n)
         if (nums.size() == 0) return 0;
@@ -47,7 +47,7 @@ class Solution {
      * @param @nums 数组
      * @return 最大的局部值所在的偏移量
      */
-    int FindPeakElementV2(vector<int>& nums) {
+    int FindPeakElementV2(vector<int> &nums) {
         // O(log(n))
         int low = 0;
         int high = nums.size() - 1;
@@ -110,7 +110,7 @@ TEST(t0, t2) {
     EXPECT_EQ(expectd.count(ret), true);
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

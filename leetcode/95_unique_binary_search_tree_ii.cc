@@ -7,11 +7,11 @@
 // Definition for a binary tree node.
 struct TreeNode {
     int val;
-    TreeNode* left;
-    TreeNode* right;
+    TreeNode *left;
+    TreeNode *right;
     TreeNode() : val(0), left(nullptr), right(nullptr) {}
     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
-    TreeNode(int x, TreeNode* left, TreeNode* right)
+    TreeNode(int x, TreeNode *left, TreeNode *right)
         : val(x), left(left), right(right) {}
 };
 #include <functional>
@@ -21,21 +21,21 @@ struct TreeNode {
 using namespace std;
 class Solution {
    public:
-    vector<TreeNode*> GenerateTrees(int n) { return SubTrees(1, n); }
+    vector<TreeNode *> GenerateTrees(int n) { return SubTrees(1, n); }
 
    private:
-    vector<TreeNode*> SubTrees(int start, int end) {
-        vector<TreeNode*> res;
+    vector<TreeNode *> SubTrees(int start, int end) {
+        vector<TreeNode *> res;
         if (start > end) {
             res.push_back(NULL);
             return res;
         }
         for (int i = start; i <= end; i++) {
-            vector<TreeNode*> left = SubTrees(start, i - 1);
-            vector<TreeNode*> right = SubTrees(i + 1, end);
-            for (TreeNode* l : left) {
-                for (TreeNode* r : right) {
-                    TreeNode* root = new TreeNode(i);
+            vector<TreeNode *> left = SubTrees(start, i - 1);
+            vector<TreeNode *> right = SubTrees(i + 1, end);
+            for (TreeNode *l : left) {
+                for (TreeNode *r : right) {
+                    TreeNode *root = new TreeNode(i);
                     root->left = l;
                     root->right = r;
                     res.push_back(root);
@@ -44,12 +44,12 @@ class Solution {
         }
         return res;
     }
-    vector<TreeNode*> GenerateTreesV2(int n) {
-        vector<TreeNode*> ret;
+    vector<TreeNode *> GenerateTreesV2(int n) {
+        vector<TreeNode *> ret;
         map<int, int> cache;
-        function<vector<TreeNode*>(int, vector<int>&)> fun =
-            [&](int j, vector<int>& ele) -> vector<TreeNode*> {
-            vector<TreeNode*> ret;
+        function<vector<TreeNode *>(int, vector<int> &)> fun =
+            [&](int j, vector<int> &ele) -> vector<TreeNode *> {
+            vector<TreeNode *> ret;
             if (j == 0) {
                 ret.push_back(nullptr);
                 return ret;
@@ -59,7 +59,7 @@ class Solution {
                 return ret;
             }
             if (j == 2) {
-                TreeNode* n1 = new TreeNode(ele[0]);
+                TreeNode *n1 = new TreeNode(ele[0]);
                 n1->right = new TreeNode(ele[1]);
 
                 ret.push_back(n1);
@@ -89,19 +89,19 @@ class Solution {
 #include <iostream>
 #include <queue>
 
-std::vector<vector<optional<int>>> Flattern(vector<TreeNode*>& vec) {
+std::vector<vector<optional<int>>> Flattern(vector<TreeNode *> &vec) {
     std::vector<vector<optional<int>>> ret;
-    auto fun = [](TreeNode* root) -> std::vector<optional<int>> {
+    auto fun = [](TreeNode *root) -> std::vector<optional<int>> {
         std::vector<optional<int>> ret;
 
         if (root == nullptr) {
             return ret;
         }
-        queue<TreeNode*> q;
+        queue<TreeNode *> q;
         q.push(root);
 
         while (q.size()) {
-            TreeNode* tmp = q.front();
+            TreeNode *tmp = q.front();
             if (tmp) {
                 ret.push_back(tmp->val);
                 q.push(tmp->left);
@@ -121,14 +121,14 @@ std::vector<vector<optional<int>>> Flattern(vector<TreeNode*>& vec) {
         return ret;
     };
 
-    for (auto& ptr : vec) {
+    for (auto &ptr : vec) {
         ret.push_back(fun(ptr));
     }
 
     return ret;
 }
 
-void FreeNodes(TreeNode* root) {
+void FreeNodes(TreeNode *root) {
     if (root == nullptr) return;
     FreeNodes(root->left);
     FreeNodes(root->right);
@@ -150,7 +150,7 @@ TEST(t0, t1) {
     std::set<vector<optional<int>>> output_set(output.begin(), output.end());
     EXPECT_EQ(flatted_set, output_set);
 
-    for (auto& ptr : ret) {
+    for (auto &ptr : ret) {
         FreeNodes(ptr);
     }
 }
@@ -165,12 +165,12 @@ TEST(t0, t2) {
     std::set<vector<optional<int>>> flatted_set(flatted.begin(), flatted.end());
     std::set<vector<optional<int>>> output_set(output.begin(), output.end());
     EXPECT_EQ(flatted_set, output_set);
-    for (auto& ptr : ret) {
+    for (auto &ptr : ret) {
         FreeNodes(ptr);
     }
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

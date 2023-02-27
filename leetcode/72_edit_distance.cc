@@ -25,8 +25,8 @@ class Solution {
     }
 
     int EditDistance(
-        const std::string& word1, const std::string& word2,
-        std::map<std::pair<std::string, std::string>, int>& cache) {
+        const std::string &word1, const std::string &word2,
+        std::map<std::pair<std::string, std::string>, int> &cache) {
         if (!word2.size()) {
             return word1.size();
         }
@@ -173,7 +173,7 @@ TEST(t3, t4) {
 #include <algorithm>
 #include <vector>
 
-static void BenchMarkFirst(benchmark::State& state) {
+static void BenchMarkFirst(benchmark::State &state) {
     for (auto _ : state) {
         std::string word1 = "horse", word2 = "ros";
 
@@ -186,7 +186,7 @@ static void BenchMarkFirst(benchmark::State& state) {
 }
 BENCHMARK(BenchMarkFirst);
 
-static void BenchMarkSecond(benchmark::State& state) {
+static void BenchMarkSecond(benchmark::State &state) {
     for (auto _ : state) {
         std::string word1 = "horse", word2 = "ros";
 
@@ -199,7 +199,7 @@ static void BenchMarkSecond(benchmark::State& state) {
 }
 BENCHMARK(BenchMarkSecond);
 
-static void BenchMarkThird(benchmark::State& state) {
+static void BenchMarkThird(benchmark::State &state) {
     for (auto _ : state) {
         std::string word1 = "horse", word2 = "ros";
 
@@ -212,7 +212,7 @@ static void BenchMarkThird(benchmark::State& state) {
 }
 BENCHMARK(BenchMarkThird);
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     int ret = RUN_ALL_TESTS();
     ::benchmark::Initialize(&argc, argv);

@@ -21,7 +21,7 @@ empty array.*/
 using namespace std;
 class Solution {
    public:
-    bool CanReplace(string& stamp, string& target, int pos) {
+    bool CanReplace(string &stamp, string &target, int pos) {
         int m = stamp.size();
         for (int i = 0; i < m; i++) {
             if (target[i + pos] != '?' and target[i + pos] != stamp[i])
@@ -30,7 +30,7 @@ class Solution {
         return true;
     }
 
-    int Replace(string& stamp, string& target, int pos) {
+    int Replace(string &stamp, string &target, int pos) {
         int cnt = 0;
         int m = stamp.size();
         for (int i = 0; i < m; i++) {
@@ -99,7 +99,7 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

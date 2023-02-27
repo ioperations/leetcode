@@ -11,19 +11,19 @@ template <typename T>
 class ListNodeTemplate {
    public:
     T val;
-    ListNodeTemplate<T>* next;
+    ListNodeTemplate<T> *next;
     ListNodeTemplate() : val(), next(nullptr) {}
     ListNodeTemplate(T x) : val(x), next(nullptr) {}
-    ListNodeTemplate(T x, ListNodeTemplate<T>* next) : val(x), next(next) {}
+    ListNodeTemplate(T x, ListNodeTemplate<T> *next) : val(x), next(next) {}
 };
 
 // Definition for singly-linked list.
 struct ListNode {
     int val;
-    ListNode* next;
+    ListNode *next;
     ListNode() : val(0), next(nullptr) {}
     ListNode(int x) : val(x), next(nullptr) {}
-    ListNode(int x, ListNode* next) : val(x), next(next) {}
+    ListNode(int x, ListNode *next) : val(x), next(next) {}
 };
 
 #define inf 0x7fffffff
@@ -35,9 +35,9 @@ class LoserTree {
     // 败者树根节点为ls[1]
     vector<int> ls;
 
-    vector<int>* base;  // 数组副本(叶节点数据)
+    vector<int> *base;  // 数组副本(叶节点数据)
    public:
-    LoserTree(vector<int>& nums) {
+    LoserTree(vector<int> &nums) {
         int nums_size = nums.size();
         if (nums_size == 0) return;
         int power_num = ceil(log2(nums_size));
@@ -98,9 +98,9 @@ class LoserTree {
 
 class Solution {
    public:
-    std::vector<int> GetLeastNumbers(std::vector<int>& arr, int k) {
+    std::vector<int> GetLeastNumbers(std::vector<int> &arr, int k) {
         std::vector<int> ans;
-        LoserTree* lstree = new LoserTree(arr);
+        LoserTree *lstree = new LoserTree(arr);
         for (int i = 0; i < k; i++) {
             int min = lstree->GetMin();
             ans.push_back(min);
@@ -109,7 +109,7 @@ class Solution {
         return ans;
     }
 
-    ListNode* MergeTwoLists(ListNode* a, ListNode* b) {
+    ListNode *MergeTwoLists(ListNode *a, ListNode *b) {
         if ((!a) || (!b)) return a ? a : b;
         ListNode head, *tail = &head, *a_ptr = a, *b_ptr = b;
         while (a_ptr && b_ptr) {
@@ -126,8 +126,8 @@ class Solution {
         return head.next;
     }
 
-    ListNode* MergeKListsv1(vector<ListNode*>& lists) {
-        ListNode* ans = nullptr;
+    ListNode *MergeKListsv1(vector<ListNode *> &lists) {
+        ListNode *ans = nullptr;
         for (size_t i = 0; i < lists.size(); ++i) {
             ans = MergeTwoLists(ans, lists[i]);
         }
@@ -136,15 +136,15 @@ class Solution {
 
     struct Status {
         int val;
-        ListNode* ptr;
-        bool operator<(const Status& rhs) const { return val > rhs.val; }
+        ListNode *ptr;
+        bool operator<(const Status &rhs) const { return val > rhs.val; }
     };
 
     std::priority_queue<Status> q;
 
     //  最小堆实现k路归并排序
-    ListNode* MergeKListsPriorityQueue(std::vector<ListNode*>& lists) {
-        for (auto* node : lists) {
+    ListNode *MergeKListsPriorityQueue(std::vector<ListNode *> &lists) {
+        for (auto *node : lists) {
             if (node) q.push({node->val, node});
         }
         ListNode head, *tail = &head;
@@ -160,25 +160,25 @@ class Solution {
 
     ///* k路归并排序 升序
     ///* 听说用最小堆,还可以用败者树
-    ListNode* MergeKLists(vector<ListNode*>& lists) {
+    ListNode *MergeKLists(vector<ListNode *> &lists) {
         // 我们记录这一路 走到了什么位置
-        std::vector<ListNode*> cursors;
+        std::vector<ListNode *> cursors;
 
         cursors = lists;
 
         // 对于每一路我们拿出值最小的那个值(这个node !=
         // nullptr)，并将这一路的游标向右移动一格
 
-        ListNode* head = nullptr;
-        ListNode* pre;
+        ListNode *head = nullptr;
+        ListNode *pre;
 
         int first = true;
 
         while (true) {
-            ListNode* candidate =
+            ListNode *candidate =
                 nullptr;  // 所以现在的问题是怎样确定这个candidate
             int val = std::numeric_limits<int>::max();
-            for (auto& cur_cursor : cursors) {
+            for (auto &cur_cursor : cursors) {
                 if (cur_cursor == nullptr) {
                     continue;
                 }
@@ -208,14 +208,14 @@ class Solution {
     }
 };
 
-ListNode* ConstructList(std::vector<int>& elemenets) {
-    ListNode* head = nullptr;
-    ListNode* pre;
-    ListNode* now;
+ListNode *ConstructList(std::vector<int> &elemenets) {
+    ListNode *head = nullptr;
+    ListNode *pre;
+    ListNode *now;
 
     bool first = true;
 
-    for (auto& ptr : elemenets) {
+    for (auto &ptr : elemenets) {
         now = new ListNode(ptr);
         if (first) {
             head = now;
@@ -235,11 +235,11 @@ ListNode* ConstructList(std::vector<int>& elemenets) {
  * @param @elemenets 要创建的list的数组
  * @return 链表的头，用户需要free掉
  */
-ListNode* ConstructListV2(std::vector<int>& elemenets) {
+ListNode *ConstructListV2(std::vector<int> &elemenets) {
     ListNode head;
-    ListNode* tail = &head;
+    ListNode *tail = &head;
 
-    for (auto& ptr : elemenets) {
+    for (auto &ptr : elemenets) {
         tail->next = new ListNode(ptr);
         tail = tail->next;
     }
@@ -253,11 +253,11 @@ ListNode* ConstructListV2(std::vector<int>& elemenets) {
  * @return  链表的头，用户需要free掉
  */
 template <typename T>
-ListNodeTemplate<T>* ConstructListV3(std::vector<T>& elements) {
+ListNodeTemplate<T> *ConstructListV3(std::vector<T> &elements) {
     ListNodeTemplate<T> head;
-    ListNodeTemplate<T>* tail = &head;
+    ListNodeTemplate<T> *tail = &head;
 
-    for (auto& ptr : elements) {
+    for (auto &ptr : elements) {
         tail->next = new ListNodeTemplate<T>(ptr);
         tail = tail->next;
     }
@@ -271,7 +271,7 @@ ListNodeTemplate<T>* ConstructListV3(std::vector<T>& elements) {
  * @return nil
  */
 template <typename T>
-void FreeListListTemplate(ListNodeTemplate<T>* list) {
+void FreeListListTemplate(ListNodeTemplate<T> *list) {
     if (list == nullptr) {
         return;
     }
@@ -287,7 +287,7 @@ void FreeListListTemplate(ListNodeTemplate<T>* list) {
  * @param @list 链表的头
  * @return nil
  */
-void FreeListList(ListNode* list) {
+void FreeListList(ListNode *list) {
     if (list == nullptr) {
         return;
     }
@@ -303,9 +303,9 @@ void FreeListList(ListNode* list) {
 #include <iostream>
 
 TEST(memleak, t1) {
-    ListNode* n1 = new ListNode(1);
-    ListNode* n2 = new ListNode(3);
-    ListNode* n3 = new ListNode(4);
+    ListNode *n1 = new ListNode(1);
+    ListNode *n2 = new ListNode(3);
+    ListNode *n3 = new ListNode(4);
     n1->next = n2;
     n2->next = n3;
 
@@ -315,14 +315,14 @@ TEST(memleak, t1) {
 TEST(memleak, t2) {
     std::vector<int> list1{1, 4, 5};
 
-    ListNode* n1 = ConstructListV2(list1);
+    ListNode *n1 = ConstructListV2(list1);
     FreeListList(n1);
 }
 
 TEST(memleak, t3) {
     std::vector<int> list1{1, 4, 5};
 
-    ListNodeTemplate<int>* n1 = ConstructListV3<int>(list1);
+    ListNodeTemplate<int> *n1 = ConstructListV3<int>(list1);
     FreeListListTemplate(n1);
 }
 
@@ -333,22 +333,22 @@ TEST(t1, t1_1) {
     std::vector<int> list2{1, 3, 4};
     std::vector<int> list3{2, 6};
 
-    ListNode* n1 = ConstructList(list1);
-    ListNode* n2 = ConstructList(list2);
-    ListNode* n3 = ConstructList(list3);
+    ListNode *n1 = ConstructList(list1);
+    ListNode *n2 = ConstructList(list2);
+    ListNode *n3 = ConstructList(list3);
 
-    std::vector<ListNode*> merge_list{n1, n2, n3};
+    std::vector<ListNode *> merge_list{n1, n2, n3};
 
     Solution s;
     // 1->1->2->3->4->4->5->6
-    auto* ret = s.MergeKListsv1(merge_list);
+    auto *ret = s.MergeKListsv1(merge_list);
 
     FreeListList(ret);
 }
 
-void ExpectEqList(ListNode* list, const std::vector<int>& elemets) {
+void ExpectEqList(ListNode *list, const std::vector<int> &elemets) {
     int count = 0;
-    ListNode* ptr = list;
+    ListNode *ptr = list;
     while (ptr != nullptr) {
         EXPECT_EQ(ptr->val, elemets[count]);
         ptr = ptr->next;
@@ -363,15 +363,15 @@ TEST(t1, priority_queue) {
     std::vector<int> list2{1, 3, 4};
     std::vector<int> list3{2, 6};
 
-    ListNode* n1 = ConstructList(list1);
-    ListNode* n2 = ConstructList(list2);
-    ListNode* n3 = ConstructList(list3);
+    ListNode *n1 = ConstructList(list1);
+    ListNode *n2 = ConstructList(list2);
+    ListNode *n3 = ConstructList(list3);
 
-    std::vector<ListNode*> merge_list{n1, n2, n3};
+    std::vector<ListNode *> merge_list{n1, n2, n3};
 
     Solution s;
     // 1->1->2->3->4->4->5->6
-    auto* ret = s.MergeKListsPriorityQueue(merge_list);
+    auto *ret = s.MergeKListsPriorityQueue(merge_list);
 
     std::vector<int> expected{1, 1, 2, 3, 4, 4, 5, 6};
     ExpectEqList(ret, expected);
@@ -382,10 +382,10 @@ TEST(t1, null) {
     /// Input: lists = [[1,4,5],[1,3,4],[2,6]]
     /// Output: [1,1,2,3,4,4,5,6]
 
-    std::vector<ListNode*> merge_list{};
+    std::vector<ListNode *> merge_list{};
 
     Solution s;
-    auto* ret = s.MergeKLists(merge_list);
+    auto *ret = s.MergeKLists(merge_list);
 
     EXPECT_EQ(ret, nullptr);
     // FreeListList(ret);
@@ -396,18 +396,18 @@ TEST(t1, null2) {
     /// Output: [1,1,2,3,4,4,5,6]
     std::vector<int> list1{};
 
-    ListNode* n1 = ConstructList(list1);
-    std::vector<ListNode*> merge_list{n1};
+    ListNode *n1 = ConstructList(list1);
+    std::vector<ListNode *> merge_list{n1};
 
     Solution s;
-    auto* ret = s.MergeKLists(merge_list);
+    auto *ret = s.MergeKLists(merge_list);
 
     EXPECT_EQ(ret, nullptr);
 
     FreeListList(n1);
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

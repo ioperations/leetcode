@@ -14,15 +14,15 @@ complexity.
 // Definition for singly-linked list.
 struct ListNode {
     int val;
-    ListNode* next;
+    ListNode *next;
     ListNode() : val(0), next(nullptr) {}
     ListNode(int x) : val(x), next(nullptr) {}
-    ListNode(int x, ListNode* next) : val(x), next(next) {}
+    ListNode(int x, ListNode *next) : val(x), next(next) {}
 };
 
 class Solution {
    public:
-    ListNode* OddEvenListV1(ListNode* head) {
+    ListNode *OddEvenListV1(ListNode *head) {
         // The number of nodes in the linked list is in the range [0, 104].
         // -106 <= Node.val <= 106
         if (head == nullptr) {
@@ -30,11 +30,11 @@ class Solution {
         }
 
         ListNode node;
-        ListNode* first = &node;
+        ListNode *first = &node;
         ListNode node2;
-        ListNode* second = &node2;
+        ListNode *second = &node2;
         ;
-        ListNode* my_head = head;
+        ListNode *my_head = head;
 
         bool odd_first = head->val % 2 == 0;
 
@@ -58,7 +58,7 @@ class Solution {
         return node.next;
     }
 
-    ListNode* OddEvenList(ListNode* head) {
+    ListNode *OddEvenList(ListNode *head) {
         // The number of nodes in the linked list is in the range [0, 104].
         // -106 <= Node.val <= 106
         if (head == nullptr) {
@@ -66,11 +66,11 @@ class Solution {
         }
 
         ListNode node;
-        ListNode* first = &node;
+        ListNode *first = &node;
         ListNode node2;
-        ListNode* second = &node2;
+        ListNode *second = &node2;
         ;
-        ListNode* my_head = head;
+        ListNode *my_head = head;
 
         bool odd_first = true;
 
@@ -99,17 +99,17 @@ class Solution {
 
 #include <iostream>
 #include <vector>
-ListNode* ConstuctList(const std::vector<int>& elemets) {
+ListNode *ConstuctList(const std::vector<int> &elemets) {
     ListNode head;
-    ListNode* tail = &head;
-    for (auto& pt : elemets) {
+    ListNode *tail = &head;
+    for (auto &pt : elemets) {
         tail->next = new ListNode(pt);
         tail = tail->next;
     }
     return head.next;
 }
 
-void FreeList(ListNode* head) {
+void FreeList(ListNode *head) {
     if (head == nullptr) {
         return;
     }
@@ -117,9 +117,9 @@ void FreeList(ListNode* head) {
     delete head;
 }
 
-void ExpectEqList(ListNode* const head, const std::vector<int>& elements) {
+void ExpectEqList(ListNode *const head, const std::vector<int> &elements) {
     int i = 0;
-    ListNode* m_head = head;
+    ListNode *m_head = head;
 
     while (m_head != nullptr) {
         EXPECT_EQ(m_head->val, elements[i]);
@@ -144,7 +144,7 @@ TEST(t0, t1) {
         |___|    |___|     |___|      |___|     |___|
 
     */
-    ListNode* head = ConstuctList(v);
+    ListNode *head = ConstuctList(v);
 
     Solution sl;
     head = sl.OddEvenListV1(head);
@@ -167,7 +167,7 @@ TEST(t0, t2) {
         |___|    |___|     |___|      |___|     |___|      |___|     |___|
     */
 
-    ListNode* head = ConstuctList(v);
+    ListNode *head = ConstuctList(v);
 
     Solution sl;
     head = sl.OddEvenListV1(head);
@@ -191,7 +191,7 @@ TEST(t1, t1) {
         |___|    |___|     |___|      |___|     |___|
 
     */
-    ListNode* head = ConstuctList(v);
+    ListNode *head = ConstuctList(v);
 
     Solution sl;
     head = sl.OddEvenList(head);
@@ -214,7 +214,7 @@ TEST(t1, t2) {
         |___|    |___|     |___|      |___|     |___|      |___|     |___|
     */
 
-    ListNode* head = ConstuctList(v);
+    ListNode *head = ConstuctList(v);
 
     Solution sl;
     head = sl.OddEvenList(head);
@@ -222,7 +222,7 @@ TEST(t1, t2) {
     ExpectEqList(head, ex);
     FreeList(head);
 }
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

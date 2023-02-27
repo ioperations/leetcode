@@ -13,7 +13,7 @@ using namespace std;
 
 class Solution {
    public:
-    bool SearchMatrix(vector<vector<int>>& matrix, int target) {
+    bool SearchMatrix(vector<vector<int>> &matrix, int target) {
         //  在matrix的头从小到大的搜索　，找到最小的点所在的节点
         //  在这个节点对应的vector当中二分搜索，搜索到了就返回成功
 
@@ -53,7 +53,7 @@ class Solution {
     }
 
     // https://leetcode.com/problems/search-a-2d-matrix/discuss/1895837/C%2B%2B-BINARY-SEARCH-TREE-(**)-Explained-with-IMG
-    bool SearchMatrixV2(vector<vector<int>>& matrix, int target) {
+    bool SearchMatrixV2(vector<vector<int>> &matrix, int target) {
         int rows = matrix.size(), cols = matrix[0].size(), row = 0,
             col = cols - 1;
 
@@ -129,7 +129,7 @@ TEST(t1, t3) {
     EXPECT_EQ(ret, true);
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

@@ -22,23 +22,23 @@ class Trie {
    public:
     struct Node {
        public:
-        Node* child[27];
+        Node *child[27];
         int end_idx;
 
        public:
-        bool Contains(char& ch) { return (child[ch - 'a'] != NULL); }
+        bool Contains(char &ch) { return (child[ch - 'a'] != NULL); }
 
-        void PutNode(char& ch, Node* new_node) { child[ch - 'a'] = new_node; }
+        void PutNode(char &ch, Node *new_node) { child[ch - 'a'] = new_node; }
 
-        Node* GetNext(char& ch) { return child[ch - 'a']; }
+        Node *GetNext(char &ch) { return child[ch - 'a']; }
 
-        void SetIdx(int& i) { end_idx = i; }
+        void SetIdx(int &i) { end_idx = i; }
 
         int GetIdx() { return end_idx; }
     };
 
-    Node* root;
-    void DeleteNode(Node* n) {
+    Node *root;
+    void DeleteNode(Node *n) {
         if (n == nullptr) return;
         for (int i = 0; i < 27; i++) {
             DeleteNode(n->child[i]);
@@ -51,10 +51,10 @@ class Trie {
 
     ~Trie() { DeleteNode(root); }
 
-    void Insert(string& word, int& idx) {
-        Node* temp = root;
+    void Insert(string &word, int &idx) {
+        Node *temp = root;
 
-        for (auto& ch : word) {
+        for (auto &ch : word) {
             if (!temp->Contains(ch)) {
                 temp->PutNode(ch, new Node());
             }
@@ -64,10 +64,10 @@ class Trie {
         }
     }
 
-    int StartsWith(string& word) {
-        Node* temp = root;
+    int StartsWith(string &word) {
+        Node *temp = root;
 
-        for (auto& ch : word) {
+        for (auto &ch : word) {
             if (!temp->Contains(ch)) {
                 return -1;
             }
@@ -83,7 +83,7 @@ class WordFilter {
     Trie trie;
 
    public:
-    WordFilter(vector<string>& words) {
+    WordFilter(vector<string> &words) {
         /*
 
         We are storing word as suffix + '{' + prefix, index
@@ -143,18 +143,18 @@ class WordFilterMy {
     PrefixTree root;
 
    public:
-    WordFilterMy(vector<string>& words) {
+    WordFilterMy(vector<string> &words) {
         // 应该是先有一个前缀树
         // 指向一个新的前缀树，前缀树中的节点是一个链表,
         // 在真正构建的时候可以覆盖，后面的index覆盖前面的index，
         // 第一个前缀树当中还需要保留链表，
         int size = words.size();
         for (int i = 0; i < size; i++) {
-            PrefixTree* z = &root;
+            PrefixTree *z = &root;
             string tmp = words[i];
             reverse(words[i].begin(), words[i].end());
 
-            for (auto& ptr : tmp) {
+            for (auto &ptr : tmp) {
                 z = &z->node[ptr];
                 z->n.push_back(Pp{words[i], i});
             }
@@ -163,8 +163,8 @@ class WordFilterMy {
 
     int F(string prefix, string suffix) {
         // pass
-        PrefixTree* z = &root;
-        for (auto& ptr : prefix) {
+        PrefixTree *z = &root;
+        for (auto &ptr : prefix) {
             if (z->node.find(ptr) != z->node.end()) {
                 z = &z->node[ptr];
             } else {
@@ -175,7 +175,7 @@ class WordFilterMy {
 
         int suffix_size = suffix.size();
         reverse(suffix.begin(), suffix.end());
-        for (auto& ptr : z->n) {
+        for (auto &ptr : z->n) {
             if ((int)ptr.s.size() >= suffix_size) {
                 if (ptr.s.substr(0, suffix_size) == suffix) {
                     max = std::max(max, ptr.index);
@@ -198,7 +198,7 @@ class WordFilterMy {
 
 TEST(t0, t1) {
     std::vector<string> words{"apple"};
-    WordFilter* obj = new WordFilter(words);
+    WordFilter *obj = new WordFilter(words);
     int ret;
     ret = obj->F("a", "e");
     EXPECT_EQ(ret, 0);
@@ -210,7 +210,7 @@ TEST(t0, t2) {
         "cabaabaaaa", "ccbcababac", "bacaabccba", "bcbbcbacaa", "abcaccbcaa",
         "accabaccaa", "cabcbbbcca", "ababccabcb", "caccbbcbab", "bccbacbcba"};
     // ["WordFilter","f","f","f","f","f","f","f","f","f","f"]
-    WordFilter* obj = new WordFilter(words);
+    WordFilter *obj = new WordFilter(words);
     int ret;
     ret = obj->F("bccbacbcba", "a");
     EXPECT_EQ(ret, 9);
@@ -236,7 +236,7 @@ TEST(t0, t2) {
     delete obj;
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

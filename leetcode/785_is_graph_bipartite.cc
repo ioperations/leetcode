@@ -21,7 +21,7 @@ using namespace std;
 class Solution {
    public:
     vector<int> vis, col;
-    bool Dfs(int v, int c, vector<vector<int>>& graph) {
+    bool Dfs(int v, int c, vector<vector<int>> &graph) {
         vis[v] = 1;
         col[v] = c;
         for (int child : graph[v]) {
@@ -36,7 +36,7 @@ class Solution {
         return true;
     }
 
-    bool IsBipartite(vector<vector<int>>& graph) {
+    bool IsBipartite(vector<vector<int>> &graph) {
         /*
             A. Traverse each node of the graph and try to assign a color to them
            such that alternating nodes are of same color. B. If at any step, the
@@ -110,7 +110,7 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, expected);
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

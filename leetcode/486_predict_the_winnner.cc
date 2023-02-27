@@ -19,7 +19,7 @@ using namespace std;
 
 class Solution {
    public:
-    bool Ok(vector<int>& nums, int i, int j, int score, bool chance) {
+    bool Ok(vector<int> &nums, int i, int j, int score, bool chance) {
         if (i > j) {
             return score >= 0;
         }
@@ -36,13 +36,13 @@ class Solution {
         return ans;
     }
 
-    bool PredictTheWinner(vector<int>& nums) {
+    bool PredictTheWinner(vector<int> &nums) {
         return Ok(nums, 0, nums.size() - 1, 0, true);
     }
 
     int dp[21][21][2];
 
-    int Ok(vector<int>& nums, int i, int j, bool chance) {
+    int Ok(vector<int> &nums, int i, int j, bool chance) {
         // Base case
         if (i > j) {
             return 0;
@@ -62,7 +62,7 @@ class Solution {
         return dp[i][j][chance] = ans;
     }
 
-    bool PredictTheWinnerV2(vector<int>& nums) {
+    bool PredictTheWinnerV2(vector<int> &nums) {
         memset(dp, -1, sizeof dp);
         int res = Ok(nums, 0, nums.size() - 1, true);
 
@@ -113,7 +113,7 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, expected);
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

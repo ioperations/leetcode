@@ -15,7 +15,7 @@ using namespace std;
 
 class Solution {
    public:
-    int FindTargetSumWaysV2(vector<int>& nums, int target) {
+    int FindTargetSumWaysV2(vector<int> &nums, int target) {
         /*
             1<= nums.length <= 20
             0 <= nums[i] <= 1000
@@ -24,15 +24,15 @@ class Solution {
         */
         return 0;
     }
-    int FindTargetSumWays(vector<int>& nums, int target) {
+    int FindTargetSumWays(vector<int> &nums, int target) {
         int count = 0;
         int sum = 0;
         Backtrack(nums, target, 0, count, sum);
         return count;
     }
 
-    void Backtrack(vector<int>& nums, int target, int index, int& count,
-                   int& sum) {
+    void Backtrack(vector<int> &nums, int target, int index, int &count,
+                   int &sum) {
         if (index == (int)nums.size()) {
             if (target == sum) count++;
         } else {
@@ -74,7 +74,7 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, 1);
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

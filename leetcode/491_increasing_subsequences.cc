@@ -12,7 +12,7 @@ considered a special case of increasing sequence.
 using namespace std;
 
 class Solution {
-    void Dfs(int i, vector<int>& v, vector<int>& nums, set<vector<int>>& s) {
+    void Dfs(int i, vector<int> &v, vector<int> &nums, set<vector<int>> &s) {
         if (v.size() >= 2) s.insert(v);
         if (i == (int)nums.size()) return;
 
@@ -25,7 +25,7 @@ class Solution {
     }
 
    public:
-    vector<vector<int>> FindSubsequences(vector<int>& nums) {
+    vector<vector<int>> FindSubsequences(vector<int> &nums) {
         set<vector<int>> s;
         vector<int> v;
         Dfs(0, v, nums, s);
@@ -57,7 +57,7 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

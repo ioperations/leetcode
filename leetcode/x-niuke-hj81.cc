@@ -2,7 +2,7 @@
 #include <iostream>
 #include <map>
 
-void Func(std::string& less, std::string& more) {
+void Func(std::string &less, std::string &more) {
     bool t = true;
     std::map<int, char> less_set{};
     for (size_t i = 0; i < less.size(); ++i) {
@@ -12,7 +12,7 @@ void Func(std::string& less, std::string& more) {
     for (size_t i = 0; i < less_set.size(); ++i) {
         auto z = std::find_if(
             more.begin(), more.end(),
-            [&less_set, &i](const char& c) { return c == less_set[i]; });
+            [&less_set, &i](const char &c) { return c == less_set[i]; });
         if (z == std::end(more)) {
             t = false;
             break;
@@ -47,7 +47,7 @@ TEST(t1, t3) {
     EXPECT_EQ(out, expected);
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

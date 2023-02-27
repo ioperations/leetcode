@@ -9,7 +9,7 @@ The test cases are generated so that the answer can fit in a 32-bit integer.
 using namespace std;
 class Solution {
    private:
-    int Combination(vector<int>& nums, int target, vector<int>& dp) {
+    int Combination(vector<int> &nums, int target, vector<int> &dp) {
         if (target == 0) return 1;
         if (target < 0) return 0;
 
@@ -23,13 +23,13 @@ class Solution {
     }
 
    public:
-    int CombinationSum4(vector<int>& nums, int target) {
+    int CombinationSum4(vector<int> &nums, int target) {
         vector<int> dp(1001, -1);
         return Combination(nums, target, dp);
     }
     int ans = 0;
 
-    int CombinationSum4V1(vector<int>& nums, int tar) {
+    int CombinationSum4V1(vector<int> &nums, int tar) {
         if (nums.size() == 0) return 0;
 
         vector<unsigned int> dp(tar + 1, 0);
@@ -47,7 +47,7 @@ class Solution {
     }
 
    public:
-    int CombinationSum4V2(vector<int>& nums, int tar) {
+    int CombinationSum4V2(vector<int> &nums, int tar) {
         return Backtrack(nums, tar, 0);
     }
 
@@ -163,7 +163,7 @@ TEST(t2, t2) {
     EXPECT_EQ(ret, 0);
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

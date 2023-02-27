@@ -21,14 +21,14 @@ list, if the index is valid.*/
 class Node {
    public:
     int val;
-    Node* next;
+    Node *next;
     Node(int val) {
         this->val = val;
         next = nullptr;
     }
 };
 class MyLinkedList {
-    void FreeNode(Node* r) {
+    void FreeNode(Node *r) {
         if (r == nullptr) return;
         FreeNode(r->next);
         delete r;
@@ -36,42 +36,42 @@ class MyLinkedList {
 
    public:
     int size = 0;
-    Node* head = new Node(0);
+    Node *head = new Node(0);
     MyLinkedList() {}
 
     ~MyLinkedList() { FreeNode(head); }
     int Get(int index) {
         if (index < 0 || index >= size) return -1;
-        Node* temp = head->next;
+        Node *temp = head->next;
         for (int i = 0; i < index; i++) temp = temp->next;
         return temp->val;
     }
     void AddAtHead(int val) {
-        Node* temp = head->next;
+        Node *temp = head->next;
         head->next = new Node(val);
         head->next->next = temp;
         size++;
     }
     void AddAtTail(int val) {
-        Node* temp = head;
+        Node *temp = head;
         while (temp->next != 0) temp = temp->next;
         temp->next = new Node(val);
         size++;
     }
     void AddAtIndex(int index, int val) {
         if (index > size) return;
-        Node* temp = head;
+        Node *temp = head;
         for (int i = 0; i < index; i++) temp = temp->next;
-        Node* temp1 = temp->next;
+        Node *temp1 = temp->next;
         temp->next = new Node(val);
         temp->next->next = temp1;
         size++;
     }
     void DeleteAtIndex(int index) {
         if (index < 0 || index >= size) return;
-        Node* temp = head;
+        Node *temp = head;
         for (int i = 0; i < index; i++) temp = temp->next;
-        Node* temp1 = temp->next;
+        Node *temp1 = temp->next;
         temp->next = temp1->next;
         temp1->next = nullptr;
         size--;
@@ -83,7 +83,7 @@ class MyLinkedList {
 #include <iostream>
 
 TEST(t0, t1) {
-    MyLinkedList* my_linked_list = new MyLinkedList();
+    MyLinkedList *my_linked_list = new MyLinkedList();
     my_linked_list->AddAtHead(1);
     my_linked_list->AddAtTail(3);
     my_linked_list->AddAtIndex(1, 2);  // linked list becomes 1->2->3
@@ -95,7 +95,7 @@ TEST(t0, t1) {
     delete my_linked_list;
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

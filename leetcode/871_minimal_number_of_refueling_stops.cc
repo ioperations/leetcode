@@ -32,7 +32,7 @@ class Solution {
    public:
     /// solve
     int MinRefuelStops(int target, int start_fuel,
-                       vector<vector<int>>& stations) {
+                       vector<vector<int>> &stations) {
         /*
            We have to create a dp table ; where dp[i] indicates the maximum
            distance we can traverse by using exactly i number of fuel stops.
@@ -66,7 +66,7 @@ class Solution {
     }
 
     int MinRefuelStopsV2(int target, int start_fuel,
-                         vector<vector<int>>& stations) {
+                         vector<vector<int>> &stations) {
         int size = stations.size();
         // 从start节点开始，带着current_fuel升汽油，到达target花费最小的加油次数
         function<int(int, int, int)> fun = [&](int start, int current_fuel,
@@ -136,7 +136,7 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

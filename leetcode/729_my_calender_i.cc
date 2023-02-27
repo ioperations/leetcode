@@ -26,7 +26,7 @@ class MyCalendar {
 
     bool Book(int start, int end) {
         auto slice = make_pair(start, end);
-        auto cmp = [](const pair<int, int>& a, const pair<int, int>& b) {
+        auto cmp = [](const pair<int, int> &a, const pair<int, int> &b) {
             return a.second <= b.first;
         };
         auto bound = equal_range(slices.begin(), slices.end(), slice, cmp);
@@ -70,7 +70,7 @@ TEST(t0, t1) {
     // takes every time less than 20, but not including 20.
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

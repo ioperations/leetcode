@@ -20,20 +20,20 @@ class Solution {
    private:
     struct TrieNode {
         int endsHere;
-        TrieNode* child[26];
+        TrieNode *child[26];
     };
 
     // creates a node with character and returns it
-    TrieNode* GetNode() {
+    TrieNode *GetNode() {
         // index is 0-25 representing characters of alphabets
-        TrieNode* new_node = new TrieNode;
+        TrieNode *new_node = new TrieNode;
         new_node->endsHere = 0;
         // initialize every child node ptr to NULL
         for (int i = 0; i < 26; i++) new_node->child[i] = NULL;
         return new_node;
     }
 
-    void DeleteNode(TrieNode* root) {
+    void DeleteNode(TrieNode *root) {
         if (root == nullptr) return;
         for (int i = 0; i < 26; i++) {
             DeleteNode(root->child[i]);
@@ -42,12 +42,12 @@ class Solution {
     }
 
    public:
-    TrieNode* root;
+    TrieNode *root;
 
     Solution() { root = GetNode(); }
     ~Solution() { DeleteNode(root); }
 
-    int MinimumLengthEncoding(vector<string>& words) {
+    int MinimumLengthEncoding(vector<string> &words) {
         // use set to avoid repetetion for duplicate words
         unordered_set<string> s;
 
@@ -62,8 +62,8 @@ class Solution {
         return res + count;
     }
 
-    void Insert(string word, int& count, int& res) {
-        TrieNode* curr = root;
+    void Insert(string word, int &count, int &res) {
+        TrieNode *curr = root;
         int len = word.length();
         bool flag = true;
         for (int i = len - 1; i >= 0; i--) {
@@ -121,7 +121,7 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

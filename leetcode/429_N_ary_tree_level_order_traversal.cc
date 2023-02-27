@@ -9,13 +9,13 @@ using namespace std;
 class Node {
    public:
     int m_val;
-    vector<Node*> m_children;
+    vector<Node *> m_children;
 
     Node() {}
 
     Node(int val) { m_val = val; }
 
-    Node(int val, vector<Node*> children) {
+    Node(int val, vector<Node *> children) {
         m_val = val;
         m_children = children;
     }
@@ -24,13 +24,13 @@ class Node {
 
 class Solution {
    public:
-    vector<vector<int>> LevelOrder(Node* root) {
+    vector<vector<int>> LevelOrder(Node *root) {
         vector<vector<int>> ret;
 
         if (root == nullptr) return ret;
 
         struct Status {
-            Node* n;
+            Node *n;
             int level;
         };
 
@@ -50,7 +50,7 @@ class Solution {
                 tmp_vec.push_back(tmp.n->m_val);
                 cur_level++;
             }
-            for (auto& ptr : tmp.n->m_children) {
+            for (auto &ptr : tmp.n->m_children) {
                 q.push({ptr, cur_level + 1});
             }
             q.pop();
@@ -67,14 +67,14 @@ class Solution {
 #include <optional>
 #include <queue>
 
-Node* ConstructNode(vector<optional<int>>& elements) {
-    Node* node = nullptr;
+Node *ConstructNode(vector<optional<int>> &elements) {
+    Node *node = nullptr;
     int size = elements.size();
     elements.resize(size * 3 + 31);
     if (size == 0) return nullptr;
 
     if (!elements[0].has_value()) return nullptr;
-    queue<Node*> q;
+    queue<Node *> q;
 
     node = new Node(elements[0].value());
     q.push(node);
@@ -83,9 +83,9 @@ Node* ConstructNode(vector<optional<int>>& elements) {
     while (index < size) {
         // todo
 
-        Node* tmp = q.front();
+        Node *tmp = q.front();
         while (index < size && elements[index].has_value()) {
-            Node* local_tmp = new Node(elements[index].value());
+            Node *local_tmp = new Node(elements[index].value());
             tmp->m_children.push_back(local_tmp);
             q.push(local_tmp);
             index++;
@@ -96,10 +96,10 @@ Node* ConstructNode(vector<optional<int>>& elements) {
     return node;
 }
 
-void FreeNode(Node* n) {
+void FreeNode(Node *n) {
     if (n == nullptr) return;
 
-    for (auto& ptr : n->m_children) {
+    for (auto &ptr : n->m_children) {
         FreeNode(ptr);
     }
 
@@ -112,7 +112,7 @@ TEST(t0, t1) {
     vector<optional<int>> root = {1, null, 3, 2, 4, null, 5, 6};
     vector<vector<int>> output = {{1}, {3, 2, 4}, {5, 6}};
 
-    Node* tree = ConstructNode(root);
+    Node *tree = ConstructNode(root);
     Solution sl;
     auto ret = sl.LevelOrder(tree);
     EXPECT_EQ(ret, output);
@@ -129,14 +129,14 @@ TEST(t0, t2) {
     vector<vector<int>> output = {
         {1}, {2, 3, 4, 5}, {6, 7, 8, 9, 10}, {11, 12, 13}, {14}};
 
-    Node* tree = ConstructNode(root);
+    Node *tree = ConstructNode(root);
     Solution sl;
     auto ret = sl.LevelOrder(tree);
     EXPECT_EQ(ret, output);
     FreeNode(tree);
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

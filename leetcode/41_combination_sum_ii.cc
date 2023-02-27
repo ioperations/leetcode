@@ -12,7 +12,7 @@ Note: The solution set must not contain duplicate combinations.
 using namespace std;
 class Solution {
    public:
-    void Find(int i, vector<vector<int>>& ans, vector<int>& v, vector<int>& arr,
+    void Find(int i, vector<vector<int>> &ans, vector<int> &v, vector<int> &arr,
               int target) {
         if (target == 0) {
             ans.push_back(v);
@@ -27,7 +27,7 @@ class Solution {
             v.pop_back();
         }
     }
-    vector<vector<int>> CombinationSum2(vector<int>& candidates, int target) {
+    vector<vector<int>> CombinationSum2(vector<int> &candidates, int target) {
         vector<vector<int>> ans;
         sort(candidates.begin(), candidates.end());
         vector<int> v;
@@ -62,7 +62,7 @@ TEST(t0, t2) {
     EXPECT_EQ(ret_set, out_set);
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

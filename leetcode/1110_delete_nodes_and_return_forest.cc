@@ -13,11 +13,11 @@ in any order.
 /// Definition for a binary tree node.
 struct TreeNode {
     int val;
-    TreeNode* left;
-    TreeNode* right;
+    TreeNode *left;
+    TreeNode *right;
     TreeNode() : val(0), left(nullptr), right(nullptr) {}
     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
-    TreeNode(int x, TreeNode* left, TreeNode* right)
+    TreeNode(int x, TreeNode *left, TreeNode *right)
         : val(x), left(left), right(right) {}
 };
 #include <optional>
@@ -27,9 +27,9 @@ using namespace std;
 
 class Solution {
    public:
-    vector<TreeNode*> ans;
+    vector<TreeNode *> ans;
     unordered_set<int> us;
-    TreeNode* Solve(TreeNode* root) {
+    TreeNode *Solve(TreeNode *root) {
         if (!root) return NULL;
         root->left = Solve(root->left);
         root->right = Solve(root->right);
@@ -40,8 +40,8 @@ class Solution {
         }
         return root;
     }
-    vector<TreeNode*> DelNodes(TreeNode* root, vector<int>& targets) {
-        for (int& target : targets) us.insert(target);
+    vector<TreeNode *> DelNodes(TreeNode *root, vector<int> &targets) {
+        for (int &target : targets) us.insert(target);
         if (us.find(root->val) == us.end()) ans.push_back(root);
         Solve(root);
         return ans;
@@ -52,13 +52,13 @@ class Solution {
 
 #include <iostream>
 
-TreeNode* AddToRoot(TreeNode* root, int val) {
+TreeNode *AddToRoot(TreeNode *root, int val) {
     if (root == nullptr) {
         return nullptr;
     }
     if (val < root->val) {
         if (root->left) {
-            TreeNode* head = AddToRoot(root->left, val);
+            TreeNode *head = AddToRoot(root->left, val);
             root->left = head;
             return root;
         }
@@ -66,7 +66,7 @@ TreeNode* AddToRoot(TreeNode* root, int val) {
 
     } else {
         if (root->right) {
-            TreeNode* head = AddToRoot(root->right, val);
+            TreeNode *head = AddToRoot(root->right, val);
             root->right = head;
             return root;
         }
@@ -75,19 +75,19 @@ TreeNode* AddToRoot(TreeNode* root, int val) {
     return root;
 }
 
-TreeNode* AddToRoot(TreeNode* root, const std::vector<int>& elements) {
-    for (auto& ptr : elements) {
+TreeNode *AddToRoot(TreeNode *root, const std::vector<int> &elements) {
+    for (auto &ptr : elements) {
         root = AddToRoot(root, ptr);
     }
     return root;
 }
 
-TreeNode* ConstructTree(const std::vector<int>& elements) {
+TreeNode *ConstructTree(const std::vector<int> &elements) {
     if (!elements.size()) {
         return nullptr;
     }
 
-    TreeNode* root = new TreeNode(elements[0]);
+    TreeNode *root = new TreeNode(elements[0]);
 
     for (int i = 1; i < (int)elements.size(); i++) {
         root = AddToRoot(root, elements[i]);
@@ -96,7 +96,7 @@ TreeNode* ConstructTree(const std::vector<int>& elements) {
     return root;
 }
 
-void FreeRoot(TreeNode* root) {
+void FreeRoot(TreeNode *root) {
     if (root == nullptr) {
         return;
     }
@@ -106,7 +106,7 @@ void FreeRoot(TreeNode* root) {
     delete root;
 }
 
-void InOrderTranverse(TreeNode* root, std::vector<int>& vec) {
+void InOrderTranverse(TreeNode *root, std::vector<int> &vec) {
     if (root == nullptr) {
         return;
     }
@@ -140,12 +140,12 @@ TEST(t, t1) {
     n1.left = &n2;
     TreeNode l1(6);
     TreeNode l2(7);
-    std::vector<TreeNode*> expected = {&n, &l1, &l2};
+    std::vector<TreeNode *> expected = {&n, &l1, &l2};
     Solution sl;
     auto ret = sl.DelNodes(&nl, to_delete);
 
     int i = 0;
-    for (auto& ptr : expected) {
+    for (auto &ptr : expected) {
         std::cout << &ptr << std::endl;
         std::vector<int> ret_p;
         InOrderTranverse(ret[i], ret_p);
@@ -156,7 +156,7 @@ TEST(t, t1) {
     }
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

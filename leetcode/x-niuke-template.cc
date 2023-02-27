@@ -1,6 +1,6 @@
 #include <iostream>
 
-std::string Func(const char* s, int len) {
+std::string Func(const char *s, int len) {
     if (len == 0) {
         return "";
     }
@@ -15,7 +15,7 @@ std::string Func(const char* s, int len) {
 
 TEST(t1, t2) {}
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

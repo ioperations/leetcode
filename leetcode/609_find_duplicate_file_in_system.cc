@@ -41,10 +41,10 @@ class Solution {
        file info.
     */
    public:
-    vector<vector<string>> FindDuplicate(vector<string>& paths) {
+    vector<vector<string>> FindDuplicate(vector<string> &paths) {
         vector<vector<string>> ret;
         std::map<string, vector<string>> content_to_path_list;
-        for (auto& ptr : paths) {
+        for (auto &ptr : paths) {
             stringstream kk;
             kk << ptr;
             string path;
@@ -67,7 +67,7 @@ class Solution {
             }
         }
 
-        for (auto& ptr : content_to_path_list) {
+        for (auto &ptr : content_to_path_list) {
             if (ptr.second.size() >= 2) {
                 ret.push_back(ptr.second);
             }
@@ -112,7 +112,7 @@ TEST(t0, t2) {
     EXPECT_EQ(ret_set, output_set);
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

@@ -6,7 +6,7 @@ using namespace std;
 
 class Solution {
    public:
-    string AddBinary(const string& a, const string& b) {
+    string AddBinary(const string &a, const string &b) {
         const char map[] = {'0', '1', '0', '1'};
         for (auto a_it = a.rbegin(), b_it = b.rbegin();
 
@@ -61,7 +61,7 @@ TEST(t1, t1) {
     EXPECT_EQ(ret, "100");
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

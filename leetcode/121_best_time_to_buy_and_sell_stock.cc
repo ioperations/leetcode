@@ -13,7 +13,7 @@ achieve any profit, return 0.
 using namespace std;
 class Solution {
    public:
-    int MaxProfit(vector<int>& prices) {
+    int MaxProfit(vector<int> &prices) {
         // pass
 
         int max = 0;
@@ -26,7 +26,7 @@ class Solution {
         return max;
     }
 
-    int MaxProfitV2(vector<int>& prices) {
+    int MaxProfitV2(vector<int> &prices) {
         int max_price = -1;
         int max_profit = 0;
         for (int i = prices.size() - 1; i >= 0; i--) {
@@ -65,8 +65,7 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, expected);
 }
 
-
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

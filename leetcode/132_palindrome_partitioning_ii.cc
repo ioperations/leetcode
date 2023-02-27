@@ -18,7 +18,7 @@ class Solution {
         unordered_map<string, int> mp;
         return MinCut(s, mp) - 1;
     }
-    int MinCut(string s, unordered_map<string, int>& mp) {
+    int MinCut(string s, unordered_map<string, int> &mp) {
         if (s.size() == 0) return 0;
 
         if (mp.find(s) != mp.end()) return mp[s];
@@ -33,7 +33,7 @@ class Solution {
         return mp[s] = ans + 1;
     }
 
-    bool Palindrome(string& s) {
+    bool Palindrome(string &s) {
         int i = 0, j = s.size() - 1;
         while (i < j)
             if (s[i++] != s[j--]) return false;
@@ -72,7 +72,7 @@ TEST(t0, t3) {
     int ret = sl.MinCut(s);
     EXPECT_EQ(ret, i);
 }
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

@@ -18,7 +18,7 @@ using namespace std;
 
 class Solution {
    public:
-    int FindCircleNum(vector<vector<int>>& is_connected) {
+    int FindCircleNum(vector<vector<int>> &is_connected) {
         if ((int)is_connected.size() == 1) return 1;
 
         int is_connected_size = is_connected.size();
@@ -41,8 +41,8 @@ class Solution {
     }
 
    public:
-    void DfSprovince(vector<vector<int>>& is_connected,
-                     vector<vector<int>>& is_visited, int i, int j) {
+    void DfSprovince(vector<vector<int>> &is_connected,
+                     vector<vector<int>> &is_visited, int i, int j) {
         if (j == (int)is_connected.size()) return;
         is_visited[i][j] = 1;
         // isVisited[i][j] = 1;
@@ -92,7 +92,7 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, 3);
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

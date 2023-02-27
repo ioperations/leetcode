@@ -10,21 +10,21 @@ partitions.
 //* Definition for singly-linked list.
 struct ListNode {
     int val;
-    ListNode* next;
+    ListNode *next;
     ListNode() : val(0), next(nullptr) {}
     ListNode(int x) : val(x), next(nullptr) {}
-    ListNode(int x, ListNode* next) : val(x), next(next) {}
+    ListNode(int x, ListNode *next) : val(x), next(next) {}
 };
 
 class Solution {
    public:
-    ListNode* Partition(ListNode* head, int x) {
+    ListNode *Partition(ListNode *head, int x) {
         // pass
         struct ListNode less;
         struct ListNode more;
 
-        struct ListNode* less_it = &less;
-        struct ListNode* more_it = &more;
+        struct ListNode *less_it = &less;
+        struct ListNode *more_it = &more;
 
         while (head != nullptr) {
             if (head->val < x) {
@@ -49,17 +49,17 @@ class Solution {
 
 #include <iostream>
 #include <vector>
-ListNode* ConstuctList(const std::vector<int>& elemets) {
+ListNode *ConstuctList(const std::vector<int> &elemets) {
     ListNode head;
-    ListNode* tail = &head;
-    for (auto& pt : elemets) {
+    ListNode *tail = &head;
+    for (auto &pt : elemets) {
         tail->next = new ListNode(pt);
         tail = tail->next;
     }
     return head.next;
 }
 
-void FreeList(ListNode* head) {
+void FreeList(ListNode *head) {
     if (head == nullptr) {
         return;
     }
@@ -67,9 +67,9 @@ void FreeList(ListNode* head) {
     delete head;
 }
 
-void ExpectEqList(ListNode* const head, const std::vector<int>& elements) {
+void ExpectEqList(ListNode *const head, const std::vector<int> &elements) {
     int i = 0;
-    ListNode* m_head = head;
+    ListNode *m_head = head;
 
     while (m_head != nullptr) {
         EXPECT_EQ(m_head->val, elements[i]);
@@ -83,7 +83,7 @@ TEST(t0, t1) {
     std::vector<int> vec = {1, 4, 3, 2, 5, 2};
     int x = 3;
 
-    ListNode* head = ConstuctList(vec);
+    ListNode *head = ConstuctList(vec);
     Solution s;
     head = s.Partition(head, x);
 
@@ -95,7 +95,7 @@ TEST(t0, t2) {
     std::vector<int> vec = {2, 1};
     int x = 2;
 
-    ListNode* head = ConstuctList(vec);
+    ListNode *head = ConstuctList(vec);
     Solution s;
     head = s.Partition(head, x);
 
@@ -107,7 +107,7 @@ TEST(t0, t3) {
     std::vector<int> vec = {2, 1};
     int x = 0;
 
-    ListNode* head = ConstuctList(vec);
+    ListNode *head = ConstuctList(vec);
     Solution s;
     head = s.Partition(head, x);
 
@@ -115,7 +115,7 @@ TEST(t0, t3) {
     FreeList(head);
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

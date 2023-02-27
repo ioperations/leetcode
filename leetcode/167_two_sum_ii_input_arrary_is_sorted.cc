@@ -20,7 +20,7 @@ using namespace std;
 
 class Solution {
    public:
-    vector<int> TwoSum(vector<int>& numbers, int target) {
+    vector<int> TwoSum(vector<int> &numbers, int target) {
         vector<int> ret;
 
         int size = numbers.size();
@@ -34,7 +34,7 @@ class Solution {
         return ret;
     }
 
-    int FindInArray(const vector<int>& numbers, int left, int right,
+    int FindInArray(const vector<int> &numbers, int left, int right,
                     int target) {
         while (left <= right) {
             int mid = (left + right) / 2;
@@ -100,8 +100,7 @@ TEST(t0, t4) {
     EXPECT_EQ(ret, output);
 }
 
-
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

@@ -10,9 +10,9 @@ using namespace std;
 
 class Solution {
    public:
-    int FindKthLargest(vector<int>& nums, int k) {
+    int FindKthLargest(vector<int> &nums, int k) {
         priority_queue<int> q;
-        for (auto& ptr : nums) {
+        for (auto &ptr : nums) {
             q.push(ptr);
         }
 
@@ -43,7 +43,7 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, 4);
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

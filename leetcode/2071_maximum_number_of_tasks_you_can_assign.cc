@@ -22,7 +22,7 @@
 using namespace std;
 class Solution {
    public:
-    int MaxTaskAssign(vector<int>& tasks, vector<int>& workers, int pills,
+    int MaxTaskAssign(vector<int> &tasks, vector<int> &workers, int pills,
                       int strength) {
         /*
             n == tasks.length
@@ -181,7 +181,7 @@ TEST(t0, t3) {
     */
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

@@ -1,24 +1,24 @@
 //* Definition for a binary tree node.
 struct TreeNode {
     int val;
-    TreeNode* left;
-    TreeNode* right;
+    TreeNode *left;
+    TreeNode *right;
     TreeNode() : val(0), left(nullptr), right(nullptr) {}
     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
-    TreeNode(int x, TreeNode* left, TreeNode* right)
+    TreeNode(int x, TreeNode *left, TreeNode *right)
         : val(x), left(left), right(right) {}
 };
 #include <vector>
 
 class Solution {
    public:
-    std::vector<int> PreorderTraversal(TreeNode* root) {
+    std::vector<int> PreorderTraversal(TreeNode *root) {
         std::vector<int> ret;
         Tranverse(root, ret);
         return ret;
     }
 
-    void Tranverse(TreeNode* root, std::vector<int>& val) {
+    void Tranverse(TreeNode *root, std::vector<int> &val) {
         if (root == nullptr) {
             return;
         }
@@ -37,25 +37,25 @@ class Solution {
 using namespace std;
 
 // Decodes your encoded data to tree.
-TreeNode* ConstructBinaryTree(std::vector<std::optional<int>>& data) {
+TreeNode *ConstructBinaryTree(std::vector<std::optional<int>> &data) {
     data.resize(data.size() * 3);
     if (data.size() == 0) return nullptr;
 
     if (!data[0].has_value()) return nullptr;
-    TreeNode* root = new TreeNode(data[0].value());
-    queue<TreeNode*> q;
+    TreeNode *root = new TreeNode(data[0].value());
+    queue<TreeNode *> q;
     q.push(root);
 
     int i = 1;
 
     while (!q.empty()) {
-        TreeNode* cur = q.front();
+        TreeNode *cur = q.front();
         q.pop();
 
         if (!data[i].has_value()) {
             cur->left = NULL;
         } else {
-            TreeNode* left_n = new TreeNode(data[i].value());
+            TreeNode *left_n = new TreeNode(data[i].value());
             cur->left = left_n;
             q.push(left_n);
         }
@@ -64,7 +64,7 @@ TreeNode* ConstructBinaryTree(std::vector<std::optional<int>>& data) {
         if (!data[i].has_value()) {
             cur->right = NULL;
         } else {
-            TreeNode* right_n = new TreeNode(data[i].value());
+            TreeNode *right_n = new TreeNode(data[i].value());
             cur->right = right_n;
             q.push(right_n);
         }
@@ -75,7 +75,7 @@ TreeNode* ConstructBinaryTree(std::vector<std::optional<int>>& data) {
 
 // Function to print tree nodes in
 // InOrder fashion
-void InOrder(TreeNode* root, std::vector<string>& vec) {
+void InOrder(TreeNode *root, std::vector<string> &vec) {
     if (root != nullptr) {
         InOrder(root->left, vec);
         vec.push_back(std::to_string(root->val));
@@ -84,12 +84,12 @@ void InOrder(TreeNode* root, std::vector<string>& vec) {
     }
 }
 
-void BfsSearch(TreeNode* root, std::vector<int>& vec) {
-    queue<TreeNode*> q;
+void BfsSearch(TreeNode *root, std::vector<int> &vec) {
+    queue<TreeNode *> q;
     q.push(root);
 
     while (q.size()) {
-        TreeNode* tmp = q.front();
+        TreeNode *tmp = q.front();
 
         q.pop();
 
@@ -101,7 +101,7 @@ void BfsSearch(TreeNode* root, std::vector<int>& vec) {
     }
 }
 
-void FreeTreeNode(TreeNode* root) {
+void FreeTreeNode(TreeNode *root) {
     if (root == nullptr) return;
 
     FreeTreeNode(root->left);
@@ -116,7 +116,7 @@ void FreeTreeNode(TreeNode* root) {
 
 TEST(t0, t1) {
     std::vector<optional<int>> vec{1, 2, 3};
-    TreeNode* root = ConstructBinaryTree(vec);
+    TreeNode *root = ConstructBinaryTree(vec);
     Solution s;
     std::vector<int> ret = s.PreorderTraversal(root);
 
@@ -127,7 +127,7 @@ TEST(t0, t1) {
 
 TEST(t0, t2) {
     std::vector<optional<int>> vec{};
-    TreeNode* root = ConstructBinaryTree(vec);
+    TreeNode *root = ConstructBinaryTree(vec);
     Solution s;
     std::vector<int> ret = s.PreorderTraversal(root);
 
@@ -138,7 +138,7 @@ TEST(t0, t2) {
 
 TEST(t0, t3) {
     std::vector<optional<int>> vec{1};
-    TreeNode* root = ConstructBinaryTree(vec);
+    TreeNode *root = ConstructBinaryTree(vec);
     Solution s;
     std::vector<int> ret = s.PreorderTraversal(root);
 
@@ -146,7 +146,7 @@ TEST(t0, t3) {
     FreeTreeNode(root);
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

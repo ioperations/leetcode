@@ -16,9 +16,9 @@ class Solution {
     std::map<char, int> map;
 
    public:
-    bool IsAlienSorted(vector<string>& words, string order) {
+    bool IsAlienSorted(vector<string> &words, string order) {
         int i = 0;
-        for (auto& ptr : order) {
+        for (auto &ptr : order) {
             map[ptr] = i;
             i++;
         }
@@ -35,7 +35,7 @@ class Solution {
         return true;
     }
 
-    bool Greather(string& a, string& b) {
+    bool Greather(string &a, string &b) {
         int size_a = a.size();
         int size_b = b.size();
         for (int i = 0; i < size_a && i < size_b; i++) {
@@ -86,7 +86,7 @@ TEST(t0, t3) {
     EXPECT_EQ(false, ret);
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

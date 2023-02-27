@@ -33,7 +33,7 @@ class Solution {
         }
         return dp[i][j] = val;
     }
-    int LongestIncreasingPath(vector<vector<int>>& matrix) {
+    int LongestIncreasingPath(vector<vector<int>> &matrix) {
         this->a = matrix;
         n = matrix.size();
         m = matrix[0].size();
@@ -74,7 +74,7 @@ TEST(t0, t2) {
     // Explanation: The longest increasing path is [1, 2, 6, 9].
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

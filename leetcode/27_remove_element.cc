@@ -33,7 +33,7 @@ using namespace std;
 
 class Solution {
    public:
-    int RemoveElement(vector<int>& nums, int val) {
+    int RemoveElement(vector<int> &nums, int val) {
         // pass
         int n = nums.size();
 
@@ -87,7 +87,7 @@ TEST(t0, t2) {
     }
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

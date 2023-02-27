@@ -23,7 +23,7 @@ using namespace std;
 
 class Solution {
    public:
-    int MaxResult(vector<int>& nums, int k) {
+    int MaxResult(vector<int> &nums, int k) {
         int n = nums.size();
         vector<int> mem(n, INT_MIN);
         priority_queue<pair<int, int>> pq;
@@ -222,7 +222,7 @@ TEST(t0, t4) {
 
     EXPECT_EQ(ret, out);
 }
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

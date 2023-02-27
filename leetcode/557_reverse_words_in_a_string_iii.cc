@@ -86,7 +86,7 @@ TEST(t0, t2) {
 #include <algorithm>
 #include <vector>
 
-static void BenchMarkStack(benchmark::State& state) {
+static void BenchMarkStack(benchmark::State &state) {
     string const s = "Let's take LeetCode contest";
     Solution sl;
     string const output = "s'teL ekat edoCteeL tsetnoc";
@@ -98,7 +98,7 @@ static void BenchMarkStack(benchmark::State& state) {
 }
 BENCHMARK(BenchMarkStack);
 
-static void BenchMarkTwoPointer(benchmark::State& state) {
+static void BenchMarkTwoPointer(benchmark::State &state) {
     string const s = "Let's take LeetCode contest";
     Solution sl;
     string const output = "s'teL ekat edoCteeL tsetnoc";
@@ -110,7 +110,7 @@ static void BenchMarkTwoPointer(benchmark::State& state) {
 }
 BENCHMARK(BenchMarkTwoPointer);
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     int const ret = RUN_ALL_TESTS();
     ::benchmark::Initialize(&argc, argv);

@@ -11,8 +11,8 @@ ends at time X you will be able to start another job that starts at time X.
 using namespace std;
 
 class Solution {
-    void SortByStartTime(vector<int>& start_time, vector<int>& end_time,
-                         vector<int>& profit) {
+    void SortByStartTime(vector<int> &start_time, vector<int> &end_time,
+                         vector<int> &profit) {
         vector<vector<int>> tmp;
         for (int i = 0; i < start_time.size(); i++) {
             tmp.push_back({start_time[i], end_time[i], profit[i]});
@@ -26,8 +26,8 @@ class Solution {
     }
 
    public:
-    int JobScheduling(vector<int>& start_time, vector<int>& end_time,
-                      vector<int>& profit) {
+    int JobScheduling(vector<int> &start_time, vector<int> &end_time,
+                      vector<int> &profit) {
         SortByStartTime(start_time, end_time, profit);
         map<int, int> time_profit;  // dp, timeProfit[i]: maximum profit if we
                                     // schedule job from timepoint i
@@ -91,7 +91,7 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

@@ -15,22 +15,22 @@ changed.
 //* Definition for singly-linked list.
 struct ListNode {
     int val;
-    ListNode* next;
+    ListNode *next;
     ListNode() : val(0), next(nullptr) {}
     ListNode(int x) : val(x), next(nullptr) {}
-    ListNode(int x, ListNode* next) : val(x), next(next) {}
+    ListNode(int x, ListNode *next) : val(x), next(next) {}
 };
 class Solution {
    public:
-    ListNode* ReverseKGroup(ListNode* head, int k) {
+    ListNode *ReverseKGroup(ListNode *head, int k) {
         // pass
 
         if (head == nullptr) {
             return nullptr;
         }
-        ListNode* this_tail = head;
-        ListNode* this_head_it = head;
-        ListNode* this_head_back = head;
+        ListNode *this_tail = head;
+        ListNode *this_head_it = head;
+        ListNode *this_head_back = head;
         bool reverse = true;
         for (int i = 1; i < k; i++) {
             if (this_head_it->next) {
@@ -42,7 +42,7 @@ class Solution {
         }
 
         if (reverse) {
-            ListNode* this_follow = ReverseKGroup(this_head_it->next, k);
+            ListNode *this_follow = ReverseKGroup(this_head_it->next, k);
             this_head_it->next = nullptr;
 
             this_head_back = ReverseList(this_head_back);
@@ -52,12 +52,12 @@ class Solution {
         return this_head_back;
     }
     /// 反转整个链表
-    ListNode* ReverseList(ListNode* head) {
+    ListNode *ReverseList(ListNode *head) {
         if (head == nullptr) {
             return nullptr;
         }
-        ListNode* this_head = head;
-        ListNode* this_follow = head->next;
+        ListNode *this_head = head;
+        ListNode *this_follow = head->next;
         this_head->next = nullptr;
 
         this_follow = ReverseList(this_follow);
@@ -65,7 +65,7 @@ class Solution {
             return this_head;
         }
 
-        ListNode* this_follow_it = this_follow;
+        ListNode *this_follow_it = this_follow;
 
         while (this_follow_it->next != nullptr) {
             this_follow_it = this_follow_it->next;
@@ -80,17 +80,17 @@ class Solution {
 #include <iostream>
 #include <vector>
 
-ListNode* ConstuctList(const std::vector<int>& elemets) {
+ListNode *ConstuctList(const std::vector<int> &elemets) {
     ListNode head;
-    ListNode* tail = &head;
-    for (auto& pt : elemets) {
+    ListNode *tail = &head;
+    for (auto &pt : elemets) {
         tail->next = new ListNode(pt);
         tail = tail->next;
     }
     return head.next;
 }
 
-void FreeList(ListNode* head) {
+void FreeList(ListNode *head) {
     if (head == nullptr) {
         return;
     }
@@ -98,9 +98,9 @@ void FreeList(ListNode* head) {
     delete head;
 }
 
-void ExpectEqList(ListNode* const head, const std::vector<int>& elements) {
+void ExpectEqList(ListNode *const head, const std::vector<int> &elements) {
     int i = 0;
-    ListNode* m_head = head;
+    ListNode *m_head = head;
 
     while (m_head != nullptr) {
         EXPECT_EQ(m_head->val, elements[i]);
@@ -112,7 +112,7 @@ void ExpectEqList(ListNode* const head, const std::vector<int>& elements) {
 
 TEST(memleak, t0) {
     std::vector<int> head = {1, 2, 3, 4, 5};
-    ListNode* root = ConstuctList(head);
+    ListNode *root = ConstuctList(head);
 
     std::vector<int> expect = {1, 2, 3, 4, 5};
 
@@ -123,7 +123,7 @@ TEST(memleak, t0) {
 TEST(t0, t0) {
     std::vector<int> head = {1, 2, 3, 4, 5};
     int k = 2;
-    ListNode* root = ConstuctList(head);
+    ListNode *root = ConstuctList(head);
 
     Solution s;
     root = s.ReverseKGroup(root, k);
@@ -138,7 +138,7 @@ TEST(t0, t1) {
     std::vector<int> head = {1, 2, 3, 4, 5};
     int k = 3;
     std::vector<int> expect = {3, 2, 1, 4, 5};
-    ListNode* root = ConstuctList(head);
+    ListNode *root = ConstuctList(head);
 
     Solution s;
     root = s.ReverseKGroup(root, k);
@@ -153,7 +153,7 @@ TEST(t0, t2) {
     std::vector<int> head = {1, 2, 3, 4, 5};
     int k = 1;
     std::vector<int> expect = {1, 2, 3, 4, 5};
-    ListNode* root = ConstuctList(head);
+    ListNode *root = ConstuctList(head);
 
     Solution s;
     root = s.ReverseKGroup(root, k);
@@ -163,7 +163,7 @@ TEST(t0, t2) {
     // Output: [2,1,4,3,5]
     FreeList(root);
 }
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

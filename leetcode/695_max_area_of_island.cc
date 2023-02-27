@@ -17,7 +17,7 @@ class Solution {
 
    public:
     Solution() {}
-    int MaxAreaOfIslandV1(vector<vector<int>>& grid) {
+    int MaxAreaOfIslandV1(vector<vector<int>> &grid) {
         // 行
         int column = grid.size();
         assert(column > 0 && "the pre condition");
@@ -40,7 +40,7 @@ class Solution {
     }
 
     int m, n;
-    void Dfs(int i, int j, vector<vector<int>>& grid, int& count) {
+    void Dfs(int i, int j, vector<vector<int>> &grid, int &count) {
         if (i < 0 || j < 0 || i >= m || j >= n || grid[i][j] == 0 ||
             grid[i][j] == 2)
             return;
@@ -53,7 +53,7 @@ class Solution {
         Dfs(i, j + 1, grid, count);
         Dfs(i, j - 1, grid, count);
     }
-    int MaxAreaOfIslandV2(vector<vector<int>>& grid) {
+    int MaxAreaOfIslandV2(vector<vector<int>> &grid) {
         m = grid.size();
         n = grid[0].size();
 
@@ -69,7 +69,7 @@ class Solution {
             }
         return ans;
     }
-    int Mark(vector<vector<int>>& grid, int x, int y, int m, int n) {
+    int Mark(vector<vector<int>> &grid, int x, int y, int m, int n) {
         if (x < 0 || x >= m || y < 0 || y >= n || grid[x][y] != 1) return 0;
         grid[x][y] = 2;
         int a = Mark(grid, x + 1, y, m, n);
@@ -78,7 +78,7 @@ class Solution {
         int d = Mark(grid, x, y - 1, m, n);
         return 1 + a + b + c + d;
     }
-    int MaxAreaOfIsland(vector<vector<int>>& grid) {
+    int MaxAreaOfIsland(vector<vector<int>> &grid) {
         int m = grid.size(), n = grid[0].size(), max_area = 0;
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
@@ -120,7 +120,7 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, 0);
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

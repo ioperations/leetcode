@@ -41,7 +41,7 @@ class NestedInteger {
     }
     ~NestedInteger() { vec.clear(); }
 
-    void AddNestedInteger(NestedInteger& in) {
+    void AddNestedInteger(NestedInteger &in) {
         is_integer = false;
         vec.push_back(in);
     }
@@ -56,33 +56,33 @@ class NestedInteger {
     // Return the nested list that this NestedInteger holds, if it holds a
     // nested list The result is undefined if this NestedInteger holds a single
     // integer const
-    vector<NestedInteger>& GetList() { return vec; };
+    vector<NestedInteger> &GetList() { return vec; };
 };
 
 class NestedIterator {
     int i;
     vector<int> faltterned;
 
-    void FlatternAdd(vector<int>& dest, NestedInteger& now) {
+    void FlatternAdd(vector<int> &dest, NestedInteger &now) {
         if (now.IsInteger()) {
             dest.push_back(now.GetInteger());
         }
 
         else {
-            for (auto& ptr : now.GetList()) {
+            for (auto &ptr : now.GetList()) {
                 FlatternAdd(dest, ptr);
             }
         }
     }
 
    public:
-    NestedIterator(vector<NestedInteger>& nested_list) {
-        for (auto& ptr : nested_list) {
+    NestedIterator(vector<NestedInteger> &nested_list) {
+        for (auto &ptr : nested_list) {
             FlatternAdd(faltterned, ptr);
         }
         i = 0;
     }
-    NestedIterator(NestedInteger& nested_list) {
+    NestedIterator(NestedInteger &nested_list) {
         FlatternAdd(faltterned, nested_list);
         i = 0;
     }
@@ -151,7 +151,7 @@ TEST(t0, t2) {
     EXPECT_EQ(v, output);
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

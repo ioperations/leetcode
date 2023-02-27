@@ -18,7 +18,7 @@ class Solution {
      * @param @matrix 二维表
      * @return
      */
-    void Rotate(vector<vector<int>>& matrix) {
+    void Rotate(vector<vector<int>> &matrix) {
         /*
              ___ ___ ___      ___ ___ ___
             | 1 | 2 | 3 |    | 7 | 4 | 1 |
@@ -88,7 +88,7 @@ TEST(t0, t2) {
 
     EXPECT_EQ(matrix, expected);
 }
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

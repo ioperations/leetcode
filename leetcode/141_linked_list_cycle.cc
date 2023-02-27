@@ -12,21 +12,21 @@ Return true if there is a cycle in the linked list. Otherwise, return false
 //* Definition for singly-linked list.
 struct ListNode {
     int val;
-    ListNode* next;
+    ListNode *next;
     ListNode() : val(), next(nullptr) {}
     ListNode(int x) : val(x), next(nullptr) {}
 };
 
 class Solution {
    public:
-    bool HasCycle(ListNode* head) {
+    bool HasCycle(ListNode *head) {
         // pass
         if (head == nullptr) {
             return false;
         }
 
-        ListNode* fast = head;
-        ListNode* slow = head;
+        ListNode *fast = head;
+        ListNode *slow = head;
 
         while (fast->next != nullptr && fast->next->next != nullptr) {
             fast = fast->next->next;
@@ -43,17 +43,17 @@ class Solution {
 #include <gtest/gtest.h>
 
 #include <iostream>
-ListNode* ConstuctList(const std::vector<int>& elemets) {
+ListNode *ConstuctList(const std::vector<int> &elemets) {
     ListNode head;
-    ListNode* tail = &head;
-    for (auto& pt : elemets) {
+    ListNode *tail = &head;
+    for (auto &pt : elemets) {
         tail->next = new ListNode(pt);
         tail = tail->next;
     }
     return head.next;
 }
 
-void FreeList(ListNode* head) {
+void FreeList(ListNode *head) {
     if (head == nullptr) {
         return;
     }
@@ -61,9 +61,9 @@ void FreeList(ListNode* head) {
     delete head;
 }
 
-void ExpectEqList(ListNode* const head, const std::vector<int>& elements) {
+void ExpectEqList(ListNode *const head, const std::vector<int> &elements) {
     int i = 0;
-    ListNode* m_head = head;
+    ListNode *m_head = head;
 
     while (m_head != nullptr) {
         EXPECT_EQ(m_head->val, elements[i]);
@@ -73,7 +73,7 @@ void ExpectEqList(ListNode* const head, const std::vector<int>& elements) {
     EXPECT_EQ(i, elements.size());
 }
 TEST(memleak, t1) {
-    ListNode* head = ConstuctList(std::vector<int>{3, 2, 0, -4});
+    ListNode *head = ConstuctList(std::vector<int>{3, 2, 0, -4});
 
     FreeList(head);
 }
@@ -88,10 +88,10 @@ TEST(t0, t1) {
                        |-------------------------------|
     */
 
-    ListNode* head = ConstuctList(std::vector<int>{3, 2, 0, -4});
+    ListNode *head = ConstuctList(std::vector<int>{3, 2, 0, -4});
 
-    ListNode* it = head;
-    ListNode* it2 = head;
+    ListNode *it = head;
+    ListNode *it2 = head;
 
     it = it->next;
 
@@ -120,10 +120,10 @@ TEST(t0, t2) {
          |-------------------|
     */
 
-    ListNode* head = ConstuctList(std::vector<int>{1, 2});
+    ListNode *head = ConstuctList(std::vector<int>{1, 2});
 
-    ListNode* it = head;
-    ListNode* it2 = head;
+    ListNode *it = head;
+    ListNode *it2 = head;
 
     while (it2->next != nullptr) {
         it2 = it2->next;
@@ -148,7 +148,7 @@ TEST(t0, t3) {
 
     */
 
-    ListNode* head = ConstuctList(std::vector<int>{1});
+    ListNode *head = ConstuctList(std::vector<int>{1});
 
     Solution s;
     bool ret = s.HasCycle(head);
@@ -158,7 +158,7 @@ TEST(t0, t3) {
 }
 
 TEST(t0, t4) {
-    ListNode* head = ConstuctList(std::vector<int>{});
+    ListNode *head = ConstuctList(std::vector<int>{});
 
     Solution s;
     bool ret = s.HasCycle(head);
@@ -167,7 +167,7 @@ TEST(t0, t4) {
     FreeList(head);
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

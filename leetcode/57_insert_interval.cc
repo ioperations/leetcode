@@ -17,8 +17,8 @@ using namespace std;
 
 class Solution {
    public:
-    vector<vector<int>> Insert(vector<vector<int>>& intervals,
-                               vector<int>& new_interval) {
+    vector<vector<int>> Insert(vector<vector<int>> &intervals,
+                               vector<int> &new_interval) {
         vector<vector<int>> ans;
 
         int start = new_interval[0], end = new_interval[1];
@@ -48,8 +48,8 @@ class Solution {
         return ans;
     }
 
-    vector<vector<int>> InsertV1(vector<vector<int>>& intervals,
-                                 vector<int>& new_interval) {
+    vector<vector<int>> InsertV1(vector<vector<int>> &intervals,
+                                 vector<int> &new_interval) {
         vector<vector<int>> ans;
 
         int start = new_interval[0], end = new_interval[1];
@@ -100,7 +100,7 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

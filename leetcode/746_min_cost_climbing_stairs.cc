@@ -14,7 +14,7 @@ using namespace std;
 
 class Solution {
    public:
-    int MinCostClimbingStairs(vector<int>& cost) {
+    int MinCostClimbingStairs(vector<int> &cost) {
         // pass
         if ((int)cost.size() == 0) {
             return 0;
@@ -82,7 +82,7 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, expected);
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

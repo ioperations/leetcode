@@ -22,7 +22,7 @@ using namespace std;
 
 class Solution {
    public:
-    int KthSmallest(const vector<vector<int>>& matrix, int k) {
+    int KthSmallest(const vector<vector<int>> &matrix, int k) {
         // pass
         // n == matrix.length == matrix[i].length
         // 1 <= n <= 300
@@ -77,7 +77,7 @@ class Solution {
         return ret;
     }
 
-    int KthSmallestV2(vector<vector<int>>& matrix, int k) {
+    int KthSmallestV2(vector<vector<int>> &matrix, int k) {
         priority_queue<pair<int, pair<int, int>>,
                        vector<pair<int, pair<int, int>>>,
                        greater<pair<int, pair<int, int>>>>
@@ -99,7 +99,7 @@ class Solution {
      * @brief O(n2) 解法
      * @return
      */
-    int KthSmallestOn2(vector<vector<int>>& matrix, int k) {
+    int KthSmallestOn2(vector<vector<int>> &matrix, int k) {
         // pass
 
         vector<int> z(matrix.size() * matrix.size(), 0);
@@ -183,7 +183,7 @@ TEST(t2, t2) {
     int ret = sl.KthSmallestV2(matrix, k);
     EXPECT_EQ(ret, expected);
 }
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

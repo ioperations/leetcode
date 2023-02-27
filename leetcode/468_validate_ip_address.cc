@@ -31,12 +31,12 @@ class Solution {
     std::string ipv6 = "IPv6";
     std::string neither = "Neither";
 
-    bool ParseIpv4(std::string& s) {
+    bool ParseIpv4(std::string &s) {
         // pass
         int c = count(s.begin(), s.end(), '.');
         if (c != 3) return false;
 
-        auto parsedigit = [](const std::string& s) -> int {
+        auto parsedigit = [](const std::string &s) -> int {
             int sum = 0;
             for (int i = 0; i < (int)s.size(); i++) {
                 if (i == 0 && s[i] == '0') {
@@ -74,15 +74,15 @@ class Solution {
         return true;
     }
 
-    bool ParseIpv6(std::string& s) {
+    bool ParseIpv6(std::string &s) {
         // pass
         int sum = count(s.begin(), s.end(), ':');
         if (sum != 7) return false;
 
-        auto parsehex = [](const std::string& s) -> int {
+        auto parsehex = [](const std::string &s) -> int {
             if (s.size() <= 0 || s.size() > 4) return false;
 
-            for (auto& ptr : s) {
+            for (auto &ptr : s) {
                 if ('0' <= ptr && ptr <= '9') continue;
                 if ('a' <= ptr && ptr <= 'f') continue;
                 if ('A' <= ptr && ptr <= 'F') continue;
@@ -110,12 +110,12 @@ class Solution {
     string ValidIpAddress(string query_ip) {
         // maybe ipv4
         auto it1 = find_if(query_ip.begin(), query_ip.end(),
-                           [](const char& c) { return c == '.'; });
+                           [](const char &c) { return c == '.'; });
         if (it1 != query_ip.end() && ParseIpv4(query_ip)) return ipv4;
 
         // maybe ipv6
         auto it = find_if(query_ip.begin(), query_ip.end(),
-                          [](const char& c) { return c == ':'; });
+                          [](const char &c) { return c == ':'; });
         if (it != query_ip.end() && ParseIpv6(query_ip)) return ipv6;
 
         return neither;
@@ -215,7 +215,7 @@ TEST(t1, t3) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

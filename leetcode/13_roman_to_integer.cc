@@ -89,7 +89,7 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, 1994);
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

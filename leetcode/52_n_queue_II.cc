@@ -16,7 +16,7 @@ class Solution {
         return Solve(col, diag, anti_diag, 0);
     }
 
-    int Solve(vector<bool>& col, vector<bool>& diag, vector<bool>& anti_diag,
+    int Solve(vector<bool> &col, vector<bool> &diag, vector<bool> &anti_diag,
               int row) {
         int n = size(col), count = 0;
         if (row == n) return 1;
@@ -54,7 +54,7 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, out);
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

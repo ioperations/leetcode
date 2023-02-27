@@ -36,7 +36,7 @@ using namespace std;
 
 class Solution {
    public:
-    void GameOfLife(vector<vector<int>>& board) {
+    void GameOfLife(vector<vector<int>> &board) {
         auto z = board;
         int m = board.size();
         int n = board[0].size();
@@ -114,7 +114,7 @@ TEST(t0, t2) {
     EXPECT_EQ(board, expected);
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

@@ -9,11 +9,11 @@ at that position.
 
 class Solution {
    public:
-    bool CanJump(vector<int>& nums) {
+    bool CanJump(vector<int> &nums) {
         return CanJump(nums, 0, nums.size() - 1);
     }
 
-    bool CanJump(vector<int>& nums, int start_position, int last_position) {
+    bool CanJump(vector<int> &nums, int start_position, int last_position) {
         if (last_position < start_position) {
             return false;
         }
@@ -33,7 +33,7 @@ class Solution {
         return false;
     }
 
-    bool CanJumpV2(vector<int>& nums) {
+    bool CanJumpV2(vector<int> &nums) {
         vector<int> dp(nums.size(), 0);
         dp[0] = 0;
         for (size_t i = 1; i < nums.size(); ++i) {
@@ -75,7 +75,7 @@ TEST(testName, t1) {
 #include <algorithm>
 #include <vector>
 
-static void BenchMarkMyImpl(benchmark::State& state) {
+static void BenchMarkMyImpl(benchmark::State &state) {
     for (auto _ : state) {
         std::vector<int> nums = {2, 3, 1, 1, 4};
         bool output = true;
@@ -88,7 +88,7 @@ static void BenchMarkMyImpl(benchmark::State& state) {
 }
 BENCHMARK(BenchMarkMyImpl);
 
-static void BenchMarkDp(benchmark::State& state) {
+static void BenchMarkDp(benchmark::State &state) {
     for (auto _ : state) {
         std::vector<int> nums = {2, 3, 1, 1, 4};
         bool output = true;
@@ -101,7 +101,7 @@ static void BenchMarkDp(benchmark::State& state) {
 }
 BENCHMARK(BenchMarkDp);
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     int ret = RUN_ALL_TESTS();
     ::benchmark::Initialize(&argc, argv);

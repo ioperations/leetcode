@@ -17,7 +17,7 @@ the output represents the signed integer -1073741825.
 #include <string>
 using namespace std;
 
-uint32_t ConstructUint32T(const std::string& s) {
+uint32_t ConstructUint32T(const std::string &s) {
     uint32_t num = 0;
     // pass
     for (size_t i = 0; i < s.size(); i++) {
@@ -133,7 +133,7 @@ TEST(t0, t2) {
     EXPECT_EQ(ret_str, output_expected);
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

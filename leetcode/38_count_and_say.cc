@@ -11,7 +11,7 @@ class Solution {
         return ret;
     }
 
-    void CountAndSay(std::string& s) {
+    void CountAndSay(std::string &s) {
         // pass
 
         char last = '0';
@@ -19,7 +19,7 @@ class Solution {
         bool set = false;
 
         std::string tmp = "";
-        for (const auto& ptr : s) {
+        for (const auto &ptr : s) {
             if (!set) {
                 last = ptr;
                 set = true;
@@ -72,7 +72,7 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
     // Explanation : This is the base case.
 }
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

@@ -20,7 +20,7 @@ input array in-place with O(1) extra memory.
 using namespace std;
 class Solution {
    public:
-    int RemoveDuplicates(vector<int>& nums) {
+    int RemoveDuplicates(vector<int> &nums) {
         int idx = 0, n = nums.size();
         for (int i = 0; i < n; i++) {
             if (idx < 2 || nums[idx - 2] != nums[i]) {
@@ -31,7 +31,7 @@ class Solution {
         return idx;
     }
 
-    void MakeVectorBack(vector<int>& nums, int from, int end) {
+    void MakeVectorBack(vector<int> &nums, int from, int end) {
         for (int i = from; i < end - 1; i++) {
             nums[i] = nums[i + 1];
         }
@@ -83,7 +83,7 @@ TEST(t0, t2) {
     }
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

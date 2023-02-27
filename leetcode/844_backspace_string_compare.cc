@@ -22,7 +22,7 @@ class Solution {
     std::string Real(std::string s) {
         std::string ret;
         std::stack<char> stack;
-        for (auto& ptr : s) {
+        for (auto &ptr : s) {
             if (ptr == '#') {
                 if (stack.size()) {
                     stack.pop();
@@ -75,7 +75,7 @@ TEST(t0, t3) {
     // Explanation: Both s and t become "ac".
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

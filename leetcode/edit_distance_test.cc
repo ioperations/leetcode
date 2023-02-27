@@ -6,7 +6,7 @@
 #include <vector>
 class Solution {
    public:
-    int MinDistance(const std::string& word1, const std::string& word2) {
+    int MinDistance(const std::string &word1, const std::string &word2) {
         int n1 = word1.size(), n2 = word2.size();
 
         std::vector<std::vector<int>> dp(n1 + 1, std::vector<int>(n2 + 1, 0));
@@ -28,12 +28,12 @@ class Solution {
         return dp[n1][n2];
     }
 
-    int MinDistanceV2(const std::string& word1, const std::string& word2) {
+    int MinDistanceV2(const std::string &word1, const std::string &word2) {
         int n1 = word1.size();
         int n2 = word2.size();
         std::vector<std::vector<int>> cache;
         cache.resize(n1);
-        for (auto& prt : cache) {
+        for (auto &prt : cache) {
             prt.resize(n2);
         }
 
@@ -90,7 +90,7 @@ TEST(editdistanceV2, t1) {
     EXPECT_EQ(ret, 2);
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

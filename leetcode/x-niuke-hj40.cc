@@ -9,7 +9,7 @@ enum type {
     LENGTH,
 };
 
-void Func(const char* s, int len) {
+void Func(const char *s, int len) {
     int classfy[type::LENGTH] = {0};
 
     for (int i = 0; i < len; ++i) {
@@ -44,7 +44,7 @@ TEST(t1, t2) {
     EXPECT_EQ(result, expected);
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

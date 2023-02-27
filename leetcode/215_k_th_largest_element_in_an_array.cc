@@ -12,11 +12,11 @@ distinct element.
 using namespace std;
 class Solution {
    public:
-    int FindKthLargest(vector<int>& nums, int k) {
+    int FindKthLargest(vector<int> &nums, int k) {
         // pass
         priority_queue<int, vector<int>, greater<int>> q;
 
-        for (auto& ptr : nums) {
+        for (auto &ptr : nums) {
             if (k > (int)q.size()) {
                 q.push(ptr);
             } else if (ptr > q.top()) {
@@ -26,7 +26,7 @@ class Solution {
         }
         return q.top();
     }
-    int FindKthLargestV2(vector<int>& nums, int k) {
+    int FindKthLargestV2(vector<int> &nums, int k) {
         // pass
         priority_queue<int, vector<int>, greater<int>> q;
         for (int i = 0; i < k; i++) {
@@ -73,7 +73,7 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, out);
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

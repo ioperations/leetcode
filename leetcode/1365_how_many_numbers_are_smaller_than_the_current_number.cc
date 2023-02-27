@@ -11,7 +11,7 @@ Return the answer in an array.*/
 using namespace std;
 class Solution {
    public:
-    vector<int> SmallerNumbersThanCurrent(vector<int>& nums) {
+    vector<int> SmallerNumbersThanCurrent(vector<int> &nums) {
         vector<int> s(101, -1);
         vector<int> f = nums;
         sort(nums.begin(), nums.end());
@@ -55,7 +55,7 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

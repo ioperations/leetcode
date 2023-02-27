@@ -21,8 +21,8 @@ of the original linked list.*/
 class Node {
    public:
     int val;
-    Node* next;
-    Node* random;
+    Node *next;
+    Node *random;
 
     Node(int my_val) {
         val = my_val;
@@ -34,14 +34,14 @@ class Node {
 #include <unordered_map>
 class Solution {
    public:
-    Node* CopyRandomList(Node* head) {
+    Node *CopyRandomList(Node *head) {
         Node dummy_new(0);
         Node dummy_old(1);
         dummy_old.next = head;
-        Node* ite_new = &dummy_new;
-        Node* ite_old = dummy_old.next;
-        std::unordered_map<Node*, int> map;
-        std::vector<Node*> new_nodes;
+        Node *ite_new = &dummy_new;
+        Node *ite_old = dummy_old.next;
+        std::unordered_map<Node *, int> map;
+        std::vector<Node *> new_nodes;
         int i = 0;
         while (ite_old != nullptr) {
             ite_new->next = new Node(ite_old->val);
@@ -77,12 +77,12 @@ class Solution {
 #define null std::optional<int>()
 
 /// 从vec当中构造链表
-Node* ConstructNode(std::vector<std::vector<std::optional<int>>>& vec) {
+Node *ConstructNode(std::vector<std::vector<std::optional<int>>> &vec) {
     Node dummy(0);
-    Node* ite = &dummy;
-    std::vector<Node*> cache;
+    Node *ite = &dummy;
+    std::vector<Node *> cache;
     cache.reserve(vec.size());
-    for (auto& ptr : vec) {
+    for (auto &ptr : vec) {
         ite->next = new Node(ptr[0].value());
         ite = ite->next;
         cache.push_back(ite);
@@ -103,11 +103,11 @@ Node* ConstructNode(std::vector<std::vector<std::optional<int>>>& vec) {
 
 #include <unordered_map>
 /// 从链表当中恢复到vec
-std::vector<std::vector<std::optional<int>>> RestoreNode(Node* node) {
+std::vector<std::vector<std::optional<int>>> RestoreNode(Node *node) {
     std::vector<std::vector<std::optional<int>>> ret;
-    std::unordered_map<Node*, int> map;
+    std::unordered_map<Node *, int> map;
 
-    Node* ite = node;
+    Node *ite = node;
     int i = 0;
     while (ite != nullptr) {
         map[ite] = i;
@@ -129,7 +129,7 @@ std::vector<std::vector<std::optional<int>>> RestoreNode(Node* node) {
 
     ite = node;
     while (ite != nullptr) {
-        Node* now = ite;
+        Node *now = ite;
         ite = now->next;
         delete now;
     }
@@ -145,7 +145,7 @@ TEST(base, t1) {
     std::vector<std::vector<std::optional<int>>> output =
         std::vector<std::vector<std::optional<int>>>{
             {7, null}, {13, 0}, {11, 4}, {10, 2}, {1, 0}};
-    Node* node = ConstructNode(head);
+    Node *node = ConstructNode(head);
     auto vec = RestoreNode(node);
     EXPECT_EQ(output, vec);
 }
@@ -157,9 +157,9 @@ TEST(t0, t1) {
     std::vector<std::vector<std::optional<int>>> output =
         std::vector<std::vector<std::optional<int>>>{
             {7, null}, {13, 0}, {11, 4}, {10, 2}, {1, 0}};
-    Node* node = ConstructNode(head);
+    Node *node = ConstructNode(head);
     Solution sl;
-    Node* ret = sl.CopyRandomList(node);
+    Node *ret = sl.CopyRandomList(node);
     auto vec = RestoreNode(ret);
     RestoreNode(node);  // do the free things
     EXPECT_EQ(output, vec);
@@ -170,9 +170,9 @@ TEST(t0, t2) {
         std::vector<std::vector<std::optional<int>>>{{1, 1}, {2, 1}};
     std::vector<std::vector<std::optional<int>>> output =
         std::vector<std::vector<std::optional<int>>>{{1, 1}, {2, 1}};
-    Node* node = ConstructNode(head);
+    Node *node = ConstructNode(head);
     Solution sl;
-    Node* ret = sl.CopyRandomList(node);
+    Node *ret = sl.CopyRandomList(node);
     auto vec = RestoreNode(ret);
     RestoreNode(node);  // do the free things
     EXPECT_EQ(output, vec);
@@ -185,15 +185,15 @@ TEST(t0, t3) {
     std::vector<std::vector<std::optional<int>>> output =
         std::vector<std::vector<std::optional<int>>>{
             {3, null}, {3, 0}, {3, null}};
-    Node* node = ConstructNode(head);
+    Node *node = ConstructNode(head);
     Solution sl;
-    Node* ret = sl.CopyRandomList(node);
+    Node *ret = sl.CopyRandomList(node);
     auto vec = RestoreNode(ret);
     RestoreNode(node);  // do the free things
     EXPECT_EQ(output, vec);
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

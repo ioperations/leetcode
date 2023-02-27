@@ -15,7 +15,7 @@ using namespace std;
 
 class Solution {
    public:
-    vector<vector<int>> ReconstructQueue(vector<vector<int>>& people) {
+    vector<vector<int>> ReconstructQueue(vector<vector<int>> &people) {
         if (people.size() < 2) return people;
 
         vector<vector<int>> ans;
@@ -68,7 +68,7 @@ TEST(t0, t2) {
     EXPECT_EQ(ert, output);
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

@@ -7,42 +7,42 @@ list sorted as well.
 #include <vector>
 struct ListNode {
     int val;
-    ListNode* next;
+    ListNode *next;
     ListNode() : val(0), next(nullptr) {}
     ListNode(int x) : val(x), next(nullptr) {}
-    ListNode(int x, ListNode* next) : val(x), next(next) {}
+    ListNode(int x, ListNode *next) : val(x), next(next) {}
 };
 class Solution {
    public:
-    ListNode* DeleteDuplicates(ListNode* head) {
+    ListNode *DeleteDuplicates(ListNode *head) {
         std::vector<int> vec;
         head = DeleteDuplicatesV1(head, vec);
 
-        for (auto& ptr : vec) {
+        for (auto &ptr : vec) {
             head = RemoveNodeByValue(head, ptr);
         }
 
         return head;
     }
 
-    ListNode* RemoveNodeByValue(ListNode* head, int v) {
+    ListNode *RemoveNodeByValue(ListNode *head, int v) {
         if (head == nullptr) {
             return head;
         }
 
-        ListNode* ret = head;
+        ListNode *ret = head;
         if (head->val == v) {
-            ListNode* tmp = head;
+            ListNode *tmp = head;
             ret = head->next;
             delete tmp;
         } else {
-            ListNode* now_ret = RemoveNodeByValue(head->next, v);
+            ListNode *now_ret = RemoveNodeByValue(head->next, v);
             ret->next = now_ret;
         }
         return ret;
     }
 
-    ListNode* DeleteDuplicatesV1(ListNode* head, std::vector<int>& val) {
+    ListNode *DeleteDuplicatesV1(ListNode *head, std::vector<int> &val) {
         if (head == nullptr || head->next == nullptr) {
             return head;
         }
@@ -51,7 +51,7 @@ class Solution {
         while (fast != nullptr) {
             if (fast->val == slow->val) {
                 // remove current fast
-                ListNode* tmp = fast;
+                ListNode *tmp = fast;
                 fast = fast->next;
                 slow->next = fast;
                 val.push_back(tmp->val);
@@ -68,17 +68,17 @@ class Solution {
 };
 #include <gtest/gtest.h>
 
-ListNode* ConstructList(const std::vector<int>& elements) {
+ListNode *ConstructList(const std::vector<int> &elements) {
     ListNode head;
-    ListNode* tail = &head;
-    for (auto& pt : elements) {
+    ListNode *tail = &head;
+    for (auto &pt : elements) {
         tail->next = new ListNode(pt);
         tail = tail->next;
     }
     return head.next;
 }
 
-void FreeList(ListNode* head) {
+void FreeList(ListNode *head) {
     if (head == nullptr) {
         return;
     }
@@ -86,9 +86,9 @@ void FreeList(ListNode* head) {
     delete head;
 }
 
-void ExpectEqList(ListNode* const head, const std::vector<int>& elements) {
+void ExpectEqList(ListNode *const head, const std::vector<int> &elements) {
     int i = 0;
-    ListNode* m_head = head;
+    ListNode *m_head = head;
 
     while (m_head != nullptr) {
         EXPECT_EQ(m_head->val, elements[i]);
@@ -103,7 +103,7 @@ void ExpectEqList(ListNode* const head, const std::vector<int>& elements) {
 TEST(test, t1) {
     std::vector<int> head{1, 2, 3, 4, 5};
     std::vector<int> output{2, 3, 4, 5};
-    ListNode* root = ConstructList(head);
+    ListNode *root = ConstructList(head);
 
     Solution sl;
     root = sl.RemoveNodeByValue(root, 1);
@@ -125,7 +125,7 @@ TEST(t0, t1) {
              |___|   |___|   |___|
     */
     std::vector<int> output{1, 2, 5};
-    ListNode* root = ConstructList(head);
+    ListNode *root = ConstructList(head);
 
     Solution sl;
     root = sl.DeleteDuplicates(root);
@@ -148,7 +148,7 @@ TEST(t0, t2) {
     */
 
     std::vector<int> output{2, 3};
-    ListNode* root = ConstructList(head);
+    ListNode *root = ConstructList(head);
 
     Solution sl;
     root = sl.DeleteDuplicates(root);
@@ -157,7 +157,7 @@ TEST(t0, t2) {
     FreeList(root);
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

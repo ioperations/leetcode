@@ -19,7 +19,7 @@ using namespace std;
 class Solution {
    public:
     int LadderLength(string begin_word, string end_word,
-                     vector<string>& word_list) {
+                     vector<string> &word_list) {
         // pass
         set<string> words;
         bool has_end = false;
@@ -90,7 +90,7 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

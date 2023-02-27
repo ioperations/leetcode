@@ -17,7 +17,7 @@ class KthLargest {
     int k;
 
    public:
-    KthLargest(int k, vector<int>& nums) : k(k) {
+    KthLargest(int k, vector<int> &nums) : k(k) {
         int size = nums.size();
         for (int i = 0; i < size; i++) {
             q.push(nums[i]);
@@ -43,7 +43,7 @@ TEST(t0, t1) {
     // * Your KthLargest object will be instantiated and called as such:
     int k = 3;
     std::vector<int> nums{4, 5, 8, 2};
-    KthLargest* obj = new KthLargest(k, nums);
+    KthLargest *obj = new KthLargest(k, nums);
     int ret = 0;
     ret = obj->Add(3);  // return 4
     EXPECT_EQ(ret, 4);
@@ -58,7 +58,7 @@ TEST(t0, t1) {
     delete obj;
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

@@ -17,11 +17,11 @@ class Solution {
         return ret;
     }
 
-    inline void append_to_stringv1(int i, std::string& str) {
+    inline void append_to_stringv1(int i, std::string &str) {
         std::string ret = demical_to_binary(i);
         str += ret;
     }
-    void append_to_string(int n, std::string& str) {
+    void append_to_string(int n, std::string &str) {
         for (int i = 1; i < (n + 1); ++i) {
             append_to_stringv1(i, str);
         }
@@ -103,7 +103,7 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

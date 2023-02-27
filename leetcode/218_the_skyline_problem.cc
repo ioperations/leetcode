@@ -32,9 +32,9 @@ output as such: [...,[2 3],[4 5],[12 7],...]
 using namespace std;
 class Solution {
    public:
-    vector<vector<int>> GetSkyline(vector<vector<int>>& buildings) {
+    vector<vector<int>> GetSkyline(vector<vector<int>> &buildings) {
         std::vector<std::pair<int, int>> coords;
-        for (const auto& b : buildings) {
+        for (const auto &b : buildings) {
             // Building end is processed first if two x-coordinates are a tie.
             coords.push_back({b[0], -b[2]});
             // And add building start.
@@ -54,7 +54,7 @@ class Solution {
 
         // Zero height is always available.
         heights[0] = 1;
-        for (const auto& cur : coords) {
+        for (const auto &cur : coords) {
             // Building start, encounter new height.
             if (cur.second < 0)
                 ++heights[-cur.second];
@@ -122,7 +122,7 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

@@ -9,7 +9,7 @@ using namespace std;
 
 class Solution {
    public:
-    vector<vector<int>> PermuteUnique(vector<int>& nums) {
+    vector<vector<int>> PermuteUnique(vector<int> &nums) {
         vector<vector<int>> ret;
         sort(nums.begin(), nums.end());
 
@@ -20,7 +20,7 @@ class Solution {
     }
     vector<vector<int>> res;
 
-    vector<vector<int>> PermuteUniqueV1(vector<int>& nums) {
+    vector<vector<int>> PermuteUniqueV1(vector<int> &nums) {
         res = vector<vector<int>>();
         sort(nums.begin(), nums.end());
         vector<int> cur;
@@ -28,7 +28,7 @@ class Solution {
         return res;
     }
 
-    void Helper(const vector<int>& nums, vector<int>& perm, int v) {
+    void Helper(const vector<int> &nums, vector<int> &perm, int v) {
         if (perm.size() == nums.size()) return res.push_back(perm);
 
         int popped = INT_MIN;
@@ -104,7 +104,7 @@ TEST(t1, t2) {
 #include <algorithm>
 #include <vector>
 
-static void BenchMarkStlFunction(benchmark::State& state) {
+static void BenchMarkStlFunction(benchmark::State &state) {
     for (auto _ : state) {
         std::vector<int> nums = {1, 2, 3};
         vector<vector<int>> output = {{1, 2, 3}, {1, 3, 2}, {2, 1, 3},
@@ -120,7 +120,7 @@ static void BenchMarkStlFunction(benchmark::State& state) {
 }
 BENCHMARK(BenchMarkStlFunction);
 
-static void BenchMarkLocalImpl(benchmark::State& state) {
+static void BenchMarkLocalImpl(benchmark::State &state) {
     for (auto _ : state) {
         std::vector<int> nums = {1, 2, 3};
         vector<vector<int>> output = {{1, 2, 3}, {1, 3, 2}, {2, 1, 3},
@@ -136,7 +136,7 @@ static void BenchMarkLocalImpl(benchmark::State& state) {
 }
 BENCHMARK(BenchMarkLocalImpl);
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     int ret = RUN_ALL_TESTS();
     ::benchmark::Initialize(&argc, argv);

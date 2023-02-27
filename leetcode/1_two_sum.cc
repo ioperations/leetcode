@@ -4,7 +4,7 @@
 
 class Solution {
    public:
-    std::vector<int> TwoSum(std::vector<int>& nums, int target) {
+    std::vector<int> TwoSum(std::vector<int> &nums, int target) {
         std::vector<int> ret;
         for (size_t i = 0; i < nums.size(); ++i) {
             for (size_t j = i + 1; j < nums.size(); j++) {
@@ -47,7 +47,7 @@ TEST(t1, t3) {
     auto ret = s.TwoSum(nums, target);
     EXPECT_EQ(ret, (std::vector<int>{0, 1}));
 }
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

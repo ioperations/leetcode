@@ -62,7 +62,7 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, output);
     // Explanation: 10 + 11 + 11 = 32;
 }
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

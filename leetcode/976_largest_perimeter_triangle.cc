@@ -10,7 +10,7 @@ using namespace std;
 
 class Solution {
    public:
-    int LargestPerimeter(vector<int>& a) {
+    int LargestPerimeter(vector<int> &a) {
         sort(a.begin(), a.end());
         for (int i = a.size() - 1; i > 1; --i)
             if (a[i] < a[i - 1] + a[i - 2]) return a[i] + a[i - 1] + a[i - 2];
@@ -38,7 +38,7 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

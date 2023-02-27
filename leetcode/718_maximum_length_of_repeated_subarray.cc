@@ -7,7 +7,7 @@ using namespace std;
 
 class Solution {
    public:
-    int FindLength(vector<int>& nums1, vector<int>& nums2) {
+    int FindLength(vector<int> &nums1, vector<int> &nums2) {
         // DP Approach - Similar to 1143. Longest Common Subsequence
         int n = nums1.size(), m = nums2.size(), ans = 0;
         // dp[i][j] means the length of repeated subarray of nums1[:i] and
@@ -65,7 +65,7 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

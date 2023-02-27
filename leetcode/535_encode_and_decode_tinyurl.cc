@@ -82,7 +82,7 @@ TEST(testName, testNum) {
     EXPECT_EQ(s.Decode(s.Encode(url)), url);
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

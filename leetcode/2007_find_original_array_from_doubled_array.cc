@@ -12,15 +12,15 @@ using namespace std;
 
 class Solution {
    public:
-    std::vector<int> FindOriginalArray(std::vector<int>& changed) {
+    std::vector<int> FindOriginalArray(std::vector<int> &changed) {
         unordered_map<int, int> freq{};
         vector<int> result{};
 
         sort(changed.begin(), changed.end());
 
-        for (int& val : changed) freq[val]++;
+        for (int &val : changed) freq[val]++;
 
-        for (int& val : changed) {
+        for (int &val : changed) {
             if (freq[val] <= 0) continue;
 
             freq[val]--;
@@ -84,7 +84,7 @@ TEST(t0, t3) {
     EXPECT_EQ(ret_set, output_set);
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

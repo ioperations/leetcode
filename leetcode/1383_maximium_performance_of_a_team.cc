@@ -21,7 +21,7 @@ number, return it modulo 109 + 7.*/
 using namespace std;
 class Solution {
    public:
-    int MaxPerformance(int n, vector<int>& speed, vector<int>& efficiency,
+    int MaxPerformance(int n, vector<int> &speed, vector<int> &efficiency,
                        int k) {
         int mod = 1e9 + 7;
         vector<pair<int, int>> candidates(n);
@@ -38,7 +38,7 @@ class Solution {
         // i.e min heap (the smallest element goes on the top)
         priority_queue<int, vector<int>, greater<int>> pq;
         // iterate each pair
-        for (auto& [e, s] : candidates) {
+        for (auto &[e, s] : candidates) {
             // put the speed to priority queue
             pq.push(s);
             // add to speedSum
@@ -57,15 +57,15 @@ class Solution {
         return ans % mod;
     }
 
-    int MaxPerformanceV1(int n, vector<int>& speed, vector<int>& efficiency,
+    int MaxPerformanceV1(int n, vector<int> &speed, vector<int> &efficiency,
                          int k) {
         // pass
         std::set<int> choose;
-        auto calculate = [&](std::set<int>& list) -> int {
+        auto calculate = [&](std::set<int> &list) -> int {
             int sum = 0;
             int min = std::numeric_limits<int>::max();
 
-            for (auto& it : list) {
+            for (auto &it : list) {
                 min = std::min(min, efficiency[it]);
                 sum += speed[it];
             }
@@ -146,7 +146,7 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

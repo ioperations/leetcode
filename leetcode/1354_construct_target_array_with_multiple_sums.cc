@@ -13,7 +13,7 @@ using namespace std;
 
 class Solution {
    public:
-    bool IsPossible(vector<int>& targets) {
+    bool IsPossible(vector<int> &targets) {
         int n = targets.size();
         long s = 0;
         priority_queue<int, vector<int>> q;
@@ -55,7 +55,7 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

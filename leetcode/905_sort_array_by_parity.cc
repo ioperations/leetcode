@@ -33,10 +33,10 @@ class Solution {
     };
 
    public:
-    vector<int> SortArrayByParity(vector<int>& nums) {
+    vector<int> SortArrayByParity(vector<int> &nums) {
         priority_queue<int, std::vector<int>, Fun> q;
 
-        for (auto& ptr : nums) {
+        for (auto &ptr : nums) {
             q.push(ptr);
         }
 
@@ -53,7 +53,7 @@ class Solution {
 
 class SolutionV2 {
    public:
-    vector<int> SortArrayByParity(vector<int>& nums) {
+    vector<int> SortArrayByParity(vector<int> &nums) {
         // pass
         int n = nums.size();
 
@@ -115,7 +115,7 @@ TEST(t1, t2) {
 
     EXPECT_EQ(ret, output);
 }
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

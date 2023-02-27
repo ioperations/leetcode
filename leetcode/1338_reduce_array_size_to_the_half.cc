@@ -11,14 +11,14 @@ using namespace std;
 
 class Solution {
    public:
-    int MinSetSize(vector<int>& arr) {
+    int MinSetSize(vector<int> &arr) {
         int n = arr.size();
 
         unordered_map<int, int> mp;
         for (auto i : arr) mp[i]++;
 
         priority_queue<int> pq;
-        for (auto& [val, cnt] : mp) pq.push(cnt);
+        for (auto &[val, cnt] : mp) pq.push(cnt);
 
         int val = 0, sum = 0;
         while (!pq.empty() and sum < n / 2) {
@@ -61,7 +61,7 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

@@ -21,7 +21,7 @@ using namespace std;
 
 class Solution {
    public:
-    int LargestOverlap(vector<vector<int>>& img1, vector<vector<int>>& img2) {
+    int LargestOverlap(vector<vector<int>> &img1, vector<vector<int>> &img2) {
         int n = img1.size();
         vector<pair<int, int>> vec_a;
         vector<pair<int, int>> vec_b;
@@ -77,7 +77,7 @@ TEST(t0, t3) {
     int ret = sl.LargestOverlap(img1, img2);
     EXPECT_EQ(ret, output);
 }
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

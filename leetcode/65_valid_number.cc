@@ -35,7 +35,7 @@ class Solution {
     // a key semantics: each parseX() will just extract a valid X, not checking
     // if it is the last one the caller function should do the check!!
 
-    bool ParseDigits(const string& s, int& i) {
+    bool ParseDigits(const string &s, int &i) {
         int j = i;
         while (j < (int)s.size() && isdigit(s[j])) j++;
         bool ret = false;
@@ -48,7 +48,7 @@ class Solution {
         return ret;
     }
 
-    bool ParseDecimal(const string& s, int& i) {
+    bool ParseDecimal(const string &s, int &i) {
         if (i == (int)s.size()) return false;
 
         // optionally + or -
@@ -78,7 +78,7 @@ class Solution {
     }
 
     // integer may be a part of the component, followed by more things
-    bool ParseInteger(const string& s, int& i) {
+    bool ParseInteger(const string &s, int &i) {
         if (i == (int)s.size()) return false;
         // optionally + or -
         if (s[i] == '+' || s[i] == '-') i++;
@@ -90,7 +90,7 @@ class Solution {
     }
 
     // this is after decimal or integer: as optional part!!
-    bool ParseExponent(const string& s, int& i) {
+    bool ParseExponent(const string &s, int &i) {
         if (i == (int)s.size()) return false;
         if (s[i] == 'e' || s[i] == 'E') {
             i++;  // mistake: forgot this!!
@@ -188,7 +188,7 @@ class Solution {
             return true;
         }
 
-        std::pair<token_type, std::string> Next(int& cursor) {
+        std::pair<token_type, std::string> Next(int &cursor) {
             if (cursor >= (int)s.size()) {
                 return make_pair(token_type::END, " ");
             }
@@ -412,7 +412,7 @@ TEST(t1, t4) {
     EXPECT_EQ(ret, expected);
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

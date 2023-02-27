@@ -19,7 +19,7 @@ class Solution {
     unordered_map<string, bool> cache;
 
    public:
-    bool IsSubsequence(const string& s1, const string& s2) {
+    bool IsSubsequence(const string &s1, const string &s2) {
         if (cache.count(s1)) return cache[s1];
         int n = s1.length(), m = s2.length();
         int i = 0, j = 0;
@@ -32,16 +32,16 @@ class Solution {
         so s1 is subsequence of s2, else not*/
         return cache[s1] = i == n;
     }
-    int NumMatchingSubseqV1(string s, vector<string>& words) {
+    int NumMatchingSubseqV1(string s, vector<string> &words) {
         // pass
         int sum = 0;
-        for (auto& ptr : words) {
+        for (auto &ptr : words) {
             sum += (IsSubsequence(ptr, s) ? 1 : 0);
         }
         return sum;
     }
 
-    int NumMatchingSubseq(string s, vector<string>& words) {
+    int NumMatchingSubseq(string s, vector<string> &words) {
         unordered_map<char, vector<int>>
             ump;  // unordered_map with character as key and its index position
                   // vector generated from string s
@@ -103,7 +103,7 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

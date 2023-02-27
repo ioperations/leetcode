@@ -13,13 +13,13 @@ Return the maximum number of courses that you can take.*/
 using namespace std;
 
 class Solution {
-    bool static Comp(vector<int>& course1, vector<int>& course2) {
+    bool static Comp(vector<int> &course1, vector<int> &course2) {
         return (course1[1] != course2[1]) ? (course1[1] < course2[1])
                                           : (course1[0] < course2[0]);
     }
 
    public:
-    int ScheduleCourse(vector<vector<int>>& courses) {
+    int ScheduleCourse(vector<vector<int>> &courses) {
         // sort it by last day, but if last day is same then sort it by duration
         sort(courses.begin(), courses.end(), Comp);
 
@@ -87,7 +87,7 @@ TEST(t0, t3) {
     int ret = sl.ScheduleCourse(courses);
     EXPECT_EQ(ret, output);
 }
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

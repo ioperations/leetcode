@@ -7,7 +7,7 @@ using namespace std;
 /// graph is a dag (directed acyclic graph)
 class Solution {
    public:
-    vector<vector<int>> AllPathsSourceTarget(vector<vector<int>>& graph) {
+    vector<vector<int>> AllPathsSourceTarget(vector<vector<int>> &graph) {
         clock_t start, end;
         start = clock();
 
@@ -23,7 +23,7 @@ class Solution {
     /// pop出来一个 ，以当前接待你继续向前找，并用栈存储
     /// 所有的路径都找完 找到第一个
     /// 根dfs还不一样 还要找到所有的路径 ， 不能只有一个stack
-    vector<vector<int>> ImplV1(vector<vector<int>>& graph) { return {{}}; }
+    vector<vector<int>> ImplV1(vector<vector<int>> &graph) { return {{}}; }
 };
 
 #include <gtest/gtest.h>
@@ -37,7 +37,7 @@ TEST(t1, t2) {
     EXPECT_EQ(0, 0 + 0);
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

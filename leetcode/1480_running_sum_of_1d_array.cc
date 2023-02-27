@@ -7,15 +7,15 @@ Return the running sum of nums.*/
 using namespace std;
 class Solution {
    public:
-    vector<int> RunningSum(vector<int>& nums) {
+    vector<int> RunningSum(vector<int> &nums) {
         int presum = 0;
-        for (auto& ptr : nums) {
+        for (auto &ptr : nums) {
             ptr = ptr + presum;
             presum = ptr;
         }
         return nums;
     }
-    vector<int> RunningSumV1(vector<int>& nums) {
+    vector<int> RunningSumV1(vector<int> &nums) {
         for (int i = 1; i < (int)nums.size(); i++) {
             nums[i] += nums[i - 1];
         }
@@ -58,7 +58,7 @@ TEST(t0, t3) {
 #include <algorithm>
 #include <vector>
 
-static void BenchV1(benchmark::State& state) {
+static void BenchV1(benchmark::State &state) {
     for (auto _ : state) {
         std::vector<int> p{3, 1, 2, 10, 1};
         std::vector<int> output{3, 4, 6, 16, 17};
@@ -70,7 +70,7 @@ static void BenchV1(benchmark::State& state) {
 }
 BENCHMARK(BenchV1);
 
-static void BenchV2(benchmark::State& state) {
+static void BenchV2(benchmark::State &state) {
     for (auto _ : state) {
         std::vector<int> p{3, 1, 2, 10, 1};
         std::vector<int> output{3, 4, 6, 16, 17};
@@ -82,7 +82,7 @@ static void BenchV2(benchmark::State& state) {
 }
 BENCHMARK(BenchV2);
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     int ret = RUN_ALL_TESTS();
     ::benchmark::Initialize(&argc, argv);

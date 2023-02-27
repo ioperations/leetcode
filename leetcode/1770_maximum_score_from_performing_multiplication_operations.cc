@@ -16,7 +16,7 @@ using namespace std;
 
 class Solution {
    public:
-    int MaximumScoreV1(vector<int>& nums, vector<int>& multipliers) {
+    int MaximumScoreV1(vector<int> &nums, vector<int> &multipliers) {
         int n = nums.size();
         int m = multipliers.size();
 
@@ -35,8 +35,8 @@ class Solution {
         return fun(0, n - 1, 0, 0);
     }
 
-    int Dfs(int i, int j, vector<vector<int>>& dp, vector<int>& nums,
-            vector<int>& mul, int m) {
+    int Dfs(int i, int j, vector<vector<int>> &dp, vector<int> &nums,
+            vector<int> &mul, int m) {
         if (m >= (int)mul.size()) return 0;
         if (dp[i][j] != INT_MIN) return dp[i][j];
         int idx = nums.size() - j - 1;
@@ -46,7 +46,7 @@ class Solution {
     }
 
    public:
-    int MaximumScore(vector<int>& nums, vector<int>& mul) {
+    int MaximumScore(vector<int> &nums, vector<int> &mul) {
         // int n = nums.size();
         int m = mul.size();
         vector<vector<int>> dp(m + 1, vector<int>(m + 1, INT_MIN));
@@ -92,7 +92,7 @@ TEST(t0, t2) {
 
     EXPECT_EQ(ret, output);
 }
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

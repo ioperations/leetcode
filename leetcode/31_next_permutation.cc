@@ -26,7 +26,7 @@ using namespace std;
 
 class Solution {
    public:
-    void NextPermutation(vector<int>& nums) {
+    void NextPermutation(vector<int> &nums) {
         bool flag = false;
 
         for (int i = nums.size() - 1; i > 0; i--) {
@@ -75,7 +75,7 @@ TEST(t0, t3) {
     EXPECT_EQ(nums, output);
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

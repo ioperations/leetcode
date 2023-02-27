@@ -8,11 +8,11 @@ subtrees of every node never differs by more than one.
 
 struct TreeNode {
     int val;
-    TreeNode* left;
-    TreeNode* right;
+    TreeNode *left;
+    TreeNode *right;
     TreeNode() : val(0), left(nullptr), right(nullptr) {}
     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
-    TreeNode(int x, TreeNode* left, TreeNode* right)
+    TreeNode(int x, TreeNode *left, TreeNode *right)
         : val(x), left(left), right(right) {}
 };
 #include <vector>
@@ -20,14 +20,14 @@ using namespace std;
 
 class Solution {
    public:
-    TreeNode* SortedArrayToBst(std::vector<int>& nums) {
+    TreeNode *SortedArrayToBst(std::vector<int> &nums) {
         return Helper(nums, 0, nums.size() - 1);
     }
 
-    TreeNode* Helper(vector<int>& nums, int start, int end) {
+    TreeNode *Helper(vector<int> &nums, int start, int end) {
         if (start > end) return nullptr;
         int mid = start + (end - start) / 2;
-        TreeNode* bs_ttree = new TreeNode(nums[mid]);
+        TreeNode *bs_ttree = new TreeNode(nums[mid]);
         bs_ttree->left = Helper(nums, start, mid - 1);
         bs_ttree->right = Helper(nums, mid + 1, end);
         return bs_ttree;
@@ -38,7 +38,7 @@ class Solution {
 
 #include <iostream>
 /// 将二分树销毁掉
-void FreeTreeNode(TreeNode* root) {
+void FreeTreeNode(TreeNode *root) {
     if (root) {
         FreeTreeNode(root->left);
         FreeTreeNode(root->right);
@@ -46,7 +46,7 @@ void FreeTreeNode(TreeNode* root) {
     }
 }
 
-void InorderLeft(TreeNode* root, std::vector<int>& vec) {
+void InorderLeft(TreeNode *root, std::vector<int> &vec) {
     if (root == nullptr) {
         return;
     }
@@ -62,7 +62,7 @@ TEST(t0, t1) {
 
     Solution sl;
     std::vector<int> v{-10, -3, 0, 5, 9};
-    TreeNode* root = sl.SortedArrayToBst(v);
+    TreeNode *root = sl.SortedArrayToBst(v);
 
     std::vector<int> visit;
 
@@ -72,7 +72,7 @@ TEST(t0, t1) {
     FreeTreeNode(root);
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

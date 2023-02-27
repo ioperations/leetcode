@@ -2,9 +2,9 @@
 #include <iostream>
 #include <string>
 
-void ReverseOutPutAllWords(const char* s, int len) {
-    std::function<std::string(const char*, int)> recursive =
-        [&recursive](const char* str, int str_len) -> std::string {
+void ReverseOutPutAllWords(const char *s, int len) {
+    std::function<std::string(const char *, int)> recursive =
+        [&recursive](const char *str, int str_len) -> std::string {
         // base case
 
         if (str_len == 0) {
@@ -18,7 +18,7 @@ void ReverseOutPutAllWords(const char* s, int len) {
             i += 1;
         }
 
-        const char* begin = str + i;
+        const char *begin = str + i;
 
         if (i >= str_len) {
             return std::string("");
@@ -65,7 +65,7 @@ TEST(t2, t2) {
     EXPECT_EQ(out, std::string("l r gi y bo\n"));
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

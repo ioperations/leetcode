@@ -13,7 +13,7 @@ class Solution {
             m[s[i]].first++;
             m[s[i]].second = i;
         }
-        for (const auto& [c, p] : m) {
+        for (const auto &[c, p] : m) {
             if (p.first == 1) {
                 idx = min(idx, p.second);
             }
@@ -48,7 +48,7 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, -1);
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

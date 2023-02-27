@@ -9,7 +9,7 @@ You may assume the input array always has a valid answer.*/
 using namespace std;
 class Solution {
    public:
-    void WiggleSort(vector<int>& nums) {
+    void WiggleSort(vector<int> &nums) {
         int n = nums.size();
         sort(nums.begin(), nums.end());
 
@@ -53,7 +53,7 @@ TEST(t0, t2) {
 
     EXPECT_EQ(nums, output);
 }
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

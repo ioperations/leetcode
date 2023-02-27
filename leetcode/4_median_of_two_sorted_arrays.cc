@@ -4,8 +4,8 @@ class Solution {
     Solution(){};
     virtual ~Solution(){};
 
-    double FindMedianSortedArrays(std::vector<int>& nums1,
-                                  std::vector<int>& nums2) {
+    double FindMedianSortedArrays(std::vector<int> &nums1,
+                                  std::vector<int> &nums2) {
         std::vector<int> merged;
         const int size = nums1.size() + nums2.size();
         merged.reserve(size);
@@ -60,7 +60,7 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, 2.5);
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

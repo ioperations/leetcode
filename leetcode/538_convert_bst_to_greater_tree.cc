@@ -14,17 +14,17 @@ node's key. Both the left and right subtrees must also be binary search trees.
 // Definition for a binary tree node.
 struct TreeNode {
     int val;
-    TreeNode* left;
-    TreeNode* right;
+    TreeNode *left;
+    TreeNode *right;
     TreeNode() : val(0), left(nullptr), right(nullptr) {}
     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
-    TreeNode(int x, TreeNode* left, TreeNode* right)
+    TreeNode(int x, TreeNode *left, TreeNode *right)
         : val(x), left(left), right(right) {}
 };
 
 class Solution {
    public:
-    int Dfs(TreeNode* root, int above_sum) {
+    int Dfs(TreeNode *root, int above_sum) {
         if (!root) return 0;
 
         int right = Dfs(root->right, above_sum);
@@ -37,7 +37,7 @@ class Solution {
         return sum_below;
     }
 
-    TreeNode* ConvertBst(TreeNode* root) {
+    TreeNode *ConvertBst(TreeNode *root) {
         Dfs(root, 0);
         return root;
     }
@@ -48,13 +48,13 @@ class Solution {
 #include <iostream>
 #include <queue>
 
-TreeNode* AddToRoot(TreeNode* root, int val) {
+TreeNode *AddToRoot(TreeNode *root, int val) {
     if (root == nullptr) {
         return nullptr;
     }
     if (val < root->val) {
         if (root->left) {
-            TreeNode* head = AddToRoot(root->left, val);
+            TreeNode *head = AddToRoot(root->left, val);
             root->left = head;
             return root;
         }
@@ -62,7 +62,7 @@ TreeNode* AddToRoot(TreeNode* root, int val) {
 
     } else {
         if (root->right) {
-            TreeNode* head = AddToRoot(root->right, val);
+            TreeNode *head = AddToRoot(root->right, val);
             root->right = head;
             return root;
         }
@@ -71,7 +71,7 @@ TreeNode* AddToRoot(TreeNode* root, int val) {
     return root;
 }
 
-void FreeRoot(TreeNode* root) {
+void FreeRoot(TreeNode *root) {
     if (root == nullptr) {
         return;
     }
@@ -86,22 +86,22 @@ void FreeRoot(TreeNode* root) {
  * @param @elements 节点的数组
  * @return
  */
-TreeNode* AddToRoot(TreeNode* root, const std::vector<int>& elements) {
-    for (auto& ptr : elements) {
+TreeNode *AddToRoot(TreeNode *root, const std::vector<int> &elements) {
+    for (auto &ptr : elements) {
         root = AddToRoot(root, ptr);
     }
 
     return root;
 }
 
-std::vector<int> BFS(TreeNode* root) {
+std::vector<int> BFS(TreeNode *root) {
     std::vector<int> ret;
-    std::queue<TreeNode*> q;
+    std::queue<TreeNode *> q;
 
     q.push(root);
 
     while (!q.empty()) {
-        auto* c = q.front();
+        auto *c = q.front();
         if (c != nullptr) {
             q.push(c->left);
             q.push(c->right);
@@ -117,7 +117,7 @@ std::vector<int> BFS(TreeNode* root) {
 }
 
 TEST(memleak, t1) {
-    TreeNode* root = new TreeNode(-1);
+    TreeNode *root = new TreeNode(-1);
 
     for (int i = 0; i < 100; i++) {
         root = AddToRoot(root, i);
@@ -129,7 +129,7 @@ TEST(memleak, t1) {
 TEST(t0, t1) {
     // root = [4,1,6,0,2,5,7,null,null,null,3,null,null,null,8]
     // Output: [4,1,6,0,2,5,7,null,null,null,3,null,null,null,8]
-    TreeNode* root = new TreeNode(4);
+    TreeNode *root = new TreeNode(4);
     root = AddToRoot(root, std::vector<int>{1, 6, 0, 2, 5, 7, 3, 8});
 
     {
@@ -154,7 +154,7 @@ TEST(t0, t2) {
     // Input: root = [0,null,1]
     // Output: [1,null,1]
 
-    TreeNode* root = new TreeNode(0);
+    TreeNode *root = new TreeNode(0);
     root = AddToRoot(root, std::vector<int>{1});
 
     {
@@ -173,7 +173,7 @@ TEST(t0, t2) {
     FreeRoot(root);
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

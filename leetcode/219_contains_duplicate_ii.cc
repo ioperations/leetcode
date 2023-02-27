@@ -11,7 +11,7 @@ using namespace std;
 
 class Solution {
    public:
-    bool ContainsNearbyDuplicate(const vector<int>& nums, int k) {
+    bool ContainsNearbyDuplicate(const vector<int> &nums, int k) {
         int const size = nums.size();
         for (int i = 0; i < size; i++) {
             for (int j = i + 1; (j < size) && ((j - i) <= k); j++) {
@@ -20,7 +20,7 @@ class Solution {
         }
         return false;
     }
-    bool ContainsNearbyDuplicateV2(const vector<int>& nums, int k) {
+    bool ContainsNearbyDuplicateV2(const vector<int> &nums, int k) {
         unordered_map<int, int> map;
         int n = nums.size();
         for (int i = 0; i < n; i++) {
@@ -97,12 +97,10 @@ TEST(t1, t3) {
     EXPECT_EQ(ret, output);
 }
 
-
-
 #include <algorithm>
 #include <vector>
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     int ret = RUN_ALL_TESTS();
     return ret;

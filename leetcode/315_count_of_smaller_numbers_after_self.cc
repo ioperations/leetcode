@@ -10,7 +10,7 @@ using namespace std;
 
 class Solution {
    public:
-    vector<int> CountSmaller(vector<int>& nums) {
+    vector<int> CountSmaller(vector<int> &nums) {
         int size = nums.size();
         vector<int> ret(size, 0);
         for (int i = 0; i < size; i++) {
@@ -23,7 +23,7 @@ class Solution {
         return ret;
     }
 
-    void Merge(vector<int>& count, vector<pair<int, int>>& arr, int start,
+    void Merge(vector<int> &count, vector<pair<int, int>> &arr, int start,
                int mid, int end) {
         vector<pair<int, int>> tmp(end - start + 1);
         int i = start, j = mid + 1, k = 0, cnt = 0;
@@ -59,7 +59,7 @@ class Solution {
         for (int i = start; i <= end; i++) arr[i] = tmp[i - start];
     }
 
-    void MergeSort(vector<int>& count, vector<pair<int, int>>& arr, int start,
+    void MergeSort(vector<int> &count, vector<pair<int, int>> &arr, int start,
                    int end) {
         if (start >= end) return;
 
@@ -69,7 +69,7 @@ class Solution {
         Merge(count, arr, start, mid, end);
     }
 
-    vector<int> CountSmallerV1(vector<int>& nums) {
+    vector<int> CountSmallerV1(vector<int> &nums) {
         int n = nums.size();
 
         vector<pair<int, int>> arr(n);
@@ -115,7 +115,7 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     int ret = RUN_ALL_TESTS();
     return ret;

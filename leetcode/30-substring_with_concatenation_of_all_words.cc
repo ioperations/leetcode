@@ -14,10 +14,10 @@ class Solution {
     Solution(){};
     virtual ~Solution(){};
     std::vector<int> FindSubString(std::string s,
-                                   std::vector<std::string>& words) {
+                                   std::vector<std::string> &words) {
         std::sort(
             words.begin(), words.end(),
-            [](std::string& left, std::string& right) { return left > right; });
+            [](std::string &left, std::string &right) { return left > right; });
 
         std::set<int> ret;
         do {
@@ -35,7 +35,7 @@ class Solution {
     }
 
    private:
-    int IsOnlyOnce(const std::string& tofind, const std::string& candidate) {
+    int IsOnlyOnce(const std::string &tofind, const std::string &candidate) {
         auto it = tofind.find(candidate);
         if (it != std::string::npos) {
             return tofind.substr(it, tofind.size()).find(candidate) !=
@@ -45,8 +45,8 @@ class Solution {
         }
         return -1;
     }
-    static std::set<int> AllSubString(const std::string& tofind,
-                                      const std::string& candidate,
+    static std::set<int> AllSubString(const std::string &tofind,
+                                      const std::string &candidate,
                                       int index = 0) {
         auto it = tofind.find(candidate);
         if (it != std::string::npos) {
@@ -64,7 +64,7 @@ class Solution {
 #include <iostream>
 
 TEST(t0, t1) {
-    Solution* s = new Solution();
+    Solution *s = new Solution();
     std::string str = "wordgoodgoodgoodbestword";
     std::vector<std::string> words{"word", "good", "best", "word"};
     auto ret = s->FindSubString(str, words);
@@ -120,7 +120,7 @@ TEST(t0, t5) {
     EXPECT_EQ(retset, expect);
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

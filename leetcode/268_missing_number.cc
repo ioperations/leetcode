@@ -7,11 +7,11 @@ using namespace std;
 
 class Solution {
    public:
-    int MissingNumber(vector<int>& nums) {
+    int MissingNumber(vector<int> &nums) {
         int sum = 0;
 
         int max = 0;
-        for (auto& ptr : nums) {
+        for (auto &ptr : nums) {
             sum += ptr;
             max = std::max(max, ptr);
         }
@@ -72,7 +72,7 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

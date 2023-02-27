@@ -17,12 +17,12 @@ Note: You cannot rotate an envelope.
 using namespace std;
 class Solution {
    public:
-    bool static Comp(pair<int, int>& a, pair<int, int>& b) {
+    bool static Comp(pair<int, int> &a, pair<int, int> &b) {
         if (a.first == b.first) return a.second > b.second;
         return a.first < b.first;
     }
 
-    int MaxEnvelopes(vector<vector<int>>& env) {
+    int MaxEnvelopes(vector<vector<int>> &env) {
         int n = env.size();
         vector<pair<int, int>> vec;
         for (int i = 0; i < n; i++) vec.push_back({env[i][0], env[i][1]});
@@ -64,7 +64,7 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

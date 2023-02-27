@@ -17,7 +17,7 @@ using namespace std;
 class Solution {
    public:
     bool static Comp(string a, string b) { return a + b > b + a; }
-    string LargestNumber(vector<int>& nums) {
+    string LargestNumber(vector<int> &nums) {
         vector<string> v;
         for (auto x : nums) {
             v.push_back(to_string(x));
@@ -61,7 +61,7 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

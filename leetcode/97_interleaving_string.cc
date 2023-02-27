@@ -18,7 +18,7 @@ using namespace std;
 
 class Solution {
    public:
-    bool Helper(string& s1, string& s2, string& s3) {
+    bool Helper(string &s1, string &s2, string &s3) {
         int l1 = s1.length(), l2 = s2.length();
         vector<int> q1, q2;  // queue;
         vector<vector<int>> table(s1.length() + 1,
@@ -123,7 +123,7 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

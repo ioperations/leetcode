@@ -13,7 +13,7 @@ space.
 using namespace std;
 class Solution {
    public:
-    int FirstMissingPositive(std::vector<int>& nums) {
+    int FirstMissingPositive(std::vector<int> &nums) {
         // 1 <= nums.length <= 5 * 10^5
         // -2^31 <= nums[i] <= 2^31 - 1
         map<int, int> m;
@@ -26,7 +26,7 @@ class Solution {
 
         return 0;
     }
-    int FirstMissingPositiveV2(std::vector<int>& nums) {
+    int FirstMissingPositiveV2(std::vector<int> &nums) {
         int n = nums.size();
         // making all negative to zero as they are useless
         for (int i = 0; i < n; i++) {
@@ -80,7 +80,7 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, 1);
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

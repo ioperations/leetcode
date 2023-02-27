@@ -7,7 +7,7 @@ using namespace std;
 
 class Solution {
    public:
-    int SumSubarrayMins(vector<int>& arr) {
+    int SumSubarrayMins(vector<int> &arr) {
         int size = arr.size();
         vector<int> nextsmaller(size, size);
         vector<int> prevsmaller(size, -1);
@@ -175,7 +175,7 @@ TEST(t0, t3) {
     int ret = sl.SumSubarrayMins(arr);
     EXPECT_EQ(ret, output);
 }
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

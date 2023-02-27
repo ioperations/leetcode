@@ -41,7 +41,7 @@ using namespace std;
 
 class Solution {
    public:
-    bool ValidUtf8(vector<int>& data) {
+    bool ValidUtf8(vector<int> &data) {
         const int mask_10 = 0x80;     // 128
         const int mask_110 = 0xC0;    // 192
         const int mask_1110 = 0xE0;   // 224
@@ -106,7 +106,7 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

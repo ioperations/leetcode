@@ -17,11 +17,11 @@ Return the vertical order traversal of the binary tree.*/
 #include <cstddef>
 struct TreeNode {
     int val;
-    TreeNode* left;
-    TreeNode* right;
+    TreeNode *left;
+    TreeNode *right;
     TreeNode() : val(0), left(nullptr), right(nullptr) {}
     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
-    TreeNode(int x, TreeNode* left, TreeNode* right)
+    TreeNode(int x, TreeNode *left, TreeNode *right)
         : val(x), left(left), right(right) {}
 };
 #include <queue>
@@ -32,7 +32,7 @@ using namespace std;
 struct Mystruct {
     int val;
     int column;
-    bool operator<(const Mystruct& rhs) const {
+    bool operator<(const Mystruct &rhs) const {
         if (column > rhs.column) {
             return true;
         }
@@ -49,17 +49,17 @@ struct Mystruct {
 
 class Solution {
    public:
-    vector<vector<int>> VerticalTraversal(TreeNode* root) {
-        queue<pair<TreeNode*, int>> q;
+    vector<vector<int>> VerticalTraversal(TreeNode *root) {
+        queue<pair<TreeNode *, int>> q;
         map<int, vector<int>> mp;
         q.push(make_pair(root, 0));
         while (q.size()) {
             int n = q.size();
             map<int, priority_queue<int, vector<int>, greater<int>>> tmp;
             for (int i = 0; i < n; i++) {
-                pair<TreeNode*, int> curr = q.front();
+                pair<TreeNode *, int> curr = q.front();
                 q.pop();
-                TreeNode* node = curr.first;
+                TreeNode *node = curr.first;
                 int col = curr.second;
                 tmp[col].push(node->val);
                 if (node->left) {
@@ -87,16 +87,16 @@ class Solution {
         return ans;
     }
 
-    vector<vector<int>> VerticalTraversal1(TreeNode* root) {
+    vector<vector<int>> VerticalTraversal1(TreeNode *root) {
         vector<vector<int>> ret;
         if (root == nullptr) return ret;
         priority_queue<Mystruct> q;
 
-        queue<std::pair<TreeNode*, int>> navigate;
+        queue<std::pair<TreeNode *, int>> navigate;
         navigate.push({root, 0});
 
         while (navigate.size()) {
-            auto& front = navigate.front();
+            auto &front = navigate.front();
 
             if (front.first->left) {
                 navigate.push({front.first->left, front.second - 1});
@@ -113,7 +113,7 @@ class Solution {
         vector<int> tmp;
         int flag = q.top().column;
         while (q.size()) {
-            auto& t = q.top();
+            auto &t = q.top();
             if (t.column == flag) {
                 tmp.push_back(t.val);
 
@@ -148,25 +148,25 @@ class Solution {
 using namespace std;
 
 // Decodes your encoded data to tree.
-TreeNode* ConstructBinaryTree(std::vector<std::optional<int>>& data) {
+TreeNode *ConstructBinaryTree(std::vector<std::optional<int>> &data) {
     data.resize(data.size() * 3 + 11);
     if (data.size() == 0) return nullptr;
 
     if (!data[0].has_value()) return nullptr;
-    TreeNode* root = new TreeNode(data[0].value());
-    queue<TreeNode*> q;
+    TreeNode *root = new TreeNode(data[0].value());
+    queue<TreeNode *> q;
     q.push(root);
 
     int i = 1;
 
     while (!q.empty()) {
-        TreeNode* cur = q.front();
+        TreeNode *cur = q.front();
         q.pop();
 
         if (!data[i].has_value()) {
             cur->left = NULL;
         } else {
-            TreeNode* left_n = new TreeNode(data[i].value());
+            TreeNode *left_n = new TreeNode(data[i].value());
             cur->left = left_n;
             q.push(left_n);
         }
@@ -175,7 +175,7 @@ TreeNode* ConstructBinaryTree(std::vector<std::optional<int>>& data) {
         if (!data[i].has_value()) {
             cur->right = NULL;
         } else {
-            TreeNode* right_n = new TreeNode(data[i].value());
+            TreeNode *right_n = new TreeNode(data[i].value());
             cur->right = right_n;
             q.push(right_n);
         }
@@ -186,7 +186,7 @@ TreeNode* ConstructBinaryTree(std::vector<std::optional<int>>& data) {
 
 // Function to print tree nodes in
 // InOrder fashion
-void InOrder(TreeNode* root, std::vector<string>& vec) {
+void InOrder(TreeNode *root, std::vector<string> &vec) {
     if (root != nullptr) {
         InOrder(root->left, vec);
         vec.push_back(std::to_string(root->val));
@@ -195,12 +195,12 @@ void InOrder(TreeNode* root, std::vector<string>& vec) {
     }
 }
 
-void BfsSearch(TreeNode* root, std::vector<int>& vec) {
-    queue<TreeNode*> q;
+void BfsSearch(TreeNode *root, std::vector<int> &vec) {
+    queue<TreeNode *> q;
     q.push(root);
 
     while (q.size()) {
-        TreeNode* tmp = q.front();
+        TreeNode *tmp = q.front();
 
         q.pop();
 
@@ -212,7 +212,7 @@ void BfsSearch(TreeNode* root, std::vector<int>& vec) {
     }
 }
 
-void FreeTreeNode(TreeNode* root) {
+void FreeTreeNode(TreeNode *root) {
     if (root == nullptr) return;
 
     FreeTreeNode(root->left);
@@ -224,7 +224,7 @@ void FreeTreeNode(TreeNode* root) {
 TEST(t0, t1) {
     vector<optional<int>> root = {3, 9, 20, null, null, 15, 7};
     vector<vector<int>> output = {{9}, {3, 15}, {20}, {7}};
-    auto* node = ConstructBinaryTree(root);
+    auto *node = ConstructBinaryTree(root);
     // Explanation:
     // Column -1: Only node 9 is in this column.
     // Column 0: Nodes 3 and 15 are in this column in that order from top to
@@ -240,7 +240,7 @@ TEST(t0, t1) {
 TEST(t0, t2) {
     vector<optional<int>> root = {1, 2, 3, 4, 5, 6, 7};
     vector<vector<int>> output = {{4}, {2}, {1, 5, 6}, {3}, {7}};
-    auto* node = ConstructBinaryTree(root);
+    auto *node = ConstructBinaryTree(root);
     // Column -2: Only node 4 is in this column.
     // Column -1: Only node 2 is in this column.
     // Column 0: Nodes 1, 5, and 6 are in this column.
@@ -257,7 +257,7 @@ TEST(t0, t2) {
 TEST(t0, t3) {
     vector<optional<int>> root = {1, 2, 3, 4, 6, 5, 7};
     vector<vector<int>> output = {{4}, {2}, {1, 5, 6}, {3}, {7}};
-    auto* node = ConstructBinaryTree(root);
+    auto *node = ConstructBinaryTree(root);
     // This case is the exact same as example 2, but with nodes 5 and 6 swapped.
     // Note that the solution remains the same since 5 and 6 are in the same
     // location and should be ordered by their values. Column -2: Only node 4 is
@@ -267,7 +267,7 @@ TEST(t0, t3) {
     FreeTreeNode(node);
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

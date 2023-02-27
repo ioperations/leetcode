@@ -5,13 +5,13 @@
 #include <vector>
 
 /// FIXME: output the result to stdout
-void Processing(std::vector<int>& nums) {
+void Processing(std::vector<int> &nums) {
     std::set<int> s(nums.begin(), nums.end());
     std::vector<int> ss(s.begin(), s.end());
 
     std::sort(ss.begin(), ss.end(), std::less<int>());
 
-    for (auto& s : ss) {
+    for (auto &s : ss) {
         std::cout << s << std::endl;
     }
 }
@@ -31,7 +31,7 @@ TEST(t1, t2) {
     EXPECT_EQ(s, std::string("1\n2\n3\n4\n5\n6\n7\n"));
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

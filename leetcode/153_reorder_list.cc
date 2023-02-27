@@ -18,21 +18,21 @@ using namespace std;
 //* Definition for singly-linked list.
 struct ListNode {
     int val;
-    ListNode* next;
+    ListNode *next;
     ListNode() : val(0), next(nullptr) {}
     ListNode(int x) : val(x), next(nullptr) {}
-    ListNode(int x, ListNode* next) : val(x), next(next) {}
+    ListNode(int x, ListNode *next) : val(x), next(next) {}
 };
 
 class Solution {
    public:
-    void ReorderList(ListNode* head) { Solve(head); }
+    void ReorderList(ListNode *head) { Solve(head); }
 
-    void Solve(ListNode*& head) {
-        std::stack<ListNode*> stack;
-        std::queue<ListNode*> queue;
+    void Solve(ListNode *&head) {
+        std::stack<ListNode *> stack;
+        std::queue<ListNode *> queue;
 
-        ListNode* my_head = head;
+        ListNode *my_head = head;
         int size = 0;
         while (my_head != nullptr) {
             stack.push(my_head);
@@ -42,7 +42,7 @@ class Solution {
         }
 
         ListNode node;
-        ListNode* it = &node;
+        ListNode *it = &node;
 
         for (int i = 0; i < size;) {
             it->next = queue.front();
@@ -61,17 +61,17 @@ class Solution {
 #include <gtest/gtest.h>
 
 #include <iostream>
-ListNode* ConstuctList(const std::vector<int>& elemets) {
+ListNode *ConstuctList(const std::vector<int> &elemets) {
     ListNode head;
-    ListNode* tail = &head;
-    for (auto& pt : elemets) {
+    ListNode *tail = &head;
+    for (auto &pt : elemets) {
         tail->next = new ListNode(pt);
         tail = tail->next;
     }
     return head.next;
 }
 
-void FreeList(ListNode* head) {
+void FreeList(ListNode *head) {
     if (head == nullptr) {
         return;
     }
@@ -79,9 +79,9 @@ void FreeList(ListNode* head) {
     delete head;
 }
 
-void ExpectEqList(ListNode* const head, const std::vector<int>& elements) {
+void ExpectEqList(ListNode *const head, const std::vector<int> &elements) {
     int i = 0;
-    ListNode* m_head = head;
+    ListNode *m_head = head;
 
     while (m_head != nullptr) {
         EXPECT_EQ(m_head->val, elements[i]);
@@ -105,7 +105,7 @@ TEST(t0, t1) {
 
     */
 
-    ListNode* head = ConstuctList(v);
+    ListNode *head = ConstuctList(v);
     Solution sl;
     sl.ReorderList(head);
 
@@ -129,7 +129,7 @@ TEST(t0, t2) {
     |___|    |___|     |___|     |___|     |___|
 
     */
-    ListNode* head = ConstuctList(v);
+    ListNode *head = ConstuctList(v);
     Solution sl;
     sl.ReorderList(head);
 
@@ -137,7 +137,7 @@ TEST(t0, t2) {
     FreeList(head);
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

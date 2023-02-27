@@ -34,11 +34,11 @@ class Solution {
         }
         return cnt <= 1;
     }
-    int LongestStrChain(vector<string>& words) {
+    int LongestStrChain(vector<string> &words) {
         int ans = 1;
         vector<int> dp(words.size(), 1);
         sort(words.begin(), words.end(),
-             [](const string& s1, const string& s2) {
+             [](const string &s1, const string &s2) {
                  return s1.length() < s2.length();
              });
         for (int i = 0; i < (int)words.size(); i++) {
@@ -90,7 +90,7 @@ TEST(t0, t3) {
     int ret = sl.LongestStrChain(words);
     EXPECT_EQ(ret, output);
 }
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

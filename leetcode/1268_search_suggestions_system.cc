@@ -28,7 +28,7 @@ class Solution {
     vector<string> m_product;
 
    public:
-    vector<vector<string>> SuggestedProducts(vector<string>& products,
+    vector<vector<string>> SuggestedProducts(vector<string> &products,
                                              string search_word) {
         m_product = products;
         sort(m_product.begin(), m_product.end());
@@ -43,8 +43,8 @@ class Solution {
 
     vector<string> Search(string pattern) {
         vector<string> ret;
-        Trie* z = &root;
-        for (auto& ptr : pattern) {
+        Trie *z = &root;
+        for (auto &ptr : pattern) {
             if (z->ndoe.find(ptr) != z->ndoe.end()) {
                 z = &z->ndoe[ptr];
             }
@@ -67,8 +67,8 @@ class Solution {
 
     void Build() {
         for (int i = 0; i < (int)m_product.size(); i++) {
-            Trie* t = &root;
-            for (auto& ptr : m_product[i]) {
+            Trie *t = &root;
+            for (auto &ptr : m_product[i]) {
                 t = &t->ndoe[ptr];
                 t->index_array.push_back(i);
             }
@@ -79,15 +79,15 @@ class Solution {
 class SolutionV2 {
     class TrieNode {
        public:
-        TrieNode* links[26];
+        TrieNode *links[26];
         vector<int> idx;
     };
 
     class Trie {
-        TrieNode* root;
+        TrieNode *root;
 
        private:
-        void DeleteNode(TrieNode* root) {
+        void DeleteNode(TrieNode *root) {
             if (root == nullptr) return;
             for (int i = 0; i < 26; i++) {
                 DeleteNode(root->links[i]);
@@ -100,8 +100,8 @@ class SolutionV2 {
         ~Trie() { DeleteNode(root); }
 
         void Insert(string s, int id) {
-            TrieNode* node = root;
-            for (auto& ch : s) {
+            TrieNode *node = root;
+            for (auto &ch : s) {
                 if (!node->links[ch - 'a'])
                     node->links[ch - 'a'] = new TrieNode();
 
@@ -111,7 +111,7 @@ class SolutionV2 {
         }
 
         vector<int> Search(string s) {
-            TrieNode* node = root;
+            TrieNode *node = root;
             for (int i = 0; i < (int)s.length(); i++) {
                 if (!node->links[s[i] - 'a']) return {};
                 node = node->links[s[i] - 'a'];
@@ -121,7 +121,7 @@ class SolutionV2 {
     };
 
    public:
-    vector<vector<string>> SuggestedProducts(vector<string>& products,
+    vector<vector<string>> SuggestedProducts(vector<string> &products,
                                              string search_word) {
         Trie trie;
         sort(products.begin(), products.end());
@@ -228,7 +228,7 @@ TEST(t1, t3) {
     vector<vector<string>> ret = sl.SuggestedProducts(products, search_word);
     EXPECT_EQ(ret, out);
 }
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

@@ -27,7 +27,7 @@ using namespace std;
 
 class Solution {
    public:
-    int MinimumEffortPath(vector<vector<int>>& heights) {
+    int MinimumEffortPath(vector<vector<int>> &heights) {
         // pass
         /*
             rows == heights.length
@@ -116,7 +116,7 @@ class Solution {
         return x < 0 || y < 0 || x >= m || y >= n;
     }
 
-    int MinimumEffortPathV2(vector<vector<int>>& heights) {
+    int MinimumEffortPathV2(vector<vector<int>> &heights) {
         int m = heights.size();
         int n = heights[0].size();
 
@@ -238,7 +238,7 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

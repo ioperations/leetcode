@@ -15,7 +15,7 @@ using namespace std;
 
 class Solution {
    public:
-    vector<string> TopKFrequent(vector<string>& words, int k) {
+    vector<string> TopKFrequent(vector<string> &words, int k) {
         unordered_map<string, int> umap;
         for (string s : words) umap[s]++;
         priority_queue<pair<int, string>> pq;
@@ -66,7 +66,7 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

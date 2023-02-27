@@ -9,22 +9,22 @@ using namespace std;
 //* Definition for a binary tree node.
 struct TreeNode {
     int val;
-    TreeNode* left;
-    TreeNode* right;
+    TreeNode *left;
+    TreeNode *right;
     bool deleted = false;
     TreeNode() : val(0), left(nullptr), right(nullptr) {}
     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
-    TreeNode(int x, TreeNode* left, TreeNode* right)
+    TreeNode(int x, TreeNode *left, TreeNode *right)
         : val(x), left(left), right(right) {}
 };
 class Solution {
    public:
-    int Height(TreeNode* root) {
+    int Height(TreeNode *root) {
         if (!root) return 0;
         return std::max(Height(root->left), Height(root->right)) + 1;
     }
     int sum = 0;
-    int SumAtK(TreeNode* root, int k) {
+    int SumAtK(TreeNode *root, int k) {
         if (!root) return sum;
         if (k == 0 && root->val != -1) sum = sum + root->val;
         SumAtK(root->left, k - 1);
@@ -32,7 +32,7 @@ class Solution {
         return sum;
     }
 
-    int DeepestLeavesSum(TreeNode* root) {
+    int DeepestLeavesSum(TreeNode *root) {
         int h = Height(root);
         int sum = SumAtK(root, h - 1);
         return sum;
@@ -41,14 +41,14 @@ class Solution {
 
 class SolutionV2 {
    public:
-    int DeepestLeavesSum(TreeNode* root) {
+    int DeepestLeavesSum(TreeNode *root) {
         if (!root) return 0;
-        queue<TreeNode*> q;
+        queue<TreeNode *> q;
         q.push(root);
         q.push(nullptr);
         int sum = 0;
         while (q.size() > 1) {
-            auto* curr = q.front();
+            auto *curr = q.front();
             q.pop();
             if (!curr) {
                 q.push(nullptr);
@@ -71,19 +71,19 @@ using namespace std;
 
 #define null -1
 
-TreeNode* NewNode(int data) {
-    TreeNode* node = new TreeNode;
+TreeNode *NewNode(int data) {
+    TreeNode *node = new TreeNode;
     node->val = data;
     node->left = node->right = nullptr;
     return node;
 }
 
 // Function to insert nodes in level order
-TreeNode* InsertLevelOrder(vector<int>& arr, TreeNode* root, int i) {
+TreeNode *InsertLevelOrder(vector<int> &arr, TreeNode *root, int i) {
     // Base case for recursion
     int n = arr.size();
     if (i < n) {
-        TreeNode* temp = NewNode(arr[i]);
+        TreeNode *temp = NewNode(arr[i]);
         root = temp;
 
         // insert left child
@@ -101,7 +101,7 @@ TreeNode* InsertLevelOrder(vector<int>& arr, TreeNode* root, int i) {
 
 // Function to print tree nodes in
 // InOrder fashion
-void InOrder(TreeNode* root, std::vector<string>& vec) {
+void InOrder(TreeNode *root, std::vector<string> &vec) {
     if (root != nullptr) {
         InOrder(root->left, vec);
         vec.push_back(std::to_string(root->val) +
@@ -110,12 +110,12 @@ void InOrder(TreeNode* root, std::vector<string>& vec) {
     }
 }
 
-void BfsSearch(TreeNode* root, std::vector<std::string>& vec) {
-    queue<TreeNode*> q;
+void BfsSearch(TreeNode *root, std::vector<std::string> &vec) {
+    queue<TreeNode *> q;
     q.push(root);
 
     while (q.size()) {
-        TreeNode* tmp = q.front();
+        TreeNode *tmp = q.front();
 
         q.pop();
 
@@ -128,7 +128,7 @@ void BfsSearch(TreeNode* root, std::vector<std::string>& vec) {
     }
 }
 
-void FreeTreeNode(TreeNode* root) {
+void FreeTreeNode(TreeNode *root) {
     if (root == nullptr) return;
 
     FreeTreeNode(root->left);
@@ -137,9 +137,9 @@ void FreeTreeNode(TreeNode* root) {
     delete root;
 }
 
-TreeNode* ConstructTreeNode(std::vector<int>& arr) {
+TreeNode *ConstructTreeNode(std::vector<int> &arr) {
     TreeNode root;
-    TreeNode* z = InsertLevelOrder(arr, &root, 0);
+    TreeNode *z = InsertLevelOrder(arr, &root, 0);
 
     return z;
 }
@@ -147,7 +147,7 @@ TreeNode* ConstructTreeNode(std::vector<int>& arr) {
 TEST(t0, t1) {
     vector<int> vec = {1, 2, 3, 4, 5, null, 6, 7, null, null, null, null, 8};
 
-    TreeNode* root = ConstructTreeNode(vec);
+    TreeNode *root = ConstructTreeNode(vec);
     int expected = 15;
 
     Solution sl;
@@ -160,7 +160,7 @@ TEST(t0, t1) {
 TEST(t0, t2) {
     vector<int> vec = {6, 7, 8, 2, 7, 1, 3, 9, null, 1, 4, null, null, null, 5};
 
-    TreeNode* root = ConstructTreeNode(vec);
+    TreeNode *root = ConstructTreeNode(vec);
     int expected = 19;
 
     Solution sl;
@@ -169,7 +169,7 @@ TEST(t0, t2) {
 
     FreeTreeNode(root);
 }
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

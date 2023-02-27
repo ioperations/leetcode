@@ -12,7 +12,7 @@ using namespace std;
 
 class Solution {
    public:
-    int LengthOfLisV1(vector<int>& nums) {
+    int LengthOfLisV1(vector<int> &nums) {
         int size = nums.size();
         function<int(int, int)> fun = [&](int start_with,
                                           int min_required) -> int {
@@ -30,7 +30,7 @@ class Solution {
         };
         return fun(0, std::numeric_limits<int>::min());
     }
-    int LengthOfLis(vector<int>& nums) {
+    int LengthOfLis(vector<int> &nums) {
         vector<int> ans;
         ans.push_back(nums[0]);
         for (int i = 1; i < (int)nums.size(); i++) {
@@ -75,7 +75,7 @@ TEST(t0, t3) {
     int ret = sl.LengthOfLis(nums);
     EXPECT_EQ(ret, output);
 }
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

@@ -11,7 +11,7 @@
 using namespace std;
 class Solution {
    public:
-    int MinMoves2(vector<int>& nums) {
+    int MinMoves2(vector<int> &nums) {
         // pass
         int n = nums.size();
         sort(nums.begin(), nums.end());
@@ -49,7 +49,7 @@ TEST(t0, t2) {
     int ret = sl.MinMoves2(nums);
     EXPECT_EQ(ret, output);
 }
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

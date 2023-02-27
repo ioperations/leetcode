@@ -11,7 +11,7 @@ using namespace std;
 
 class Solution {
    public:
-    vector<int> PlusOne(vector<int>& digits) {
+    vector<int> PlusOne(vector<int> &digits) {
         // pass
         int carry = 1;
 
@@ -55,7 +55,7 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, (std::vector<int>{1, 0}));
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

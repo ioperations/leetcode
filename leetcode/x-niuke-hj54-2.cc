@@ -5,7 +5,7 @@
 using namespace std;
 int pos;
 
-int Result(const string& data) {
+int Result(const string &data) {
     int num = 0;
     char flag = '+';
     stack<int> stk;
@@ -86,7 +86,7 @@ TEST(t1, t5) {
     EXPECT_EQ(ret, 0);
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

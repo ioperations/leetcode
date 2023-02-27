@@ -28,20 +28,20 @@ function returns.
 // Definition for singly-linked list.
 struct ListNode {
     int val;
-    ListNode* next;
+    ListNode *next;
     ListNode() : val(), next(nullptr) {}
     ListNode(int x) : val(x), next(nullptr) {}
 };
 
 class Solution {
    public:
-    ListNode* GetIntersectionNode(ListNode* head_a, ListNode* head_b) {
+    ListNode *GetIntersectionNode(ListNode *head_a, ListNode *head_b) {
         // pass
         if (head_a == nullptr || head_b == nullptr) {
             return nullptr;
         }
-        ListNode* a = head_a;
-        ListNode* b = head_b;
+        ListNode *a = head_a;
+        ListNode *b = head_b;
 
         while (a != b) {
             a = a == nullptr ? head_b : a->next;
@@ -50,11 +50,11 @@ class Solution {
 
         return a;
     }
-    ListNode* GetIntersectionNodeV2(ListNode* head_a, ListNode* head_b) {
+    ListNode *GetIntersectionNodeV2(ListNode *head_a, ListNode *head_b) {
         int size_a = 0;
         int size_b = 0;
 
-        ListNode* temp = head_a;
+        ListNode *temp = head_a;
         while (temp != nullptr) {
             size_a++;
             temp = temp->next;
@@ -90,17 +90,17 @@ class Solution {
 #include <gtest/gtest.h>
 
 #include <iostream>
-ListNode* ConstuctList(const std::vector<int>& elemets) {
+ListNode *ConstuctList(const std::vector<int> &elemets) {
     ListNode head;
-    ListNode* tail = &head;
-    for (auto& pt : elemets) {
+    ListNode *tail = &head;
+    for (auto &pt : elemets) {
         tail->next = new ListNode(pt);
         tail = tail->next;
     }
     return head.next;
 }
 
-void FreeList(ListNode* head) {
+void FreeList(ListNode *head) {
     if (head == nullptr) {
         return;
     }
@@ -108,9 +108,9 @@ void FreeList(ListNode* head) {
     delete head;
 }
 
-void ExpectEqList(ListNode* const head, const std::vector<int>& elements) {
+void ExpectEqList(ListNode *const head, const std::vector<int> &elements) {
     int i = 0;
-    ListNode* m_head = head;
+    ListNode *m_head = head;
 
     while (m_head != nullptr) {
         EXPECT_EQ(m_head->val, elements[i]);
@@ -141,14 +141,14 @@ TEST(t0, t1) {
 
     */
 
-    ListNode* first = ConstuctList(std::vector<int>{4, 1, 8, 4, 5});
-    ListNode* second = ConstuctList(std::vector<int>{5, 6, 1});
-    ListNode* first_it = first;
+    ListNode *first = ConstuctList(std::vector<int>{4, 1, 8, 4, 5});
+    ListNode *second = ConstuctList(std::vector<int>{5, 6, 1});
+    ListNode *first_it = first;
     for (int i = 0; i < 2; i++) {
         first_it = first_it->next;
     }
 
-    ListNode* second_it = second;
+    ListNode *second_it = second;
 
     while (second_it->next != nullptr) {
         second_it = second_it->next;
@@ -157,7 +157,7 @@ TEST(t0, t1) {
     second_it->next = first_it;
 
     Solution s;
-    auto* ret = s.GetIntersectionNodeV2(first, second);
+    auto *ret = s.GetIntersectionNodeV2(first, second);
     EXPECT_EQ(ret->val, 8);
     second_it->next = nullptr;
 
@@ -187,14 +187,14 @@ TEST(t0, t2) {
 
     */
 
-    ListNode* first = ConstuctList(std::vector<int>{1, 9, 1, 2, 4});
-    ListNode* second = ConstuctList(std::vector<int>{3});
-    ListNode* first_it = first;
+    ListNode *first = ConstuctList(std::vector<int>{1, 9, 1, 2, 4});
+    ListNode *second = ConstuctList(std::vector<int>{3});
+    ListNode *first_it = first;
     for (int i = 0; i < 3; i++) {
         first_it = first_it->next;
     }
 
-    ListNode* second_it = second;
+    ListNode *second_it = second;
 
     while (second_it->next != nullptr) {
         second_it = second_it->next;
@@ -203,7 +203,7 @@ TEST(t0, t2) {
     second_it->next = first_it;
 
     Solution s;
-    auto* ret = s.GetIntersectionNodeV2(first, second);
+    auto *ret = s.GetIntersectionNodeV2(first, second);
     EXPECT_EQ(ret->val, 2);
     second_it->next = nullptr;
 
@@ -230,19 +230,19 @@ TEST(t0, t3) {
             |___|___|
     */
 
-    ListNode* first = ConstuctList(std::vector<int>{2, 6, 4});
-    ListNode* second = ConstuctList(std::vector<int>{1, 5});
+    ListNode *first = ConstuctList(std::vector<int>{2, 6, 4});
+    ListNode *second = ConstuctList(std::vector<int>{1, 5});
 
     Solution s;
 
-    auto* ret = s.GetIntersectionNodeV2(first, second);
+    auto *ret = s.GetIntersectionNodeV2(first, second);
     EXPECT_EQ(ret, nullptr);
 
     FreeList(first);
     FreeList(second);
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

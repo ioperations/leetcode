@@ -7,14 +7,14 @@ element appears only once. Return the linked list sorted as well.
 //* Definition for singly-linked list.
 struct ListNode {
     int val;
-    ListNode* next;
+    ListNode *next;
     ListNode() : val(0), next(nullptr) {}
     ListNode(int x) : val(x), next(nullptr) {}
-    ListNode(int x, ListNode* next) : val(x), next(next) {}
+    ListNode(int x, ListNode *next) : val(x), next(next) {}
 };
 class Solution {
    public:
-    ListNode* DeleteDuplicates(ListNode* head) {
+    ListNode *DeleteDuplicates(ListNode *head) {
         if (head == nullptr || head->next == nullptr) {
             return head;
         }
@@ -23,7 +23,7 @@ class Solution {
         while (fast != nullptr) {
             if (fast->val == slow->val) {
                 // remove current fast
-                ListNode* tmp = fast;
+                ListNode *tmp = fast;
                 fast = fast->next;
                 slow->next = fast;
                 delete tmp;
@@ -42,17 +42,17 @@ class Solution {
 
 #include <iostream>
 #include <vector>
-ListNode* ConstructList(const std::vector<int>& elemets) {
+ListNode *ConstructList(const std::vector<int> &elemets) {
     ListNode head;
-    ListNode* tail = &head;
-    for (auto& pt : elemets) {
+    ListNode *tail = &head;
+    for (auto &pt : elemets) {
         tail->next = new ListNode(pt);
         tail = tail->next;
     }
     return head.next;
 }
 
-void FreeList(ListNode* head) {
+void FreeList(ListNode *head) {
     if (head == nullptr) {
         return;
     }
@@ -60,9 +60,9 @@ void FreeList(ListNode* head) {
     delete head;
 }
 
-void ExpectEqList(ListNode* const head, const std::vector<int>& elements) {
+void ExpectEqList(ListNode *const head, const std::vector<int> &elements) {
     int i = 0;
-    ListNode* m_head = head;
+    ListNode *m_head = head;
 
     while (m_head != nullptr) {
         EXPECT_EQ(m_head->val, elements[i]);
@@ -76,10 +76,10 @@ TEST(t0, t1) {
     std::vector<int> head{1, 1, 2};
     std::vector<int> output{1, 2};
 
-    ListNode* root = ConstructList(head);
+    ListNode *root = ConstructList(head);
 
     Solution sl;
-    auto* ret = sl.DeleteDuplicates(root);
+    auto *ret = sl.DeleteDuplicates(root);
     ExpectEqList(ret, output);
     FreeList(root);
 }
@@ -87,15 +87,15 @@ TEST(t0, t2) {
     std::vector<int> head{1, 1, 2, 3, 3};
     std::vector<int> output{1, 2, 3};
 
-    ListNode* root = ConstructList(head);
+    ListNode *root = ConstructList(head);
 
     Solution sl;
-    auto* ret = sl.DeleteDuplicates(root);
+    auto *ret = sl.DeleteDuplicates(root);
     ExpectEqList(ret, output);
     FreeList(root);
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

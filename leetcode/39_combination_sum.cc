@@ -21,8 +21,8 @@ using namespace std;
 
 class Solution {
    public:
-    void Sum(vector<int>& candidates, int target, vector<vector<int>>& res,
-             vector<int>& r, int i) {
+    void Sum(vector<int> &candidates, int target, vector<vector<int>> &res,
+             vector<int> &r, int i) {
         if (target == 0) {
             // if we get exact answer
             res.push_back(r);
@@ -43,7 +43,7 @@ class Solution {
         }
     }
 
-    vector<vector<int>> CombinationSum(vector<int>& candidates, int target) {
+    vector<vector<int>> CombinationSum(vector<int> &candidates, int target) {
         /*
             1. Sort the vector(non-decreasing).
             2. First remove all the duplicates from vector.
@@ -113,7 +113,7 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, (std::vector<std::vector<int>>{}));
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

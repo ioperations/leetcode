@@ -11,7 +11,7 @@ using namespace std;
 
 class Solution {
    public:
-    int LongestConsecutive(vector<int>& nums) {
+    int LongestConsecutive(vector<int> &nums) {
         unordered_set<int> record(nums.begin(), nums.end());
         int ans = 0;
         for (int it : nums) {
@@ -58,7 +58,7 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

@@ -10,7 +10,7 @@
 using namespace std;
 class Solution {
    public:
-    vector<int> TopKFrequent(vector<int>& nums, int k) {
+    vector<int> TopKFrequent(vector<int> &nums, int k) {
         vector<int> ret;
 
         sort(nums.begin(), nums.end());
@@ -20,13 +20,13 @@ class Solution {
         }
 
         struct Cmp {
-            bool operator()(pair<int, int>& a, pair<int, int>& b) {
+            bool operator()(pair<int, int> &a, pair<int, int> &b) {
                 return a.second < b.second;
             }
         };
 
         std::priority_queue<pair<int, int>, vector<pair<int, int>>, Cmp> q;
-        for (auto& ptr : map) {
+        for (auto &ptr : map) {
             q.push(ptr);
         }
 
@@ -36,7 +36,7 @@ class Solution {
         }
         return ret;
     }
-    vector<int> TopKFrequentV1(vector<int>& nums, int k) {
+    vector<int> TopKFrequentV1(vector<int> &nums, int k) {
         unordered_map<int, int> mp;
         priority_queue<pair<int, int>> pq;
         vector<int> ans;
@@ -110,7 +110,7 @@ TEST(t1, t2) {
 
 #include <algorithm>
 #include <vector>
-static void BenchMarkV0(benchmark::State& state) {
+static void BenchMarkV0(benchmark::State &state) {
     for (auto _ : state) {
         std::vector<int> nums = {
             1,   1,   1,   2,   2,   3,   4,   5,   6,   7,   8,   9,   10,
@@ -134,7 +134,7 @@ static void BenchMarkV0(benchmark::State& state) {
 }
 BENCHMARK(BenchMarkV0);
 
-static void BenchMarkV1(benchmark::State& state) {
+static void BenchMarkV1(benchmark::State &state) {
     for (auto _ : state) {
         std::vector<int> nums = {
             1,   1,   1,   2,   2,   3,   4,   5,   6,   7,   8,   9,   10,
@@ -158,7 +158,7 @@ static void BenchMarkV1(benchmark::State& state) {
 }
 BENCHMARK(BenchMarkV1);
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     int ret = RUN_ALL_TESTS();
     ::benchmark::Initialize(&argc, argv);

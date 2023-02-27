@@ -20,7 +20,7 @@ using namespace std;
 
 class Solution {
    public:
-    int UniquePathsWithObstacles(vector<vector<int>>& obstacle_grid) {
+    int UniquePathsWithObstacles(vector<vector<int>> &obstacle_grid) {
         int m = obstacle_grid.size(), n = obstacle_grid[0].size();
         if (obstacle_grid[0][0] == 1) return 0;
         vector<vector<int>> dp(m, vector<int>(n, 0));
@@ -44,7 +44,7 @@ class Solution {
         return dp[m - 1][n - 1];
     }
 
-    int UniquePathsWithObstaclesV1(vector<vector<int>>& obstacle_grid) {
+    int UniquePathsWithObstaclesV1(vector<vector<int>> &obstacle_grid) {
         int m = obstacle_grid.size(), n = obstacle_grid[0].size();
         vector<vector<int>> grid(m, vector<int>(n, 0));
         queue<pair<int, int>> q;
@@ -55,7 +55,7 @@ class Solution {
             pair<int, int> cell = q.front();
             q.pop();
             int next_value = grid[cell.first][cell.second];
-            for (auto& p : dirs) {
+            for (auto &p : dirs) {
                 if ((p.second + cell.second) > n - 1 ||
                     (p.first + cell.first) > m - 1 ||
                     (obstacle_grid[p.first + cell.first]
@@ -124,7 +124,7 @@ TEST(t1, t2) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

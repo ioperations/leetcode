@@ -338,7 +338,7 @@ TEST(t1, t3) {
 #include <algorithm>
 #include <vector>
 
-static void BenchV2(benchmark::State& state) {
+static void BenchV2(benchmark::State &state) {
     for (auto _ : state) {
         std::string s = "(1+(4+5+2)-3)+(6+8)";
 
@@ -350,7 +350,7 @@ static void BenchV2(benchmark::State& state) {
 }
 BENCHMARK(BenchV2);
 
-static void BenchV3(benchmark::State& state) {
+static void BenchV3(benchmark::State &state) {
     for (auto _ : state) {
         std::string s = "(1+(4+5+2)-3)+(6+8)";
 
@@ -362,7 +362,7 @@ static void BenchV3(benchmark::State& state) {
 }
 BENCHMARK(BenchV3);
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     int ret = RUN_ALL_TESTS();
     ::benchmark::Initialize(&argc, argv);

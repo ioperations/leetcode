@@ -2,7 +2,7 @@
 #include <vector>
 class Solution {
    public:
-    int MaxArea(std::vector<int>& height) {
+    int MaxArea(std::vector<int> &height) {
         int ret = 0;
         int i = 0;
         int j = height.size() - 1;
@@ -19,7 +19,7 @@ class Solution {
         return ret;
     }
 
-    int MaxAreaV2(std::vector<int>& height) {
+    int MaxAreaV2(std::vector<int> &height) {
         int l = 0;
         int h = height.size() - 1;
         int max_area = 0;
@@ -55,7 +55,7 @@ TEST(t1, t2) {
     EXPECT_EQ(ret, 49);
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

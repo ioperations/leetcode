@@ -20,10 +20,10 @@ using namespace std;
 
 class Solution {
    public:
-    bool IsPossible(vector<int>& nums) {
+    bool IsPossible(vector<int> &nums) {
         priority_queue<int, vector<int>, greater<int>> pq;
         unordered_map<int, int> um;
-        for (int& num : nums) {
+        for (int &num : nums) {
             pq.push(num);
             um[num]++;
         }
@@ -110,7 +110,7 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

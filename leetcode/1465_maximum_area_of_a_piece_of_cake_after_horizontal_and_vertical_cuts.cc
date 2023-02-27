@@ -14,8 +14,8 @@ number, return this modulo 109 + 7.*/
 using namespace std;
 class Solution {
    public:
-    int MaxArea(int h, int w, vector<int>& horizontal_cuts,
-                vector<int>& vertical_cuts) {
+    int MaxArea(int h, int w, vector<int> &horizontal_cuts,
+                vector<int> &vertical_cuts) {
         // pass
         int maxh = 0, maxv = 0;
 
@@ -74,7 +74,7 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

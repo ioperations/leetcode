@@ -11,17 +11,17 @@ struct ListNode {
     //! 值
     int val;
     //! 下一个节点
-    ListNode* next;
+    ListNode *next;
     ListNode() : val(0), next(nullptr) {}
     ListNode(int x) : val(x), next(nullptr) {}
-    ListNode(int x, ListNode* next) : val(x), next(next) {}
+    ListNode(int x, ListNode *next) : val(x), next(next) {}
 };
 
 class Solution {
    public:
-    ListNode* MergeTwoListsV2(ListNode* list1, ListNode* list2) {
-        ListNode* local_1 = list1;
-        ListNode* local_2 = list2;
+    ListNode *MergeTwoListsV2(ListNode *list1, ListNode *list2) {
+        ListNode *local_1 = list1;
+        ListNode *local_2 = list2;
         ListNode dummy, *it = &dummy;
 
         while (local_1 != nullptr && local_2 != nullptr) {
@@ -42,12 +42,12 @@ class Solution {
         return dummy.next;
     }
 
-    ListNode* MergeTwoLists(ListNode* list1, ListNode* list2) {
+    ListNode *MergeTwoLists(ListNode *list1, ListNode *list2) {
         bool not_assign = true;
 
-        ListNode* ret = nullptr;
-        ListNode* head = nullptr;
-        ListNode* pre = nullptr;
+        ListNode *ret = nullptr;
+        ListNode *head = nullptr;
+        ListNode *pre = nullptr;
 
         for (;;) {
             if (list1 != nullptr && list2 != nullptr) {
@@ -84,13 +84,13 @@ class Solution {
 #include <gtest/gtest.h>
 
 #include <iostream>
-void FreeList(ListNode* root) {
+void FreeList(ListNode *root) {
     if (root == nullptr) return;
     FreeList(root->next);
     delete root;
 }
 
-ListNode* ConstructList(const std::vector<int>& ele) {
+ListNode *ConstructList(const std::vector<int> &ele) {
     int size = ele.size();
     ListNode dummy, *it = &dummy;
     for (int i = 0; i < size; i++) {
@@ -102,17 +102,17 @@ ListNode* ConstructList(const std::vector<int>& ele) {
 }
 
 TEST(t0, t1) {
-    ListNode* s1 = ConstructList(std::vector<int>{1, 2, 4});
+    ListNode *s1 = ConstructList(std::vector<int>{1, 2, 4});
 
-    ListNode* l1 = ConstructList(std::vector<int>{1, 3, 4});
+    ListNode *l1 = ConstructList(std::vector<int>{1, 3, 4});
 
     Solution sl;
-    auto* it = sl.MergeTwoLists(s1, l1);
+    auto *it = sl.MergeTwoLists(s1, l1);
 
     std::vector<int> expected{1, 1, 2, 3, 4, 4};
 
-    auto* it_2 = it;
-    for (auto& ptr : expected) {
+    auto *it_2 = it;
+    for (auto &ptr : expected) {
         EXPECT_EQ(ptr, it->val);
         it = it->next;
     }
@@ -120,17 +120,17 @@ TEST(t0, t1) {
     FreeList(it_2);
 }
 TEST(t1, t1) {
-    ListNode* s1 = ConstructList(std::vector<int>{1, 2, 4});
+    ListNode *s1 = ConstructList(std::vector<int>{1, 2, 4});
 
-    ListNode* l1 = ConstructList(std::vector<int>{1, 3, 4});
+    ListNode *l1 = ConstructList(std::vector<int>{1, 3, 4});
 
     Solution sl;
-    auto* it = sl.MergeTwoListsV2(s1, l1);
-    auto* it_2 = it;
+    auto *it = sl.MergeTwoListsV2(s1, l1);
+    auto *it_2 = it;
 
     std::vector<int> expected{1, 1, 2, 3, 4, 4};
 
-    for (auto& ptr : expected) {
+    for (auto &ptr : expected) {
         EXPECT_EQ(ptr, it->val);
         it = it->next;
     }
@@ -143,7 +143,7 @@ TEST(t0, t3) {
     l1.val = 0;
 
     Solution sl;
-    auto* it = sl.MergeTwoLists(nullptr, &l1);
+    auto *it = sl.MergeTwoLists(nullptr, &l1);
 
     EXPECT_EQ(it->val, 0);
     EXPECT_EQ(it->next, nullptr);
@@ -151,7 +151,7 @@ TEST(t0, t3) {
 
 TEST(t0, t2) {
     Solution sl;
-    auto* it = sl.MergeTwoLists(nullptr, nullptr);
+    auto *it = sl.MergeTwoLists(nullptr, nullptr);
 
     if (it != nullptr) {
         assert(false);
@@ -163,7 +163,7 @@ TEST(t0, t2) {
 #include <algorithm>
 #include <vector>
 
-static void Benchmakrv1(benchmark::State& state) {
+static void Benchmakrv1(benchmark::State &state) {
     std::vector<int> t{1,  2,  3,  4,  5,  6,  7,  8, 9,
                        10, 11, 12, 13, 14, 15, 16, 17};
 
@@ -176,15 +176,15 @@ static void Benchmakrv1(benchmark::State& state) {
     }
 
     for (auto _ : state) {
-        ListNode* s1 = ConstructList(t);
+        ListNode *s1 = ConstructList(t);
 
-        ListNode* l1 = ConstructList(t);
+        ListNode *l1 = ConstructList(t);
 
         Solution sl;
-        auto* it = sl.MergeTwoLists(s1, l1);
-        auto* it2 = it;
+        auto *it = sl.MergeTwoLists(s1, l1);
+        auto *it2 = it;
 
-        for (auto& ptr : expected) {
+        for (auto &ptr : expected) {
             EXPECT_EQ(ptr, it->val);
             it = it->next;
         }
@@ -194,7 +194,7 @@ static void Benchmakrv1(benchmark::State& state) {
 }
 BENCHMARK(Benchmakrv1);
 
-static void Benchmakrv2(benchmark::State& state) {
+static void Benchmakrv2(benchmark::State &state) {
     std::vector<int> t{1,  2,  3,  4,  5,  6,  7,  8, 9,
                        10, 11, 12, 13, 14, 15, 16, 17};
 
@@ -208,16 +208,16 @@ static void Benchmakrv2(benchmark::State& state) {
     sort(expected.begin(), expected.end());
 
     for (auto _ : state) {
-        ListNode* s1 = ConstructList(t);
+        ListNode *s1 = ConstructList(t);
 
-        ListNode* l1 = ConstructList(t);
+        ListNode *l1 = ConstructList(t);
 
         Solution sl;
-        auto* it = sl.MergeTwoListsV2(s1, l1);
+        auto *it = sl.MergeTwoListsV2(s1, l1);
 
-        auto* it2 = it;
+        auto *it2 = it;
 
-        for (auto& ptr : expected) {
+        for (auto &ptr : expected) {
             EXPECT_EQ(ptr, it->val);
             it = it->next;
         }
@@ -227,7 +227,7 @@ static void Benchmakrv2(benchmark::State& state) {
 }
 BENCHMARK(Benchmakrv2);
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     int ret = RUN_ALL_TESTS();
     ::benchmark::Initialize(&argc, argv);

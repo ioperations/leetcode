@@ -41,11 +41,11 @@ using namespace std;
 
 class Solution {
    public:
-    int RemoveDuplicates(vector<int>& nums) {
+    int RemoveDuplicates(vector<int> &nums) {
         priority_queue<int, vector<int>, std::greater<int>> q;
         int last = 0;
         bool last_set = false;
-        for (auto& ptr : nums) {
+        for (auto &ptr : nums) {
             if (last_set) {
                 if (ptr != last) {
                     last = ptr;
@@ -95,7 +95,7 @@ TEST(t0, t2) {
     }
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

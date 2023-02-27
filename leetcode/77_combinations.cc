@@ -9,8 +9,8 @@ You may return the answer in any order.
 using namespace std;
 class Solution {
    public:
-    void Fn(int i, int k, int n, vector<int>& nums, vector<int>& v,
-            vector<vector<int>>& ans) {
+    void Fn(int i, int k, int n, vector<int> &nums, vector<int> &v,
+            vector<vector<int>> &ans) {
         // base case
         if (i > n || k == 0) {
             if (k == 0) ans.push_back(v);
@@ -66,7 +66,7 @@ TEST(t0, t2) {
     EXPECT_EQ(ret_set, o_set);
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

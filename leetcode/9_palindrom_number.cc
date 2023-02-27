@@ -10,7 +10,7 @@ class Sulution {
     }
 
    private:
-    static std::string Reverse(const std::string& s) {
+    static std::string Reverse(const std::string &s) {
         if (s.size() <= 1) {
             return s;
         }
@@ -43,7 +43,7 @@ TEST(t0, t3) {
     bool ret = s.IsPalindrome(10);
     EXPECT_EQ(ret, false);
 }
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

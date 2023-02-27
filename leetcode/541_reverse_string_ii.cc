@@ -41,7 +41,7 @@ class Solution {
         return s;
     }
 
-    void ReverseStr(string& s, int start, int end) {
+    void ReverseStr(string &s, int start, int end) {
         if (start >= (int)s.size()) {
             return;
         }
@@ -104,7 +104,7 @@ TEST(t1, t2) {
 #include <algorithm>
 #include <vector>
 
-static void BenchV1(benchmark::State& state) {
+static void BenchV1(benchmark::State &state) {
     std::string s = "abcd";
     int k = 2;
     std::string output = "bacd";
@@ -116,7 +116,7 @@ static void BenchV1(benchmark::State& state) {
     }
 }
 BENCHMARK(BenchV1);
-static void BenchV2(benchmark::State& state) {
+static void BenchV2(benchmark::State &state) {
     std::string s = "abcd";
     int k = 2;
     std::string output = "bacd";
@@ -129,7 +129,7 @@ static void BenchV2(benchmark::State& state) {
 }
 BENCHMARK(BenchV2);
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     int ret = RUN_ALL_TESTS();
     ::benchmark::Initialize(&argc, argv);

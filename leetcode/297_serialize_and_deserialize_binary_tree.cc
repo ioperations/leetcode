@@ -15,8 +15,8 @@ creative and come up with different approaches yourself.*/
 //* Definition for a binary tree node.
 struct TreeNode {
     int val;
-    TreeNode* left;
-    TreeNode* right;
+    TreeNode *left;
+    TreeNode *right;
     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
     TreeNode() {}
 };
@@ -30,13 +30,13 @@ using namespace std;
 class Codec {
    public:
     // Encodes a tree to a single string.
-    string Serialize(TreeNode* root) {
+    string Serialize(TreeNode *root) {
         if (!root) return "";
         string s = "";
-        queue<TreeNode*> q;
+        queue<TreeNode *> q;
         q.push(root);
         while (!q.empty()) {
-            TreeNode* cur = q.front();
+            TreeNode *cur = q.front();
             q.pop();
             if (cur == NULL)
                 s.append("#,");
@@ -54,19 +54,19 @@ class Codec {
     }
 
     // Decodes your encoded data to tree.
-    TreeNode* Deserialize(string data) {
+    TreeNode *Deserialize(string data) {
         if (data.size() == 0) return NULL;
 
         stringstream s(data);
         string str;
         getline(s, str, ',');
         int x = stoi(str);
-        TreeNode* root = new TreeNode(x);
-        queue<TreeNode*> q;
+        TreeNode *root = new TreeNode(x);
+        queue<TreeNode *> q;
         q.push(root);
 
         while (!q.empty()) {
-            TreeNode* cur = q.front();
+            TreeNode *cur = q.front();
             q.pop();
 
             getline(s, str, ',');
@@ -74,7 +74,7 @@ class Codec {
                 cur->left = NULL;
             } else {
                 x = stoi(str);
-                TreeNode* left_n = new TreeNode(x);
+                TreeNode *left_n = new TreeNode(x);
                 cur->left = left_n;
                 q.push(left_n);
             }
@@ -84,7 +84,7 @@ class Codec {
                 cur->right = NULL;
             } else {
                 x = stoi(str);
-                TreeNode* right_n = new TreeNode(x);
+                TreeNode *right_n = new TreeNode(x);
                 cur->right = right_n;
                 q.push(right_n);
             }
@@ -106,25 +106,25 @@ class Codec {
 using namespace std;
 
 // Decodes your encoded data to tree.
-TreeNode* ConstructBinaryTree(std::vector<std::optional<int>>& data) {
+TreeNode *ConstructBinaryTree(std::vector<std::optional<int>> &data) {
     data.resize(data.size() * 2);
     if (data.size() == 0) return nullptr;
 
     if (!data[0].has_value()) return nullptr;
-    TreeNode* root = new TreeNode(data[0].value());
-    queue<TreeNode*> q;
+    TreeNode *root = new TreeNode(data[0].value());
+    queue<TreeNode *> q;
     q.push(root);
 
     int i = 1;
 
     while (!q.empty()) {
-        TreeNode* cur = q.front();
+        TreeNode *cur = q.front();
         q.pop();
 
         if (!data[i].has_value()) {
             cur->left = NULL;
         } else {
-            TreeNode* left_n = new TreeNode(data[i].value());
+            TreeNode *left_n = new TreeNode(data[i].value());
             cur->left = left_n;
             q.push(left_n);
         }
@@ -133,7 +133,7 @@ TreeNode* ConstructBinaryTree(std::vector<std::optional<int>>& data) {
         if (!data[i].has_value()) {
             cur->right = NULL;
         } else {
-            TreeNode* right_n = new TreeNode(data[i].value());
+            TreeNode *right_n = new TreeNode(data[i].value());
             cur->right = right_n;
             q.push(right_n);
         }
@@ -144,7 +144,7 @@ TreeNode* ConstructBinaryTree(std::vector<std::optional<int>>& data) {
 
 // Function to print tree nodes in
 // InOrder fashion
-void InOrder(TreeNode* root, std::vector<string>& vec) {
+void InOrder(TreeNode *root, std::vector<string> &vec) {
     if (root != nullptr) {
         InOrder(root->left, vec);
         vec.push_back(std::to_string(root->val));
@@ -153,12 +153,12 @@ void InOrder(TreeNode* root, std::vector<string>& vec) {
     }
 }
 
-void BfsSearch(TreeNode* root, std::vector<int>& vec) {
-    queue<TreeNode*> q;
+void BfsSearch(TreeNode *root, std::vector<int> &vec) {
+    queue<TreeNode *> q;
     q.push(root);
 
     while (q.size()) {
-        TreeNode* tmp = q.front();
+        TreeNode *tmp = q.front();
 
         q.pop();
 
@@ -170,7 +170,7 @@ void BfsSearch(TreeNode* root, std::vector<int>& vec) {
     }
 }
 
-void FreeTreeNode(TreeNode* root) {
+void FreeTreeNode(TreeNode *root) {
     if (root == nullptr) return;
 
     FreeTreeNode(root->left);
@@ -179,7 +179,7 @@ void FreeTreeNode(TreeNode* root) {
     delete root;
 }
 
-void PrintBt(const std::string& prefix, const TreeNode* node, bool is_left) {
+void PrintBt(const std::string &prefix, const TreeNode *node, bool is_left) {
     if (node != nullptr) {
         std::cout << prefix;
 
@@ -194,14 +194,14 @@ void PrintBt(const std::string& prefix, const TreeNode* node, bool is_left) {
     }
 }
 
-void PrintBt(const TreeNode* node) { PrintBt("", node, false); }
+void PrintBt(const TreeNode *node) { PrintBt("", node, false); }
 
 TEST(construtTest, t1) {
     std::vector<std::optional<int>> input{
         1, 2, 3, optional<int>(), optional<int>(), 4, 5};
 
     std::vector<int> output = {1, 2, 3, 4, 5};
-    TreeNode* ret = ConstructBinaryTree(input);
+    TreeNode *ret = ConstructBinaryTree(input);
 
     PrintBt(ret);
     std::vector<int> vec;
@@ -215,7 +215,7 @@ TEST(memleak, t0) {
     std::vector<optional<int>> input{};
     std::vector<int> output = {};
 
-    TreeNode* head = ConstructBinaryTree(input);
+    TreeNode *head = ConstructBinaryTree(input);
 
     FreeTreeNode(head);
 }
@@ -225,7 +225,7 @@ TEST(t0, t1) {
     std::vector<optional<int>> input{1, 2, 3, null, null, 4, 5};
     std::vector<int> output = {1, 2, 3, 4, 5};
 
-    TreeNode* head = ConstructBinaryTree(input);
+    TreeNode *head = ConstructBinaryTree(input);
 
     PrintBt(head);
 
@@ -233,7 +233,7 @@ TEST(t0, t1) {
     std::string data = cl.Serialize(head);
 
     EXPECT_EQ(data, "1,2,3,#,#,4,5,#,#,#,#,");
-    TreeNode* ret = cl.Deserialize(data);
+    TreeNode *ret = cl.Deserialize(data);
 
     std::vector<int> vec;
     BfsSearch(ret, vec);
@@ -248,12 +248,12 @@ TEST(t0, t2) {
     std::vector<optional<int>> input(10, optional<int>());
     std::vector<int> output = {};
 
-    TreeNode* head = ConstructBinaryTree(input);
+    TreeNode *head = ConstructBinaryTree(input);
 
     Codec cl;
     string data = cl.Serialize(head);
     EXPECT_EQ(data, "");
-    TreeNode* ret = cl.Deserialize(data);
+    TreeNode *ret = cl.Deserialize(data);
 
     std::vector<int> vec;
     BfsSearch(ret, vec);
@@ -265,7 +265,7 @@ TEST(t0, t2) {
     FreeTreeNode(ret);
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

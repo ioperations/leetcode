@@ -15,7 +15,7 @@
 using namespace std;
 class Solution {
    public:
-    vector<int> NextGreaterElements(vector<int>& nums) {
+    vector<int> NextGreaterElements(vector<int> &nums) {
         // pass
         int size = nums.size();
         vector<int> ret(size, -1);
@@ -59,7 +59,7 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

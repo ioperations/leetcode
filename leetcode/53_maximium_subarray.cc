@@ -14,7 +14,7 @@ using namespace std;
 
 class Solution {
    public:
-    int MaxSubArray(vector<int>& nums) {
+    int MaxSubArray(vector<int> &nums) {
         // pass
         int max_sum = nums[0];
         int cur = max_sum;
@@ -61,7 +61,7 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, o);
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

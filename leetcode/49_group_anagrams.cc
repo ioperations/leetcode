@@ -13,7 +13,7 @@ using namespace std;
 
 class Solution {
    public:
-    vector<vector<string>> GroupAnagrams(vector<string>& strs) {
+    vector<vector<string>> GroupAnagrams(vector<string> &strs) {
         unordered_map<string, vector<string>> mapp;
         for (auto str : strs) {
             string st = str;
@@ -66,7 +66,7 @@ TEST(t0, t3) {
     EXPECT_EQ(ret_set, out_set);
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

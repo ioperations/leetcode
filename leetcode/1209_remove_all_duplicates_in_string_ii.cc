@@ -24,7 +24,7 @@ class Solution {
         std::stack<char> stack;
 
         vector<char> v;
-        for (auto& ptr : s) {
+        for (auto &ptr : s) {
             stack.push(ptr);
 
             if ((int)stack.size() >= k) {
@@ -56,11 +56,11 @@ class Solution {
     }
 
     template <typename T>
-    bool AllEuqual(const std::vector<T>& vec) {
+    bool AllEuqual(const std::vector<T> &vec) {
         if (vec.size() == 0) {
             return true;
         }
-        const T& first = vec[0];
+        const T &first = vec[0];
 
         for (int i = 1; i < (int)vec.size(); i++) {
             if (vec[i] != first) {
@@ -161,7 +161,7 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, "ps");
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

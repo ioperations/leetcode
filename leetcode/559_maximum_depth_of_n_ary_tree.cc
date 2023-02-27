@@ -14,13 +14,13 @@ using namespace std;
 class Node {
    public:
     int m_val;
-    vector<Node*> m_children;
+    vector<Node *> m_children;
 
     Node() {}
 
     Node(int val) { m_val = val; }
 
-    Node(int val, vector<Node*> children) {
+    Node(int val, vector<Node *> children) {
         m_val = val;
         m_children = children;
     }
@@ -29,11 +29,11 @@ class Node {
 
 class Solution {
    public:
-    int MaxDepth(Node* root) {
-        function<int(Node*)> fun = [&](Node* node) -> int {
+    int MaxDepth(Node *root) {
+        function<int(Node *)> fun = [&](Node *node) -> int {
             if (node == nullptr) return 0;
             int ret = 0;
-            for (auto& ptr : node->m_children) {
+            for (auto &ptr : node->m_children) {
                 ret = max(ret, fun(ptr));
             }
 
@@ -54,21 +54,21 @@ class Solution {
 
 #include <queue>
 
-vector<Node*> ConstructTreeNode(Node* z1, vector<int>& z) {
-    for (auto& ptr : z) {
-        Node* ptrn = new Node(ptr);
+vector<Node *> ConstructTreeNode(Node *z1, vector<int> &z) {
+    for (auto &ptr : z) {
+        Node *ptrn = new Node(ptr);
         z1->m_children.push_back(ptrn);
     }
     return z1->m_children;
 }
 
-Node* ConstructTreeNode(vector<optional<int>>& elements) {
+Node *ConstructTreeNode(vector<optional<int>> &elements) {
     Node n;
     if (elements.size() == 0) {
         return nullptr;
     }
-    Node* ptr = new Node(elements[0].value());
-    queue<Node*> q;
+    Node *ptr = new Node(elements[0].value());
+    queue<Node *> q;
     q.push(ptr);
 
     bool continue_loop = true;
@@ -80,9 +80,9 @@ Node* ConstructTreeNode(vector<optional<int>>& elements) {
             z.push_back(elements[i].value());
             i++;
         }
-        Node* z1 = q.front();
-        vector<Node*> ret = ConstructTreeNode(z1, z);
-        for (auto& ptr : ret) {
+        Node *z1 = q.front();
+        vector<Node *> ret = ConstructTreeNode(z1, z);
+        for (auto &ptr : ret) {
             q.push(ptr);
         }
         q.pop();
@@ -93,11 +93,11 @@ Node* ConstructTreeNode(vector<optional<int>>& elements) {
     return ptr;
 }
 
-void FreeNode(Node* n) {
+void FreeNode(Node *n) {
     if (n == nullptr) {
         return;
     }
-    for (auto& ptr : n->m_children) {
+    for (auto &ptr : n->m_children) {
         FreeNode(ptr);
     }
     delete n;
@@ -105,13 +105,13 @@ void FreeNode(Node* n) {
 
 TEST(memleak, t1) {
     vector<optional<int>> z{1, optional<int>{}, 3, 2, 4, optional<int>{}, 5, 6};
-    Node* n = ConstructTreeNode(z);
+    Node *n = ConstructTreeNode(z);
     FreeNode(n);
 }
 
 TEST(t0, t1) {
     vector<optional<int>> z{1, optional<int>{}, 3, 2, 4, optional<int>{}, 5, 6};
-    Node* n = ConstructTreeNode(z);
+    Node *n = ConstructTreeNode(z);
     int output = 3;
     Solution sl;
     int ret = sl.MaxDepth(n);
@@ -123,7 +123,7 @@ TEST(t0, t2) {
     vector<optional<int>> z{1,    null, 2,    3,    4,    5,    null, null, 6,
                             7,    null, 8,    null, 9,    10,   null, null, 11,
                             null, 12,   null, 13,   null, null, 14};
-    Node* n = ConstructTreeNode(z);
+    Node *n = ConstructTreeNode(z);
     Solution sl;
     int output = 5;
     int ret = sl.MaxDepth(n);
@@ -131,7 +131,7 @@ TEST(t0, t2) {
     FreeNode(n);
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

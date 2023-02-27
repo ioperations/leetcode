@@ -50,8 +50,8 @@ class Solution {
 template <typename T>
 struct TreeNode {
     T val;
-    struct TreeNode<T>* left;
-    struct TreeNode<T>* right;
+    struct TreeNode<T> *left;
+    struct TreeNode<T> *right;
     TreeNode() : val(T()), left(nullptr), right(nullptr) {}
     TreeNode(T val) : val(val), left(nullptr), right(nullptr) {}
 };
@@ -61,17 +61,17 @@ struct TreeNode {
 #include <queue>
 /// construct a tree
 template <typename T>
-TreeNode<T>* ConstructTree(const std::vector<std::optional<T>>& elements,
+TreeNode<T> *ConstructTree(const std::vector<std::optional<T>> &elements,
                            bool dummy) {
-    std::queue<TreeNode<T>*> q;
+    std::queue<TreeNode<T> *> q;
     if (!elements[0].has_value()) return nullptr;
 
-    TreeNode<T>* node = new TreeNode<T>(elements[0].value());
+    TreeNode<T> *node = new TreeNode<T>(elements[0].value());
     q.push(node);
 
     int size = elements.size();
     for (int i = 1; i < size; i++) {
-        TreeNode<T>* tmp = q.front();
+        TreeNode<T> *tmp = q.front();
         if (elements[i].has_value()) {
             tmp->left = new TreeNode<T>(elements[i].value());
             q.push(tmp->left);
@@ -92,7 +92,7 @@ TreeNode<T>* ConstructTree(const std::vector<std::optional<T>>& elements,
 }
 
 template <typename T>
-void FreeTreeNode(TreeNode<T>* root, bool dummy) {
+void FreeTreeNode(TreeNode<T> *root, bool dummy) {
     if (root == nullptr) {
         return;
     }
@@ -128,11 +128,11 @@ TEST(t0, t3) {
 TEST(t0, t4) {
 #define null std::optional<int>()
     std::vector<std::optional<int>> values{1, 2, 3, 4, 5, 6, 7, null, null};
-    TreeNode<int>* n = ConstructTree<int>(values, true);
+    TreeNode<int> *n = ConstructTree<int>(values, true);
     FreeTreeNode<int>(n, true);
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

@@ -46,7 +46,7 @@ class UndergroundSystem {
     void CheckOut(int id, string station_name, int t) {
         auto it = find_if(
             m_wait.begin(), m_wait.end(),
-            [&](const std::pair<int, Node>& n) { return id == n.first; });
+            [&](const std::pair<int, Node> &n) { return id == n.first; });
         if (it == m_wait.end()) return;
         Node n = it->second;
         std::string s = n.station >= station_name ? n.station : station_name;
@@ -61,7 +61,7 @@ class UndergroundSystem {
         std::string d =
             start_station < end_station ? start_station : end_station;
         double sum = 0;
-        auto& z = m_already[make_pair(s, d)];
+        auto &z = m_already[make_pair(s, d)];
         for_each(z.begin(), z.end(), [&](int n) { sum += n; });
 
         return z.size() ? sum / z.size() : 0;
@@ -100,14 +100,14 @@ class Solution2 {
     }
 
     void CheckOut(int id, string station_name, int t) {
-        auto& info = in_transit[id];
+        auto &info = in_transit[id];
         string start_station = info.first;
         int start_time = info.second;
         string key = start_station + ":" + station_name;
         int time = t - start_time;
 
         if (station_times.find(key) != station_times.end()) {
-            auto& old_times = station_times[key];
+            auto &old_times = station_times[key];
             old_times.first += time;
             old_times.second++;
         } else {
@@ -118,7 +118,7 @@ class Solution2 {
 
     double GetAverageTime(string start_station, string end_station) {
         string key = start_station + ":" + end_station;
-        auto& info = station_times[key];
+        auto &info = station_times[key];
         double avg = (double)info.first / (double)info.second;
         return avg;
     }
@@ -175,7 +175,7 @@ undergroundSystem.checkOut(10, "Waterloo", 38);  // Customer 10 "Leyton" ->
 undergroundSystem.getAverageTime("Leyton", "Waterloo");
 // return 12.00000. Three trips "Leyton" -> "Waterloo", (10 + 12 + 14) / 3 = 12
     */
-    Solution2* rgs = new Solution2();
+    Solution2 *rgs = new Solution2();
 
     rgs->CheckIn(45, "Leyton", 3);
     rgs->CheckIn(32, "Paradise", 8);
@@ -202,7 +202,7 @@ undergroundSystem.getAverageTime("Leyton", "Waterloo");
 }
 
 TEST(t0, t2) {
-    Solution2* rgs = new Solution2();
+    Solution2 *rgs = new Solution2();
 
     rgs->CheckIn(10, "Leyton", 3);
     rgs->CheckOut(10, "Paradise", 8);
@@ -229,7 +229,7 @@ TEST(t0, t2) {
 }
 
 TEST(t0, t3) {
-    Solution2* rgs = new Solution2();
+    Solution2 *rgs = new Solution2();
 
     rgs->CheckIn(1, "Leeds", 3);
 
@@ -263,7 +263,7 @@ TEST(t0, t3) {
 
     delete rgs;
 }
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

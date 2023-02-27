@@ -16,8 +16,8 @@ requirement. You could assume there always exists an answer.
 using namespace std;
 class Solution {
    public:
-    vector<string> FindRestaurant(vector<string>& list1,
-                                  vector<string>& list2) {
+    vector<string> FindRestaurant(vector<string> &list1,
+                                  vector<string> &list2) {
         unordered_map<string, int> pos;
         vector<string> ans;
         int min_sum = INT_MAX;
@@ -68,7 +68,7 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

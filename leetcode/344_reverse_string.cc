@@ -12,14 +12,14 @@ You must do this by modifying the input array in-place with O(1) extra memory.
 
 class Solution {
    public:
-    void ReverseString(std::vector<char>& s) {
+    void ReverseString(std::vector<char> &s) {
         // pass
         std::reverse(s.begin(), s.end());
     }
 
-    void ReverseStringV2(std::vector<char>& s) {
+    void ReverseStringV2(std::vector<char> &s) {
         std::stack<char> sk;
-        for (auto& ptr : s) {
+        for (auto &ptr : s) {
             sk.push(ptr);
         }
 
@@ -59,7 +59,7 @@ TEST(t0, t2) {
 
     EXPECT_EQ(s, output);
 }
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

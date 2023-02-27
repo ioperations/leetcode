@@ -6,19 +6,19 @@ Given the head of a singly linked list, return true if it is a palindrome.
 //* Definition for singly-linked list.
 struct ListNode {
     int val;
-    ListNode* next;
+    ListNode *next;
     ListNode() : val(0), next(nullptr) {}
     ListNode(int x) : val(x), next(nullptr) {}
-    ListNode(int x, ListNode* next) : val(x), next(next) {}
+    ListNode(int x, ListNode *next) : val(x), next(next) {}
 };
 
 #include <vector>
 
 class Solution2 {
    public:
-    bool IsPalindrome(ListNode* head) {
-        auto* right = head;
-        auto* left = head;
+    bool IsPalindrome(ListNode *head) {
+        auto *right = head;
+        auto *left = head;
 
         // Left makes one step when right makes two
         while (right->next) {
@@ -46,10 +46,10 @@ class Solution2 {
     }
 
     // common reverse algorithm
-    static void Reverse(ListNode* from) noexcept {
-        ListNode* prev = nullptr;
-        ListNode* cur = from;
-        ListNode* tmp = nullptr;
+    static void Reverse(ListNode *from) noexcept {
+        ListNode *prev = nullptr;
+        ListNode *cur = from;
+        ListNode *tmp = nullptr;
         while (cur) {
             tmp = cur->next;
             cur->next = prev;
@@ -61,9 +61,9 @@ class Solution2 {
 
 class Solution {
    public:
-    bool IsPalindrome(ListNode* head) {
-        std::vector<ListNode*> vec;
-        ListNode* z = head;
+    bool IsPalindrome(ListNode *head) {
+        std::vector<ListNode *> vec;
+        ListNode *z = head;
         while (z != nullptr) {
             vec.push_back(z);
             z = z->next;
@@ -72,7 +72,7 @@ class Solution {
         return IsPalindrome(vec);
     }
 
-    bool IsPalindrome(std::vector<ListNode*>& vec) {
+    bool IsPalindrome(std::vector<ListNode *> &vec) {
         std::size_t size = vec.size();
         if (vec.size() == 1 || vec.size() == 0) {
             return true;
@@ -105,17 +105,17 @@ class Solution {
 
 #include <iostream>
 #include <vector>
-ListNode* ConstuctList(const std::vector<int>& elemets) {
+ListNode *ConstuctList(const std::vector<int> &elemets) {
     ListNode head;
-    ListNode* tail = &head;
-    for (auto& pt : elemets) {
+    ListNode *tail = &head;
+    for (auto &pt : elemets) {
         tail->next = new ListNode(pt);
         tail = tail->next;
     }
     return head.next;
 }
 
-void FreeList(ListNode* head) {
+void FreeList(ListNode *head) {
     if (head == nullptr) {
         return;
     }
@@ -123,9 +123,9 @@ void FreeList(ListNode* head) {
     delete head;
 }
 
-void ExpectEqList(ListNode* const head, const std::vector<int>& elements) {
+void ExpectEqList(ListNode *const head, const std::vector<int> &elements) {
     int i = 0;
-    ListNode* m_head = head;
+    ListNode *m_head = head;
 
     while (m_head != nullptr) {
         EXPECT_EQ(m_head->val, elements[i]);
@@ -140,7 +140,7 @@ void ExpectEqList(ListNode* const head, const std::vector<int>& elements) {
 #include <iostream>
 
 TEST(t0, t1) {
-    ListNode* head = ConstuctList(std::vector<int>{1, 2, 2, 1});
+    ListNode *head = ConstuctList(std::vector<int>{1, 2, 2, 1});
 
     Solution s;
     bool ret = s.IsPalindrome(head);
@@ -164,7 +164,7 @@ TEST(t1, t1) {
 }
 
 TEST(t0, t2) {
-    ListNode* head = ConstuctList(std::vector<int>{1, 2});
+    ListNode *head = ConstuctList(std::vector<int>{1, 2});
 
     Solution s;
     bool ret = s.IsPalindrome(head);
@@ -188,7 +188,7 @@ TEST(t1, t2) {
 #include <algorithm>
 #include <vector>
 
-static void BenchFastSlow(benchmark::State& state) {
+static void BenchFastSlow(benchmark::State &state) {
     Solution2 s;
     for (auto _ : state) {
         ListNode head(1);
@@ -219,7 +219,7 @@ static void BenchFastSlow(benchmark::State& state) {
     }
 }
 BENCHMARK(BenchFastSlow);
-static void BenchMyVec(benchmark::State& state) {
+static void BenchMyVec(benchmark::State &state) {
     Solution s;
     for (auto _ : state) {
         ListNode head(1);
@@ -251,7 +251,7 @@ static void BenchMyVec(benchmark::State& state) {
 }
 BENCHMARK(BenchMyVec);
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     int ret = RUN_ALL_TESTS();
 

@@ -15,7 +15,7 @@ class Solution {
         return false;
     }
 
-    string RemoveAllUNreleated(std::string& ss) {
+    string RemoveAllUNreleated(std::string &ss) {
         std::string ret;
         for (int i = 0; i < (int)ss.size(); i++) {
             if ('A' <= ss[i] && ss[i] <= 'Z') {
@@ -29,7 +29,7 @@ class Solution {
         return ret;
     }
 
-    bool IsPalindrome(string& s, int i, int j) {
+    bool IsPalindrome(string &s, int i, int j) {
         while (i < j) {
             if (s[i] == s[j]) {
                 i++;
@@ -86,7 +86,7 @@ TEST(t0, t4) {
     bool ret = sl.IsPalindrome(s);
     EXPECT_EQ(ret, output);
 }
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

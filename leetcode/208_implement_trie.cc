@@ -20,7 +20,7 @@ class Trie {
    private:
     class TrieNode {
        public:
-        vector<TrieNode*> child;
+        vector<TrieNode *> child;
         bool is_end;
         TrieNode() {
             child.resize(26, NULL);
@@ -28,11 +28,11 @@ class Trie {
         }
         ~TrieNode() { child.clear(); }
     };
-    TrieNode* root;
+    TrieNode *root;
 
-    void DeleteTrieNode(TrieNode* root) {
+    void DeleteTrieNode(TrieNode *root) {
         if (root != nullptr) {
-            for (auto& ptr : root->child) {
+            for (auto &ptr : root->child) {
                 DeleteTrieNode(ptr);
             }
             delete root;
@@ -44,7 +44,7 @@ class Trie {
     ~Trie() { DeleteTrieNode(root); }
 
     void Insert(string word) {
-        TrieNode* c = root;
+        TrieNode *c = root;
         for (auto x : word) {
             if (c->child[x - 'a'] == NULL) {
                 c->child[x - 'a'] = new TrieNode();
@@ -55,7 +55,7 @@ class Trie {
     }
 
     bool Search(string word) {
-        TrieNode* c = root;
+        TrieNode *c = root;
         for (auto x : word) {
             if (c->child[x - 'a'] == NULL) {
                 return false;
@@ -66,7 +66,7 @@ class Trie {
     }
 
     bool StartsWith(string prefix) {
-        TrieNode* c = root;
+        TrieNode *c = root;
         for (auto x : prefix) {
             if (c->child[x - 'a'] == NULL) {
                 return false;
@@ -97,20 +97,20 @@ class TrieV1 {
 
     void Insert(string word) {
         // pass
-        Tree* z = &root;
+        Tree *z = &root;
         for (int i = 0; i < (int)word.size(); i++) {
-            auto& t = z->map[word[i]];
+            auto &t = z->map[word[i]];
             z = &t;
         }
         z->end = true;
     }
 
     bool Search(string word) {
-        Tree* z = &root;
+        Tree *z = &root;
         for (int i = 0; i < (int)word.size(); i++) {
             auto t = z->map.find(word[i]);
             if (t != z->map.end()) {
-                auto& t = z->map[word[i]];
+                auto &t = z->map[word[i]];
                 z = &t;
             } else {
                 return false;
@@ -120,11 +120,11 @@ class TrieV1 {
     }
 
     bool StartsWith(string prefix) {
-        Tree* z = &root;
+        Tree *z = &root;
         for (int i = 0; i < (int)prefix.size(); i++) {
             auto t = z->map.find(prefix[i]);
             if (t != z->map.end()) {
-                auto& t = z->map[prefix[i]];
+                auto &t = z->map[prefix[i]];
                 z = &t;
             } else {
                 return false;
@@ -154,7 +154,7 @@ TEST(t0, t1) {
     //    Output [null, null, true, false, true, null, true]
 
     bool ret;
-    Trie* trie = new Trie();
+    Trie *trie = new Trie();
     trie->Insert("apple");
     ret = trie->Search("apple");  // return True
     EXPECT_EQ(ret, true);
@@ -175,7 +175,7 @@ TEST(t1, t1) {
     //    Output [null, null, true, false, true, null, true]
 
     bool ret;
-    TrieV1* trie = new TrieV1();
+    TrieV1 *trie = new TrieV1();
     trie->Insert("apple");
     ret = trie->Search("apple");  // return True
 
@@ -199,10 +199,10 @@ TEST(t1, t1) {
 #include <algorithm>
 #include <vector>
 
-static void BenchMarkOther(benchmark::State& state) {
+static void BenchMarkOther(benchmark::State &state) {
     for (auto _ : state) {
         bool ret;
-        Trie* trie = new Trie();
+        Trie *trie = new Trie();
         trie->Insert("apple");
         ret = trie->Search("apple");  // return True
         EXPECT_EQ(ret, true);
@@ -218,10 +218,10 @@ static void BenchMarkOther(benchmark::State& state) {
 }
 BENCHMARK(BenchMarkOther);
 
-static void BenchMarkMyImpl(benchmark::State& state) {
+static void BenchMarkMyImpl(benchmark::State &state) {
     for (auto _ : state) {
         bool ret;
-        TrieV1* trie = new TrieV1();
+        TrieV1 *trie = new TrieV1();
         trie->Insert("apple");
         ret = trie->Search("apple");  // return True
         EXPECT_EQ(ret, true);
@@ -237,7 +237,7 @@ static void BenchMarkMyImpl(benchmark::State& state) {
 }
 BENCHMARK(BenchMarkMyImpl);
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     int ret = RUN_ALL_TESTS();
     ::benchmark::Initialize(&argc, argv);

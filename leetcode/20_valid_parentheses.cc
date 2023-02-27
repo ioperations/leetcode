@@ -15,7 +15,7 @@ class Solution {
    public:
     bool IsValid(string s) {
         std::stack<char> stack;
-        for (auto& ptr : s) {
+        for (auto &ptr : s) {
             if (ptr == '(' || ptr == '[' || ptr == '{') {
                 stack.push(ptr);
             } else {
@@ -86,7 +86,7 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

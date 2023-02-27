@@ -20,7 +20,7 @@ class Solution {
         }
         return count;
     }
-    bool IsParlindromic(std::string& s, int i, int j) {
+    bool IsParlindromic(std::string &s, int i, int j) {
         while (i < j) {
             if (s[i] == s[j]) {
                 i++;
@@ -104,7 +104,7 @@ TEST(t1, t2) {
 #include <algorithm>
 #include <vector>
 
-static void BenchMarkV1(benchmark::State& state) {
+static void BenchMarkV1(benchmark::State &state) {
     for (auto _ : state) {
         string s = "aaa";
         int output = 6;
@@ -118,7 +118,7 @@ static void BenchMarkV1(benchmark::State& state) {
 }
 BENCHMARK(BenchMarkV1);
 
-static void BenchMarkV0(benchmark::State& state) {
+static void BenchMarkV0(benchmark::State &state) {
     for (auto _ : state) {
         string s = "aaa";
         int output = 6;
@@ -132,7 +132,7 @@ static void BenchMarkV0(benchmark::State& state) {
 }
 BENCHMARK(BenchMarkV0);
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     int ret = RUN_ALL_TESTS();
     ::benchmark::Initialize(&argc, argv);

@@ -68,10 +68,10 @@ class Solution {
     /**
      * @brief 确定字符串是不是会越界
      */
-    static bool OutOfRange(const std::string& s) {
+    static bool OutOfRange(const std::string &s) {
         const int32_t max = std::numeric_limits<int32_t>::max();
         int32_t sum = 0;
-        for (const auto& ptr : s) {
+        for (const auto &ptr : s) {
             if ('0' <= ptr && ptr <= '9') {
                 if (((double)(max - (ptr - '0')) / 10) >= sum) {
                     // 怎么老是报错 说是越界
@@ -159,7 +159,7 @@ TEST(t1, t5) {
     EXPECT_EQ(ret, 0);
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

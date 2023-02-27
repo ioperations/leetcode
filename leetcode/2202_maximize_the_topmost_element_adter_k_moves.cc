@@ -19,7 +19,7 @@ using namespace std;
 
 class Solution {
    public:
-    int MaximumTop(vector<int>& nums, int k) {
+    int MaximumTop(vector<int> &nums, int k) {
         // sloution v1
         int z_max = -1;
         if (nums.size() == 1 && k % 2 == 1) return -1;
@@ -42,8 +42,8 @@ class Solution {
             nums[k % nums.size()],
             *max_element(nums.begin(), min(nums.end(), nums.begin() + k - 1)));
 
-        function<int(int, vector<int>&)> fun = [&](int move_count,
-                                                   vector<int>& mem) {
+        function<int(int, vector<int> &)> fun = [&](int move_count,
+                                                    vector<int> &mem) {
             if (move_count > k) {
                 if (!nums.size()) return -1;
                 return nums[0];
@@ -59,7 +59,7 @@ class Solution {
             }
             int step_2 = -1;
 
-            for (auto& ptr : mem) {
+            for (auto &ptr : mem) {
                 nums.insert(nums.begin(), ptr);
                 step_2 = max(step_2, fun(move_count + 1, mem));
                 nums.erase(nums.begin(), nums.begin() + 1);
@@ -122,7 +122,7 @@ TEST(t0, t3) {
     return -1.*/
     EXPECT_EQ(ret, output);
 }
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

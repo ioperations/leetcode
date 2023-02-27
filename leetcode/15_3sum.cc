@@ -16,7 +16,7 @@ using namespace std;
 
 class Solution {
    public:
-    vector<vector<int>> ThreeSum(vector<int>& nums) {
+    vector<vector<int>> ThreeSum(vector<int> &nums) {
         std::vector<std::vector<int>> ret;
 
         for (size_t i = 0; i < nums.size(); i++) {
@@ -33,7 +33,7 @@ class Solution {
         return ret;
     }
 
-    vector<vector<int>> ThreeSumV2(vector<int>& nums) {
+    vector<vector<int>> ThreeSumV2(vector<int> &nums) {
         int n = nums.size();
         vector<vector<int>> res;
         sort(nums.begin(), nums.end());
@@ -66,9 +66,9 @@ class Solution {
         return res;
     }
 
-    bool HasElements(const std::vector<std::vector<int>>& nums,
-                     const std::vector<int>& elements) noexcept {
-        for (auto& ptr : nums) {
+    bool HasElements(const std::vector<std::vector<int>> &nums,
+                     const std::vector<int> &elements) noexcept {
+        for (auto &ptr : nums) {
             if (Equal(ptr, elements)) return true;
         }
 
@@ -78,7 +78,7 @@ class Solution {
     // first.size() ==3 && second.size() ==3
     // first[0] + first[1]  + first[2]  =0
     // second[0] + second[1]  + second[2]  =0
-    bool Equal(const std::vector<int>& first, const std::vector<int>& second) {
+    bool Equal(const std::vector<int> &first, const std::vector<int> &second) {
         // assert(first.size() == second.size() == 3);
         if (first[0] == second[0]) {
             if (first[1] == second[1] || first[1] == second[2]) {
@@ -99,7 +99,7 @@ class Solution {
         return false;
     }
 
-    std::vector<int> TwoSum(vector<int>& nums, int left, int target) {
+    std::vector<int> TwoSum(vector<int> &nums, int left, int target) {
         std::vector<int> ret;
         for (size_t i = left; i < nums.size(); ++i) {
             for (size_t j = i + 1; j < nums.size(); j++) {
@@ -116,20 +116,20 @@ class Solution {
     struct ListNode {
         int position;
         int val;
-        struct ListNode* next;
+        struct ListNode *next;
         ListNode() : position(), val(), next(nullptr) {}
-        ListNode(int position, int val, struct ListNode* next)
+        ListNode(int position, int val, struct ListNode *next)
             : position(position), val(val), next(next) {}
 
         ListNode(int position, int val)
             : position(position), val(val), next(nullptr) {}
 
-        ListNode(struct ListNode* next) : position(), val(), next(next) {}
+        ListNode(struct ListNode *next) : position(), val(), next(next) {}
     };
 
-    ListNode* ConstructList(std::vector<int>& nums) {
+    ListNode *ConstructList(std::vector<int> &nums) {
         struct ListNode head;
-        struct ListNode* tail = &head;
+        struct ListNode *tail = &head;
         for (size_t i = 0; i < nums.size(); i++) {
             tail->next = new ListNode(i, nums[i]);
             tail = tail->next;
@@ -137,7 +137,7 @@ class Solution {
         return head.next;
     }
 
-    void FreeList(ListNode* head) {
+    void FreeList(ListNode *head) {
         if (head == nullptr) {
             return;
         }
@@ -175,8 +175,7 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, expected);
 }
 
-
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

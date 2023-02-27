@@ -12,17 +12,17 @@ Return true if there is a cycle in the linked list. Otherwise, return false
 //* Definition for singly-linked list.
 struct ListNode {
     int val;
-    ListNode* next;
+    ListNode *next;
     ListNode() : val(), next(nullptr) {}
     ListNode(int x) : val(x), next(nullptr) {}
 };
 
 class Solution {
    public:
-    ListNode* DetectCycle(ListNode* head) {
+    ListNode *DetectCycle(ListNode *head) {
         bool cycle_present = false;
-        ListNode* fast = head;
-        ListNode* slow = head;
+        ListNode *fast = head;
+        ListNode *slow = head;
         while (fast != nullptr and fast->next != nullptr) {
             fast = fast->next->next;
             slow = slow->next;
@@ -34,7 +34,7 @@ class Solution {
         if (cycle_present == false) {
             return nullptr;
         }
-        ListNode* k = head;
+        ListNode *k = head;
         while (k != slow) {
             k = k->next;
             slow = slow->next;
@@ -46,17 +46,17 @@ class Solution {
 #include <gtest/gtest.h>
 
 #include <iostream>
-ListNode* ConstuctList(const std::vector<int>& elemets) {
+ListNode *ConstuctList(const std::vector<int> &elemets) {
     ListNode head;
-    ListNode* tail = &head;
-    for (auto& pt : elemets) {
+    ListNode *tail = &head;
+    for (auto &pt : elemets) {
         tail->next = new ListNode(pt);
         tail = tail->next;
     }
     return head.next;
 }
 
-void FreeList(ListNode* head) {
+void FreeList(ListNode *head) {
     if (head == nullptr) {
         return;
     }
@@ -64,9 +64,9 @@ void FreeList(ListNode* head) {
     delete head;
 }
 
-void ExpectEqList(ListNode* const head, const std::vector<int>& elements) {
+void ExpectEqList(ListNode *const head, const std::vector<int> &elements) {
     int i = 0;
-    ListNode* m_head = head;
+    ListNode *m_head = head;
 
     while (m_head != nullptr) {
         EXPECT_EQ(m_head->val, elements[i]);
@@ -76,7 +76,7 @@ void ExpectEqList(ListNode* const head, const std::vector<int>& elements) {
     EXPECT_EQ(i, elements.size());
 }
 TEST(memleak, t1) {
-    ListNode* head = ConstuctList(std::vector<int>{3, 2, 0, -4});
+    ListNode *head = ConstuctList(std::vector<int>{3, 2, 0, -4});
 
     FreeList(head);
 }
@@ -98,10 +98,10 @@ TEST(t0, t1) {
 
     */
 
-    ListNode* head = ConstuctList(std::vector<int>{3, 2, 0, -4});
+    ListNode *head = ConstuctList(std::vector<int>{3, 2, 0, -4});
 
-    ListNode* it = head;
-    ListNode* it2 = head;
+    ListNode *it = head;
+    ListNode *it2 = head;
 
     it = it->next;
 
@@ -112,7 +112,7 @@ TEST(t0, t1) {
     it2->next = it;
 
     Solution s;
-    ListNode* ret = s.DetectCycle(head);
+    ListNode *ret = s.DetectCycle(head);
     EXPECT_EQ(ret->val, 2);
 
     it2->next = nullptr;
@@ -130,10 +130,10 @@ TEST(t0, t2) {
          |-------------------|
     */
 
-    ListNode* head = ConstuctList(std::vector<int>{1, 2});
+    ListNode *head = ConstuctList(std::vector<int>{1, 2});
 
-    ListNode* it = head;
-    ListNode* it2 = head;
+    ListNode *it = head;
+    ListNode *it2 = head;
 
     while (it2->next != nullptr) {
         it2 = it2->next;
@@ -142,7 +142,7 @@ TEST(t0, t2) {
     it2->next = it;
 
     Solution s;
-    ListNode* ret = s.DetectCycle(head);
+    ListNode *ret = s.DetectCycle(head);
     EXPECT_EQ(ret->val, 1);
 
     it2->next = nullptr;
@@ -157,26 +157,26 @@ TEST(t0, t3) {
         |___|
 
     */
-    ListNode* head = ConstuctList(std::vector<int>{1});
+    ListNode *head = ConstuctList(std::vector<int>{1});
 
     Solution s;
-    ListNode* ret = s.DetectCycle(head);
+    ListNode *ret = s.DetectCycle(head);
     EXPECT_EQ(ret, nullptr);
 
     FreeList(head);
 }
 
 TEST(t0, t4) {
-    ListNode* head = ConstuctList(std::vector<int>{});
+    ListNode *head = ConstuctList(std::vector<int>{});
 
     Solution s;
-    ListNode* ret = s.DetectCycle(head);
+    ListNode *ret = s.DetectCycle(head);
     EXPECT_EQ(ret, nullptr);
 
     FreeList(head);
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

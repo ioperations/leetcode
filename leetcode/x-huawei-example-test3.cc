@@ -12,7 +12,7 @@ void Processing(std::string s) {
 
     int ret = 0;
 
-    for (auto& c : s2) {
+    for (auto &c : s2) {
         int cur = 0;
         if ('A' <= c && c <= 'F') {
             cur = 10 + c - 'A';
@@ -70,7 +70,7 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, std::string("170\n"));
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

@@ -27,7 +27,7 @@ class Solution {
 
         bool negative = false;
 
-        for (const auto& char_ref : s) {
+        for (const auto &char_ref : s) {
             if ('0' <= char_ref && char_ref <= '9') {
                 // if (fill) {
                 ret = ret * 10 + char_ref - '0';
@@ -77,7 +77,7 @@ TEST(t4, t2) {
     int ret = sl.myAtoi(s);
     EXPECT_EQ(987, ret);
 }
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

@@ -58,7 +58,7 @@ TEST(t0, t1) {
     t1 = sl.RandPoint();  // return [0.36572, 0.17248]
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

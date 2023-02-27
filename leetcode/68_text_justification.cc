@@ -29,14 +29,14 @@ using namespace std;
 
 class Solution {
    public:
-    vector<string> FullJustify(vector<string>& words, int max_width) {
+    vector<string> FullJustify(vector<string> &words, int max_width) {
         // int i = 0;
 
         vector<string> ret;
         std::queue<std::string> q;
 
         int size = 0;
-        for (const auto& ptr : words) {
+        for (const auto &ptr : words) {
         retry:
             int remain_size = max_width - size -
                               (q.size() ? (q.size() - 1) : 0) -
@@ -71,7 +71,7 @@ class Solution {
 
         return ret;
     }
-    std::string BuildMaxLeft(std::queue<std::string>& q, int space_size) {
+    std::string BuildMaxLeft(std::queue<std::string> &q, int space_size) {
         std::string ret;
 
         std::vector<int> z = SaperateEvenly(space_size, q.size() - 1);
@@ -93,7 +93,7 @@ class Solution {
         return ret;
     }
 
-    std::string BuildAliagnToLeft(std::queue<std::string>& q) {
+    std::string BuildAliagnToLeft(std::queue<std::string> &q) {
         std::string ret;
         while (q.size()) {
             auto tmp = q.front();
@@ -213,7 +213,7 @@ TEST(t0, t4) {
     EXPECT_EQ(ret, expected);
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

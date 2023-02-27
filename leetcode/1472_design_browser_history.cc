@@ -35,7 +35,7 @@ class BrowserHistory {
 
     Node *home_page, *curr_page;
 
-    void DeleteNode(Node* head) {
+    void DeleteNode(Node *head) {
         if (head == nullptr) {
             return;
         }
@@ -51,8 +51,8 @@ class BrowserHistory {
     }
 
     void Visit(string url) {
-        Node* new_page = new Node(url);
-        Node* zz = nullptr;
+        Node *new_page = new Node(url);
+        Node *zz = nullptr;
         if (curr_page->next) {
             DeleteNode(curr_page->next);
         }
@@ -100,7 +100,7 @@ class BrowserHistory {
 
 TEST(t0, t1) {
     // Explanation:
-    BrowserHistory* browser_history = new BrowserHistory("leetcode.com");
+    BrowserHistory *browser_history = new BrowserHistory("leetcode.com");
     // You are in "leetcode.com". Visit "google.com"
     browser_history->Visit("google.com");
     browser_history->Visit("facebook.com");
@@ -134,7 +134,7 @@ TEST(t0, t2) {
     // [null,null,null,null,"facebook.com","google.com","facebook.com",null,"linkedin.com","google.com","leetcode.com"]
 
     // Explanation:
-    BrowserHistory* browser_history = new BrowserHistory("leetcode.com");
+    BrowserHistory *browser_history = new BrowserHistory("leetcode.com");
     // You are in "leetcode.com". Visit "google.com"
     browser_history->Visit("google.com");
     // You are in "google.com". Visit "facebook.com"
@@ -174,7 +174,7 @@ TEST(t0, t2) {
     delete browser_history;
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

@@ -7,10 +7,10 @@
 using namespace std;
 class Solution {
    public:
-    void solveSudoku(vector<vector<char>>& board);
+    void solveSudoku(vector<vector<char>> &board);
 
    private:
-    bool valid(vector<vector<char>>& board);
+    bool valid(vector<vector<char>> &board);
     /// **get candidate using the position**
     /// * NOTE: this function do have sequence dependency cause it use global
     /// state
@@ -20,11 +20,11 @@ class Solution {
 };
 
 /// 横着没有重复 竖着没有重复 九宫格内没有重复
-bool Solution::valid(vector<vector<char>>& board) { return false; }
+bool Solution::valid(vector<vector<char>> &board) { return false; }
 
 /// 将数独棋盘填充完整
 /// 暴力破解
-void Solution::solveSudoku(vector<vector<char>>& board) {
+void Solution::solveSudoku(vector<vector<char>> &board) {
     /// get candidate
 
     /// 一行中第一个空位 填充 在这个情况下填充第二个 空位（ 空位的选择
@@ -40,7 +40,7 @@ void Solution::solveSudoku(vector<vector<char>>& board) {
      */
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     Solution p;
     vector<char> v_1({'5', '3', '.', '.', '7', '.', '.', '.', '.'});
     vector<char> v_2({'6', '.', '.', '1', '9', '5', '.', '.', '.'});
@@ -56,8 +56,8 @@ int main(int argc, char* argv[]) {
 
     p.solveSudoku(v);
 
-    for (auto& p : v) {
-        for (auto& z : p) {
+    for (auto &p : v) {
+        for (auto &z : p) {
             std::cout << z << " ";
         }
         std::cout << std::endl;

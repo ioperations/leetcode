@@ -10,7 +10,7 @@ using namespace std;
 
 class Solution {
    public:
-    vector<int> DailyTemperatures(vector<int>& temperatures) {
+    vector<int> DailyTemperatures(vector<int> &temperatures) {
         int size = temperatures.size();
 
         vector<int> ret(size, 0);
@@ -57,7 +57,7 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

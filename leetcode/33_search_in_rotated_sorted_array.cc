@@ -20,7 +20,7 @@ You must write an algorithm with O(log n) runtime complexity.
 using namespace std;
 class Solution {
    public:
-    int Search(vector<int>& nums, int target) {
+    int Search(vector<int> &nums, int target) {
         /*
 In this question, we can solve it step by step:
 
@@ -91,7 +91,7 @@ TEST(t0, t3) {
     int ret = s.Search(nums, target);
     EXPECT_EQ(ret, output);
 }
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

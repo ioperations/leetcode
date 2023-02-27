@@ -30,7 +30,7 @@ class Solution {
 };
 
 int main() {
-    Solution* s = new Solution();
+    Solution *s = new Solution();
 
     std::string sb("ancbbsdsdax");
 

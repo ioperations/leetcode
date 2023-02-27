@@ -29,7 +29,7 @@ class Solution {
     }
 
    private:
-    std::string Palindrome(const std::string& s, int l, size_t r) {
+    std::string Palindrome(const std::string &s, int l, size_t r) {
         while (l >= 0 && r < s.length() && s[l] == s[r]) {
             l--;
             r++;
@@ -45,7 +45,7 @@ class Solution {
 
 TEST(t0, t1) {
     std::string s("babad");
-    Solution* sl = new Solution();
+    Solution *sl = new Solution();
 
     auto ret = sl->LongestPalindrome(s);
 
@@ -55,7 +55,7 @@ TEST(t0, t1) {
 
 TEST(t0, t2) {
     std::string s("cbbd");
-    Solution* sl = new Solution();
+    Solution *sl = new Solution();
 
     auto ret = sl->LongestPalindrome(s);
     delete sl;
@@ -63,14 +63,14 @@ TEST(t0, t2) {
 }
 TEST(t0, t3) {
     std::string s("ac");
-    Solution* sl = new Solution();
+    Solution *sl = new Solution();
 
     auto ret = sl->LongestPalindrome(s);
     delete sl;
     EXPECT_TRUE(ret == "a" || ret == "c");
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

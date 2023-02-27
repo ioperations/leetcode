@@ -18,9 +18,9 @@
 using namespace std;
 class Solution {
    public:
-    int LastStoneWeight(vector<int>& stones) {
+    int LastStoneWeight(vector<int> &stones) {
         std::priority_queue<int> q;
-        for (auto& ptr : stones) {
+        for (auto &ptr : stones) {
             q.push(ptr);
         }
 
@@ -67,7 +67,7 @@ TEST(t0, t2) {
     int ret = s.LastStoneWeight(stones);
     EXPECT_EQ(ret, 1);
 }
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

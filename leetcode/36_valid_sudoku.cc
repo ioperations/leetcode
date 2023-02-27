@@ -27,7 +27,7 @@ rules.
 using namespace std;
 class Solution {
    public:
-    bool IsValidSudoku(vector<vector<char>>& board) {
+    bool IsValidSudoku(vector<vector<char>> &board) {
         array<int, 9> rows = {};
         array<int, 9> cols = {};
         array<int, 9> boxes = {};
@@ -91,7 +91,7 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

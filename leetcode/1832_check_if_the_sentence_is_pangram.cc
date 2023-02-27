@@ -12,17 +12,17 @@ using namespace std;
 
 class Solution {
    public:
-    bool CheckIfPangram(string& sentence) {
+    bool CheckIfPangram(string &sentence) {
         std::set<char> s;
-        for (auto& ptr : sentence) {
+        for (auto &ptr : sentence) {
             s.emplace(ptr);
         }
         return s.size() == 26;
     }
-    bool CheckIfPangramV2(string& sentence) {
+    bool CheckIfPangramV2(string &sentence) {
         int max = (1 << 26) - 1;
         int temp = 0;
-        for (auto& ptr : sentence) {
+        for (auto &ptr : sentence) {
             temp |= 1 << (ptr - 'a');
             if (temp == max) return true;
         }
@@ -75,7 +75,7 @@ TEST(t1, t2) {
 #include <algorithm>
 #include <vector>
 
-static void BenchMarkV1(benchmark::State& state) {
+static void BenchMarkV1(benchmark::State &state) {
     string sentence = "thequickbrownfoxjumpsoverthelazydog";
     for (auto _ : state) {
         bool const output = true;
@@ -88,7 +88,7 @@ static void BenchMarkV1(benchmark::State& state) {
 }
 BENCHMARK(BenchMarkV1);
 
-static void BenchMarkV2(benchmark::State& state) {
+static void BenchMarkV2(benchmark::State &state) {
     string sentence = "thequickbrownfoxjumpsoverthelazydog";
     for (auto _ : state) {
         bool const output = true;
@@ -101,7 +101,7 @@ static void BenchMarkV2(benchmark::State& state) {
 }
 BENCHMARK(BenchMarkV2);
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     int ret = RUN_ALL_TESTS();
     ::benchmark::Initialize(&argc, argv);

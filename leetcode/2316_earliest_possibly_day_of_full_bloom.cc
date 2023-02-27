@@ -21,7 +21,7 @@ using namespace std;
 
 class Solution {
    public:
-    int EarliestFullBloom(vector<int>& plant_time, vector<int>& grow_time) {
+    int EarliestFullBloom(vector<int> &plant_time, vector<int> &grow_time) {
         /*
         This solution employs plot-based (visual) calculation of total time.
         Time complexity is logarithmic: O(N*logN). Space complexity is linear:
@@ -139,7 +139,7 @@ TEST(t0, t3) {
     int ret = sl.EarliestFullBloom(plant_time, grow_time);
     EXPECT_EQ(ret, output);
 }
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

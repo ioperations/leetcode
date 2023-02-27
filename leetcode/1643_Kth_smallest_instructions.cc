@@ -34,7 +34,7 @@ class Solution {
     int Go(int x, int y) {
         if (x == n && y == m) return 1;
         if (x < 0 || x > n || y < 0 || y > m) return 0;
-        int& ans = dp[x][y];
+        int &ans = dp[x][y];
         if (ans != -1) return ans;
         ans = Go(x + 1, y) + Go(x, y + 1);
         return ans;
@@ -55,7 +55,7 @@ class Solution {
     }
 
    public:
-    string KthSmallestPath(vector<int>& destination, int k) {
+    string KthSmallestPath(vector<int> &destination, int k) {
         n = destination[0];
         m = destination[1];
         memset(dp, -1LL, sizeof(dp));
@@ -103,7 +103,7 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

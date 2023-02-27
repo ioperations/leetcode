@@ -23,7 +23,7 @@ using namespace std;
 
 class Solution {
    public:
-    int WiggleMaxLength(vector<int>& nums) {
+    int WiggleMaxLength(vector<int> &nums) {
         int n = nums.size();
         int peak = 1, valley = 1;
 
@@ -71,7 +71,7 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

@@ -14,7 +14,7 @@ using namespace std;
 
 class Solution {
    public:
-    int Candy(vector<int>& ratings) {
+    int Candy(vector<int> &ratings) {
         int n = ratings.size();
         if (n == 1) return 1;
         vector<int> candies(n, 1);
@@ -66,7 +66,7 @@ TEST(t0, t2) {
     EXPECT_EQ(output, ret);
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

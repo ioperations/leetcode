@@ -12,7 +12,7 @@ k. 0 is always a multiple of k.
 using namespace std;
 class Solution {
    public:
-    bool CheckSubarraySum(vector<int>& nums, int k) {
+    bool CheckSubarraySum(vector<int> &nums, int k) {
         // Questions to ask the interviewer -
 
         // 1. So you said k is an integer? Can the k be equal to 0? Can it
@@ -130,7 +130,7 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

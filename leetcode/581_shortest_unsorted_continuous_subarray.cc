@@ -13,7 +13,7 @@ using namespace std;
 
 class Solution {
    public:
-    int FindUnsortedSubarray(vector<int>& nums) {
+    int FindUnsortedSubarray(vector<int> &nums) {
         priority_queue<int, vector<int>, std::less<int>> q1;
         priority_queue<int, vector<int>, std::greater<int>> q2;
         int i, n = nums.size(), j;
@@ -58,7 +58,7 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, expected);
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

@@ -21,7 +21,7 @@ using namespace std;
 class Solution {
    public:
     string BreakPalindrome(string palindrome) {
-        string& ret = palindrome;
+        string &ret = palindrome;
         int const original_size = palindrome.size();
         int const size = palindrome.size() / 2;
         for (int i = 0; i < size; i++) {
@@ -76,7 +76,7 @@ TEST(t0, t3) {
     auto const ret = sl.BreakPalindrome(palindrome);
     EXPECT_EQ(ret, output);
 }
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

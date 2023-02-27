@@ -12,7 +12,7 @@ using namespace std;
 
 class Solution {
    public:
-    bool CanBeEqual(vector<int>& target, vector<int>& arr) {
+    bool CanBeEqual(vector<int> &target, vector<int> &arr) {
         // pass
         std::sort(target.begin(), target.end());
         std::sort(arr.begin(), arr.end());
@@ -64,7 +64,7 @@ TEST(t0, t3) {
     /*arr does not have value 9 and it can never be converted to target.*/
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

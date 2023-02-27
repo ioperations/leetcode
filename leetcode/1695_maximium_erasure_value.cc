@@ -16,7 +16,7 @@ using namespace std;
 
 class Solution {
    public:
-    int MaximumUniqueSubarray(vector<int>& nums) {
+    int MaximumUniqueSubarray(vector<int> &nums) {
         //	Initially we will keep our i and j pointer at index 0
         //	keep moving j and add the current no to sum and
         //	also add the curr no to map
@@ -66,7 +66,7 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, out);
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

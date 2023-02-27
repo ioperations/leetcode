@@ -55,7 +55,7 @@ TEST(t0, t4) {
 #include <algorithm>
 #include <vector>
 
-static void BenchMarkSeqBitAnd(benchmark::State& state) {
+static void BenchMarkSeqBitAnd(benchmark::State &state) {
     for (auto _ : state) {
         Solution s;
         int left = 1, right = 200000;
@@ -66,7 +66,7 @@ static void BenchMarkSeqBitAnd(benchmark::State& state) {
 }
 BENCHMARK(BenchMarkSeqBitAnd);
 
-static void BenchMarkWise(benchmark::State& state) {
+static void BenchMarkWise(benchmark::State &state) {
     for (auto _ : state) {
         Solution s;
         int left = 1, right = 200000;
@@ -77,7 +77,7 @@ static void BenchMarkWise(benchmark::State& state) {
 }
 BENCHMARK(BenchMarkWise);
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     int ret = RUN_ALL_TESTS();
     ::benchmark::Initialize(&argc, argv);

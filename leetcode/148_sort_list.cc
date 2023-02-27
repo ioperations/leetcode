@@ -7,21 +7,21 @@ order.
 //* Definition for singly-linked list.
 struct ListNode {
     int val;
-    ListNode* next;
+    ListNode *next;
     ListNode() : val(0), next(nullptr) {}
     ListNode(int x) : val(x), next(nullptr) {}
-    ListNode(int x, ListNode* next) : val(x), next(next) {}
+    ListNode(int x, ListNode *next) : val(x), next(next) {}
 };
 
 class SolutionV2 {
    public:
-    ListNode* SortList(ListNode* head) {
+    ListNode *SortList(ListNode *head) {
         // If List Contain a Single or 0 Node
         if (head == nullptr || head->next == nullptr) return head;
 
-        ListNode* temp = nullptr;
-        ListNode* slow = head;
-        ListNode* fast = head;
+        ListNode *temp = nullptr;
+        ListNode *slow = head;
+        ListNode *fast = head;
 
         // 2 pointer appraoach / turtle-hare Algorithm (Finding the middle
         // element)
@@ -32,17 +32,17 @@ class SolutionV2 {
         }
         temp->next = nullptr;  // end of first left half
 
-        ListNode* l1 = SortList(head);  // left half recursive call
-        ListNode* l2 = SortList(slow);  // right half recursive call
+        ListNode *l1 = SortList(head);  // left half recursive call
+        ListNode *l2 = SortList(slow);  // right half recursive call
 
         return Mergelist(l1, l2);  // mergelist Function call
     }
 
     // MergeSort Function O(n*logn)
-    ListNode* Mergelist(ListNode* l1, ListNode* l2) {
+    ListNode *Mergelist(ListNode *l1, ListNode *l2) {
         ListNode z(0);
-        ListNode* ptr = &z;
-        ListNode* curr = ptr;
+        ListNode *ptr = &z;
+        ListNode *curr = ptr;
 
         while (l1 != nullptr && l2 != nullptr) {
             if (l1->val <= l2->val) {
@@ -74,9 +74,9 @@ class SolutionV2 {
 
 class Solution {
    public:
-    ListNode* SortList(ListNode* head) { return SortList(head, nullptr); }
+    ListNode *SortList(ListNode *head) { return SortList(head, nullptr); }
 
-    ListNode* SortList(ListNode* head, ListNode* tail) {
+    ListNode *SortList(ListNode *head, ListNode *tail) {
         // pass
 
         if (head == nullptr) {
@@ -87,8 +87,8 @@ class Solution {
             return head;
         }
 
-        ListNode* fast = head;
-        ListNode* slow = head;
+        ListNode *fast = head;
+        ListNode *slow = head;
 
         while (fast != tail) {
             slow = slow->next;
@@ -97,11 +97,11 @@ class Solution {
                 fast = fast->next;
             }
         }
-        ListNode* mid = slow;
+        ListNode *mid = slow;
         return Merge(SortList(head, mid), SortList(mid, tail));
     }
 
-    ListNode* Merge(ListNode* head, ListNode* tail) {
+    ListNode *Merge(ListNode *head, ListNode *tail) {
         ListNode dummy_head;
         ListNode *temp = &dummy_head, *temp1 = head, *temp2 = tail;
         while (temp1 != nullptr && temp2 != nullptr) {
@@ -129,11 +129,11 @@ class Solution {
  * @param @elemenets 要创建的list的数组
  * @return 链表的头，用户需要free掉
  */
-ListNode* ConstructList(const std::vector<int>& elemenets) {
+ListNode *ConstructList(const std::vector<int> &elemenets) {
     ListNode head;
-    ListNode* tail = &head;
+    ListNode *tail = &head;
 
-    for (auto& ptr : elemenets) {
+    for (auto &ptr : elemenets) {
         tail->next = new ListNode(ptr);
         tail = tail->next;
     }
@@ -146,7 +146,7 @@ ListNode* ConstructList(const std::vector<int>& elemenets) {
  * @param @list 链表的头
  * @return nil
  */
-void FreeListList(ListNode* list) {
+void FreeListList(ListNode *list) {
     if (list == nullptr) {
         return;
     }
@@ -161,9 +161,9 @@ void FreeListList(ListNode* list) {
 
 #include <iostream>
 
-void ExpectEqList(ListNode* list, const std::vector<int>& elemets) {
+void ExpectEqList(ListNode *list, const std::vector<int> &elemets) {
     int count = 0;
-    ListNode* ptr = list;
+    ListNode *ptr = list;
     while (ptr != nullptr) {
         EXPECT_EQ(ptr->val, elemets[count]);
         ptr = ptr->next;
@@ -176,7 +176,7 @@ void ExpectEqList(ListNode* list, const std::vector<int>& elemets) {
 #include <iostream>
 
 TEST(t0, t1) {
-    ListNode* n = ConstructList(std::vector<int>{4, 2, 1, 3});
+    ListNode *n = ConstructList(std::vector<int>{4, 2, 1, 3});
     Solution s;
     n = s.SortList(n);
     ExpectEqList(n, std::vector<int>{1, 2, 3, 4});
@@ -184,7 +184,7 @@ TEST(t0, t1) {
 }
 
 TEST(t1, t1) {
-    ListNode* n = ConstructList(std::vector<int>{4, 2, 1, 3});
+    ListNode *n = ConstructList(std::vector<int>{4, 2, 1, 3});
     SolutionV2 s;
     n = s.SortList(n);
     ExpectEqList(n, std::vector<int>{1, 2, 3, 4});
@@ -192,7 +192,7 @@ TEST(t1, t1) {
 }
 
 TEST(t0, t2) {
-    ListNode* n = ConstructList(std::vector<int>{-4, 5, 3, 4, 0});
+    ListNode *n = ConstructList(std::vector<int>{-4, 5, 3, 4, 0});
     Solution s;
     n = s.SortList(n);
     ExpectEqList(n, std::vector<int>{-4, 0, 3, 4, 5});
@@ -200,7 +200,7 @@ TEST(t0, t2) {
 }
 
 TEST(t1, t2) {
-    ListNode* n = ConstructList(std::vector<int>{-4, 5, 3, 4, 0});
+    ListNode *n = ConstructList(std::vector<int>{-4, 5, 3, 4, 0});
     SolutionV2 s;
     n = s.SortList(n);
     ExpectEqList(n, std::vector<int>{-4, 0, 3, 4, 5});
@@ -208,7 +208,7 @@ TEST(t1, t2) {
 }
 
 TEST(t0, t3) {
-    ListNode* n = ConstructList(std::vector<int>{});
+    ListNode *n = ConstructList(std::vector<int>{});
     Solution s;
     n = s.SortList(n);
     ExpectEqList(n, std::vector<int>{});
@@ -216,7 +216,7 @@ TEST(t0, t3) {
 }
 
 TEST(t1, t3) {
-    ListNode* n = ConstructList(std::vector<int>{});
+    ListNode *n = ConstructList(std::vector<int>{});
     SolutionV2 s;
     n = s.SortList(n);
     ExpectEqList(n, std::vector<int>{});
@@ -228,9 +228,9 @@ TEST(t1, t3) {
 #include <algorithm>
 #include <vector>
 
-static void BenchV2(benchmark::State& state) {
+static void BenchV2(benchmark::State &state) {
     for (auto _ : state) {
-        ListNode* n = ConstructList(std::vector<int>{-4, 5, 3, 4, 0});
+        ListNode *n = ConstructList(std::vector<int>{-4, 5, 3, 4, 0});
         SolutionV2 s;
         n = s.SortList(n);
         ExpectEqList(n, std::vector<int>{-4, 0, 3, 4, 5});
@@ -239,9 +239,9 @@ static void BenchV2(benchmark::State& state) {
 }
 BENCHMARK(BenchV2);
 
-static void BenchV1(benchmark::State& state) {
+static void BenchV1(benchmark::State &state) {
     for (auto _ : state) {
-        ListNode* n = ConstructList(std::vector<int>{-4, 5, 3, 4, 0});
+        ListNode *n = ConstructList(std::vector<int>{-4, 5, 3, 4, 0});
         Solution s;
         n = s.SortList(n);
         ExpectEqList(n, std::vector<int>{-4, 0, 3, 4, 5});
@@ -250,7 +250,7 @@ static void BenchV1(benchmark::State& state) {
 }
 BENCHMARK(BenchV1);
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     int ret = RUN_ALL_TESTS();
     ::benchmark::Initialize(&argc, argv);

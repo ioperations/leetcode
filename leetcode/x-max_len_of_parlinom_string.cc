@@ -11,7 +11,7 @@
 #include <limits>
 #include <string>
 
-int MaxRet(const char* str, int str_len) {
+int MaxRet(const char *str, int str_len) {
     /*
     for
         对于在 0- strlen 之间的节点i ，
@@ -52,31 +52,31 @@ int MaxRet(const char* str, int str_len) {
 }
 
 TEST(t1, t2) {
-    const char* s1 = "abcba";
+    const char *s1 = "abcba";
     EXPECT_EQ(MaxRet(s1, strlen(s1)), 5);
 }
 
 TEST(t1, t3) {
-    const char* s1 = "bcba";
+    const char *s1 = "bcba";
     EXPECT_EQ(MaxRet(s1, strlen(s1)), 3);
 }
 
 TEST(t1, t4) {
-    const char* s1 = "zabcba";
+    const char *s1 = "zabcba";
     EXPECT_EQ(MaxRet(s1, strlen(s1)), 5);
 }
 
 TEST(t1, t1) {
-    const char* s1 = "00000";
+    const char *s1 = "00000";
     EXPECT_EQ(MaxRet(s1, strlen(s1)), 5);
 }
 
 TEST(t1, t0) {
-    const char* s1 = "5432345";
+    const char *s1 = "5432345";
     EXPECT_EQ(MaxRet(s1, strlen(s1)), 7);
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

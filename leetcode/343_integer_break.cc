@@ -50,7 +50,7 @@ TEST(t0, t2) {
     // 10 = 3 + 3 + 4, 3 × 3 × 4 = 36.
     EXPECT_EQ(ret, output);
 }
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

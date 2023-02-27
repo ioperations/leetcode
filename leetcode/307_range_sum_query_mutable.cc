@@ -100,7 +100,7 @@ class NumArray {
     }
 
     // 0 based indexing segment tree ..value of v always starts from 1
-    NumArray(vector<int>& a) {
+    NumArray(vector<int> &a) {
         n = a.size();
         vp.resize(n);
         vp = a;
@@ -135,7 +135,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, 8);
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

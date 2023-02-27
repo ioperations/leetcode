@@ -11,7 +11,7 @@ Return true if there is a 132 pattern in nums, otherwise, return false.
 using namespace std;
 class Solution {
    public:
-    bool Find132pattern(vector<int>& nums) {
+    bool Find132pattern(vector<int> &nums) {
         int n = nums.size();
         vector<int> minval(n);
         minval[0] = nums[0];
@@ -58,7 +58,7 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, expected);
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

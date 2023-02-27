@@ -1,6 +1,6 @@
 #include <iostream>
 
-std::string ReturnS(const char* s, int len) {
+std::string ReturnS(const char *s, int len) {
     if (len == 0) {
         return "";
     }
@@ -19,7 +19,7 @@ TEST(t1, t2) {
     EXPECT_EQ(rets, std::string("0006151"));
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

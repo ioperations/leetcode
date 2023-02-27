@@ -8,20 +8,20 @@ as descendants (where we allow a node to be a descendant of itself).”*/
 // Definition for a binary tree node.
 struct TreeNode {
     int val;
-    TreeNode* left;
-    TreeNode* right;
+    TreeNode *left;
+    TreeNode *right;
     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
 };
 class Solution {
    public:
-    TreeNode* LowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
+    TreeNode *LowestCommonAncestor(TreeNode *root, TreeNode *p, TreeNode *q) {
         // pass
         if (root == nullptr) return nullptr;
 
         if (root->val == p->val || root->val == q->val) return root;
 
-        TreeNode* a = LowestCommonAncestor(root->left, p, q);
-        TreeNode* b = LowestCommonAncestor(root->right, p, q);
+        TreeNode *a = LowestCommonAncestor(root->left, p, q);
+        TreeNode *b = LowestCommonAncestor(root->right, p, q);
 
         if (a != nullptr && b != nullptr) return root;
         if (a == nullptr && b != nullptr) return b;
@@ -40,25 +40,25 @@ class Solution {
 using namespace std;
 
 // Decodes your encoded data to tree.
-TreeNode* ConstructBinaryTree(std::vector<std::optional<int>>& data) {
+TreeNode *ConstructBinaryTree(std::vector<std::optional<int>> &data) {
     data.resize(data.size() * 3 + 31);
     if (data.size() == 0) return nullptr;
 
     if (!data[0].has_value()) return nullptr;
-    TreeNode* root = new TreeNode(data[0].value());
-    queue<TreeNode*> q;
+    TreeNode *root = new TreeNode(data[0].value());
+    queue<TreeNode *> q;
     q.push(root);
 
     int i = 1;
 
     while (!q.empty()) {
-        TreeNode* cur = q.front();
+        TreeNode *cur = q.front();
         q.pop();
 
         if (!data[i].has_value()) {
             cur->left = NULL;
         } else {
-            TreeNode* left_n = new TreeNode(data[i].value());
+            TreeNode *left_n = new TreeNode(data[i].value());
             cur->left = left_n;
             q.push(left_n);
         }
@@ -67,7 +67,7 @@ TreeNode* ConstructBinaryTree(std::vector<std::optional<int>>& data) {
         if (!data[i].has_value()) {
             cur->right = NULL;
         } else {
-            TreeNode* right_n = new TreeNode(data[i].value());
+            TreeNode *right_n = new TreeNode(data[i].value());
             cur->right = right_n;
             q.push(right_n);
         }
@@ -78,7 +78,7 @@ TreeNode* ConstructBinaryTree(std::vector<std::optional<int>>& data) {
 
 // Function to print tree nodes in
 // InOrder fashion
-void InOrder(TreeNode* root, std::vector<string>& vec) {
+void InOrder(TreeNode *root, std::vector<string> &vec) {
     if (root != nullptr) {
         InOrder(root->left, vec);
         vec.push_back(std::to_string(root->val));
@@ -87,12 +87,12 @@ void InOrder(TreeNode* root, std::vector<string>& vec) {
     }
 }
 
-void BfsSearch(TreeNode* root, std::vector<int>& vec) {
-    queue<TreeNode*> q;
+void BfsSearch(TreeNode *root, std::vector<int> &vec) {
+    queue<TreeNode *> q;
     q.push(root);
 
     while (q.size()) {
-        TreeNode* tmp = q.front();
+        TreeNode *tmp = q.front();
 
         q.pop();
 
@@ -104,7 +104,7 @@ void BfsSearch(TreeNode* root, std::vector<int>& vec) {
     }
 }
 
-void FreeTreeNode(TreeNode* root) {
+void FreeTreeNode(TreeNode *root) {
     if (root == nullptr) return;
 
     FreeTreeNode(root->left);
@@ -113,7 +113,7 @@ void FreeTreeNode(TreeNode* root) {
     delete root;
 }
 
-void PrintBt(const std::string& prefix, const TreeNode* node, bool is_left) {
+void PrintBt(const std::string &prefix, const TreeNode *node, bool is_left) {
     if (node != nullptr) {
         std::cout << prefix;
 
@@ -128,14 +128,14 @@ void PrintBt(const std::string& prefix, const TreeNode* node, bool is_left) {
     }
 }
 
-void PrintBt(const TreeNode* node) { PrintBt("", node, false); }
+void PrintBt(const TreeNode *node) { PrintBt("", node, false); }
 
-TreeNode* FindInTree(TreeNode* n, int v) {
+TreeNode *FindInTree(TreeNode *n, int v) {
     if (n == nullptr) return nullptr;
 
     if (n->val == v) return n;
 
-    TreeNode* le = FindInTree(n->left, v);
+    TreeNode *le = FindInTree(n->left, v);
     if (le == nullptr) return FindInTree(n->right, v);
     return le;
 }
@@ -149,12 +149,12 @@ TEST(t0, t1) {
     vector<optional<int>> root = {3, 5, 1, 6, 2, 0, 8, null, null, 7, 4};
     int p = 5, q = 1;
     int output = 3;
-    TreeNode* node = ConstructBinaryTree(root);
+    TreeNode *node = ConstructBinaryTree(root);
     // Explanation: The LCA of nodes 5 and 1 is 3.
     Solution sl;
-    TreeNode* pn = FindInTree(node, p);
-    TreeNode* qn = FindInTree(node, q);
-    TreeNode* ret = sl.LowestCommonAncestor(node, pn, qn);
+    TreeNode *pn = FindInTree(node, p);
+    TreeNode *qn = FindInTree(node, q);
+    TreeNode *ret = sl.LowestCommonAncestor(node, pn, qn);
     EXPECT_EQ(ret->val, output);
     FreeTreeNode(node);
 }
@@ -164,12 +164,12 @@ TEST(t0, t2) {
     vector<optional<int>> root = {3, 5, 1, 6, 2, 0, 8, null, null, 7, 4};
     int p = 5, q = 4;
     int output = 5;
-    TreeNode* node = ConstructBinaryTree(root);
+    TreeNode *node = ConstructBinaryTree(root);
     // Explanation: The LCA of nodes 5 and 1 is 3.
     Solution sl;
-    TreeNode* pn = FindInTree(node, p);
-    TreeNode* qn = FindInTree(node, q);
-    TreeNode* ret = sl.LowestCommonAncestor(node, pn, qn);
+    TreeNode *pn = FindInTree(node, p);
+    TreeNode *qn = FindInTree(node, q);
+    TreeNode *ret = sl.LowestCommonAncestor(node, pn, qn);
     EXPECT_EQ(ret->val, output);
     FreeTreeNode(node);
 }
@@ -179,17 +179,17 @@ TEST(t0, t3) {
     vector<optional<int>> root = {1, 2};
     int p = 1, q = 2;
     int output = 1;
-    TreeNode* node = ConstructBinaryTree(root);
+    TreeNode *node = ConstructBinaryTree(root);
     // Explanation: The LCA of nodes 5 and 1 is 3.
     Solution sl;
-    TreeNode* pn = FindInTree(node, p);
-    TreeNode* qn = FindInTree(node, q);
-    TreeNode* ret = sl.LowestCommonAncestor(node, pn, qn);
+    TreeNode *pn = FindInTree(node, p);
+    TreeNode *qn = FindInTree(node, q);
+    TreeNode *ret = sl.LowestCommonAncestor(node, pn, qn);
     EXPECT_EQ(ret->val, output);
     FreeTreeNode(node);
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

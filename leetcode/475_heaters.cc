@@ -16,7 +16,7 @@ using namespace std;
 
 class Solution {
    public:
-    bool IsValid(int radius, vector<int>& houses, vector<int>& heaters) {
+    bool IsValid(int radius, vector<int> &houses, vector<int> &heaters) {
         int i = 0, j = 0;
         while (i < (int)houses.size() && j < (int)heaters.size()) {
             if (houses[i] >= (heaters[j] - radius) &&
@@ -32,7 +32,7 @@ class Solution {
         return i == (int)houses.size();
     }
 
-    int FindRadius(vector<int>& houses, vector<int>& heaters) {
+    int FindRadius(vector<int> &houses, vector<int> &heaters) {
         int lo = 0, hi = 1e9;
         int mid;
         int ans = -1;
@@ -90,7 +90,7 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, output);
 };
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

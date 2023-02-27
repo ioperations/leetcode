@@ -13,19 +13,19 @@ Return an integer array answer where answer[i] is the answer to the ith query.*/
 using namespace std;
 class Solution {
    public:
-    vector<int> SumEvenAfterQueries(vector<int>& nums,
-                                    vector<vector<int>>& queries) {
+    vector<int> SumEvenAfterQueries(vector<int> &nums,
+                                    vector<vector<int>> &queries) {
         int sum = accumulate(begin(nums), end(nums), 0, [](int sum, int x) {
             return IsEven(x) ? sum + x : sum;
         });
 
         vector<int> ans;
         ans.reserve(size(queries));
-        for (const vector<int>& query : queries) {
+        for (const vector<int> &query : queries) {
             const int val = query[0];
             const int index = query[1];
 
-            int& num = nums[index];
+            int &num = nums[index];
 
             if (IsEven(num)) sum -= num;
             num += val;
@@ -62,7 +62,7 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

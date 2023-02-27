@@ -26,8 +26,8 @@ tokens.*/
 using namespace std;
 class Solution {
    public:
-    int Recursion(vector<int>& tokens, int power, int start, int end,
-                  vector<vector<int>>& dp) {
+    int Recursion(vector<int> &tokens, int power, int start, int end,
+                  vector<vector<int>> &dp) {
         if (start > end || power < tokens[start]) return 0;
         int take = 0, nottake = 0;
         if (dp[start][end] != -1) return dp[start][end];
@@ -40,21 +40,21 @@ class Solution {
         return dp[start][end] = max(take, nottake);
     }
 
-    int BagOfTokensScore(vector<int>& tokens, int power) {
+    int BagOfTokensScore(vector<int> &tokens, int power) {
         int n = tokens.size();
         vector<vector<int>> dp(n, vector<int>(n, -1));
         sort(tokens.begin(), tokens.end());
         return Recursion(tokens, power, 0, tokens.size() - 1, dp);
     }
 
-    int BagOfTokensScoreV1(vector<int>& tokens, int power) {
+    int BagOfTokensScoreV1(vector<int> &tokens, int power) {
         int size = tokens.size();
 
         /// @param visited 当前已经访问过的节点
         /// @param current_power 当前拥有的power值
         /// @param current_score 当前拥有的分数
-        std::function<int(set<int>&, int, int)> fun =
-            [&fun, &size, &tokens](set<int>& visited, int current_power,
+        std::function<int(set<int> &, int, int)> fun =
+            [&fun, &size, &tokens](set<int> &visited, int current_power,
                                    int current_score) -> int {
             int max = current_score;
             for (int i = 0; i < size; i++) {
@@ -160,7 +160,7 @@ TEST(t1, t3) {
 #include <algorithm>
 #include <vector>
 
-static void BenchmarkTwoArrayDpv1(benchmark::State& state) {
+static void BenchmarkTwoArrayDpv1(benchmark::State &state) {
     vector<int> tokens = {100, 200, 300, 400, 500, 600, 700, 800, 900, 1000};
     int power = 200;
     Solution sl;
@@ -173,7 +173,7 @@ static void BenchmarkTwoArrayDpv1(benchmark::State& state) {
 }
 BENCHMARK(BenchmarkTwoArrayDpv1);
 
-static void BenchmarkMyImplementation(benchmark::State& state) {
+static void BenchmarkMyImplementation(benchmark::State &state) {
     vector<int> tokens = {100, 200, 300, 400, 500, 600, 700, 800, 900, 1000};
     int power = 200;
     Solution sl;
@@ -186,7 +186,7 @@ static void BenchmarkMyImplementation(benchmark::State& state) {
 }
 BENCHMARK(BenchmarkMyImplementation);
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     int ret = RUN_ALL_TESTS();
     ::benchmark::Initialize(&argc, argv);

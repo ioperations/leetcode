@@ -57,7 +57,7 @@ TEST(t1sss, t2ss) {
     EXPECT_EQ(3, ret);
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

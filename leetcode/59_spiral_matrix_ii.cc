@@ -22,7 +22,7 @@ class Solution {
 
         vector<vector<int>> ret;
         ret.resize(n);
-        for (auto& ptr : ret) {
+        for (auto &ptr : ret) {
             ptr.resize(n);
         }
         enum direction {
@@ -142,7 +142,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, expected);
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

@@ -19,7 +19,7 @@ using namespace std;
 
 class Solution {
    public:
-    int MinOperations(vector<int>& nums, int x) {
+    int MinOperations(vector<int> &nums, int x) {
         int sum = 0;
         int n = nums.size();
         int len = 0;
@@ -108,7 +108,7 @@ TEST(t0, t3) {
     int ret = sl.MinOperations(nums, x);
     EXPECT_EQ(ret, output);
 }
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

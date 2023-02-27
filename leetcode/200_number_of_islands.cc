@@ -21,7 +21,7 @@ using namespace std;
 class Solution {
    public:
     // BFS
-    int NumIslands(vector<vector<char>>& grid) {
+    int NumIslands(vector<vector<char>> &grid) {
         int rows = grid.size();                // rows
         int cols = rows ? grid[0].size() : 0;  // cols
         int islands = 0;
@@ -62,7 +62,7 @@ class Solution {
     }
 
     // DFS
-    int NumIslandsDFS(vector<vector<char>>& grid) {
+    int NumIslandsDFS(vector<vector<char>> &grid) {
         auto rows = grid.size();
         auto cols = grid[0].size();
 
@@ -78,7 +78,7 @@ class Solution {
         }
         return islands;
     }
-    void Dfs(vector<vector<char>>& grid, int r, int c) {
+    void Dfs(vector<vector<char>> &grid, int r, int c) {
         int rows = grid.size();
         int cols = grid[0].size();
         vector<vector<int>> offsets = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
@@ -150,7 +150,7 @@ TEST(t1, t2) {
     EXPECT_EQ(ret, expected);
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

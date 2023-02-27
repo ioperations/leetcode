@@ -21,7 +21,7 @@ using namespace std;
 
 class Solution {
    public:
-    int CoinChange(vector<int>& coins, int amount) {
+    int CoinChange(vector<int> &coins, int amount) {
         // pass
         sort(coins.begin(), coins.end());
 
@@ -56,7 +56,7 @@ class Solution {
         return fun(amount);
     }
 
-    int CoinChangeV1(vector<int>& coins, int amount) {
+    int CoinChangeV1(vector<int> &coins, int amount) {
         vector<int> h((amount + 1), INT_MAX - 1);
         h[0] = 0;
         for (int i = 0; i < (int)h.size(); i++) {
@@ -67,7 +67,7 @@ class Solution {
         return (h[h.size() - 1] < INT_MAX - 1) ? h[h.size() - 1] : -1;
     }
 
-    int CoinChangeV2(vector<int>& arr, int sum) {
+    int CoinChangeV2(vector<int> &arr, int sum) {
         int n = arr.size();
 
         vector<vector<int>> dp(n + 1, vector<int>(sum + 1));
@@ -139,7 +139,7 @@ TEST(t0, t3) {
 #include <algorithm>
 #include <vector>
 
-static void BenchMarkV0(benchmark::State& state) {
+static void BenchMarkV0(benchmark::State &state) {
     for (auto _ : state) {
         std::vector<int> coins = {1, 2, 5};
         int amount = 11;
@@ -152,7 +152,7 @@ static void BenchMarkV0(benchmark::State& state) {
 }
 BENCHMARK(BenchMarkV0);
 
-static void BenchMarkV1(benchmark::State& state) {
+static void BenchMarkV1(benchmark::State &state) {
     for (auto _ : state) {
         std::vector<int> coins = {1, 2, 5};
         int amount = 11;
@@ -165,7 +165,7 @@ static void BenchMarkV1(benchmark::State& state) {
 }
 BENCHMARK(BenchMarkV1);
 
-static void BenchMarkV2(benchmark::State& state) {
+static void BenchMarkV2(benchmark::State &state) {
     for (auto _ : state) {
         std::vector<int> coins = {1, 2, 5};
         int amount = 11;
@@ -178,7 +178,7 @@ static void BenchMarkV2(benchmark::State& state) {
 }
 BENCHMARK(BenchMarkV2);
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     int ret = RUN_ALL_TESTS();
     ::benchmark::Initialize(&argc, argv);

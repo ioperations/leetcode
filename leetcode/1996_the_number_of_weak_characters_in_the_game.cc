@@ -15,13 +15,13 @@ Return the number of weak characters.*/
 using namespace std;
 
 class Solution {
-    static bool Comp(vector<int>& a, vector<int>& b) {
+    static bool Comp(vector<int> &a, vector<int> &b) {
         if (a[0] == b[0]) return a[1] > b[1];
         return a[0] < b[0];
     }
 
    public:
-    int NumberOfWeakCharacters(vector<vector<int>>& properties) {
+    int NumberOfWeakCharacters(vector<vector<int>> &properties) {
         int n = properties.size();
         sort(properties.begin(), properties.end(), Comp);
         int maxdef = INT_MIN;
@@ -77,7 +77,7 @@ TEST(t0, t4) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

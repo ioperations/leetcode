@@ -15,7 +15,7 @@ using namespace std;
 
 class Solution {
    public:
-    void Solve(vector<vector<char> >& v, vector<string>& ans, string digits,
+    void Solve(vector<vector<char> > &v, vector<string> &ans, string digits,
                int pos, string s) {
         if (pos == (int)digits.size()) {
             if (s != "") ans.push_back(s);
@@ -89,7 +89,7 @@ TEST(t0, t3) {
     EXPECT_EQ(ret_set, expected_set);
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }
