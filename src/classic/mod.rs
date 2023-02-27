@@ -17,6 +17,7 @@ mod permutation;
 mod producer_consumer;
 mod reverse;
 mod str;
+mod str_to_hashmap;
 mod sum;
 mod tree_dfs;
 mod trie;
