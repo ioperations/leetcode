@@ -76,17 +76,16 @@ impl Solution {
             if chars[i] == current_char {
                 number_of_same += 1;
                 continue;
-            } else {
-                size_dispatch!(
-                    number_of_same,
-                    current_size,
-                    current_index,
-                    current_char,
-                    chars
-                );
-                current_char = chars[i];
-                number_of_same = 1;
             }
+            size_dispatch!(
+                number_of_same,
+                current_size,
+                current_index,
+                current_char,
+                chars
+            );
+            current_char = chars[i];
+            number_of_same = 1;
         }
 
         size_dispatch!(
