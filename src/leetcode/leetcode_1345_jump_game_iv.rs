@@ -173,6 +173,84 @@ mod test {
         let ret = Solution::min_jumps(&arr);
         assert_eq!(ret, output);
     }
+    use std::{sync::mpsc, thread, time::Duration};
+
+    fn panic_after<T, F>(d: Duration, f: F) -> T
+    where
+        T: Send + 'static,
+        F: FnOnce() -> T,
+        F: Send + 'static,
+    {
+        let (done_tx, done_rx) = mpsc::channel();
+        let handle = thread::spawn(move || {
+            let val = f();
+            done_tx.send(()).expect("Unable to send completion signal");
+            val
+        });
+
+        match done_rx.recv_timeout(d) {
+            Ok(_) => handle.join().expect("Thread panicked"),
+            err @ Err(_) => {
+                let _ = err.err();
+                panic!("Thread took too long",)
+            }
+        }
+    }
+
+    #[should_panic(expected = "Thread took too long")]
+    #[test]
+    fn case4_test() {
+        let test = || {
+            let arr = [
+                68, -94, -44, -18, -1, 18, -87, 29, -6, -87, -27, 37, -57, 7,
+                18, 68, -59, 29, 7, 53, -27, -59, 18, -1, 18, -18, -59, -1,
+                -18, -84, -20, 7, 7, -87, -18, -84, -20, -27,
+            ];
+            let output = 5;
+            // Explanation:
+            // Explanation: You can jump directly from index 0 to index 7 which
+            // is last index of the array.];
+            let ret = Solution::min_jumps(&arr);
+            assert_eq!(ret, output);
+        };
+        panic_after(Duration::new(2, 0), test);
+    }
+}
+
+#[cfg(test)]
+mod test_dfs {
+    use super::*;
+
+    #[test]
+    fn case1_test() {
+        let arr = [100, -23, -23, 404, 100, 23, 23, 23, 3, 404];
+        let output = 3;
+        // Explanation: You need three jumps from index 0 --> 4 --> 3 --> 9.
+        // Note that index 9 is the last index of the array.
+        let ret = Solution::min_jumps_dfs(&arr);
+        assert_eq!(ret, output);
+    }
+
+    #[test]
+    fn case2_test() {
+        let arr = [7];
+        let output = 0;
+        // Explanation:
+        // Start index is the last index. You do not need to jump.
+        let ret = Solution::min_jumps_dfs(&arr);
+        assert_eq!(ret, output);
+    }
+
+    #[test]
+    fn case3_test() {
+        let arr = [7, 6, 9, 6, 9, 6, 9, 7];
+        let output = 1;
+        // Explanation:
+        // Explanation: You can jump directly from index 0 to index 7 which is
+        // last index of the array.];
+        let ret = Solution::min_jumps_dfs(&arr);
+        assert_eq!(ret, output);
+    }
 
     #[test]
     fn case4_test() {
