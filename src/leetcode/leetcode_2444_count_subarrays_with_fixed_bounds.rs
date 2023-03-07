@@ -20,7 +20,7 @@ impl Solution {
         let mut ans = 0i64;
         // count subarray in range [l, r)
         // which value in that satisfy: min_k <= value <= max_k
-        let mut my_impl = |left, right| -> i64 {
+        let my_impl = |left, right| -> i64 {
             let mut min_count = 0;
             let mut max_count = 0;
             let mut l = left;
