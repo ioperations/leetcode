@@ -142,6 +142,8 @@ impl Solution {
 #[cfg(test)]
 mod test {
     use super::*;
+    use crate::leetcode::leetcode_panic_after::panic_after;
+    use std::time::Duration;
 
     #[test]
     fn case1_test() {
@@ -172,29 +174,6 @@ mod test {
         // last index of the array.];
         let ret = Solution::min_jumps(&arr);
         assert_eq!(ret, output);
-    }
-    use std::{sync::mpsc, thread, time::Duration};
-
-    fn panic_after<T, F>(d: Duration, f: F) -> T
-    where
-        T: Send + 'static,
-        F: FnOnce() -> T,
-        F: Send + 'static,
-    {
-        let (done_tx, done_rx) = mpsc::channel();
-        let handle = thread::spawn(move || {
-            let val = f();
-            done_tx.send(()).expect("Unable to send completion signal");
-            val
-        });
-
-        match done_rx.recv_timeout(d) {
-            Ok(_) => handle.join().expect("Thread panicked"),
-            err @ Err(_) => {
-                let _ = err.err();
-                panic!("Thread took too long",)
-            }
-        }
     }
 
     #[should_panic(expected = "Thread took too long")]
