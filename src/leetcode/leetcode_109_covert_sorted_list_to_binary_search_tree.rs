@@ -73,6 +73,9 @@ impl Solution {
 
 #[cfg(test)]
 mod test {
+    use super::super::leetcode_binary_tree::expect_binary_tree;
+    use super::super::leetcode_binary_tree::flatten_binary_tree;
+    use super::super::leetcode_linklist::build_list_from_vec;
     use super::*;
 
     #[test]
