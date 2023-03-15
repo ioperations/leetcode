@@ -103,7 +103,6 @@ mod test {
         let null = -1;
         let root: Vec<_> = (1..)
             .take(2000)
-            .into_iter()
             .map(|i: i32| if i == null { None } else { Some(i) })
             .collect();
         let root = build_binary_tree(&root);
