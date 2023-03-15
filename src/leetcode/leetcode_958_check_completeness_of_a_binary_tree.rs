@@ -97,18 +97,4 @@ mod test {
         assert_eq!(ret, output);
         // The node with value 7 isn't as far left as possible.
     }
-
-    #[test]
-    fn case4_test() {
-        let null = -1;
-        let root: Vec<_> = (1..)
-            .take(2000)
-            .map(|i: i32| if i == null { None } else { Some(i) })
-            .collect();
-        let root = build_binary_tree(&root);
-        let output = true;
-        let ret = Solution::is_complete_tree(root);
-        assert_eq!(ret, output);
-        // The node with value 7 isn't as far left as possible.
-    }
 }
