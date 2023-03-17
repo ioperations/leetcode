@@ -18,7 +18,7 @@ impl Solution {
         type Rn = Rc<RefCell<TreeNode<i32>>>;
         fn calculate(root: Option<&Rn>, pre: i32) -> (i32, bool) {
             if let Some(mut v) = root {
-                let mut v = v.borrow_mut();
+                let v = v.borrow();
                 let (v1, last1) =
                     calculate(v.left.as_ref(), (pre + v.val) * 10);
                 let (v2, last2) =
