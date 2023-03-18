@@ -17,6 +17,7 @@ mod merge_k_list;
 mod permutation;
 mod producer_consumer;
 mod reverse;
+mod sort_algorithm;
 mod str;
 mod str_to_hashmap;
 mod sum;
