@@ -53,6 +53,7 @@ impl Solution {
         dummy.next
     }
 }
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -66,7 +67,7 @@ mod tests {
         let mut ret: ListNode = ListNode::new(0);
 
         for i in node.iter().rev() {
-            let mut thisnode = Box::new(ListNode {
+            let thisnode = Box::new(ListNode {
                 val: *i,
                 next: ret.next.take(),
             });
@@ -79,7 +80,7 @@ mod tests {
     fn bench_build_list_iter(b: &mut test::Bencher) {
         let vec = vec![10; 100];
         b.iter(|| {
-            let _ = build_list_iter(&vec);
+            build_list_iter(&vec);
         });
     }
 
