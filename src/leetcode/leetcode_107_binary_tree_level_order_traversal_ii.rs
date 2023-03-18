@@ -38,9 +38,9 @@ impl Solution {
             let Node { node, level } = que.pop_front().unwrap();
             let mut node = node.borrow_mut();
             if level != current_expected {
-                ret.insert(0, current_level.clone());
+                ret.insert(0, current_level);
                 current_expected += 1;
-                current_level.clear();
+                current_level = vec![];
             }
             current_level.push(std::mem::take(&mut node.val));
             if let Some(left) = node.left.take() {
