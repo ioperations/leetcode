@@ -60,20 +60,20 @@ impl WordDictionary {
     #[allow(unused)]
     fn search(&self, word: &str) -> bool {
         let refes = &self.root;
-        Self::dfs(0, &word.bytes().collect::<Vec<u8>>(), refes)
+        Self::dfs(0, &word.bytes().collect::<Vec<u8>>(), refes.as_ref())
     }
 
     #[allow(unused)]
-    fn dfs(idx: usize, word: &[u8], node: &Box<TrieNode>) -> bool {
-        let len_w: usize = word.len();
+    fn dfs(idx: usize, word: &[u8], node: &TrieNode) -> bool {
         const ANY: u8 = b'.';
+        let len_w: usize = word.len();
         if idx == len_w {
             return node.is_end;
         }
         let ch = word[idx];
         match ch {
             ANY => {
-                for ele in node.next.iter() {
+                for ele in &node.next {
                     if let Some(child) = ele.clone() {
                         if Self::dfs(idx + 1, word, child) {
                             return true;
