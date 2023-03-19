@@ -9,6 +9,7 @@
 // can be matched with any letter.
 
 #[allow(unused)]
+#[derive(Clone)]
 struct TrieNode {
     c_byte: u8,
     is_end: bool,
@@ -74,7 +75,7 @@ impl WordDictionary {
         match ch {
             ANY => {
                 for ele in &node.next {
-                    if let Some(child) = ele.clone() {
+                    if let Some(child) = &(*ele).clone() {
                         if Self::dfs(idx + 1, word, child) {
                             return true;
                         }
