@@ -21,13 +21,13 @@ rayon = "1.6"
 hashbrown = "0.13"
 tracing = "0.1"
 tracing-subscriber = { version = "0.3"}
-ctor = "0.1"
+ctor = "0.2"
 # Implements the types defined in the Otel spec
-opentelemetry = "0.18"
+opentelemetry = "0.19"
 # Integration between the tracing crate and the opentelemetry crate
 tracing-opentelemetry = "0.18" 
 # Allows you to export data to Jaeger
-opentelemetry-jaeger = "0.17"
+opentelemetry-jaeger = "0.18"
 #serde_json = { version = "1.0", default-features=false,features = ["alloc"] }
 #serde = { version="1.0",features=["derive"] }
 
