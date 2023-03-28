@@ -201,21 +201,21 @@ mod test {
     #[test]
     fn case1_test() {
         let s = "0";
-        let ret = Solution::is_number(&s);
+        let ret = Solution::is_number(s);
         assert!(ret);
     }
 
     #[test]
     fn case2_test() {
         let s = "e";
-        let ret = Solution::is_number(&s);
+        let ret = Solution::is_number(s);
         assert!(!ret);
     }
 
     #[test]
     fn case3_test() {
         let s = ".";
-        let ret = Solution::is_number(&s);
+        let ret = Solution::is_number(s);
         assert!(!ret);
     }
 
@@ -236,7 +236,7 @@ mod test {
             "-123.456e789",
         ];
         for i in s {
-            let ret = Solution::is_number(&i);
+            let ret = Solution::is_number(i);
             assert!(ret, "{}", i);
         }
     }
@@ -245,7 +245,7 @@ mod test {
     fn case5_test() {
         let s = ["abc", "1a", "1e", "e3", "99e2.5", "--6", "-+3", "95a54e53"];
         for i in s {
-            let ret = Solution::is_number(&i);
+            let ret = Solution::is_number(i);
             assert!(!ret, "{}", i);
         }
     }
