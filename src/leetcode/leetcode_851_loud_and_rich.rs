@@ -17,7 +17,7 @@ struct Solution;
 
 impl Solution {
     #[allow(unused)]
-    pub fn loud_and_rich(richer: &[Vec<i32>], quiet: Vec<i32>) -> Vec<i32> {
+    pub fn loud_and_rich(richer: &[Vec<i32>], quiet: &[i32]) -> Vec<i32> {
         // n == quiet.length
         // 1 <= n <= 500
         // 0 <= quiet[i] < n
@@ -59,7 +59,7 @@ impl Solution {
             richer2.entry(v[1]).or_default().push(v[0]);
         }
         for i in 0..n {
-            dfs(&richer2, &quiet, i as i32, &mut ans);
+            dfs(&richer2, quiet, i as i32, &mut ans);
         }
         ans
     }
@@ -82,7 +82,7 @@ mod test {
         ];
         let quiet = [3, 2, 5, 4, 6, 1, 7, 0];
         let output = [5, 5, 2, 5, 4, 5, 6, 7];
-        let ret = Solution::loud_and_rich(&richer, quiet.into());
+        let ret = Solution::loud_and_rich(&richer, &quiet);
         // answer[0] = 5.
         // Person 5 has more money than 3, which has more money than 1, which
         // has more money than 0. The only person who is quieter (has
@@ -100,7 +100,7 @@ mod test {
         let richer = [];
         let quiet = [0];
         let output = [0];
-        let ret = Solution::loud_and_rich(&richer, quiet.into());
+        let ret = Solution::loud_and_rich(&richer, &quiet);
         assert_eq!(ret, output);
     }
 }
