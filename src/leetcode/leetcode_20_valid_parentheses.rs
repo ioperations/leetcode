@@ -20,10 +20,7 @@ impl Solution {
             if [b'{', b'[', b'('].contains(&i) {
                 stack.push(i);
             } else {
-                let v = match stack.pop() {
-                    Some(v) => v,
-                    None => return false,
-                };
+                let Some(v) = stack.pop() else { return false };
                 match v {
                     b'{' => {
                         if i != b'}' {
