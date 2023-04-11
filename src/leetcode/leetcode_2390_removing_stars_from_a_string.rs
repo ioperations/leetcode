@@ -17,19 +17,19 @@ struct Solution;
 
 impl Solution {
     #[allow(unused)]
-    pub fn remove_stars(s: String) -> String {
+    pub fn remove_stars(s: &str) -> String {
         // 1 <= s.length <= 105
         // s consists of lowercase English letters and stars *.
         // The operation above can be performed on s.
         let mut stack = vec![];
         for i in s.bytes() {
             if i == b'*' {
-                let Some(v) = stack.pop() else {
-                    return String::from("");
-                };
-            } else {
-                stack.push(i);
+                if let Some(v) = stack.pop() {
+                    continue;
+                }
+                return String::new();
             }
+            stack.push(i);
         }
         String::from_utf8(stack).unwrap()
     }
@@ -43,7 +43,7 @@ mod test {
     fn case1_test() {
         let s = "leet**cod*e";
         let output = "lecoe";
-        let ret = Solution::remove_stars(s.into());
+        let ret = Solution::remove_stars(s);
         assert_eq!(ret, output);
         // Explanation: Performing the removals from left to right:
         // - The closest character to the 1st star is 't' in "leet**cod*e". s
@@ -59,7 +59,7 @@ mod test {
     fn case2_test() {
         let s = "erase*****";
         let output = "";
-        let ret = Solution::remove_stars(s.into());
+        let ret = Solution::remove_stars(s);
         assert_eq!(ret, output);
         // Explanation: The entire string is removed, so we return an empty
         // string.
