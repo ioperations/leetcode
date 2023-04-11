@@ -40,7 +40,10 @@ class UndergroundSystem {
         // std::pair<int, Node>& n) { return id == n.first; }); if (it !=
         // m_wait.end()) return;
 
-        m_wait[id] = Node{.station = station_name, .time = t};
+        Node tmp;
+        tmp.station = station_name;
+        tmp.time = t;
+        m_wait[id] = tmp;
     }
 
     void CheckOut(int id, string station_name, int t) {

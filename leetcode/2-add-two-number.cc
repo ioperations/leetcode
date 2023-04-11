@@ -79,7 +79,7 @@ class Solution {
 void PrintNode(ListNode *n) {
     std::cout << std::endl;
 
-    for (int _ = 0; n; _++) {
+    for (; n;) {
         std::cout << n->val << " -> ";
         n = n->next;
     }
