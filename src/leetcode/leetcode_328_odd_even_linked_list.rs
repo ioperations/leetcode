@@ -27,7 +27,7 @@ impl Solution {
 
         let mut is_even = false;
         while let Some(mut node) = head {
-            head = std::mem::replace(&mut node.next, None);
+            head = node.next.take();
             if is_even {
                 even_cur.next = Some(node);
                 even_cur = even_cur.next.as_mut().unwrap();
