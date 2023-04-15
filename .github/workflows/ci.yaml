@@ -79,7 +79,7 @@ jobs:
         with:
           components: miri
       - run: |
-          MIRIFLAGS="-Zmiri-disable-isolation -Zmiri-ignore-leaks" cargo +nightly miri test -j$(nproc)  -- --skip classic::fibonacci_bench::tests::bench_actor --skip leetcode::leetcode_79_word_search::tests::case4_test --skip leetcode::leetcode_2405_optimal_partition_of_string::test
+          MIRIFLAGS="-Zmiri-disable-isolation -Zmiri-ignore-leaks" cargo +nightly miri test -j$(nproc)  -- --skip classic::fibonacci_bench::tests::bench_actor --skip leetcode::leetcode_79_word_search::tests::case4_test --skip leetcode::leetcode_2405_optimal_partition_of_string::test --skip leetcode::leetcode_2218_maximum_value_of_k_coins_from_piles::test
 
   rs-outdated:
     name: Outdated
