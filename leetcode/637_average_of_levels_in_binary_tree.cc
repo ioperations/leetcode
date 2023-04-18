@@ -5,6 +5,7 @@
 #include <map>
 #include <queue>
 #include <vector>
+#include <exception>
 
 #include "datastruct_base.hh"
 
@@ -26,6 +27,9 @@ class Solution {
                 cur_sum += z.first->val;
                 cur_count++;
             } else {
+                if (cur_count == 0){
+                    throw std::runtime_error("divide by zero error");
+                }
                 v.push_back((double)cur_sum / cur_count);
                 cur_level++;
                 cur_sum = z.first->val;

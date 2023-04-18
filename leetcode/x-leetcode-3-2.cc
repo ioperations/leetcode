@@ -30,12 +30,11 @@ class Solution {
 };
 
 int main() {
-    Solution *s = new Solution();
+    Solution s ;
 
     std::string sb("ancbbsdsdax");
 
-    int ret = s->LengthOfLongestSubstring(sb);
+    int ret = s.LengthOfLongestSubstring(sb);
     std::cout << "lengthOfLongestSubstring of \"ancbbsdsdax\" is : " << ret
               << std::endl;
-    delete s;
 }

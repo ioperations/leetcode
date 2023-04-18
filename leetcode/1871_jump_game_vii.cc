@@ -35,24 +35,6 @@ class Solution {
             }
         }
         return false;
-        int size = s.size();
-        std::map<int, bool> cache;
-        function<bool(int)> fun = [&](int index) -> bool {
-            // pass
-            if (index == size - 1) {
-                return true;
-            }
-            if (cache.count(index)) return cache[index];
-
-            for (int i = min_jump; i <= max_jump; i++) {
-                if (index + i < size && s[index + i] == '0') {
-                    if (fun(index + i)) return cache[index] = true;
-                }
-            }
-
-            return false;
-        };
-        return fun(0);
     }
 };
 

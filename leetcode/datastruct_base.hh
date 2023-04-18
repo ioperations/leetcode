@@ -1,5 +1,3 @@
-
-template <typename T>
 struct TreeNode {
     T val;
     TreeNode *left;
@@ -155,7 +153,7 @@ void BfsSearchV1(TreeNode<T> *root, std::vector<std::optional<int>> &vec) {
             q.push(tmp->right);
             vec.push_back(tmp->val);
         } else {
-            vec.push_back(std::optional<int>());
+            vec.emplace_back(std::optional<int>());
         }
     }
 

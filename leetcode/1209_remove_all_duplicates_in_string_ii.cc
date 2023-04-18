@@ -16,7 +16,7 @@ guaranteed that the answer is unique.
 using namespace std;
 class Solution {
    public:
-    string RemoveDuplicates(string s, int k) {
+    string RemoveDuplicates(const string & s, int k) {
         /*
             1 <= s.length <= 105
             2 <= k <= 104
@@ -38,7 +38,7 @@ class Solution {
                 // else
                 // pop these pack
                 if (!AllEuqual(v)) {
-                    for (auto it = v.rbegin(); it != v.rend(); it++) {
+                    for (auto it = v.rbegin(); it != v.rend(); ++it) {
                         stack.push(*it);
                     }
                 }
@@ -78,7 +78,7 @@ class SolutionV2 {
         int cnt;  // count
     };
 
-    string RemoveDuplicatesV2(string s, int k) {
+    string RemoveDuplicatesV2(const string &s, int k) {
         stack<Node> st;  // stack to save character and count
         for (int i = 0; i < (int)s.length(); i++) {
             if (st.empty())
@@ -105,7 +105,7 @@ class SolutionV2 {
         return ans;
     }
 
-    string RemoveDuplicates(string s, int k) {
+    string RemoveDuplicates(const string & s, int k) {
         int n = s.size();
         if (n < k) return s;
 

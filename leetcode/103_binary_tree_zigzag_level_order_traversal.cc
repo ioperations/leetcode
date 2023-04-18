@@ -90,7 +90,7 @@ TreeNode *ConstructBinaryTree(std::vector<std::optional<int>> &data) {
 void InOrder(TreeNode *root, std::vector<string> &vec) {
     if (root != nullptr) {
         InOrder(root->left, vec);
-        vec.push_back(std::to_string(root->val));
+        vec.emplace_back(std::to_string(root->val));
 
         InOrder(root->right, vec);
     }

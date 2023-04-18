@@ -29,7 +29,7 @@ class Solution {
         string code = "";
 
         for (int i = 0; i < len; i++) {
-            bool type = rand() % 3;
+            int type = rand() % 3;
 
             if (type == 0) {  // number
                 code += char(rand() % 10 + 48);

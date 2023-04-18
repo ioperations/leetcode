@@ -66,7 +66,7 @@ class Solution {
             for (map<int,
                      priority_queue<int, vector<int>, greater<int>>>::iterator
                      it = tmp.begin();
-                 it != tmp.end(); it++) {
+                 it != tmp.end(); ++it) {
                 while (it->second.size()) {
                     mp[it->first].push_back(it->second.top());
                     it->second.pop();
@@ -75,7 +75,7 @@ class Solution {
         }
         vector<vector<int>> ans;
         for (map<int, vector<int>>::iterator it = mp.begin(); it != mp.end();
-             it++) {
+             ++it){
             ans.push_back(it->second);
         }
         return ans;

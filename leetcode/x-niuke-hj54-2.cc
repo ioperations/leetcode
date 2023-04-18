@@ -60,29 +60,29 @@ int Result(const string &data) {
 
 TEST(t1, t2) {
     pos = 0;
-    std::string s("400+5");
-    int ret = Result(s.c_str());
+    const char* s="400+5";
+    int ret = Result(s);
     EXPECT_EQ(ret, 405);
 }
 
 TEST(t1, t3) {
     pos = 0;
-    std::string s("4*(2+5)");
-    int ret = Result(s.c_str());
+    const char* s=  "4*(2+5)";
+    int ret = Result(s);
     EXPECT_EQ(ret, 28);
 }
 
 TEST(t1, t4) {
     pos = 0;
-    std::string s("4*(2+(5-7))");
-    int ret = Result(s.c_str());
+    const char* s="4*(2+(5-7))";
+    int ret = Result(s);
     EXPECT_EQ(ret, 0);
 }
 
 TEST(t1, t5) {
     pos = 0;
-    std::string s("(2+(5-7))*(-4)");
-    int ret = Result(s.c_str());
+    const char *s = "(2+(5-7))*(-4)";
+    int ret = Result(s);
     EXPECT_EQ(ret, 0);
 }
 
@@ -94,8 +94,7 @@ int main(int argc, char *argv[]) {
 #else
 
 int main() {
-    string str;
-    str = "400*(4+4)";
+    const char * str = "400*(4+4)";
     pos = 0;
     cout << result(str) << endl;
     return 0;

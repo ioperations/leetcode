@@ -71,7 +71,7 @@ class Solution {
         return Helper(s1, s2, s3);
     }
 
-    bool IsInterleaveV1(string s1, string s2, string s3) {
+    bool IsInterleaveV1(const string& s1, const string& s2, const string& s3) {
         if (s1 == "") return s2 == s3;
         if (s2 == "") return s1 == s3;
         int n1 = s1.size(), n2 = s2.size(), n3 = s3.size();

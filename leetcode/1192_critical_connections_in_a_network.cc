@@ -23,7 +23,7 @@ class Solution {
     vector<vector<int>> CriticalConnections(int n,
                                             vector<vector<int>> &connections) {
         vector<vector<int>> adj(n);
-        for (auto c : connections) {
+        for (const auto & c : connections) {
             adj[c[0]].push_back(c[1]);
             adj[c[1]].push_back(c[0]);
         }
@@ -76,7 +76,7 @@ TEST(t0, t2) {
     Solution sl;
     auto ret = sl.CriticalConnections(n, connections);
 
-    set<vector<int>> ret_set(ret.begin(), ret.end());
+    // const set<vector<int>> ret_set(ret.begin(), ret.end());
 
     EXPECT_EQ(output, ret);
 }

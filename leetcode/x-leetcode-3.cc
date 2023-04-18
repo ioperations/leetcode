@@ -33,39 +33,35 @@ class Solution {
 
 TEST(r1, t2) {
     std::string in("abcabcbb");
-    Solution *slu = new Solution();
-    int ret = slu->LengthOfLongestSubstring(in);
+    Solution slu;
+    int ret = slu.LengthOfLongestSubstring(in);
     EXPECT_EQ(ret, 3);
-    delete slu;
 }
 TEST(r1, t3) {
     std::string in("bbbbbb");
-    Solution *slu = new Solution();
-    int ret = slu->LengthOfLongestSubstring(in);
+    Solution slu;
+    int ret = slu.LengthOfLongestSubstring(in);
     EXPECT_EQ(ret, 1);
-    delete slu;
 }
 TEST(r1, t4) {
     std::string in("pwwwkew");
-    Solution *slu = new Solution();
-    int ret = slu->LengthOfLongestSubstring(in);
+    Solution slu;
+    int ret = slu.LengthOfLongestSubstring(in);
     EXPECT_EQ(ret, 3);
-    delete slu;
 }
 TEST(r1, t5) {
     std::string in("");
-    Solution *slu = new Solution();
-    int ret = slu->LengthOfLongestSubstring(in);
+    Solution slu ;
+    int ret = slu.LengthOfLongestSubstring(in);
     EXPECT_EQ(ret, 0);
-    delete slu;
 }
 TEST(r2, t2) {
     std::string in("aab");
-    Solution *slu = new Solution();
-    int ret = slu->LengthOfLongestSubstring(in);
+    Solution slu ;
+    int ret = slu.LengthOfLongestSubstring(in);
     EXPECT_EQ(ret, 2);
-    delete slu;
 }
+
 int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();

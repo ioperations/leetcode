@@ -46,7 +46,7 @@ TEST(t0, t1) {
     std::set<vector<int>> output_set(output.begin(), output.end());
     Solution sl;
     auto ret = sl.Generate(num_rows);
-    std::set<vector<int>> ret_set(output.begin(), output.end());
+    std::set<vector<int>> ret_set(ret.begin(), ret.end());
 
     EXPECT_EQ(ret_set, output_set);
 }
@@ -58,7 +58,7 @@ TEST(t0, t2) {
     std::set<vector<int>> output_set(output.begin(), output.end());
     Solution sl;
     auto ret = sl.Generate(num_rows);
-    std::set<vector<int>> ret_set(output.begin(), output.end());
+    std::set<vector<int>> ret_set(ret.begin(), ret.end());
 
     EXPECT_EQ(ret_set, output_set);
 }

@@ -33,47 +33,6 @@ class Solution {
             }
         }
         return z_max;
-
-        // sloution v2
-        if (nums.size() == 1 && k % 2) return -1;
-        if (k < 2) return nums[k];
-
-        return max(
-            nums[k % nums.size()],
-            *max_element(nums.begin(), min(nums.end(), nums.begin() + k - 1)));
-
-        function<int(int, vector<int> &)> fun = [&](int move_count,
-                                                    vector<int> &mem) {
-            if (move_count > k) {
-                if (!nums.size()) return -1;
-                return nums[0];
-            }
-            int step_1 = -1;
-
-            if (nums.size()) {
-                mem.push_back(nums.front());
-                nums.erase(nums.begin(), nums.begin() + 1);
-                step_1 = fun(move_count + 1, mem);
-                nums.insert(nums.begin(), mem.back());
-                mem.pop_back();
-            }
-            int step_2 = -1;
-
-            for (auto &ptr : mem) {
-                nums.insert(nums.begin(), ptr);
-                step_2 = max(step_2, fun(move_count + 1, mem));
-                nums.erase(nums.begin(), nums.begin() + 1);
-            }
-
-            if (step_1 != -1 || step_2 != -1) {
-                return max(step_1, step_2);
-            }
-
-            return -1;
-        };
-
-        vector<int> mem;
-        return fun(1, mem);
     }
 };
 

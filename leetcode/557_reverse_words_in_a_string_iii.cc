@@ -91,7 +91,6 @@ static void BenchMarkStack(benchmark::State &state) {
     Solution sl;
     string const output = "s'teL ekat edoCteeL tsetnoc";
     for (auto _ : state) {
-        std::vector<int>{};
         auto ret = sl.ReverseWords(s);
         EXPECT_EQ(ret, output);
     }
@@ -103,7 +102,6 @@ static void BenchMarkTwoPointer(benchmark::State &state) {
     Solution sl;
     string const output = "s'teL ekat edoCteeL tsetnoc";
     for (auto _ : state) {
-        std::vector<int>{};
         auto ret = sl.ReverseWordsV1(s);
         EXPECT_EQ(ret, output);
     }

@@ -23,6 +23,8 @@ struct TreeNode {
 #include <optional>
 #include <unordered_set>
 #include <vector>
+#include <array>
+
 using namespace std;
 
 class Solution {
@@ -86,7 +88,7 @@ TEST(t, t1) {
     n_number_one.left = &n2;
     TreeNode l1(6);
     TreeNode l2(7);
-    std::vector<TreeNode *> expected = {&n, &l1, &l2};
+    std::array<TreeNode *,3> expected = {&n, &l1, &l2};
     Solution sl;
     auto ret = sl.DelNodes(&nl, to_delete);
 

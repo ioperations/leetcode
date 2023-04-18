@@ -43,42 +43,6 @@ class Solution {
             }
         }
         return mem[0];
-
-        // --------
-
-        // 在当前位置下你能得到的最大的score
-        map<tuple<int, int>, int> cache;
-        int size = nums.size();
-        /// @param sum 到达这一步骤已经花费的代价
-        /// @param now 当前的步骤
-        function<int(int, int)> fun = [&](int sum, int now) -> int {
-            // pass
-            if (now == size - 1) {
-                return nums[now] + sum;
-            }
-            auto key = make_tuple(sum, now);
-            if (cache.count(key)) {
-                return cache[key];
-            }
-            int ret = std::numeric_limits<int>::min();
-
-            for (int i = 1; i < k + 1; i++) {
-                // 向前走i步，花费的代价是sum+nums[now+i]
-                if (now + i < size) {
-                    int tmp = fun(sum + nums[now], now + i);
-                    ret = max(ret, tmp);
-                }
-            }
-            cache[key] = ret;
-            return ret;
-        };
-        int ret = std::numeric_limits<int>::min();
-        for (int i = 0; i < k; i++) {
-            if (i < size) {
-                ret = max(ret, fun(0, i));
-            }
-        }
-        return ret;
     }
 };
 
