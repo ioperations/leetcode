@@ -66,7 +66,7 @@ vector<Node *> ConstructTreeNode(Node *z1, vector<int> &z) {
 }
 
 Node *ConstructTreeNode(vector<optional<int>> &elements) {
-    Node n;
+    const Node n;
     if (elements.size() == 0) {
         return nullptr;
     }
@@ -76,7 +76,7 @@ Node *ConstructTreeNode(vector<optional<int>> &elements) {
 
     bool continue_loop = true;
     int i = 2;
-    int size = elements.size();
+    const int size = elements.size();
     while (continue_loop) {
         vector<int> z;
         while (i < size && elements[i].has_value()) {
@@ -84,7 +84,7 @@ Node *ConstructTreeNode(vector<optional<int>> &elements) {
             i++;
         }
         Node *z1 = q.front();
-        vector<Node *> ret = ConstructTreeNode(z1, z);
+        const vector<Node *> ret = ConstructTreeNode(z1, z);
         for (auto &ptr : ret) {
             q.push(ptr);
         }
@@ -115,9 +115,9 @@ TEST(memleak, t1) {
 TEST(t0, t1) {
     vector<optional<int>> z{1, optional<int>{}, 3, 2, 4, optional<int>{}, 5, 6};
     Node *n = ConstructTreeNode(z);
-    int output = 3;
+    const int output = 3;
     Solution sl;
-    int ret = sl.MaxDepth(n);
+    const int ret = sl.MaxDepth(n);
     EXPECT_EQ(ret, output);
     FreeNode(n);
 }
@@ -128,8 +128,8 @@ TEST(t0, t2) {
                             null, 12,   null, 13,   null, null, 14};
     Node *n = ConstructTreeNode(z);
     Solution sl;
-    int output = 5;
-    int ret = sl.MaxDepth(n);
+    const int output = 5;
+    const int ret = sl.MaxDepth(n);
     EXPECT_EQ(ret, output);
     FreeNode(n);
 }

@@ -105,8 +105,8 @@ void ExpectEqList(ListNode *const head, const std::vector<int> &elements) {
 #include <iostream>
 
 TEST(t0, t1) {
-    std::vector<int> v{1, 2, 3, 4, 5};
-    int n = 2;
+    const std::vector<int> v{1, 2, 3, 4, 5};
+    const int n = 2;
 
     ListNode *head = ConstuctList(v);
     Solution sl;
@@ -115,8 +115,8 @@ TEST(t0, t1) {
     FreeList(head);
 }
 TEST(t0, t2) {
-    std::vector<int> v{1};
-    int n = 1;
+    const std::vector<int> v{1};
+    const int n = 1;
 
     ListNode *head = ConstuctList(v);
     Solution sl;
@@ -126,8 +126,8 @@ TEST(t0, t2) {
 }
 
 TEST(t0, t3) {
-    std::vector<int> v{1, 2};
-    int n = 1;
+    const std::vector<int> v{1, 2};
+    const int n = 1;
 
     ListNode *head = ConstuctList(v);
     Solution sl;

@@ -135,7 +135,7 @@ class Node {
 
 TEST(t0, t1) {
     LRUCache *obj = new LRUCache(10);
-    int param_1 = obj->Get(1);
+    const int param_1 = obj->Get(1);
     (void)param_1;
     obj->Put(1, 10);
 
@@ -148,7 +148,7 @@ TEST(t0, t2) {
     lru->Put(2, 2);             // {2,2}
     EXPECT_EQ(lru->Get(1), 1);  // {1,1} {2,2}
     lru->Put(3, 3);
-    int ret = lru->Get(2);  // {1,1} {3,3}
+    const int ret = lru->Get(2);  // {1,1} {3,3}
     EXPECT_EQ(ret, -1);
 
     lru->Put(4, 4);              // {4,4} {3,3}

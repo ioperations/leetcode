@@ -55,7 +55,7 @@ class Solution {
 
 Node *ConstructNode(vector<optional<int>> &elements) {
     Node *node = nullptr;
-    int size = elements.size();
+    const int size = elements.size();
     elements.resize(size * 3 + 31);
     if (size == 0) return nullptr;
 
@@ -98,7 +98,7 @@ TEST(t0, t1) {
     vector<optional<int>> root = {1, null, 3, 2, 4, null, 5, 6};
 
     Node *tree = ConstructNode(root);
-    std::vector<int> output{1, 3, 5, 6, 2, 4};
+    const std::vector<int> output{1, 3, 5, 6, 2, 4};
     Solution sl;
     auto ret = sl.Preorder(tree);
     EXPECT_EQ(ret, output);
@@ -114,7 +114,8 @@ TEST(t0, t2) {
         9, 10,   null, null, 11, null, 12,   null, 13, null, null, 14};
 
     Node *tree = ConstructNode(root);
-    std::vector<int> output{1, 2, 3, 6, 7, 11, 14, 4, 8, 12, 5, 9, 13, 10};
+    const std::vector<int> output{1, 2, 3,  6, 7, 11, 14,
+                                  4, 8, 12, 5, 9, 13, 10};
     Solution sl;
     auto ret = sl.Preorder(tree);
     EXPECT_EQ(ret, output);

@@ -94,7 +94,7 @@ void FreeList(ListNode *root) {
 }
 
 ListNode *ConstructList(const std::vector<int> &ele) {
-    int size = ele.size();
+    const int size = ele.size();
     ListNode dummy, *it = &dummy;
     for (int i = 0; i < size; i++) {
         it->next = new ListNode(ele[i]);
@@ -109,10 +109,10 @@ TEST(t0, t1) {
 
     ListNode *l1 = ConstructList(std::vector<int>{1, 3, 4});
 
-    Solution sl;
-    auto *it = sl.MergeTwoLists(s1, l1);
+    Solution solution;
+    auto *it = solution.MergeTwoLists(s1, l1);
 
-    std::vector<int> expected{1, 1, 2, 3, 4, 4};
+    const std::vector<int> expected{1, 1, 2, 3, 4, 4};
 
     auto *it_2 = it;
     for (auto &ptr : expected) {
@@ -127,11 +127,11 @@ TEST(t1, t1) {
 
     ListNode *l1 = ConstructList(std::vector<int>{1, 3, 4});
 
-    Solution sl;
-    auto *it = sl.MergeTwoListsV2(s1, l1);
+    Solution solution;
+    auto *it = solution.MergeTwoListsV2(s1, l1);
     auto *it_2 = it;
 
-    std::vector<int> expected{1, 1, 2, 3, 4, 4};
+    const std::vector<int> expected{1, 1, 2, 3, 4, 4};
 
     for (auto &ptr : expected) {
         EXPECT_EQ(ptr, it->val);
@@ -166,12 +166,12 @@ TEST(t0, t2) {
 #include <algorithm>
 #include <vector>
 
-static void Benchmakrv1(benchmark::State &state) {
+void Benchmakrv1(benchmark::State &state) {
     std::vector<int> t{1,  2,  3,  4,  5,  6,  7,  8, 9,
                        10, 11, 12, 13, 14, 15, 16, 17};
 
     std::vector<int> expected;
-    int size = t.size();
+    const int size = t.size();
     expected.reserve(size * 2);
     for (int i = 0; i < size; i++) {
         expected.push_back(t[i]);
@@ -183,8 +183,8 @@ static void Benchmakrv1(benchmark::State &state) {
 
         ListNode *l1 = ConstructList(t);
 
-        Solution sl;
-        auto *it = sl.MergeTwoLists(s1, l1);
+        Solution solution;
+        auto *it = solution.MergeTwoLists(s1, l1);
         auto *it2 = it;
 
         for (auto &ptr : expected) {
@@ -197,12 +197,12 @@ static void Benchmakrv1(benchmark::State &state) {
 }
 BENCHMARK(Benchmakrv1);
 
-static void Benchmakrv2(benchmark::State &state) {
+void Benchmakrv2(benchmark::State &state) {
     std::vector<int> t{1,  2,  3,  4,  5,  6,  7,  8, 9,
                        10, 11, 12, 13, 14, 15, 16, 17};
 
     std::vector<int> expected;
-    int size = t.size();
+    const int size = t.size();
     expected.reserve(size * 2);
     for (int i = 0; i < size; i++) {
         expected.push_back(t[i]);
@@ -215,8 +215,8 @@ static void Benchmakrv2(benchmark::State &state) {
 
         ListNode *l1 = ConstructList(t);
 
-        Solution sl;
-        auto *it = sl.MergeTwoListsV2(s1, l1);
+        Solution solution;
+        auto *it = solution.MergeTwoListsV2(s1, l1);
 
         auto *it2 = it;
 
@@ -232,7 +232,7 @@ BENCHMARK(Benchmakrv2);
 
 int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
-    int ret = RUN_ALL_TESTS();
+    const int ret = RUN_ALL_TESTS();
     ::benchmark::Initialize(&argc, argv);
     if (::benchmark::ReportUnrecognizedArguments(argc, argv)) return 1;
     ::benchmark::RunSpecifiedBenchmarks();

@@ -231,7 +231,7 @@ TEST(t1, t3) {
 #include <algorithm>
 #include <vector>
 
-static void BenchV2(benchmark::State &state) {
+void BenchV2(benchmark::State &state) {
     for (auto _ : state) {
         ListNode *n = ConstructList(std::vector<int>{-4, 5, 3, 4, 0});
         SolutionV2 s;
@@ -242,7 +242,7 @@ static void BenchV2(benchmark::State &state) {
 }
 BENCHMARK(BenchV2);
 
-static void BenchV1(benchmark::State &state) {
+void BenchV1(benchmark::State &state) {
     for (auto _ : state) {
         ListNode *n = ConstructList(std::vector<int>{-4, 5, 3, 4, 0});
         Solution s;
@@ -255,7 +255,7 @@ BENCHMARK(BenchV1);
 
 int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
-    int ret = RUN_ALL_TESTS();
+    const int ret = RUN_ALL_TESTS();
     ::benchmark::Initialize(&argc, argv);
     if (::benchmark::ReportUnrecognizedArguments(argc, argv)) return 1;
     ::benchmark::RunSpecifiedBenchmarks();

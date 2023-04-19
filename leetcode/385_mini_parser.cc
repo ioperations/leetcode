@@ -65,7 +65,7 @@ class NestedInteger {
 class Solution {
    public:
     NestedInteger Deserialize(std::string s) {
-        function<bool(char)> isnumber = [](char c) {
+        const function<bool(char)> isnumber = [](char c) {
             return (c == '-') || isdigit(c);
         };
 
@@ -76,14 +76,14 @@ class Solution {
             const char &c = (*it);
             if (isnumber(c)) {
                 auto it2 = find_if_not(it, s.end(), isnumber);
-                int val = stoi(string(it, it2));
+                const int val = stoi(string(it, it2));
                 stk.top().Add(NestedInteger(val));
                 it = it2;
             } else {
                 if (c == '[') {
                     stk.push(NestedInteger());
                 } else if (c == ']') {
-                    NestedInteger ni = stk.top();
+                    const NestedInteger ni = stk.top();
                     stk.pop();
                     stk.top().Add(ni);
                 }
@@ -101,7 +101,7 @@ class Solution {
             if (s[i] == '[') {
                 stk.push(NestedInteger());
             } else if (s[i] == ']') {
-                NestedInteger ni = stk.top();
+                const NestedInteger ni = stk.top();
                 stk.pop();
                 stk.top().Add(ni);
             } else if (s[i] == ',') {
@@ -142,7 +142,7 @@ void Flattern(const NestedInteger &n, vector<int> &ret) {
 }
 
 TEST(base, t0) {
-    NestedInteger tmp(1);
+    const NestedInteger tmp(1);
 
     vector<int> vec;
 
@@ -152,7 +152,7 @@ TEST(base, t0) {
 }
 
 TEST(t0, t1) {
-    string s = "324";
+    const string s = "324";
     // Explanation: You should return a NestedInteger object which contains
     // a single integer 324.
 
@@ -171,7 +171,7 @@ TEST(t0, t1) {
 }
 
 TEST(t0, t2) {
-    string s = "[123,[456,[789]]]";
+    const string s = "[123,[456,[789]]]";
     // Output: [123,[456,[789]]]
     // Explanation: Return a NestedInteger object containing a nested list
     // with 2 elements:
@@ -201,9 +201,9 @@ TEST(t0, t2) {
 
 #include <algorithm>
 #include <vector>
-static void BenchV1(benchmark::State &state) {
+void BenchV1(benchmark::State &state) {
     for (auto _ : state) {
-        string s = "[123,[456,[789]]]";
+        const string s = "[123,[456,[789]]]";
         // Output: [123,[456,[789]]]
         // Explanation: Return a NestedInteger object containing a nested list
         // with 2 elements:
@@ -225,9 +225,9 @@ static void BenchV1(benchmark::State &state) {
 }
 BENCHMARK(BenchV1);
 
-static void BenchV2(benchmark::State &state) {
+void BenchV2(benchmark::State &state) {
     for (auto _ : state) {
-        string s = "[123,[456,[789]]]";
+        const string s = "[123,[456,[789]]]";
         // Output: [123,[456,[789]]]
         // Explanation: Return a NestedInteger object containing a nested list
         // with 2 elements:
@@ -251,7 +251,7 @@ BENCHMARK(BenchV2);
 
 int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
-    int ret = RUN_ALL_TESTS();
+    const int ret = RUN_ALL_TESTS();
 
     ::benchmark::Initialize(&argc, argv);
 

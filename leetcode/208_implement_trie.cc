@@ -202,7 +202,7 @@ TEST(t1, t1) {
 #include <algorithm>
 #include <vector>
 
-static void BenchMarkOther(benchmark::State &state) {
+void BenchMarkOther(benchmark::State &state) {
     for (auto _ : state) {
         bool ret;
         Trie *trie = new Trie();
@@ -221,7 +221,7 @@ static void BenchMarkOther(benchmark::State &state) {
 }
 BENCHMARK(BenchMarkOther);
 
-static void BenchMarkMyImpl(benchmark::State &state) {
+void BenchMarkMyImpl(benchmark::State &state) {
     for (auto _ : state) {
         bool ret;
         TrieV1 *trie = new TrieV1();
@@ -242,7 +242,7 @@ BENCHMARK(BenchMarkMyImpl);
 
 int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
-    int ret = RUN_ALL_TESTS();
+    const int ret = RUN_ALL_TESTS();
     ::benchmark::Initialize(&argc, argv);
     if (::benchmark::ReportUnrecognizedArguments(argc, argv)) return 1;
     ::benchmark::RunSpecifiedBenchmarks();

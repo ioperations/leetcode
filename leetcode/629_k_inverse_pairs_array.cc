@@ -14,8 +14,6 @@ using namespace std;
 class Solution {
    public:
     int KInversePairs(int n, int k) {
-        std::stack<int> stack;
-
         // x x 1 2 3 x x
         //       ^
         vector<vector<int>> dp(n + 1, vector<int>(k + 1, 0));
@@ -57,22 +55,22 @@ class Solution {
 #include <iostream>
 
 TEST(t0, t1) {
-    int n = 3;
-    int k = 0;
-    int output = 1;
+    const int n = 3;
+    const int k = 0;
+    const int output = 1;
     Solution sl;
-    int ret = sl.KInversePairs(n, k);
+    const int ret = sl.KInversePairs(n, k);
     // Only the array [1,2,3] which consists of numbers from 1 to 3 has exactly
     // 0 inverse pairs.
     EXPECT_EQ(ret, output);
 }
 
 TEST(t0, t2) {
-    int n = 3, k = 1;
-    int output = 2;
+    const int n = 3, k = 1;
+    const int output = 2;
     // Explanation: The array [1,3,2] and [2,1,3] have exactly 1 inverse pair.
     Solution sl;
-    int ret = sl.KInversePairs(n, k);
+    const int ret = sl.KInversePairs(n, k);
     EXPECT_EQ(ret, output);
 }
 

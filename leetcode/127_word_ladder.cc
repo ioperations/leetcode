@@ -26,7 +26,7 @@ class Solution {
         // pass
         set<string> words;
         bool has_end = false;
-        for (string word : word_list) {
+        for (const string word : word_list) {
             words.insert(word);
             if (word == end_word) has_end = true;
         }
@@ -42,7 +42,7 @@ class Solution {
             // traverse all nodes of current level
             // bcz we are not going to use depth array
             while (qsize--) {
-                string curr = q.front();
+                const string &curr = q.front();
                 q.pop();
                 for (int i = 0; i < (int)curr.length(); i++) {
                     string tmp = curr;
@@ -71,25 +71,25 @@ class Solution {
 #include <iostream>
 
 TEST(t0, t1) {
-    string begin_word = "hit", end_word = "cog";
+    const string begin_word = "hit", end_word = "cog";
     std::vector<string> word_list = {"hot", "dot", "dog", "lot", "log", "cog"};
-    int output = 5;
+    const int output = 5;
     // Explanation: One shortest transformation sequence is "hit" -> "hot" ->
     // "dot" -> "dog" -> cog", which is 5 words long.
 
     Solution sl;
-    int ret = sl.LadderLength(begin_word, end_word, word_list);
+    const int ret = sl.LadderLength(begin_word, end_word, word_list);
     EXPECT_EQ(ret, output);
 }
 TEST(t0, t2) {
-    string begin_word = "hit", end_word = "cog";
+    const string begin_word = "hit", end_word = "cog";
     std::vector<string> word_list = {"hot", "dot", "dog", "lot", "log"};
-    int output = 0;
+    const int output = 0;
     // Explanation: The endWord "cog" is not in wordList, therefore there is no
     // valid transformation sequence.
 
     Solution sl;
-    int ret = sl.LadderLength(begin_word, end_word, word_list);
+    const int ret = sl.LadderLength(begin_word, end_word, word_list);
     EXPECT_EQ(ret, output);
 }
 

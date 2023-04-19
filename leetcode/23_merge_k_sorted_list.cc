@@ -41,10 +41,10 @@ class LoserTree {
     vector<int> *base;  // 数组副本(叶节点数据)
    public:
     LoserTree(vector<int> &nums) {
-        int nums_size = nums.size();
+        const int nums_size = nums.size();
         if (nums_size == 0) return;
-        int power_num = ceil(log2(nums_size));
-        int leaves_num = 1 << power_num;
+        const int power_num = ceil(log2(nums_size));
+        const int leaves_num = 1 << power_num;
         this->base = &nums;
         this->leaves_ls_st = leaves_num;
         this->ls.resize(leaves_num << 1, -1);
@@ -62,8 +62,8 @@ class LoserTree {
         if (node_idx >= this->leaves_ls_st) {
             return this->ls[node_idx];
         }
-        int lwinner_idx = Build(node_idx << 1);
-        int rwinner_idx = Build(node_idx << 1 | 1);
+        const int lwinner_idx = Build(node_idx << 1);
+        const int rwinner_idx = Build(node_idx << 1 | 1);
         int winner_idx = -1;
         // 父节点存loser
         if ((*this->base)[lwinner_idx] < (*this->base)[rwinner_idx]) {
@@ -77,9 +77,9 @@ class LoserTree {
     }
 
     int GetMin() {
-        int ans = (*this->base)[ls[0]];
+        const int ans = (*this->base)[ls[0]];
         // modify_fa_idx为ls的下标
-        int leaves_idx = this->leaves_ls_st + ls[0];
+        const int leaves_idx = this->leaves_ls_st + ls[0];
         (*this->base)[this->ls[leaves_idx]] = inf;
         this->Sort(leaves_idx >> 1, this->ls[0]);
         return ans;
@@ -105,7 +105,7 @@ class Solution {
         std::vector<int> ans;
         LoserTree *lstree = new LoserTree(arr);
         for (int i = 0; i < k; i++) {
-            int min = lstree->GetMin();
+            const int min = lstree->GetMin();
             ans.push_back(min);
         }
         delete (lstree);
@@ -180,7 +180,7 @@ class Solution {
         while (true) {
             ListNode *candidate =
                 nullptr;  // 所以现在的问题是怎样确定这个candidate
-            int val = std::numeric_limits<int>::max();
+            const int val = std::numeric_limits<int>::max();
             for (auto &cur_cursor : cursors) {
                 if (cur_cursor == nullptr) {
                     continue;

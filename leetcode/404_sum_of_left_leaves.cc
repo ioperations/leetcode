@@ -101,30 +101,30 @@ void FreeRoot(TreeNode *root) {
 #include <iostream>
 
 TEST(t0, t1) {
-    std::vector<int> elements = {7, 3, 20, 15, 9};
+    const std::vector<int> elements = {7, 3, 20, 15, 9};
     TreeNode *root = ConstructTree(elements);
     Solution s;
-    int ret = s.SumOfLeftLeaves(root);
+    const int ret = s.SumOfLeftLeaves(root);
     EXPECT_EQ(ret, 12);
 
     FreeRoot(root);
 }
 
 TEST(t0, t3) {
-    std::vector<int> elements = {1, 2, 3, 4, 5};
+    const std::vector<int> elements = {1, 2, 3, 4, 5};
     TreeNode *root = ConstructTree(elements);
     Solution s;
-    int ret = s.SumOfLeftLeaves(root);
+    const int ret = s.SumOfLeftLeaves(root);
     EXPECT_EQ(ret, 0);
 
     FreeRoot(root);
 }
 
 TEST(t0, t2) {
-    std::vector<int> elements = {1};
+    const std::vector<int> elements = {1};
     TreeNode *root = ConstructTree(elements);
     Solution s;
-    int ret = s.SumOfLeftLeaves(root);
+    const int ret = s.SumOfLeftLeaves(root);
     EXPECT_EQ(ret, 0);
 
     FreeRoot(root);

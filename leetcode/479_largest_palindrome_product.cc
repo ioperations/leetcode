@@ -34,7 +34,8 @@ class Solution {
                 for (j = 1, start = (n_digits - i) * (n_digits - j); j <= i;
                      j += 2) {
                     // cnt++;
-                    unsigned long val = start;  //(n_digits-i)*(n_digits-j);
+                    const unsigned long val =
+                        start;  //(n_digits-i)*(n_digits-j);
                     if (IsPalindrome(val)) {
                         candidate = val;
                         max_offset = n_digits - val / (n_digits - 1);
@@ -47,10 +48,11 @@ class Solution {
                 j = n_digits - n_digits / 11 * 11;
                 if (!(j & 1)) j += 11;
                 start = (n_digits - i) * (n_digits - j);
-                int step = (n_digits - i) * 22;
+                const int step = (n_digits - i) * 22;
                 for (; j <= i + 11; j += 22) {
                     // cnt++;
-                    unsigned long val = start;  //(n_digits-i)*(n_digits-j);
+                    const unsigned long val =
+                        start;  //(n_digits-i)*(n_digits-j);
                     start -= step;
                     if (IsPalindrome(val)) {
                         candidate = val;
@@ -64,7 +66,7 @@ class Solution {
         }
         for (; i <= (int)max_offset; i += 2) {
             for (j = 1; j <= i; j += 2) {
-                unsigned long val = (n_digits - i) * (n_digits - j);
+                const unsigned long val = (n_digits - i) * (n_digits - j);
                 if (val <= candidate) break;
                 if (IsPalindrome(val)) {
                     candidate = val;
@@ -76,7 +78,7 @@ class Solution {
         return candidate % 1337;
     }
     bool IsPalindrome(const std::string s) {
-        int n = s.size();
+        const int n = s.size();
 
         int left = 0;
         int right = 0;
@@ -111,31 +113,31 @@ class Solution {
 TEST(t, t1) {
     // Explanation: 99 x 91 = 9009, 9009 % 1337 = 987
     Solution s;
-    bool ret = s.IsPalindrome("9009");
+    const bool ret = s.IsPalindrome("9009");
     EXPECT_EQ(ret, true);
 }
 
 TEST(t, t2) {
     // Explanation: 99 x 91 = 9009, 9009 % 1337 = 987
     Solution s;
-    bool ret = s.IsPalindrome("000");
+    const bool ret = s.IsPalindrome("000");
     EXPECT_EQ(ret, true);
 }
 
 TEST(t0, t1) {
-    int n = 2;
-    int expected = 987;
+    const int n = 2;
+    const int expected = 987;
     // Explanation: 99 x 91 = 9009, 9009 % 1337 = 987
     Solution s;
-    int ret = s.LargestPalindrome(n);
+    const int ret = s.LargestPalindrome(n);
     EXPECT_EQ(ret, expected);
 }
 
 TEST(t0, t2) {
-    int n = 1;
-    int expected = 9;
+    const int n = 1;
+    const int expected = 9;
     Solution s;
-    int ret = s.LargestPalindrome(n);
+    const int ret = s.LargestPalindrome(n);
     EXPECT_EQ(ret, expected);
 }
 

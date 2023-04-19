@@ -62,7 +62,7 @@ vector<Node *> ConstructTreeNode(Node *z1, vector<int> &z) {
 }
 
 Node *ConstructTreeNode(vector<optional<int>> &elements) {
-    Node n;
+    const Node n;
     if (elements.size() == 0) {
         return nullptr;
     }
@@ -72,7 +72,7 @@ Node *ConstructTreeNode(vector<optional<int>> &elements) {
 
     bool continue_loop = true;
     int i = 2;
-    int size = elements.size();
+    const int size = elements.size();
     while (continue_loop) {
         vector<int> z;
         while (i < size && elements[i].has_value()) {
@@ -80,7 +80,7 @@ Node *ConstructTreeNode(vector<optional<int>> &elements) {
             i++;
         }
         Node *z1 = q.front();
-        vector<Node *> ret = ConstructTreeNode(z1, z);
+        const vector<Node *> ret = ConstructTreeNode(z1, z);
         for (auto &ptr : ret) {
             q.push(ptr);
         }
@@ -105,7 +105,7 @@ TEST(t0, t1) {
 #define null optional<int>()
 
     vector<optional<int>> root = {1, null, 3, 2, 4, null, 5, 6};
-    vector<int> output = {5, 6, 3, 2, 4, 1};
+    const vector<int> output = {5, 6, 3, 2, 4, 1};
     Solution sl;
     auto *tree = ConstructTreeNode(root);
     auto ret = sl.Postorder(tree);
@@ -120,7 +120,7 @@ TEST(t0, t2) {
         1, null, 2,    3,    4,  5,    null, null, 6,  7,    null, 8, null,
         9, 10,   null, null, 11, null, 12,   null, 13, null, null, 14};
 
-    vector<int> output = {2, 6, 14, 11, 7, 3, 12, 8, 4, 13, 9, 10, 5, 1};
+    const vector<int> output = {2, 6, 14, 11, 7, 3, 12, 8, 4, 13, 9, 10, 5, 1};
     Solution sl;
     auto *tree = ConstructTreeNode(root);
     auto ret = sl.Postorder(tree);

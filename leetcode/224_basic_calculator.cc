@@ -136,7 +136,7 @@ class SolutionV2 {
         int res = 0, sign = 1, n = s.size();
         stack<int> stk;
         for (int i = 0; i < n; i++) {
-            char c = s[i];
+            const char c = s[i];
             if (c >= '0' && c <= '9') {
                 int num = 0;
                 while (i < n && s[i] >= '0' && s[i] <= '9') {
@@ -175,7 +175,7 @@ class SolutionV3 {
         stack<char> ops;
 
         for (int i = 0; i < (int)s.size(); ++i) {
-            char ch = s[i];
+            const char ch = s[i];
 
             // If current is space, skip it
             if (ch == ' ') continue;
@@ -200,12 +200,12 @@ class SolutionV3 {
             // Solve entire bracket
             else if (ch == ')') {
                 while (!ops.empty() && ops.top() != '(') {
-                    int num2 = nums.top();
+                    const int num2 = nums.top();
                     nums.pop();
-                    int num1 = nums.top();
+                    const int num1 = nums.top();
                     nums.pop();
 
-                    int out = ApplyOp(num1, num2, ops.top());
+                    const int out = ApplyOp(num1, num2, ops.top());
                     ops.pop();
                     nums.push(out);
                 }
@@ -221,12 +221,12 @@ class SolutionV3 {
                 // of 'ops' to top two elements in nums stack.
                 while (!ops.empty() &&
                        Precedence(ops.top()) >= Precedence(ch)) {
-                    int num2 = nums.top();
+                    const int num2 = nums.top();
                     nums.pop();
-                    int num1 = nums.top();
+                    const int num1 = nums.top();
                     nums.pop();
 
-                    int out = ApplyOp(num1, num2, ops.top());
+                    const int out = ApplyOp(num1, num2, ops.top());
                     ops.pop();
                     nums.push(out);
                 }
@@ -238,12 +238,12 @@ class SolutionV3 {
         // point, apply remaining ops to remaining
         // values.
         while (!ops.empty()) {
-            int num2 = nums.top();
+            const int num2 = nums.top();
             nums.pop();
-            int num1 = nums.top();
+            const int num1 = nums.top();
             nums.pop();
 
-            int out = ApplyOp(num1, num2, ops.top());
+            const int out = ApplyOp(num1, num2, ops.top());
             ops.pop();
 
             nums.push(out);
@@ -283,55 +283,55 @@ class SolutionV3 {
 #include <iostream>
 
 TEST(t0, t1) {
-    std::string s = "1+1";
+    const std::string s = "1+1";
 
     SolutionV2 sl;
-    int ret = sl.Calculate(s);
+    const int ret = sl.Calculate(s);
 
     EXPECT_EQ(ret, 2);
 }
 
 TEST(t0, t2) {
-    std::string s = "2-1+2";
+    const std::string s = "2-1+2";
 
     SolutionV2 sl;
-    int ret = sl.Calculate(s);
+    const int ret = sl.Calculate(s);
 
     EXPECT_EQ(ret, 3);
 }
 
 TEST(t0, t3) {
-    std::string s = "(1+(4+5+2)-3)+(6+8)";
+    const std::string s = "(1+(4+5+2)-3)+(6+8)";
 
     SolutionV2 sl;
-    int ret = sl.Calculate(s);
+    const int ret = sl.Calculate(s);
 
     EXPECT_EQ(ret, 23);
 }
 
 TEST(t1, t1) {
-    std::string s = "1+1";
+    const std::string s = "1+1";
 
     SolutionV3 sl;
-    int ret = sl.Calculate(s);
+    const int ret = sl.Calculate(s);
 
     EXPECT_EQ(ret, 2);
 }
 
 TEST(t1, t2) {
-    std::string s = "2-1+2";
+    const std::string s = "2-1+2";
 
     SolutionV3 sl;
-    int ret = sl.Calculate(s);
+    const int ret = sl.Calculate(s);
 
     EXPECT_EQ(ret, 3);
 }
 
 TEST(t1, t3) {
-    std::string s = "(1+(4+5+2)-3)+(6+8)";
+    const std::string s = "(1+(4+5+2)-3)+(6+8)";
 
     SolutionV3 sl;
-    int ret = sl.Calculate(s);
+    const int ret = sl.Calculate(s);
 
     EXPECT_EQ(ret, 23);
 }
@@ -341,24 +341,24 @@ TEST(t1, t3) {
 #include <algorithm>
 #include <vector>
 
-static void BenchV2(benchmark::State &state) {
+void BenchV2(benchmark::State &state) {
     for (auto _ : state) {
-        std::string s = "(1+(4+5+2)-3)+(6+8)";
+        const std::string s = "(1+(4+5+2)-3)+(6+8)";
 
         SolutionV2 sl;
-        int ret = sl.Calculate(s);
+        const int ret = sl.Calculate(s);
 
         EXPECT_EQ(ret, 23);
     }
 }
 BENCHMARK(BenchV2);
 
-static void BenchV3(benchmark::State &state) {
+void BenchV3(benchmark::State &state) {
     for (auto _ : state) {
-        std::string s = "(1+(4+5+2)-3)+(6+8)";
+        const std::string s = "(1+(4+5+2)-3)+(6+8)";
 
         SolutionV3 sl;
-        int ret = sl.Calculate(s);
+        const int ret = sl.Calculate(s);
 
         EXPECT_EQ(ret, 23);
     }
@@ -367,7 +367,7 @@ BENCHMARK(BenchV3);
 
 int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
-    int ret = RUN_ALL_TESTS();
+    const int ret = RUN_ALL_TESTS();
     ::benchmark::Initialize(&argc, argv);
     if (::benchmark::ReportUnrecognizedArguments(argc, argv)) return 1;
     ::benchmark::RunSpecifiedBenchmarks();

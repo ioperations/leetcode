@@ -129,7 +129,7 @@ class Solution {
             string str;
             vector<int> long_word_indices;
             Dfs(root, long_word_indices, str);
-            for (int i : long_word_indices) {
+            for (const int i : long_word_indices) {
                 res.push_back({word_index, i});
             }
         }
@@ -180,7 +180,7 @@ class Solution {
         unordered_map<string, int> rev;
         string temp;
 
-        int n = words.size();
+        const int n = words.size();
 
         for (int i = 0; i < n; i++) {
             temp = words[i];
@@ -211,7 +211,7 @@ class Solution {
             left = "";
             right = word;
 
-            int sz = word.size();
+            const int sz = word.size();
 
             for (int j = 0; j < sz; j++) {
                 left.push_back(word[j]);
@@ -243,19 +243,19 @@ TEST(t0, t1) {
     // Explanation: The palindromes are
     // ["dcbaabcd","abcddcba","slls","llssssll"]
 
-    set<vector<int>> output_set(output.begin(), output.end());
+    const set<vector<int>> output_set(output.begin(), output.end());
     Solution sl;
     auto ret = sl.PalindromePairs(words);
 
-    set<vector<int>> ret_set(ret.begin(), ret.end());
+    const set<vector<int>> ret_set(ret.begin(), ret.end());
     EXPECT_EQ(ret_set, output_set);
     ret = sl.PalindromePairsV1(words);
 
-    set<vector<int>> ret_set1(ret.begin(), ret.end());
+    const set<vector<int>> ret_set1(ret.begin(), ret.end());
     EXPECT_EQ(ret_set1, output_set);
     ret = sl.PalindromePairsV1(words);
 
-    set<vector<int>> ret_set2(ret.begin(), ret.end());
+    const set<vector<int>> ret_set2(ret.begin(), ret.end());
     EXPECT_EQ(ret_set2, output_set);
 }
 
@@ -265,24 +265,24 @@ TEST(t0, t2) {
     // Explanation: The palindromes are
     // The palindromes are ["battab","tabbat"]
 
-    set<vector<int>> output_set(output.begin(), output.end());
+    const set<vector<int>> output_set(output.begin(), output.end());
     Solution sl;
     auto ret = sl.PalindromePairs(words);
 
-    set<vector<int>> ret_set(ret.begin(), ret.end());
+    const set<vector<int>> ret_set(ret.begin(), ret.end());
     EXPECT_EQ(ret_set, output_set);
     ret = sl.PalindromePairsV1(words);
 
-    set<vector<int>> ret_set1(ret.begin(), ret.end());
+    const set<vector<int>> ret_set1(ret.begin(), ret.end());
     EXPECT_EQ(ret_set1, output_set);
     ret = sl.PalindromePairsV1(words);
 
-    set<vector<int>> ret_set2(ret.begin(), ret.end());
+    const set<vector<int>> ret_set2(ret.begin(), ret.end());
     EXPECT_EQ(ret_set2, output_set);
 }
 
 int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
-    int ret = RUN_ALL_TESTS();
+    const int ret = RUN_ALL_TESTS();
     return ret;
 }

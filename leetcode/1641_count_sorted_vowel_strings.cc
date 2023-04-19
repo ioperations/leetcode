@@ -80,8 +80,8 @@ class Solution {
 #include <iostream>
 
 TEST(t0, t1) {
-    int n = 1;
-    int output = 5;
+    const int n = 1;
+    const int output = 5;
     // Explanation: The 5 sorted strings that consist of vowels only are
     // ["a","e","i","o","u"].
 
@@ -94,8 +94,8 @@ TEST(t0, t1) {
 }
 
 TEST(t0, t2) {
-    int n = 2;
-    int output = 15;
+    const int n = 2;
+    const int output = 15;
 
     // Explanation: The 15 sorted strings that consist of vowels only are
     // ["aa","ae","ai","ao","au","ee","ei","eo","eu","ii","io","iu","oo","ou","uu"].

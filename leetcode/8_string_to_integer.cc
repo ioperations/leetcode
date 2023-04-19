@@ -24,8 +24,8 @@ integers less than -231 should be clamped to -231, and integers greater than 231
 
 class Solution {
    public:
-    int myAtoi(std::string s) {
-        bool fill = false;
+    int MyAtoi(std::string s) {
+        const bool fill = false;
         int ret = 0;
 
         bool negative = false;
@@ -54,30 +54,30 @@ class Solution {
 #include <iostream>
 
 TEST(t1, t2) {
-    std::string s = "42";
+    const std::string s = "42";
     Solution sl;
-    int ret = sl.myAtoi(s);
+    const int ret = sl.MyAtoi(s);
     EXPECT_EQ(42, ret);
 }
 
 TEST(t2, t2) {
-    std::string s = "    -42";
+    const std::string s = "    -42";
     Solution sl;
-    int ret = sl.myAtoi(s);
+    const int ret = sl.MyAtoi(s);
     EXPECT_EQ(-42, ret);
 }
 
 TEST(t3, t2) {
-    std::string s = "4193 with words";
+    const std::string s = "4193 with words";
     Solution sl;
-    int ret = sl.myAtoi(s);
+    const int ret = sl.MyAtoi(s);
     EXPECT_EQ(4193, ret);
 }
 
 TEST(t4, t2) {
-    std::string s = "words with 987";
+    const std::string s = "words with 987";
     Solution sl;
-    int ret = sl.myAtoi(s);
+    const int ret = sl.MyAtoi(s);
     EXPECT_EQ(987, ret);
 }
 int main(int argc, char *argv[]) {

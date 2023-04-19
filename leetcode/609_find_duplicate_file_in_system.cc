@@ -92,12 +92,12 @@ TEST(t0, t1) {
         {"root/a/2.txt", "root/c/d/4.txt", "root/4.txt"},
         {"root/a/1.txt", "root/c/3.txt"}};
 
-    set<vector<string>> output_set(output.begin(), output.end());
+    const set<vector<string>> output_set(output.begin(), output.end());
 
     Solution sl;
     auto ret = sl.FindDuplicate(paths);
 
-    set<vector<string>> ret_set(output.begin(), output.end());
+    const set<vector<string>> ret_set(output.begin(), output.end());
     EXPECT_EQ(ret_set, output_set);
 }
 
@@ -106,12 +106,12 @@ TEST(t0, t2) {
                             "root/c 3.txt(abcd)", "root/c/d 4.txt(efgh)"};
     vector<vector<string>> output = {{"root/a/2.txt", "root/c/d/4.txt"},
                                      {"root/a/1.txt", "root/c/3.txt"}};
-    set<vector<string>> output_set(output.begin(), output.end());
+    const set<vector<string>> output_set(output.begin(), output.end());
 
     Solution sl;
     auto ret = sl.FindDuplicate(paths);
 
-    set<vector<string>> ret_set(output.begin(), output.end());
+    const set<vector<string>> ret_set(output.begin(), output.end());
     EXPECT_EQ(ret_set, output_set);
 }
 

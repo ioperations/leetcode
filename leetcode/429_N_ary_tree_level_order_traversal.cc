@@ -44,7 +44,7 @@ class Solution {
 
         vector<int> tmp_vec;
         while (q.size()) {
-            Status tmp = q.front();
+            const Status tmp = q.front();
             if (tmp.level == cur_level) {
                 tmp_vec.push_back(tmp.n->m_val);
             } else {
@@ -72,7 +72,7 @@ class Solution {
 
 Node *ConstructNode(vector<optional<int>> &elements) {
     Node *node = nullptr;
-    int size = elements.size();
+    const int size = elements.size();
     elements.resize(size * 3 + 31);
     if (size == 0) return nullptr;
 
@@ -113,7 +113,7 @@ TEST(t0, t1) {
 #define null \
     optional<int> {}
     vector<optional<int>> root = {1, null, 3, 2, 4, null, 5, 6};
-    vector<vector<int>> output = {{1}, {3, 2, 4}, {5, 6}};
+    const vector<vector<int>> output = {{1}, {3, 2, 4}, {5, 6}};
 
     Node *tree = ConstructNode(root);
     Solution sl;
@@ -129,7 +129,7 @@ TEST(t0, t2) {
         1, null, 2,    3,    4,  5,    null, null, 6,  7,    null, 8, null,
         9, 10,   null, null, 11, null, 12,   null, 13, null, null, 14};
 
-    vector<vector<int>> output = {
+    const vector<vector<int>> output = {
         {1}, {2, 3, 4, 5}, {6, 7, 8, 9, 10}, {11, 12, 13}, {14}};
 
     Node *tree = ConstructNode(root);

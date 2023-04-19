@@ -46,8 +46,8 @@ class Solution {
         // 这个点已经被走过了
         vector<vector<bool>> route(board.size(),
                                    vector<bool>(board[0].size(), false));
-        int m = board.size();
-        int n = board[0].size();
+        const int m = board.size();
+        const int n = board[0].size();
 
         if (board[x][y] == word[0]) {
             stack.push(make_pair(x, y));
@@ -174,9 +174,9 @@ class Solution {
 class SolutionV2 {
    public:
     bool Exist(vector<vector<char>> &board, string word) {
-        int m = board.size();
+        const int m = board.size();
         if (m == 0) return false;
-        int n = board[0].size();
+        const int n = board[0].size();
 
         vector<vector<bool>> visited(m, vector<bool>(n, false));
 
@@ -197,10 +197,10 @@ class SolutionV2 {
 
         while (!stack.empty()) {
             auto top = stack.top();
-            int i = top[0];
-            int j = top[1];
-            int pos = top[2];
-            int dir = top[3];
+            const int i = top[0];
+            const int j = top[1];
+            const int pos = top[2];
+            const int dir = top[3];
             visited[i][j] = true;
             stack.pop();
             stack.push({i, j, pos, dir + 1});
@@ -252,9 +252,9 @@ TEST(t0, t1) {
     */
     std::vector<vector<char>> board = {
         {'A', 'B', 'C', 'E'}, {'S', 'F', 'C', 'S'}, {'A', 'D', 'E', 'E'}};
-    std::string word = "ABCCED";
+    const std::string word = "ABCCED";
     Solution s;
-    bool ret = s.Exist(board, word);
+    const bool ret = s.Exist(board, word);
     EXPECT_EQ(ret, true);
 }
 
@@ -270,11 +270,12 @@ TEST(t1, t1) {
     */
     std::vector<vector<char>> board = {
         {'A', 'B', 'C', 'E'}, {'S', 'F', 'C', 'S'}, {'A', 'D', 'E', 'E'}};
-    std::string word = "ABCCED";
+    const std::string word = "ABCCED";
     SolutionV2 s;
-    bool ret = s.Exist(board, word);
+    const bool ret = s.Exist(board, word);
     EXPECT_EQ(ret, true);
 }
+
 TEST(t0, t2) {
     /*
          ___ ___ ___ ___
@@ -288,9 +289,9 @@ TEST(t0, t2) {
 
     std::vector<vector<char>> board = {
         {'A', 'B', 'C', 'E'}, {'S', 'F', 'C', 'S'}, {'A', 'D', 'E', 'E'}};
-    std::string word = "SEE";
+    const std::string word = "SEE";
     Solution s;
-    bool ret = s.Exist(board, word);
+    const bool ret = s.Exist(board, word);
     EXPECT_EQ(ret, true);
 }
 
@@ -307,9 +308,9 @@ TEST(t1, t2) {
 
     std::vector<vector<char>> board = {
         {'A', 'B', 'C', 'E'}, {'S', 'F', 'C', 'S'}, {'A', 'D', 'E', 'E'}};
-    std::string word = "SEE";
+    const std::string word = "SEE";
     SolutionV2 s;
-    bool ret = s.Exist(board, word);
+    const bool ret = s.Exist(board, word);
     EXPECT_EQ(ret, true);
 }
 TEST(t0, t3) {
@@ -325,9 +326,9 @@ TEST(t0, t3) {
 
     std::vector<vector<char>> board = {
         {'A', 'B', 'C', 'E'}, {'S', 'F', 'C', 'S'}, {'A', 'D', 'E', 'E'}};
-    std::string word = "ABCB";
+    const std::string word = "ABCB";
     Solution s;
-    bool ret = s.Exist(board, word);
+    const bool ret = s.Exist(board, word);
     EXPECT_EQ(ret, false);
 }
 TEST(t1, t3) {
@@ -343,9 +344,9 @@ TEST(t1, t3) {
 
     std::vector<vector<char>> board = {
         {'A', 'B', 'C', 'E'}, {'S', 'F', 'C', 'S'}, {'A', 'D', 'E', 'E'}};
-    std::string word = "ABCB";
+    const std::string word = "ABCB";
     SolutionV2 s;
-    bool ret = s.Exist(board, word);
+    const bool ret = s.Exist(board, word);
     EXPECT_EQ(ret, false);
 }
 
@@ -355,9 +356,9 @@ TEST(t0, t4) {
         {{'A', 'A', 'A', 'A', 'A', 'A'}, {'A', 'A', 'A', 'A', 'A', 'A'},
          {'A', 'A', 'A', 'A', 'A', 'A'}, {'A', 'A', 'A', 'A', 'A', 'A'},
          {'A', 'A', 'A', 'A', 'A', 'A'}, {'A', 'A', 'A', 'A', 'A', 'A'}};
-    std::string word = "AAAAAAAAAAAAAAB";
+    const std::string word = "AAAAAAAAAAAAAAB";
     Solution s;
-    bool ret = s.Exist(board, word);
+    const bool ret = s.Exist(board, word);
     EXPECT_EQ(ret, false);
 }
 TEST(t1, t4) {
@@ -366,9 +367,9 @@ TEST(t1, t4) {
         {{'A', 'A', 'A', 'A', 'A', 'A'}, {'A', 'A', 'A', 'A', 'A', 'A'},
          {'A', 'A', 'A', 'A', 'A', 'A'}, {'A', 'A', 'A', 'A', 'A', 'A'},
          {'A', 'A', 'A', 'A', 'A', 'A'}, {'A', 'A', 'A', 'A', 'A', 'A'}};
-    std::string word = "AAAAAAAAAAAAAAB";
+    const std::string word = "AAAAAAAAAAAAAAB";
     SolutionV2 s;
-    bool ret = s.Exist(board, word);
+    const bool ret = s.Exist(board, word);
     EXPECT_EQ(ret, false);
 }
 

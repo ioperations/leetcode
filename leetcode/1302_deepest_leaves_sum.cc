@@ -36,8 +36,8 @@ class Solution {
     }
 
     int DeepestLeavesSum(TreeNode *root) {
-        int h = Height(root);
-        int sum = SumAtK(root, h - 1);
+        const int h = Height(root);
+        const int sum = SumAtK(root, h - 1);
         return sum;
     }
 };
@@ -84,7 +84,7 @@ TreeNode *NewNode(int data) {
 // Function to insert nodes in level order
 TreeNode *InsertLevelOrder(vector<int> &arr, TreeNode *root, int i) {
     // Base case for recursion
-    int n = arr.size();
+    const int n = arr.size();
     if (i < n) {
         TreeNode *temp = NewNode(arr[i]);
         root = temp;
@@ -151,10 +151,10 @@ TEST(t0, t1) {
     vector<int> vec = {1, 2, 3, 4, 5, null, 6, 7, null, null, null, null, 8};
 
     TreeNode *root = ConstructTreeNode(vec);
-    int expected = 15;
+    const int expected = 15;
 
     Solution sl;
-    int ret = sl.DeepestLeavesSum(root);
+    const int ret = sl.DeepestLeavesSum(root);
     EXPECT_EQ(ret, expected);
 
     FreeTreeNode(root);
@@ -164,10 +164,10 @@ TEST(t0, t2) {
     vector<int> vec = {6, 7, 8, 2, 7, 1, 3, 9, null, 1, 4, null, null, null, 5};
 
     TreeNode *root = ConstructTreeNode(vec);
-    int expected = 19;
+    const int expected = 19;
 
     Solution sl;
-    int ret = sl.DeepestLeavesSum(root);
+    const int ret = sl.DeepestLeavesSum(root);
     EXPECT_EQ(ret, expected);
 
     FreeTreeNode(root);

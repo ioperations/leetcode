@@ -22,13 +22,13 @@ class Solution {
     Solution() {}
     int MaxAreaOfIslandV1(vector<vector<int>> &grid) {
         // 行
-        int column = grid.size();
+        const int column = grid.size();
         assert(column > 0 && "the pre condition");
         // 列
-        int row = grid[0].size();
+        const int row = grid[0].size();
 
         int ret = 0;
-        vector<vector<int>> dir = {{-1, 0}, {1, 0}, {0, 1}, {0, -1}};
+        const vector<vector<int>> dir = {{-1, 0}, {1, 0}, {0, 1}, {0, -1}};
         for (int i = 0; i < column; i++) {
             for (int j = 0; j < row; j++) {
                 auto pair = make_pair(i, j);
@@ -75,14 +75,15 @@ class Solution {
     int Mark(vector<vector<int>> &grid, int x, int y, int m, int n) {
         if (x < 0 || x >= m || y < 0 || y >= n || grid[x][y] != 1) return 0;
         grid[x][y] = 2;
-        int a = Mark(grid, x + 1, y, m, n);
-        int b = Mark(grid, x, y + 1, m, n);
-        int c = Mark(grid, x - 1, y, m, n);
-        int d = Mark(grid, x, y - 1, m, n);
+        const int a = Mark(grid, x + 1, y, m, n);
+        const int b = Mark(grid, x, y + 1, m, n);
+        const int c = Mark(grid, x - 1, y, m, n);
+        const int d = Mark(grid, x, y - 1, m, n);
         return 1 + a + b + c + d;
     }
     int MaxAreaOfIsland(vector<vector<int>> &grid) {
-        int m = grid.size(), n = grid[0].size(), max_area = 0;
+        const int m = grid.size(), n = grid[0].size();
+        int max_area = 0;
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
                 if (grid[i][j] == 1) {
@@ -111,7 +112,7 @@ TEST(t0, t1) {
         {0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0}};
 
     Solution sl;
-    int ret = sl.MaxAreaOfIsland(grid);
+    const int ret = sl.MaxAreaOfIsland(grid);
     EXPECT_EQ(ret, 6);
 }
 
@@ -119,7 +120,7 @@ TEST(t0, t2) {
     std::vector<std::vector<int>> grid = {{0, 0, 0, 0, 0, 0, 0, 0}};
 
     Solution sl;
-    int ret = sl.MaxAreaOfIsland(grid);
+    const int ret = sl.MaxAreaOfIsland(grid);
     EXPECT_EQ(ret, 0);
 }
 
