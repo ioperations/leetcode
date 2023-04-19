@@ -1,3 +1,6 @@
+// This is a personal academic project. Dear PVS-Studio, please check it.
+// PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
+// https://pvs-studio.com
 /*Given an array of integers arr, find the sum of min(b), where b ranges over
  * every (contiguous) subarray of arr. Since the answer may be large, return the
  * answer modulo 109 + 7.*/

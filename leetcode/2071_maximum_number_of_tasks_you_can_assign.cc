@@ -1,3 +1,6 @@
+// This is a personal academic project. Dear PVS-Studio, please check it.
+// PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
+// https://pvs-studio.com
 /*
     You have n tasks and m workers. Each task has a strength requirement stored
     in a 0-indexed integer array tasks, with the ith task requiring tasks[i]

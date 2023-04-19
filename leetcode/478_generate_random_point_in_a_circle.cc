@@ -1,3 +1,6 @@
+// This is a personal academic project. Dear PVS-Studio, please check it.
+// PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
+// https://pvs-studio.com
 /*
 Given the radius and the position of the center of a circle, implement the
 function randPoint which generates a uniform random point inside the circle.

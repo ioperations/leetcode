@@ -1,3 +1,6 @@
+// This is a personal academic project. Dear PVS-Studio, please check it.
+// PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
+// https://pvs-studio.com
 /*Write an efficient algorithm that searches for a value target in an m x n
 integer matrix matrix. This matrix has the following properties:
 

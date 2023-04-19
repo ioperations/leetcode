@@ -1,3 +1,6 @@
+// This is a personal academic project. Dear PVS-Studio, please check it.
+// PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
+// https://pvs-studio.com
 /*You are given a large integer represented as an integer array digits, where
 each digits[i] is the ith digit of the integer. The digits are ordered from most
 significant to least significant in left-to-right order. The large integer does

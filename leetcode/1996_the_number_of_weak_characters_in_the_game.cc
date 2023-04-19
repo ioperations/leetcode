@@ -1,3 +1,6 @@
+// This is a personal academic project. Dear PVS-Studio, please check it.
+// PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
+// https://pvs-studio.com
 /*You are playing a game that contains multiple characters, and each of the
 characters has two main properties: attack and defense. You are given a 2D
 integer array properties where properties[i] = [attacki, defensei] represents

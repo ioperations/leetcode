@@ -1,3 +1,6 @@
+// This is a personal academic project. Dear PVS-Studio, please check it.
+// PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
+// https://pvs-studio.com
 /*You are given two integers n and k and two integer arrays speed and efficiency
 both of length n. There are n engineers numbered from 1 to n. speed[i] and
 efficiency[i] represent the speed and efficiency of the ith engineer

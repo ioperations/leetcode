@@ -1,3 +1,6 @@
+// This is a personal academic project. Dear PVS-Studio, please check it.
+// PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
+// https://pvs-studio.com
 /*
     You are given an array of variable pairs equations and an array of real
     numbers values, where equations[i] = [Ai, Bi] and values[i] represent the

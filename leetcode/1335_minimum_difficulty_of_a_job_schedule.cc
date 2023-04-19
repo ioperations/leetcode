@@ -1,3 +1,6 @@
+// This is a personal academic project. Dear PVS-Studio, please check it.
+// PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
+// https://pvs-studio.com
 /*You want to schedule a list of jobs in d days. Jobs are dependent (i.e To work
 on the ith job, you have to finish all the jobs j where 0 <= j < i).
 

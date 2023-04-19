@@ -1,3 +1,6 @@
+// This is a personal academic project. Dear PVS-Studio, please check it.
+// PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
+// https://pvs-studio.com
 /*
 Suppose Andy and Doris want to choose a restaurant for dinner, and they both
 have a list of favorite restaurants represented by strings.

@@ -1,3 +1,6 @@
+// This is a personal academic project. Dear PVS-Studio, please check it.
+// PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
+// https://pvs-studio.com
 /*
 A valid IP address consists of exactly four integers separated by single dots.
 Each integer is between 0 and 255 (inclusive) and cannot have leading zeros.

@@ -1,3 +1,6 @@
+// This is a personal academic project. Dear PVS-Studio, please check it.
+// PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
+// https://pvs-studio.com
 /*You are given two images, img1 and img2, represented as binary, square
 matrices of size n x n. A binary matrix has only 0s and 1s as values.
 

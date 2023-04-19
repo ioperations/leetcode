@@ -1,3 +1,6 @@
+// This is a personal academic project. Dear PVS-Studio, please check it.
+// PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
+// https://pvs-studio.com
 /*You are given an integer array arr. You can choose a set of integers and
 remove all the occurrences of these integers in the array.
 

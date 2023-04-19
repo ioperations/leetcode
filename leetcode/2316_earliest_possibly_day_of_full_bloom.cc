@@ -1,3 +1,6 @@
+// This is a personal academic project. Dear PVS-Studio, please check it.
+// PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
+// https://pvs-studio.com
 /*You have n flower seeds. Every seed must be planted first before it can begin
 to grow, then bloom. Planting a seed takes time and so does the growth of a
 seed. You are given two 0-indexed integer arrays plantTime and growTime, of

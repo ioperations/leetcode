@@ -1,3 +1,6 @@
+// This is a personal academic project. Dear PVS-Studio, please check it.
+// PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
+// https://pvs-studio.com
 /*
 In the "100 game" two players take turns adding, to a running total, any integer
 from 1 to 10. The player who first causes the running total to reach or exceed

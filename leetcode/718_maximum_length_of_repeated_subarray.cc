@@ -1,3 +1,6 @@
+// This is a personal academic project. Dear PVS-Studio, please check it.
+// PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
+// https://pvs-studio.com
 /*Given two integer arrays nums1 and nums2, return the maximum length of a
    subarray that appears in both arrays.
 */

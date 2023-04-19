@@ -1,3 +1,6 @@
+// This is a personal academic project. Dear PVS-Studio, please check it.
+// PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
+// https://pvs-studio.com
 /*
 You have a set of integers s, which originally contains all the numbers from 1
 to n. Unfortunately, due to some error, one of the numbers in s got duplicated

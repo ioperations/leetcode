@@ -1,3 +1,6 @@
+// This is a personal academic project. Dear PVS-Studio, please check it.
+// PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
+// https://pvs-studio.com
 /*Given the root of a binary tree, return the same tree where every subtree (of
 the given tree) not containing a 1 has been removed.
 

@@ -1,3 +1,6 @@
+// This is a personal academic project. Dear PVS-Studio, please check it.
+// PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
+// https://pvs-studio.com
 /*Given an integer n, return the decimal value of the binary string formed by
  * concatenating the binary representations of 1 to n in order, modulo 109
  * + 7.*/

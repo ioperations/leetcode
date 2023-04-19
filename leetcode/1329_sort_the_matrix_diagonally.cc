@@ -1,3 +1,6 @@
+// This is a personal academic project. Dear PVS-Studio, please check it.
+// PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
+// https://pvs-studio.com
 /*A matrix diagonal is a diagonal line of cells starting from some cell in
 either the topmost row or leftmost column and going in the bottom-right
 direction until reaching the matrix's end. For example, the matrix diagonal

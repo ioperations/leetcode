@@ -1,3 +1,6 @@
+// This is a personal academic project. Dear PVS-Studio, please check it.
+// PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
+// https://pvs-studio.com
 /*Given the root of a binary tree and an integer targetSum, return all
 root-to-leaf paths where the sum of the node values in the path equals
 targetSum. Each path should be returned as a list of the node values, not node

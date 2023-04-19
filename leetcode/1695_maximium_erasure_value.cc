@@ -1,3 +1,6 @@
+// This is a personal academic project. Dear PVS-Studio, please check it.
+// PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
+// https://pvs-studio.com
 /*
      You are given an array of positive integers nums and want to erase a
    subarray containing unique elements. The score you get by erasing the

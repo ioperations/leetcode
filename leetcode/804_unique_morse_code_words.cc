@@ -1,3 +1,6 @@
+// This is a personal academic project. Dear PVS-Studio, please check it.
+// PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
+// https://pvs-studio.com
 /*International Morse Code defines a standard encoding where each letter is
 mapped to a series of dots and dashes, as follows:
 

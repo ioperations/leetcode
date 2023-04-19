@@ -1,3 +1,6 @@
+// This is a personal academic project. Dear PVS-Studio, please check it.
+// PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
+// https://pvs-studio.com
 /*Given an integer array nums, return the largest perimeter of a triangle with a
    non-zero area, formed from three of these lengths. If it is impossible to
    form any triangle of a non-zero area, return 0.

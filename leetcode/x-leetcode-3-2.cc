@@ -1,3 +1,6 @@
+// This is a personal academic project. Dear PVS-Studio, please check it.
+// PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
+// https://pvs-studio.com
 #include <climits>
 #include <iostream>
 #include <map>
@@ -30,7 +33,7 @@ class Solution {
 };
 
 int main() {
-    Solution s ;
+    Solution s;
 
     std::string sb("ancbbsdsdax");
 

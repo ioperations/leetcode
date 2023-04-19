@@ -1,3 +1,6 @@
+// This is a personal academic project. Dear PVS-Studio, please check it.
+// PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
+// https://pvs-studio.com
 /*
 You are given a string s consisting of lowercase English letters. A duplicate
 removal consists of choosing two adjacent and equal letters and removing them.
@@ -16,7 +19,7 @@ using namespace std;
 
 class Solution {
    public:
-    string RemoveDuplicates(const string & s, int k = 2) {
+    string RemoveDuplicates(const string &s, int k = 2) {
         int n = s.size();
         if (n < k) return s;
 

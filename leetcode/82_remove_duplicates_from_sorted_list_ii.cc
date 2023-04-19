@@ -1,3 +1,6 @@
+// This is a personal academic project. Dear PVS-Studio, please check it.
+// PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
+// https://pvs-studio.com
 /*
 Given the head of a sorted linked list, delete all nodes that have duplicate
 numbers, leaving only distinct numbers from the original list. Return the linked

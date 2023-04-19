@@ -1,3 +1,6 @@
+// This is a personal academic project. Dear PVS-Studio, please check it.
+// PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
+// https://pvs-studio.com
 /*Given a palindromic string of lowercase English letters palindrome, replace
 exactly one character with any lowercase English letter so that the resulting
 string is not a palindrome and that it is the lexicographically smallest one

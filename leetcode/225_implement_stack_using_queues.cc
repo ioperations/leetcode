@@ -1,3 +1,6 @@
+// This is a personal academic project. Dear PVS-Studio, please check it.
+// PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
+// https://pvs-studio.com
 /*
 Implement a last-in-first-out (LIFO) stack using only two queues. The
 implemented stack should support all the functions of a normal stack (push, top,

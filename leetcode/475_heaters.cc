@@ -1,3 +1,6 @@
+// This is a personal academic project. Dear PVS-Studio, please check it.
+// PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
+// https://pvs-studio.com
 /*Winter is coming! During the contest, your first job is to design a standard
 heater with a fixed warm radius to warm all the houses.
 

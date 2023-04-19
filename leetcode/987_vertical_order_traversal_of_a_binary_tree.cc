@@ -1,3 +1,6 @@
+// This is a personal academic project. Dear PVS-Studio, please check it.
+// PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
+// https://pvs-studio.com
 /*
 Given the root of a binary tree, calculate the vertical order traversal of the
 binary tree.
@@ -75,7 +78,7 @@ class Solution {
         }
         vector<vector<int>> ans;
         for (map<int, vector<int>>::iterator it = mp.begin(); it != mp.end();
-             ++it){
+             ++it) {
             ans.push_back(it->second);
         }
         return ans;

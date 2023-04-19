@@ -1,3 +1,6 @@
+// This is a personal academic project. Dear PVS-Studio, please check it.
+// PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
+// https://pvs-studio.com
 /*
 You are given a 2D array of integers envelopes where envelopes[i] = [wi, hi]
 represents the width and the height of an envelope.

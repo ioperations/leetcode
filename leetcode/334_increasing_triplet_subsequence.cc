@@ -1,3 +1,6 @@
+// This is a personal academic project. Dear PVS-Studio, please check it.
+// PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
+// https://pvs-studio.com
 /*Given an integer array nums, return true if there exists a triple of indices
    (i, j, k) such that i < j < k and nums[i] < nums[j] < nums[k]. If no such
    indices exists, return false.

@@ -1,3 +1,6 @@
+// This is a personal academic project. Dear PVS-Studio, please check it.
+// PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
+// https://pvs-studio.com
 /*
 
 Given the root of a binary tree, each node in the tree has a distinct value.
@@ -20,10 +23,10 @@ struct TreeNode {
     TreeNode(int x, TreeNode *left, TreeNode *right)
         : val(x), left(left), right(right) {}
 };
+#include <array>
 #include <optional>
 #include <unordered_set>
 #include <vector>
-#include <array>
 
 using namespace std;
 
@@ -88,7 +91,7 @@ TEST(t, t1) {
     n_number_one.left = &n2;
     TreeNode l1(6);
     TreeNode l2(7);
-    std::array<TreeNode *,3> expected = {&n, &l1, &l2};
+    std::array<TreeNode *, 3> expected = {&n, &l1, &l2};
     Solution sl;
     auto ret = sl.DelNodes(&nl, to_delete);
 

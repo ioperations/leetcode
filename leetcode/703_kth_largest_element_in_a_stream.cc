@@ -1,3 +1,6 @@
+// This is a personal academic project. Dear PVS-Studio, please check it.
+// PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
+// https://pvs-studio.com
 /*Design a class to find the kth largest element in a stream. Note that it is
 the kth largest element in the sorted order, not the kth distinct element.
 

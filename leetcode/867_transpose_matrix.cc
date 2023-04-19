@@ -1,3 +1,6 @@
+// This is a personal academic project. Dear PVS-Studio, please check it.
+// PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
+// https://pvs-studio.com
 /*Given a 2D integer array matrix, return the transpose of matrix.
 
 The transpose of a matrix is the matrix flipped over its main diagonal,

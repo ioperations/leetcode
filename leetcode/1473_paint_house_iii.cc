@@ -1,3 +1,6 @@
+// This is a personal academic project. Dear PVS-Studio, please check it.
+// PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
+// https://pvs-studio.com
 /*There is a row of m houses in a small city, each house must be painted with
 one of the n colors (labeled from 1 to n), some houses that have been painted
 last summer should not be painted again.

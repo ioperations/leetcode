@@ -1,3 +1,6 @@
+// This is a personal academic project. Dear PVS-Studio, please check it.
+// PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
+// https://pvs-studio.com
 /*
  * Given a string array words, return the maximum value of length(word[i])
  * length(word[j]) where the two words do not share common letters. If no such

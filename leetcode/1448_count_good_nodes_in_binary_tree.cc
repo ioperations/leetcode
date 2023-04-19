@@ -1,3 +1,6 @@
+// This is a personal academic project. Dear PVS-Studio, please check it.
+// PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
+// https://pvs-studio.com
 /*Given a binary tree root, a node X in the tree is named good if in the path
 from root to X there are no nodes with a value greater than X.
 

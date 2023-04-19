@@ -1,3 +1,6 @@
+// This is a personal academic project. Dear PVS-Studio, please check it.
+// PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
+// https://pvs-studio.com
 /*You are given two integer arrays nums and multipliers of size n and m
 respectively, where n >= m. The arrays are 1-indexed.
 

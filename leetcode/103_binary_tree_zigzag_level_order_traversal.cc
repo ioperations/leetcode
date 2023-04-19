@@ -1,3 +1,6 @@
+// This is a personal academic project. Dear PVS-Studio, please check it.
+// PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
+// https://pvs-studio.com
 /**Given the root of a binary tree, return the zigzag level order traversal of
  * its nodes' values. (i.e., from left to right, then right to left for the next
  * level and alternate between).*/

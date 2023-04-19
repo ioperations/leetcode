@@ -1,3 +1,6 @@
+// This is a personal academic project. Dear PVS-Studio, please check it.
+// PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
+// https://pvs-studio.com
 /*You are given a rectangular cake of size h x w and two arrays of integers
 horizontalCuts and verticalCuts where:
 

@@ -1,3 +1,6 @@
+// This is a personal academic project. Dear PVS-Studio, please check it.
+// PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
+// https://pvs-studio.com
 /*
 Given the root of a binary tree, construct a string consisting of parenthesis
 and integers from a binary tree with the preorder traversal way, and return it.

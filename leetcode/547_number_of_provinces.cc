@@ -1,3 +1,6 @@
+// This is a personal academic project. Dear PVS-Studio, please check it.
+// PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
+// https://pvs-studio.com
 /*
 There are n cities. Some of them are connected, while some are not. If city a is
 connected directly with city b, and city b is connected directly with city c,

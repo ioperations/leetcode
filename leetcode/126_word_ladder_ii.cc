@@ -1,3 +1,6 @@
+// This is a personal academic project. Dear PVS-Studio, please check it.
+// PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
+// https://pvs-studio.com
 /*
 A transformation sequence from word beginWord to word endWord using a
 dictionary wordList is a sequence of words beginWord -> s1 -> s2 -> ... -> sk

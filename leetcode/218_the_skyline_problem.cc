@@ -1,3 +1,6 @@
+// This is a personal academic project. Dear PVS-Studio, please check it.
+// PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
+// https://pvs-studio.com
 /*
 A city's skyline is the outer contour of the silhouette formed by all the
 buildings in that city when viewed from a distance. Given the locations and

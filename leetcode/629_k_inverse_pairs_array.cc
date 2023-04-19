@@ -1,3 +1,6 @@
+// This is a personal academic project. Dear PVS-Studio, please check it.
+// PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
+// https://pvs-studio.com
 /*For an integer array nums, an inverse pair is a pair of integers [i, j] where
 0 <= i < j < nums.length and nums[i] > nums[j].
 

@@ -1,3 +1,6 @@
+// This is a personal academic project. Dear PVS-Studio, please check it.
+// PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
+// https://pvs-studio.com
 /*
 You are given two integer arrays of equal length target and arr. In one step,
 you can select any non-empty sub-array of arr and reverse it. You are allowed to

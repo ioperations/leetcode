@@ -1,3 +1,6 @@
+// This is a personal academic project. Dear PVS-Studio, please check it.
+// PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
+// https://pvs-studio.com
 /*
     You are given the root of a binary tree with n nodes where each node in the
     tree has node.val coins. There are n coins in total throughout the whole

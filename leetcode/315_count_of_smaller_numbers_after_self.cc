@@ -1,3 +1,6 @@
+// This is a personal academic project. Dear PVS-Studio, please check it.
+// PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
+// https://pvs-studio.com
 /*
     You are given an integer array nums and you have to return a new counts
    array. The counts array has the property where counts[i] is the number of

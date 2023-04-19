@@ -1,3 +1,6 @@
+// This is a personal academic project. Dear PVS-Studio, please check it.
+// PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
+// https://pvs-studio.com
 /*
 Given an integer array nums and an integer k, return true if there are two
 distinct indices i and j in the array such that nums[i] == nums[j] and abs(i -

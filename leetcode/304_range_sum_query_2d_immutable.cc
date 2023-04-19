@@ -1,3 +1,6 @@
+// This is a personal academic project. Dear PVS-Studio, please check it.
+// PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
+// https://pvs-studio.com
 /*Given a 2D matrix matrix, handle multiple queries of the following type:
 
 Calculate the sum of the elements of matrix inside the rectangle defined by its

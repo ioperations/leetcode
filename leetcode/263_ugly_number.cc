@@ -1,3 +1,6 @@
+// This is a personal academic project. Dear PVS-Studio, please check it.
+// PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
+// https://pvs-studio.com
 /*An ugly number is a positive integer whose prime factors are limited to 2, 3,
 and 5. Given an integer n, return true if n is an ugly number.*/
 

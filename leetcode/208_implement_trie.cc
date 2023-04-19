@@ -1,3 +1,6 @@
+// This is a personal academic project. Dear PVS-Studio, please check it.
+// PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
+// https://pvs-studio.com
 /*A trie (pronounced as "try") or prefix tree is a tree data structure used to
 efficiently store and retrieve keys in a dataset of strings. There are various
 applications of this data structure, such as autocomplete and spellchecker.

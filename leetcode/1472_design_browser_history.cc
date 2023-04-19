@@ -1,3 +1,6 @@
+// This is a personal academic project. Dear PVS-Studio, please check it.
+// PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
+// https://pvs-studio.com
 /*You have a browser of one tab where you start on the homepage and you can
 visit another url, get back in the history number of steps or move forward in
 the history number of steps.

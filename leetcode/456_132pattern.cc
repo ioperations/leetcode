@@ -1,3 +1,6 @@
+// This is a personal academic project. Dear PVS-Studio, please check it.
+// PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
+// https://pvs-studio.com
 /*
 Given an array of n integers nums, a 132 pattern is a subsequence of three
 integers nums[i], nums[j] and nums[k] such that i < j < k and nums[i] < nums[k]

@@ -1,3 +1,6 @@
+// This is a personal academic project. Dear PVS-Studio, please check it.
+// PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
+// https://pvs-studio.com
 /*
 Given an integer array nums and an integer val, remove all occurrences of val in
 nums in-place. The relative order of the elements may be changed.

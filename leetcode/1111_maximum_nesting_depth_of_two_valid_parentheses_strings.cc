@@ -1,3 +1,6 @@
+// This is a personal academic project. Dear PVS-Studio, please check it.
+// PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
+// https://pvs-studio.com
 /*
 A string is a valid parentheses string (denoted VPS) if and only if it consists
 of "(" and ")" characters only, and:

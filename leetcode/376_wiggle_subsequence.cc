@@ -1,3 +1,6 @@
+// This is a personal academic project. Dear PVS-Studio, please check it.
+// PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
+// https://pvs-studio.com
 /*
     A wiggle sequence is a sequence where the differences between successive
     numbers strictly alternate between positive and negative. The first

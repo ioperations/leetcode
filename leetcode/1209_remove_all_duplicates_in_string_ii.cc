@@ -1,3 +1,6 @@
+// This is a personal academic project. Dear PVS-Studio, please check it.
+// PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
+// https://pvs-studio.com
 /*
 You are given a string s and an integer k, a k duplicate removal consists of
 choosing k adjacent and equal letters from s and removing them, causing the left
@@ -16,7 +19,7 @@ guaranteed that the answer is unique.
 using namespace std;
 class Solution {
    public:
-    string RemoveDuplicates(const string & s, int k) {
+    string RemoveDuplicates(const string &s, int k) {
         /*
             1 <= s.length <= 105
             2 <= k <= 104
@@ -105,7 +108,7 @@ class SolutionV2 {
         return ans;
     }
 
-    string RemoveDuplicates(const string & s, int k) {
+    string RemoveDuplicates(const string &s, int k) {
         int n = s.size();
         if (n < k) return s;
 

@@ -1,3 +1,6 @@
+// This is a personal academic project. Dear PVS-Studio, please check it.
+// PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
+// https://pvs-studio.com
 /*Given an integer array nums, reorder it such that
 nums[0] < nums[1] > nums[2] < nums[3]....
 

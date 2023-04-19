@@ -1,3 +1,6 @@
+// This is a personal academic project. Dear PVS-Studio, please check it.
+// PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
+// https://pvs-studio.com
 /*Given two integer arrays preorder and inorder where preorder is the preorder
  * traversal of a binary tree and inorder is the inorder traversal of the same
  * tree, construct and return the binary tree.*/

@@ -1,3 +1,6 @@
+// This is a personal academic project. Dear PVS-Studio, please check it.
+// PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
+// https://pvs-studio.com
 /*
     You are given a 0-indexed binary string s and two integers minJump and
     maxJump. In the beginning, you are standing at index 0, which is equal to

@@ -1,3 +1,6 @@
+// This is a personal academic project. Dear PVS-Studio, please check it.
+// PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
+// https://pvs-studio.com
 /*
 Write a function to delete a node in a singly-linked list. You will not be given
 access to the head of the list, instead you will be given access to the node to

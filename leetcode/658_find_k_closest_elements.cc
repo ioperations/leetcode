@@ -1,3 +1,6 @@
+// This is a personal academic project. Dear PVS-Studio, please check it.
+// PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
+// https://pvs-studio.com
 /*Given a sorted integer array arr, two integers k and x, return the k closest
 integers to x in the array. The result should also be sorted in ascending order.
 

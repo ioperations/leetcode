@@ -1,11 +1,14 @@
+// This is a personal academic project. Dear PVS-Studio, please check it.
+// PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
+// https://pvs-studio.com
 /*Given the root of a binary tree, return the average value of the nodes on each
  * level in the form of an array. Answers within 10-5 of the actual answer will
  * be accepted.*/
 // Definition for a binary tree node.
+#include <exception>
 #include <map>
 #include <queue>
 #include <vector>
-#include <exception>
 
 #include "datastruct_base.hh"
 
@@ -27,7 +30,7 @@ class Solution {
                 cur_sum += z.first->val;
                 cur_count++;
             } else {
-                if (cur_count == 0){
+                if (cur_count == 0) {
                     throw std::runtime_error("divide by zero error");
                 }
                 v.push_back((double)cur_sum / cur_count);

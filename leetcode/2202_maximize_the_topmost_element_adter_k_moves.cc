@@ -1,3 +1,6 @@
+// This is a personal academic project. Dear PVS-Studio, please check it.
+// PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
+// https://pvs-studio.com
 /*You are given a 0-indexed integer array nums representing the contents of a
 pile, where nums[0] is the topmost element of the pile.
 

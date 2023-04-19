@@ -1,3 +1,6 @@
+// This is a personal academic project. Dear PVS-Studio, please check it.
+// PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
+// https://pvs-studio.com
 // 题目大概意思是说找到一个数组当中右边第一个比他大的索引的位置
 
 #include <stack>

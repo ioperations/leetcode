@@ -1,3 +1,6 @@
+// This is a personal academic project. Dear PVS-Studio, please check it.
+// PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
+// https://pvs-studio.com
 /*You are given an array of words where each word consists of lowercase English
 letters.
 
@@ -21,7 +24,7 @@ using namespace std;
 
 class Solution {
    public:
-    bool Check(const string & a,const string & b) {
+    bool Check(const string &a, const string &b) {
         int cnt = 0, idx = 0;
         for (int i = 0; i < (int)a.size() && idx < (int)b.size(); i++, idx++) {
             if (a[i] != b[idx]) {

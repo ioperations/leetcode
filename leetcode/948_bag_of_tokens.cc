@@ -1,3 +1,6 @@
+// This is a personal academic project. Dear PVS-Studio, please check it.
+// PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
+// https://pvs-studio.com
 /*You have an initial power of power, an initial score of 0, and a bag of tokens
 where tokens[i] is the value of the ith token (0-indexed).
 

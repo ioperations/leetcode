@@ -1,3 +1,6 @@
+// This is a personal academic project. Dear PVS-Studio, please check it.
+// PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
+// https://pvs-studio.com
 /*An integer array original is transformed into a doubled array changed by
 appending twice the value of every element in original, and then randomly
 shuffling the resulting array.

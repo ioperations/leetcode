@@ -1,3 +1,6 @@
+// This is a personal academic project. Dear PVS-Studio, please check it.
+// PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
+// https://pvs-studio.com
 /*There is a special square room with mirrors on each of the four walls. Except
 for the southwest corner, there are receptors on each of the remaining corners,
 numbered 0, 1, and 2.

@@ -1,3 +1,6 @@
+// This is a personal academic project. Dear PVS-Studio, please check it.
+// PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
+// https://pvs-studio.com
 /*A linked list of length n is given such that each node contains an additional
 random pointer, which could point to any node in the list, or null.↳
 

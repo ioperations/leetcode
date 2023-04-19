@@ -1,3 +1,6 @@
+// This is a personal academic project. Dear PVS-Studio, please check it.
+// PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
+// https://pvs-studio.com
 /*Given a string s, find the first non-repeating character in it and return its
  * index. If it does not exist, return -1.*/
 #include <string>

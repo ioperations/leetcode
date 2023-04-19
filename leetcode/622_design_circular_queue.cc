@@ -1,3 +1,6 @@
+// This is a personal academic project. Dear PVS-Studio, please check it.
+// PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
+// https://pvs-studio.com
 /*Design your implementation of the circular queue. The circular queue is a
 linear data structure in which the operations are performed based on FIFO (First
 In First Out) principle and the last position is connected back to the first

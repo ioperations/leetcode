@@ -1,3 +1,6 @@
+// This is a personal academic project. Dear PVS-Studio, please check it.
+// PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
+// https://pvs-studio.com
 /*There are several cards arranged in a row, and each card has an associated
 number of points. The points are given in the integer array cardPoints.
 

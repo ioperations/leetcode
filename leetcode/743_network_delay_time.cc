@@ -1,3 +1,6 @@
+// This is a personal academic project. Dear PVS-Studio, please check it.
+// PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
+// https://pvs-studio.com
 /*
     You are given a network of n nodes, labeled from 1 to n. You are also given
     times, a list of travel times as directed edges times[i] = (ui, vi, wi),

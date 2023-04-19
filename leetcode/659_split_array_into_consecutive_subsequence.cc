@@ -1,3 +1,6 @@
+// This is a personal academic project. Dear PVS-Studio, please check it.
+// PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
+// https://pvs-studio.com
 /*You are given an integer array nums that is sorted in non-decreasing order.
 
 Determine if it is possible to split nums into one or more subsequences such

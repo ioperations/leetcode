@@ -1,3 +1,6 @@
+// This is a personal academic project. Dear PVS-Studio, please check it.
+// PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
+// https://pvs-studio.com
 /*You are given an array of people, people, which are the attributes of some
 people in a queue (not necessarily in order). Each people[i] = [hi, ki]
 represents the ith person of height hi with exactly ki other people in front who

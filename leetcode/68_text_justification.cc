@@ -1,3 +1,6 @@
+// This is a personal academic project. Dear PVS-Studio, please check it.
+// PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
+// https://pvs-studio.com
 /*
 Given an array of strings words and a width maxWidth, format the text such that
 each line has exactly maxWidth characters and is fully (left and right)

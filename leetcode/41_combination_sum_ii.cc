@@ -1,3 +1,6 @@
+// This is a personal academic project. Dear PVS-Studio, please check it.
+// PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
+// https://pvs-studio.com
 /* Given a collection of candidate numbers (candidates) and a target number
 (target), find all unique combinations in candidates where the candidate numbers
 sum to target.

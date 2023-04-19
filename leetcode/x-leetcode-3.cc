@@ -1,3 +1,6 @@
+// This is a personal academic project. Dear PVS-Studio, please check it.
+// PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
+// https://pvs-studio.com
 #include <iostream>
 #include <iterator>
 #include <set>
@@ -51,13 +54,13 @@ TEST(r1, t4) {
 }
 TEST(r1, t5) {
     std::string in("");
-    Solution slu ;
+    Solution slu;
     int ret = slu.LengthOfLongestSubstring(in);
     EXPECT_EQ(ret, 0);
 }
 TEST(r2, t2) {
     std::string in("aab");
-    Solution slu ;
+    Solution slu;
     int ret = slu.LengthOfLongestSubstring(in);
     EXPECT_EQ(ret, 2);
 }

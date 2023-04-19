@@ -1,3 +1,6 @@
+// This is a personal academic project. Dear PVS-Studio, please check it.
+// PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
+// https://pvs-studio.com
 /*You are given an array of binary strings strs and two integers m and n.
 
 Return the size of the largest subset of strs such that there are at most m 0's

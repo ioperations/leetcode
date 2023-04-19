@@ -1,3 +1,6 @@
+// This is a personal academic project. Dear PVS-Studio, please check it.
+// PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
+// https://pvs-studio.com
 /*
 Given an integer n, return the number of strings of length n that consist only
 of vowels (a, e, i, o, u) and are lexicographically sorted.

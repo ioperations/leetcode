@@ -1,3 +1,6 @@
+// This is a personal academic project. Dear PVS-Studio, please check it.
+// PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
+// https://pvs-studio.com
 /*You are given an m x n binary matrix grid. An island is a group of 1's
 (representing land) connected 4-directionally (horizontal or vertical.) You may
 assume all four edges of the grid are surrounded by water.

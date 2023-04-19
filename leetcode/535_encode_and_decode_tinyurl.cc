@@ -1,3 +1,6 @@
+// This is a personal academic project. Dear PVS-Studio, please check it.
+// PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
+// https://pvs-studio.com
 /**
 inyURL is a URL shortening service where you enter a URL such as
 https://leetcode.com/problems/design-tinyurl and it returns a short URL such as

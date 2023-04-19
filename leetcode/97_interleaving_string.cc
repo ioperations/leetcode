@@ -1,3 +1,6 @@
+// This is a personal academic project. Dear PVS-Studio, please check it.
+// PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
+// https://pvs-studio.com
 /*
 Given strings s1, s2, and s3, find whether s3 is formed by an interleaving of s1
 and s2.
@@ -71,7 +74,7 @@ class Solution {
         return Helper(s1, s2, s3);
     }
 
-    bool IsInterleaveV1(const string& s1, const string& s2, const string& s3) {
+    bool IsInterleaveV1(const string &s1, const string &s2, const string &s3) {
         if (s1 == "") return s2 == s3;
         if (s2 == "") return s1 == s3;
         int n1 = s1.size(), n2 = s2.size(), n3 = s3.size();

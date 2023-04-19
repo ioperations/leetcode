@@ -1,3 +1,6 @@
+// This is a personal academic project. Dear PVS-Studio, please check it.
+// PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
+// https://pvs-studio.com
 /*
 Given n points on a 1-D plane, where the ith point (from 0 to n-1) is at x = i,
 find the number of ways we can draw exactly k non-overlapping line segments such

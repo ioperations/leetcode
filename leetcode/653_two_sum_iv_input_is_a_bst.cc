@@ -1,3 +1,6 @@
+// This is a personal academic project. Dear PVS-Studio, please check it.
+// PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
+// https://pvs-studio.com
 /*Given the root of a Binary Search Tree and a target number k, return true if
  * there exist two elements in the BST such that their sum is equal to the given
  * target.*/

@@ -1,3 +1,6 @@
+// This is a personal academic project. Dear PVS-Studio, please check it.
+// PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
+// https://pvs-studio.com
 /*Given a string expression of numbers and operators, return all possible
 results from computing all the different possible ways to group numbers and
 operators. You may return the answer in any order.

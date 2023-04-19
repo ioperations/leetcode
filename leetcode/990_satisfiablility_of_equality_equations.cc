@@ -1,3 +1,6 @@
+// This is a personal academic project. Dear PVS-Studio, please check it.
+// PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
+// https://pvs-studio.com
 /*
 You are given an array of strings equations that represent relationships between
 variables where each string equations[i] is of length 4 and takes one of two
@@ -55,7 +58,7 @@ class Solution {
    public:
     bool EquationsPossible(vector<string> &equations) {
         DSU obj;
-        for (const auto& it : equations) {
+        for (const auto &it : equations) {
             // first unify all the elements which are equal
             if (it[1] == '=') {
                 int const x = it[0] - 'a';
@@ -63,7 +66,7 @@ class Solution {
                 obj.Unionn(x, y);
             }
         }
-        for (const auto & it : equations) {
+        for (const auto &it : equations) {
             // Find parents, if they are equal means we can't give them
             // different numbers, so return false.
             if (it[1] == '!') {

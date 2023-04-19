@@ -1,3 +1,6 @@
+// This is a personal academic project. Dear PVS-Studio, please check it.
+// PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
+// https://pvs-studio.com
 /*Given a triangle array, return the minimum path sum from top to bottom.
 
 For each step, you may move to an adjacent number of the row below. More

@@ -1,3 +1,6 @@
+// This is a personal academic project. Dear PVS-Studio, please check it.
+// PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
+// https://pvs-studio.com
 /*Design your implementation of the linked list. You can choose to use a singly
 or doubly linked list. A node in a singly linked list should have two
 attributes: val and next. val is the value of the current node, and next is a

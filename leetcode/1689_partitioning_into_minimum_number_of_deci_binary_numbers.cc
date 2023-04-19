@@ -1,3 +1,6 @@
+// This is a personal academic project. Dear PVS-Studio, please check it.
+// PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
+// https://pvs-studio.com
 /*
 A decimal number is called deci-binary if each of its digits is either 0 or 1
 without any leading zeros. For example, 101 and 1100 are deci-binary, while 112

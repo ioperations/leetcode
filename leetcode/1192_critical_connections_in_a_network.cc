@@ -1,3 +1,6 @@
+// This is a personal academic project. Dear PVS-Studio, please check it.
+// PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
+// https://pvs-studio.com
 
 /*
 There are n servers numbered from 0 to n - 1 connected by undirected
@@ -23,7 +26,7 @@ class Solution {
     vector<vector<int>> CriticalConnections(int n,
                                             vector<vector<int>> &connections) {
         vector<vector<int>> adj(n);
-        for (const auto & c : connections) {
+        for (const auto &c : connections) {
             adj[c[0]].push_back(c[1]);
             adj[c[1]].push_back(c[0]);
         }

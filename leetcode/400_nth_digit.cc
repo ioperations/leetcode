@@ -1,3 +1,6 @@
+// This is a personal academic project. Dear PVS-Studio, please check it.
+// PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
+// https://pvs-studio.com
 /*
 Given an integer n, return the nth digit of the infinite integer sequence
     [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, ...].

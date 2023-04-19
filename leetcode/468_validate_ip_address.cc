@@ -1,3 +1,6 @@
+// This is a personal academic project. Dear PVS-Studio, please check it.
+// PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
+// https://pvs-studio.com
 /*
 Given a string queryIP, return "IPv4" if IP is a valid IPv4 address, "IPv6" if
 IP is a valid IPv6 address or "Neither" if IP is not a correct IP of any type.

@@ -1,3 +1,6 @@
+// This is a personal academic project. Dear PVS-Studio, please check it.
+// PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
+// https://pvs-studio.com
 /*
 There is an undirected graph with n nodes, where each node is numbered between 0
 and n - 1. You are given a 2D array graph, where graph[u] is an array of nodes
