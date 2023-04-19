@@ -57,11 +57,7 @@ class Solution {
             }
             return head;
         }
-        if (slow == head) {
-            delete slow;
-            return nullptr;
-        }
-
+        delete slow;
         return nullptr;
     }
 };

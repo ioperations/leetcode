@@ -110,7 +110,7 @@ class Solution {
                     cur_token = LEFT_PARAM;
                     break;
                 }
-                if ('(' == s[index]) {
+                if (')' == s[index]) {
                     cur_token = RIGHT_PARAM;
                     break;
                 }

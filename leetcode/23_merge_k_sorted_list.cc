@@ -1,6 +1,7 @@
 // This is a personal academic project. Dear PVS-Studio, please check it.
 // PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
 // https://pvs-studio.com
+
 #include <algorithm>
 #include <climits>
 #include <cmath>
@@ -279,10 +280,8 @@ void FreeListListTemplate(ListNodeTemplate<T> *list) {
         return;
     }
     FreeListListTemplate(list->next);
-    if (list != nullptr) {
-        delete list;
-        list = nullptr;
-    }
+    delete list;
+    list = nullptr;
 }
 
 /**
@@ -295,10 +294,8 @@ void FreeListList(ListNode *list) {
         return;
     }
     FreeListList(list->next);
-    if (list != nullptr) {
-        delete list;
-        list = nullptr;
-    }
+    delete list;
+    list = nullptr;
 }
 
 #include <gtest/gtest.h>

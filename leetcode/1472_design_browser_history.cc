@@ -62,10 +62,10 @@ class BrowserHistory {
         curr_page->next = new_page;
         new_page->prev = curr_page;
         curr_page = new_page;
-        if (zz) {
-            zz->prev = new_page;
-            new_page->next = zz;
-        }
+        //       if (zz) {
+        //           zz->prev = new_page;
+        //           new_page->next = zz;
+        //       }
     }
 
     string Back(int steps) {

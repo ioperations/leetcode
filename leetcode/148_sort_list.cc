@@ -154,10 +154,8 @@ void FreeListList(ListNode *list) {
         return;
     }
     FreeListList(list->next);
-    if (list != nullptr) {
-        delete list;
-        list = nullptr;
-    }
+    delete list;
+    list = nullptr;
 }
 
 #include <gtest/gtest.h>
