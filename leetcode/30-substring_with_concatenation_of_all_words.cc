@@ -54,7 +54,7 @@ class Solution {
                                       int index = 0) {
         auto it = tofind.find(candidate);
         if (it != std::string::npos) {
-            std::string substr = tofind.substr(it + 1, tofind.size());
+            const std::string substr = tofind.substr(it + 1, tofind.size());
             auto ret2 = AllSubString(substr, candidate, it + 1 + index);
             ret2.emplace(it + index);
             return ret2;
@@ -69,12 +69,12 @@ class Solution {
 
 TEST(t0, t1) {
     Solution *s = new Solution();
-    std::string str = "wordgoodgoodgoodbestword";
+    const std::string str = "wordgoodgoodgoodbestword";
     std::vector<std::string> words{"word", "good", "best", "word"};
     auto ret = s->FindSubString(str, words);
 
-    std::set<int> expect{};
-    std::set<int> retset(ret.begin(), ret.end());
+    const std::set<int> expect{};
+    const std::set<int> retset(ret.begin(), ret.end());
     EXPECT_EQ(retset, expect);
 
     delete s;

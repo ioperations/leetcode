@@ -27,7 +27,7 @@ class Solution {
         // 列
         const int row = grid[0].size();
 
-        int ret = 0;
+        const int ret = 0;
         const vector<vector<int>> dir = {{-1, 0}, {1, 0}, {0, 1}, {0, -1}};
         for (int i = 0; i < column; i++) {
             for (int j = 0; j < row; j++) {
@@ -87,7 +87,7 @@ class Solution {
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
                 if (grid[i][j] == 1) {
-                    int area = Mark(grid, i, j, m, n);
+                    const int area = Mark(grid, i, j, m, n);
                     max_area = max(max_area, area);
                 }
             }

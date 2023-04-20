@@ -55,9 +55,9 @@ class Solution {
 #include <iostream>
 
 TEST(t1, t2) {
-    std::string s(" hello world ");
+    const std::string s(" hello world ");
     Solution slu;
-    std::string ret = slu.ReverseWords(s);
+    const std::string ret = slu.ReverseWords(s);
     EXPECT_EQ(ret, std::string("world hello"));
 }
 

@@ -22,8 +22,6 @@ class Solution {
 
         auto z = token.CurToken();
 
-        std::stack<Token::token_type> operator_stack;
-
         while (z != Token::EOL) {
             if (z == Token::NUMBER) {
                 //    int val = token.GetVal();

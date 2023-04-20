@@ -52,46 +52,46 @@ class Solution {
 #include <iostream>
 
 TEST(t0, t1) {
-    double x = 2.00000;
-    int n = 10;
+    const double x = 2.00000;
+    const int n = 10;
 
-    double expected = 1024.00000;
+    const double expected = 1024.00000;
 
     Solution s;
-    double ret = s.MyPow(x, n);
+    const double ret = s.MyPow(x, n);
     EXPECT_EQ(ret, expected);
 }
 
 TEST(t0, t2) {
-    double x = 2.10000;
-    int n = 3;
+    const double x = 2.10000;
+    const int n = 3;
 
-    double expected = 9.261;
+    const double expected = 9.261;
 
     Solution s;
-    double ret = s.MyPow(x, n);
+    const double ret = s.MyPow(x, n);
     EXPECT_NEAR(ret, expected, 0.001);
 }
 
 TEST(t0, t3) {
-    double x = 2.00000;
-    int n = -2;
+    const double x = 2.00000;
+    const int n = -2;
 
-    double expected = 0.25000;
+    const double expected = 0.25000;
 
     Solution s;
-    double ret = s.MyPow(x, n);
+    const double ret = s.MyPow(x, n);
     EXPECT_EQ(ret, expected);
 }
 
 TEST(t0, t4) {
-    double x = 0.00001;
-    int n = 2147483647;
+    const double x = 0.00001;
+    const int n = 2147483647;
 
-    double expected = 0;
+    const double expected = 0;
 
     Solution s;
-    double ret = s.MyPowV3(x, n);
+    const double ret = s.MyPowV3(x, n);
     EXPECT_EQ(ret, expected);
 }
 

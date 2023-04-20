@@ -69,7 +69,7 @@ class Solution {
 
     void Insert(TrieNode *root, string &word, int word_index) {
         for (auto c : word) {
-            int index = c - 'a';
+            const int index = c - 'a';
             if (root->children[index] == nullptr) {
                 root->children[index] = new TrieNode();
             }

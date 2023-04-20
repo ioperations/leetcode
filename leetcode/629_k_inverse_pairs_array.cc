@@ -17,7 +17,7 @@ class Solution {
         // x x 1 2 3 x x
         //       ^
         vector<vector<int>> dp(n + 1, vector<int>(k + 1, 0));
-        int mod = 1e+9 + 7;
+        const int mod = 1e+9 + 7;
         dp[1][0] = 1;  // base case and dp[1][1] = 0;
         for (int i = 2; i <= n; i++) {
             for (int j = 0; j <= k; j++) {

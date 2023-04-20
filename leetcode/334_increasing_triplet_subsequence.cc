@@ -29,7 +29,7 @@ class Solution {
                 return true;
             }
 
-            while ((!st.empty() && st.top() > nums[i])) {
+            while (!st.empty() && st.top() > nums[i]) {
                 second = max(second, nums[i]);
                 int const k = st.top();
                 st.pop();

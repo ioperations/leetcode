@@ -111,8 +111,8 @@ TEST(t0, t2) {
 }
 
 TEST(t0, t3) {
-    int n = 33;
-    int output = 66045;
+    const int n = 33;
+    const int output = 66045;
 
     Solution sl;
     int ret = sl.CountVowelStrings(n);
