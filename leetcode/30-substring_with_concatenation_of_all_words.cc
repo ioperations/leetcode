@@ -82,45 +82,45 @@ TEST(t0, t1) {
 
 TEST(t0, t2) {
     Solution s;
-    std::string str = "barfoofoobarthefoobarman";
+    const std::string str = "barfoofoobarthefoobarman";
     std::vector<std::string> words{"bar", "foo", "the"};
     auto ret = s.FindSubString(str, words);
 
-    std::set<int> expect{6, 9, 12};
-    std::set<int> retset(ret.begin(), ret.end());
+    const std::set<int> expect{6, 9, 12};
+    const std::set<int> retset(ret.begin(), ret.end());
     EXPECT_EQ(retset, expect);
 }
 
 TEST(t0, t3) {
     Solution s;
-    std::string str = "barfoothefoobarman";
+    const std::string str = "barfoothefoobarman";
     std::vector<std::string> words{"bar", "foo"};
     auto ret = s.FindSubString(str, words);
 
-    std::set<int> expect{0, 9};
-    std::set<int> retset(ret.begin(), ret.end());
+    const std::set<int> expect{0, 9};
+    const std::set<int> retset(ret.begin(), ret.end());
     EXPECT_EQ(retset, expect);
 }
 
 TEST(t0, t4) {
     Solution s;
-    std::string str = "foobarfoobar";
+    const std::string str = "foobarfoobar";
     std::vector<std::string> words{"bar", "foo"};
     auto ret = s.FindSubString(str, words);
 
-    std::set<int> expect{0, 3, 6};
-    std::set<int> retset(ret.begin(), ret.end());
+    const std::set<int> expect{0, 3, 6};
+    const std::set<int> retset(ret.begin(), ret.end());
     EXPECT_EQ(retset, expect);
 }
 
 TEST(t0, t5) {
     Solution s;
-    std::string str = "aaaaaaaaaaaaaa";
+    const std::string str = "aaaaaaaaaaaaaa";
     std::vector<std::string> words{"aa", "aa"};
     auto ret = s.FindSubString(str, words);
 
-    std::set<int> expect{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-    std::set<int> retset(ret.begin(), ret.end());
+    const std::set<int> expect{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    const std::set<int> retset(ret.begin(), ret.end());
     EXPECT_EQ(retset, expect);
 }
 
