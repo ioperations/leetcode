@@ -79,7 +79,19 @@ jobs:
         with:
           components: miri
       - run: |
-          MIRIFLAGS="-Zmiri-disable-isolation -Zmiri-ignore-leaks" cargo +nightly miri test -j$(nproc)  -- --skip classic::fibonacci_bench::tests::bench_actor --skip leetcode::leetcode_79_word_search::tests::case4_test --skip leetcode::leetcode_2405_optimal_partition_of_string::test --skip leetcode::leetcode_2218_maximum_value_of_k_coins_from_piles::test
+         list=();
+         for p in $(find . -name "*.rs" ); do 
+            num=$(grep unsafe $p | wc -l )
+            if [[ $num -gt 0 ]]; then 
+            # ./src/classic/link_list.rs
+                val=$(echo $p  | sed 's/\.\/src\///' \
+                | sed 's/\.rs//' \
+                | sed 's/\.//'  \
+                | sed 's/\//::/g')
+                list=(${list[*]} $val)
+            fi
+         done ; echo ${list[*]};
+         MIRIFLAGS="-Zmiri-disable-isolation -Zmiri-ignore-leaks" cargo +nightly miri test -j$(nproc)  -- $(echo ${list[*]})
 
   rs-outdated:
     name: Outdated
