@@ -17,13 +17,7 @@ jobs:
     timeout-minutes: 45
     steps:
       - uses: actions/checkout@v3
-      - run: sudo apt update && sudo apt install cmake build-essential libgtest-dev clang-12 -y
-      - run: |
-          git clone https://github.com/google/benchmark.git --depth 1
-          cd benchmark
-          cmake -E make_directory "build"
-          cmake -E chdir "build" cmake -DBENCHMARK_DOWNLOAD_DEPENDENCIES=on -DCMAKE_BUILD_TYPE=Release ../
-          sudo cmake --build "build" --config Release --target install
+      - run: sudo apt update && sudo apt install cmake build-essential libgtest-dev libbenchmark-dev clang-12 -y
       - run: |
           cmake -B build && cmake --build build && make -C build test
 
