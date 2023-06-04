@@ -4,6 +4,20 @@
 //
 
 use super::leetcode_linklist::ListNode;
+use core::fmt::Debug;
+
+impl<T> Debug for ListNode<T>
+where
+    T: Debug,
+{
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.debug_struct("ListNode")
+            .field("val", &self.val)
+            .field("next", &self.next)
+            .finish()
+    }
+    // add code here
+}
 
 #[allow(unused)]
 struct Solution;
@@ -65,7 +79,10 @@ impl Solution {
             T: Debug,
         {
             fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-                f.debug_struct("Node").field("val", &self.val).finish()
+                f.debug_struct("Node")
+                    .field("val", &self.val)
+                    .field("next", &self.next)
+                    .finish()
             }
         }
 
