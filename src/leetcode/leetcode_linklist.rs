@@ -15,6 +15,20 @@ impl<T> ListNode<T> {
 }
 
 #[allow(unused)]
+pub fn list_into_vec_iter<T>(head: &Option<Box<ListNode<T>>>) -> Vec<T>
+where
+    T: Copy,
+{
+    let mut v = vec![];
+    let mut h = head;
+    while let Some(value) = h {
+        v.push(value.val);
+        h = &value.next;
+    }
+    v
+}
+
+#[allow(unused)]
 pub fn list_into_vec<T>(head: &Option<Box<ListNode<T>>>) -> Vec<T>
 where
     T: Copy,
@@ -75,6 +89,14 @@ mod tests {
         let vec = [9, 8, 7, 6, 5, 4, 3, 2, 1, 0];
         let link_list = build_list_from_vec(&vec);
         let ret = list_into_vec(&link_list);
+        assert_eq!(ret, vec);
+    }
+
+    #[test]
+    fn case3_iter_test() {
+        let vec = [9, 8, 7, 6, 5, 4, 3, 2, 1, 0];
+        let link_list = build_list_from_vec(&vec);
+        let ret = list_into_vec_iter(&link_list);
         assert_eq!(ret, vec);
     }
 
