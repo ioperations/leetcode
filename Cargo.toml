@@ -18,7 +18,7 @@ rand = "0.8.5"
 actix = "0.13"
 futures = "0.3"
 rayon = "1.6"
-hashbrown = "0.13"
+hashbrown = "0.14"
 tracing = "0.1"
 tracing-subscriber = { version = "0.3"}
 ctor = "0.2"
