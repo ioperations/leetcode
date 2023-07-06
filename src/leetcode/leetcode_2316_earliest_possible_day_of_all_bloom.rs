@@ -24,7 +24,7 @@ impl Solution {
         grow_time: Vec<i32>,
     ) -> i32 {
         let mut pairs: Vec<(i32, i32)> =
-            grow_time.into_iter().zip(plant_time.into_iter()).collect();
+            grow_time.into_iter().zip(plant_time).collect();
         pairs.sort_unstable();
 
         let (mut t, mut c) = (0, 0);

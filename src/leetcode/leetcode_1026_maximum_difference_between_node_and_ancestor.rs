@@ -29,7 +29,7 @@ impl Solution {
         if node.left.is_none() && node.right.is_none() {
             a
         } else {
-            let children = vec![&node.left, &node.right];
+            let children = [&node.left, &node.right];
             for child_option in children.iter().copied().flatten() {
                 let c = Self::min_max(&Rc::clone(child_option));
                 a.answer = cmp::max(a.answer, c.answer);

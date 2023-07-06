@@ -17,7 +17,7 @@ impl Solution {
             let mut left = Vec::new();
             let mut expected = 1;
 
-            for &i in arr.iter() {
+            for &i in arr {
                 if i == expected {
                     expected += 1;
                     continue;
