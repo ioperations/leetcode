@@ -27,7 +27,7 @@ opentelemetry = "0.19"
 # Integration between the tracing crate and the opentelemetry crate
 tracing-opentelemetry = "0.19" 
 # Allows you to export data to Jaeger
-opentelemetry-jaeger = "0.18"
+opentelemetry-jaeger = "0.19"
 #serde_json = { version = "1.0", default-features=false,features = ["alloc"] }
 #serde = { version="1.0",features=["derive"] }
 
