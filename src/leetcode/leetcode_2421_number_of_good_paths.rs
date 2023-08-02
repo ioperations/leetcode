@@ -59,7 +59,7 @@ impl Solution {
         // a sorted map for all node binding with same value
         let mut val_to_idx: BTreeMap<i32, Vec<usize>> = BTreeMap::new();
         for (i, val) in vals.into_iter().enumerate() {
-            val_to_idx.entry(val).or_insert(vec![]).push(i);
+            val_to_idx.entry(val).or_default().push(i);
         }
 
         // union find stuff
