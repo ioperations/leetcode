@@ -18,12 +18,12 @@ surrounded by water.
     grid[i][j] is '0' or '1'.
 */
 #include <queue>
+#include <stack>
 
 using namespace std;
 
 class Solution {
    public:
-    // BFS
     int NumIslands(vector<vector<char>> &grid) {
         int rows = grid.size();                // rows
         int cols = rows ? grid[0].size() : 0;  // cols
@@ -97,6 +97,50 @@ class Solution {
                 grid[r_x][c_x] == '1') {
                 Dfs(grid, r_x, c_x);
             }
+        }
+    }
+
+    void DfsUsingStack(const vector<vector<char>> &grid,
+                       vector<vector<bool>> &visit, int i, int j) {
+        stack<pair<int, int>> stack;
+        stack.push(make_pair(i, j));
+        while (stack.size()) {
+            auto [i, j] = stack.top();
+            stack.pop();
+            if (i < 0 || j < 0 || i >= grid.size() || j >= grid[0].size()) {
+                continue;
+            }
+
+            if (visit[i][j] || grid[i][j] == '0') {
+                continue;
+            }
+            visit[i][j] = true;
+            stack.push(make_pair(i + 1, j));
+            stack.push(make_pair(i - 1, j));
+            stack.push(make_pair(i, j + 1));
+            stack.push(make_pair(i, j - 1));
+        }
+    }
+
+    void BfsUsingQueue(const vector<vector<char>> &grid,
+                       vector<vector<bool>> &visit, int i, int j) {
+        queue<pair<int, int>> queue;
+        queue.push(make_pair(i, j));
+        while (queue.size()) {
+            auto [i, j] = queue.front();
+            queue.pop();
+            if (i < 0 || j < 0 || i >= grid.size() || j >= grid[0].size()) {
+                continue;
+            }
+
+            if (visit[i][j] || grid[i][j] == '0') {
+                continue;
+            }
+            visit[i][j] = true;
+            queue.push(make_pair(i + 1, j));
+            queue.push(make_pair(i - 1, j));
+            queue.push(make_pair(i, j + 1));
+            queue.push(make_pair(i, j - 1));
         }
     }
 };
