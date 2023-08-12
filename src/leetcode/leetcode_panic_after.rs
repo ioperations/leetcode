@@ -15,7 +15,7 @@ where
     });
 
     match done_rx.recv_timeout(d) {
-        Ok(_) => handle.join().expect("Thread panicked"),
+        Ok(()) => handle.join().expect("Thread panicked"),
         err @ Err(_) => {
             err.err();
             panic!("Thread took too long",)
