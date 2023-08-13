@@ -55,7 +55,7 @@ mod tests {
         let r1 =
             vec![Some(3), Some(9), Some(20), None, None, Some(15), Some(7)];
         let t1 = build_binary_tree(&r1);
-        let output = vec![3.00000, 14.50000, 11.00000];
+        let output = [3.00000, 14.50000, 11.00000];
         let ret = Solution::average_of_levels(t1);
         let mut i = 0;
         for j in ret {
@@ -70,7 +70,7 @@ mod tests {
     fn case2_test() {
         let r1 = vec![Some(3), Some(9), Some(20), Some(15), Some(7)];
         let t1 = build_binary_tree(&r1);
-        let output = vec![3.00000, 14.50000, 11.00000];
+        let output = [3.00000, 14.50000, 11.00000];
         let ret = Solution::average_of_levels(t1);
         let mut i = 0;
         for j in ret {
@@ -86,7 +86,7 @@ mod tests {
         let r1 =
             vec![Some(3), Some(9), Some(20), None, None, Some(15), Some(7)];
         let t1 = build_binary_tree(&r1);
-        let output = vec![3.00000, 14.50000, 11.00000];
+        let output = [3.00000, 14.50000, 11.00000];
         let ret = Solution::average_of_levels(t1);
         let mut i = 0;
         for j in ret {
