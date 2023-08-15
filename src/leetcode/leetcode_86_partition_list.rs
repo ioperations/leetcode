@@ -1,4 +1,4 @@
-use super::leetcode_linklist::*;
+use super::leetcode_linklist::ListNode;
 
 // Definition for singly-linked list.
 // #[derive(PartialEq, Eq, Clone, Debug)]
@@ -55,6 +55,8 @@ impl Solution {
 
 #[cfg(test)]
 mod test {
+    use super::super::leetcode_linklist::build_list_from_vec;
+    use super::super::leetcode_linklist::list_into_vec;
     use super::*;
 
     #[test]
