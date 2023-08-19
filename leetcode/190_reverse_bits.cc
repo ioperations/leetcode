@@ -48,6 +48,7 @@ std::string ConstructString(uint32_t n) {
     return ret;
 }
 
+namespace { 
 class Solution {
    public:
     uint32_t ReverseBits(uint32_t n) {
@@ -87,10 +88,12 @@ class Solution {
         return ret;
     }
 };
+} 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(base, tp) {
     EXPECT_EQ(2 << 1, 4);
     EXPECT_EQ(2 << 0, 2);
@@ -136,7 +139,4 @@ TEST(t0, t2) {
     EXPECT_EQ(ret_str, output_expected);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

@@ -5,6 +5,7 @@
 Return a deep copy (clone) of the graph.
 Each node in the graph contains a value (int) and a list (List[Node]) of its
 neighbors.
+namespace { 
 class Node {
     public int val;
     public List<Node> neighbors;
@@ -28,6 +29,7 @@ copy of the given node as a reference to the cloned graph.
 using namespace std;
 
 // Definition for a Node.
+namespace { 
 class Node {
    public:
     int val;
@@ -45,7 +47,9 @@ class Node {
         neighbors = my_neighbors;
     }
 };
+} 
 
+namespace { 
 class Solution {
    public:
     unordered_map<int, Node *> track;
@@ -101,6 +105,7 @@ class Solution {
         return visited[node].get();
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
@@ -161,6 +166,7 @@ void CheckEqual(Node *node, std::vector<std::vector<int>> &adj_list) {
     // TODO:: to implemen
 }
 
+namespace { 
 TEST(t0, t1) {
     std::vector<std::vector<int>> adj_list = {
         std::vector<int>{2, 4}, std::vector<int>{1, 3}, std::vector<int>{2, 4},
@@ -240,7 +246,4 @@ TEST(t1, t3) {
     /*This an empty graph, it does not have any nodes.*/
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

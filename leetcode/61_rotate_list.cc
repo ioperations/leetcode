@@ -7,6 +7,7 @@ Given the head of a linked list, rotate the list to the right by k places.
 */
 
 //* Definition for singly-linked list.
+namespace { 
 struct ListNode {
     int val;
     ListNode *next;
@@ -14,7 +15,9 @@ struct ListNode {
     ListNode(int x) : val(x), next(nullptr) {}
     ListNode(int x, ListNode *next) : val(x), next(next) {}
 };
+} 
 
+namespace { 
 class Solution {
    public:
     ListNode *RotateRight(ListNode *head, int k) {
@@ -95,6 +98,7 @@ class Solution {
         return size;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
@@ -130,6 +134,7 @@ void ExpectEqList(ListNode *const head, const std::vector<int> &elements) {
     EXPECT_EQ(i, elements.size());
 }
 
+namespace { 
 TEST(t0, t1) {
     std::vector<int> v{1, 2, 3, 4, 5};
     int k = 2;
@@ -139,7 +144,7 @@ TEST(t0, t1) {
     head = sl.RotateRight(head, k);
     ExpectEqList(head, output);
     FreeList(head);
-};
+}
 
 TEST(t0, t2) {
     std::vector<int> v{0, 1, 2};
@@ -150,7 +155,7 @@ TEST(t0, t2) {
     head = sl.RotateRight(head, k);
     ExpectEqList(head, output);
     FreeList(head);
-};
+}
 
 TEST(t0, t3) {
     std::vector<int> v{1, 2};
@@ -161,7 +166,7 @@ TEST(t0, t3) {
     head = sl.RotateRight(head, k);
     ExpectEqList(head, output);
     FreeList(head);
-};
+}
 
 TEST(t0, t4) {
     std::vector<int> v{1, 2};
@@ -172,7 +177,7 @@ TEST(t0, t4) {
     head = sl.RotateRightV1(head, k);
     ExpectEqList(head, output);
     FreeList(head);
-};
+}
 
 TEST(t0, t5) {
     std::vector<int> v{};
@@ -183,7 +188,7 @@ TEST(t0, t5) {
     head = sl.RotateRight(head, k);
     ExpectEqList(head, output);
     FreeList(head);
-};
+}
 
 TEST(t0, t6) {
     std::vector<int> v{1, 2, 3};
@@ -194,7 +199,7 @@ TEST(t0, t6) {
     head = sl.RotateRight(head, k);
     ExpectEqList(head, output);
     FreeList(head);
-};
+}
 
 TEST(t0, t7) {
     std::vector<int> v{1, 2};
@@ -205,7 +210,7 @@ TEST(t0, t7) {
     head = sl.RotateRight(head, k);
     ExpectEqList(head, output);
     FreeList(head);
-};
+}
 
 TEST(t0, t8) {
     std::vector<int> v{1, 2, 3};
@@ -229,7 +234,4 @@ TEST(t0, t9) {
     FreeList(head);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

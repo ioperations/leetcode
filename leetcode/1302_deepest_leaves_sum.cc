@@ -10,6 +10,7 @@
 using namespace std;
 
 //* Definition for a binary tree node.
+namespace { 
 struct TreeNode {
     int val;
     TreeNode *left;
@@ -20,6 +21,8 @@ struct TreeNode {
     TreeNode(int x, TreeNode *left, TreeNode *right)
         : val(x), left(left), right(right) {}
 };
+} 
+namespace { 
 class Solution {
    public:
     int Height(TreeNode *root) {
@@ -41,7 +44,9 @@ class Solution {
         return sum;
     }
 };
+} 
 
+namespace { 
 class SolutionV2 {
    public:
     int DeepestLeavesSum(TreeNode *root) {
@@ -65,6 +70,7 @@ class SolutionV2 {
         return sum;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
@@ -147,6 +153,7 @@ TreeNode *ConstructTreeNode(std::vector<int> &arr) {
     return z;
 }
 
+namespace { 
 TEST(t0, t1) {
     vector<int> vec = {1, 2, 3, 4, 5, null, 6, 7, null, null, null, null, 8};
 
@@ -158,7 +165,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, expected);
 
     FreeTreeNode(root);
-};
+}
 
 TEST(t0, t2) {
     vector<int> vec = {6, 7, 8, 2, 7, 1, 3, 9, null, 1, 4, null, null, null, 5};
@@ -172,7 +179,4 @@ TEST(t0, t2) {
 
     FreeTreeNode(root);
 }
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

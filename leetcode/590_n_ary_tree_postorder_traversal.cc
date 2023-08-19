@@ -15,6 +15,7 @@ Each group of children is separated by the null value (See examples)
 #include <vector>
 using namespace std;
 
+namespace { 
 class Node {
    public:
     int val;
@@ -29,7 +30,9 @@ class Node {
         children = i_children;
     }
 };
+} 
 
+namespace { 
 class Solution {
    public:
     vector<int> Postorder(Node *root) {
@@ -46,6 +49,7 @@ class Solution {
         ret.push_back(root->val);
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
@@ -101,6 +105,7 @@ void FreeNode(Node *n) {
     }
     delete n;
 }
+namespace { 
 TEST(t0, t1) {
 #define null optional<int>()
 
@@ -128,7 +133,4 @@ TEST(t0, t2) {
     FreeNode(tree);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

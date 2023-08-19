@@ -13,6 +13,7 @@ word or phrase, typically using all the original letters exactly once.
 #include <string>
 using namespace std;
 
+namespace { 
 class Solution {
    public:
     bool IsAnagram(string s, string t) {
@@ -21,11 +22,13 @@ class Solution {
         return s == t;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     string s = "anagram", t = "nagaram";
     bool output = true;
@@ -42,7 +45,4 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

@@ -18,6 +18,7 @@ remove any digits in s. You may return the valid IP addresses in any order.
 #include <vector>
 
 using namespace std;
+namespace { 
 class Solution {
    public:
     vector<string> RestoreIpAddressesV1(string s) {
@@ -66,11 +67,13 @@ class Solution {
         return v;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     string s = "25525511135";
     std::vector<string> output{"255.255.11.135", "255.255.111.35"};
@@ -102,7 +105,4 @@ TEST(t0, t3) {
     EXPECT_EQ(out_set, ret_set);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

@@ -21,6 +21,7 @@ character, and 'c' is smaller than 'd'.
 #include <unordered_map>
 using namespace std;
 
+namespace { 
 class Solution {
    public:
     string BreakPalindrome(string palindrome) {
@@ -44,11 +45,13 @@ class Solution {
         return "";
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     string const palindrome = "abccba";
     string const output = "aaccba";
@@ -79,7 +82,4 @@ TEST(t0, t3) {
     auto const ret = sl.BreakPalindrome(palindrome);
     EXPECT_EQ(ret, output);
 }
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

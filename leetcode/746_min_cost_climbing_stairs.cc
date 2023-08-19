@@ -15,6 +15,7 @@ Return the minimum cost to reach the top of the floor.
 #include <vector>
 using namespace std;
 
+namespace { 
 class Solution {
    public:
     int MinCostClimbingStairs(vector<int> &cost) {
@@ -47,11 +48,13 @@ class Solution {
         return min(fun(0), fun(1));
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     std::vector<int> v{10, 15, 20};
 
@@ -85,7 +88,4 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, expected);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

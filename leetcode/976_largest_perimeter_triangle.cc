@@ -11,6 +11,7 @@
 #include <vector>
 using namespace std;
 
+namespace { 
 class Solution {
    public:
     int LargestPerimeter(vector<int> &a) {
@@ -20,11 +21,13 @@ class Solution {
         return 0;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     vector<int> nums = {2, 1, 2};
     int const output = 5;
@@ -41,7 +44,4 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

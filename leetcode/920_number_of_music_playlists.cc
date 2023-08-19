@@ -14,6 +14,7 @@
 
 using namespace std;
 
+namespace { 
 class Solution {
    public:
     ll Solve(int n, int goal, int k, vector<vector<int>> &dp) {
@@ -65,9 +66,11 @@ class Solution {
     }
     const int mod = 1000000007;
 };
+} 
 
 #include <gtest/gtest.h>
 
+namespace { 
 TEST(t0, t1) {
     Solution s;
     // There are 6 possible playlists: [1, 2, 3], [1, 3, 2], [2, 1, 3], [2, 3,
@@ -88,7 +91,4 @@ TEST(t0, t3) {
     EXPECT_EQ(s.NumMusicPlaylists(2, 3, 1), 2);
 }
 
-int main(int argc, char *argv[]) {
-    ::testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

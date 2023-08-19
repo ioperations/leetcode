@@ -4,6 +4,7 @@
 //* Definition for a binary tree node.
 #include <functional>
 #include <vector>
+namespace { 
 struct TreeNode {
     int val;
     TreeNode *left;
@@ -13,9 +14,11 @@ struct TreeNode {
     TreeNode(int x, TreeNode *left, TreeNode *right)
         : val(x), left(left), right(right) {}
 };
+} 
 
 #include <algorithm>
 #include <queue>
+namespace { 
 class Solution {
    public:
     int KthSmallest(TreeNode *root, int k) {
@@ -44,6 +47,7 @@ class Solution {
         Inorder(root->right, q);
     }
 };
+} 
 
 TreeNode *AddToRoot(TreeNode *root, int val) {
     if (root == nullptr) {
@@ -103,6 +107,7 @@ void FreeRoot(TreeNode *root) {
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     std::vector<int> root = {3, 1, 4, 2};
     int k = 1;
@@ -125,7 +130,4 @@ TEST(t0, t2) {
     FreeRoot(head);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

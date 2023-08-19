@@ -9,6 +9,7 @@ Given an integer n, return true if it is a power of three.Otherwise,
     if there exists an integer x such that n == 3x.
 */
 
+namespace { 
 class Solution {
    public:
     bool IsPowerOfThree(int n) {
@@ -21,11 +22,13 @@ class Solution {
         return false;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     int n = 27;
     bool expected = true;
@@ -52,7 +55,4 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, expected);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

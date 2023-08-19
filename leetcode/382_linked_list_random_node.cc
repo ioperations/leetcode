@@ -6,6 +6,7 @@
 using namespace std;
 
 // Definition for singly-linked list.
+namespace { 
 struct ListNode {
     int val;
     ListNode *next;
@@ -13,7 +14,9 @@ struct ListNode {
     ListNode(int x) : val(x), next(nullptr) {}
     ListNode(int x, ListNode *next) : val(x), next(next) {}
 };
+} 
 
+namespace { 
 class Solution {
     vector<int> vec;
 
@@ -30,6 +33,7 @@ class Solution {
         return vec[random_index];
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
@@ -64,6 +68,7 @@ void ExpectEqList(ListNode *const head, const std::vector<int> &elements) {
     EXPECT_EQ(i, elements.size());
 }
 
+namespace { 
 TEST(t0, t1) {
     std::vector<int> rt{1, 2, 3};
     ListNode *head = ConstuctList(rt);
@@ -82,7 +87,4 @@ TEST(t0, t1) {
     // EXPECT_EQ(set.count(ret), 1);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

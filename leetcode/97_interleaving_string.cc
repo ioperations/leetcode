@@ -19,6 +19,7 @@ The interleaving is s1 + t1 + s2 + t2 + s3 + t3 + ... or t1 + s1 + t2 + s2 + t3
 #include <vector>
 using namespace std;
 
+namespace { 
 class Solution {
    public:
     bool Helper(string &s1, string &s2, string &s3) {
@@ -98,11 +99,13 @@ class Solution {
         return dp[n1][n2];
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     string s1 = "aabcc", s2 = "dbbca", s3 = "aadbbcbcac";
     bool output = true;
@@ -126,7 +129,4 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

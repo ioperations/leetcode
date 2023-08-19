@@ -6,6 +6,7 @@
 #include <functional>
 #include <iostream>
 
+namespace { 
 class Solution {
    public:
     std::string ReverseWords(std::string str) {
@@ -47,13 +48,14 @@ class Solution {
         return std::string(ret.begin() + 1, ret.end());
     }
 };
+} 
 
-#if defined(TEST_ADQ)
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t1, t2) {
     const std::string s(" hello world ");
     Solution slu;
@@ -86,10 +88,4 @@ TEST(t1, t6) {
     std::string ret = slu.ReverseWords(s);
     EXPECT_EQ(ret, std::string("bob like even not does Alice"));
 }
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }
-#else
-
-#endif

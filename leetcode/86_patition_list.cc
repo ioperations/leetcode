@@ -11,6 +11,7 @@ partitions.
 */
 
 //* Definition for singly-linked list.
+namespace { 
 struct ListNode {
     int val;
     ListNode *next;
@@ -18,7 +19,9 @@ struct ListNode {
     ListNode(int x) : val(x), next(nullptr) {}
     ListNode(int x, ListNode *next) : val(x), next(next) {}
 };
+} 
 
+namespace { 
 class Solution {
    public:
     ListNode *Partition(ListNode *head, int x) {
@@ -47,6 +50,7 @@ class Solution {
         return more.next;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
@@ -82,6 +86,7 @@ void ExpectEqList(ListNode *const head, const std::vector<int> &elements) {
     EXPECT_EQ(i, elements.size());
 }
 
+namespace { 
 TEST(t0, t1) {
     std::vector<int> vec = {1, 4, 3, 2, 5, 2};
     int x = 3;
@@ -118,7 +123,4 @@ TEST(t0, t3) {
     FreeList(head);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

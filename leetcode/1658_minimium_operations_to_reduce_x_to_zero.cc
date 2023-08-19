@@ -20,6 +20,7 @@ possible, otherwise, return -1.
 #include <vector>
 using namespace std;
 
+namespace { 
 class Solution {
    public:
     int MinOperations(vector<int> &nums, int x) {
@@ -71,11 +72,13 @@ class Solution {
         return n - len;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     vector<int> nums = {1, 1, 4, 2, 3};
     int x = 5;
@@ -111,7 +114,4 @@ TEST(t0, t3) {
     int ret = sl.MinOperations(nums, x);
     EXPECT_EQ(ret, output);
 }
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

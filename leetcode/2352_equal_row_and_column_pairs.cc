@@ -11,6 +11,7 @@ the same order (i.e., an equal array).
 
 using namespace std;
 
+namespace { 
 class Solution {
    public:
     string Mapping(vector<int> &row) {
@@ -42,10 +43,12 @@ class Solution {
         return count;
     }
 };
+} 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     // clang-format off
     vector<vector<int>> grid = {
@@ -82,7 +85,4 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

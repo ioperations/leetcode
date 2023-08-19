@@ -16,6 +16,7 @@ order and return the resulting matrix.
 #include <vector>
 using namespace std;
 
+namespace { 
 class Solution {
    public:
     vector<vector<int>> DiagonalSort(vector<vector<int>> &mat) {
@@ -83,11 +84,13 @@ class Solution {
         return mat;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     vector<vector<int>> mat = {{3, 3, 1, 1}, {2, 2, 1, 2}, {1, 1, 1, 2}};
     vector<vector<int>> expected = {{1, 1, 1, 1}, {1, 2, 2, 2}, {1, 2, 3, 3}};
@@ -112,7 +115,4 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, expected);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

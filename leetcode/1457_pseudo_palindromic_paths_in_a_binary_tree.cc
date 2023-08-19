@@ -18,6 +18,7 @@ nodes.*/
 #include "datastruct_base.hh"
 using namespace std;
 
+namespace { 
 class Solution {
    public:
     int count = 0;
@@ -110,6 +111,7 @@ class Solution {
         return sum;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
@@ -120,6 +122,7 @@ class Solution {
 using namespace std;
 
 #define null optional<int>()
+namespace { 
 TEST(t0, t1) {
     /*
                              _______
@@ -284,7 +287,4 @@ TEST(t1, t3) {
     FreeTreeNode(node);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

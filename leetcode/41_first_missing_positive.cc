@@ -14,6 +14,7 @@ space.
 #include <map>
 #include <vector>
 using namespace std;
+namespace { 
 class Solution {
    public:
     int FirstMissingPositive(std::vector<int> &nums) {
@@ -57,11 +58,13 @@ class Solution {
         return (n + 1);
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     std::vector<int> nums = {1, 2, 0};
     Solution s;
@@ -83,7 +86,4 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, 1);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

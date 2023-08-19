@@ -19,6 +19,7 @@ node's key. Both the left and right subtrees must also be binary search trees.
 #include <limits>
 #include <numeric>
 #include <vector>
+namespace { 
 struct TreeNode {
     int val;
     TreeNode *left;
@@ -28,7 +29,9 @@ struct TreeNode {
     TreeNode(int x, TreeNode *left, TreeNode *right)
         : val(x), left(left), right(right) {}
 };
+} 
 
+namespace { 
 class Solution {
    public:
     bool IsValidBstV2(TreeNode *root) {
@@ -111,6 +114,7 @@ class Solution {
                    std::numeric_limits<int>::max());
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
@@ -170,6 +174,7 @@ void FreeRoot(TreeNode *root) {
     delete root;
 }
 
+namespace { 
 TEST(t0, t1) {
     std::vector<int> root = {2, 1, 3};
     bool output = true;
@@ -223,7 +228,4 @@ TEST(t0, t3) {
     // Explanation: The root node's value is 5 but its right child's value is 4.
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

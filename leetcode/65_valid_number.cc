@@ -30,6 +30,7 @@ Given a string s, return true if s is a valid number.
 #include <utility>
 using namespace std;
 
+namespace { 
 class Solution {
    public:
     // recursive descendent parsing? not very strict: losing constraints
@@ -231,7 +232,9 @@ class Solution {
         int cursor = 0;
     };
 };
+} 
 
+namespace { 
 class Solution2 {
     string m_s;
     string::iterator it;
@@ -356,11 +359,13 @@ class Solution2 {
 
     bool IsEnd() { return it == m_s.end(); }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     std::string s = "0";
     bool expected = true;
@@ -440,7 +445,4 @@ TEST(t1, t6) {
     }
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

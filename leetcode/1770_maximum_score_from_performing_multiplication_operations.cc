@@ -17,6 +17,7 @@ Return the maximum score after performing m operations.*/
 #include <vector>
 using namespace std;
 
+namespace { 
 class Solution {
    public:
     int MaximumScoreV1(vector<int> &nums, vector<int> &multipliers) {
@@ -56,11 +57,13 @@ class Solution {
         return Dfs(0, 0, dp, nums, mul, 0);
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     vector<int> nums = {1, 2, 3}, multipliers = {3, 2, 1};
     int output = 14;
@@ -95,7 +98,4 @@ TEST(t0, t2) {
 
     EXPECT_EQ(ret, output);
 }
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

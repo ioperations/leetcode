@@ -23,6 +23,7 @@ needed to reach target starting with 1.
 
 using namespace std;
 
+namespace { 
 class Solution {
    public:
     int MinMoves(int target, int max_doubles) {
@@ -66,11 +67,13 @@ class Solution {
         return ops;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     int target = 19;
     int max_double = 2;
@@ -121,7 +124,4 @@ TEST(t0, t4) {
     EXPECT_EQ(ret, out);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

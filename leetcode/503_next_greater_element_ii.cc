@@ -16,6 +16,7 @@
 
 #include <vector>
 using namespace std;
+namespace { 
 class Solution {
    public:
     vector<int> NextGreaterElements(vector<int> &nums) {
@@ -37,11 +38,13 @@ class Solution {
         return ret;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     vector<int> nums = {1, 2, 1};
     vector<int> output = {2, -1, 2};
@@ -62,7 +65,4 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

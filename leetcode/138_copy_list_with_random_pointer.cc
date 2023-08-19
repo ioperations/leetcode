@@ -21,6 +21,7 @@ of the original linked list.*/
 
 // Definition for a Node.
 #include <vector>
+namespace { 
 class Node {
    public:
     int val;
@@ -33,8 +34,10 @@ class Node {
         random = nullptr;
     }
 };
+} 
 
 #include <unordered_map>
+namespace { 
 class Solution {
    public:
     Node *CopyRandomList(Node *head) {
@@ -71,6 +74,7 @@ class Solution {
         return dummy_new.next;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
@@ -141,6 +145,7 @@ std::vector<std::vector<std::optional<int>>> RestoreNode(Node *node) {
     return ret;
 }
 
+namespace { 
 TEST(base, t1) {
     std::vector<std::vector<std::optional<int>>> head =
         std::vector<std::vector<std::optional<int>>>{
@@ -196,7 +201,4 @@ TEST(t0, t3) {
     EXPECT_EQ(output, vec);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

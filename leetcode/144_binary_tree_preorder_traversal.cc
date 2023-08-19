@@ -7,6 +7,7 @@
 
 #include "datastruct_base.hh"
 
+namespace { 
 class Solution {
    public:
     template <typename T>
@@ -28,6 +29,7 @@ class Solution {
         Tranverse(root->right, val);
     }
 };
+} 
 
 #include <iostream>
 #include <optional>
@@ -39,6 +41,7 @@ using namespace std;
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     std::vector<optional<int>> vec{1, 2, 3};
     TreeNode<int> *root = ConstructBinaryTree(vec);
@@ -71,7 +74,4 @@ TEST(t0, t3) {
     FreeTreeNode(root);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

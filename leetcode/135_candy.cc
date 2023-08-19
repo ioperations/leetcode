@@ -15,6 +15,7 @@ to the children.*/
 #include <vector>
 using namespace std;
 
+namespace { 
 class Solution {
    public:
     int Candy(vector<int> &ratings) {
@@ -42,8 +43,10 @@ class Solution {
         return sum;
     }
 };
+} 
 #include <gtest/gtest.h>
 
+namespace { 
 TEST(t0, t1) {
     vector<int> ratings{1, 0, 2};
     int output = 5;
@@ -69,7 +72,4 @@ TEST(t0, t2) {
     EXPECT_EQ(output, ret);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

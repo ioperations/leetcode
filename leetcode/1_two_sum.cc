@@ -5,6 +5,7 @@
 #include <iterator>
 #include <vector>
 
+namespace { 
 class Solution {
    public:
     std::vector<int> TwoSum(std::vector<int> &nums, int target) {
@@ -22,11 +23,13 @@ class Solution {
 
    private:
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t1, t1) {
     Solution s;
     std::vector<int> nums{2, 7, 11, 15};
@@ -50,7 +53,4 @@ TEST(t1, t3) {
     auto ret = s.TwoSum(nums, target);
     EXPECT_EQ(ret, (std::vector<int>{0, 1}));
 }
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

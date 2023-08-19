@@ -17,6 +17,7 @@ requirement. You could assume there always exists an answer.
 #include <vector>
 
 using namespace std;
+namespace { 
 class Solution {
    public:
     vector<string> FindRestaurant(vector<string> &list1,
@@ -44,11 +45,13 @@ class Solution {
         return ans;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     vector<string> list1 = {"Shogun", "Tapioca Express", "Burger King", "KFC"};
     vector<string> list2 = {"Piatti", "The Grill at Torrey Pines",
@@ -71,7 +74,4 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

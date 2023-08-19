@@ -18,6 +18,7 @@ A substring is a contiguous sequence of characters within the string.
 
 using namespace std;
 
+namespace { 
 class Solution {
    public:
     string MinWindow(string s, string t) {
@@ -88,11 +89,13 @@ class Solution {
         return result;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     string const s = "ADOBECODEBANC";
     string const t = "ABC";
@@ -129,7 +132,4 @@ TEST(t0, t3) {
     auto ret = sl.MinWindow(s, t);
     EXPECT_EQ(ret, output);
 }
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

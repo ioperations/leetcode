@@ -9,6 +9,7 @@ switching the matrix's row and column indices.*/
 #include <vector>
 using namespace std;
 
+namespace { 
 class Solution {
    public:
     vector<vector<int>> Transpose(vector<vector<int>> &matrix) {
@@ -24,11 +25,13 @@ class Solution {
         return res;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     vector<vector<int>> matrix = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
     vector<vector<int>> output = {{1, 4, 7}, {2, 5, 8}, {3, 6, 9}};
@@ -45,7 +48,4 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

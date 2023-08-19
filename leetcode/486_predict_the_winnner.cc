@@ -20,6 +20,7 @@ may assume that both players are playing optimally.
 #include <vector>
 using namespace std;
 
+namespace { 
 class Solution {
    public:
     bool Ok(vector<int> &nums, int i, int j, int score, bool chance) {
@@ -72,11 +73,13 @@ class Solution {
         return res >= 0;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     std::vector<int> nums = {1, 5, 2};
     bool expected = false;
@@ -116,7 +119,4 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, expected);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

@@ -12,6 +12,7 @@
 #include <vector>
 
 using namespace std;
+namespace { 
 class Solution {
    public:
     int MinMoves2(vector<int> &nums) {
@@ -32,9 +33,11 @@ class Solution {
         return move;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
+namespace { 
 TEST(t0, t1) {
     vector<int> nums{1, 2, 3};
     int output = 2;
@@ -52,7 +55,4 @@ TEST(t0, t2) {
     int ret = sl.MinMoves2(nums);
     EXPECT_EQ(ret, output);
 }
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

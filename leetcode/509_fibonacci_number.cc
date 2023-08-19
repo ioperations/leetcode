@@ -11,6 +11,7 @@ F(n) = F(n - 1) + F(n - 2), for n > 1.
 Given n, calculate F(n).*/
 
 #include <map>
+namespace { 
 class Solution {
     std::map<int, int> cache;
 
@@ -27,11 +28,13 @@ class Solution {
         return ret;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     int n = 2;
     int out = 1;
@@ -56,7 +59,4 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, out);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

@@ -28,6 +28,7 @@ using namespace std;
 
 // This is the interface that allows for creating nested lists.
 // You should not implement it, or speculate about its implementation
+namespace { 
 class NestedInteger {
     bool is_integer;
     int val;
@@ -61,7 +62,9 @@ class NestedInteger {
     // integer const
     vector<NestedInteger> &GetList() { return vec; };
 };
+} 
 
+namespace { 
 class NestedIterator {
     int i;
     vector<int> faltterned;
@@ -94,6 +97,7 @@ class NestedIterator {
 
     bool hasNext() { return i < (int)faltterned.size(); }
 };
+} 
 
 /**
  * Your NestedIterator object will be instantiated and called as such:
@@ -105,6 +109,7 @@ class NestedIterator {
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     // vector<NestedInteger> nestedList = {{1,1},2,{1,1}};
 
@@ -122,7 +127,7 @@ TEST(t0, t1) {
     n.AddNestedInteger(n1);
     EXPECT_EQ(n.IsInteger(), false);
     EXPECT_EQ(n.GetList().size(), 3);
-};
+}
 
 TEST(t0, t2) {
     // vector<NestedInteger> nestedList = {{1,1},2,{1,1}};
@@ -154,7 +159,4 @@ TEST(t0, t2) {
     EXPECT_EQ(v, output);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

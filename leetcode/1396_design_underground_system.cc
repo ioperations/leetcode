@@ -34,6 +34,7 @@ order.
 #include <vector>
 using namespace std;
 
+namespace { 
 class UndergroundSystem {
    public:
     UndergroundSystem() {}
@@ -86,9 +87,11 @@ class UndergroundSystem {
 
     std::map<std::pair<std::string, std::string>, std::vector<int>> m_already;
 };
+} 
 
 #include <unordered_map>
 
+namespace { 
 class Solution2 {
    public:
     // startStation:endStation -> {totalTime, numberOfTrips}
@@ -129,6 +132,7 @@ class Solution2 {
         return avg;
     }
 };
+} 
 
 /**
  * Your UndergroundSystem object will be instantiated and called as such:
@@ -142,6 +146,7 @@ class Solution2 {
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     /*
 Input
@@ -269,7 +274,4 @@ TEST(t0, t3) {
 
     delete rgs;
 }
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

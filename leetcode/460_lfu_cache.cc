@@ -142,6 +142,7 @@ class LFUCache<K, int> {
 #include <gtest/gtest.h>
 
 #include <iostream>
+namespace { 
 TEST(t0, t1) {
     LFUCache<int, int> lfu(2);
     lfu.Put(1, 1);         // cache=[1,_], cnt(1)=1
@@ -208,7 +209,4 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, "4");  // cache=[4,3], cnt(4)=2, cnt(3)=3
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

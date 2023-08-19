@@ -11,6 +11,7 @@
 #include "datastruct_base.hh"
 
 using namespace std;
+namespace { 
 class Solution {
    public:
     template <typename T>
@@ -40,11 +41,13 @@ class Solution {
                      inorder.size() - 1);
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
 using namespace std;
 
+namespace { 
 TEST(t0, t1) {
     vector<int> preorder = {3, 9, 20, 15, 7}, inorder = {9, 3, 15, 20, 7};
     Solution sl;
@@ -69,7 +72,4 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

@@ -14,6 +14,7 @@ each group of children is separated by the null value (See examples).
 #include <vector>
 using namespace std;
 
+namespace { 
 class Node {
    public:
     int m_val;
@@ -28,8 +29,10 @@ class Node {
         m_children = children;
     }
 };
+} 
 #include <functional>
 
+namespace { 
 class Solution {
    public:
     int MaxDepth(Node *root) {
@@ -46,6 +49,7 @@ class Solution {
         return fun(root);
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
@@ -106,6 +110,7 @@ void FreeNode(Node *n) {
     delete n;
 }
 
+namespace { 
 TEST(memleak, t1) {
     vector<optional<int>> z{1, optional<int>{}, 3, 2, 4, optional<int>{}, 5, 6};
     Node *n = ConstructTreeNode(z);
@@ -134,7 +139,4 @@ TEST(t0, t2) {
     FreeNode(n);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

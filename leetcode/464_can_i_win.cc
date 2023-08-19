@@ -18,6 +18,7 @@ players play optimally.
 
 #include <vector>
 using namespace std;
+namespace { 
 class Solution {
    private:
     vector<vector<int>> dp;
@@ -50,11 +51,13 @@ class Solution {
         return Backtrack(curr, max_choosable_integer, desired_total, mask, 0);
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     int max_choosable_integerer = 10, desired_total = 11;
     bool expected = false;
@@ -89,7 +92,4 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, expected);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

@@ -12,6 +12,7 @@ You must write an algorithm that runs in O(n) time.*/
 #include <vector>
 using namespace std;
 
+namespace { 
 class Solution {
    public:
     int LongestConsecutive(vector<int> &nums) {
@@ -36,11 +37,13 @@ class Solution {
         // upvote if you like    }
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     vector<int> nums = {100, 4, 200, 1, 3, 2};
     int output = 4;
@@ -61,7 +64,4 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

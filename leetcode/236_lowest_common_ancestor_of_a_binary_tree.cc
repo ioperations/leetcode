@@ -11,6 +11,7 @@ as descendants (where we allow a node to be a descendant of itself).”*/
 // Definition for a binary tree node.
 #include "datastruct_base.hh"
 
+namespace { 
 class Solution {
    public:
     template <typename T>
@@ -31,6 +32,7 @@ class Solution {
         return nullptr;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
@@ -43,6 +45,7 @@ using namespace std;
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
 #define null optional<int>()
     vector<optional<int>> root = {3, 5, 1, 6, 2, 0, 8, null, null, 7, 4};
@@ -88,7 +91,4 @@ TEST(t0, t3) {
     FreeTreeNode(node);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

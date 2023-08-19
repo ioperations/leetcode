@@ -16,6 +16,7 @@ changed.
 */
 
 //* Definition for singly-linked list.
+namespace { 
 struct ListNode {
     int val;
     ListNode *next;
@@ -23,6 +24,8 @@ struct ListNode {
     ListNode(int x) : val(x), next(nullptr) {}
     ListNode(int x, ListNode *next) : val(x), next(next) {}
 };
+} 
+namespace { 
 class Solution {
    public:
     ListNode *ReverseKGroup(ListNode *head, int k) {
@@ -77,6 +80,7 @@ class Solution {
         return this_follow;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
@@ -113,6 +117,7 @@ void ExpectEqList(ListNode *const head, const std::vector<int> &elements) {
     EXPECT_EQ(i, elements.size());
 }
 
+namespace { 
 TEST(memleak, t0) {
     std::vector<int> head = {1, 2, 3, 4, 5};
     ListNode *root = ConstuctList(head);
@@ -166,7 +171,4 @@ TEST(t0, t2) {
     // Output: [2,1,4,3,5]
     FreeList(root);
 }
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

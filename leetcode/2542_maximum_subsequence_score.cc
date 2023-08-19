@@ -21,6 +21,7 @@ A subsequence of indices of an array is a set that can be derived from the set
 #include <vector>
 
 using namespace std;
+namespace { 
 class Solution {
    public:
     long long MaxScore(vector<int> &nums1, vector<int> &nums2, int k) {
@@ -57,11 +58,13 @@ class Solution {
         return dfs(0, 100000, 0, 0);
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     vector<int> nums1 = {1, 3, 3, 2};
     vector<int> nums2 = {2, 1, 3, 4};
@@ -122,7 +125,4 @@ TEST(t0, t3) {
 }
 */
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

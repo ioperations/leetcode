@@ -8,6 +8,7 @@
 #include <vector>
 using namespace std;
 
+namespace { 
 class Solution {
    public:
     /*
@@ -66,11 +67,13 @@ Space Complexity: O(1), constant space.
         return pq.top();
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     vector<vector<int>> matrix = {{1, 5, 9}, {10, 11, 13}, {12, 13, 15}};
     int k = 8;
@@ -111,7 +114,4 @@ TEST(t1, t2) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

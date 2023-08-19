@@ -15,6 +15,7 @@ Note that after backspacing an empty text, the text will continue empty.
 
 using namespace std;
 
+namespace { 
 class Solution {
    public:
     bool BackspaceCompare(string s, string t) {
@@ -44,11 +45,13 @@ class Solution {
         return ret;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     std::string s = "ab#c", t = "ad#c";
     bool expected = true;
@@ -78,7 +81,4 @@ TEST(t0, t3) {
     // Explanation: Both s and t become "ac".
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

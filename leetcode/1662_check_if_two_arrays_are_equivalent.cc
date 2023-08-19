@@ -14,6 +14,7 @@ forms the string.
 #include <vector>
 using namespace std;
 
+namespace { 
 class Solution {
    public:
     bool ArrayStringsAreEqual(vector<string> &word1, vector<string> &word2) {
@@ -31,11 +32,13 @@ class Solution {
         return i == (int)word1.size() and j == (int)word2.size();
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     vector<string> word1 = {"ab", "c"}, word2 = {"a", "bc"};
     bool output = true;
@@ -66,7 +69,4 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

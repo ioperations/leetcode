@@ -10,6 +10,7 @@ very large, return it modulo 1337.
 */
 #include <string>
 
+namespace { 
 class Solution {
    public:
     bool IsPalindrome(unsigned long val) {
@@ -105,11 +106,13 @@ class Solution {
         return false;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t, t1) {
     // Explanation: 99 x 91 = 9009, 9009 % 1337 = 987
     Solution s;
@@ -141,7 +144,4 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, expected);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

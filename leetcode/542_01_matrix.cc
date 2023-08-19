@@ -12,6 +12,7 @@ The distance between two adjacent cells is 1.
 #include <vector>
 using namespace std;
 
+namespace { 
 class Solution {
    public:
     int dx[4] = {0, 0, 1, -1};
@@ -54,7 +55,9 @@ class Solution {
         return ans;
     }
 };
+} 
 
+namespace { 
 TEST(t0, t1) {
     std::vector<std::vector<int>> mat = {{0, 0, 0}, {0, 1, 0}, {0, 0, 0}};
     std::vector<std::vector<int>> output = {{0, 0, 0}, {0, 1, 0}, {0, 0, 0}};
@@ -72,7 +75,4 @@ TEST(t0, t2) {
     EXPECT_EQ(output, ret);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

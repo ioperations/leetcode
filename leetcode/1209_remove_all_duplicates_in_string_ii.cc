@@ -17,6 +17,7 @@ guaranteed that the answer is unique.
 #include <string>
 #include <vector>
 using namespace std;
+namespace { 
 class Solution {
    public:
     string RemoveDuplicates(const string &s, int k) {
@@ -73,7 +74,9 @@ class Solution {
         return true;
     }
 };
+} 
 
+namespace { 
 class SolutionV2 {
    public:
     struct Node {
@@ -136,10 +139,12 @@ class SolutionV2 {
         return ans;
     }
 };
+} 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     string s = "abcd";
     int k = 2;
@@ -164,7 +169,4 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, "ps");
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

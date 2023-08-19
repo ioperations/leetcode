@@ -14,6 +14,7 @@ achieve any profit, return 0.
 
 #include <vector>
 using namespace std;
+namespace { 
 class Solution {
    public:
     int MaxProfit(vector<int> &prices) {
@@ -40,11 +41,13 @@ class Solution {
         return max_profit;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     std::vector<int> prices = {7, 1, 5, 3, 6, 4};
     int expected = 5;
@@ -68,7 +71,4 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, expected);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

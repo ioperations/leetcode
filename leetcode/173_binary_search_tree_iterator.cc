@@ -2,6 +2,7 @@
 // PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
 // https://pvs-studio.com
 /*
+namespace { 
 Implement the BSTIterator class that represents an iterator over the in-order
 traversal of a binary search tree (BST):
 
@@ -69,6 +70,7 @@ class BSTIterator {
 #include <iostream>
 #include <vector>
 
+namespace { 
 TEST(t0, t1) {
     TreeNode<int> *root = ConstructTree(std::vector<int>{1, 2, 4, 5, 6});
 
@@ -99,7 +101,4 @@ TEST(t0, t2) {
 
     FreeRoot(root);
 }
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

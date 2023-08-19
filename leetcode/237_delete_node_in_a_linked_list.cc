@@ -11,13 +11,16 @@ It is guaranteed that the node to be deleted is not a tail node in the list.
 #include <iostream>
 
 // Definition for singly-linked list.
+namespace { 
 struct ListNode {
     int val;
     ListNode *next;
     ListNode() : val(), next(nullptr) {}
     ListNode(int x) : val(x), next(nullptr) {}
 };
+} 
 
+namespace { 
 class Solution {
    public:
     void DeleteNode(ListNode *node) {
@@ -35,6 +38,7 @@ class Solution {
         }
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
@@ -81,6 +85,7 @@ ListNode *FindNode(ListNode *const head, int v) {
     return head;
 }
 
+namespace { 
 TEST(t0, t1) {
     std::vector<int> v{4, 5, 1, 9};
     int node = 5;
@@ -108,7 +113,4 @@ TEST(t0, t2) {
 
     FreeList(head);
 }
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

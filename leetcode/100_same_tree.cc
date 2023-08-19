@@ -12,6 +12,7 @@ the nodes have the same value.
 // * Definition for a binary tree node.
 #include "datastruct_base.hh"
 
+namespace { 
 class Solution {
    public:
     template <typename T>
@@ -34,9 +35,11 @@ class Solution {
         return false;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
+namespace { 
 TEST(memleak, t0) {
     std::vector<int> p = {1, 2, 3}, q = {1, 2, 3};
 
@@ -91,7 +94,4 @@ TEST(t0, t3) {
     FreeRoot(root2);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

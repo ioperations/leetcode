@@ -13,6 +13,7 @@
 #include "datastruct_base.hh"
 
 using namespace std;
+namespace { 
 class Solution {
    public:
     template <typename T>
@@ -52,6 +53,7 @@ class Solution {
         return v;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
@@ -62,6 +64,7 @@ class Solution {
 using namespace std;
 
 #define null optional<int>()
+namespace { 
 TEST(t0, t1) {
     vector<optional<int>> root = {3, 9, 20, null, null, 15, 7};
     vector<double> output = {3.00000, 14.50000, 11.00000};
@@ -110,7 +113,4 @@ TEST(t0, t3) {
     FreeTreeNode(rootnode);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

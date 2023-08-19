@@ -2,6 +2,7 @@
 // PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
 // https://pvs-studio.com
 //* Definition for a binary tree node.
+namespace { 
 struct TreeNode {
     int val;
     TreeNode *left;
@@ -11,6 +12,8 @@ struct TreeNode {
     TreeNode(int x, TreeNode *left, TreeNode *right)
         : val(x), left(left), right(right) {}
 };
+} 
+namespace { 
 class Solution {
    public:
     TreeNode *increasingBST(TreeNode *root) {
@@ -37,6 +40,7 @@ class Solution {
         return root;
     }
 };
+} 
 
 #include <iostream>
 #include <queue>
@@ -113,6 +117,7 @@ std::vector<int> BFS(TreeNode *root) {
 
 #include <vector>
 
+namespace { 
 TEST(memleak, t1) {
     TreeNode *root = new TreeNode(-1);
 
@@ -146,7 +151,4 @@ TEST(t0, t2) {
     FreeRoot(root);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

@@ -3,6 +3,7 @@
 // https://pvs-studio.com
 #include <algorithm>
 #include <vector>
+namespace { 
 class Solution {
    public:
     int MaxArea(std::vector<int> &height) {
@@ -39,11 +40,13 @@ class Solution {
         return max_area;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t1, t1) {
     Solution s;
     std::vector<int> height{1, 1};
@@ -58,7 +61,4 @@ TEST(t1, t2) {
     EXPECT_EQ(ret, 49);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

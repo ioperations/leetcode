@@ -8,6 +8,7 @@
 #include <vector>
 using namespace std;
 
+namespace { 
 class Solution {
    public:
     int SumSubarrayMins(vector<int> &arr) {
@@ -48,11 +49,13 @@ class Solution {
         return ret;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     std::vector<int> arr{3, 1, 2, 4};
     int output = 17;
@@ -178,7 +181,4 @@ TEST(t0, t3) {
     int ret = sl.SumSubarrayMins(arr);
     EXPECT_EQ(ret, output);
 }
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

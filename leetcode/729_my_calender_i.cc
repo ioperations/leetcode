@@ -23,6 +23,7 @@ and do not add the event to the calendar.*/
 #include <vector>
 using namespace std;
 
+namespace { 
 class MyCalendar {
    public:
     MyCalendar() {}
@@ -45,6 +46,7 @@ class MyCalendar {
    private:
     vector<pair<int, int>> slices;
 };
+} 
 
 /**
  * Your MyCalendar object will be instantiated and called as such:
@@ -55,6 +57,7 @@ class MyCalendar {
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     // Input["MyCalendar", "book", "book", "book"][ [], [ 10, 20 ], [ 15, 25 ],
     // [ 20, 30 ]] Output[null, true, false, true]
@@ -73,7 +76,4 @@ TEST(t0, t1) {
     // takes every time less than 20, but not including 20.
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

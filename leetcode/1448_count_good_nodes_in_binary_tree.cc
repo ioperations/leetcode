@@ -12,6 +12,7 @@ Return the number of good nodes in the binary tree.
 
 #include "datastruct_base.hh"
 
+namespace { 
 class Solution {
    public:
     template <typename T>
@@ -31,6 +32,7 @@ class Solution {
         return count;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
@@ -45,6 +47,7 @@ using namespace std;
 
 using namespace std;
 
+namespace { 
 TEST(t0, t1) {
 #define null optional<int>()
     vector<optional<int>> root = {3, 1, 4, 3, null, 1, 5};
@@ -106,7 +109,4 @@ TEST(t0, t4) {
     FreeTreeNode(node);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

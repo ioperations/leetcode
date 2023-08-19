@@ -14,6 +14,7 @@ return false.*/
 #include <vector>
 using namespace std;
 
+namespace { 
 class Solution {
    public:
     bool IsPossible(vector<int> &targets) {
@@ -36,11 +37,13 @@ class Solution {
         return 1;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     vector<int> target = {9, 3, 5};
     bool output = true;
@@ -58,7 +61,4 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

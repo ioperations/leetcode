@@ -7,6 +7,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+namespace { 
 class Solution {
    public:
     int MinDistance(const std::string &word1, const std::string &word2) {
@@ -53,7 +54,9 @@ class Solution {
         return std::min({inserted, deleted, replaced});
     }
 };
+} 
 
+namespace { 
 TEST(editdistance, t0) {
     std::string a("abc");
     std::string b("Abc");
@@ -93,7 +96,4 @@ TEST(editdistanceV2, t1) {
     EXPECT_EQ(ret, 2);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

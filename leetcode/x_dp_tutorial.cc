@@ -57,6 +57,7 @@ int FindMinPath(const char *s1, const int s1_length, const char *s2,
     return dp_fun(s1_length - 1, s2_length - 1);
 }
 
+namespace { 
 TEST(t1, r2) {
     int expected = 5;
 
@@ -71,7 +72,4 @@ TEST(t1, r2) {
     EXPECT_EQ(FindMinPath(s1_1, strlen(s1_1), s2_1, strlen(s2_1)), 1);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

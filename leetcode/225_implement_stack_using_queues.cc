@@ -29,6 +29,7 @@ standard operations.
 
 #include <queue>
 
+namespace { 
 class MyStack {
     std::queue<int> q;
 
@@ -51,7 +52,9 @@ class MyStack {
 
     bool Empty() { return q.empty(); }
 };
+} 
 
+namespace { 
 class MyStackV2 {
    public:
     std::queue<int> q;
@@ -77,10 +80,12 @@ class MyStackV2 {
 
     bool Empty() { return q.empty(); }
 };
+} 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     // * Your MyStack object will be instantiated and called as such:
     MyStack *obj = new MyStack();
@@ -157,7 +162,4 @@ TEST(t1, t2) {
     delete my_stack;
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

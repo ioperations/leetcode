@@ -6,6 +6,7 @@
 
 #include "datastruct_base.hh"
 
+namespace { 
 class Solution {
    public:
     template <typename T>
@@ -27,11 +28,13 @@ class Solution {
         val.push_back(root->val);
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     TreeNode<int> *root = ConstructTree(std::vector<int>{1, 2, 3});
     Solution s;
@@ -59,7 +62,4 @@ TEST(t0, t3) {
     FreeRoot(root);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

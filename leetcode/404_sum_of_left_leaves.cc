@@ -9,6 +9,7 @@ of another node.
 */
 
 //* Definition for a binary tree node.
+namespace { 
 struct TreeNode {
     int val;
     TreeNode *left;
@@ -18,6 +19,8 @@ struct TreeNode {
     TreeNode(int x, TreeNode *left, TreeNode *right)
         : val(x), left(left), right(right) {}
 };
+} 
+namespace { 
 class Solution {
    public:
     int SumOfLeftLeaves(TreeNode *root) {
@@ -37,6 +40,7 @@ class Solution {
         return SumOfLeftLeaves(root->right) + SumOfLeftLeaves(root->left);
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
@@ -100,6 +104,7 @@ void FreeRoot(TreeNode *root) {
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     const std::vector<int> elements = {7, 3, 20, 15, 9};
     TreeNode *root = ConstructTree(elements);
@@ -130,7 +135,4 @@ TEST(t0, t2) {
     FreeRoot(root);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

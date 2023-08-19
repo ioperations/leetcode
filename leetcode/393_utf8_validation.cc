@@ -42,6 +42,7 @@ each integer is used to store the data. This means each integer represents only
 
 using namespace std;
 
+namespace { 
 class Solution {
    public:
     bool ValidUtf8(vector<int> &data) {
@@ -78,11 +79,13 @@ class Solution {
         return true;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     vector<int> data = {197, 130, 1};
     bool output = true;
@@ -109,7 +112,4 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

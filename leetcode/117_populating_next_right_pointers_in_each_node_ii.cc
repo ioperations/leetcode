@@ -4,6 +4,7 @@
 /*
 Given a binary tree
 
+namespace { 
 struct Node {
   int val;
   Node *left;
@@ -16,6 +17,7 @@ right node, the next pointer should be set to nullptr.
 Initially, all next pointers are set to nullptr.*/
 
 // Definition for a Node.
+namespace { 
 class Node {
    public:
     int val;
@@ -30,7 +32,9 @@ class Node {
     Node(int val, Node *left, Node *right, Node *next)
         : val(val), left(left), right(right), next(next) {}
 };
+} 
 
+namespace { 
 class Solution {
    public:
     Node *Connect(Node *root) {
@@ -58,14 +62,13 @@ class Solution {
         return root;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {}
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

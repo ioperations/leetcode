@@ -11,6 +11,7 @@
 
 using namespace std;
 
+namespace { 
 class Solution {
    public:
     bool PrefixFunction(string p) {
@@ -28,10 +29,12 @@ class Solution {
     }
     bool RepeatedSubstringPattern(string s) { return PrefixFunction(s); }
 };
+} 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     string s = "abab";
     bool output = true;
@@ -59,7 +62,4 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

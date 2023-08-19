@@ -20,6 +20,7 @@ returned as an array [x, y].
 #include <vector>
 using namespace std;
 
+namespace { 
 class Solution {
     double x_center;
     double y_center;
@@ -42,6 +43,7 @@ class Solution {
         return {x_rand, y_rand};
     }
 };
+} 
 
 /**
  * Your Solution object will be instantiated and called as such:
@@ -53,6 +55,7 @@ class Solution {
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     Solution sl(1.0, 0.0, 0.0);
     vector<double> t1;
@@ -61,7 +64,4 @@ TEST(t0, t1) {
     t1 = sl.RandPoint();  // return [0.36572, 0.17248]
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

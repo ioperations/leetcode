@@ -18,6 +18,7 @@ Note: You cannot rotate an envelope.
 #include <map>
 #include <vector>
 using namespace std;
+namespace { 
 class Solution {
    public:
     bool static Comp(pair<int, int> &a, pair<int, int> &b) {
@@ -43,11 +44,13 @@ class Solution {
         return t.size();
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     std::vector<vector<int>> envelopes = {{5, 4}, {6, 4}, {6, 7}, {2, 3}};
     int output = 3;
@@ -67,7 +70,4 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

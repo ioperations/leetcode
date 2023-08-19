@@ -13,6 +13,7 @@ You must write an algorithm with O(log n) runtime complexity.*/
 #include <vector>
 
 using namespace std;
+namespace { 
 class Solution {
    public:
     vector<int> searchRange(vector<int> &nums, int target) {
@@ -33,11 +34,13 @@ class Solution {
         return ans;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     vector<int> elements{5, 7, 7, 8, 8, 10};
     Solution sl;
@@ -62,7 +65,4 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

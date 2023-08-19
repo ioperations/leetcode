@@ -31,12 +31,12 @@ void Processing(std::string s) {
     std::cout << ret << std::endl;
 }
 
-#if defined(TEST_ADQ)
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t1, t2) {
     std::string s = "0xA";
     testing::internal::CaptureStdout();
@@ -73,17 +73,4 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, std::string("170\n"));
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }
-
-#else
-int main() {
-    std::string s;
-    while (std::cin >> s) {
-        processing(s);
-    }
-}
-
-#endif

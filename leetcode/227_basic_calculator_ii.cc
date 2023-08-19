@@ -16,6 +16,7 @@ as mathematical expressions, such as eval().*/
 using namespace std;
 #include <stack>
 
+namespace { 
 class Solution {
    public:
     int Calculate(string s) {
@@ -78,9 +79,11 @@ class Solution {
         return ans;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
+namespace { 
 TEST(t0, t1) {
     string s = "3+2*2";
     int output = 7;
@@ -105,7 +108,4 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

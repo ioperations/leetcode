@@ -21,6 +21,7 @@ current url after forwarding in history at most steps.*/
 
 using namespace std;
 
+namespace { 
 class BrowserHistory {
     /*
         1 <= homepage.length <= 20
@@ -88,6 +89,7 @@ class BrowserHistory {
         return curr_page->url;
     }
 };
+} 
 
 /**
  * Your BrowserHistory object will be instantiated and called as such:
@@ -101,6 +103,7 @@ class BrowserHistory {
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     // Explanation:
     BrowserHistory *browser_history = new BrowserHistory("leetcode.com");
@@ -177,7 +180,4 @@ TEST(t0, t2) {
     delete browser_history;
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

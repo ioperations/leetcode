@@ -18,6 +18,7 @@ may not be used more than once.
 #include <vector>
 using namespace std;
 
+namespace { 
 class Solution {
    public:
     bool ExistV(vector<vector<char>> &board, string word) {
@@ -170,7 +171,9 @@ class Solution {
         return decision;
     }
 };
+} 
 
+namespace { 
 class SolutionV2 {
    public:
     bool Exist(vector<vector<char>> &board, string word) {
@@ -235,11 +238,13 @@ class SolutionV2 {
         return false;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     /*
          ___ ___ ___ ___
@@ -373,7 +378,4 @@ TEST(t1, t4) {
     EXPECT_EQ(ret, false);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

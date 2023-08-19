@@ -13,6 +13,7 @@ integer directly.
 #include <vector>
 using namespace std;
 
+namespace { 
 class Solution {
    public:
     std::string ToStr(int num) {
@@ -48,11 +49,13 @@ class Solution {
         return res;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     std::string num1 = "2", num2 = "3";
     std::string expected = "6";
@@ -87,7 +90,4 @@ TEST(t0, t4) {
     EXPECT_EQ(ret, expected);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

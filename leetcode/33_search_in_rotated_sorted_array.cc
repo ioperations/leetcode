@@ -21,6 +21,7 @@ You must write an algorithm with O(log n) runtime complexity.
 */
 
 using namespace std;
+namespace { 
 class Solution {
    public:
     int Search(vector<int> &nums, int target) {
@@ -63,11 +64,13 @@ otherwise return -1 That is my idea about this question.
         return -1;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     std::vector<int> nums = {4, 5, 6, 7, 0, 1, 2};
     int target = 0;
@@ -94,7 +97,4 @@ TEST(t0, t3) {
     int ret = s.Search(nums, target);
     EXPECT_EQ(ret, output);
 }
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

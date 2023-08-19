@@ -26,6 +26,7 @@ _________________________________________________
 #include <vector>
 using namespace std;
 
+namespace { 
 class Solution {
    public:
     int Trap(vector<int> &height) {
@@ -63,11 +64,13 @@ class Solution {
         return res;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     std::vector<int> height = {0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1};
     int expected = 6;
@@ -87,7 +90,4 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, expected);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

@@ -11,6 +11,7 @@ order.
 
 #include <vector>
 using namespace std;
+namespace { 
 class Solution {
    public:
     void Solve(vector<vector<int>> &ans, vector<int> temp, int ind,
@@ -37,7 +38,9 @@ class Solution {
         return ans;
     }
 };
+} 
 
+namespace { 
 class SolutionV1 {
    public:
     void Solve(vector<vector<int>> &ans, vector<int> temp, int ind,
@@ -63,10 +66,12 @@ class SolutionV1 {
         return ans;
     }
 };
+} 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     std::vector<int> input{1, 2, 3};
     std::vector<vector<int>> out{{},  {1},    {2},    {1, 2},
@@ -90,7 +95,4 @@ TEST(t0, t2) {
     EXPECT_EQ(out_set, ret_set);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

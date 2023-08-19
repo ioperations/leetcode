@@ -13,6 +13,7 @@ it as shown:
 #include <vector>
 using namespace std;
 
+namespace { 
 class Solution {
    public:
     vector<vector<int>> Generate(int num_rows) {
@@ -37,10 +38,12 @@ class Solution {
         return ret;
     }
 };
+} 
 
 #include <iostream>
 #include <set>
 
+namespace { 
 TEST(t0, t1) {
     int num_rows = 5;
     std::vector<std::vector<int>> output = {
@@ -66,7 +69,4 @@ TEST(t0, t2) {
     EXPECT_EQ(ret_set, output_set);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

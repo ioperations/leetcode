@@ -42,6 +42,7 @@ Example 1:
 #include <vector>
 using namespace std;
 
+namespace { 
 class Solution {
    public:
     int RemoveDuplicates(vector<int> &nums) {
@@ -70,11 +71,13 @@ class Solution {
         return i;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     std::vector<int> nums = {1, 1, 2};
     int output = 2;
@@ -98,7 +101,4 @@ TEST(t0, t2) {
     }
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

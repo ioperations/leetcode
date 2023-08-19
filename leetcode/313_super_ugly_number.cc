@@ -11,6 +11,7 @@ The nth super ugly number is guaranteed to fit in a 32-bit signed integer.*/
 
 #include <vector>
 using namespace std;
+namespace { 
 class Solution {
    public:
     int NthSuperUglyNumber(int n, vector<int> &primes) {
@@ -32,11 +33,13 @@ class Solution {
         return ans[n - 1];
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     int n = 12;
     vector<int> primes = {2, 7, 13, 19};
@@ -59,7 +62,4 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

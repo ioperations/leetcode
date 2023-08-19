@@ -25,6 +25,7 @@
 #include <vector>
 using namespace std;
 
+namespace { 
 class Iterator {
     const std::vector<int> &nums;
     int size;
@@ -53,7 +54,9 @@ class Iterator {
     // Returns true if the iteration has more elements.
     bool hasNext() const { return 0 <= (i + 1) && (i + 1) < size; };
 };
+} 
 
+namespace { 
 class PeekingIterator : public Iterator {
     int nextVal;
 
@@ -81,11 +84,13 @@ class PeekingIterator : public Iterator {
 
     bool hasNext() const { return (nextVal != 0); }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     // Input ["PeekingIterator", "next", "peek", "next", "next", "hasNext"]
     // [[[1, 2, 3]], [], [], [], [], []]
@@ -146,7 +151,4 @@ TEST(t0, t2) {
     delete peeking_iterator;
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

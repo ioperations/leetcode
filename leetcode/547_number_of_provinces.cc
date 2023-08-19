@@ -19,6 +19,7 @@ Return the total number of provinces.
 #include <vector>
 using namespace std;
 
+namespace { 
 class Solution {
    public:
     int FindCircleNum(vector<vector<int>> &is_connected) {
@@ -57,11 +58,13 @@ class Solution {
         DfSprovince(is_connected, is_visited, i, j + 1);
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     std::vector<vector<int>> v{{1, 1, 0}, {1, 1, 0}, {0, 0, 1}};
     /*
@@ -95,7 +98,4 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, 3);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

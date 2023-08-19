@@ -15,6 +15,7 @@
 #include <utility>
 using namespace std;
 
+namespace { 
 class Solution {
    public:
     int MinCut(string s) {
@@ -44,11 +45,13 @@ class Solution {
         return true;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     std::string s = "aab";
 
@@ -75,7 +78,4 @@ TEST(t0, t3) {
     int ret = sl.MinCut(s);
     EXPECT_EQ(ret, i);
 }
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

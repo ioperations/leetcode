@@ -54,6 +54,7 @@ int MaxRet(const char *str, int str_len) {
     return last;
 }
 
+namespace { 
 TEST(t1, t2) {
     const char *s1 = "abcba";
     EXPECT_EQ(MaxRet(s1, strlen(s1)), 5);
@@ -79,7 +80,4 @@ TEST(t1, t0) {
     EXPECT_EQ(MaxRet(s1, strlen(s1)), 7);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

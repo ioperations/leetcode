@@ -15,6 +15,7 @@ Return the maximum number of operations you can perform on the array.
 
 using namespace std;
 
+namespace { 
 class Solution {
    public:
     int MaxOperations(vector<int> &nums, int sum) {
@@ -68,11 +69,13 @@ class Solution {
         return count;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     std::vector<int> nums = {1, 2, 3, 4};
     int k = 5;
@@ -166,7 +169,4 @@ TEST(t2, t2) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

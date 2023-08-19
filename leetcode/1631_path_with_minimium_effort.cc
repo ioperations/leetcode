@@ -28,6 +28,7 @@ bottom-right cell.
 #include <vector>
 using namespace std;
 
+namespace { 
 class Solution {
    public:
     int MinimumEffortPath(vector<vector<int>> &heights) {
@@ -165,11 +166,13 @@ class Solution {
         return dp[m - 1][n - 1];
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     /*
          ___ ___ ___
@@ -241,7 +244,4 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

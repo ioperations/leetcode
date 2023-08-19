@@ -40,6 +40,7 @@ int MaxSubStringLengthOfTwoString(const char *s1, int s1_len, const char *s2,
     return dp_fun(s1_len - 1, s2_len - 1);
 }
 
+namespace { 
 TEST(t1j, t2) {
     const char *s1 = "hello";
     const char *s2 = "hell";
@@ -68,7 +69,4 @@ TEST(t1j, t5) {
     EXPECT_EQ(ret, 0);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

@@ -16,6 +16,7 @@ words[j] is a palindrome.
 #include <vector>
 using namespace std;
 
+namespace { 
 class Solution {
    public:
     vector<vector<int>> PalindromePairs(vector<string> &words) {
@@ -232,11 +233,13 @@ class Solution {
         return ans;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     vector<string> words = {"abcd", "dcba", "lls", "s", "sssll"};
     vector<vector<int>> output = {{0, 1}, {1, 0}, {3, 2}, {2, 4}};
@@ -281,8 +284,4 @@ TEST(t0, t2) {
     EXPECT_EQ(ret_set2, output_set);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    const int ret = RUN_ALL_TESTS();
-    return ret;
 }

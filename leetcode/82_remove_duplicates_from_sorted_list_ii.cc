@@ -8,6 +8,7 @@ list sorted as well.
 */
 
 #include <vector>
+namespace { 
 struct ListNode {
     int val;
     ListNode *next;
@@ -15,6 +16,8 @@ struct ListNode {
     ListNode(int x) : val(x), next(nullptr) {}
     ListNode(int x, ListNode *next) : val(x), next(next) {}
 };
+} 
+namespace { 
 class Solution {
    public:
     ListNode *DeleteDuplicates(ListNode *head) {
@@ -69,6 +72,7 @@ class Solution {
         return head;
     }
 };
+} 
 #include <gtest/gtest.h>
 
 ListNode *ConstructList(const std::vector<int> &elements) {
@@ -103,6 +107,7 @@ void ExpectEqList(ListNode *const head, const std::vector<int> &elements) {
 
 #include <gtest/gtest.h>
 
+namespace { 
 TEST(test, t1) {
     std::vector<int> head{1, 2, 3, 4, 5};
     std::vector<int> output{2, 3, 4, 5};
@@ -160,7 +165,4 @@ TEST(t0, t2) {
     FreeList(root);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

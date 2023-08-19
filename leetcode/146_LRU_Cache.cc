@@ -17,6 +17,7 @@ functions get and put must each run in O(1) average time complexity.
 
 #include <map>
 
+namespace { 
 class LRUCache {
    public:
     LRUCache(int capacity) : capacity(capacity) {
@@ -112,8 +113,10 @@ class LRUCache {
         delete p;
     }
 };
+} 
 
 // doubly LinkedList Node
+namespace { 
 class Node {
    public:
     int key;
@@ -121,6 +124,7 @@ class Node {
     Node *next = nullptr;
     Node *prev = nullptr;
 };
+} 
 
 /**
  * Your LRUCache object will be instantiated and called as such:
@@ -133,6 +137,7 @@ class Node {
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     LRUCache *obj = new LRUCache(10);
     const int param_1 = obj->Get(1);
@@ -163,7 +168,4 @@ TEST(t0, t2) {
     delete lru;
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

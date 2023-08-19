@@ -9,6 +9,7 @@
 
 #include "datastruct_base.hh"
 
+namespace { 
 class Solution {
    private:
     template <typename T>
@@ -44,6 +45,7 @@ class Solution {
         return root;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
@@ -53,6 +55,7 @@ class Solution {
 #include <vector>
 using namespace std;
 
+namespace { 
 TEST(t0, t1) {
     std::vector<optional<int>> root = {4, 2, 7, 1, 3, 6, 9};
     std::vector<int> output = {4, 7, 2, 9, 6, 3, 1};
@@ -68,7 +71,7 @@ TEST(t0, t1) {
     BfsSearch(head, vec1);
     EXPECT_EQ(vec1, output);
     FreeTreeNode(head);
-};
+}
 
 TEST(t0, t2) {
     std::vector<optional<int>> root = {1,  2,  3,  4,  5,  6,  7,  8,  9,  10,
@@ -89,7 +92,7 @@ TEST(t0, t2) {
     BfsSearch(head, vec1);
     EXPECT_EQ(vec1, output);
     FreeTreeNode(head);
-};
+}
 
 TEST(t0, t3) {
     std::vector<optional<int>> root = {2, 1, 3};
@@ -104,9 +107,6 @@ TEST(t0, t3) {
     BfsSearch(head, vec1);
     EXPECT_EQ(vec1, output);
     FreeTreeNode(head);
-};
+}
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

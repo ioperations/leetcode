@@ -25,6 +25,7 @@ should be returned as a list of the words [beginWord, s1, s2, ..., sk].*/
 #include <vector>
 
 using namespace std;
+namespace { 
 class Solution {
    public:
     bool Able(string s, string t) {
@@ -103,11 +104,13 @@ class Solution {
         return ans;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     string begin_word = "hit", end_word = "cog";
     vector<string> word_list = {"hot", "dot", "dog", "lot", "log", "cog"};
@@ -212,7 +215,4 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

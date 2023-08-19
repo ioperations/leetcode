@@ -22,6 +22,7 @@ also be binary search trees.
 #include <stack>
 #include <vector>
 
+namespace { 
 struct TreeNode {
     int val;
     TreeNode *left;
@@ -31,8 +32,10 @@ struct TreeNode {
     TreeNode(int x, TreeNode *left, TreeNode *right)
         : val(x), left(left), right(right) {}
 };
+} 
 using namespace std;
 
+namespace { 
 class Solution {
    public:
     vector<int> FindMode(TreeNode *root) {
@@ -71,6 +74,7 @@ class Solution {
         InorderLeft(root->right, count);
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
@@ -130,6 +134,7 @@ void FreeRoot(TreeNode *root) {
     delete root;
 }
 
+namespace { 
 TEST(t0, t1) {
     std::vector<int> root = {1, 2, 2};
     std::vector<int> output{2};
@@ -157,7 +162,4 @@ TEST(t0, t2) {
 
     FreeRoot(node);
 }
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

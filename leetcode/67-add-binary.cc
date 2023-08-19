@@ -7,6 +7,7 @@
 #include <string>
 using namespace std;
 
+namespace { 
 class Solution {
    public:
     string AddBinary(const string &a, const string &b) {
@@ -39,11 +40,13 @@ class Solution {
     int __attribute__((unused)) carrier = 0;
     string ret = "";
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t1, t0) {
     string s = "1111";
     string b = "10101";
@@ -64,7 +67,4 @@ TEST(t1, t1) {
     EXPECT_EQ(ret, "100");
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

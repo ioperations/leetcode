@@ -4,6 +4,7 @@
 #include <iostream>
 #include <iterator>
 #include <set>
+namespace { 
 class Solution {
    public:
     int LengthOfLongestSubstring(std::string s) {
@@ -28,12 +29,13 @@ class Solution {
         return max;
     }
 };
+} 
 
-#if defined(TEST_ADQ)
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(r1, t2) {
     std::string in("abcabcbb");
     Solution slu;
@@ -65,9 +67,4 @@ TEST(r2, t2) {
     EXPECT_EQ(ret, 2);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }
-#else
-#endif

@@ -9,6 +9,7 @@ Given an integer num, return a string of its base 7 representation.
 #include <string>
 using namespace std;
 
+namespace { 
 class Solution {
    public:
     string ConvertToBase7(int num) {
@@ -24,11 +25,13 @@ class Solution {
         return ret;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     int num = 100;
     string output = "202";
@@ -45,7 +48,4 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

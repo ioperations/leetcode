@@ -37,6 +37,7 @@ the border). How would you address these problems?
 
 using namespace std;
 
+namespace { 
 class Solution {
    public:
     void GameOfLife(vector<vector<int>> &board) {
@@ -90,11 +91,13 @@ class Solution {
         }
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     // pass
     std::vector<std::vector<int>> board = {
@@ -117,7 +120,4 @@ TEST(t0, t2) {
     EXPECT_EQ(board, expected);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

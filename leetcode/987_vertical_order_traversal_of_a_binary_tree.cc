@@ -25,6 +25,7 @@ Return the vertical order traversal of the binary tree.*/
 
 using namespace std;
 
+namespace { 
 struct Mystruct {
     int val;
     int column;
@@ -40,9 +41,11 @@ struct Mystruct {
         return false;
     }
 };
+} 
 
 #include <map>
 
+namespace { 
 class Solution {
    public:
     template <typename T>
@@ -131,6 +134,7 @@ class Solution {
         return ret;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
@@ -138,6 +142,7 @@ class Solution {
 
 using namespace std;
 
+namespace { 
 TEST(t0, t1) {
     vector<optional<int>> root = {3, 9, 20, null, null, 15, 7};
     vector<vector<int>> output = {{9}, {3, 15}, {20}, {7}};
@@ -184,7 +189,4 @@ TEST(t0, t3) {
     FreeTreeNode(node);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

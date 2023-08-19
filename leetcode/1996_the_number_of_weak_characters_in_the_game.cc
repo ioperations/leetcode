@@ -17,6 +17,7 @@ Return the number of weak characters.*/
 #include <vector>
 using namespace std;
 
+namespace { 
 class Solution {
     static bool Comp(vector<int> &a, vector<int> &b) {
         if (a[0] == b[0]) return a[1] > b[1];
@@ -36,11 +37,13 @@ class Solution {
         return count;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     std::vector<vector<int>> properties = {{5, 5}, {6, 3}, {3, 6}};
     int output = 0;
@@ -80,7 +83,4 @@ TEST(t0, t4) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

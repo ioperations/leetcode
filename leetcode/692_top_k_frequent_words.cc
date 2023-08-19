@@ -16,6 +16,7 @@ with the same frequency by their lexicographical order.
 #include <vector>
 using namespace std;
 
+namespace { 
 class Solution {
    public:
     vector<string> TopKFrequent(vector<string> &words, int k) {
@@ -36,11 +37,13 @@ class Solution {
         return res;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     std::vector<string> words = {"i", "love", "leetcode",
                                  "i", "love", "coding"};
@@ -69,7 +72,4 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

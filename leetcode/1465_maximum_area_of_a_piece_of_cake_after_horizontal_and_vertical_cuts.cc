@@ -15,6 +15,7 @@ number, return this modulo 109 + 7.*/
 
 #include <vector>
 using namespace std;
+namespace { 
 class Solution {
    public:
     int MaxArea(int h, int w, vector<int> &horizontal_cuts,
@@ -40,7 +41,9 @@ class Solution {
                             // sign overflow will occur.
     }
 };
+} 
 
+namespace { 
 TEST(t0, t1) {
     int h = 5, w = 4;
     vector<int> horizontal_cuts = {1, 2, 4};
@@ -77,7 +80,4 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

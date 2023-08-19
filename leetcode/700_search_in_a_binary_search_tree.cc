@@ -10,6 +10,7 @@ rooted with that node. If such a node does not exist, return null.
 
 #include "datastruct_base.hh"
 
+namespace { 
 class Solution {
    public:
     template <typename T>
@@ -28,11 +29,13 @@ class Solution {
         return nullptr;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     std::vector<int> v{4, 2, 7, 1, 3};
     int val = 2;
@@ -59,7 +62,4 @@ TEST(t0, t2) {
     FreeRoot(node);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

@@ -55,12 +55,12 @@ int Result(const string &data) {
     }
     return sum;
 }
-#if defined(TEST_ADQ)
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t1, t2) {
     pos = 0;
     const char *s = "400+5";
@@ -89,17 +89,4 @@ TEST(t1, t5) {
     EXPECT_EQ(ret, 0);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }
-
-#else
-
-int main() {
-    const char *str = "400*(4+4)";
-    pos = 0;
-    cout << result(str) << endl;
-    return 0;
-}
-#endif

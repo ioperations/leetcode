@@ -8,6 +8,7 @@
  */
 
 // Definition for a binary tree node.
+namespace { 
 struct TreeNode {
     int val;
     TreeNode *left;
@@ -17,11 +18,13 @@ struct TreeNode {
     TreeNode(int x, TreeNode *left, TreeNode *right)
         : val(x), left(left), right(right) {}
 };
+} 
 #include <functional>
 #include <map>
 #include <set>
 #include <vector>
 using namespace std;
+namespace { 
 class Solution {
    public:
     vector<TreeNode *> GenerateTrees(int n) { return SubTrees(1, n); }
@@ -85,6 +88,7 @@ class Solution {
         return ret;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
@@ -138,6 +142,7 @@ void FreeNodes(TreeNode *root) {
     delete root;
 }
 
+namespace { 
 TEST(t0, t1) {
     int n = 3;
 #define null optional<int>()
@@ -173,7 +178,4 @@ TEST(t0, t2) {
     }
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

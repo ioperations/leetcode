@@ -13,6 +13,7 @@
     所以一共出现了6次2
 */
 
+namespace { 
 class Solution {
    public:
     int Solve(int left, int right) {
@@ -23,11 +24,13 @@ class Solution {
    private:
     /* data */
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     int left = 1;
     int right = 22;
@@ -37,7 +40,4 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

@@ -9,6 +9,7 @@ Given an integer n, return the nth digit of the infinite integer sequence
 #include <cmath>
 #include <string>
 using namespace std;
+namespace { 
 class Solution {
    public:
     int FindNthDigit(int n) {
@@ -24,6 +25,7 @@ class Solution {
         return to_string(num)[index - 1] - '0';
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
@@ -37,6 +39,7 @@ _________________________________________________________________
 |___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|
 */
 
+namespace { 
 TEST(t0, t1) {
     int n = 3;
 
@@ -80,7 +83,4 @@ TEST(t0, t5) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

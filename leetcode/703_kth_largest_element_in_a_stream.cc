@@ -15,6 +15,7 @@ and returns the element representing the kth largest element in the stream.*/
 #include <vector>
 using namespace std;
 
+namespace { 
 class KthLargest {
     priority_queue<int, vector<int>, greater<int>> q;
     int k;
@@ -37,11 +38,13 @@ class KthLargest {
         return q.top();
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     // * Your KthLargest object will be instantiated and called as such:
     int k = 3;
@@ -61,7 +64,4 @@ TEST(t0, t1) {
     delete obj;
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

@@ -17,6 +17,7 @@ satisfy all the given equations, or false otherwise.*/
 #include <vector>
 
 using namespace std;
+namespace { 
 class DSU {
    public:
     int rank[26], parent[26];
@@ -53,7 +54,9 @@ class DSU {
     }
     ~DSU() = default;
 };
+} 
 
+namespace { 
 class Solution {
    public:
     bool EquationsPossible(vector<string> &equations) {
@@ -80,11 +83,13 @@ class Solution {
         return true;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     vector<string> equations = {"a==b", "b!=a"};
     bool const output = false;
@@ -105,7 +110,4 @@ TEST(t0, t2) {
     bool const ret = sl.EquationsPossible(equations);
     EXPECT_EQ(ret, output);
 }
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

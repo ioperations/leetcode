@@ -12,6 +12,7 @@ the root node down to the farthest leaf node.
 //* Definition for a binary tree node.
 #include "datastruct_base.hh"
 
+namespace { 
 class Solution {
    public:
     template <typename T>
@@ -32,11 +33,13 @@ class Solution {
    private:
     int ret = 0;
 };
+} 
 #include <gtest/gtest.h>
 
 #include <optional>
 using namespace std;
 
+namespace { 
 TEST(memleak, t0) {
     vector<optional<int>> elements{3,  9, 20, optional<int>(), optional<int>(),
                                    15, 7};
@@ -63,7 +66,4 @@ TEST(t0, t2) {
     FreeTreeNode(binary_tree);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

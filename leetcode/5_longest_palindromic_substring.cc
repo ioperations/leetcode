@@ -7,6 +7,7 @@
 
 #include <string>
 
+namespace { 
 class Solution {
    public:
     Solution(){};
@@ -41,11 +42,13 @@ class Solution {
         return s.substr(l + 1, r - (l + 1));
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     std::string s("babad");
     Solution *sl = new Solution();
@@ -73,7 +76,4 @@ TEST(t0, t3) {
     EXPECT_TRUE(ret == "a" || ret == "c");
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

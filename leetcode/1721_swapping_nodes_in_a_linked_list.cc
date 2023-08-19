@@ -10,6 +10,7 @@ from the beginning and the kth node from the end (the list is 1-indexed).
 
 #include <iostream>
 //* Definition for singly-linked list.
+namespace { 
 struct ListNode {
     int val;
     ListNode *next;
@@ -17,7 +18,9 @@ struct ListNode {
     ListNode(int x) : val(x), next(nullptr) {}
     ListNode(int x, ListNode *next) : val(x), next(next) {}
 };
+} 
 
+namespace { 
 class Solution {
    public:
     ListNode *SwapNodes(ListNode *head, int k) {
@@ -44,6 +47,7 @@ class Solution {
         return head;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
@@ -77,6 +81,7 @@ void ExpectEqList(ListNode *const head, const std::vector<int> &elements) {
     }
     EXPECT_EQ(i, elements.size());
 }
+namespace { 
 TEST(memleak, t1) {
     ListNode *head = ConstuctList(std::vector<int>{3, 2, 0, -4});
 
@@ -135,7 +140,4 @@ TEST(t0, t4) {
     FreeList(head);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

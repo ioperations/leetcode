@@ -21,6 +21,7 @@ input array in-place with O(1) extra memory.
 #include <vector>
 
 using namespace std;
+namespace { 
 class Solution {
    public:
     int RemoveDuplicates(vector<int> &nums) {
@@ -40,11 +41,13 @@ class Solution {
         }
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     vector<int> nums = {1, 1, 1, 2, 2, 3};
     int output = 5;
@@ -86,7 +89,4 @@ TEST(t0, t2) {
     }
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

@@ -13,6 +13,7 @@
 #include <string>
 #include <vector>
 
+namespace { 
 class Solution {
    public:
     Solution(){};
@@ -62,11 +63,13 @@ class Solution {
         return std::set<int>{};
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     Solution *s = new Solution();
     const std::string str = "wordgoodgoodgoodbestword";
@@ -124,7 +127,4 @@ TEST(t0, t5) {
     EXPECT_EQ(retset, expect);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

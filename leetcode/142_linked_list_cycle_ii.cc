@@ -13,13 +13,16 @@ Note that pos is not passed as a parameter.
 Return true if there is a cycle in the linked list. Otherwise, return false
 */
 //* Definition for singly-linked list.
+namespace { 
 struct ListNode {
     int val;
     ListNode *next;
     ListNode() : val(), next(nullptr) {}
     ListNode(int x) : val(x), next(nullptr) {}
 };
+} 
 
+namespace { 
 class Solution {
    public:
     ListNode *DetectCycle(ListNode *head) {
@@ -45,6 +48,7 @@ class Solution {
         return k;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
@@ -78,6 +82,7 @@ void ExpectEqList(ListNode *const head, const std::vector<int> &elements) {
     }
     EXPECT_EQ(i, elements.size());
 }
+namespace { 
 TEST(memleak, t1) {
     ListNode *head = ConstuctList(std::vector<int>{3, 2, 0, -4});
 
@@ -179,7 +184,4 @@ TEST(t0, t4) {
     FreeList(head);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

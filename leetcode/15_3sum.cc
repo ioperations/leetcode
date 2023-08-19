@@ -17,6 +17,7 @@ Given an integer array nums,
 #include <vector>
 using namespace std;
 
+namespace { 
 class Solution {
    public:
     vector<vector<int>> ThreeSum(vector<int> &nums) {
@@ -148,11 +149,13 @@ class Solution {
         delete head;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     std::vector<int> nums = {-1, 0, 1, 2, -1, -4};
     std::vector<std::vector<int>> expected = {{-1, -1, 2}, {-1, 0, 1}};
@@ -178,7 +181,4 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, expected);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

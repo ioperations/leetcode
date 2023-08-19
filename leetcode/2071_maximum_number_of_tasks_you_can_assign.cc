@@ -23,6 +23,7 @@
 #include <queue>
 #include <vector>
 using namespace std;
+namespace { 
 class Solution {
    public:
     int MaxTaskAssign(vector<int> &tasks, vector<int> &workers, int pills,
@@ -133,11 +134,13 @@ class Solution {
         return 0;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     std::vector<int> tasks = {3, 2, 1}, workers = {0, 3, 3};
     int pills = 1, strength = 1;
@@ -184,7 +187,4 @@ TEST(t0, t3) {
     */
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

@@ -7,6 +7,7 @@ and return its head.
 */
 
 //* Definition for singly-linked list.
+namespace { 
 struct ListNode {
     int val;
     ListNode *next;
@@ -14,7 +15,9 @@ struct ListNode {
     ListNode(int x) : val(x), next(nullptr) {}
     ListNode(int x, ListNode *next) : val(x), next(next) {}
 };
+} 
 
+namespace { 
 class Solution {
    public:
     ListNode *RemoveNthFromEnd(ListNode *head, int n) {
@@ -61,6 +64,7 @@ class Solution {
         return nullptr;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
@@ -100,6 +104,7 @@ void ExpectEqList(ListNode *const head, const std::vector<int> &elements) {
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     const std::vector<int> v{1, 2, 3, 4, 5};
     const int n = 2;
@@ -131,7 +136,4 @@ TEST(t0, t3) {
     ExpectEqList(head, std::vector<int>{1});
     FreeList(head);
 }
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

@@ -116,6 +116,7 @@ class LRUCache final {
 
 #include <gtest/gtest.h>
 
+namespace { 
 TEST(t0, t1) {
     LRUCache<int, int> lru(3);
     lru.Set(10, 10);
@@ -131,7 +132,4 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, 1);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

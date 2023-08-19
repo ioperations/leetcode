@@ -27,6 +27,7 @@ considered to have arrived.*/
 
 using namespace std;
 
+namespace { 
 class Solution {
     ///* 1 <= target, startFuel <= 109
     ///* 0 <= stations.length <= 500
@@ -98,11 +99,13 @@ class Solution {
         return fun(0, start_fuel, 0);
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     int target = 1, start_fuel = 1;
     vector<vector<int>> stations = {};
@@ -139,7 +142,4 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

@@ -14,6 +14,7 @@ in any order.
 */
 
 /// Definition for a binary tree node.
+namespace { 
 struct TreeNode {
     int val;
     TreeNode *left;
@@ -23,6 +24,7 @@ struct TreeNode {
     TreeNode(int x, TreeNode *left, TreeNode *right)
         : val(x), left(left), right(right) {}
 };
+} 
 #include <array>
 #include <optional>
 #include <unordered_set>
@@ -30,6 +32,7 @@ struct TreeNode {
 
 using namespace std;
 
+namespace { 
 class Solution {
    public:
     vector<TreeNode *> ans;
@@ -52,6 +55,7 @@ class Solution {
         return ans;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
@@ -67,6 +71,7 @@ void InOrderTranverse(TreeNode *root, std::vector<int> &vec) {
     InOrderTranverse(root->right, vec);
 }
 
+namespace { 
 TEST(t, t1) {
     TreeNode nl(1);
     TreeNode nl2(2);
@@ -107,7 +112,4 @@ TEST(t, t1) {
     }
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

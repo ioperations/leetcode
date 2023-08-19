@@ -17,6 +17,7 @@
 #include <vector>
 using namespace std;
 
+namespace { 
 class Solution {
    public:
     unordered_map<string, int> mp;
@@ -75,9 +76,11 @@ class Solution {
         return ans;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
+namespace { 
 TEST(t0, t1) {
     string s = "()())()";
     vector<string> output = {"(())()", "()()()"};
@@ -111,7 +114,4 @@ TEST(t0, t3) {
     EXPECT_EQ(ret_set, output_set);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

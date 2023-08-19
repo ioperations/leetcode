@@ -19,6 +19,7 @@ police.*/
 #include <vector>
 using namespace std;
 
+namespace { 
 class Solution {
    public:
     int Rob(vector<int> &nums) {
@@ -52,11 +53,13 @@ class Solution {
         return max(t1, t2);
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     std::vector<int> nums{1, 2, 3, 1};
     int output = 4;
@@ -86,7 +89,4 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

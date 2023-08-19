@@ -14,6 +14,7 @@
 
 using namespace std;
 
+namespace { 
 class Solution {
    public:
     std::unordered_map<int, bool> m;
@@ -55,6 +56,7 @@ class Solution {
         return false;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
@@ -62,6 +64,7 @@ using namespace std;
 
 #define null optional<int>()
 
+namespace { 
 TEST(t0, t1) {
     vector<optional<int>> root = {5, 3, 6, 2, 4, null, 7};
     int const k = 9;
@@ -84,7 +87,4 @@ TEST(t0, t2) {
     FreeTreeNode(node);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

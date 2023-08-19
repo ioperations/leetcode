@@ -3,6 +3,7 @@
 // https://pvs-studio.com
 #include <string>
 using namespace std;
+namespace { 
 class Solution {
    public:
     int LengthOfLastWord(string s) {
@@ -21,11 +22,13 @@ class Solution {
         return size;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     std::string s = "Hello World";
     int output = 5;
@@ -51,7 +54,4 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

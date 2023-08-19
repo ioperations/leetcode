@@ -2,6 +2,7 @@
 // PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
 // https://pvs-studio.com
 #include <vector>
+namespace { 
 class Solution {
    public:
     Solution(){};
@@ -42,11 +43,13 @@ class Solution {
 
    private:
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     Solution s;
     std::vector<int> nums1{1, 3};
@@ -63,7 +66,4 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, 2.5);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

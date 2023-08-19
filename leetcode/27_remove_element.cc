@@ -34,6 +34,7 @@ If all assertions pass, then your solution will be accepted.
 #include <vector>
 using namespace std;
 
+namespace { 
 class Solution {
    public:
     int RemoveElement(vector<int> &nums, int val) {
@@ -52,11 +53,13 @@ class Solution {
         return i;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     std::vector<int> v{3, 2, 2, 3};
     int val = 3;
@@ -90,7 +93,4 @@ TEST(t0, t2) {
     }
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

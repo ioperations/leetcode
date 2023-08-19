@@ -21,6 +21,7 @@ false.
 #include <vector>
 using namespace std;
 
+namespace { 
 class Solution {
    public:
     bool ValidPartition(vector<int> &nums) {
@@ -73,11 +74,13 @@ class Solution {
     }
     std::map<int, bool> cache;
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     vector<int> nums = {4, 4, 4, 5, 6};
     bool output = true;
@@ -96,7 +99,4 @@ TEST(t0, t2) {
     bool ret = sl.ValidPartition(nums);
     EXPECT_EQ(output, ret);
 }
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

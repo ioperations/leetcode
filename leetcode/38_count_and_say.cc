@@ -4,6 +4,7 @@
 #include <queue>
 #include <string>
 
+namespace { 
 class Solution {
    public:
     std::string CountAndSay(int n) {
@@ -48,11 +49,13 @@ class Solution {
         s = tmp;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     int n = 4;
     std::string output = "1211";
@@ -75,7 +78,4 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
     // Explanation : This is the base case.
 }
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

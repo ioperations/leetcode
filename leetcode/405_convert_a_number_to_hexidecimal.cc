@@ -17,6 +17,7 @@ this problem.
 
 using namespace std;
 
+namespace { 
 class Solution {
    public:
     string ToHex(int num) {
@@ -35,11 +36,13 @@ class Solution {
         return result;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     int num = 26;
     std::string output = "1a";
@@ -57,7 +60,4 @@ TEST(t0, t2) {
     auto ret = s.ToHex(num);
     EXPECT_EQ(ret, output);
 }
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

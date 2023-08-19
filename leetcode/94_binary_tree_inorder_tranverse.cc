@@ -8,6 +8,7 @@
 #include <vector>
 
 #include "datastruct_base.hh"
+namespace { 
 class Solution {
    public:
     template <typename T>
@@ -27,6 +28,7 @@ class Solution {
         InorderTraversal1(root->right, ret);
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
@@ -36,6 +38,7 @@ class Solution {
 #include <vector>
 using namespace std;
 
+namespace { 
 TEST(t1, t0) {
 #define null optional<int>()
     std::vector<optional<int>> vec = {1, null, 2, 3};
@@ -51,7 +54,4 @@ TEST(t1, t0) {
     FreeTreeNode(root);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

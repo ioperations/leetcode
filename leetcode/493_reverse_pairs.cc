@@ -14,6 +14,7 @@ nums[j].
 #include <vector>
 using namespace std;
 
+namespace { 
 class Solution {
    public:
     int ReversePairs(vector<int> &nums) {
@@ -33,7 +34,9 @@ class Solution {
         return count;
     }
 };
+} 
 
+namespace { 
 class SolutionV2 {
    public:
     int ReversePairs(vector<int> &nums) {
@@ -97,10 +100,12 @@ class SolutionV2 {
         return cnt;
     };
 };
+} 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     std::vector<int> nums = {1, 3, 2, 3, 1};
     int expected = 2;
@@ -156,7 +161,4 @@ TEST(t1, t3) {
     EXPECT_EQ(ret, expected);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

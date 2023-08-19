@@ -11,6 +11,7 @@
 #include <vector>
 using namespace std;
 
+namespace { 
 class Solution {
    public:
     vector<int> CountSmaller(vector<int> &nums) {
@@ -84,11 +85,13 @@ class Solution {
         return count;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     vector<int> nums{5, 2, 6, 1};
     vector<int> output{2, 1, 1, 0};
@@ -118,8 +121,4 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    int ret = RUN_ALL_TESTS();
-    return ret;
 }

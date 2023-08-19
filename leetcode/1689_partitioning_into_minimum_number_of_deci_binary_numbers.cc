@@ -15,6 +15,7 @@ number of positive deci-binary numbers needed so that they sum up to n.
 #include <string>
 using namespace std;
 
+namespace { 
 class Solution {
    public:
     int MinPartitions(string n) {
@@ -34,11 +35,13 @@ class Solution {
         return *max_element(n.begin(), n.end()) - '0';
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     string n = "32";
     int output = 3;
@@ -65,7 +68,4 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, output);
     // Explanation: 10 + 11 + 11 = 32;
 }
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

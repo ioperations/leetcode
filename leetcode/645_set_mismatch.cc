@@ -17,6 +17,7 @@ in the form of an array.
 #include <vector>
 using namespace std;
 
+namespace { 
 class Solution {
    public:
     vector<int> FindErrorNums(vector<int> &nums) {
@@ -37,11 +38,13 @@ class Solution {
         return vec;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     vector<int> nums = {1, 2, 2, 4};
     vector<int> output = {2, 3};
@@ -60,7 +63,4 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

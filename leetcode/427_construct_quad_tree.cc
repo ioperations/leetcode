@@ -9,6 +9,7 @@ and both are accepted in the answer. A Quad-Tree is a tree data structure in
 which each internal node has exactly four children. Besides, each node has two
 attributes: val: True if the node represents a grid of 1's or False if the node
 represents a grid of 0's. isLeaf: True if the node is leaf node on the tree or
+namespace { 
 False if the node has the four children. class Node { public boolean val; public
 boolean isLeaf; public Node topLeft; public Node topRight; public Node
 bottomLeft; public Node bottomRight;
@@ -37,6 +38,7 @@ val] and if the value of isLeaf or val is False we represent it as 0.
 */
 
 // Definition for a QuadTree node.
+namespace { 
 class Node {
    public:
     bool val;
@@ -74,10 +76,12 @@ class Node {
         bottom_right = n_bottom_rightt;
     }
 };
+} 
 #include <functional>
 #include <vector>
 using namespace std;
 
+namespace { 
 class Solution {
    public:
     Node *Construct(vector<vector<int>> &grid) {
@@ -111,6 +115,7 @@ class Solution {
         return fun(0, 0, grid.size());
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
@@ -148,6 +153,7 @@ vector<optional<vector<int>>> FlattenQuadTree(Node *n) {
     return ret;
 }
 
+namespace { 
 TEST(t0, t1) {
     vector<vector<int>> grid =
         vector<vector<int>>{vector<int>{0, 1}, vector<int>{1, 0}};
@@ -213,7 +219,4 @@ TEST(t0, t2) {
     EXPECT_EQ(flattern, output);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

@@ -22,6 +22,7 @@
 #include <iostream>
 using namespace std;
 
+namespace { 
 class Solution {
    public:
     int Divide(int d1, int b1) {
@@ -80,11 +81,13 @@ class Solution {
         return (int)ans;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     int dividend = 10, divisor = 3;
     int output = 3;
@@ -103,7 +106,4 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

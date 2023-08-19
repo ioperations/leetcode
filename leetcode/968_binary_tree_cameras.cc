@@ -4,6 +4,7 @@
 //* Definition for a binary tree node.
 #include "datastruct_base.hh"
 
+namespace { 
 class Solution {
    public:
     template <typename T>
@@ -34,6 +35,7 @@ class Solution {
         return 0;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
@@ -42,6 +44,7 @@ using namespace std;
 
 using namespace std;
 
+namespace { 
 TEST(t0, t1) {
     std::vector<optional<int>> v{0, 0, null, 0, 0};
     int out = 1;
@@ -65,7 +68,4 @@ TEST(t0, t2) {
     FreeTreeNode(n);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

@@ -16,6 +16,7 @@ The test cases are guaranteed so that the ray will meet a receptor eventually.*/
 
 using namespace std;
 
+namespace { 
 class Solution {
    public:
     int MirrorReflection(int p, int q) {
@@ -34,11 +35,13 @@ class Solution {
         return 0;  // when p is odd and q is even
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     int p = 2, q = 1;
     int output = 2;
@@ -59,7 +62,4 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

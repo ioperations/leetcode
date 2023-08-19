@@ -14,6 +14,7 @@ using namespace std;
 #include <string>
 #include <unordered_map>
 
+namespace { 
 class Solution {
    public:
     vector<vector<string>> GroupAnagrams(vector<string> &strs) {
@@ -30,12 +31,14 @@ class Solution {
         return ans;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 #include <set>
 
+namespace { 
 TEST(t0, t1) {
     vector<string> strs{"eat", "tea", "tan", "ate", "nat", "bat"};
     std::vector<vector<string>> output{
@@ -69,7 +72,4 @@ TEST(t0, t3) {
     EXPECT_EQ(ret_set, out_set);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

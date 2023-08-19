@@ -12,6 +12,7 @@ Given two integers x and y, return the Hamming distance between them.
 
 #include <algorithm>
 #include <string>
+namespace { 
 class Solution {
    public:
     int HammingDistance(int x, int y) {
@@ -50,11 +51,13 @@ class Solution {
     }
     int HammingDistanceV2(int x, int y) { return HammingWeight(x ^ y); }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     int x = 1, y = 4;
     int output = 2;
@@ -89,7 +92,4 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

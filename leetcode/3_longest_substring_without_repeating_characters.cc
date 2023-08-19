@@ -7,6 +7,7 @@
 #include <unordered_map>
 using namespace std;
 
+namespace { 
 class Solution {
    public:
     int LengthOfLongestSubstring(string s) {
@@ -29,12 +30,13 @@ class Solution {
         return ans;
     }
 };
+} 
 
-#if defined(TEST_ADQ)
 
 #include <gtest/gtest.h>
 
 #include <iostream>
+namespace { 
 TEST(t2, t2) {
     std::string s("bbbbb");
     Solution sss;
@@ -60,9 +62,4 @@ TEST(t1sss, t2ss) {
     EXPECT_EQ(3, ret);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }
-
-#endif

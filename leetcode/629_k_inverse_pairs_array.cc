@@ -11,6 +11,7 @@ answer can be huge, return it modulo 109 + 7.*/
 #include <vector>
 using namespace std;
 
+namespace { 
 class Solution {
    public:
     int KInversePairs(int n, int k) {
@@ -49,11 +50,13 @@ class Solution {
         return 0;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     const int n = 3;
     const int k = 0;
@@ -74,7 +77,4 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

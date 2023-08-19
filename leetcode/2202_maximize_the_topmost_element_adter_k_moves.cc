@@ -20,6 +20,7 @@ moves, return -1.*/
 #include <vector>
 using namespace std;
 
+namespace { 
 class Solution {
    public:
     int MaximumTop(vector<int> &nums, int k) {
@@ -38,11 +39,13 @@ class Solution {
         return z_max;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     std::vector<int> nums{5, 2, 2, 4, 0, 6};
     int k = 4;
@@ -84,7 +87,4 @@ TEST(t0, t3) {
     return -1.*/
     EXPECT_EQ(ret, output);
 }
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

@@ -16,6 +16,7 @@
 #include <vector>
 using namespace std;
 
+namespace { 
 class Solution {
    public:
     int NetworkDelayTime(vector<vector<int>> &times, int n, int k) {
@@ -94,11 +95,13 @@ class Solution {
         return ans;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     vector<vector<int>> times = {{2, 1, 1}, {2, 3, 1}, {3, 4, 1}};
     int n = 4, k = 2;
@@ -137,7 +140,4 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

@@ -13,6 +13,7 @@
 
 using namespace std;
 
+namespace { 
 class Solution {
    public:
     template <typename T>
@@ -39,6 +40,7 @@ class Solution {
         FindRight(root->left, ret, max_height, now_height + 1);
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
@@ -51,6 +53,7 @@ class Solution {
 
 using namespace std;
 
+namespace { 
 TEST(t0, t1) {
     vector<optional<int>> root = {
         1, 2, 3, std::optional<int>(), 5, std::optional<int>(), 4};
@@ -85,7 +88,4 @@ TEST(t0, t3) {
     FreeTreeNode(node);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

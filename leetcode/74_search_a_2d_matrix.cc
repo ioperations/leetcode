@@ -14,6 +14,7 @@ row.
 #include <vector>
 using namespace std;
 
+namespace { 
 class Solution {
    public:
     bool SearchMatrix(vector<vector<int>> &matrix, int target) {
@@ -72,11 +73,13 @@ class Solution {
         return false;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t1, t0) {
     // Input: matrix = [[1,3,5,7],[10,11,16,20],[23,30,34,60]], target = 3
     // Output: true
@@ -132,7 +135,4 @@ TEST(t1, t3) {
     EXPECT_EQ(ret, true);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

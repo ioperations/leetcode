@@ -21,6 +21,7 @@ the dictionary, return -1.
 
 using namespace std;
 
+namespace { 
 class Trie {
    public:
     struct Node {
@@ -81,7 +82,9 @@ class Trie {
         return temp->GetIdx();
     }
 };
+} 
 
+namespace { 
 class WordFilter {
     Trie trie;
 
@@ -125,13 +128,14 @@ class WordFilter {
         return trie.StartsWith(cur);
     }
 };
+} 
 
+namespace { 
 class WordFilterMy {
     struct Pp {
         string s;
         int index;
     };
-
     class PrefixTree {
        public:
         std::vector<Pp> n;
@@ -189,6 +193,7 @@ class WordFilterMy {
         return max;
     }
 };
+} 
 
 /**
  * Your WordFilter object will be instantiated and called as such:
@@ -199,6 +204,7 @@ class WordFilterMy {
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     std::vector<string> words{"apple"};
     WordFilter *obj = new WordFilter(words);
@@ -239,7 +245,4 @@ TEST(t0, t2) {
     delete obj;
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

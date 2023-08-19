@@ -16,6 +16,7 @@ the front of the queue).*/
 #include <vector>
 using namespace std;
 
+namespace { 
 class Solution {
    public:
     vector<vector<int>> ReconstructQueue(vector<vector<int>> &people) {
@@ -36,11 +37,13 @@ class Solution {
         return ans;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     std::vector<vector<int>> people{{7, 0}, {4, 4}, {7, 1},
                                     {5, 0}, {6, 1}, {5, 2}};
@@ -71,7 +74,4 @@ TEST(t0, t2) {
     EXPECT_EQ(ert, output);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

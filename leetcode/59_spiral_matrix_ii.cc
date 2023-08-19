@@ -4,6 +4,7 @@
 #include <vector>
 
 using namespace std;
+namespace { 
 class Solution {
    public:
     vector<vector<int>> GenerateMatrix(int n) {
@@ -123,11 +124,13 @@ class Solution {
         return ret;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t0) {
     int n = 3;
 
@@ -145,7 +148,4 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, expected);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

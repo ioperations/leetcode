@@ -19,6 +19,7 @@ using namespace std;
 #include <queue>
 #include <set>
 #include <vector>
+namespace { 
 class Solution {
    public:
     int LadderLength(string begin_word, string end_word,
@@ -65,11 +66,13 @@ class Solution {
         return 0;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     const string begin_word = "hit", end_word = "cog";
     std::vector<string> word_list = {"hot", "dot", "dog", "lot", "log", "cog"};
@@ -93,7 +96,4 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

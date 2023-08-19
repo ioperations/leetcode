@@ -24,6 +24,7 @@ creative and come up with different approaches yourself.*/
 #include "datastruct_base.hh"
 using namespace std;
 
+namespace { 
 class Codec {
    public:
     // Encodes a tree to a single string.
@@ -90,6 +91,7 @@ class Codec {
         return root;
     }
 };
+} 
 
 // Your Codec object will be instantiated and called as such:
 // Codec ser, deser;
@@ -103,6 +105,7 @@ class Codec {
 #include <vector>
 using namespace std;
 
+namespace { 
 TEST(construtTest, t1) {
     std::vector<std::optional<int>> input{
         1, 2, 3, optional<int>(), optional<int>(), 4, 5};
@@ -172,7 +175,4 @@ TEST(t0, t2) {
     FreeTreeNode(ret);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

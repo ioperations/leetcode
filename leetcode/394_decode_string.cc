@@ -19,6 +19,7 @@ The test cases are generated so that the length of the output will never exceed
 #include <stack>
 #include <string>
 using namespace std;
+namespace { 
 class Solution {
    public:
     string DecodeString(string encoded_string) {
@@ -47,6 +48,7 @@ class Solution {
         return curr;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
@@ -104,6 +106,7 @@ void FreeTreeNode(TreeNode<T> *root, bool dummy) {
     delete root;
 }
 
+namespace { 
 TEST(t0, t1) {
     string s = "3[a]2[bc]";
     string out = "aaabcbc";
@@ -135,7 +138,4 @@ TEST(t0, t4) {
     FreeTreeNode<int>(n, true);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

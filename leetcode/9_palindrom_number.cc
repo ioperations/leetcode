@@ -4,6 +4,7 @@
 
 #include <string>
 
+namespace { 
 class Sulution {
    public:
     Sulution(){};
@@ -21,11 +22,13 @@ class Sulution {
         return Reverse(s.substr(1)) + s[0];
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     Sulution s;
 
@@ -46,7 +49,4 @@ TEST(t0, t3) {
     bool ret = s.IsPalindrome(10);
     EXPECT_EQ(ret, false);
 }
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

@@ -14,6 +14,7 @@ Open brackets must be closed in the correct order.
 #include <stack>
 #include <string>
 using namespace std;
+namespace { 
 class Solution {
    public:
     bool IsValid(string s) {
@@ -56,11 +57,13 @@ class Solution {
         return true;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     string s = "()";
     bool output = true;
@@ -89,7 +92,4 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

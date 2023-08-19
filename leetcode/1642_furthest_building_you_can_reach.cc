@@ -21,6 +21,7 @@ you use the given ladders and bricks optimally*/
 #include <vector>
 using namespace std;
 
+namespace { 
 class Solution {
    public:
     int FurthestBuilding(vector<int> &heights, int bricks, int ladders) {
@@ -90,11 +91,13 @@ class Solution {
         return heights.size() - 1;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     vector<int> heights{4, 2, 7, 6, 9, 14, 12};
     int bricks = 5, ladders = 1;
@@ -132,7 +135,4 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, 3);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

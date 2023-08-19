@@ -15,6 +15,7 @@ lexicographically in this alien language.*/
 
 using namespace std;
 
+namespace { 
 class Solution {
     std::map<char, int> map;
 
@@ -52,11 +53,13 @@ class Solution {
         return size_a > size_b;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     vector<string> words = {"hello", "leetcode"};
     string order = "hlabcdefgijkmnopqrstuvwxyz";
@@ -89,7 +92,4 @@ TEST(t0, t3) {
     EXPECT_EQ(false, ret);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

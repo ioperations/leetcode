@@ -7,6 +7,7 @@
 using namespace std;
 
 // leetcode-cn.com/problems/course-schedule/solution/c-you-xiang-tu-cheng-huan-jian-ce-by-hank-31/
+namespace { 
 class Solution {
    public:
     bool CanFinish(int num_courses, vector<vector<int>> &prerequisites) {
@@ -55,11 +56,13 @@ class Solution {
         return count == num_courses;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     // numCourses = 2, prerequisites = [[1,0],[0,1]]
     // 输出：false
@@ -85,7 +88,4 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, true);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

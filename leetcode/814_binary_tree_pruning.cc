@@ -9,6 +9,7 @@ A subtree of a node node is node plus every node that is a descendant of node.*/
 //* Definition for a binary tree node.
 #include "datastruct_base.hh"
 
+namespace { 
 class Solution {
    public:
     template <typename T>
@@ -24,11 +25,13 @@ class Solution {
         return root;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 using namespace std;
 #define null optional<int>()
 
+namespace { 
 TEST(t0, t1) {
     vector<optional<int>> root = {1, null, 0, 0, 1};
     auto *node = ConstructBinaryTree(root);
@@ -78,7 +81,4 @@ TEST(t0, t3) {
     EXPECT_EQ(ret_node, output);
     FreeTreeNode(node);
 }
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

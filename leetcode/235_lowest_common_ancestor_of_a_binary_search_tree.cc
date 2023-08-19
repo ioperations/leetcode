@@ -12,12 +12,15 @@ as descendants (where we allow a node to be a descendant of itself).”
 */
 
 //* Definition for a binary tree node.
+namespace { 
 struct TreeNode {
     int val;
     TreeNode *left;
     TreeNode *right;
     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
 };
+} 
+namespace { 
 class Solution {
    public:
     TreeNode *Solve(TreeNode *root, int &p, int &q) {
@@ -36,6 +39,7 @@ class Solution {
         return Solve(root, p->val, q->val);
     }
 };
+} 
 
 #include <vector>
 
@@ -110,6 +114,7 @@ TreeNode *FindTreeNode(TreeNode *root, int val) {
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     /**
                   ___
@@ -206,7 +211,4 @@ TEST(t0, t3) {
     EXPECT_EQ(ret->val, expeced);
     FreeRoot(root);
 }
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

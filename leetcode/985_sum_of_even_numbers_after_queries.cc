@@ -14,6 +14,7 @@ Return an integer array answer where answer[i] is the answer to the ith query.*/
 #include <vector>
 
 using namespace std;
+namespace { 
 class Solution {
    public:
     vector<int> SumEvenAfterQueries(vector<int> &nums,
@@ -41,11 +42,13 @@ class Solution {
 
     static bool IsEven(int x) { return !(x & 1); }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     vector<int> nums = {1, 2, 3, 4};
 
@@ -65,7 +68,4 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

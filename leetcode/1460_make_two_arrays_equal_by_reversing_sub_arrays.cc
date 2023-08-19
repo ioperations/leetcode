@@ -13,6 +13,7 @@ Return true if you can make arr equal to target or false otherwise.
 #include <vector>
 using namespace std;
 
+namespace { 
 class Solution {
    public:
     bool CanBeEqual(vector<int> &target, vector<int> &arr) {
@@ -23,11 +24,13 @@ class Solution {
         return target == arr;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     std::vector<int> target = {1, 2, 3, 4}, arr = {2, 4, 1, 3};
     bool output = true;
@@ -67,7 +70,4 @@ TEST(t0, t3) {
     /*arr does not have value 9 and it can never be converted to target.*/
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

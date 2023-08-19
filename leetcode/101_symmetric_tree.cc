@@ -6,6 +6,7 @@ Given the root of a binary tree, check whether it is a mirror of itself (i.e.,
 symmetric around its center).
 */
 
+namespace { 
 struct TreeNode {
     int val;
     TreeNode *left;
@@ -15,8 +16,10 @@ struct TreeNode {
     TreeNode(int x, TreeNode *left, TreeNode *right)
         : val(x), left(left), right(right) {}
 };
+} 
 #include <vector>
 
+namespace { 
 class Solution {
    public:
     bool IsSymmetric(TreeNode *root) {
@@ -62,12 +65,14 @@ class Solution {
         InorderRight(root->left, vec);
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 #include <vector>
 
+namespace { 
 TEST(t0, t1) {
     /*
                           ___
@@ -132,7 +137,4 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, false);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

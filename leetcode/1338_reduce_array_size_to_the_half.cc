@@ -12,6 +12,7 @@ array are removed.*/
 #include <vector>
 using namespace std;
 
+namespace { 
 class Solution {
    public:
     int MinSetSize(vector<int> &arr) {
@@ -32,11 +33,13 @@ class Solution {
         return val;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     vector<int> arr = {3, 3, 3, 3, 5, 5, 5, 2, 2, 7};
     int output = 2;
@@ -64,7 +67,4 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

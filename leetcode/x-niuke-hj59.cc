@@ -20,12 +20,12 @@ void Process(std::string str) {
     }
 }
 
-#if defined(TEST_ADQ)
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(ta, t2) {
     std::string ss("aabb");
     testing::internal::CaptureStdout();
@@ -41,18 +41,4 @@ TEST(t1, t2) {
     EXPECT_EQ(out, std::string("o\n"));
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }
-
-#else
-
-int main() {
-    std::string s;
-    while (std::cin >> s) {
-        Process(s);
-    }
-    return 0;
-}
-#endif

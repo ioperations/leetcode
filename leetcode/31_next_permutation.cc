@@ -27,6 +27,7 @@ The replacement must be in place and use only constant extra memory.
 #include <vector>
 using namespace std;
 
+namespace { 
 class Solution {
    public:
     void NextPermutation(vector<int> &nums) {
@@ -49,11 +50,13 @@ class Solution {
         }
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     vector<int> nums = {1, 2, 3};
     vector<int> output = {1, 3, 2};
@@ -78,7 +81,4 @@ TEST(t0, t3) {
     EXPECT_EQ(nums, output);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

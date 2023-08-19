@@ -17,6 +17,7 @@ A set x is a subset of a set y if all elements of x are also elements of y.
 #include <vector>
 
 using namespace std;
+namespace { 
 class Solution {
    public:
     int FindMaxForm(vector<std::string> &strs, int m, int n) {
@@ -62,11 +63,13 @@ class Solution {
         return 0;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     vector<string> strs = {"10", "0001", "111001", "1", "0"};
     int m = 5, n = 3;
@@ -92,7 +95,4 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

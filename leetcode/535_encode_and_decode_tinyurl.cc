@@ -4,6 +4,7 @@
 /**
 inyURL is a URL shortening service where you enter a URL such as
 https://leetcode.com/problems/design-tinyurl and it returns a short URL such as
+namespace { 
 http://tinyurl.com/4e9iAk. Design a class to encode a URL and decode a tiny URL.
 
 There is no restriction on how your encode/decode algorithm should work. You
@@ -23,6 +24,7 @@ object.
 #include <unordered_map>
 
 using namespace std;
+namespace { 
 class Solution {
    public:
     unordered_map<string, string> um;
@@ -69,6 +71,7 @@ class Solution {
         return um[code];
     }
 };
+} 
 
 // Your Solution object will be instantiated and called as such:
 // Solution solution;
@@ -78,6 +81,7 @@ class Solution {
 
 #include <iostream>
 
+namespace { 
 TEST(testName, testNum) {
     std::string url = "https://leetcode.com/problems/design-tinyurl";
 
@@ -85,7 +89,4 @@ TEST(testName, testNum) {
     EXPECT_EQ(s.Decode(s.Encode(url)), url);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

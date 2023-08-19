@@ -15,6 +15,7 @@ node's key. Both the left and right subtrees must also be binary search trees.
 */
 
 // Definition for a binary tree node.
+namespace { 
 struct TreeNode {
     int val;
     TreeNode *left;
@@ -24,7 +25,9 @@ struct TreeNode {
     TreeNode(int x, TreeNode *left, TreeNode *right)
         : val(x), left(left), right(right) {}
 };
+} 
 
+namespace { 
 class Solution {
    public:
     int Dfs(TreeNode *root, int above_sum) {
@@ -45,6 +48,7 @@ class Solution {
         return root;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
@@ -119,6 +123,7 @@ std::vector<int> BFS(TreeNode *root) {
     return ret;
 }
 
+namespace { 
 TEST(memleak, t1) {
     TreeNode *root = new TreeNode(-1);
 
@@ -176,7 +181,4 @@ TEST(t0, t2) {
     FreeRoot(root);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

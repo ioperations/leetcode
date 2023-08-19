@@ -11,6 +11,7 @@
 using namespace std;
 #include <stack>
 
+namespace { 
 class Solution {
    public:
     vector<int> DailyTemperatures(vector<int> &temperatures) {
@@ -31,11 +32,13 @@ class Solution {
         return ret;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     std::vector<int> temperatures{73, 74, 75, 71, 69, 72, 76, 73};
     vector<int> output{1, 1, 4, 2, 1, 1, 0, 0};
@@ -60,7 +63,4 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

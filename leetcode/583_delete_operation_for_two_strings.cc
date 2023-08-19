@@ -13,6 +13,7 @@ In one step, you can delete exactly one character in either string.
 
 using namespace std;
 
+namespace { 
 class Solution {
    public:
     int Lcs(string s, string t) {
@@ -42,11 +43,13 @@ class Solution {
         return n + m - 2 * Lcs(word1, word2);
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     string word1 = "sea", word2 = "eat";
     int output = 2;
@@ -67,7 +70,4 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

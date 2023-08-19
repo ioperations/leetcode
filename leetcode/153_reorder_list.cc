@@ -19,6 +19,7 @@ changed.
 using namespace std;
 
 //* Definition for singly-linked list.
+namespace { 
 struct ListNode {
     int val;
     ListNode *next;
@@ -26,7 +27,9 @@ struct ListNode {
     ListNode(int x) : val(x), next(nullptr) {}
     ListNode(int x, ListNode *next) : val(x), next(next) {}
 };
+} 
 
+namespace { 
 class Solution {
    public:
     void ReorderList(ListNode *head) { Solve(head); }
@@ -60,6 +63,7 @@ class Solution {
         head = node.next;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
@@ -93,6 +97,7 @@ void ExpectEqList(ListNode *const head, const std::vector<int> &elements) {
     }
     EXPECT_EQ(i, elements.size());
 }
+namespace { 
 TEST(t0, t1) {
     std::vector<int> v = {1, 2, 3, 4};
     std::vector<int> output = {1, 4, 2, 3};
@@ -140,7 +145,4 @@ TEST(t0, t2) {
     FreeList(head);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

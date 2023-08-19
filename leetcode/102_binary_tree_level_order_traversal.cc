@@ -14,6 +14,7 @@ values. (i.e., from left to right, level by level).
 #include "datastruct_base.hh"
 using namespace std;
 
+namespace { 
 class Solution {
    public:
     template <typename T>
@@ -59,6 +60,7 @@ class Solution {
         return ret;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
@@ -72,6 +74,7 @@ using namespace std;
 #define null \
     optional<int> {}
 
+namespace { 
 TEST(t0, t1) {
     vector<optional<int>> root = {3, 9, 20, null, null, 15, 7};
     vector<vector<int>> output = {{3}, {9, 20}, {15, 7}};
@@ -102,7 +105,4 @@ TEST(t0, t3) {
     FreeTreeNode(tree);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

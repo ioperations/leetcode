@@ -17,6 +17,7 @@ respectively.
 #include <vector>
 using namespace std;
 
+namespace { 
 class Solution {
    public:
     vector<vector<string>> sols;  // 2D vector of strings to store the solutions
@@ -66,6 +67,7 @@ class Solution {
         }
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
@@ -76,6 +78,7 @@ using namespace std;
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     // pass
     int n = 4;
@@ -104,7 +107,4 @@ TEST(t0, t2) {
     // Explanation: There exist two distinct solutions to the 4-queens puzzle as
     // shown above
 }
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

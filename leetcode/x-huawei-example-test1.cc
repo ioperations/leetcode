@@ -51,12 +51,12 @@ void Processing(std::vector<int> nums) {
     return;
 }
 
-#if defined(TEST_ADQ)
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t1, t2) {
     std::vector<int> s{3, 10, 81};
     testing::internal::CaptureStdout();
@@ -66,22 +66,4 @@ TEST(t1, t2) {
     EXPECT_EQ(ret, std::string("1\n5\n40\n"));
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }
-
-#else
-int main() {
-    std::vector<int> nums{};
-    int s = 0;
-    while (std::cin >> s) {
-        if (s == 0) {
-            processing(nums);
-            return 0;
-        }
-        nums.push_back(s);
-    }
-}
-
-#endif

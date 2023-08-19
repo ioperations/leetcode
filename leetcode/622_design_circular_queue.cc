@@ -38,6 +38,7 @@ Output
 
 #include <vector>
 
+namespace { 
 class MyCircularQueue {
    private:
     std::vector<int> v;
@@ -67,6 +68,7 @@ class MyCircularQueue {
     bool IsEmpty() { return !len; }
     bool IsFull() { return len == (int)v.size(); }
 };
+} 
 
 /**
  * Your MyCircularQueue object will be instantiated and called as such:
@@ -82,6 +84,7 @@ class MyCircularQueue {
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     MyCircularQueue my_circular_queue(3);
     bool ret = my_circular_queue.EnQueue(1);  // return True
@@ -104,7 +107,4 @@ TEST(t0, t1) {
     EXPECT_EQ(ret1, 4);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

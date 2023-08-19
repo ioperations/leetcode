@@ -19,6 +19,7 @@ node. A leaf is a node with no children.
 #include "datastruct_base.hh"
 using namespace std;
 
+namespace { 
 class Solution {
     std::vector<vector<int>> m_ret;
     template <typename T>
@@ -52,11 +53,13 @@ class Solution {
         return m_ret;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 #define null optional<int>()
 using namespace std;
 
+namespace { 
 TEST(t0, t1) {
     vector<optional<int>> root = {5, 4, 8,    11,   null, 13, 4,
                                   7, 2, null, null, 5,    1};
@@ -113,7 +116,4 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, output);
     FreeTreeNode(node);
 }
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

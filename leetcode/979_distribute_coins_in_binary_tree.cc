@@ -17,6 +17,7 @@
 
 #include "datastruct_base.hh"
 
+namespace { 
 class Solution {
    public:
     int steps = 0;
@@ -45,6 +46,7 @@ class Solution {
         return steps;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
@@ -54,6 +56,7 @@ class Solution {
 
 using namespace std;
 
+namespace { 
 TEST(t0, t1) {
     std::vector<optional<int>> v{3, 0, 0};
     auto *root = ConstructBinaryTree(v);
@@ -79,7 +82,4 @@ TEST(t0, t2) {
     FreeTreeNode(root);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

@@ -24,6 +24,7 @@ Answers within 10-5 of the actual answer will be accepted.
 #include <iterator>
 #include <set>
 using namespace std;
+namespace { 
 class MedianFinder {
    public:
     // Adds a number into the data structure.
@@ -92,6 +93,7 @@ class MedianFinder {
     multiset<int> min_set;
     multiset<int> max_set;
 };
+} 
 
 // BEGIN: Time Limit Exceeded
 // class MedianFinder {
@@ -125,6 +127,7 @@ class MedianFinder {
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     MedianFinder mf;
     double result = 0.0;
@@ -186,7 +189,4 @@ TEST(t0, t1) {
     EXPECT_NEAR(3.0, result, DBL_EPSILON);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

@@ -11,6 +11,7 @@ same elements.
 #include <vector>
 using namespace std;
 
+namespace { 
 class Solution {
    public:
     bool IsToeplitzMatrix(vector<vector<int>> &matrix) {
@@ -23,11 +24,13 @@ class Solution {
         return true;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     vector<vector<int>> matrix = {{1, 2, 3, 4}, {5, 1, 2, 3}, {9, 5, 1, 2}};
     bool const output = true;
@@ -54,7 +57,4 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

@@ -9,6 +9,7 @@
 #include <string>
 using namespace std;
 
+namespace { 
 class Solution {
    public:
     inline std::string demical_to_binary(int i) {
@@ -45,11 +46,13 @@ class Solution {
         return result;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t1, t0) {
     int const n = 10;
     Solution sl;
@@ -106,7 +109,4 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

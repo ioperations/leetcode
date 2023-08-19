@@ -20,6 +20,7 @@
 #include <vector>
 using namespace std;
 
+namespace { 
 class Solution {
    public:
     int MinDeletionsV2(string s) {
@@ -87,11 +88,13 @@ class Solution {
         return count;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     string s = "aab";
     int out = 0;
@@ -124,7 +127,4 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, out);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

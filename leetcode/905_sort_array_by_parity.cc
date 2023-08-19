@@ -16,6 +16,7 @@ Return any array that satisfies this condition.
 #include <vector>
 using namespace std;
 
+namespace { 
 class Solution {
     struct Fun {
         bool operator()(int a, int b) {
@@ -53,7 +54,9 @@ class Solution {
         return nums;
     }
 };
+} 
 
+namespace { 
 class SolutionV2 {
    public:
     vector<int> SortArrayByParity(vector<int> &nums) {
@@ -76,11 +79,13 @@ class SolutionV2 {
         return nums;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     std::vector<int> nums = {3, 1, 2, 4};
     std::set<std::vector<int>> output = {
@@ -118,7 +123,4 @@ TEST(t1, t2) {
 
     EXPECT_EQ(ret, output);
 }
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

@@ -92,6 +92,7 @@ std::optional<V> LfuCache<K, V>::Get(const K &key) {
 
 #include <gtest/gtest.h>
 
+namespace { 
 TEST(t0, t1) {
     LfuCache<int, int> lfu(2);
     lfu.Set(1, 1);
@@ -107,7 +108,4 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, 3);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

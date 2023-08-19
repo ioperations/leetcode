@@ -24,6 +24,7 @@
 #include <vector>
 using namespace std;
 
+namespace { 
 class Solution {
    public:
     int WiggleMaxLength(vector<int> &nums) {
@@ -39,9 +40,11 @@ class Solution {
         return max(peak, valley);
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
+namespace { 
 TEST(t0, t1) {
     // pass
     vector<int> nums = {1, 7, 4, 9, 2, 5};
@@ -74,7 +77,4 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

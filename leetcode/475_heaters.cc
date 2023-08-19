@@ -17,6 +17,7 @@ will the same.*/
 #include <vector>
 using namespace std;
 
+namespace { 
 class Solution {
    public:
     bool IsValid(int radius, vector<int> &houses, vector<int> &heaters) {
@@ -57,11 +58,13 @@ class Solution {
         return ans;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     vector<int> houses = {1, 2, 3};
     vector<int> heaters = {2};
@@ -71,7 +74,7 @@ TEST(t0, t1) {
     // The only heater was placed in the position 2, and if we use the radius 1
     // standard, then all the houses can be warmed.
     EXPECT_EQ(ret, output);
-};
+}
 
 TEST(t0, t2) {
     vector<int> houses = {1, 2, 3, 4};
@@ -82,7 +85,7 @@ TEST(t0, t2) {
     // The two heater was placed in the position 1 and 4. We need to use radius
     // 1 standard, then all the houses can be warmed.
     EXPECT_EQ(ret, output);
-};
+}
 
 TEST(t0, t3) {
     vector<int> houses = {1, 5};
@@ -91,9 +94,6 @@ TEST(t0, t3) {
     Solution sl;
     int ret = sl.FindRadius(houses, heaters);
     EXPECT_EQ(ret, output);
-};
+}
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

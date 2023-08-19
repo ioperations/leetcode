@@ -8,6 +8,7 @@ element appears only once. Return the linked list sorted as well.
 */
 
 //* Definition for singly-linked list.
+namespace { 
 struct ListNode {
     int val;
     ListNode *next;
@@ -15,6 +16,8 @@ struct ListNode {
     ListNode(int x) : val(x), next(nullptr) {}
     ListNode(int x, ListNode *next) : val(x), next(next) {}
 };
+} 
+namespace { 
 class Solution {
    public:
     ListNode *DeleteDuplicates(ListNode *head) {
@@ -40,6 +43,7 @@ class Solution {
         return head;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
@@ -75,6 +79,7 @@ void ExpectEqList(ListNode *const head, const std::vector<int> &elements) {
     EXPECT_EQ(i, elements.size());
 }
 
+namespace { 
 TEST(t0, t1) {
     std::vector<int> head{1, 1, 2};
     std::vector<int> output{1, 2};
@@ -98,7 +103,4 @@ TEST(t0, t2) {
     FreeList(root);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

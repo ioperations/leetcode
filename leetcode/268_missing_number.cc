@@ -8,6 +8,7 @@
 
 using namespace std;
 
+namespace { 
 class Solution {
    public:
     int MissingNumber(vector<int> &nums) {
@@ -22,11 +23,13 @@ class Solution {
         return ret;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t0) {
     std::vector<int> nums = {1};
     int output = 0;
@@ -75,7 +78,4 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

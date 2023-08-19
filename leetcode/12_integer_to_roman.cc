@@ -32,6 +32,7 @@ Given an integer, convert it to a roman numeral.
 
 #include <string>
 using namespace std;
+namespace { 
 class Solution {
    public:
     string IntToRoman(int num) {
@@ -50,11 +51,13 @@ class Solution {
         return res;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     int num = 3;
     string output = "III";
@@ -82,7 +85,4 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

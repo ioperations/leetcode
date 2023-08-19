@@ -29,13 +29,16 @@ function returns.
  */
 
 // Definition for singly-linked list.
+namespace { 
 struct ListNode {
     int val;
     ListNode *next;
     ListNode() : val(), next(nullptr) {}
     ListNode(int x) : val(x), next(nullptr) {}
 };
+} 
 
+namespace { 
 class Solution {
    public:
     ListNode *GetIntersectionNode(ListNode *head_a, ListNode *head_b) {
@@ -89,6 +92,7 @@ class Solution {
         return nullptr;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
@@ -123,6 +127,7 @@ void ExpectEqList(ListNode *const head, const std::vector<int> &elements) {
     EXPECT_EQ(i, elements.size());
 }
 
+namespace { 
 TEST(t0, t1) {
     // intersectVal = 8, listA = [4,1,8,4,5], listB = [5,6,1,8,4,5], skipA = 2,
     // skipB = 3
@@ -245,7 +250,4 @@ TEST(t0, t3) {
     FreeList(second);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

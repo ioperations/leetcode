@@ -69,6 +69,7 @@ int MaxLengthOf(int nums[], int length) {
     return *(dp + length - 1);
 }
 
+namespace { 
 TEST(t1, t2) {
     int z[] = {1, 2, 3, 4, 5, 6, 7};
     int ret = MaxLengthOf(z, sizeof(z) / sizeof(int));
@@ -97,7 +98,4 @@ TEST(t2, t4) {
     EXPECT_EQ(MaxLengthOfdijizixulie(z, sizeof(z) / sizeof(int)), 2);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

@@ -33,6 +33,7 @@ output as such: [...,[2 3],[4 5],[12 7],...]
 #include <map>
 #include <vector>
 using namespace std;
+namespace { 
 class Solution {
    public:
     vector<vector<int>> GetSkyline(vector<vector<int>> &buildings) {
@@ -88,11 +89,13 @@ class Solution {
         return xs;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     vector<vector<int>> buildings = {
         {2, 9, 10}, {3, 7, 15}, {5, 12, 12}, {15, 20, 10}, {19, 24, 8}};
@@ -125,7 +128,4 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

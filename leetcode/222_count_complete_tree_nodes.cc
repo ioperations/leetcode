@@ -15,6 +15,7 @@ Design an algorithm that runs in less than O(n) time complexity.*/
 
 #include "datastruct_base.hh"
 
+namespace { 
 class Solution {
    public:
     template <typename T>
@@ -33,6 +34,7 @@ class Solution {
         return count;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
@@ -42,6 +44,7 @@ class Solution {
 #include <vector>
 using namespace std;
 
+namespace { 
 TEST(t0, t1) {
     vector<optional<int>> root = {1, 2, 3, 4, 5, 6};
     int output = 6;
@@ -72,7 +75,4 @@ TEST(t0, t3) {
     FreeTreeNode(node);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

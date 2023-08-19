@@ -28,6 +28,7 @@
 using namespace std;
 
 const int mxn = 15 + 2;
+namespace { 
 class Solution {
    public:
     int n, m;
@@ -67,11 +68,13 @@ class Solution {
         return way;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     std::vector<int> destination = {2, 3};
     int k = 1;
@@ -106,7 +109,4 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

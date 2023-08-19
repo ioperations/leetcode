@@ -13,6 +13,7 @@ ends at time X you will be able to start another job that starts at time X.
 
 using namespace std;
 
+namespace { 
 class Solution {
     void SortByStartTime(vector<int> &start_time, vector<int> &end_time,
                          vector<int> &profit) {
@@ -46,11 +47,13 @@ class Solution {
         return res;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     vector<int> start_time = {1, 2, 3, 3}, end_time = {3, 4, 5, 6},
                 profit = {50, 10, 40, 70};
@@ -94,7 +97,4 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

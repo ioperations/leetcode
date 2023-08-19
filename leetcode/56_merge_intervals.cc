@@ -9,6 +9,7 @@
 #include <algorithm>
 #include <vector>
 using namespace std;
+namespace { 
 class Solution {
    public:
     vector<vector<int>> Merge(vector<vector<int>> &intervals) {
@@ -35,11 +36,13 @@ class Solution {
         return ret;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     std::vector<std::vector<int>> intervals = {
         {1, 3}, {2, 6}, {8, 10}, {15, 18}};
@@ -100,7 +103,4 @@ TEST(t0, t3) {
     // [1,6].
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

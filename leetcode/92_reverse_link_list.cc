@@ -2,6 +2,7 @@
 // PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
 // https://pvs-studio.com
 //* Definition for singly-linked list.
+namespace { 
 struct ListNode {
     int val;
     ListNode *next;
@@ -9,6 +10,7 @@ struct ListNode {
     ListNode(int x) : val(x), next(nullptr) {}
     ListNode(int x, ListNode *next) : val(x), next(next) {}
 };
+} 
 
 /*
    ____       ____        ____       ____         ____
@@ -24,6 +26,7 @@ struct ListNode {
 
 
 */
+namespace { 
 class Solution {
    public:
     /// 从 @left 到 @right反转链表
@@ -107,6 +110,7 @@ class Solution {
         return this_follow;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
@@ -142,6 +146,7 @@ void ExpectEqList(ListNode *const head, const std::vector<int> &elements) {
     EXPECT_EQ(i, elements.size());
 }
 
+namespace { 
 TEST(t1, t0) {
     // head = [1,2,3,4,5], left = 2, right = 4 Output: [1,4,3,2,5]
 
@@ -197,7 +202,4 @@ TEST(t1, t4) {
     FreeList(head);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

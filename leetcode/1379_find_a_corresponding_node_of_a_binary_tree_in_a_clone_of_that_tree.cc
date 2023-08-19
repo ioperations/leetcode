@@ -32,6 +32,7 @@ TreeNode<T> *FindNodeInBinaryTree(TreeNode<T> *head, int target) {
 #include <deque>
 using namespace std;
 
+namespace { 
 class Solution {
    public:
     template <typename T>
@@ -91,6 +92,7 @@ class Solution {
         return GetCopyNode(path, cloned);
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
@@ -98,6 +100,7 @@ using namespace std;
 
 #define null optional<int>()
 
+namespace { 
 TEST(memleak, t1) {
     std::vector<int> v{7, 4, 3, 6, 19};
 
@@ -163,7 +166,4 @@ TEST(t0, t3) {
     FreeTreeNode(head2);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

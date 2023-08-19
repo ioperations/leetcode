@@ -43,6 +43,7 @@ Here's the implementation which runs in 188ms and passes all test cases.
 #include <vector>
 using namespace std;
 
+namespace { 
 class Solution {
    public:
     int mod = 1e9 + 7;
@@ -83,10 +84,12 @@ class Solution {
         return Dyp(n, k, dp, sum_dp);
     }
 };
+} 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     int n = 4, k = 2;
     int output = 5;
@@ -121,7 +124,4 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

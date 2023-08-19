@@ -14,6 +14,7 @@ considered a special case of increasing sequence.
 #include <vector>
 using namespace std;
 
+namespace { 
 class Solution {
     void Dfs(int i, vector<int> &v, vector<int> &nums, set<vector<int>> &s) {
         if (v.size() >= 2) s.insert(v);
@@ -37,11 +38,13 @@ class Solution {
         return ans;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     vector<int> nums = {4, 6, 7, 7};
     vector<vector<int>> output = {{4, 6},    {4, 6, 7}, {4, 6, 7, 7}, {4, 7},
@@ -60,7 +63,4 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

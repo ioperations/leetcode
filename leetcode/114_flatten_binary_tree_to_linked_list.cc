@@ -4,6 +4,7 @@
 /*
 Given the root of a binary tree, flatten the tree into a "linked list":
 
+namespace { 
 The "linked list" should use the same TreeNode class where the right child
 pointer points to the next node in the list and the left child pointer is always
 null. The "linked list" should be in the same order as a pre-order traversal of
@@ -11,6 +12,7 @@ the binary tree
 */
 
 //* Definition for a binary tree node.
+namespace { 
 struct TreeNode {
     int val;
     TreeNode *left;
@@ -20,9 +22,11 @@ struct TreeNode {
     TreeNode(int x, TreeNode *left, TreeNode *right)
         : val(x), left(left), right(right) {}
 };
+} 
 #include <queue>
 #include <vector>
 
+namespace { 
 class Solution {
    public:
     void Flatten(TreeNode *root) {
@@ -84,6 +88,7 @@ class Solution {
         PreOrder(node->right, q);
     }
 };
+} 
 
 #include <vector>
 
@@ -155,6 +160,7 @@ void ExpectEqRight(TreeNode *const root, const std::vector<int> &elements) {
     EXPECT_EQ(i, elements.size());
 }
 
+namespace { 
 TEST(t0, t1) {
     TreeNode *n = ConstructTree(std::vector<int>{1, 2, 5, 3, 4, 6});
     Solution s;
@@ -182,7 +188,4 @@ TEST(t0, t3) {
     FreeRoot(n);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

@@ -14,6 +14,7 @@ Return the shortest such subarray and output its length
 #include <vector>
 using namespace std;
 
+namespace { 
 class Solution {
    public:
     int FindUnsortedSubarray(vector<int> &nums) {
@@ -36,11 +37,13 @@ class Solution {
         return j - i + 1;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     std::vector<int> v{2, 6, 4, 8, 10, 9, 15};
     int expected = 5;
@@ -61,7 +64,4 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, expected);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

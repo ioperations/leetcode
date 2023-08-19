@@ -10,6 +10,7 @@ Return the maximum product you can get.
 
 #include <vector>
 
+namespace { 
 class Solution {
    public:
     int IntegerBreak(int n) {
@@ -31,11 +32,13 @@ class Solution {
         return dp[n];
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     int n = 2;
     int output = 1;
@@ -53,7 +56,4 @@ TEST(t0, t2) {
     // 10 = 3 + 3 + 4, 3 × 3 × 4 = 36.
     EXPECT_EQ(ret, output);
 }
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

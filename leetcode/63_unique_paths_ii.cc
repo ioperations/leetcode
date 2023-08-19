@@ -21,6 +21,7 @@ The testcases are generated so that the answer will be less than or equal to 2 *
 #include <vector>
 using namespace std;
 
+namespace { 
 class Solution {
    public:
     int UniquePathsWithObstacles(vector<vector<int>> &obstacle_grid) {
@@ -74,11 +75,13 @@ class Solution {
         return grid[m - 1][n - 1];
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     vector<vector<int>> obstacle_grid = {{0, 0, 0}, {0, 1, 0}, {0, 0, 0}};
     int output = 2;
@@ -127,7 +130,4 @@ TEST(t1, t2) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

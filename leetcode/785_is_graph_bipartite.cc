@@ -21,6 +21,7 @@ Return true if and only if it is bipartite.
 #include <vector>
 using namespace std;
 
+namespace { 
 class Solution {
    public:
     vector<int> vis, col;
@@ -66,10 +67,12 @@ class Solution {
         return true;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
+namespace { 
 TEST(t0, t1) {
     /*
          ___         ___
@@ -113,7 +116,4 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, expected);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

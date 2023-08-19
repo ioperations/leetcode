@@ -19,6 +19,7 @@ You must decrease the overall operation steps as much as possible.
 #include <vector>
 using namespace std;
 
+namespace { 
 class Solution {
    public:
     bool Search(vector<int> &nums, int target) {
@@ -44,11 +45,13 @@ class Solution {
         return false;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     vector<int> nums = {2, 5, 6, 0, 0, 1, 2};
     int target = 0;
@@ -67,7 +70,4 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

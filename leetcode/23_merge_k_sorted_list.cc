@@ -22,6 +22,7 @@ class ListNodeTemplate {
 };
 
 // Definition for singly-linked list.
+namespace { 
 struct ListNode {
     int val;
     ListNode *next;
@@ -29,8 +30,10 @@ struct ListNode {
     ListNode(int x) : val(x), next(nullptr) {}
     ListNode(int x, ListNode *next) : val(x), next(next) {}
 };
+} 
 
 #define inf 0x7fffffff
+namespace { 
 class LoserTree {
    private:
     // 以下存ls的下标
@@ -99,7 +102,9 @@ class LoserTree {
         this->ls[0] = winner_idx;
     }
 };
+} 
 
+namespace { 
 class Solution {
    public:
     std::vector<int> GetLeastNumbers(std::vector<int> &arr, int k) {
@@ -211,6 +216,7 @@ class Solution {
         return head;
     }
 };
+} 
 
 ListNode *ConstructList(std::vector<int> &elemenets) {
     ListNode *head = nullptr;
@@ -302,6 +308,7 @@ void FreeListList(ListNode *list) {
 
 #include <iostream>
 
+namespace { 
 TEST(memleak, t1) {
     ListNode *n1 = new ListNode(1);
     ListNode *n2 = new ListNode(3);
@@ -407,7 +414,4 @@ TEST(t1, null2) {
     FreeListList(n1);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

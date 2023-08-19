@@ -9,6 +9,7 @@ each group of children is separated by the null value (See examples).*/
 //
 #include <vector>
 using namespace std;
+namespace { 
 class Node {
    public:
     int m_val;
@@ -23,8 +24,10 @@ class Node {
         m_children = children;
     }
 };
+} 
 #include <queue>
 
+namespace { 
 class Solution {
    public:
     vector<vector<int>> LevelOrder(Node *root) {
@@ -63,6 +66,7 @@ class Solution {
         return ret;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
@@ -109,6 +113,7 @@ void FreeNode(Node *n) {
     delete n;
 }
 
+namespace { 
 TEST(t0, t1) {
 #define null \
     optional<int> {}
@@ -139,7 +144,4 @@ TEST(t0, t2) {
     FreeNode(tree);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

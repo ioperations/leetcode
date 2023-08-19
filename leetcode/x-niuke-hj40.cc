@@ -33,11 +33,11 @@ void Func(const char *s, int len) {
     }
 }
 
-#if defined(TEST_ADQ)
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t1, t2) {
     std::string s = "1qazxsw23 edcvfr45tgbn hy67uj m,ki89ol.\\\\/;p0-=\\\\][";
     testing::internal::CaptureStdout();
@@ -47,20 +47,4 @@ TEST(t1, t2) {
     EXPECT_EQ(result, expected);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }
-
-#else
-
-int main() {
-    std::string str{};
-    while (std::getline(std::cin, str)) {
-        func(str.c_str(), str.size());
-    }
-
-    return 0;
-}
-
-#endif

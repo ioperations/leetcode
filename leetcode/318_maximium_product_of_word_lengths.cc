@@ -11,6 +11,7 @@
 #include <vector>
 using namespace std;
 
+namespace { 
 class Solution {
    public:
     int MaxProductV1(vector<string> &words) {
@@ -74,11 +75,13 @@ class Solution {
         return ans;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     std::vector<string> words = {"abcw", "baz", "foo", "bar", "xtfn", "abcdef"};
     int output = 16;
@@ -106,7 +109,4 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

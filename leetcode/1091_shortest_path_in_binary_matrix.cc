@@ -16,6 +16,7 @@ The length of a clear path is the number of visited cells of this path.*/
 #include <vector>
 using namespace std;
 
+namespace { 
 class Solution {
    private:
     bool InBoundsAndClear(vector<vector<int>> &grid, int i, int j) {
@@ -65,11 +66,13 @@ class Solution {
         return -1;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     std::vector<vector<int>> v{{0, 1}, {1, 0}};
     int expected = 2;
@@ -96,7 +99,4 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, expected);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

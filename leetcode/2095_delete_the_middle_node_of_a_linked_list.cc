@@ -12,6 +12,7 @@ For n = 1, 2, 3, 4, and 5, the middle nodes are 0, 1, 1, 2, and 2,
 respectively.*/
 
 //* Definition for singly-linked list.
+namespace { 
 struct ListNode {
     int val;
     ListNode *next;
@@ -19,6 +20,7 @@ struct ListNode {
     ListNode(int x) : val(x), next(nullptr) {}
     ListNode(int x, ListNode *next) : val(x), next(next) {}
 };
+} 
 
 /*
    ____       ____        ____       ____         ____
@@ -34,6 +36,7 @@ struct ListNode {
 
 
 */
+namespace { 
 class Solution {
     ListNode *MiddlePrev(ListNode *head) {
         ListNode *slow = head;
@@ -59,6 +62,7 @@ class Solution {
         return head;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
@@ -99,6 +103,7 @@ void ExpectEqList(ListNode *const head, const std::vector<int> &elements) {
 #include <iostream>
 using namespace std;
 
+namespace { 
 TEST(t0, t1) {
     vector<int> head = {1, 3, 4, 7, 1, 2, 6};
     vector<int> output = {1, 3, 4, 1, 2, 6};
@@ -148,7 +153,4 @@ Node 0 with value 2 is the only node remaining after removing node 1.
     FreeList(list);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

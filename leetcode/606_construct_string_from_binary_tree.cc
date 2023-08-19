@@ -16,6 +16,7 @@ relationship between the string and the original binary tree.
 #include "datastruct_base.hh"
 using namespace std;
 
+namespace { 
 class Solution {
    public:
     template <typename T>
@@ -42,6 +43,7 @@ class Solution {
         }
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
@@ -53,6 +55,7 @@ using namespace std;
 
 #define null optional<int>()
 
+namespace { 
 TEST(t0, t1) {
     /*
                           _________
@@ -122,7 +125,4 @@ TEST(t0, t2) {
     FreeTreeNode(node);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

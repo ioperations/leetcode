@@ -13,6 +13,7 @@ An integer a is closer to x than an integer b if:
 
 using namespace std;
 
+namespace { 
 class Solution {
    public:
     vector<int> FindClosestElements(vector<int> &arr, int k, int x) {
@@ -46,11 +47,13 @@ class Solution {
         return ans;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     vector<int> arr = {1, 2, 3, 4, 5};
     int const k = 4, x = 3;
@@ -58,7 +61,7 @@ TEST(t0, t1) {
     Solution sl;
     auto ret = sl.FindClosestElements(arr, k, x);
     EXPECT_EQ(ret, output);
-};
+}
 
 TEST(t0, t2) {
     vector<int> arr = {1, 2, 3, 4, 5};
@@ -67,8 +70,5 @@ TEST(t0, t2) {
     Solution sl;
     auto ret = sl.FindClosestElements(arr, k, x);
     EXPECT_EQ(ret, output);
-};
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
+}
 }

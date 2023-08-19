@@ -10,6 +10,7 @@ Given a string s, return true if it is a palindrome, or false otherwise.*/
 
 #include <string>
 using namespace std;
+namespace { 
 class Solution {
    public:
     bool IsPalindrome(string s) {
@@ -44,11 +45,13 @@ class Solution {
         return true;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     string s = "A man, a plan, a canal: Panama";
     bool output = true;
@@ -89,7 +92,4 @@ TEST(t0, t4) {
     bool ret = sl.IsPalindrome(s);
     EXPECT_EQ(ret, output);
 }
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

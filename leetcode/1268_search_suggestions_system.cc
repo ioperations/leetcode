@@ -17,6 +17,7 @@ searchWord is typed.*/
 #include <vector>
 
 using namespace std;
+namespace { 
 class Solution {
     class Trie {
        public:
@@ -77,7 +78,9 @@ class Solution {
         }
     }
 };
+} 
 
+namespace { 
 class SolutionV2 {
     class TrieNode {
        public:
@@ -146,11 +149,13 @@ class SolutionV2 {
         return res;
     }
 };
+} 
 
 #include <gtest/gtest.h>
 
 #include <iostream>
 
+namespace { 
 TEST(t0, t1) {
     vector<string> products = {"mobile", "mouse", "moneypot", "monitor",
                                "mousepad"};
@@ -230,7 +235,4 @@ TEST(t1, t3) {
     vector<vector<string>> ret = sl.SuggestedProducts(products, search_word);
     EXPECT_EQ(ret, out);
 }
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }
