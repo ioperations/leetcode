@@ -55,7 +55,6 @@ class BrowserHistory {
 
     void Visit(string url) {
         Node *new_page = new Node(url);
-        Node *zz = nullptr;
         if (curr_page->next) {
             DeleteNode(curr_page->next);
         }
@@ -88,6 +87,165 @@ class BrowserHistory {
         return curr_page->url;
     }
 };
+
+#include <string>
+
+using namespace std;
+class BrowserHistorySysV2 {
+   public:
+    BrowserHistorySysV2(const string &homepage, int max_count) {
+        capability = max_count;
+        p_head = new Node("head");
+        p_end = new Node("end");
+        p_head->next = p_end;
+        p_end->pre = p_head;
+        p_head->pre = nullptr;
+        p_end->next = nullptr;
+
+        struct Node *p = new Node(homepage);
+        AddToHead(p);
+        p_currnet = p;
+        current_size = 1;
+    }
+
+    ~BrowserHistorySysV2() {
+        Node *p = p_head;
+        while (p != nullptr) {
+            Node *tmp = p;
+            p = p->next;
+            delete tmp;
+        }
+    }
+
+    int Visit(const string &url) {
+        if (p_currnet->url == url) {
+            return current_size;
+        }
+
+        CleanNodeToHead();
+
+        struct Node *p = new Node(url);
+        AddToHead(p);
+        current_size++;
+        p_currnet = p;
+
+        if (current_size > capability) {
+            DeleteLastNode();
+        }
+        return current_size;
+    }
+
+    string Back() {
+        Node *p = p_currnet;
+        if (p->next != p_end) {
+            p = p->next;
+        }
+        p_currnet = p;
+        return p->url;
+    }
+
+    string Forward() {
+        Node *p = p_currnet;
+        if (p->pre != p_head) {
+            p = p->pre;
+        }
+        p_currnet = p;
+        return p->url;
+    }
+
+   private:
+    struct Node {
+        struct Node *next;
+        std::string url;
+        struct Node *pre;
+
+        Node(std::string u) {
+            url = u;
+            next = nullptr;
+            pre = nullptr;
+        }
+    };
+
+    void CleanNodeToHead() {
+        Node *p = p_currnet->pre;
+        while (p != p_head) {
+            Node *tmp = p->pre;
+            delete p;
+            p = tmp;
+            current_size--;
+        }
+
+        p = p_currnet;
+        p_head->next = p;
+        p->pre = p_head;
+    }
+
+    void AddToHead(struct Node *n) {
+        p_head->next->pre = n;
+        n->next = p_head->next;
+        n->pre = p_head;
+        p_head->next = n;
+    }
+
+    void DeleteLastNode() {
+        Node *target = p_end->pre;
+        target->pre->next = target->next;
+        target->next->pre = target->pre;
+        delete target;
+        current_size--;
+    }
+
+    struct Node *p_currnet;
+    struct Node *p_head;
+    struct Node *p_end;
+    int current_size;
+
+    int capability;
+};
+
+#include <gtest/gtest.h>
+
+TEST(t1, t1) {
+    BrowserHistorySysV2 br("w3.huawei.com", 10);
+    int ret = br.Visit("google.com");
+    EXPECT_EQ(2, ret);
+    auto r = br.Back();
+    EXPECT_EQ("w3.huawei.com", r);
+    r = br.Forward();
+    EXPECT_EQ("google.com", r);
+    r = br.Forward();
+    EXPECT_EQ("google.com", r);
+    ret = br.Visit("baidu.com");
+    EXPECT_EQ(3, ret);
+    ret = br.Visit("youtube.com");
+    EXPECT_EQ(4, ret);
+    r = br.Back();
+    EXPECT_EQ("baidu.com", r);
+    ret = br.Visit("baidu.com");
+    EXPECT_EQ(4, ret);
+
+    r = br.Back();
+    EXPECT_EQ("google.com", r);
+    ret = br.Visit("mails.huawei.com");
+    EXPECT_EQ(3, ret);
+}
+
+TEST(t1, t2) {
+    BrowserHistorySysV2 br("www.huawei.com", 3);
+    int ret = br.Visit("w3.huawei.com");
+    EXPECT_EQ(2, ret);
+    ret = br.Visit("w4.huawei.com");
+    EXPECT_EQ(3, ret);
+    auto r = br.Back();
+    EXPECT_EQ("w3.huawei.com", r);
+    ret = br.Visit("www.huawei.com");
+    EXPECT_EQ(3, ret);
+    ret = br.Visit("w5.huawei.com");
+    EXPECT_EQ(3, ret);
+
+    ret = br.Visit("w6.huawei.com");
+    EXPECT_EQ(3, ret);
+}
 
 /**
  * Your BrowserHistory object will be instantiated and called as such:
