@@ -91,6 +91,36 @@ TEST(t0, t3) {
     FreeRoot(root2);
 }
 
+TEST(t0, t4) {
+    std::vector<int> p = {1, 2, 1}, q = {};
+
+    auto *root1 = ConstructTree(p);
+    auto *root2 = ConstructTree(q);
+    bool expected = false;
+
+    Solution s;
+    auto ret = s.IsSameTree(root1, root2);
+    EXPECT_EQ(ret, expected);
+
+    FreeRoot(root1);
+    FreeRoot(root2);
+}
+
+TEST(t0, t5) {
+    std::vector<int> p = {}, q = {1, 2, 1};
+
+    auto *root1 = ConstructTree(p);
+    auto *root2 = ConstructTree(q);
+    bool expected = false;
+
+    Solution s;
+    auto ret = s.IsSameTree(root1, root2);
+    EXPECT_EQ(ret, expected);
+
+    FreeRoot(root1);
+    FreeRoot(root2);
+}
+
 int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
