@@ -222,7 +222,7 @@ mod tests {
     #[test]
     fn case2_test() {
         let input = vec![];
-        let out = vec![];
+        let out: Vec<i32> = vec![];
         let lists = convert_vec_to_list(input);
         let ret = Solution::merge_k_lists(lists);
         let ret_vec = convert_list_to_vec(ret);
@@ -232,7 +232,7 @@ mod tests {
     #[test]
     fn case3_test() {
         let input = vec![vec![]];
-        let out = vec![];
+        let out: Vec<i32> = vec![];
         let lists = convert_vec_to_list(input);
         let ret = Solution::merge_k_lists(lists);
         let ret_vec = convert_list_to_vec(ret);

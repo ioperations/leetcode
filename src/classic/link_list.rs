@@ -1157,7 +1157,10 @@ mod test {
         cursor.move_next();
         cursor.move_prev();
         let tmp = cursor.split_before();
-        assert_eq!(m.into_iter().collect::<Vec<_>>(), &[]);
+        let tt: [u32; 0] = [];
+        let result = m.into_iter().collect::<Vec<u32>>();
+        assert_eq!(result, tt);
+
         m = tmp;
         let mut cursor = m.cursor_mut();
         cursor.move_next();

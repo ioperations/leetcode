@@ -23,6 +23,8 @@ use tracing_subscriber::{fmt, layer::SubscriberExt, util::SubscriberInitExt};
 #[ctor]
 fn register_tracing() {
     use opentelemetry::global;
+    use tracing_chrome::ChromeLayerBuilder;
+
     // Allows you to pass along context (i.e., trace IDs) across services
     global::set_text_map_propagator(opentelemetry_jaeger::Propagator::new());
     // Sets up the machinery needed to export data to Jaeger
@@ -36,12 +38,15 @@ fn register_tracing() {
     // Create a tracing layer with the configured tracer
     let opentelemetry = tracing_opentelemetry::layer().with_tracer(tracer);
 
+    let (chrome_layer, _guard) = ChromeLayerBuilder::new().build();
+
     // The SubscriberExt and SubscriberInitExt traits are needed to extend the
     // Registry to accept `opentelemetry (the OpenTelemetryLayer type).
     tracing_subscriber::registry()
         .with(opentelemetry)
         // Continue logging to stdout
         .with(fmt::Layer::default())
+        .with(chrome_layer)
         .try_init()
         .unwrap();
 }

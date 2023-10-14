@@ -85,7 +85,7 @@ mod tests {
     fn case1_test() {
         let head = [1, 2, 3, 4, 5];
         let n = 2;
-        let output = [1, 2, 3, 5];
+        let output: [i32; 4] = [1, 2, 3, 5];
         let root = build_list_from_vec(&head);
         let root = Solution::remove_nth_from_end(root, n);
         let ret = list_into_vec(&root);
@@ -96,7 +96,7 @@ mod tests {
     fn case2_test() {
         let head = [1];
         let n = 1;
-        let output = [];
+        let output: [i32; 0] = [];
         let root = build_list_from_vec(&head);
         let root = Solution::remove_nth_from_end(root, n);
         let ret = list_into_vec(&root);
@@ -107,7 +107,7 @@ mod tests {
     fn case3_test() {
         let head = [1, 2];
         let n = 1;
-        let output = [1];
+        let output: [i32; 1] = [1];
         let root = build_list_from_vec(&head);
         let root = Solution::remove_nth_from_end(root, n);
         let ret = list_into_vec(&root);
@@ -123,7 +123,7 @@ mod tests_middle_node {
     #[test]
     fn case1_test() {
         let head = [1, 2, 3, 4, 5];
-        let output = [1, 2, 4, 5];
+        let output: [i32; 4] = [1, 2, 4, 5];
         let root = build_list_from_vec(&head);
         let root = Solution::remove_middle_node(root);
         let ret = list_into_vec(&root);
@@ -133,7 +133,7 @@ mod tests_middle_node {
     #[test]
     fn case2_test() {
         let head = [1];
-        let output = [];
+        let output: [i32; 0] = [];
         let root = build_list_from_vec(&head);
         let root = Solution::remove_middle_node(root);
         let ret = list_into_vec(&root);
@@ -143,7 +143,7 @@ mod tests_middle_node {
     #[test]
     fn case3_test() {
         let head = [1, 2];
-        let output = [1];
+        let output: [i32; 1] = [1];
         let root = build_list_from_vec(&head);
         let root = Solution::remove_middle_node(root);
         let ret = list_into_vec(&root);

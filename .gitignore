@@ -9,6 +9,7 @@
 /target 
 */build/
 *.dSYM
+/trace*
 
 Cargo.lock
 .DS_Store

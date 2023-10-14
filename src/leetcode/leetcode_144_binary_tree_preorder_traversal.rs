@@ -59,7 +59,7 @@ mod tests {
             }
             Some(i)
         });
-        let output = [].to_vec();
+        let output: Vec<i32> = [].to_vec();
         let tree = build_binary_tree(&root);
         let ret = Solution::preorder_traversal(&tree);
         assert_eq!(ret, output);
