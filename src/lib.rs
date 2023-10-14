@@ -40,13 +40,20 @@ fn register_tracing() {
 
     let (chrome_layer, _guard) = ChromeLayerBuilder::new().build();
 
+    let _ = std::thread::Builder::new()
+        .name("tracing_chrome".to_string())
+        .spawn(move || {
+            std::thread::sleep(std::time::Duration::from_secs(10));
+            drop(_guard);
+        });
+
     // The SubscriberExt and SubscriberInitExt traits are needed to extend the
     // Registry to accept `opentelemetry (the OpenTelemetryLayer type).
     tracing_subscriber::registry()
         .with(opentelemetry)
         // Continue logging to stdout
-        .with(fmt::Layer::default())
         .with(chrome_layer)
+        .with(fmt::Layer::default())
         .try_init()
         .unwrap();
 }
