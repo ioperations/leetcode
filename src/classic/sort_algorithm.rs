@@ -1,7 +1,7 @@
 use std::collections::VecDeque;
 
 #[allow(unused)]
-fn bubble_sort<T>(arr: &mut Vec<T>)
+fn bubble_sort<T>(arr: &mut [T])
 where
     T: Ord + Copy,
 {
@@ -16,7 +16,7 @@ where
 }
 
 #[allow(unused)]
-fn quick_sort<T>(arr: &mut Vec<T>)
+fn quick_sort<T>(arr: &mut [T])
 where
     T: Ord + Copy,
 {

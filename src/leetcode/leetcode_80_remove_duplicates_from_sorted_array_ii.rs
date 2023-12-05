@@ -15,7 +15,7 @@
 struct Solution;
 impl Solution {
     #[allow(unused, clippy::mut_range_bound)]
-    pub fn remove_duplicates(nums: &mut Vec<i32>) -> i32 {
+    pub fn remove_duplicates(nums: &mut [i32]) -> i32 {
         match nums.len() {
             0 | 1 => nums.len() as i32,
             _ => {

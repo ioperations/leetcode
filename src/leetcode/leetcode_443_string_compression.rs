@@ -14,7 +14,7 @@ struct Solution;
 
 impl Solution {
     #[allow(unused)]
-    pub fn compress(chars: &mut Vec<char>) -> i32 {
+    pub fn compress(chars: &mut [char]) -> i32 {
         macro_rules! size_dispatch {
             ($number_of_same:ident, $current_size:ident, $current_index:ident, $current_char:ident , $chars:ident) => {
                 let vec =
