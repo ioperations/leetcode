@@ -123,17 +123,17 @@ void FreeTreeNode(TreeNode<T> *root) {
 
 template <typename T>
 void BfsSearch(TreeNode<T> *root, std::vector<T> &vec) {
-    std::queue<TreeNode<T> *> q;
-    q.push(root);
+    std::queue<TreeNode<T> *> queue;
+    queue.push(root);
 
-    while (q.size()) {
-        TreeNode<T> *tmp = q.front();
+    while (queue.size()) {
+        TreeNode<T> *tmp = queue.front();
 
-        q.pop();
+        queue.pop();
 
         if (tmp != nullptr) {
-            q.push(tmp->left);
-            q.push(tmp->right);
+            queue.push(tmp->left);
+            queue.push(tmp->right);
             vec.push_back(tmp->val);
         }
     }
