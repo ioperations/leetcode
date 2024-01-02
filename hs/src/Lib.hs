@@ -17,4 +17,4 @@ surface :: MyCricle -> Float
 surface (Circle _ a) = pi * a ^ 2
   where
     pi = 3.14
-surface (Rectangle (Point x1 y1) (Point x2 y2)) = (abs $ x2 - x1) * (abs $ y2 - y1)
+surface (Rectangle (Point x1 y1) (Point x2 y2)) = abs (x2 - x1) * abs (y2 - y1)
