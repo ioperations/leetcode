@@ -24,3 +24,9 @@ surface (Circle _ a) = pi * a ^ 2
   where
     pi = 3.14
 surface (Rectangle (Point x1 y1) (Point x2 y2)) = abs (x2 - x1) * abs (y2 - y1)
+
+--- >>> Just 6 >>= (\x -> Just (x + 1) :: Maybe Int) >>= (\x -> Just (x + 1) :: Maybe Int )
+--- >>> Nothing >>= \x -> Just (x +1) :: Maybe Int
+-- Just 8
+-- Nothing
+
