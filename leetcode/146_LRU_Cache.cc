@@ -134,33 +134,25 @@ class Node {
 #include <iostream>
 
 TEST(t0, t1) {
-    LRUCache *obj = new LRUCache(10);
-    const int param_1 = obj->Get(1);
+    LRUCache obj(10);
+    const int param_1 = obj.Get(1);
     (void)param_1;
-    obj->Put(1, 10);
-
-    delete obj;
+    obj.Put(1, 10);
 }
 
 TEST(t0, t2) {
-    LRUCache *lru = new LRUCache(2);
-    lru->Put(1, 1);             // {1,1}
-    lru->Put(2, 2);             // {2,2}
-    EXPECT_EQ(lru->Get(1), 1);  // {1,1} {2,2}
-    lru->Put(3, 3);
-    const int ret = lru->Get(2);  // {1,1} {3,3}
+    LRUCache lru (2);
+    lru.Put(1, 1);             // {1,1}
+    lru.Put(2, 2);             // {2,2}
+    EXPECT_EQ(lru.Get(1), 1);  // {1,1} {2,2}
+    lru.Put(3, 3);
+    const int ret = lru.Get(2);  // {1,1} {3,3}
     EXPECT_EQ(ret, -1);
 
-    lru->Put(4, 4);              // {4,4} {3,3}
-    EXPECT_EQ(lru->Get(1), -1);  // {}
-    EXPECT_EQ(lru->Get(3), 3);   // {}
-    EXPECT_EQ(lru->Get(4), 4);   // {}
-    // ["LRUCache", "put", "put", "get", "put", "get", "put", "get", "get",
-    // "get"]
-    // [[2], [1, 1], [2, 2], [1], [3, 3], [2], [4, 4], [1], [3], [4]]
-    // Output [null, null, null, 1, null, -1, null, -1, 3, 4]
-
-    delete lru;
+    lru.Put(4, 4);              // {4,4} {3,3}
+    EXPECT_EQ(lru.Get(1), -1);  // {}
+    EXPECT_EQ(lru.Get(3), 3);   // {}
+    EXPECT_EQ(lru.Get(4), 4);   // {}
 }
 
 int main(int argc, char *argv[]) {
