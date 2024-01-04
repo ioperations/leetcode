@@ -62,7 +62,7 @@ TEST(t0, t1) {
     sl.Sort(output, 0, 2);
     int expected[] = {1, 2, 3};
 
-    EXPECT_TRUE(0 == std::memcmp(output, expected, sizeof(expected)));
+    EXPECT_TRUE(0 == memcmp(output, expected, sizeof(expected)));
 }
 
 int main(int argc, char *argv[]) {
