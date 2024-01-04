@@ -68,8 +68,6 @@ class Solution {
 
 #include <gtest/gtest.h>
 
-#include <iostream>
-
 TEST(t0, t1) {
     const string begin_word = "hit", end_word = "cog";
     std::vector<string> word_list = {"hot", "dot", "dog", "lot", "log", "cog"};
