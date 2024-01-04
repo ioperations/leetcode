@@ -18,11 +18,17 @@ data Point = Point {x :: !Float, y :: !Float} deriving (Show)
 data MyCricle = Circle {point :: !Point, len :: !Float} | Rectangle {left_bellow :: !Point, right_up :: !Point} deriving (Show)
 
 --- >>>  (surface (Circle (Point 1 2 ) 3 ))
--- 28.26
+--- >>>  (point (Circle (Point 1 2 ) 3 ))
+--- >>>  (len (Circle (Point 1 2 ) 3 ))
+--- >>>  (left_bellow (Rectangle (Point 1 2 ) (Point 3 4) ))
+--- >>>  (right_up (Rectangle (Point 1 2 ) (Point 3 4) ))
+-- 28.274334
+-- Point {x = 1.0, y = 2.0}
+-- 3.0
+-- Point {x = 1.0, y = 2.0}
+-- Point {x = 3.0, y = 4.0}
 surface :: MyCricle -> Float
-surface (Circle _ a) = pi * a ^ 2
-  where
-    pi = 3.14
+surface (Circle _ a) = pi * (a ^ 2)
 surface (Rectangle (Point x1 y1) (Point x2 y2)) = abs (x2 - x1) * abs (y2 - y1)
 
 --- >>> Just 6 >>= (\x -> Just (x + 1) :: Maybe Int) >>= (\x -> Just (x + 1) :: Maybe Int )
