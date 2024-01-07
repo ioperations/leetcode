@@ -12,13 +12,13 @@ CXX=clang++
 override CPPFLAGS := -std=c++20  -DTEST_ADQ -Wpedantic -Wall -fsanitize=address  -lgtest -lpthread  -lbenchmark -L/usr/local/lib -I/usr/local/include 
 #-fuse-ld=lld
 default:${target_cc} # ${target_ccu}
-	@-echo "ok"
+	
 
 %_bench:%_bench.cc
 	${CXX} $< -lbenchmark -lgtest -o $@
 
 %:%.cc
-	${CXX} ${CPPFLAGS} $< -o $@
+	-@printf "    CXX %75s\n" $@ && ${CXX} ${CPPFLAGS} $< -o $@
 
 run:default
 	for i in ${target_cc}; do echo $$i &&  timeout 60  ./$$i || exit ; done
