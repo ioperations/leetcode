@@ -26,7 +26,7 @@ class Solution {
         // pass
         set<string> words;
         bool has_end = false;
-        for (const string word : word_list) {
+        for (const string &word : word_list) {
             words.insert(word);
             if (word == end_word) has_end = true;
         }
