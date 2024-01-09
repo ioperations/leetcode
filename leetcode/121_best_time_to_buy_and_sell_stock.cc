@@ -43,8 +43,6 @@ class Solution {
 
 #include <gtest/gtest.h>
 
-#include <iostream>
-
 TEST(t0, t1) {
     std::vector<int> prices = {7, 1, 5, 3, 6, 4};
     int expected = 5;

@@ -29,15 +29,11 @@ class Solution {
     }
 };
 
-#include <iostream>
 #include <optional>
-#include <queue>
 #include <vector>
 using namespace std;
 
 #include <gtest/gtest.h>
-
-#include <iostream>
 
 TEST(t0, t1) {
     std::vector<optional<int>> vec{1, 2, 3};

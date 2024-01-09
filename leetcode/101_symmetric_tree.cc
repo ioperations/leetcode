@@ -65,7 +65,6 @@ class Solution {
 
 #include <gtest/gtest.h>
 
-#include <iostream>
 #include <vector>
 
 TEST(t0, t1) {

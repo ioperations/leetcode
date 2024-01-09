@@ -49,8 +49,6 @@ class Solution {
 
 #include <gtest/gtest.h>
 
-#include <iostream>
-
 // Decodes your encoded data to tree.
 TreeNode *ConstructBinaryTree(std::vector<std::optional<int>> &data) {
     data.resize(data.size() * 3 + 11);

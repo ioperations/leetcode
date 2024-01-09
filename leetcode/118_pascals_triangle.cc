@@ -38,7 +38,6 @@ class Solution {
     }
 };
 
-#include <iostream>
 #include <set>
 
 TEST(t0, t1) {

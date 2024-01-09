@@ -68,8 +68,6 @@ class Solution {
 
 #include <gtest/gtest.h>
 
-#include <iostream>
-
 TEST(t0, t1) {
     std::vector<vector<int>> v{{0, 1}, {1, 0}};
     int expected = 2;

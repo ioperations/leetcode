@@ -47,8 +47,6 @@ class Solution {
 
 #include <gtest/gtest.h>
 
-#include <iostream>
-
 TEST(t0, t1) {
     string s = "A man, a plan, a canal: Panama";
     bool output = true;

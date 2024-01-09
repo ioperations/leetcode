@@ -13,7 +13,6 @@ node. A leaf is a node with no children.
 
 // Definition for a binary tree node.
 
-#include <algorithm>
 #include <numeric>
 
 #include "datastruct_base.hh"

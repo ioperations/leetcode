@@ -1,9 +1,7 @@
 // This is a personal academic project. Dear PVS-Studio, please check it.
 // PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
 // https://pvs-studio.com
-#include <map>
 #include <string>
-#include <vector>
 
 class Solution {
    public:
@@ -67,8 +65,6 @@ class Solution {
 };
 
 #include <gtest/gtest.h>
-
-#include <iostream>
 
 TEST(t0, t1) {
     Solution s;

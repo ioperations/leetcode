@@ -80,8 +80,6 @@ class Solution {
 
 #include <gtest/gtest.h>
 
-#include <iostream>
-
 TEST(t0, t1) {
     vector<int> nums = {1, 2, 3, 3, 4, 5};
     bool output = true;

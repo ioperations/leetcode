@@ -98,8 +98,6 @@ class Solution {
 
 #include <gtest/gtest.h>
 
-#include <iostream>
-
 TEST(t0, t1) {
     std::vector<std::vector<int>> grid = {
         {0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0},

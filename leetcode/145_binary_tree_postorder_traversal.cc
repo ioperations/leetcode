@@ -30,8 +30,6 @@ class Solution {
 
 #include <gtest/gtest.h>
 
-#include <iostream>
-
 TEST(t0, t1) {
     TreeNode<int> *root = ConstructTree(std::vector<int>{1, 2, 3});
     Solution s;

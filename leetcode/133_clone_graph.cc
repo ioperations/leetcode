@@ -19,7 +19,6 @@ The given node will always be the first node with val = 1. You must return the
 copy of the given node as a reference to the cloned graph.
 */
 
-#include <algorithm>
 #include <functional>
 #include <memory>
 #include <queue>
@@ -104,7 +103,6 @@ class Solution {
 
 #include <gtest/gtest.h>
 
-#include <iostream>
 #include <map>
 
 Node *GetOrInsert(std::map<int, Node *> &map, int v) {

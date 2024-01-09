@@ -42,8 +42,6 @@ class Solution {
 
 #include <gtest/gtest.h>
 
-#include <iostream>
-
 TEST(t1, t1) {
     Solution s;
     std::vector<int> height{1, 1};

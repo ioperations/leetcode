@@ -92,7 +92,6 @@ class Solution {
 
 #include <gtest/gtest.h>
 
-#include <iostream>
 #include <set>
 
 TEST(t0, t1) {

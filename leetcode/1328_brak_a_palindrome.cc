@@ -18,7 +18,6 @@ character, and 'c' is smaller than 'd'.
 */
 
 #include <string>
-#include <unordered_map>
 using namespace std;
 
 class Solution {
@@ -46,8 +45,6 @@ class Solution {
 };
 
 #include <gtest/gtest.h>
-
-#include <iostream>
 
 TEST(t0, t1) {
     string const palindrome = "abccba";

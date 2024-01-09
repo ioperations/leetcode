@@ -131,8 +131,6 @@ class Node {
 
 #include <gtest/gtest.h>
 
-#include <iostream>
-
 TEST(t0, t1) {
     LRUCache obj(10);
     const int param_1 = obj.Get(1);
@@ -141,7 +139,7 @@ TEST(t0, t1) {
 }
 
 TEST(t0, t2) {
-    LRUCache lru (2);
+    LRUCache lru(2);
     lru.Put(1, 1);             // {1,1}
     lru.Put(2, 2);             // {2,2}
     EXPECT_EQ(lru.Get(1), 1);  // {1,1} {2,2}

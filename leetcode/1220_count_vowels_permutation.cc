@@ -12,8 +12,6 @@ Each vowel 'o' may only be followed by an 'i' or a 'u'.
 Each vowel 'u' may only be followed by an 'a'.
 Since the answer may be too large, return it modulo 10^9 + 7.*/
 
-#include <functional>
-#include <map>
 #include <vector>
 using namespace std;
 
@@ -43,8 +41,6 @@ class Solution {
 };
 
 #include <gtest/gtest.h>
-
-#include <iostream>
 
 TEST(t0, t1) {
     int n = 1;

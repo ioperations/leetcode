@@ -53,8 +53,6 @@ class Solution {
 
 #include <gtest/gtest.h>
 
-#include <iostream>
-
 TEST(t0, t1) {
     int num = 3;
     string output = "III";

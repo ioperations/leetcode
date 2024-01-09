@@ -39,8 +39,6 @@ class Solution {
 
 #include <gtest/gtest.h>
 
-#include <iostream>
-
 TEST(t0, t1) {
     vector<int> target = {9, 3, 5};
     bool output = true;

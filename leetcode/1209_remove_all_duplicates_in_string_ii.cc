@@ -138,8 +138,6 @@ class SolutionV2 {
 };
 #include <gtest/gtest.h>
 
-#include <iostream>
-
 TEST(t0, t1) {
     string s = "abcd";
     int k = 2;

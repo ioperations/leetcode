@@ -32,8 +32,6 @@ class Solution {
 
 #include <gtest/gtest.h>
 
-#include <iostream>
-
 TEST(t0, t1) {
     std::vector<int> digits = {1, 2, 3};
 

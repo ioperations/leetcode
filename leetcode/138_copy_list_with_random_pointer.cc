@@ -74,7 +74,6 @@ class Solution {
 
 #include <gtest/gtest.h>
 
-#include <iostream>
 #include <optional>
 
 #define null std::optional<int>()

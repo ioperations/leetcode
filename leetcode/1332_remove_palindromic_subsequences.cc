@@ -34,8 +34,6 @@ class Solution {
 
 #include <gtest/gtest.h>
 
-#include <iostream>
-
 TEST(t0, t1) {
     string s = "ababa";
     int out = 1;

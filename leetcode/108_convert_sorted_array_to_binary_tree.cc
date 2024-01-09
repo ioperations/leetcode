@@ -39,7 +39,6 @@ class Solution {
 
 #include <gtest/gtest.h>
 
-#include <iostream>
 /// 将二分树销毁掉
 void FreeTreeNode(TreeNode *root) {
     if (root) {

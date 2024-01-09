@@ -46,8 +46,6 @@ class Solution {
 
 #include <gtest/gtest.h>
 
-#include <iostream>
-
 TEST(t0, t1) {
     // Input:
     // stones = [ 2, 7, 4, 1, 8, 1 ] Output : 1 Explanation

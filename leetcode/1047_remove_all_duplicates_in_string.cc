@@ -50,8 +50,6 @@ class Solution {
 
 #include <gtest/gtest.h>
 
-#include <iostream>
-
 TEST(t0, t1) {
     std::string s = "abbaca";
     string expected = "ca";

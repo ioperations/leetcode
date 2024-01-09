@@ -17,7 +17,6 @@ number, return it modulo 109 + 7.*/
 #include <algorithm>
 #include <functional>
 #include <limits>
-#include <numeric>
 #include <queue>
 #include <set>
 #include <vector>
@@ -101,8 +100,6 @@ class Solution {
 };
 
 #include <gtest/gtest.h>
-
-#include <iostream>
 
 TEST(t0, t1) {
     int n = 6;

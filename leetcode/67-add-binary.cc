@@ -2,8 +2,6 @@
 // PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
 // https://pvs-studio.com
 
-#include <algorithm>
-#include <iostream>
 #include <string>
 using namespace std;
 
@@ -41,8 +39,6 @@ class Solution {
 };
 
 #include <gtest/gtest.h>
-
-#include <iostream>
 
 TEST(t1, t0) {
     string s = "1111";

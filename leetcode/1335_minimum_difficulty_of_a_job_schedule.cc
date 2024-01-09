@@ -88,8 +88,6 @@ class Solution {
 
 #include <gtest/gtest.h>
 
-#include <iostream>
-
 TEST(t0, t1) {
     vector<int> job_difficulty = {6, 5, 4, 3, 2, 1};
     int const d = 2;

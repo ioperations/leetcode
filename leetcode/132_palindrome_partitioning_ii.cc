@@ -9,10 +9,8 @@
 
 #include <limits.h>
 
-#include <map>
 #include <string>
 #include <unordered_map>
-#include <utility>
 using namespace std;
 
 class Solution {
@@ -46,8 +44,6 @@ class Solution {
 };
 
 #include <gtest/gtest.h>
-
-#include <iostream>
 
 TEST(t0, t1) {
     std::string s = "aab";

@@ -32,8 +32,6 @@ class Solution {
 
 #include <gtest/gtest.h>
 
-#include <iostream>
-
 TEST(t0, t1) {
     string s = "00110110";
     int k = 2;

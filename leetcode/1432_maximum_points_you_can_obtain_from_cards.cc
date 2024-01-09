@@ -72,8 +72,6 @@ class Solution {
 
 #include <gtest/gtest.h>
 
-#include <iostream>
-
 TEST(t0, t1) {
     vector<int> card_points = {1, 2, 3, 4, 5, 6, 1};
     int k = 3;

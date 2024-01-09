@@ -12,8 +12,6 @@ Given an integer array nums,
 */
 
 #include <algorithm>
-#include <cassert>
-#include <utility>
 #include <vector>
 using namespace std;
 
@@ -150,8 +148,6 @@ class Solution {
 };
 
 #include <gtest/gtest.h>
-
-#include <iostream>
 
 TEST(t0, t1) {
     std::vector<int> nums = {-1, 0, 1, 2, -1, -4};

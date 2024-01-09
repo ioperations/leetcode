@@ -27,8 +27,6 @@ Return an answer array (of length seq.length) that encodes such a choice of A
 and B:  answer[i] = 0 if seq[i] is part of A, else answer[i] = 1.  Note that
 even though multiple answers may exist, you may return any of them.
 */
-#include <functional>
-#include <iostream>
 #include <stack>
 #include <vector>
 

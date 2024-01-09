@@ -49,8 +49,6 @@ class Solution {
 
 #include <gtest/gtest.h>
 
-#include <iostream>
-
 TEST(t0, t1) {
     vector<int> arr = {1, 2, 3, 4, 5};
     int const k = 4, x = 3;

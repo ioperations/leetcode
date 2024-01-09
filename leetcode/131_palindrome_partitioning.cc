@@ -54,8 +54,6 @@ class Solution {
 
 #include <gtest/gtest.h>
 
-#include <iostream>
-
 TEST(t0, t1) {
     string s = "aab";
     vector<vector<string>> output = {{"a", "a", "b"}, {"aa", "b"}};

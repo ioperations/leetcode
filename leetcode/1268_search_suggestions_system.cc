@@ -149,8 +149,6 @@ class SolutionV2 {
 
 #include <gtest/gtest.h>
 
-#include <iostream>
-
 TEST(t0, t1) {
     vector<string> products = {"mobile", "mouse", "moneypot", "monitor",
                                "mousepad"};

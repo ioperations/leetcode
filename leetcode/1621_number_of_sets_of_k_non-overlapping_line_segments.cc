@@ -85,8 +85,6 @@ class Solution {
 };
 #include <gtest/gtest.h>
 
-#include <iostream>
-
 TEST(t0, t1) {
     int n = 4, k = 2;
     int output = 5;

@@ -160,8 +160,6 @@ void FreeListList(ListNode *list) {
 
 #include <gtest/gtest.h>
 
-#include <iostream>
-
 void ExpectEqList(ListNode *list, const std::vector<int> &elemets) {
     int count = 0;
     ListNode *ptr = list;
@@ -171,10 +169,6 @@ void ExpectEqList(ListNode *list, const std::vector<int> &elemets) {
         count++;
     }
 }
-
-#include <gtest/gtest.h>
-
-#include <iostream>
 
 TEST(t0, t1) {
     ListNode *n = ConstructList(std::vector<int>{4, 2, 1, 3});
@@ -226,7 +220,6 @@ TEST(t1, t3) {
 
 #include <benchmark/benchmark.h>
 
-#include <algorithm>
 #include <vector>
 
 void BenchV2(benchmark::State &state) {

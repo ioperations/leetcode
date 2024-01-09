@@ -11,7 +11,6 @@ A subsequence is an array that can be derived from another array by deleting
 some or no elements without changing the order of the remaining elements.
 
 */
-#include <climits>
 #include <functional>
 #include <map>
 #include <string>
@@ -95,8 +94,6 @@ class Solution {
 };
 
 #include <gtest/gtest.h>
-
-#include <iostream>
 
 TEST(t0, t1) {
     vector<string> arr = {"un", "iq", "ue"};

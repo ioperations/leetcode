@@ -8,8 +8,6 @@ valid j's such that j != i and nums[j] < nums[i].
 Return the answer in an array.*/
 
 #include <algorithm>
-#include <map>
-#include <utility>
 #include <vector>
 using namespace std;
 class Solution {
@@ -31,8 +29,6 @@ class Solution {
 };
 
 #include <gtest/gtest.h>
-
-#include <iostream>
 
 TEST(t0, t1) {
     std::vector<int> nums{8, 1, 2, 2, 3};

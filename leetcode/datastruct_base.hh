@@ -9,7 +9,6 @@ struct TreeNode {
         : val(x), left(left), right(right) {}
 };
 
-#include <algorithm>
 #include <iostream>
 #include <optional>
 #include <queue>

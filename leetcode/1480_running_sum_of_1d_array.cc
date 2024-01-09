@@ -28,8 +28,6 @@ class Solution {
 
 #include <gtest/gtest.h>
 
-#include <iostream>
-
 TEST(t0, t1) {
     std::vector<int> p{1, 2, 3, 4};
     std::vector<int> output{1, 3, 6, 10};

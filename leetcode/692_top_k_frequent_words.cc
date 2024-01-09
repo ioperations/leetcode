@@ -9,7 +9,6 @@ Return the answer sorted by the frequency from highest to lowest. Sort the words
 with the same frequency by their lexicographical order.
 */
 #include <algorithm>
-#include <map>
 #include <queue>
 #include <string>
 #include <unordered_map>
@@ -38,8 +37,6 @@ class Solution {
 };
 
 #include <gtest/gtest.h>
-
-#include <iostream>
 
 TEST(t0, t1) {
     std::vector<string> words = {"i", "love", "leetcode",

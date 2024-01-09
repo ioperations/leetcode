@@ -56,9 +56,6 @@ class Solution {
 
 #include <gtest/gtest.h>
 
-#include <iostream>
-#include <set>
-
 TEST(t0, t1) {
     int n = 4;
     std::vector<vector<int>> connections = {{0, 1}, {1, 2}, {2, 0}, {1, 3}};

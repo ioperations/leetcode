@@ -39,30 +39,29 @@ class Solution {
         }
         if (mem[index][p][target] != -1) {
             return mem[index][p][target];
-        } else {
-            if (houses[index] == 0) {
-                int min_cost = INT_MAX;
-                for (int color = 1; color <= n; color++) {
-                    int ans;
-                    if (color == p) {
-                        ans = Solve(houses, cost, target, index + 1, p);
-                    } else {
-                        ans = Solve(houses, cost, target - 1, index + 1, color);
-                    }
-                    if (ans != INT_MAX) {
-                        ans += cost[index][color - 1];
-                    }
-                    min_cost = min(min_cost, ans);
-                }
-                return mem[index][p][target] = min_cost;
-            }
-            if (houses[index] == p) {
-                return mem[index][p][target] =
-                           Solve(houses, cost, target, index + 1, p);
-            }
-            return mem[index][p][target] = Solve(houses, cost, target - 1,
-                                                 index + 1, houses[index]);
         }
+        if (houses[index] == 0) {
+            int min_cost = INT_MAX;
+            for (int color = 1; color <= n; color++) {
+                int ans;
+                if (color == p) {
+                    ans = Solve(houses, cost, target, index + 1, p);
+                } else {
+                    ans = Solve(houses, cost, target - 1, index + 1, color);
+                }
+                if (ans != INT_MAX) {
+                    ans += cost[index][color - 1];
+                }
+                min_cost = min(min_cost, ans);
+            }
+            return mem[index][p][target] = min_cost;
+        }
+        if (houses[index] == p) {
+            return mem[index][p][target] =
+                       Solve(houses, cost, target, index + 1, p);
+        }
+        return mem[index][p][target] =
+                   Solve(houses, cost, target - 1, index + 1, houses[index]);
     }
 
    public:
@@ -76,8 +75,6 @@ class Solution {
 };
 
 #include <gtest/gtest.h>
-
-#include <iostream>
 
 TEST(t0, t1) {
     vector<int> houses = {0, 0, 0, 0, 0};

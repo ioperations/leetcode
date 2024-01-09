@@ -16,7 +16,6 @@ string forward(int steps) Move steps forward in history. If you can only forward
 x steps in the history and steps > x, you will forward only x steps. Return the
 current url after forwarding in history at most steps.*/
 
-#include <list>
 #include <string>
 
 using namespace std;
@@ -256,8 +255,6 @@ TEST(t1, t2) {
  */
 
 #include <gtest/gtest.h>
-
-#include <iostream>
 
 TEST(t0, t1) {
     // Explanation:

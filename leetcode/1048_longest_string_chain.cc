@@ -62,8 +62,6 @@ class Solution {
 
 #include <gtest/gtest.h>
 
-#include <iostream>
-
 TEST(t0, t1) {
     vector<string> words = {"a", "b", "ba", "bca", "bda", "bdca"};
     int output = 4;

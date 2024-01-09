@@ -63,7 +63,6 @@ class Solution {
 
 #include <gtest/gtest.h>
 
-#include <iostream>
 ListNode *ConstuctList(const std::vector<int> &elemets) {
     ListNode head;
     ListNode *tail = &head;

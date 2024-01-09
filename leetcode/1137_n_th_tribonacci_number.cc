@@ -28,8 +28,6 @@ class Solution {
 
 #include <gtest/gtest.h>
 
-#include <iostream>
-
 TEST(t0, t1) {
     int n = 4;
     int out = 4;

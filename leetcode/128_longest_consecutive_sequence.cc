@@ -7,7 +7,6 @@ consecutive elements sequence.
 
 You must write an algorithm that runs in O(n) time.*/
 #include <algorithm>
-#include <functional>
 #include <unordered_set>
 #include <vector>
 using namespace std;
@@ -38,8 +37,6 @@ class Solution {
 };
 
 #include <gtest/gtest.h>
-
-#include <iostream>
 
 TEST(t0, t1) {
     vector<int> nums = {100, 4, 200, 1, 3, 2};

@@ -24,7 +24,6 @@ class Solution {
 
 #include <gtest/gtest.h>
 
-#include <iostream>
 TEST(t0, t1) {
     int num = 14;
     int output = 6;

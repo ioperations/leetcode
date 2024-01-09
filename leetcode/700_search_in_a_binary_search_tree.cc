@@ -31,8 +31,6 @@ class Solution {
 
 #include <gtest/gtest.h>
 
-#include <iostream>
-
 TEST(t0, t1) {
     std::vector<int> v{4, 2, 7, 1, 3};
     int val = 2;

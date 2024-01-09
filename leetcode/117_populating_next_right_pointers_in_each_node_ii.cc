@@ -61,8 +61,6 @@ class Solution {
 
 #include <gtest/gtest.h>
 
-#include <iostream>
-
 TEST(t0, t1) {}
 
 int main(int argc, char *argv[]) {

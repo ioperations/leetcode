@@ -40,8 +40,6 @@ class Solution {
 
 #include <gtest/gtest.h>
 
-#include <iostream>
-
 TEST(t0, t1) {
     vector<int> nums = {1, 2, 2, 4};
     vector<int> output = {2, 3};

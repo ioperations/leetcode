@@ -142,8 +142,6 @@ void FreeRoot(TreeNode *root) {
 }
 #include <gtest/gtest.h>
 
-#include <iostream>
-
 void ExpectEqRight(TreeNode *const root, const std::vector<int> &elements) {
     TreeNode *n = root;
     int i = 0;

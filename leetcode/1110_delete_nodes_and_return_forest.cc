@@ -24,7 +24,6 @@ struct TreeNode {
         : val(x), left(left), right(right) {}
 };
 #include <array>
-#include <optional>
 #include <unordered_set>
 #include <vector>
 

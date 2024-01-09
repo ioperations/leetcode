@@ -17,11 +17,8 @@ beginWord to endWord, or an empty list if no such sequence exists. Each sequence
 should be returned as a list of the words [beginWord, s1, s2, ..., sk].*/
 
 #include <algorithm>
-#include <functional>
-#include <map>
 #include <queue>
 #include <string>
-#include <unordered_map>
 #include <vector>
 
 using namespace std;
@@ -105,8 +102,6 @@ class Solution {
 };
 
 #include <gtest/gtest.h>
-
-#include <iostream>
 
 TEST(t0, t1) {
     string begin_word = "hit", end_word = "cog";
