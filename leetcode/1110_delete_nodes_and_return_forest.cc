@@ -40,7 +40,7 @@ class Solution {
         if (us.find(root->val) != us.end()) {
             if (root->left) ans.push_back(root->left);
             if (root->right) ans.push_back(root->right);
-            return NULL;
+            return nullptr;
         }
         return root;
     }
