@@ -34,7 +34,7 @@ class Solution {
     vector<TreeNode *> ans;
     unordered_set<int> us;
     TreeNode *Solve(TreeNode *root) {
-        if (!root) return NULL;
+        if (!root) return nullptr;
         root->left = Solve(root->left);
         root->right = Solve(root->right);
         if (us.find(root->val) != us.end()) {
