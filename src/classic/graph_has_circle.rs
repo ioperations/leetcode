@@ -22,22 +22,22 @@ impl Solution {
             adjacency_list[cur_course as usize].push(pre_course);
         }
 
-        let mut que = VecDeque::new();
+        let mut queue = VecDeque::new();
 
         // 将所有入度为0的顶点入队列
         for (i, &indegress_is_zero) in
             indegress.iter().enumerate().take(num_courses)
         {
             if indegress_is_zero == 0 {
-                que.push_back(i);
+                queue.push_back(i);
             }
         }
 
         // 记录访问过的顶点数
         let mut count = 0;
         // 拓扑排序遍历顶点
-        while !que.is_empty() {
-            let point = que.pop_front().unwrap();
+        while !queue.is_empty() {
+            let point = queue.pop_front().unwrap();
             count += 1;
 
             // 从邻接表里面访问，把从该顶点出发所能到达人顶点的入度减一
@@ -46,7 +46,7 @@ impl Solution {
                 indegress[pre_course] -= 1;
                 // 入度为0则加入队列
                 if indegress[pre_course] == 0 {
-                    que.push_back(pre_course);
+                    queue.push_back(pre_course);
                 }
             }
         }
