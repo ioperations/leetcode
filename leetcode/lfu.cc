@@ -2,7 +2,6 @@
 #include <list>
 #include <optional>
 #include <unordered_map>
-#include <unordered_set>
 
 template <typename K, typename V>
 class LfuCache {
