@@ -81,24 +81,24 @@ TreeNode *NewNode(int data) {
 }
 
 // Function to insert nodes in level order
-TreeNode *InsertLevelOrder(vector<int> &arr, TreeNode *root, int i) {
+TreeNode *InsertLevelOrder(vector<int> &arr, int i) {
     // Base case for recursion
     const int n = arr.size();
     if (i < n) {
         TreeNode *temp = NewNode(arr[i]);
-        root = temp;
+        TreeNode *root = temp;
 
         // insert left child
-        root->left = InsertLevelOrder(arr, root->left, 2 * i + 1);
+        root->left = InsertLevelOrder(arr, 2 * i + 1);
 
         // insert right child
-        root->right = InsertLevelOrder(arr, root->right, 2 * i + 2);
+        root->right = InsertLevelOrder(arr, 2 * i + 2);
 
         if (arr[i] == -1) {
             root->deleted = true;
         }
     }
-    return root;
+    return nullptr;
 }
 
 // Function to print tree nodes in
@@ -140,10 +140,7 @@ void FreeTreeNode(TreeNode *root) {
 }
 
 TreeNode *ConstructTreeNode(std::vector<int> &arr) {
-    TreeNode root;
-    TreeNode *z = InsertLevelOrder(arr, &root, 0);
-
-    return z;
+    return InsertLevelOrder(arr, 0);
 }
 
 TEST(t0, t1) {
