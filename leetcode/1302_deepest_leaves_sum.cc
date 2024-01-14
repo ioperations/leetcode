@@ -97,6 +97,7 @@ TreeNode *InsertLevelOrder(vector<int> &arr, int i) {
         if (arr[i] == -1) {
             root->deleted = true;
         }
+        return root;
     }
     return nullptr;
 }
