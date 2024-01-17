@@ -4,7 +4,6 @@
 
 #include <exception>
 #include <map>
-#include <optional>
 
 template <typename T>
 class Optional {
