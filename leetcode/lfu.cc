@@ -42,7 +42,7 @@ template <typename K, typename V>
 void LfuCache<K, V>::Set(const K &key, const V &value) {
     if (key_to_list_head.find(key) != key_to_list_head.end()) {
         // key_to_list_head
-        auto node = key_to_list_head[key];
+        auto &node = key_to_list_head[key];
         int freq = node->freq;
         freq_to_list[freq].erase(node);
         if (freq_to_list[freq].size() == 0) {
@@ -71,7 +71,7 @@ void LfuCache<K, V>::Set(const K &key, const V &value) {
 template <typename K, typename V>
 std::optional<V> LfuCache<K, V>::Get(const K &key) {
     if (key_to_list_head.find(key) != key_to_list_head.end()) {
-        auto n = key_to_list_head[key];
+        auto &n = key_to_list_head[key];
         V value = n->value;
         int freq = n->freq;
 
