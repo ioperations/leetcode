@@ -2,7 +2,6 @@
 // PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
 // https://pvs-studio.com
 #include <algorithm>
-#include <iostream>
 
 namespace {
 #ifndef BYTE_LEN
