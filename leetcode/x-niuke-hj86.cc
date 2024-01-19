@@ -36,8 +36,6 @@ int Func(int number) {
 #if defined(TEST_ADQ)
 #include <gtest/gtest.h>
 
-#include <iostream>
-
 TEST(t1, t1) { EXPECT_EQ(Func(5), 1); }
 TEST(t1, t2) { EXPECT_EQ(Func(3), 2); }
 TEST(t1, t4) { EXPECT_EQ(Func(110), 3); }
