@@ -1,8 +1,22 @@
 import Lib (MyCricle (..), Point (..), surface)
 import qualified Data.Map as Map
 
+t :: Int -> Int 
+t q = q +1 
+
+getnn:: (String, Int) -> String
+getnn (a, b ) = a 
+
+
 main :: IO ()
-main = print (surface (Circle (Point 1.0 2.0) 3))
+main = do
+    let fmaps =   (fmap (+3) (Just 1)) 
+    let ap = (\x -> x +1 )  <$> [4]
+    case fmaps of 
+        Just q -> putStrLn $ "v: " ++ show q 
+        Nothing -> putStrLn $ "nothing " 
+    let moland' = ( getnn $ ("hello", 2) >>= (\x -> (" world",  x + 3 )))
+    putStrLn $ show fmaps ++ " "  ++ " applicative " ++ show ap ++ moland'
 
 
 data LockerState = Taken | Free deriving (Show, Eq)
@@ -29,14 +43,12 @@ lockers = Map.fromList
     ,(110,(Taken,"99292"))
     ]
 
+
+
 --- >>> lockerLookup 100 lockers
 --- >>> lockerLookup 101 lockers
 --- >>> lockerLookup 102 lockers
 --- >>> lockerLookup 103 lockers
 --- >>> lockerLookup 104 lockers
--- Left "Locker 100 is already taken!"
--- Right "JAH3I"
--- Left "Locker number 102 doesn't exist!"
--- Right "IQSA9"
--- Left "Locker number 104 doesn't exist!"
+
 
