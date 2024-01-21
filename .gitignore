@@ -6,6 +6,7 @@
 /compile_commands.json
 /.vscode
 /cmake-build-debug*
+/cmake_build*
 /target 
 */build/
 *.dSYM
