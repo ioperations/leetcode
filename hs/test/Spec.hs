@@ -17,6 +17,7 @@ main = do
         Nothing -> putStrLn $ "nothing " 
     let moland' = ( getnn $ ("hello", 2) >>= (\x -> (" world",  x + 3 )))
     putStrLn $ show fmaps ++ " "  ++ " applicative " ++ show ap ++ moland'
+    putStrLn $ show $ surface (Circle  (Point 1 2) 2)
 
 
 data LockerState = Taken | Free deriving (Show, Eq)
