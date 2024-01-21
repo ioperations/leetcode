@@ -1,24 +1,22 @@
 import Lib (MyCricle (..), Point (..), surface)
 import qualified Data.Map as Map
 
-t :: Int -> Int 
-t q = q +1 
-
-getnn:: (String, Int) -> String
-getnn (a, b ) = a 
+getnn:: (String, Maybe Int) -> String
+getnn (a, _ ) = a 
 
 
 main :: IO ()
 main = do
-    let fmaps =   (fmap (+3) (Just 1)) 
-    let ap = (\x -> x +1 )  <$> [4]
+    let fmaps = (fmap (+3) (Just 1)) 
     case fmaps of 
         Just q -> putStrLn $ "v: " ++ show q 
         Nothing -> putStrLn $ "nothing " 
-    let moland' = ( getnn $ ("hello", 2) >>= (\x -> (" world",  x + 3 )))
-    putStrLn $ show fmaps ++ " "  ++ " applicative " ++ show ap ++ moland'
-    putStrLn $ show $ surface (Circle  (Point 1 2) 2)
 
+    putStrLn $ show $ getnn $ ("fmap: " , (fmap (+3) (Just 1)))
+            >>= (\y -> (show y ++ ", applicative maybe " ,  (Just (\x -> x + 4) <*>  (Just  5))))
+            >>= (\y -> (show y ++ ", applicative list " ,   ([(*2),(*3)] <*> [3,4,5])) )
+            >>= (\y -> (show y ++ ", moland ",              (Just 4 ) >>= (\x -> Just (x +1)) ))
+            >>= (\y -> (show y, Nothing))
 
 data LockerState = Taken | Free deriving (Show, Eq)
 
