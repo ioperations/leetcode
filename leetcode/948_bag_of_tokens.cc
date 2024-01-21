@@ -18,12 +18,7 @@ tokens.*/
 
 #include <algorithm>
 #include <functional>
-#include <iostream>
-#include <limits>
-#include <map>
-#include <numeric>
 #include <set>
-#include <tuple>
 #include <vector>
 
 using namespace std;
@@ -90,8 +85,6 @@ class Solution {
 };
 
 #include <gtest/gtest.h>
-
-#include <iostream>
 
 TEST(t0, t1) {
     vector<int> tokens = {100};
