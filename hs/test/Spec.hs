@@ -2,23 +2,8 @@
 {-# HLINT ignore "Redundant bracket" #-}
 import Lib (MyCricle (..), Point (..), surface)
 import qualified Data.Map as Map
-
-getnn:: (String, Maybe Int) -> String
-getnn (a, _ ) = a
-
-
-main :: IO ()
-main = do
-    let fmaps = (fmap (+3) (Just 1))
-    case fmaps of
-        Just q -> putStrLn $ "v: " ++ show q
-        Nothing -> putStrLn "nothing "
-
-    print (getnn $ ("fmap: " , fmap (+3) (Just 1))
-            >>= (\y -> (show y ++ ", applicative maybe " ,  (Just (+ 4) <*>  (Just  5))))
-            >>= (\y -> (show y ++ ", applicative list " ,   ([(*2),(*3)] <*> [3,4,5])) )
-            >>= (\y -> (show y ++ ", moland ",              Just 4 >>= (\x -> Just (x +1)) ))
-            >>= (\y -> (show y, Nothing)))
+import Data.Either (Either)
+import Data.Maybe (Maybe(Nothing))
 
 data LockerState = Taken | Free deriving (Show, Eq)
 
@@ -44,12 +29,32 @@ lockers = Map.fromList
     ,(110,(Taken,"99292"))
     ]
 
-
-
 --- >>> lockerLookup 100 lockers
 --- >>> lockerLookup 101 lockers
 --- >>> lockerLookup 102 lockers
 --- >>> lockerLookup 103 lockers
 --- >>> lockerLookup 104 lockers
 
+first':: (String, Maybe Int) -> String
+first' (a, _ ) = a
+
+main :: IO ()
+main = do
+    let fmaps = (fmap (+3) (Just 1))
+    case fmaps of
+        Just q -> putStrLn $ "v: " ++ show q
+        Nothing -> putStrLn "nothing "
+
+    let v = show $ case (lockerLookup 100 lockers) of
+                    Left s -> s
+                    Right y -> y
+
+    print (first' $
+             ("fmap: " , fmap (+3) (Just 1))
+                >>= (\y -> (show y ++ ", applicative maybe " ,  (Just (+ 4) <*>  (Just  5))))
+                >>= (\y -> (show y ++ ", applicative list " ,   ([(*2),(*3)] <*> [3,4,5])) )
+                >>= (\y -> (show y ++ ", moland ",              Just 4 >>= (\x -> Just (x +1)) ))
+                >>= (\y -> (show y, Just 0))
+                >>= (const (" " ++ v, Nothing))
+            )
 
