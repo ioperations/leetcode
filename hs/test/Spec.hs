@@ -33,6 +33,11 @@ lockers = Map.fromList
 --- >>> lockerLookup 102 lockers
 --- >>> lockerLookup 103 lockers
 --- >>> lockerLookup 104 lockers
+-- Left "Locker 100 is already taken!"
+-- Right "JAH3I"
+-- Left "Locker number 102 doesn't exist!"
+-- Right "IQSA9"
+-- Left "Locker number 104 doesn't exist!"
 
 first':: (String, Maybe Int) -> String
 first' (a, _ ) = a
@@ -47,7 +52,7 @@ main = do
 
     print (first' $
              ("fmap: " , fmap (+3) (Just 1))
-                >>= (\_ -> ("fmap ", case fmaps of
+                >>= (const ("fmap ", case fmaps of
                                             Just q -> Just $ show q
                                             Nothing -> Just "nothing "))
                 >>= (\y -> (show y ++ ", applicative maybe " ,  (Just (+ 4) <*>  (Just  5))))
