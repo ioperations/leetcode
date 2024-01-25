@@ -67,5 +67,5 @@ fn register_tracing() {
 mod classic;
 
 mod leetcode {
-    automod::dir!("src/leetcode/");
+    automod::dir!("rs/leetcode/");
 }

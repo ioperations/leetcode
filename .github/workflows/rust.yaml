@@ -51,7 +51,7 @@ jobs:
             num=$(grep unsafe $p | wc -l )
             if [[ $num -gt 0 ]]; then 
             # ./src/classic/link_list.rs
-                val=$(echo $p  | sed 's/\.\/src\///' \
+                val=$(echo $p  | sed 's/\.\/rs\///' \
                 | sed 's/\.rs//' \
                 | sed 's/\.//'  \
                 | sed 's/\//::/g')
