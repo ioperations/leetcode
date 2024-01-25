@@ -1,0 +1,21 @@
+name: leetcode.rs
+
+# Run this workflow every time a new commit pushed to your repository
+on:
+  push:
+  pull_request:
+  schedule: [cron: "40 1 * * *"]
+
+env:
+  RUSTFLAGS: -Dwarnings
+
+jobs:
+  go-test:
+    name: go test case
+    runs-on: ubuntu-latest
+    container: ${{ matrix.container }}
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v3
+      - run: sudo apt update && sudo apt install cmake golang -y
+      - run: go test ./... -v

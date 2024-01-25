@@ -1,0 +1,22 @@
+name: leetcode.rs
+
+# Run this workflow every time a new commit pushed to your repository
+on:
+  push:
+  pull_request:
+  schedule: [cron: "40 1 * * *"]
+
+env:
+  RUSTFLAGS: -Dwarnings
+
+jobs:
+  cc-test:
+    name: cc test case
+    runs-on: ubuntu-latest
+    container: ${{ matrix.container }}
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v3
+      - run: sudo apt update && sudo apt install cmake build-essential libgtest-dev libbenchmark-dev clang-12 -y
+      - run: |
+          cmake -B build && cmake --build build -j $(nproc) && make -C build test -j $(nproc)
