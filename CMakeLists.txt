@@ -3,4 +3,4 @@ project(Leetcode LANGUAGES CXX)
 option(ENABLE_COVERAGE "enable code coverage" OFF)
 
 enable_testing()
-add_subdirectory(leetcode)
+add_subdirectory(cc)
