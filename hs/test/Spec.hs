@@ -1,9 +1,8 @@
 {-# OPTIONS_GHC -Wno-unrecognised-pragmas #-}
 {-# HLINT ignore "Redundant bracket" #-}
-import Lib (MyCricle (..), Point (..), surface)
+{-# OPTIONS_GHC -Wno-type-defaults #-}
+{-# OPTIONS_GHC -Wno-name-shadowing #-}
 import qualified Data.Map as Map
-import Data.Either (Either)
-import Data.Maybe (Maybe(Nothing))
 
 data LockerState = Taken | Free deriving (Show, Eq)
 
@@ -41,9 +40,6 @@ first' (a, _ ) = a
 main :: IO ()
 main = do
     let fmaps = (fmap (+3) (Just 1))
-    case fmaps of
-        Just q -> putStrLn $ "v: " ++ show q
-        Nothing -> putStrLn "nothing "
 
     let v = show $ case (lockerLookup 100 lockers) of
                     Left s -> s
@@ -51,6 +47,9 @@ main = do
 
     print (first' $
              ("fmap: " , fmap (+3) (Just 1))
+                >>= (\_ -> ("fmap ", case fmaps of
+                                            Just q -> Just $ show q
+                                            Nothing -> Just "nothing "))
                 >>= (\y -> (show y ++ ", applicative maybe " ,  (Just (+ 4) <*>  (Just  5))))
                 >>= (\y -> (show y ++ ", applicative list " ,   ([(*2),(*3)] <*> [3,4,5])) )
                 >>= (\y -> (show y ++ ", moland ",              Just 4 >>= (\x -> Just (x +1)) ))

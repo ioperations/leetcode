@@ -1,3 +1,5 @@
+{-# OPTIONS_GHC -Wno-partial-fields #-}
+{-# OPTIONS_GHC -Wno-type-defaults #-}
 module Lib
   ( MyCricle (..),
     Point (..),
