@@ -31,9 +31,7 @@ impl Solution {
 
 #[cfg(test)]
 mod test {
-    use super::super::leetcode_panic_after::panic_after;
     use super::*;
-    use std::time::Duration;
 
     #[test]
     fn case1_test() {
