@@ -6,15 +6,14 @@ import (
 )
 
 func TestExample(t *testing.T) {
-	var dir = t.TempDir()
-	var err = os.MkdirAll(dir, os.FileMode(750))
+	dir := t.TempDir()
+	err := os.MkdirAll(dir, os.FileMode(0o750))
 	if err != nil {
 		t.Errorf("mkdir directory err, %f", err)
 	}
 }
 
 func TestLru(t *testing.T) {
-
 	cache := NewLRUCache(2)
 
 	cache.Put(1, 1)
@@ -30,6 +29,9 @@ func TestLru(t *testing.T) {
 	cache.Display() // Output: (1:1) (2:2)
 
 	cache.Put(3, 3)
+	cache.Display() // Output: (3:3) (1:1)
+
+	cache.Put(3, 4)
 	cache.Display() // Output: (3:3) (1:1)
 
 	if cache.Get(2) != -1 {
