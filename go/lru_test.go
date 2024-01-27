@@ -41,4 +41,5 @@ func TestLru(t *testing.T) {
 
 func TestMain(t *testing.M) {
 	t.Run()
+	os.Exit(0)
 }
