@@ -4,8 +4,10 @@
 // level. Return the minimum rounds required to complete all the tasks,
 // or -1 if it is not possible to complete all the tasks.
 
+use std::collections::HashMap;
 #[allow(unused)]
 struct Solution;
+
 impl Solution {
     #[allow(unused)]
     pub fn minimum_rounds(tasks: Vec<i32>) -> i32 {
@@ -33,8 +35,23 @@ impl Solution {
 
         let mut tasks = tasks;
         tasks.sort_unstable();
-        let tasks: Vec<usize> =
-            tasks.group_by(|a, b| a == b).map(<[i32]>::len).collect();
+        let mut hashmap = HashMap::new();
+
+        {
+            for i in tasks.clone() {
+                hashmap
+                    .entry(i)
+                    .and_modify(|i: &mut i32| {
+                        *i += 1;
+                    })
+                    .or_insert(1);
+            }
+        }
+
+        tasks.clear();
+        for (_, &v) in hashmap.iter() {
+            tasks.push(v);
+        }
 
         let mut i: i32 = 0;
         for v in tasks {

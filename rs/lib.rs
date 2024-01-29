@@ -1,6 +1,5 @@
 // #![feature(generic_associated_types)]
 #![feature(type_alias_impl_trait)]
-#![feature(slice_group_by)]
 #![feature(test)]
 #![cfg_attr(feature = "cargo-clippy", warn(clippy::pedantic))]
 #![cfg_attr(feature = "cargo-clippy", allow(clippy::cast_lossless))]
