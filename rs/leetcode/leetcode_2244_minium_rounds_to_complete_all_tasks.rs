@@ -49,13 +49,13 @@ impl Solution {
         }
 
         tasks.clear();
-        for (_, &v) in hashmap.iter() {
+        for &v in hashmap.values() {
             tasks.push(v);
         }
 
         let mut i: i32 = 0;
         for v in tasks {
-            if let Some(v) = calculate_times(v as i32) {
+            if let Some(v) = calculate_times(v) {
                 i += v;
             } else {
                 return -1;
