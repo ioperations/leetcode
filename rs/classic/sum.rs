@@ -2,6 +2,7 @@
 // implement `fn summary` to make the code work
 // fix the errors without removing any code line
 trait Summary {
+    #[allow(unused)]
     fn summarize(&self) -> String;
 }
 
@@ -14,6 +15,7 @@ struct Post {
 }
 
 impl Summary for Post {
+    #[allow(unused)]
     fn summarize(&self) -> String {
         format!("The author of post {} is {}", self.title, self.author)
     }
