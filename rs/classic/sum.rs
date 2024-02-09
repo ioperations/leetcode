@@ -14,6 +14,7 @@ struct Post {
     content: String,
 }
 
+#[cfg(test)]
 impl Summary for Post {
     #[allow(unused)]
     fn summarize(&self) -> String {
