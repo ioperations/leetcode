@@ -22,12 +22,14 @@ impl Summary for Post {
     }
 }
 
+#[cfg(test)]
 #[derive(Debug)]
 struct Weibo {
     username: String,
     content: String,
 }
 
+#[cfg(test)]
 impl Summary for Weibo {
     fn summarize(&self) -> String {
         format!("{} published a weibo {}", self.username, self.content)

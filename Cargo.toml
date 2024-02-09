@@ -34,6 +34,7 @@ opentelemetry-jaeger = "0.20"
 #serde_json = { version = "1.0", default-features=false,features = ["alloc"] }
 #serde = { version="1.0",features=["derive"] }
 tracing-chrome = "0.7.1"
+ahash = "0.8.7"
 
 [profile.release]
 debug = true
