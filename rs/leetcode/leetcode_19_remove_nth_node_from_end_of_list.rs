@@ -22,11 +22,11 @@ impl Solution {
         });
 
         unsafe {
-            let mut slow = &mut dummy as *mut Box<ListNode<T>>;
+            let mut slow = std::ptr::from_mut::<Box<ListNode<T>>>(&mut dummy);
 
             // miri 报错 error: Undefined Behavior
             // let mut fast = &mut dummy as *mut Box<ListNode>;
-            let mut fast = &dummy as *const Box<ListNode<T>>;
+            let mut fast = std::ptr::from_ref::<Box<ListNode<T>>>(&dummy);
 
             for _ in 0..n {
                 // fast = (*fast).next.as_mut().unwrap();
@@ -58,8 +58,8 @@ impl Solution {
         });
 
         unsafe {
-            let mut slow = &mut dummy as *mut Box<ListNode<T>>;
-            let mut fast = &dummy as *const Box<ListNode<T>>;
+            let mut slow = std::ptr::from_mut::<Box<ListNode<T>>>(&mut dummy);
+            let mut fast = std::ptr::from_ref::<Box<ListNode<T>>>(&dummy);
 
             while (*fast).next.is_some() {
                 fast = (*fast).next.as_ref().unwrap();
