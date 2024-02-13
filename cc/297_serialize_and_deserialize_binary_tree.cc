@@ -23,6 +23,7 @@ creative and come up with different approaches yourself.*/
 
 #include "datastruct_base.hh"
 using namespace std;
+using namespace Tree;
 
 class Codec {
    public:

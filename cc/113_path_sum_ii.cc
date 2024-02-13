@@ -18,6 +18,7 @@ node. A leaf is a node with no children.
 #include "datastruct_base.hh"
 using namespace std;
 
+using namespace Tree;
 class Solution {
     std::vector<vector<int>> m_ret;
     template <typename T>

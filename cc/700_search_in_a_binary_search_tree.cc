@@ -9,6 +9,7 @@ rooted with that node. If such a node does not exist, return null.
 */
 
 #include "datastruct_base.hh"
+using namespace Tree;
 
 class Solution {
    public:

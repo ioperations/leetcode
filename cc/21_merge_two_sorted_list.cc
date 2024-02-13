@@ -7,18 +7,12 @@
 
 #include <vector>
 
+#include "datastruct_base.hh"
+
 /**
  *  @brief 单链表节点
  */
-struct ListNode {
-    //! 值
-    int val;
-    //! 下一个节点
-    ListNode *next;
-    ListNode() : val(0), next(nullptr) {}
-    ListNode(int x) : val(x), next(nullptr) {}
-    ListNode(int x, ListNode *next) : val(x), next(next) {}
-};
+using ListNode = List::ListNode<int>;
 
 class Solution {
    public:
@@ -87,27 +81,12 @@ class Solution {
 #include <gtest/gtest.h>
 
 #include <iostream>
-void FreeList(ListNode *root) {
-    if (root == nullptr) return;
-    FreeList(root->next);
-    delete root;
-}
 
-ListNode *ConstructList(const std::vector<int> &ele) {
-    const int size = ele.size();
-    ListNode dummy, *it = &dummy;
-    for (int i = 0; i < size; i++) {
-        it->next = new ListNode(ele[i]);
-        it = it->next;
-    }
-
-    return dummy.next;
-}
 
 TEST(t0, t1) {
-    ListNode *s1 = ConstructList(std::vector<int>{1, 2, 4});
+    ListNode *s1 = List::ConstructList(std::vector<int>{1, 2, 4});
 
-    ListNode *l1 = ConstructList(std::vector<int>{1, 3, 4});
+    ListNode *l1 = List::ConstructList(std::vector<int>{1, 3, 4});
 
     Solution solution;
     auto *it = solution.MergeTwoLists(s1, l1);
@@ -120,12 +99,12 @@ TEST(t0, t1) {
         it = it->next;
     }
 
-    FreeList(it_2);
+    List::FreeList(it_2);
 }
 TEST(t1, t1) {
-    ListNode *s1 = ConstructList(std::vector<int>{1, 2, 4});
+    ListNode *s1 = List::ConstructList(std::vector<int>{1, 2, 4});
 
-    ListNode *l1 = ConstructList(std::vector<int>{1, 3, 4});
+    ListNode *l1 = List::ConstructList(std::vector<int>{1, 3, 4});
 
     Solution solution;
     auto *it = solution.MergeTwoListsV2(s1, l1);
@@ -138,7 +117,7 @@ TEST(t1, t1) {
         it = it->next;
     }
 
-    FreeList(it_2);
+    List::FreeList(it_2);
 }
 
 TEST(t0, t3) {
@@ -179,9 +158,9 @@ void Benchmakrv1(benchmark::State &state) {
     }
 
     for (auto _ : state) {
-        ListNode *s1 = ConstructList(t);
+        ListNode *s1 = List::ConstructList(t);
 
-        ListNode *l1 = ConstructList(t);
+        ListNode *l1 = List::ConstructList(t);
 
         Solution solution;
         auto *it = solution.MergeTwoLists(s1, l1);
@@ -192,7 +171,7 @@ void Benchmakrv1(benchmark::State &state) {
             it = it->next;
         }
 
-        FreeList(it2);
+        List::FreeList(it2);
     }
 }
 BENCHMARK(Benchmakrv1);
@@ -211,9 +190,9 @@ void Benchmakrv2(benchmark::State &state) {
     sort(expected.begin(), expected.end());
 
     for (auto _ : state) {
-        ListNode *s1 = ConstructList(t);
+        ListNode *s1 = List::ConstructList(t);
 
-        ListNode *l1 = ConstructList(t);
+        ListNode *l1 = List::ConstructList(t);
 
         Solution solution;
         auto *it = solution.MergeTwoListsV2(s1, l1);
@@ -225,7 +204,7 @@ void Benchmakrv2(benchmark::State &state) {
             it = it->next;
         }
 
-        FreeList(it2);
+        List::FreeList(it2);
     }
 }
 BENCHMARK(Benchmakrv2);

@@ -10,6 +10,7 @@ as descendants (where we allow a node to be a descendant of itself).”*/
 
 // Definition for a binary tree node.
 #include "datastruct_base.hh"
+using namespace Tree;
 
 class Solution {
    public:

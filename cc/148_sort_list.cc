@@ -7,14 +7,10 @@ order.
 */
 #include <vector>
 
+#include "datastruct_base.hh"
+
 //* Definition for singly-linked list.
-struct ListNode {
-    int val;
-    ListNode *next;
-    ListNode() : val(0), next(nullptr) {}
-    ListNode(int x) : val(x), next(nullptr) {}
-    ListNode(int x, ListNode *next) : val(x), next(next) {}
-};
+using ListNode = List::ListNode<int>;
 
 class SolutionV2 {
    public:
@@ -127,37 +123,6 @@ class Solution {
     }
 };
 
-/**
- * @brief 更加简单的方式从一个数组当中来创建一个list
- * @param @elemenets 要创建的list的数组
- * @return 链表的头，用户需要free掉
- */
-ListNode *ConstructList(const std::vector<int> &elemenets) {
-    ListNode head;
-    ListNode *tail = &head;
-
-    for (auto &ptr : elemenets) {
-        tail->next = new ListNode(ptr);
-        tail = tail->next;
-    }
-
-    return head.next;
-}
-
-/**
- * @brief 释放掉链表的内存
- * @param @list 链表的头
- * @return nil
- */
-void FreeListList(ListNode *list) {
-    if (list == nullptr) {
-        return;
-    }
-    FreeListList(list->next);
-    delete list;
-    list = nullptr;
-}
-
 #include <gtest/gtest.h>
 
 void ExpectEqList(ListNode *list, const std::vector<int> &elemets) {
@@ -171,51 +136,51 @@ void ExpectEqList(ListNode *list, const std::vector<int> &elemets) {
 }
 
 TEST(t0, t1) {
-    ListNode *n = ConstructList(std::vector<int>{4, 2, 1, 3});
+    ListNode *n = List::ConstructList(std::vector<int>{4, 2, 1, 3});
     Solution s;
     n = s.SortList(n);
     ExpectEqList(n, std::vector<int>{1, 2, 3, 4});
-    FreeListList(n);
+    List::FreeList(n);
 }
 
 TEST(t1, t1) {
-    ListNode *n = ConstructList(std::vector<int>{4, 2, 1, 3});
+    ListNode *n = List::ConstructList(std::vector<int>{4, 2, 1, 3});
     SolutionV2 s;
     n = s.SortList(n);
     ExpectEqList(n, std::vector<int>{1, 2, 3, 4});
-    FreeListList(n);
+    List::FreeList(n);
 }
 
 TEST(t0, t2) {
-    ListNode *n = ConstructList(std::vector<int>{-4, 5, 3, 4, 0});
+    ListNode *n = List::ConstructList(std::vector<int>{-4, 5, 3, 4, 0});
     Solution s;
     n = s.SortList(n);
     ExpectEqList(n, std::vector<int>{-4, 0, 3, 4, 5});
-    FreeListList(n);
+    List::FreeList(n);
 }
 
 TEST(t1, t2) {
-    ListNode *n = ConstructList(std::vector<int>{-4, 5, 3, 4, 0});
+    ListNode *n = List::ConstructList(std::vector<int>{-4, 5, 3, 4, 0});
     SolutionV2 s;
     n = s.SortList(n);
     ExpectEqList(n, std::vector<int>{-4, 0, 3, 4, 5});
-    FreeListList(n);
+    List::FreeList(n);
 }
 
 TEST(t0, t3) {
-    ListNode *n = ConstructList(std::vector<int>{});
+    ListNode *n = List::ConstructList(std::vector<int>{});
     Solution s;
     n = s.SortList(n);
     ExpectEqList(n, std::vector<int>{});
-    FreeListList(n);
+    List::FreeList(n);
 }
 
 TEST(t1, t3) {
-    ListNode *n = ConstructList(std::vector<int>{});
+    ListNode *n = List::ConstructList(std::vector<int>{});
     SolutionV2 s;
     n = s.SortList(n);
     ExpectEqList(n, std::vector<int>{});
-    FreeListList(n);
+    List::FreeList(n);
 }
 
 #include <benchmark/benchmark.h>
@@ -224,22 +189,22 @@ TEST(t1, t3) {
 
 void BenchV2(benchmark::State &state) {
     for (auto _ : state) {
-        ListNode *n = ConstructList(std::vector<int>{-4, 5, 3, 4, 0});
+        ListNode *n = List::ConstructList(std::vector<int>{-4, 5, 3, 4, 0});
         SolutionV2 s;
         n = s.SortList(n);
         ExpectEqList(n, std::vector<int>{-4, 0, 3, 4, 5});
-        FreeListList(n);
+        List::FreeList(n);
     }
 }
 BENCHMARK(BenchV2);
 
 void BenchV1(benchmark::State &state) {
     for (auto _ : state) {
-        ListNode *n = ConstructList(std::vector<int>{-4, 5, 3, 4, 0});
+        ListNode *n = List::ConstructList(std::vector<int>{-4, 5, 3, 4, 0});
         Solution s;
         n = s.SortList(n);
         ExpectEqList(n, std::vector<int>{-4, 0, 3, 4, 5});
-        FreeListList(n);
+        List::FreeList(n);
     }
 }
 BENCHMARK(BenchV1);

@@ -28,13 +28,9 @@ function returns.
 
  */
 
+#include "datastruct_base.hh"
 // Definition for singly-linked list.
-struct ListNode {
-    int val;
-    ListNode *next;
-    ListNode() : val(), next(nullptr) {}
-    ListNode(int x) : val(x), next(nullptr) {}
-};
+using ListNode = List::ListNode<int>;
 
 class Solution {
    public:
@@ -92,24 +88,6 @@ class Solution {
 
 #include <gtest/gtest.h>
 
-ListNode *ConstuctList(const std::vector<int> &elemets) {
-    ListNode head;
-    ListNode *tail = &head;
-    for (auto &pt : elemets) {
-        tail->next = new ListNode(pt);
-        tail = tail->next;
-    }
-    return head.next;
-}
-
-void FreeList(ListNode *head) {
-    if (head == nullptr) {
-        return;
-    }
-    FreeList(head->next);
-    delete head;
-}
-
 void ExpectEqList(ListNode *const head, const std::vector<int> &elements) {
     int i = 0;
     ListNode *m_head = head;
@@ -143,8 +121,8 @@ TEST(t0, t1) {
 
     */
 
-    ListNode *first = ConstuctList(std::vector<int>{4, 1, 8, 4, 5});
-    ListNode *second = ConstuctList(std::vector<int>{5, 6, 1});
+    ListNode *first = List::ConstructList(std::vector<int>{4, 1, 8, 4, 5});
+    ListNode *second = List::ConstructList(std::vector<int>{5, 6, 1});
     ListNode *first_it = first;
     for (int i = 0; i < 2; i++) {
         first_it = first_it->next;
@@ -163,8 +141,8 @@ TEST(t0, t1) {
     EXPECT_EQ(ret->val, 8);
     second_it->next = nullptr;
 
-    FreeList(first);
-    FreeList(second);
+    List::FreeList(first);
+    List::FreeList(second);
 }
 
 TEST(t0, t2) {
@@ -189,8 +167,8 @@ TEST(t0, t2) {
 
     */
 
-    ListNode *first = ConstuctList(std::vector<int>{1, 9, 1, 2, 4});
-    ListNode *second = ConstuctList(std::vector<int>{3});
+    ListNode *first = List::ConstructList(std::vector<int>{1, 9, 1, 2, 4});
+    ListNode *second = List::ConstructList(std::vector<int>{3});
     ListNode *first_it = first;
     for (int i = 0; i < 3; i++) {
         first_it = first_it->next;
@@ -209,8 +187,8 @@ TEST(t0, t2) {
     EXPECT_EQ(ret->val, 2);
     second_it->next = nullptr;
 
-    FreeList(first);
-    FreeList(second);
+    List::FreeList(first);
+    List::FreeList(second);
 }
 
 TEST(t0, t3) {
@@ -232,16 +210,16 @@ TEST(t0, t3) {
             |___|___|
     */
 
-    ListNode *first = ConstuctList(std::vector<int>{2, 6, 4});
-    ListNode *second = ConstuctList(std::vector<int>{1, 5});
+    ListNode *first = List::ConstructList(std::vector<int>{2, 6, 4});
+    ListNode *second = List::ConstructList(std::vector<int>{1, 5});
 
     Solution s;
 
     auto *ret = s.GetIntersectionNodeV2(first, second);
     EXPECT_EQ(ret, nullptr);
 
-    FreeList(first);
-    FreeList(second);
+    List::FreeList(first);
+    List::FreeList(second);
 }
 
 int main(int argc, char *argv[]) {

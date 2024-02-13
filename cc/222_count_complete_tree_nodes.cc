@@ -14,6 +14,7 @@ Design an algorithm that runs in less than O(n) time complexity.*/
 #include <queue>
 
 #include "datastruct_base.hh"
+using namespace Tree;
 
 class Solution {
    public:

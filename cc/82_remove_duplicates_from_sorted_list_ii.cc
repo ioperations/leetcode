@@ -8,13 +8,10 @@ list sorted as well.
 */
 
 #include <vector>
-struct ListNode {
-    int val;
-    ListNode *next;
-    ListNode() : val(0), next(nullptr) {}
-    ListNode(int x) : val(x), next(nullptr) {}
-    ListNode(int x, ListNode *next) : val(x), next(next) {}
-};
+
+#include "datastruct_base.hh"
+using ListNode  = List::ListNode<int>;
+
 class Solution {
    public:
     ListNode *DeleteDuplicates(ListNode *head) {
@@ -71,24 +68,6 @@ class Solution {
 };
 #include <gtest/gtest.h>
 
-ListNode *ConstructList(const std::vector<int> &elements) {
-    ListNode head;
-    ListNode *tail = &head;
-    for (auto &pt : elements) {
-        tail->next = new ListNode(pt);
-        tail = tail->next;
-    }
-    return head.next;
-}
-
-void FreeList(ListNode *head) {
-    if (head == nullptr) {
-        return;
-    }
-    FreeList(head->next);
-    delete head;
-}
-
 void ExpectEqList(ListNode *const head, const std::vector<int> &elements) {
     int i = 0;
     ListNode *m_head = head;
@@ -106,13 +85,13 @@ void ExpectEqList(ListNode *const head, const std::vector<int> &elements) {
 TEST(test, t1) {
     std::vector<int> head{1, 2, 3, 4, 5};
     std::vector<int> output{2, 3, 4, 5};
-    ListNode *root = ConstructList(head);
+    ListNode *root = List::ConstructList(head);
 
     Solution sl;
     root = sl.RemoveNodeByValue(root, 1);
 
     ExpectEqList(root, output);
-    FreeList(root);
+    List::FreeList(root);
 }
 
 TEST(t0, t1) {
@@ -128,13 +107,13 @@ TEST(t0, t1) {
              |___|   |___|   |___|
     */
     std::vector<int> output{1, 2, 5};
-    ListNode *root = ConstructList(head);
+    ListNode *root = List::ConstructList(head);
 
     Solution sl;
     root = sl.DeleteDuplicates(root);
 
     ExpectEqList(root, output);
-    FreeList(root);
+    List::FreeList(root);
 }
 
 TEST(t0, t2) {
@@ -151,13 +130,13 @@ TEST(t0, t2) {
     */
 
     std::vector<int> output{2, 3};
-    ListNode *root = ConstructList(head);
+    ListNode *root = List::ConstructList(head);
 
     Solution sl;
     root = sl.DeleteDuplicates(root);
 
     ExpectEqList(root, output);
-    FreeList(root);
+    List::FreeList(root);
 }
 
 int main(int argc, char *argv[]) {

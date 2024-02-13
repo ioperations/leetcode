@@ -11,6 +11,7 @@ Return the number of good nodes in the binary tree.
 #include <functional>
 
 #include "datastruct_base.hh"
+using namespace Tree;
 
 class Solution {
    public:

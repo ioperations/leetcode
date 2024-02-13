@@ -9,14 +9,10 @@ from the beginning and the kth node from the end (the list is 1-indexed).
 */
 
 #include <iostream>
+
+#include "datastruct_base.hh"
 //* Definition for singly-linked list.
-struct ListNode {
-    int val;
-    ListNode *next;
-    ListNode() : val(0), next(nullptr) {}
-    ListNode(int x) : val(x), next(nullptr) {}
-    ListNode(int x, ListNode *next) : val(x), next(next) {}
-};
+using ListNode = List::ListNode<int>;
 
 class Solution {
    public:
@@ -48,23 +44,6 @@ class Solution {
 #include <gtest/gtest.h>
 
 #include <iostream>
-ListNode *ConstuctList(const std::vector<int> &elemets) {
-    ListNode head;
-    ListNode *tail = &head;
-    for (auto &pt : elemets) {
-        tail->next = new ListNode(pt);
-        tail = tail->next;
-    }
-    return head.next;
-}
-
-void FreeList(ListNode *head) {
-    if (head == nullptr) {
-        return;
-    }
-    FreeList(head->next);
-    delete head;
-}
 
 void ExpectEqList(ListNode *const head, const std::vector<int> &elements) {
     int i = 0;
@@ -78,9 +57,9 @@ void ExpectEqList(ListNode *const head, const std::vector<int> &elements) {
     EXPECT_EQ(i, elements.size());
 }
 TEST(memleak, t1) {
-    ListNode *head = ConstuctList(std::vector<int>{3, 2, 0, -4});
+    ListNode *head = List::ConstructList(std::vector<int>{3, 2, 0, -4});
 
-    FreeList(head);
+    List::FreeList(head);
 }
 
 #include <gtest/gtest.h>
@@ -91,48 +70,48 @@ TEST(t0, t1) {
     std::vector<int> v{1, 2, 3, 4, 5};
     int k = 2;
 
-    ListNode *head = ConstuctList(v);
+    ListNode *head = List::ConstructList(v);
     Solution sl;
     head = sl.SwapNodes(head, k);
 
     ExpectEqList(head, std::vector<int>{1, 4, 3, 2, 5});
-    FreeList(head);
+    List::FreeList(head);
 }
 
 TEST(t0, t2) {
     std::vector<int> v{7, 9, 6, 6, 7, 8, 3, 0, 9, 5};
     int k = 5;
 
-    ListNode *head = ConstuctList(v);
+    ListNode *head = List::ConstructList(v);
     Solution sl;
     head = sl.SwapNodes(head, k);
 
     ExpectEqList(head, std::vector<int>{7, 9, 6, 6, 8, 7, 3, 0, 9, 5});
-    FreeList(head);
+    List::FreeList(head);
 }
 
 TEST(t0, t3) {
     std::vector<int> v{1, 2};
     int k = 1;
 
-    ListNode *head = ConstuctList(v);
+    ListNode *head = List::ConstructList(v);
     Solution sl;
     head = sl.SwapNodes(head, k);
 
     ExpectEqList(head, std::vector<int>{2, 1});
-    FreeList(head);
+    List::FreeList(head);
 }
 
 TEST(t0, t4) {
     std::vector<int> v{1, 2};
     int k = 2;
 
-    ListNode *head = ConstuctList(v);
+    ListNode *head = List::ConstructList(v);
     Solution sl;
     head = sl.SwapNodes(head, k);
 
     ExpectEqList(head, std::vector<int>{2, 1});
-    FreeList(head);
+    List::FreeList(head);
 }
 
 int main(int argc, char *argv[]) {

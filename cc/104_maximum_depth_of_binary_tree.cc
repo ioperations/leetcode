@@ -12,6 +12,7 @@ the root node down to the farthest leaf node.
 //* Definition for a binary tree node.
 #include "datastruct_base.hh"
 
+using namespace Tree;
 class Solution {
    public:
     template <typename T>

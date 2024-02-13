@@ -16,6 +16,7 @@
 #include <cstdlib>
 
 #include "datastruct_base.hh"
+using namespace Tree;
 
 class Solution {
    public:

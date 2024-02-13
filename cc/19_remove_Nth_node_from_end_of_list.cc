@@ -6,14 +6,9 @@ Given the head of a linked list, remove the nth node from the end of the list
 and return its head.
 */
 
+#include "datastruct_base.hh"
 //* Definition for singly-linked list.
-struct ListNode {
-    int val;
-    ListNode *next;
-    ListNode() : val(0), next(nullptr) {}
-    ListNode(int x) : val(x), next(nullptr) {}
-    ListNode(int x, ListNode *next) : val(x), next(next) {}
-};
+using ListNode = List::ListNode<int>;
 
 class Solution {
    public:
@@ -66,24 +61,6 @@ class Solution {
 
 #include <iostream>
 #include <vector>
-ListNode *ConstuctList(const std::vector<int> &elemets) {
-    ListNode head;
-    ListNode *tail = &head;
-    for (auto &pt : elemets) {
-        tail->next = new ListNode(pt);
-        tail = tail->next;
-    }
-    return head.next;
-}
-
-void FreeList(ListNode *head) {
-    if (head == nullptr) {
-        return;
-    }
-    FreeList(head->next);
-    delete head;
-}
-
 void ExpectEqList(ListNode *const head, const std::vector<int> &elements) {
     int i = 0;
     ListNode *m_head = head;
@@ -104,32 +81,32 @@ TEST(t0, t1) {
     const std::vector<int> v{1, 2, 3, 4, 5};
     const int n = 2;
 
-    ListNode *head = ConstuctList(v);
+    ListNode *head = List::ConstructList(v);
     Solution sl;
     head = sl.RemoveNthFromEnd(head, n);
     ExpectEqList(head, std::vector<int>{1, 2, 3, 5});
-    FreeList(head);
+    List::FreeList(head);
 }
 TEST(t0, t2) {
     const std::vector<int> v{1};
     const int n = 1;
 
-    ListNode *head = ConstuctList(v);
+    ListNode *head = List::ConstructList(v);
     Solution sl;
     head = sl.RemoveNthFromEnd(head, n);
     ExpectEqList(head, std::vector<int>{});
-    FreeList(head);
+    List::FreeList(head);
 }
 
 TEST(t0, t3) {
     const std::vector<int> v{1, 2};
     const int n = 1;
 
-    ListNode *head = ConstuctList(v);
+    ListNode *head = List::ConstructList(v);
     Solution sl;
     head = sl.RemoveNthFromEnd(head, n);
     ExpectEqList(head, std::vector<int>{1});
-    FreeList(head);
+    List::FreeList(head);
 }
 int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);

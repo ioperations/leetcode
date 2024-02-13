@@ -13,6 +13,8 @@ Given an integer array nums,
 
 #include <algorithm>
 #include <vector>
+#include "datastruct_base.hh"
+
 using namespace std;
 
 class Solution {
@@ -111,39 +113,6 @@ class Solution {
         }
 
         return ret;
-    }
-
-   public:
-    struct ListNode {
-        int position;
-        int val;
-        struct ListNode *next;
-        ListNode() : position(), val(), next(nullptr) {}
-        ListNode(int position, int val, struct ListNode *next)
-            : position(position), val(val), next(next) {}
-
-        ListNode(int position, int val)
-            : position(position), val(val), next(nullptr) {}
-
-        ListNode(struct ListNode *next) : position(), val(), next(next) {}
-    };
-
-    ListNode *ConstructList(std::vector<int> &nums) {
-        struct ListNode head;
-        struct ListNode *tail = &head;
-        for (size_t i = 0; i < nums.size(); i++) {
-            tail->next = new ListNode(i, nums[i]);
-            tail = tail->next;
-        }
-        return head.next;
-    }
-
-    void FreeList(ListNode *head) {
-        if (head == nullptr) {
-            return;
-        }
-        FreeList(head->next);
-        delete head;
     }
 };
 

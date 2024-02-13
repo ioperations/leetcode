@@ -9,26 +9,11 @@
 #include <queue>
 #include <vector>
 
+#include "datastruct_base.hh"
+using namespace List;
 using namespace std;
 
-template <typename T>
-class ListNodeTemplate {
-   public:
-    T val;
-    ListNodeTemplate<T> *next;
-    ListNodeTemplate() : val(), next(nullptr) {}
-    ListNodeTemplate(T x) : val(x), next(nullptr) {}
-    ListNodeTemplate(T x, ListNodeTemplate<T> *next) : val(x), next(next) {}
-};
-
-// Definition for singly-linked list.
-struct ListNode {
-    int val;
-    ListNode *next;
-    ListNode() : val(0), next(nullptr) {}
-    ListNode(int x) : val(x), next(nullptr) {}
-    ListNode(int x, ListNode *next) : val(x), next(next) {}
-};
+using MyListNode = List::ListNode<int>;
 
 #define inf 0x7fffffff
 class LoserTree {
@@ -113,9 +98,9 @@ class Solution {
         return ans;
     }
 
-    ListNode *MergeTwoLists(ListNode *a, ListNode *b) {
+    MyListNode *MergeTwoLists(MyListNode *a, MyListNode *b) {
         if ((!a) || (!b)) return a ? a : b;
-        ListNode head, *tail = &head, *a_ptr = a, *b_ptr = b;
+        MyListNode head, *tail = &head, *a_ptr = a, *b_ptr = b;
         while (a_ptr && b_ptr) {
             if (a_ptr->val < b_ptr->val) {
                 tail->next = a_ptr;
@@ -130,8 +115,8 @@ class Solution {
         return head.next;
     }
 
-    ListNode *MergeKListsv1(vector<ListNode *> &lists) {
-        ListNode *ans = nullptr;
+    MyListNode *MergeKListsv1(vector<MyListNode *> &lists) {
+        MyListNode *ans = nullptr;
         for (size_t i = 0; i < lists.size(); ++i) {
             ans = MergeTwoLists(ans, lists[i]);
         }
@@ -140,18 +125,18 @@ class Solution {
 
     struct Status {
         int val;
-        ListNode *ptr;
+        MyListNode *ptr;
         bool operator<(const Status &rhs) const { return val > rhs.val; }
     };
 
     std::priority_queue<Status> q;
 
     //  最小堆实现k路归并排序
-    ListNode *MergeKListsPriorityQueue(std::vector<ListNode *> &lists) {
+    MyListNode *MergeKListsPriorityQueue(std::vector<MyListNode *> &lists) {
         for (auto *node : lists) {
             if (node) q.push({node->val, node});
         }
-        ListNode head, *tail = &head;
+        MyListNode head, *tail = &head;
         while (!q.empty()) {
             auto f = q.top();
             q.pop();
@@ -164,22 +149,22 @@ class Solution {
 
     ///* k路归并排序 升序
     ///* 听说用最小堆,还可以用败者树
-    ListNode *MergeKLists(vector<ListNode *> &lists) {
+    MyListNode *MergeKLists(vector<MyListNode *> &lists) {
         // 我们记录这一路 走到了什么位置
-        std::vector<ListNode *> cursors;
+        std::vector<MyListNode *> cursors;
 
         cursors = lists;
 
         // 对于每一路我们拿出值最小的那个值(这个node !=
         // nullptr)，并将这一路的游标向右移动一格
 
-        ListNode *head = nullptr;
-        ListNode *pre;
+        MyListNode *head = nullptr;
+        MyListNode *pre;
 
         int first = true;
 
         while (true) {
-            ListNode *candidate =
+            MyListNode *candidate =
                 nullptr;  // 所以现在的问题是怎样确定这个candidate
             const int val = std::numeric_limits<int>::max();
             for (auto &cur_cursor : cursors) {
@@ -211,119 +196,32 @@ class Solution {
         return head;
     }
 };
-
-ListNode *ConstructList(std::vector<int> &elemenets) {
-    ListNode *head = nullptr;
-    ListNode *pre;
-    ListNode *now;
-
-    bool first = true;
-
-    for (auto &ptr : elemenets) {
-        now = new ListNode(ptr);
-        if (first) {
-            head = now;
-            pre = head;
-            first = false;
-        } else {
-            pre->next = now;
-            pre = pre->next;
-        }
-    }
-
-    return head;
-}
-
-/**
- * @brief 更加简单的方式从一个数组当中来创建一个list
- * @param @elemenets 要创建的list的数组
- * @return 链表的头，用户需要free掉
- */
-ListNode *ConstructListV2(std::vector<int> &elemenets) {
-    ListNode head;
-    ListNode *tail = &head;
-
-    for (auto &ptr : elemenets) {
-        tail->next = new ListNode(ptr);
-        tail = tail->next;
-    }
-
-    return head.next;
-}
-
-/**
- * @brief 更加简单的方式从一个数组当中来创建一个list 模版化
- * @param @elements 要创建的list的数组
- * @return  链表的头，用户需要free掉
- */
-template <typename T>
-ListNodeTemplate<T> *ConstructListV3(std::vector<T> &elements) {
-    ListNodeTemplate<T> head;
-    ListNodeTemplate<T> *tail = &head;
-
-    for (auto &ptr : elements) {
-        tail->next = new ListNodeTemplate<T>(ptr);
-        tail = tail->next;
-    }
-
-    return head.next;
-}
-
-/**
- * @brief 释放掉链表的内存
- * @param @list 链表的头
- * @return nil
- */
-template <typename T>
-void FreeListListTemplate(ListNodeTemplate<T> *list) {
-    if (list == nullptr) {
-        return;
-    }
-    FreeListListTemplate(list->next);
-    delete list;
-    list = nullptr;
-}
-
-/**
- * @brief 释放掉链表的内存
- * @param @list 链表的头
- * @return nil
- */
-void FreeListList(ListNode *list) {
-    if (list == nullptr) {
-        return;
-    }
-    FreeListList(list->next);
-    delete list;
-    list = nullptr;
-}
-
 #include <gtest/gtest.h>
 
 #include <iostream>
 
 TEST(memleak, t1) {
-    ListNode *n1 = new ListNode(1);
-    ListNode *n2 = new ListNode(3);
-    ListNode *n3 = new ListNode(4);
+    MyListNode *n1 = new MyListNode(1);
+    MyListNode *n2 = new MyListNode(3);
+    MyListNode *n3 = new MyListNode(4);
     n1->next = n2;
     n2->next = n3;
 
-    FreeListList(n1);
+    FreeList(n1);
 }
 
 TEST(memleak, t2) {
     std::vector<int> list1{1, 4, 5};
 
-    ListNode *n1 = ConstructListV2(list1);
-    FreeListList(n1);
+    MyListNode *n1 = ConstructList(list1);
+    FreeList(n1);
 }
 
 TEST(memleak, t3) {
     std::vector<int> list1{1, 4, 5};
 
-    ListNodeTemplate<int> *n1 = ConstructListV3<int>(list1);
-    FreeListListTemplate(n1);
+    MyListNode* n1 = ConstructList<int>(list1);
+    FreeList(n1);
 }
 
 TEST(t1, t1_1) {
@@ -333,22 +231,22 @@ TEST(t1, t1_1) {
     std::vector<int> list2{1, 3, 4};
     std::vector<int> list3{2, 6};
 
-    ListNode *n1 = ConstructList(list1);
-    ListNode *n2 = ConstructList(list2);
-    ListNode *n3 = ConstructList(list3);
+    MyListNode *n1 = ConstructList(list1);
+    MyListNode *n2 = ConstructList(list2);
+    MyListNode *n3 = ConstructList(list3);
 
-    std::vector<ListNode *> merge_list{n1, n2, n3};
+    std::vector<MyListNode *> merge_list{n1, n2, n3};
 
     Solution s;
     // 1->1->2->3->4->4->5->6
     auto *ret = s.MergeKListsv1(merge_list);
 
-    FreeListList(ret);
+    FreeList(ret);
 }
 
-void ExpectEqList(ListNode *list, const std::vector<int> &elemets) {
+void ExpectEqList(MyListNode *list, const std::vector<int> &elemets) {
     int count = 0;
-    ListNode *ptr = list;
+    MyListNode *ptr = list;
     while (ptr != nullptr) {
         EXPECT_EQ(ptr->val, elemets[count]);
         ptr = ptr->next;
@@ -363,11 +261,11 @@ TEST(t1, priority_queue) {
     std::vector<int> list2{1, 3, 4};
     std::vector<int> list3{2, 6};
 
-    ListNode *n1 = ConstructList(list1);
-    ListNode *n2 = ConstructList(list2);
-    ListNode *n3 = ConstructList(list3);
+    MyListNode *n1 = ConstructList(list1);
+    MyListNode *n2 = ConstructList(list2);
+    MyListNode *n3 = ConstructList(list3);
 
-    std::vector<ListNode *> merge_list{n1, n2, n3};
+    std::vector<MyListNode *> merge_list{n1, n2, n3};
 
     Solution s;
     // 1->1->2->3->4->4->5->6
@@ -375,14 +273,14 @@ TEST(t1, priority_queue) {
 
     std::vector<int> expected{1, 1, 2, 3, 4, 4, 5, 6};
     ExpectEqList(ret, expected);
-    FreeListList(ret);
+    FreeList(ret);
 }
 
 TEST(t1, null) {
     /// Input: lists = [[1,4,5],[1,3,4],[2,6]]
     /// Output: [1,1,2,3,4,4,5,6]
 
-    std::vector<ListNode *> merge_list{};
+    std::vector<MyListNode *> merge_list{};
 
     Solution s;
     auto *ret = s.MergeKLists(merge_list);
@@ -396,15 +294,15 @@ TEST(t1, null2) {
     /// Output: [1,1,2,3,4,4,5,6]
     std::vector<int> list1{};
 
-    ListNode *n1 = ConstructList(list1);
-    std::vector<ListNode *> merge_list{n1};
+    MyListNode *n1 = ConstructList(list1);
+    std::vector<MyListNode *> merge_list{n1};
 
     Solution s;
     auto *ret = s.MergeKLists(merge_list);
 
     EXPECT_EQ(ret, nullptr);
 
-    FreeListList(n1);
+    FreeList(n1);
 }
 
 int main(int argc, char *argv[]) {

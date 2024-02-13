@@ -13,6 +13,7 @@ and the answer must be a reference to a node in the cloned tree.*/
 
 //* Definition for a binary tree node.
 #include "datastruct_base.hh"
+using namespace Tree;
 
 template <typename T>
 TreeNode<T> *FindNodeInBinaryTree(TreeNode<T> *head, int target) {

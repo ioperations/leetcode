@@ -3,6 +3,7 @@
 // https://pvs-studio.com
 //* Definition for a binary tree node.
 #include "datastruct_base.hh"
+using namespace Tree;
 
 class Solution {
    public:

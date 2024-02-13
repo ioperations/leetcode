@@ -10,6 +10,7 @@
 
 #include "datastruct_base.hh"
 
+using namespace Tree;
 using namespace std;
 class Solution {
    public:

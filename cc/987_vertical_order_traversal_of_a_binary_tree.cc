@@ -24,6 +24,7 @@ Return the vertical order traversal of the binary tree.*/
 #include "datastruct_base.hh"
 
 using namespace std;
+using namespace Tree;
 
 struct Mystruct {
     int val;

@@ -1,3 +1,9 @@
+#pragma once
+#include <iostream>
+#include <queue>
+
+namespace Tree {
+
 template<typename T>
 struct TreeNode {
     T val;
@@ -8,12 +14,6 @@ struct TreeNode {
     TreeNode(T x, TreeNode *left, TreeNode *right)
         : val(x), left(left), right(right) {}
 };
-
-#include <iostream>
-#include <optional>
-#include <queue>
-#include <string>
-#include <vector>
 
 template <typename T>
 TreeNode<T> *AddToRoot(TreeNode<T> *root, int val) {
@@ -209,4 +209,50 @@ TreeNode<T> *ConstructRight(const std::vector<T> &arr) {
     }
 
     return node.right;
+}
+}
+
+namespace List {
+
+template<typename T>
+struct ListNode {
+    T val;
+    ListNode *next;
+    ListNode() : val(T()), next(nullptr) {}
+    ListNode(T x) : val(x), next(nullptr) {}
+    ListNode(T x, ListNode *next) : val(x), next(next) {}
+};
+
+/**
+ * @brief 更加简单的方式从一个数组当中来创建一个list 模版化
+ * @param @elements 要创建的list的数组
+ * @return  链表的头，用户需要free掉
+ */
+template <typename T>
+ListNode<T> *ConstructList(const std::vector<T> &elements) {
+    ListNode<T> head;
+    ListNode<T> *tail = &head;
+
+    for (auto &ptr : elements) {
+        tail->next = new ListNode<T>(ptr);
+        tail = tail->next;
+    }
+
+    return head.next;
+}
+
+/**
+ * @brief 释放掉链表的内存
+ * @param @list 链表的头
+ * @return nil
+ */
+template <typename T>
+void FreeList(ListNode<T> *list) {
+    if (list == nullptr) {
+        return;
+    }
+    FreeList(list->next);
+    delete list;
+    list = nullptr;
+}
 }

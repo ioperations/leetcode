@@ -14,14 +14,10 @@ You must solve the problem in O(1) extra space complexity and O(n) time
 complexity.
 */
 
-// Definition for singly-linked list.
-struct ListNode {
-    int val;
-    ListNode *next;
-    ListNode() : val(0), next(nullptr) {}
-    ListNode(int x) : val(x), next(nullptr) {}
-    ListNode(int x, ListNode *next) : val(x), next(next) {}
-};
+#include "datastruct_base.hh"
+// Definition for singly-linked lis
+using ListNode = List::ListNode<int>;
+
 
 class Solution {
    public:
@@ -102,24 +98,6 @@ class Solution {
 
 #include <iostream>
 #include <vector>
-ListNode *ConstuctList(const std::vector<int> &elemets) {
-    ListNode head;
-    ListNode *tail = &head;
-    for (auto &pt : elemets) {
-        tail->next = new ListNode(pt);
-        tail = tail->next;
-    }
-    return head.next;
-}
-
-void FreeList(ListNode *head) {
-    if (head == nullptr) {
-        return;
-    }
-    FreeList(head->next);
-    delete head;
-}
-
 void ExpectEqList(ListNode *const head, const std::vector<int> &elements) {
     int i = 0;
     ListNode *m_head = head;
@@ -147,13 +125,13 @@ TEST(t0, t1) {
         |___|    |___|     |___|      |___|     |___|
 
     */
-    ListNode *head = ConstuctList(v);
+    ListNode *head = List::ConstructList(v);
 
     Solution sl;
     head = sl.OddEvenListV1(head);
 
     ExpectEqList(head, ex);
-    FreeList(head);
+    List::FreeList(head);
 }
 
 TEST(t0, t2) {
@@ -170,13 +148,13 @@ TEST(t0, t2) {
         |___|    |___|     |___|      |___|     |___|      |___|     |___|
     */
 
-    ListNode *head = ConstuctList(v);
+    ListNode *head = List::ConstructList(v);
 
     Solution sl;
     head = sl.OddEvenListV1(head);
 
     ExpectEqList(head, ex);
-    FreeList(head);
+    List::FreeList(head);
 }
 
 TEST(t1, t1) {
@@ -194,13 +172,13 @@ TEST(t1, t1) {
         |___|    |___|     |___|      |___|     |___|
 
     */
-    ListNode *head = ConstuctList(v);
+    ListNode *head = List::ConstructList(v);
 
     Solution sl;
     head = sl.OddEvenList(head);
 
     ExpectEqList(head, ex);
-    FreeList(head);
+    List::FreeList(head);
 }
 
 TEST(t1, t2) {
@@ -217,13 +195,13 @@ TEST(t1, t2) {
         |___|    |___|     |___|      |___|     |___|      |___|     |___|
     */
 
-    ListNode *head = ConstuctList(v);
+    ListNode *head = List::ConstructList(v);
 
     Solution sl;
     head = sl.OddEvenList(head);
 
     ExpectEqList(head, ex);
-    FreeList(head);
+    List::FreeList(head);
 }
 int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);

@@ -24,6 +24,8 @@ least a next number in the in-order traversal when next() is called.
 
 #include "datastruct_base.hh"
 
+using namespace Tree;
+
 template <typename T>
 class BSTIterator {
    private:

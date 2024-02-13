@@ -6,14 +6,9 @@
 Given the head of a singly linked list, return true if it is a palindrome.
 */
 
+#include "datastruct_base.hh"
 //* Definition for singly-linked list.
-struct ListNode {
-    int val;
-    ListNode *next;
-    ListNode() : val(0), next(nullptr) {}
-    ListNode(int x) : val(x), next(nullptr) {}
-    ListNode(int x, ListNode *next) : val(x), next(next) {}
-};
+using ListNode = List::ListNode<int>;
 
 #include <vector>
 
@@ -108,23 +103,6 @@ class Solution {
 
 #include <iostream>
 #include <vector>
-ListNode *ConstuctList(const std::vector<int> &elemets) {
-    ListNode head;
-    ListNode *tail = &head;
-    for (auto &pt : elemets) {
-        tail->next = new ListNode(pt);
-        tail = tail->next;
-    }
-    return head.next;
-}
-
-void FreeList(ListNode *head) {
-    if (head == nullptr) {
-        return;
-    }
-    FreeList(head->next);
-    delete head;
-}
 
 void ExpectEqList(ListNode *const head, const std::vector<int> &elements) {
     int i = 0;
@@ -143,13 +121,13 @@ void ExpectEqList(ListNode *const head, const std::vector<int> &elements) {
 #include <iostream>
 
 TEST(t0, t1) {
-    ListNode *head = ConstuctList(std::vector<int>{1, 2, 2, 1});
+    ListNode *head = List::ConstructList(std::vector<int>{1, 2, 2, 1});
 
     Solution s;
     bool ret = s.IsPalindrome(head);
     EXPECT_EQ(ret, true);
 
-    FreeList(head);
+    List::FreeList(head);
 }
 
 TEST(t1, t1) {
@@ -167,13 +145,13 @@ TEST(t1, t1) {
 }
 
 TEST(t0, t2) {
-    ListNode *head = ConstuctList(std::vector<int>{1, 2});
+    ListNode *head = List::ConstructList(std::vector<int>{1, 2});
 
     Solution s;
     bool ret = s.IsPalindrome(head);
     EXPECT_EQ(ret, false);
 
-    FreeList(head);
+    List::FreeList(head);
 }
 
 TEST(t1, t2) {

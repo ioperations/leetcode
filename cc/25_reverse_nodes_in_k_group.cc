@@ -16,13 +16,9 @@ changed.
 */
 
 //* Definition for singly-linked list.
-struct ListNode {
-    int val;
-    ListNode *next;
-    ListNode() : val(0), next(nullptr) {}
-    ListNode(int x) : val(x), next(nullptr) {}
-    ListNode(int x, ListNode *next) : val(x), next(next) {}
-};
+#include "datastruct_base.hh"
+
+using ListNode = List::ListNode<int>;
 class Solution {
    public:
     ListNode *ReverseKGroup(ListNode *head, int k) {
@@ -83,24 +79,6 @@ class Solution {
 #include <iostream>
 #include <vector>
 
-ListNode *ConstuctList(const std::vector<int> &elemets) {
-    ListNode head;
-    ListNode *tail = &head;
-    for (auto &pt : elemets) {
-        tail->next = new ListNode(pt);
-        tail = tail->next;
-    }
-    return head.next;
-}
-
-void FreeList(ListNode *head) {
-    if (head == nullptr) {
-        return;
-    }
-    FreeList(head->next);
-    delete head;
-}
-
 void ExpectEqList(ListNode *const head, const std::vector<int> &elements) {
     int i = 0;
     ListNode *m_head = head;
@@ -115,18 +93,18 @@ void ExpectEqList(ListNode *const head, const std::vector<int> &elements) {
 
 TEST(memleak, t0) {
     std::vector<int> head = {1, 2, 3, 4, 5};
-    ListNode *root = ConstuctList(head);
+    ListNode *root = List::ConstructList(head);
 
     std::vector<int> expect = {1, 2, 3, 4, 5};
 
     ExpectEqList(root, expect);
-    FreeList(root);
+    List::FreeList(root);
 }
 
 TEST(t0, t0) {
     std::vector<int> head = {1, 2, 3, 4, 5};
     int k = 2;
-    ListNode *root = ConstuctList(head);
+    ListNode *root = List::ConstructList(head);
 
     Solution s;
     root = s.ReverseKGroup(root, k);
@@ -134,14 +112,14 @@ TEST(t0, t0) {
     std::vector<int> expect = {2, 1, 4, 3, 5};
 
     ExpectEqList(root, expect);
-    FreeList(root);
+    List::FreeList(root);
 }
 
 TEST(t0, t1) {
     std::vector<int> head = {1, 2, 3, 4, 5};
     int k = 3;
     std::vector<int> expect = {3, 2, 1, 4, 5};
-    ListNode *root = ConstuctList(head);
+    ListNode *root = List::ConstructList(head);
 
     Solution s;
     root = s.ReverseKGroup(root, k);
@@ -149,14 +127,14 @@ TEST(t0, t1) {
     ExpectEqList(root, expect);
 
     // Output: [2,1,4,3,5]
-    FreeList(root);
+    List::FreeList(root);
 }
 
 TEST(t0, t2) {
     std::vector<int> head = {1, 2, 3, 4, 5};
     int k = 1;
     std::vector<int> expect = {1, 2, 3, 4, 5};
-    ListNode *root = ConstuctList(head);
+    ListNode *root = List::ConstructList(head);
 
     Solution s;
     root = s.ReverseKGroup(root, k);
@@ -164,7 +142,7 @@ TEST(t0, t2) {
     ExpectEqList(root, expect);
 
     // Output: [2,1,4,3,5]
-    FreeList(root);
+    List::FreeList(root);
 }
 int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);

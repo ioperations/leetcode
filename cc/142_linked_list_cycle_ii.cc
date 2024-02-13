@@ -13,12 +13,9 @@ Note that pos is not passed as a parameter.
 Return true if there is a cycle in the linked list. Otherwise, return false
 */
 //* Definition for singly-linked list.
-struct ListNode {
-    int val;
-    ListNode *next;
-    ListNode() : val(), next(nullptr) {}
-    ListNode(int x) : val(x), next(nullptr) {}
-};
+#include "datastruct_base.hh"
+
+using ListNode = List::ListNode<int>;
 
 class Solution {
    public:
@@ -48,37 +45,8 @@ class Solution {
 
 #include <gtest/gtest.h>
 
-ListNode *ConstuctList(const std::vector<int> &elemets) {
-    ListNode head;
-    ListNode *tail = &head;
-    for (auto &pt : elemets) {
-        tail->next = new ListNode(pt);
-        tail = tail->next;
-    }
-    return head.next;
-}
-
-void FreeList(ListNode *head) {
-    if (head == nullptr) {
-        return;
-    }
-    FreeList(head->next);
-    delete head;
-}
-
-void ExpectEqList(ListNode *const head, const std::vector<int> &elements) {
-    int i = 0;
-    ListNode *m_head = head;
-
-    while (m_head != nullptr) {
-        EXPECT_EQ(m_head->val, elements[i]);
-        m_head = m_head->next;
-        i++;
-    }
-    EXPECT_EQ(i, elements.size());
-}
 TEST(memleak, t1) {
-    ListNode *head = ConstuctList(std::vector<int>{3, 2, 0, -4});
+    ListNode *head = List::ConstructList(std::vector<int>{3, 2, 0, -4});
 
     FreeList(head);
 }
@@ -100,7 +68,7 @@ TEST(t0, t1) {
 
     */
 
-    ListNode *head = ConstuctList(std::vector<int>{3, 2, 0, -4});
+    ListNode *head = List::ConstructList(std::vector<int>{3, 2, 0, -4});
 
     ListNode *it = head;
     ListNode *it2 = head;
@@ -132,7 +100,7 @@ TEST(t0, t2) {
          |-------------------|
     */
 
-    ListNode *head = ConstuctList(std::vector<int>{1, 2});
+    ListNode *head = List::ConstructList(std::vector<int>{1, 2});
 
     ListNode *it = head;
     ListNode *it2 = head;
@@ -159,7 +127,7 @@ TEST(t0, t3) {
         |___|
 
     */
-    ListNode *head = ConstuctList(std::vector<int>{1});
+    ListNode *head = List::ConstructList(std::vector<int>{1});
 
     Solution s;
     ListNode *ret = s.DetectCycle(head);
@@ -169,7 +137,7 @@ TEST(t0, t3) {
 }
 
 TEST(t0, t4) {
-    ListNode *head = ConstuctList(std::vector<int>{});
+    ListNode *head = List::ConstructList(std::vector<int>{});
 
     Solution s;
     ListNode *ret = s.DetectCycle(head);

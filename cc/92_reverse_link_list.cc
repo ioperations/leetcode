@@ -1,15 +1,9 @@
+#include "datastruct_base.hh"
 // This is a personal academic project. Dear PVS-Studio, please check it.
 // PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
 // https://pvs-studio.com
 //* Definition for singly-linked list.
-struct ListNode {
-    int val;
-    ListNode *next;
-    ListNode() : val(0), next(nullptr) {}
-    ListNode(int x) : val(x), next(nullptr) {}
-    ListNode(int x, ListNode *next) : val(x), next(next) {}
-};
-
+using ListNode = List::ListNode<int>;
 /*
    ____       ____        ____       ____         ____
   |    |     |    |      |    |     |    |       |    |
@@ -112,24 +106,6 @@ class Solution {
 
 #include <iostream>
 #include <vector>
-ListNode *ConstuctList(const std::vector<int> &elemets) {
-    ListNode head;
-    ListNode *tail = &head;
-    for (auto &pt : elemets) {
-        tail->next = new ListNode(pt);
-        tail = tail->next;
-    }
-    return head.next;
-}
-
-void FreeList(ListNode *head) {
-    if (head == nullptr) {
-        return;
-    }
-    FreeList(head->next);
-    delete head;
-}
-
 void ExpectEqList(ListNode *const head, const std::vector<int> &elements) {
     int i = 0;
     ListNode *m_head = head;
@@ -145,56 +121,56 @@ void ExpectEqList(ListNode *const head, const std::vector<int> &elements) {
 TEST(t1, t0) {
     // head = [1,2,3,4,5], left = 2, right = 4 Output: [1,4,3,2,5]
 
-    ListNode *head = ConstuctList(std::vector<int>{1, 2, 3, 4, 5});
+    ListNode *head = List::ConstructList(std::vector<int>{1, 2, 3, 4, 5});
     Solution s;
     head = s.ReverseList(head);
     ExpectEqList(head, {5, 4, 3, 2, 1});
 
-    FreeList(head);
+    List::FreeList(head);
 }
 
 TEST(t1, t1) {
     // , 2, 4
 
-    ListNode *head = ConstuctList(std::vector<int>{1, 2, 3, 4, 5});
+    ListNode *head = List::ConstructList(std::vector<int>{1, 2, 3, 4, 5});
     Solution s;
     head = s.ReverseBetween(head, 2, 4);
     ExpectEqList(head, {1, 4, 3, 2, 5});
 
-    FreeList(head);
+    List::FreeList(head);
 }
 
 TEST(t1, t2) {
     // , 2, 4
 
-    ListNode *head = ConstuctList(std::vector<int>{5});
+    ListNode *head = List::ConstructList(std::vector<int>{5});
     Solution s;
     head = s.ReverseBetween(head, 1, 1);
     ExpectEqList(head, {5});
 
-    FreeList(head);
+    List::FreeList(head);
 }
 
 TEST(t1, t3) {
     // , 2, 4
 
-    ListNode *head = ConstuctList(std::vector<int>{3, 5});
+    ListNode *head = List::ConstructList(std::vector<int>{3, 5});
     Solution s;
     head = s.ReverseBetween(head, 1, 2);
     ExpectEqList(head, {5, 3});
 
-    FreeList(head);
+    List::FreeList(head);
 }
 TEST(t1, t4) {
     // , 2, 4
 
-    ListNode *head = ConstuctList(std::vector<int>{1, 2, 3});
+    ListNode *head = List::ConstructList(std::vector<int>{1, 2, 3});
     Solution s;
     head = s.ReverseBetween(head, 3, 3);
 
     ExpectEqList(head, {1, 2, 3});
 
-    FreeList(head);
+    List::FreeList(head);
 }
 
 int main(int argc, char *argv[]) {

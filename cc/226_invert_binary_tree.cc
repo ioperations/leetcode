@@ -8,6 +8,7 @@
 #include <utility>
 
 #include "datastruct_base.hh"
+using namespace Tree;
 
 class Solution {
    private:

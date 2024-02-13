@@ -10,13 +10,10 @@ It is guaranteed that the node to be deleted is not a tail node in the list.
  */
 #include <iostream>
 
+#include "datastruct_base.hh"
+
 // Definition for singly-linked list.
-struct ListNode {
-    int val;
-    ListNode *next;
-    ListNode() : val(), next(nullptr) {}
-    ListNode(int x) : val(x), next(nullptr) {}
-};
+using ListNode  = List::ListNode<int>;
 
 class Solution {
    public:
@@ -43,23 +40,6 @@ class Solution {
 using namespace std;
 
 #include <vector>
-ListNode *ConstuctList(const std::vector<int> &elemets) {
-    ListNode head;
-    ListNode *tail = &head;
-    for (auto &pt : elemets) {
-        tail->next = new ListNode(pt);
-        tail = tail->next;
-    }
-    return head.next;
-}
-
-void FreeList(ListNode *head) {
-    if (head == nullptr) {
-        return;
-    }
-    FreeList(head->next);
-    delete head;
-}
 
 void ExpectEqList(ListNode *const head, const std::vector<int> &elements) {
     ListNode *m_head = head;
@@ -86,13 +66,13 @@ TEST(t0, t1) {
     int node = 5;
     std::vector<int> final{4, 1, 9};
     Solution sl;
-    ListNode *head = ConstuctList(v);
+    ListNode *head = List::ConstructList(v);
     ListNode *input = FindNode(head, node);
     sl.DeleteNode(input);
 
     ExpectEqList(head, final);
 
-    FreeList(head);
+    List::FreeList(head);
 }
 
 TEST(t0, t2) {
@@ -100,13 +80,13 @@ TEST(t0, t2) {
     int node = 1;
     std::vector<int> final{4, 5, 9};
     Solution sl;
-    ListNode *head = ConstuctList(v);
+    ListNode *head = List::ConstructList(v);
     ListNode *input = FindNode(head, node);
     sl.DeleteNode(input);
 
     ExpectEqList(head, final);
 
-    FreeList(head);
+    List::FreeList(head);
 }
 int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);

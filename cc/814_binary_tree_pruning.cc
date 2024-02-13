@@ -8,6 +8,7 @@ A subtree of a node node is node plus every node that is a descendant of node.*/
 
 //* Definition for a binary tree node.
 #include "datastruct_base.hh"
+using namespace Tree;
 
 class Solution {
    public:

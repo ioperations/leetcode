@@ -13,6 +13,7 @@ values. (i.e., from left to right, level by level).
 
 #include "datastruct_base.hh"
 using namespace std;
+using namespace Tree;
 
 class Solution {
    public:

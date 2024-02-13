@@ -11,14 +11,9 @@ to x.
 For n = 1, 2, 3, 4, and 5, the middle nodes are 0, 1, 1, 2, and 2,
 respectively.*/
 
+#include "datastruct_base.hh"
 //* Definition for singly-linked list.
-struct ListNode {
-    int val;
-    ListNode *next;
-    ListNode() : val(0), next(nullptr) {}
-    ListNode(int x) : val(x), next(nullptr) {}
-    ListNode(int x, ListNode *next) : val(x), next(next) {}
-};
+using ListNode = List::ListNode<int>;
 
 /*
    ____       ____        ____       ____         ____
@@ -64,23 +59,6 @@ class Solution {
 
 #include <iostream>
 #include <vector>
-ListNode *ConstuctList(const std::vector<int> &elemets) {
-    ListNode head;
-    ListNode *tail = &head;
-    for (auto &pt : elemets) {
-        tail->next = new ListNode(pt);
-        tail = tail->next;
-    }
-    return head.next;
-}
-
-void FreeList(ListNode *head) {
-    if (head == nullptr) {
-        return;
-    }
-    FreeList(head->next);
-    delete head;
-}
 
 void ExpectEqList(ListNode *const head, const std::vector<int> &elements) {
     int i = 0;
@@ -108,12 +86,12 @@ TEST(t0, t1) {
     are written below. Since n = 7, node 3 with value 7 is the middle node,
     which is marked in red. We return the new list after removing this node.
     */
-    auto *list = ConstuctList(head);
+    auto *list = List::ConstructList(head);
 
     Solution sl;
     list = sl.DeleteMiddle(list);
     ExpectEqList(list, output);
-    FreeList(list);
+    List::FreeList(list);
 }
 
 TEST(t0, t2) {
@@ -124,12 +102,12 @@ TEST(t0, t2) {
     The above figure represents the given linked list.
     For n = 4, node 2 with value 3 is the middle node, which is marked in red.
     */
-    auto *list = ConstuctList(head);
+    auto *list = List::ConstructList(head);
 
     Solution sl;
     list = sl.DeleteMiddle(list);
     ExpectEqList(list, output);
-    FreeList(list);
+    List::FreeList(list);
 }
 
 TEST(t0, t3) {
@@ -140,12 +118,12 @@ TEST(t0, t3) {
 For n = 2, node 1 with value 1 is the middle node, which is marked in red.
 Node 0 with value 2 is the only node remaining after removing node 1.
     */
-    auto *list = ConstuctList(head);
+    auto *list = List::ConstructList(head);
 
     Solution sl;
     list = sl.DeleteMiddle(list);
     ExpectEqList(list, output);
-    FreeList(list);
+    List::FreeList(list);
 }
 
 int main(int argc, char *argv[]) {

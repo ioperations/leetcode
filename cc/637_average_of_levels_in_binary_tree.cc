@@ -13,6 +13,8 @@
 #include "datastruct_base.hh"
 
 using namespace std;
+using namespace Tree;
+
 class Solution {
    public:
     template <typename T>

@@ -10,6 +10,8 @@ changing its structure.
 #include <utility>
 
 #include "datastruct_base.hh"
+using namespace Tree;
+
 template <typename T>
 class Solution {
    public:

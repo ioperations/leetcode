@@ -15,6 +15,7 @@ relationship between the string and the original binary tree.
 
 #include "datastruct_base.hh"
 using namespace std;
+using namespace Tree;
 
 class Solution {
    public:
