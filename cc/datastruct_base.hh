@@ -211,7 +211,7 @@ TreeNode<T> *ConstructRight(const std::vector<T> &arr) {
 
     return node.right;
 }
-}
+} // namespace Tree
 
 namespace List {
 
@@ -256,4 +256,4 @@ void FreeList(ListNode<T> *list) {
     delete list;
     list = nullptr;
 }
-}
+} // namespace List

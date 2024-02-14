@@ -6,6 +6,9 @@
 
  */
 
+#include <gtest/gtest.h>
+
+#include <optional>
 #include <vector>
 
 // Definition for a binary tree node.
@@ -14,9 +17,7 @@
 using namespace std;
 using namespace Tree;
 
-
-#include<gtest/gtest.h>
-namespace { 
+namespace {
 class Solution {
    public:
     template <typename T>
@@ -43,17 +44,6 @@ class Solution {
         FindRight(root->left, ret, max_height, now_height + 1);
     }
 };
-
-#include <gtest/gtest.h>
-
-#include <algorithm>
-#include <iostream>
-#include <optional>
-#include <queue>
-#include <string>
-#include <vector>
-
-using namespace std;
 
 TEST(t0, t1) {
     vector<optional<int>> root = {
@@ -89,4 +79,4 @@ TEST(t0, t3) {
     FreeTreeNode(node);
 }
 
-}
+}  // namespace
