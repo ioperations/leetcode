@@ -17,7 +17,6 @@ first index, and each element in the array represents your maximum jump length
 at that position.
     */
 
-#include <gtest/gtest.h>
 
 namespace {
 class Solution {

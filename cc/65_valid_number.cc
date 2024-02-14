@@ -34,7 +34,6 @@ Given a string s, return true if s is a valid number.
 
 using namespace std;
 
-#include <gtest/gtest.h>
 #include <_ctype.h>
 #include <stddef.h>
 

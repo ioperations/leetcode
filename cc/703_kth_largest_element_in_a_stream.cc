@@ -19,7 +19,6 @@ and returns the element representing the kth largest element in the stream.*/
 
 using namespace std;
 
-#include <gtest/gtest.h>
 
 namespace {
 class KthLargest {

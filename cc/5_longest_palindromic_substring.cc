@@ -5,13 +5,11 @@
  * @brief 最长回文子串
  */
 
-#include <stddef.h>
 #include <string>
 
 #include "gtest/gtest.h"
 
-#include<gtest/gtest.h>
-namespace { 
+namespace {
 class Solution {
    public:
     Solution(){};

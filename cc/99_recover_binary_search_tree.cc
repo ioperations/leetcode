@@ -14,7 +14,6 @@ changing its structure.
 #include "gtest/gtest.h"
 
 using namespace Tree;
-#include <gtest/gtest.h>
 
 namespace {
 

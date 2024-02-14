@@ -21,7 +21,6 @@ may not be used more than once.
 
 using namespace std;
 
-#include <gtest/gtest.h>
 #include <stddef.h>
 
 namespace {

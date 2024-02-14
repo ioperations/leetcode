@@ -8,8 +8,7 @@
 
 using ListNode = List::ListNode<int>;
 
-#include<gtest/gtest.h>
-namespace { 
+namespace {
 class Solution {
    public:
     ListNode *AddTwoNumbers(ListNode *l1, ListNode *l2) {

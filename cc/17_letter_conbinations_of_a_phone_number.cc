@@ -18,8 +18,7 @@ below. Note that 1 does not map to any letters.
 
 using namespace std;
 
-#include<gtest/gtest.h>
-namespace { 
+namespace {
 class Solution {
    public:
     void Solve(vector<vector<char> > &v, vector<string> &ans, string digits,
@@ -94,4 +93,4 @@ TEST(t0, t3) {
     EXPECT_EQ(ret_set, expected_set);
 }
 
-}
+} // namespace

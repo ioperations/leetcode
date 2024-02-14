@@ -6,16 +6,14 @@ Given the head of a linked list, remove the nth node from the end of the list
 and return its head.
 */
 
-#include <string>
+#include <vector>
 
 #include "datastruct_base.hh"
 #include "gtest/gtest.h"
-
 //* Definition for singly-linked list.
 using ListNode = List::ListNode<int>;
 
-#include<gtest/gtest.h>
-namespace { 
+namespace {
 class Solution {
    public:
     ListNode *RemoveNthFromEnd(ListNode *head, int n) {
@@ -63,8 +61,6 @@ class Solution {
     }
 };
 
-#include <vector>
-
 void ExpectEqList(ListNode *const head, const std::vector<int> &elements) {
     int i = 0;
     ListNode *m_head = head;
@@ -110,4 +106,4 @@ TEST(t0, t3) {
     ExpectEqList(head, std::vector<int>{1});
     List::FreeList(head);
 }
-}
+} // namespace

@@ -17,8 +17,8 @@ Open brackets must be closed in the correct order.
 #include "gtest/gtest.h"
 
 using namespace std;
-#include<gtest/gtest.h>
-namespace { 
+
+namespace {
 class Solution {
    public:
     bool IsValid(string s) {
@@ -92,4 +92,4 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, output);
 }
 
-}
+} // namespace

@@ -10,15 +10,14 @@ If there is no common prefix, return an empty string "".
 
     */
 
-#include <stddef.h>
 #include <string>
 #include <vector>
 
 #include "gtest/gtest.h"
 
 using namespace std;
-#include<gtest/gtest.h>
-namespace { 
+
+namespace {
 class Solution {
    public:
     string LongestCommonPrefix(vector<string> &strs) {
@@ -56,7 +55,6 @@ class Solution {
     }
 };
 
-
 TEST(t0, t1) {
     std::vector<std::string> strs = {"flower", "flow", "flight"};
     std::string output = "fl";
@@ -77,4 +75,4 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
 }
 
-}
+}  // namespace

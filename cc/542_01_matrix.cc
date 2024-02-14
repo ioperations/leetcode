@@ -5,7 +5,6 @@ each cell.
 The distance between two adjacent cells is 1.
 */
 
-#include <gtest/gtest.h>
 
 #include <iostream>
 #include <queue>

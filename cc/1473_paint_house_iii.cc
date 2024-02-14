@@ -18,16 +18,15 @@ Return the minimum cost of painting all the remaining houses in such a way that
 there are exactly target neighborhoods. If it is not possible, return -1.*/
 
 #include <limits.h>
-#include <vector>
+
 #include <algorithm>
-#include <string>
+#include <vector>
 
 #include "gtest/gtest.h"
 
 using namespace std;
 
-#include<gtest/gtest.h>
-namespace { 
+namespace {
 class Solution {
    private:
     vector<vector<vector<int>>> mem;
@@ -80,7 +79,6 @@ class Solution {
     }
 };
 
-
 TEST(t0, t1) {
     vector<int> houses = {0, 0, 0, 0, 0};
     vector<vector<int>> cost = {{1, 10}, {10, 1}, {10, 1}, {1, 10}, {5, 1}};
@@ -118,4 +116,4 @@ TEST(t0, t3) {
     [{3},{1},{2},{3}] different of target = 3. */
     EXPECT_EQ(ret, output);
 }
-}
+}  // namespace

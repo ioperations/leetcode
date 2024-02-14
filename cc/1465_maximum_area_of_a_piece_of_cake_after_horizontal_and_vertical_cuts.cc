@@ -11,7 +11,6 @@ a piece of cake after you cut at each horizontal and vertical position provided
 in the arrays horizontalCuts and verticalCuts. Since the answer can be a large
 number, return this modulo 109 + 7.*/
 
-#include <gtest/gtest.h>
 
 #include <vector>
 using namespace std;

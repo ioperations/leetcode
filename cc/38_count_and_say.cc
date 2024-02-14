@@ -5,8 +5,7 @@
 
 #include "gtest/gtest.h"
 
-#include<gtest/gtest.h>
-namespace { 
+namespace {
 class Solution {
    public:
     std::string CountAndSay(int n) {

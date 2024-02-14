@@ -10,16 +10,15 @@ Each number in candidates may only be used once in the combination.
 Note: The solution set must not contain duplicate combinations.
 */
 
-#include <vector>
 #include <algorithm>
 #include <set>
-#include <string>
+#include <vector>
 
 #include "gtest/gtest.h"
 
 using namespace std;
-#include<gtest/gtest.h>
-namespace { 
+
+namespace {
 class Solution {
    public:
     void Find(int i, vector<vector<int>> &ans, vector<int> &v, vector<int> &arr,
@@ -46,8 +45,6 @@ class Solution {
     }
 };
 
-
-
 TEST(t0, t1) {
     std::vector<int> candidates{10, 1, 2, 7, 6, 1, 5};
     int target = 8;
@@ -70,4 +67,4 @@ TEST(t0, t2) {
     EXPECT_EQ(ret_set, out_set);
 }
 
-}
+}  // namespace

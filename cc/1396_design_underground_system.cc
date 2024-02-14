@@ -36,7 +36,6 @@ order.
 
 using namespace std;
 
-#include <gtest/gtest.h>
 
 namespace {
 class UndergroundSystem {

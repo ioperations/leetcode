@@ -21,17 +21,17 @@ The given node will always be the first node with val = 1. You must return the
 copy of the given node as a reference to the cloned graph.
 */
 
-#include <functional>
+#include <map>
 #include <memory>
 #include <queue>
 #include <unordered_map>
 #include <vector>
-#include <string>
+
+#include "gtest/gtest.h"
 
 using namespace std;
 
 // Definition for a Node.
-#include <gtest/gtest.h>
 #include <stddef.h>
 
 namespace {
@@ -108,8 +108,6 @@ class Solution {
         return visited[node].get();
     }
 };
-
-#include <map>
 
 Node *GetOrInsert(std::map<int, Node *> &map, int v) {
     if (map.find(v) == map.end()) {

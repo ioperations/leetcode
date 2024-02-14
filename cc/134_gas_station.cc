@@ -20,7 +20,6 @@ return -1. If there exists a solution, it is guaranteed to be unique
 #include "gtest/gtest.h"
 
 using namespace std;
-#include <gtest/gtest.h>
 #include <stddef.h>
 
 namespace {

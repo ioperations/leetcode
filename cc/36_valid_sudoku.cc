@@ -27,13 +27,11 @@ rules.
 */
 #include <array>
 #include <vector>
-#include <string>
 
 #include "gtest/gtest.h"
 
 using namespace std;
-#include<gtest/gtest.h>
-namespace { 
+namespace {
 class Solution {
    public:
     bool IsValidSudoku(vector<vector<char>> &board) {
@@ -98,4 +96,4 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
 }
 
-}
+} // namespace

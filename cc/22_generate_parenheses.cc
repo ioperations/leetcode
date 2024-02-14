@@ -14,8 +14,7 @@ well-formed parentheses.
 
 using namespace std;
 
-#include<gtest/gtest.h>
-namespace { 
+namespace {
 class Solution {
    public:
     vector<string> GenerateParenthesisV2(int n) {
@@ -101,4 +100,4 @@ TEST(t0, t2) {
     EXPECT_EQ(ret_set, expected_set);
 }
 
-}
+} // namespace

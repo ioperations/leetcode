@@ -25,8 +25,7 @@
 
 using namespace std;
 
-#include<gtest/gtest.h>
-namespace { 
+namespace {
 class Solution {
    public:
     int Divide(int d1, int b1) {
@@ -106,4 +105,4 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
 }
 
-}
+} // namespace

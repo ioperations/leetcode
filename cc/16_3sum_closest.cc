@@ -3,11 +3,9 @@
 // https://pvs-studio.com
 
 #include <benchmark/benchmark.h>
-#include <stdlib.h>
-#include <algorithm>
 #include <limits>
+#include <stdlib.h>
 #include <vector>
-#include <string>
 
 #include "gtest/gtest.h"
 

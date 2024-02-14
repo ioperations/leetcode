@@ -20,7 +20,6 @@ col1) and lower right corner (row2, col2).
 
 using namespace std;
 
-#include <gtest/gtest.h>
 
 namespace {
 class NumMatrix {

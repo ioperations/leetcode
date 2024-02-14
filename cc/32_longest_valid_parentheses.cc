@@ -13,8 +13,7 @@ the longest valid (well-formed) parentheses substring.
 #include "gtest/gtest.h"
 
 using namespace std;
-#include<gtest/gtest.h>
-namespace { 
+namespace {
 class Solution {
    public:
     int LongestValidParentheses(string s) {
@@ -67,4 +66,4 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, output);
 }
 
-}
+} // namespace

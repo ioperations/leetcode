@@ -23,17 +23,14 @@ find the next permutation of nums.
 The replacement must be in place and use only constant extra memory.
 */
 
-#include <algorithm>
 #include <vector>
-#include <string>
 #include <utility>
 
 #include "gtest/gtest.h"
 
 using namespace std;
 
-#include<gtest/gtest.h>
-namespace { 
+namespace {
 class Solution {
    public:
     void NextPermutation(vector<int> &nums) {
@@ -83,4 +80,4 @@ TEST(t0, t3) {
     EXPECT_EQ(nums, output);
 }
 
-}
+} // namespace

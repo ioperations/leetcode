@@ -32,14 +32,12 @@ If all assertions pass, then your solution will be accepted.
 */
 
 #include <vector>
-#include <string>
 
 #include "gtest/gtest.h"
 
 using namespace std;
 
-#include<gtest/gtest.h>
-namespace { 
+namespace {
 class Solution {
    public:
     int RemoveElement(vector<int> &nums, int val) {
@@ -94,4 +92,4 @@ TEST(t0, t2) {
     }
 }
 
-}
+} // namespace

@@ -1,19 +1,18 @@
 // This is a personal academic project. Dear PVS-Studio, please check it.
 // PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
 // https://pvs-studio.com
-#include <gtest/gtest.h>
 #include <limits.h>
 #include <time.h>
 
 #include <iostream>
 #include <vector>
 
+#include "gtest/gtest.h"
 using namespace std;
 
 /// 寻找两个已经排好序的数组的中位数
 /// 要求算法时间复杂度是O(log(m+n))
-#include<gtest/gtest.h>
-namespace { 
+namespace {
 class Solution {
    public:
     double FindMedianSortedArrays(vector<int> &nums1, vector<int> &nums2) {
@@ -164,4 +163,4 @@ TEST(t1, t2) {
     EXPECT_EQ(1.0, n.FindMedianSortedArrays(n3, n4));
 }
 
-}
+}  // namespace

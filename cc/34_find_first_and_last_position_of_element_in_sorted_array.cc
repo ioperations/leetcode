@@ -9,15 +9,12 @@ If target is not found in the array, return [-1, -1].
 
 You must write an algorithm with O(log n) runtime complexity.*/
 
-#include <algorithm>
 #include <vector>
-#include <string>
 
 #include "gtest/gtest.h"
 
 using namespace std;
-#include<gtest/gtest.h>
-namespace { 
+namespace {
 class Solution {
    public:
     vector<int> searchRange(vector<int> &nums, int target) {
@@ -65,4 +62,4 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, output);
 }
 
-}
+} // namespace

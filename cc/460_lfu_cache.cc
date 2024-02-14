@@ -33,7 +33,6 @@ The functions get and Put must each run in O(1) average time complexity.
 
 using namespace std;
 
-#include <gtest/gtest.h>
 
 namespace {
 

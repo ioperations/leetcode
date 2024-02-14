@@ -11,17 +11,13 @@ Given an integer array nums,
         Notice that the solution set must not contain duplicate triplets.
 */
 
-#include <stddef.h>
-#include <algorithm>
 #include <vector>
-#include <string>
 
 #include "gtest/gtest.h"
 
 using namespace std;
 
-#include<gtest/gtest.h>
-namespace { 
+namespace {
 class Solution {
    public:
     vector<vector<int>> ThreeSum(vector<int> &nums) {
@@ -147,4 +143,4 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, expected);
 }
 
-}
+} // namespace

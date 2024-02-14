@@ -15,15 +15,13 @@ changed.
 
 */
 
-#include <string>
-
 //* Definition for singly-linked list.
 #include "datastruct_base.hh"
 #include "gtest/gtest.h"
 
 using ListNode = List::ListNode<int>;
-#include<gtest/gtest.h>
-namespace { 
+
+namespace {
 class Solution {
    public:
     ListNode *ReverseKGroup(ListNode *head, int k) {
@@ -146,4 +144,4 @@ TEST(t0, t2) {
     // Output: [2,1,4,3,5]
     List::FreeList(root);
 }
-}
+} // namespace

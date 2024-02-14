@@ -35,8 +35,8 @@ Given an integer, convert it to a roman numeral.
 #include "gtest/gtest.h"
 
 using namespace std;
-#include<gtest/gtest.h>
-namespace { 
+
+namespace {
 class Solution {
    public:
     string IntToRoman(int num) {

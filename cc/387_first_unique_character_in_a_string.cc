@@ -12,7 +12,6 @@
 
 using namespace std;
 
-#include <gtest/gtest.h>
 
 namespace {
 class Solution {

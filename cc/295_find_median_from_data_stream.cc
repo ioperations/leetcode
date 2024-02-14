@@ -24,7 +24,6 @@ Answers within 10-5 of the actual answer will be accepted.
 #include "gtest/gtest.h"
 
 using namespace std;
-#include <gtest/gtest.h>
 
 namespace {
 class MedianFinder {

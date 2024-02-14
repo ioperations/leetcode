@@ -22,7 +22,6 @@ the dictionary, return -1.
 
 using namespace std;
 
-#include <gtest/gtest.h>
 #include <stddef.h>
 
 namespace {

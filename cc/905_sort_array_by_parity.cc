@@ -20,7 +20,6 @@ Return any array that satisfies this condition.
 
 using namespace std;
 
-#include <gtest/gtest.h>
 
 namespace {
 class Solution {

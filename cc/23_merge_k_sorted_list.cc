@@ -6,7 +6,6 @@
 #include <limits>
 #include <queue>
 #include <vector>
-#include <string>
 #include <utility>
 
 #include "datastruct_base.hh"
@@ -18,8 +17,6 @@ using namespace std;
 using MyListNode = List::ListNode<int>;
 
 #define inf 0x7fffffff
-#include <gtest/gtest.h>
-#include <stddef.h>
 
 namespace {
 class LoserTree {

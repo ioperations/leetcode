@@ -2,7 +2,6 @@
 // PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
 // https://pvs-studio.com
 
-#include <string>
 #include <vector>
 
 #include "datastruct_base.hh"
@@ -11,8 +10,7 @@
 // Definition for singly-linked list.
 using ListNode = List::ListNode<int>;
 
-#include<gtest/gtest.h>
-namespace { 
+namespace {
 class Solution {
    public:
     ListNode *SwapPairs(ListNode *head) {
@@ -94,4 +92,4 @@ TEST(t0, t3) {
     List::FreeList(ret);
 }
 
-}
+} // namespace

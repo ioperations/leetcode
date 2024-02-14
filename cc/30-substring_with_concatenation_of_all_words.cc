@@ -8,15 +8,13 @@
 ["dhvf","sind","ffsl","yekr","zwzq","kpeo","cila","tfty","modg","ztjg","ybty","heqg","cpwo","gdcj","lnle","sefg","vimw","bxcb"]
 
 */
-#include <algorithm>
 #include <set>
 #include <string>
 #include <vector>
 
 #include "gtest/gtest.h"
 
-#include<gtest/gtest.h>
-namespace { 
+namespace {
 class Solution {
    public:
     Solution(){};
@@ -126,4 +124,4 @@ TEST(t0, t5) {
     EXPECT_EQ(retset, expect);
 }
 
-}
+} // namespace

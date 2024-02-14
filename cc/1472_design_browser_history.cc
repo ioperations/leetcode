@@ -22,7 +22,6 @@ current url after forwarding in history at most steps.*/
 
 using namespace std;
 
-#include <gtest/gtest.h>
 
 namespace {
 class BrowserHistory {

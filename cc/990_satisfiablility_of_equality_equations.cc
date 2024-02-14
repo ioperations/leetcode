@@ -15,7 +15,6 @@ satisfy all the given equations, or false otherwise.*/
 #include "gtest/gtest.h"
 
 using namespace std;
-#include <gtest/gtest.h>
 
 namespace {
 class DSU {

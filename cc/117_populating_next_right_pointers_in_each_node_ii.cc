@@ -16,8 +16,9 @@ right node, the next pointer should be set to nullptr.
 Initially, all next pointers are set to nullptr.*/
 
 // Definition for a Node.
-#include <gtest/gtest.h>
 #include <string>
+
+#include "gtest/gtest.h"
 
 namespace {
 class Node {
@@ -62,7 +63,6 @@ class Solution {
         return root;
     }
 };
-
 
 TEST(t0, t1) {}
 

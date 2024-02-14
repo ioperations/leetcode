@@ -37,17 +37,14 @@ If all assertions pass, then your solution will be accepted.
 Example 1:
 */
 
-#include <functional>
 #include <queue>
 #include <vector>
-#include <string>
 
 #include "gtest/gtest.h"
 
 using namespace std;
 
-#include<gtest/gtest.h>
-namespace { 
+namespace {
 class Solution {
    public:
     int RemoveDuplicates(vector<int> &nums) {
@@ -102,4 +99,4 @@ TEST(t0, t2) {
     }
 }
 
-}
+} // namespace

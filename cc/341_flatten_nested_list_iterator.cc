@@ -32,7 +32,6 @@ using namespace std;
 
 // This is the interface that allows for creating nested lists.
 // You should not implement it, or speculate about its implementation
-#include <gtest/gtest.h>
 
 namespace {
 class NestedInteger {

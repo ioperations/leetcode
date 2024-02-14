@@ -2,14 +2,14 @@
 // PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
 // https://pvs-studio.com
 /// leetcode 数独游戏
-#include <gtest/gtest.h>
 
 #include <iostream>
 #include <vector>
 
+#include "gtest/gtest.h"
+
 using namespace std;
-#include<gtest/gtest.h>
-namespace { 
+namespace {
 class Solution {
    public:
     void solveSudoku(vector<vector<char>> &board);
@@ -45,4 +45,4 @@ void Solution::solveSudoku(vector<vector<char>> &board) {
      */
 }
 
-}
+} // namespace

@@ -16,7 +16,6 @@ and the number of different results does not exceed 104.*/
 
 using namespace std;
 
-#include <gtest/gtest.h>
 #include <stddef.h>
 
 namespace {

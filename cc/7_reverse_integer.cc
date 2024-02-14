@@ -1,16 +1,13 @@
 // This is a personal academic project. Dear PVS-Studio, please check it.
 // PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
 // https://pvs-studio.com
-#include <stdint.h>
 #include <cstdlib>
 #include <limits>
 #include <string>
-#include <cmath>
 
 #include "gtest/gtest.h"
 
-#include<gtest/gtest.h>
-namespace { 
+namespace {
 class Solution {
    public:
     Solution(){};
