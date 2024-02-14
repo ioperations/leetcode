@@ -29,9 +29,12 @@ The functions get and Put must each run in O(1) average time complexity.
 #include <string>
 #include <unordered_map>
 
+#include "gtest/gtest.h"
+
 using namespace std;
 
 #include <gtest/gtest.h>
+
 namespace {
 
 template <typename K, typename V>
@@ -135,15 +138,7 @@ class LFUCache<K, int> {
     LFUCacheImpl<K, int> impl;
 };
 
-/**
- * Your LFUCache object will be instantiated and called as such:
- * LFUCache* obj = new LFUCache(capacity);
- * int param_1 = obj->get(key);
- * obj->put(key,value);
- */
-#include <gtest/gtest.h>
 
-#include <iostream>
 TEST(t0, t1) {
     LFUCache<int, int> lfu(2);
     lfu.Put(1, 1);         // cache=[1,_], cnt(1)=1

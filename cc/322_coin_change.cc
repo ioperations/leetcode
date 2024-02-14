@@ -14,13 +14,14 @@ You may assume that you have an infinite number of each kind of coin.
 */
 
 #include <benchmark/benchmark.h>
-#include <gtest/gtest.h>
 #include <limits.h>
-
 #include <algorithm>
 #include <functional>
 #include <map>
 #include <vector>
+#include <string>
+
+#include "gtest/gtest.h"
 
 using namespace std;
 
@@ -106,9 +107,7 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     std::vector<int> coins = {1, 2, 5};

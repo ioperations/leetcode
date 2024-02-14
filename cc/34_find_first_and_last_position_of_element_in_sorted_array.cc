@@ -11,6 +11,9 @@ You must write an algorithm with O(log n) runtime complexity.*/
 
 #include <algorithm>
 #include <vector>
+#include <string>
+
+#include "gtest/gtest.h"
 
 using namespace std;
 #include<gtest/gtest.h>
@@ -36,9 +39,7 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     vector<int> elements{5, 7, 7, 8, 8, 10};

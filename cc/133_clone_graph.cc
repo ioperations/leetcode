@@ -26,10 +26,14 @@ copy of the given node as a reference to the cloned graph.
 #include <queue>
 #include <unordered_map>
 #include <vector>
+#include <string>
+
 using namespace std;
 
 // Definition for a Node.
 #include <gtest/gtest.h>
+#include <stddef.h>
+
 namespace {
 class Node {
    public:
@@ -49,7 +53,6 @@ class Node {
     }
 };
 
-#include <gtest/gtest.h>
 class Solution {
    public:
     unordered_map<int, Node *> track;
@@ -105,8 +108,6 @@ class Solution {
         return visited[node].get();
     }
 };
-
-#include <gtest/gtest.h>
 
 #include <map>
 

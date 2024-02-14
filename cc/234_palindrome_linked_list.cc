@@ -7,11 +7,13 @@ Given the head of a singly linked list, return true if it is a palindrome.
 */
 
 #include <benchmark/benchmark.h>
-#include <gtest/gtest.h>
-
 #include <vector>
+#include <cstddef>
+#include <string>
 
 #include "datastruct_base.hh"
+#include "gtest/gtest.h"
+
 //* Definition for singly-linked list.
 using ListNode = List::ListNode<int>;
 
@@ -61,7 +63,6 @@ class Solution2 {
     }
 };
 
-#include <gtest/gtest.h>
 class Solution {
    public:
     bool IsPalindrome(ListNode *head) {
@@ -104,10 +105,7 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
-#include <vector>
 
 void ExpectEqList(ListNode *const head, const std::vector<int> &elements) {
     int i = 0;
@@ -121,9 +119,7 @@ void ExpectEqList(ListNode *const head, const std::vector<int> &elements) {
     EXPECT_EQ(i, elements.size());
 }
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     ListNode *head = List::ConstructList(std::vector<int>{1, 2, 2, 1});

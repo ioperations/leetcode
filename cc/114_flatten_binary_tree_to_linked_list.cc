@@ -24,6 +24,9 @@ struct TreeNode {
 };
 #include <queue>
 #include <vector>
+#include <string>
+
+#include "gtest/gtest.h"
 
 #include<gtest/gtest.h>
 namespace { 
@@ -89,8 +92,6 @@ class Solution {
     }
 };
 
-#include <vector>
-
 TreeNode *AddToRoot(TreeNode *root, int val) {
     if (root == nullptr) {
         return nullptr;
@@ -144,7 +145,6 @@ void FreeRoot(TreeNode *root) {
     FreeRoot(root->right);
     delete root;
 }
-#include <gtest/gtest.h>
 
 void ExpectEqRight(TreeNode *const root, const std::vector<int> &elements) {
     TreeNode *n = root;

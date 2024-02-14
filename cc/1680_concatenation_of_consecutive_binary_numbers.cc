@@ -7,6 +7,9 @@
 
 #include <cmath>
 #include <string>
+
+#include "gtest/gtest.h"
+
 using namespace std;
 
 #include<gtest/gtest.h>
@@ -48,9 +51,7 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t1, t0) {
     int const n = 10;

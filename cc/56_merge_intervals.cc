@@ -8,6 +8,8 @@
 
 #include <algorithm>
 #include <vector>
+#include <string>
+
 using namespace std;
 #include<gtest/gtest.h>
 namespace { 
@@ -37,8 +39,6 @@ class Solution {
         return ret;
     }
 };
-
-#include <gtest/gtest.h>
 
 #include <iostream>
 

@@ -6,8 +6,11 @@
 //* Definition for a binary tree node.
 #include <cstddef>
 #include <utility>
+#include <string>
 
 #include "datastruct_base.hh"
+#include "gtest/gtest.h"
+
 using namespace Tree;
 
 #include<gtest/gtest.h>
@@ -48,12 +51,9 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
-
-#include <iostream>
 #include <optional>
-#include <queue>
 #include <vector>
+
 using namespace std;
 
 TEST(t0, t1) {

@@ -6,6 +6,10 @@
 In one step, if the current number is even, you have to divide it by 2,
 otherwise, you have to subtract 1 from it.*/
 
+#include <string>
+
+#include "gtest/gtest.h"
+
 #include<gtest/gtest.h>
 namespace { 
 class Solution {
@@ -24,7 +28,6 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
 TEST(t0, t1) {
     int num = 14;

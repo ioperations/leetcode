@@ -15,6 +15,10 @@ between indices left and right inclusive (i.e. nums[left] + nums[left + 1] + ...
 + nums[right]).
 */
 #include <vector>
+#include <string>
+
+#include "gtest/gtest.h"
+
 using namespace std;
 
 #include<gtest/gtest.h>
@@ -114,9 +118,7 @@ class NumArray {
     }
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     /**

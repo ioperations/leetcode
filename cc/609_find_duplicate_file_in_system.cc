@@ -28,12 +28,14 @@ is a string that has the following format:
 #include <map>
 #include <set>
 #include <sstream>
-#include <stack>
 #include <string>
 #include <vector>
+
+#include "gtest/gtest.h"
+
 using namespace std;
-#include<gtest/gtest.h>
-namespace { 
+
+namespace {
 class Solution {
     /*
         1 <= paths.length <= 2 * 104
@@ -82,10 +84,6 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
-
-#include <iostream>
-
 TEST(t0, t1) {
     vector<string> paths = {"root/a 1.txt(abcd) 2.txt(efgh)",
                             "root/c 3.txt(abcd)", "root/c/d 4.txt(efgh)",
@@ -117,4 +115,4 @@ TEST(t0, t2) {
     EXPECT_EQ(ret_set, output_set);
 }
 
-}
+}  // namespace

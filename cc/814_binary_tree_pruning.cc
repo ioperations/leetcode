@@ -6,8 +6,14 @@ the given tree) not containing a 1 has been removed.
 
 A subtree of a node node is node plus every node that is a descendant of node.*/
 
+#include <optional>
+#include <string>
+#include <vector>
+
 //* Definition for a binary tree node.
 #include "datastruct_base.hh"
+#include "gtest/gtest.h"
+
 using namespace Tree;
 
 #include<gtest/gtest.h>
@@ -28,7 +34,6 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 using namespace std;
 #define null optional<int>()
 

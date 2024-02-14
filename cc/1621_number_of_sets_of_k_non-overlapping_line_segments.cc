@@ -41,6 +41,10 @@ Here's the implementation which runs in 188ms and passes all test cases.
 */
 
 #include <vector>
+#include <string>
+
+#include "gtest/gtest.h"
+
 using namespace std;
 
 #include<gtest/gtest.h>
@@ -85,7 +89,6 @@ class Solution {
         return Dyp(n, k, dp, sum_dp);
     }
 };
-#include <gtest/gtest.h>
 
 TEST(t0, t1) {
     int n = 4, k = 2;

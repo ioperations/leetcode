@@ -5,6 +5,10 @@
 // Implement pow(x, n), which calculates x raised to the
 // power n(i.e., xn).
 
+#include <string>
+
+#include "gtest/gtest.h"
+
 #include<gtest/gtest.h>
 namespace { 
 class Solution {
@@ -49,9 +53,7 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     const double x = 2.00000;

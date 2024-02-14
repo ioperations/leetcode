@@ -16,11 +16,13 @@ greater than or equal to the node's key. Both the left and right subtrees must
 also be binary search trees.
 */
 
-#include <algorithm>
 #include <limits>
 #include <map>
 #include <stack>
 #include <vector>
+#include <string>
+
+#include "gtest/gtest.h"
 
 struct TreeNode {
     int val;
@@ -74,9 +76,7 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TreeNode *AddToRoot(TreeNode *root, int val) {
     if (root == nullptr) {

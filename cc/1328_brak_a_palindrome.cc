@@ -18,6 +18,9 @@ character, and 'c' is smaller than 'd'.
 */
 
 #include <string>
+
+#include "gtest/gtest.h"
+
 using namespace std;
 
 #include<gtest/gtest.h>
@@ -46,7 +49,6 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
 TEST(t0, t1) {
     string const palindrome = "abccba";

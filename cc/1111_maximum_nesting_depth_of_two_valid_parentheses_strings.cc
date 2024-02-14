@@ -31,6 +31,8 @@ even though multiple answers may exist, you may return any of them.
 #include <string>
 #include <vector>
 
+#include "gtest/gtest.h"
+
 using namespace std;
 
 #include<gtest/gtest.h>
@@ -54,7 +56,6 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
 TEST(t0, t1) {
     Solution s;

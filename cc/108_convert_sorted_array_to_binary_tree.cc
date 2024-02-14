@@ -19,6 +19,11 @@ struct TreeNode {
         : val(x), left(left), right(right) {}
 };
 #include <vector>
+#include <set>
+#include <string>
+
+#include "gtest/gtest.h"
+
 using namespace std;
 
 #include<gtest/gtest.h>
@@ -38,8 +43,6 @@ class Solution {
         return bs_ttree;
     }
 };
-
-#include <gtest/gtest.h>
 
 /// 将二分树销毁掉
 void FreeTreeNode(TreeNode *root) {

@@ -12,7 +12,10 @@ Given the two integers p and q, return the number of the receptor that the ray
 meets first.
 
 The test cases are guaranteed so that the ray will meet a receptor eventually.*/
-#include <vector>
+
+#include <string>
+
+#include "gtest/gtest.h"
 
 using namespace std;
 
@@ -37,9 +40,7 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     int p = 2, q = 1;

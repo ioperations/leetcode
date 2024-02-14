@@ -13,6 +13,8 @@ and the answer must be a reference to a node in the cloned tree.*/
 
 //* Definition for a binary tree node.
 #include "datastruct_base.hh"
+#include "gtest/gtest.h"
+
 using namespace Tree;
 
 template <typename T>
@@ -31,6 +33,10 @@ TreeNode<T> *FindNodeInBinaryTree(TreeNode<T> *head, int target) {
     return tmp;
 }
 #include <deque>
+#include <optional>
+#include <string>
+#include <vector>
+
 using namespace std;
 
 #include<gtest/gtest.h>
@@ -94,8 +100,6 @@ class Solution {
         return GetCopyNode(path, cloned);
     }
 };
-
-#include <gtest/gtest.h>
 
 using namespace std;
 

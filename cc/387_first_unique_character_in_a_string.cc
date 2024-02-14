@@ -5,9 +5,15 @@
  * index. If it does not exist, return -1.*/
 #include <string>
 #include <unordered_map>
+#include <algorithm>
+#include <utility>
+
+#include "gtest/gtest.h"
+
 using namespace std;
 
 #include <gtest/gtest.h>
+
 namespace {
 class Solution {
    public:

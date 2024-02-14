@@ -13,11 +13,13 @@
    while the frequency of 'b' is 1.
 */
 
-#include <algorithm>
 #include <map>
 #include <string>
 #include <unordered_map>
 #include <vector>
+
+#include "gtest/gtest.h"
+
 using namespace std;
 
 #include<gtest/gtest.h>
@@ -90,9 +92,7 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     string s = "aab";

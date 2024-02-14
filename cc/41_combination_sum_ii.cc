@@ -10,8 +10,13 @@ Each number in candidates may only be used once in the combination.
 Note: The solution set must not contain duplicate combinations.
 */
 
-#include <functional>
 #include <vector>
+#include <algorithm>
+#include <set>
+#include <string>
+
+#include "gtest/gtest.h"
+
 using namespace std;
 #include<gtest/gtest.h>
 namespace { 
@@ -41,9 +46,7 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     std::vector<int> candidates{10, 1, 2, 7, 6, 1, 5};

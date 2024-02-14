@@ -3,6 +3,10 @@
 // https://pvs-studio.com
 
 #include <vector>
+#include <string>
+
+#include "gtest/gtest.h"
+
 using namespace std;
 #include<gtest/gtest.h>
 namespace { 
@@ -71,9 +75,7 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     vector<int> nums = {1, 2, 3};

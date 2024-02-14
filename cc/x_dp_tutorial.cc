@@ -6,12 +6,12 @@
 ///
 /// s1     "rad"
 /// s2     "apple"
-#include <gtest/gtest.h>
-
 #include <algorithm>
 #include <cstring>
 #include <functional>
-#include <iostream>
+#include <string>
+
+#include "gtest/gtest.h"
 
 // 每一个步骤  只有删除 添加 改变
 namespace {

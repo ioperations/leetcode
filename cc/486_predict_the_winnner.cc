@@ -18,6 +18,11 @@ may assume that both players are playing optimally.
 
 #include <cstring>
 #include <vector>
+#include <algorithm>
+#include <string>
+
+#include "gtest/gtest.h"
+
 using namespace std;
 
 #include<gtest/gtest.h>
@@ -75,9 +80,7 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     std::vector<int> nums = {1, 5, 2};

@@ -14,11 +14,14 @@
 */
 
 #include <limits.h>
-
 #include <algorithm>
 #include <limits>
 #include <numeric>
 #include <vector>
+#include <string>
+
+#include "gtest/gtest.h"
+
 using namespace std;
 
 #include<gtest/gtest.h>
@@ -71,9 +74,7 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     std::vector<int> nums{4, 3, 2, 6};

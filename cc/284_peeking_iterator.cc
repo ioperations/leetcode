@@ -21,11 +21,15 @@
  * **DO NOT** modify the interface for Iterator.
  */
 
-#include <iterator>
 #include <vector>
+#include <string>
+
+#include "gtest/gtest.h"
+
 using namespace std;
 
 #include <gtest/gtest.h>
+
 namespace {
 class Iterator {
     const std::vector<int> &nums;
@@ -56,7 +60,6 @@ class Iterator {
     bool hasNext() const { return 0 <= (i + 1) && (i + 1) < size; };
 };
 
-#include <gtest/gtest.h>
 class PeekingIterator : public Iterator {
     int nextVal;
 
@@ -85,9 +88,7 @@ class PeekingIterator : public Iterator {
     bool hasNext() const { return (nextVal != 0); }
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     // Input ["PeekingIterator", "next", "peek", "next", "next", "hasNext"]

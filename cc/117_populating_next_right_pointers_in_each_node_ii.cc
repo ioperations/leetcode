@@ -17,6 +17,8 @@ Initially, all next pointers are set to nullptr.*/
 
 // Definition for a Node.
 #include <gtest/gtest.h>
+#include <string>
+
 namespace {
 class Node {
    public:
@@ -33,7 +35,6 @@ class Node {
         : val(val), left(left), right(right), next(next) {}
 };
 
-#include <gtest/gtest.h>
 class Solution {
    public:
     Node *Connect(Node *root) {
@@ -62,7 +63,6 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
 TEST(t0, t1) {}
 

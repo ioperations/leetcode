@@ -38,13 +38,12 @@ val] and if the value of isLeaf or val is False we represent it as 0.
 
 */
 
-// Definition for a QuadTree node.
-#include <gtest/gtest.h>
-
 #include <functional>
 #include <optional>
 #include <queue>
-#include <tuple>
+#include <string>
+
+#include "gtest/gtest.h"
 
 namespace {
 class Node {
@@ -84,8 +83,8 @@ class Node {
         bottom_right = n_bottom_rightt;
     }
 };
-#include <functional>
 #include <vector>
+
 using namespace std;
 
 class Solution {

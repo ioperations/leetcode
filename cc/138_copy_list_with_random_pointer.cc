@@ -19,11 +19,11 @@ the index of the node (range from 0 to n-1) that the random pointer points to,
 or null if it does not point to any node. Your code will only be given the head
 of the original linked list.*/
 
-// Definition for a Node.
-#include <gtest/gtest.h>
-
 #include <unordered_map>
 #include <vector>
+#include <string>
+
+#include "gtest/gtest.h"
 
 namespace {
 class Node {
@@ -76,8 +76,6 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
-
 #include <optional>
 
 #define null std::optional<int>()
@@ -107,7 +105,6 @@ Node *ConstructNode(std::vector<std::vector<std::optional<int>>> &vec) {
     return dummy.next;
 }
 
-#include <unordered_map>
 /// 从链表当中恢复到vec
 std::vector<std::vector<std::optional<int>>> RestoreNode(Node *node) {
     std::vector<std::vector<std::optional<int>>> ret;

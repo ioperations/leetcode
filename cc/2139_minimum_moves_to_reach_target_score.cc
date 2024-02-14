@@ -19,7 +19,10 @@ needed to reach target starting with 1.
 #include <functional>
 #include <map>
 #include <utility>
-#include <vector>
+#include <algorithm>
+#include <string>
+
+#include "gtest/gtest.h"
 
 using namespace std;
 
@@ -69,9 +72,7 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     int target = 19;

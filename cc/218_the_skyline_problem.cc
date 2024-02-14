@@ -32,6 +32,12 @@ output as such: [...,[2 3],[4 5],[12 7],...]
 #include <algorithm>
 #include <map>
 #include <vector>
+#include <iterator>
+#include <string>
+#include <utility>
+
+#include "gtest/gtest.h"
+
 using namespace std;
 #include<gtest/gtest.h>
 namespace { 
@@ -91,9 +97,7 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     vector<vector<int>> buildings = {

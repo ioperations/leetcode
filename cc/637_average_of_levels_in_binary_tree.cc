@@ -5,12 +5,14 @@
  * level in the form of an array. Answers within 10-5 of the actual answer will
  * be accepted.*/
 // Definition for a binary tree node.
-#include <exception>
-#include <map>
 #include <queue>
 #include <vector>
+#include <stdexcept>
+#include <string>
+#include <utility>
 
 #include "datastruct_base.hh"
+#include "gtest/gtest.h"
 
 using namespace std;
 using namespace Tree;
@@ -57,12 +59,8 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
-
-#include <iostream>
 #include <optional>
-#include <queue>
-#include <vector>
+
 using namespace std;
 
 #define null optional<int>()

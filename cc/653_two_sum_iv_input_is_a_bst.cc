@@ -9,8 +9,12 @@
 
 #include <set>
 #include <unordered_map>
+#include <optional>
+#include <string>
+#include <vector>
 
 #include "datastruct_base.hh"
+#include "gtest/gtest.h"
 
 using namespace std;
 using namespace Tree;
@@ -59,7 +63,6 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
 using namespace std;
 

@@ -14,6 +14,12 @@ the front of the queue).*/
 #include <algorithm>
 #include <map>
 #include <vector>
+#include <iterator>
+#include <string>
+#include <utility>
+
+#include "gtest/gtest.h"
+
 using namespace std;
 
 #include<gtest/gtest.h>
@@ -39,9 +45,7 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     std::vector<vector<int>> people{{7, 0}, {4, 4}, {7, 1},

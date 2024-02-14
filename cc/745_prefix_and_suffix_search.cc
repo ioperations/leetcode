@@ -14,14 +14,17 @@ the dictionary, return -1.
 */
 
 #include <algorithm>
-#include <list>
 #include <map>
 #include <string>
 #include <vector>
 
+#include "gtest/gtest.h"
+
 using namespace std;
 
 #include <gtest/gtest.h>
+#include <stddef.h>
+
 namespace {
 class Trie {
    public:
@@ -84,7 +87,6 @@ class Trie {
     }
 };
 
-#include <gtest/gtest.h>
 class WordFilter {
     Trie trie;
 
@@ -129,7 +131,6 @@ class WordFilter {
     }
 };
 
-#include <gtest/gtest.h>
 class WordFilterMy {
     struct Pp {
         string s;
@@ -194,14 +195,7 @@ class WordFilterMy {
     }
 };
 
-/**
- * Your WordFilter object will be instantiated and called as such:
- * WordFilter* obj = new WordFilter(words);
- * int param_1 = obj->f(prefix,suffix);
- */
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     std::vector<string> words{"apple"};

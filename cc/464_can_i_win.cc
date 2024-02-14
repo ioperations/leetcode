@@ -17,6 +17,10 @@ players play optimally.
 */
 
 #include <vector>
+#include <string>
+
+#include "gtest/gtest.h"
+
 using namespace std;
 #include<gtest/gtest.h>
 namespace { 
@@ -53,9 +57,7 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     int max_choosable_integerer = 10, desired_total = 11;

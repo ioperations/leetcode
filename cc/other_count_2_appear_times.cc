@@ -13,6 +13,10 @@
     所以一共出现了6次2
 */
 
+#include <string>
+
+#include "gtest/gtest.h"
+
 #include<gtest/gtest.h>
 namespace { 
 class Solution {
@@ -26,9 +30,7 @@ class Solution {
     /* data */
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     int left = 1;

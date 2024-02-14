@@ -18,9 +18,12 @@ boolean book(int start, int end) Returns true if the event can be added to the
 calendar successfully without causing a double booking. Otherwise, return false
 and do not add the event to the calendar.*/
 #include <algorithm>
-#include <map>
 #include <utility>
 #include <vector>
+#include <string>
+
+#include "gtest/gtest.h"
+
 using namespace std;
 
 #include<gtest/gtest.h>
@@ -48,14 +51,7 @@ class MyCalendar {
     vector<pair<int, int>> slices;
 };
 
-/**
- * Your MyCalendar object will be instantiated and called as such:
- * MyCalendar* obj = new MyCalendar();
- * bool param_1 = obj->book(start,end);
- */
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     // Input["MyCalendar", "book", "book", "book"][ [], [ 10, 20 ], [ 15, 25 ],

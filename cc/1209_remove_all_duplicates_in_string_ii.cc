@@ -12,12 +12,14 @@ Return the final string after all such duplicate removals have been made. It is
 guaranteed that the answer is unique.
 */
 
-#include <gtest/gtest.h>
-
 #include <algorithm>
 #include <stack>
 #include <string>
 #include <vector>
+#include <utility>
+
+#include "gtest/gtest.h"
+
 using namespace std;
 
 namespace {

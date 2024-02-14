@@ -1,5 +1,9 @@
 
-#include <algorithm>
+#include <string.h>
+#include <string>
+#include <utility>
+
+#include "gtest/gtest.h"
 
 #include<gtest/gtest.h>
 namespace { 
@@ -55,7 +59,6 @@ class QuickSort {
     }
 };
 
-#include <gtest/gtest.h>
 
 TEST(t0, t1) {
     int output[] = {1, 3, 2};

@@ -9,6 +9,11 @@ You must write an algorithm that runs in O(n) time.*/
 #include <algorithm>
 #include <unordered_set>
 #include <vector>
+#include <__hash_table>
+#include <string>
+
+#include "gtest/gtest.h"
+
 using namespace std;
 
 #include<gtest/gtest.h>
@@ -38,7 +43,6 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
 TEST(t0, t1) {
     vector<int> nums = {100, 4, 200, 1, 3, 2};

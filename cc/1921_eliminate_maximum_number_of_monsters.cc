@@ -24,6 +24,10 @@
 #include <functional>
 #include <queue>
 #include <vector>
+#include <string>
+
+#include "gtest/gtest.h"
+
 using namespace std;
 #include<gtest/gtest.h>
 namespace { 
@@ -57,9 +61,7 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     vector<int> dist = {1, 3, 4}, speed = {1, 1, 1};

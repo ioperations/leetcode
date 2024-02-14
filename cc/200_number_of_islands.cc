@@ -10,6 +10,7 @@ horizontally or vertically. You may assume all four edges of the grid are all
 surrounded by water.
 */
 
+#include <stddef.h>
 #include <vector>
 /*
     m == grid.length
@@ -19,6 +20,10 @@ surrounded by water.
 */
 #include <queue>
 #include <stack>
+#include <string>
+#include <utility>
+
+#include "gtest/gtest.h"
 
 using namespace std;
 
@@ -147,9 +152,7 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     std::vector<std::vector<char>> grid = {{'1', '1', '1', '1', '0'},

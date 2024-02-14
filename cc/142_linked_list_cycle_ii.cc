@@ -13,7 +13,11 @@ Note that pos is not passed as a parameter.
 Return true if there is a cycle in the linked list. Otherwise, return false
 */
 //* Definition for singly-linked list.
+#include <string>
+#include <vector>
+
 #include "datastruct_base.hh"
+#include "gtest/gtest.h"
 
 using ListNode = List::ListNode<int>;
 
@@ -45,7 +49,6 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
 TEST(memleak, t1) {
     ListNode *head = List::ConstructList(std::vector<int>{3, 2, 0, -4});

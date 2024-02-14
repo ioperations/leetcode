@@ -11,9 +11,12 @@ For each index indices[i], the substring of s starting from indices[i] and up to
 of words, return the length of the shortest reference string s possible of any
 valid encoding of words.*/
 
+#include <stddef.h>
 #include <string>
 #include <unordered_set>
 #include <vector>
+
+#include "gtest/gtest.h"
 
 using namespace std;
 
@@ -98,9 +101,7 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     vector<string> words = {"time", "me", "bell"};

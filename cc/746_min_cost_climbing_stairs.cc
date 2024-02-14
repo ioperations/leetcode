@@ -13,6 +13,11 @@ Return the minimum cost to reach the top of the floor.
 #include <functional>
 #include <map>
 #include <vector>
+#include <algorithm>
+#include <string>
+
+#include "gtest/gtest.h"
+
 using namespace std;
 
 #include<gtest/gtest.h>
@@ -50,9 +55,7 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     std::vector<int> v{10, 15, 20};

@@ -10,8 +10,9 @@ elements.
 */
 #include <algorithm>
 #include <string>
-#include <unordered_map>
 #include <vector>
+
+#include "gtest/gtest.h"
 
 using namespace std;
 
@@ -40,9 +41,7 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     string s = "bbbab";

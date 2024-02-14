@@ -51,6 +51,10 @@ Effectively this is your answer. All you have to do is return this number.
 The Code is Below: Thank You!!! =]
 */
 #include <vector>
+#include <string>
+
+#include "gtest/gtest.h"
+
 using namespace std;
 
 #include<gtest/gtest.h>
@@ -77,9 +81,7 @@ class Solution {
         return dp[4];
     }
 };
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     const int n = 1;

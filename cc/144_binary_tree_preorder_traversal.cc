@@ -4,8 +4,11 @@
 //* Definition for a binary tree node.
 
 #include <vector>
+#include <string>
 
 #include "datastruct_base.hh"
+#include "gtest/gtest.h"
+
 using namespace Tree;
 
 #include<gtest/gtest.h>
@@ -33,10 +36,9 @@ class Solution {
 };
 
 #include <optional>
-#include <vector>
+
 using namespace std;
 
-#include <gtest/gtest.h>
 
 TEST(t0, t1) {
     std::vector<optional<int>> vec{1, 2, 3};

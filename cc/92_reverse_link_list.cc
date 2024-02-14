@@ -1,4 +1,8 @@
+#include <string>
+
 #include "datastruct_base.hh"
+#include "gtest/gtest.h"
+
 // This is a personal academic project. Dear PVS-Studio, please check it.
 // PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
 // https://pvs-studio.com
@@ -104,10 +108,8 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
-
-#include <iostream>
 #include <vector>
+
 void ExpectEqList(ListNode *const head, const std::vector<int> &elements) {
     int i = 0;
     ListNode *m_head = head;

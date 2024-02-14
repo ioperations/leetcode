@@ -6,11 +6,11 @@
 Nary-Tree input serialization is represented in their level order traversal,
 each group of children is separated by the null value (See examples).*/
 
-//
-#include <gtest/gtest.h>
-
 #include <queue>
 #include <vector>
+#include <string>
+
+#include "gtest/gtest.h"
 
 using namespace std;
 
@@ -69,11 +69,7 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
-
-#include <iostream>
 #include <optional>
-#include <queue>
 
 Node *ConstructNode(vector<optional<int>> &elements) {
     Node *node = nullptr;

@@ -18,9 +18,12 @@ current url after forwarding in history at most steps.*/
 
 #include <string>
 
+#include "gtest/gtest.h"
+
 using namespace std;
 
 #include <gtest/gtest.h>
+
 namespace {
 class BrowserHistory {
     /*
@@ -89,7 +92,6 @@ class BrowserHistory {
     }
 };
 
-#include <string>
 
 using namespace std;
 class BrowserHistorySysV2 {
@@ -204,7 +206,6 @@ class BrowserHistorySysV2 {
     int capability;
 };
 
-#include <gtest/gtest.h>
 
 TEST(t1, t1) {
     BrowserHistorySysV2 br("w3.huawei.com", 10);
@@ -256,7 +257,6 @@ TEST(t1, t2) {
  * string param_3 = obj->forward(steps);
  */
 
-#include <gtest/gtest.h>
 
 TEST(t0, t1) {
     // Explanation:

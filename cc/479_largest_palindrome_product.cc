@@ -10,6 +10,8 @@ very large, return it modulo 1337.
 */
 #include <string>
 
+#include "gtest/gtest.h"
+
 #include<gtest/gtest.h>
 namespace { 
 class Solution {
@@ -108,9 +110,7 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t, t1) {
     // Explanation: 99 x 91 = 9009, 9009 % 1337 = 987

@@ -16,8 +16,12 @@ changed.
 
 #include <queue>
 #include <stack>
+#include <string>
+#include <vector>
 
 #include "datastruct_base.hh"
+#include "gtest/gtest.h"
+
 using namespace std;
 
 //* Definition for singly-linked list.
@@ -59,7 +63,6 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
 void ExpectEqList(ListNode *const head, const std::vector<int> &elements) {
     int i = 0;

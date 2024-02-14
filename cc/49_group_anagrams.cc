@@ -9,10 +9,13 @@ word or phrase, typically using all the original letters exactly once.
 
 */
 #include <vector>
+
 using namespace std;
 #include <algorithm>
 #include <string>
 #include <unordered_map>
+
+#include "gtest/gtest.h"
 
 #include<gtest/gtest.h>
 namespace { 
@@ -33,9 +36,6 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
-
-#include <iostream>
 #include <set>
 
 TEST(t0, t1) {

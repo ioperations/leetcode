@@ -8,8 +8,11 @@ list sorted as well.
 */
 
 #include <vector>
+#include <string>
 
 #include "datastruct_base.hh"
+#include "gtest/gtest.h"
+
 using ListNode  = List::ListNode<int>;
 
 #include<gtest/gtest.h>
@@ -68,7 +71,6 @@ class Solution {
         return head;
     }
 };
-#include <gtest/gtest.h>
 
 void ExpectEqList(ListNode *const head, const std::vector<int> &elements) {
     int i = 0;
@@ -82,7 +84,6 @@ void ExpectEqList(ListNode *const head, const std::vector<int> &elements) {
     EXPECT_EQ(i, elements.size());
 }
 
-#include <gtest/gtest.h>
 
 TEST(test, t1) {
     std::vector<int> head{1, 2, 3, 4, 5};

@@ -26,6 +26,8 @@ struct TreeNode {
 #include <array>
 #include <unordered_set>
 #include <vector>
+#include <__hash_table>
+#include <string>
 
 using namespace std;
 
@@ -54,9 +56,9 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
-
 #include <iostream>
+
+#include "gtest/gtest.h"
 
 void InOrderTranverse(TreeNode *root, std::vector<int> &vec) {
     if (root == nullptr) {

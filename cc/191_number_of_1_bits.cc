@@ -16,6 +16,10 @@ input represents the signed integer. -3.
 */
 
 #include <cstdint>
+#include <string>
+
+#include "gtest/gtest.h"
+
 #include<gtest/gtest.h>
 namespace { 
 class Solution {
@@ -32,9 +36,7 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     uint32_t n = 11;  // 00000000000000000000000000001011;

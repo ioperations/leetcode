@@ -17,6 +17,8 @@ remove any digits in s. You may return the valid IP addresses in any order.
 #include <string>
 #include <vector>
 
+#include "gtest/gtest.h"
+
 using namespace std;
 #include<gtest/gtest.h>
 namespace { 
@@ -69,9 +71,7 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     string s = "25525511135";

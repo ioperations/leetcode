@@ -12,6 +12,8 @@ The matching should cover the entire input string (not partial).
 #include <string>
 #include <vector>
 
+#include "gtest/gtest.h"
+
 using namespace std;
 
 #include<gtest/gtest.h>
@@ -52,9 +54,7 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     std::string s = "aa", p = "a";

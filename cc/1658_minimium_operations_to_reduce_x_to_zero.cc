@@ -14,10 +14,11 @@ possible, otherwise, return -1.
 */
 
 #include <algorithm>
-#include <functional>
-#include <map>
-#include <tuple>
 #include <vector>
+#include <string>
+
+#include "gtest/gtest.h"
+
 using namespace std;
 
 #include<gtest/gtest.h>
@@ -74,9 +75,7 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     vector<int> nums = {1, 1, 4, 2, 3};

@@ -22,6 +22,8 @@ have.*/
 #include <string>
 #include <vector>
 
+#include "gtest/gtest.h"
+
 using namespace std;
 
 const char *table[] = {".-",   "-...", "-.-.", "-..",  ".",    "..-.", "--.",
@@ -52,9 +54,7 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     vector<string> words = {"gin", "zen", "gig", "msg"};

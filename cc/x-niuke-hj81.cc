@@ -1,11 +1,14 @@
 // This is a personal academic project. Dear PVS-Studio, please check it.
 // PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
 // https://pvs-studio.com
-#include <gtest/gtest.h>
-
+#include <stddef.h>
 #include <algorithm>
 #include <iostream>
 #include <map>
+#include <iterator>
+#include <string>
+
+#include "gtest/gtest.h"
 
 namespace {
 

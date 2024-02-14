@@ -9,12 +9,10 @@ necessarily different) that represent one-letter variable names.
 
 Return true if it is possible to assign integers to variable names so as to
 satisfy all the given equations, or false otherwise.*/
-#include <algorithm>
-#include <set>
 #include <string>
-#include <unordered_map>
-#include <utility>
 #include <vector>
+
+#include "gtest/gtest.h"
 
 using namespace std;
 #include <gtest/gtest.h>
@@ -84,9 +82,7 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     vector<string> equations = {"a==b", "b!=a"};

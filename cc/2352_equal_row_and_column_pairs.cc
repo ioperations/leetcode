@@ -9,6 +9,8 @@ the same order (i.e., an equal array).
 #include <unordered_map>
 #include <vector>
 
+#include "gtest/gtest.h"
+
 using namespace std;
 
 #include<gtest/gtest.h>
@@ -44,9 +46,7 @@ class Solution {
         return count;
     }
 };
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     // clang-format off

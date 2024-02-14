@@ -13,6 +13,10 @@ and returns the element representing the kth largest element in the stream.*/
 #include <functional>
 #include <queue>
 #include <vector>
+#include <string>
+
+#include "gtest/gtest.h"
+
 using namespace std;
 
 #include <gtest/gtest.h>
@@ -41,9 +45,7 @@ class KthLargest {
     }
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     // * Your KthLargest object will be instantiated and called as such:

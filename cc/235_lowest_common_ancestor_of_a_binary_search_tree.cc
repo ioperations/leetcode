@@ -40,6 +40,9 @@ class Solution {
 };
 
 #include <vector>
+#include <string>
+
+#include "gtest/gtest.h"
 
 TreeNode *AddToRoot(TreeNode *root, int val) {
     if (root == nullptr) {
@@ -108,9 +111,7 @@ TreeNode *FindTreeNode(TreeNode *root, int val) {
     return FindTreeNode(root->right, val);
 }
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     /**

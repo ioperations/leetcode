@@ -10,8 +10,11 @@ values. (i.e., from left to right, level by level).
 // Definition for a binary tree node.
 #include <queue>
 #include <vector>
+#include <string>
 
 #include "datastruct_base.hh"
+#include "gtest/gtest.h"
+
 using namespace std;
 using namespace Tree;
 
@@ -63,10 +66,7 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
-
 #include <optional>
-#include <queue>
 
 using namespace std;
 

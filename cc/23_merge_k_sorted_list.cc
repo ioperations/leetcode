@@ -2,14 +2,16 @@
 // PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
 // https://pvs-studio.com
 
-#include <algorithm>
-#include <climits>
 #include <cmath>
 #include <limits>
 #include <queue>
 #include <vector>
+#include <string>
+#include <utility>
 
 #include "datastruct_base.hh"
+#include "gtest/gtest.h"
+
 using namespace List;
 using namespace std;
 
@@ -17,6 +19,8 @@ using MyListNode = List::ListNode<int>;
 
 #define inf 0x7fffffff
 #include <gtest/gtest.h>
+#include <stddef.h>
+
 namespace {
 class LoserTree {
    private:
@@ -87,7 +91,6 @@ class LoserTree {
     }
 };
 
-#include <gtest/gtest.h>
 class Solution {
    public:
     std::vector<int> GetLeastNumbers(std::vector<int> &arr, int k) {
@@ -199,9 +202,7 @@ class Solution {
         return head;
     }
 };
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(memleak, t1) {
     MyListNode *n1 = new MyListNode(1);

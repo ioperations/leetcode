@@ -10,8 +10,12 @@ If there is no common prefix, return an empty string "".
 
     */
 
+#include <stddef.h>
 #include <string>
 #include <vector>
+
+#include "gtest/gtest.h"
+
 using namespace std;
 #include<gtest/gtest.h>
 namespace { 
@@ -52,7 +56,6 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
 TEST(t0, t1) {
     std::vector<std::string> strs = {"flower", "flow", "flight"};

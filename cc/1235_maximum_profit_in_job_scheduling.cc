@@ -10,6 +10,10 @@ ends at time X you will be able to start another job that starts at time X.
 #include <algorithm>
 #include <map>
 #include <vector>
+#include <string>
+#include <utility>
+
+#include "gtest/gtest.h"
 
 using namespace std;
 
@@ -49,7 +53,6 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
 TEST(t0, t1) {
     vector<int> start_time = {1, 2, 3, 3}, end_time = {3, 4, 5, 6},

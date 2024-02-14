@@ -18,8 +18,12 @@ any order.
 Return the earliest possible day where all seeds are blooming.*/
 
 #include <algorithm>
-#include <map>
 #include <vector>
+#include <string>
+#include <utility>
+
+#include "gtest/gtest.h"
+
 using namespace std;
 
 #include<gtest/gtest.h>
@@ -89,9 +93,7 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     vector<int> plant_time = {1, 4, 3}, grow_time = {2, 3, 1};

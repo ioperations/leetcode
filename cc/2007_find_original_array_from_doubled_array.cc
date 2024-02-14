@@ -11,6 +11,10 @@ may be returned in any order.*/
 #include <algorithm>
 #include <unordered_map>
 #include <vector>
+#include <string>
+
+#include "gtest/gtest.h"
+
 using namespace std;
 
 #include<gtest/gtest.h>
@@ -45,9 +49,6 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
-
-#include <iostream>
 #include <set>
 
 TEST(t0, t1) {

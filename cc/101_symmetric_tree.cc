@@ -16,6 +16,9 @@ struct TreeNode {
         : val(x), left(left), right(right) {}
 };
 #include <vector>
+#include <string>
+
+#include "gtest/gtest.h"
 
 #include<gtest/gtest.h>
 namespace { 
@@ -65,9 +68,7 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
-#include <vector>
 
 TEST(t0, t1) {
     /*

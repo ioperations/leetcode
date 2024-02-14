@@ -11,13 +11,12 @@ Each group of children is separated by the null value (See examples)
 
 */
 
-// Definition for a Node.
-#include <gtest/gtest.h>
-
-#include <iostream>
 #include <optional>
 #include <queue>
 #include <vector>
+#include <string>
+
+#include "gtest/gtest.h"
 
 using namespace std;
 

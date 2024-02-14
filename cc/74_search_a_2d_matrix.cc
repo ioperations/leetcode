@@ -12,6 +12,10 @@ row.
 */
 
 #include <vector>
+#include <string>
+
+#include "gtest/gtest.h"
+
 using namespace std;
 
 #include<gtest/gtest.h>
@@ -75,9 +79,7 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t1, t0) {
     // Input: matrix = [[1,3,5,7],[10,11,16,20],[23,30,34,60]], target = 3

@@ -21,6 +21,8 @@ empty array.*/
 #include <string>
 #include <vector>
 
+#include "gtest/gtest.h"
+
 using namespace std;
 #include<gtest/gtest.h>
 namespace { 
@@ -74,9 +76,7 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     string stamp = "abc", target = "ababc";

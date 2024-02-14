@@ -9,6 +9,10 @@ Given an integer n, return true if it is a power of three.Otherwise,
     if there exists an integer x such that n == 3x.
 */
 
+#include <string>
+
+#include "gtest/gtest.h"
+
 #include<gtest/gtest.h>
 namespace { 
 class Solution {
@@ -24,9 +28,7 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     int n = 27;

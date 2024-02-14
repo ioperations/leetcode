@@ -7,9 +7,13 @@ distinct indices i and j in the array such that nums[i] == nums[j] and abs(i -
 j) <= k.
 */
 
-#include <algorithm>
+#include <stdlib.h>
 #include <unordered_map>
 #include <vector>
+#include <string>
+
+#include "gtest/gtest.h"
+
 using namespace std;
 
 #include<gtest/gtest.h>
@@ -38,9 +42,7 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     std::vector<int> nums = {1, 2, 3, 1};
@@ -102,7 +104,5 @@ TEST(t1, t3) {
     EXPECT_EQ(ret, output);
 }
 
-#include <algorithm>
-#include <vector>
 
 }

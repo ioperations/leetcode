@@ -12,6 +12,9 @@ You must do this by modifying the input array in-place with O(1) extra memory.
 #include <algorithm>
 #include <stack>
 #include <vector>
+#include <string>
+
+#include "gtest/gtest.h"
 
 #include<gtest/gtest.h>
 namespace { 
@@ -37,9 +40,7 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     std::vector<char> s = {'h', 'e', 'l', 'l', 'o'};

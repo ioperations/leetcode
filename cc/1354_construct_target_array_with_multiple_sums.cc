@@ -12,6 +12,10 @@ return false.*/
 
 #include <queue>
 #include <vector>
+#include <string>
+
+#include "gtest/gtest.h"
+
 using namespace std;
 
 #include<gtest/gtest.h>
@@ -39,7 +43,6 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
 TEST(t0, t1) {
     vector<int> target = {9, 3, 5};

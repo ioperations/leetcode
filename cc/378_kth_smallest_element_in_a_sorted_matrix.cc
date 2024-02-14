@@ -6,6 +6,11 @@
 
 #include <queue>
 #include <vector>
+#include <functional>
+#include <string>
+
+#include "gtest/gtest.h"
+
 using namespace std;
 
 #include<gtest/gtest.h>
@@ -69,9 +74,7 @@ Space Complexity: O(1), constant space.
     }
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     vector<vector<int>> matrix = {{1, 5, 9}, {10, 11, 13}, {12, 13, 15}};

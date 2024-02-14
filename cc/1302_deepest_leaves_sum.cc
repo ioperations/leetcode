@@ -6,6 +6,10 @@
 
 #include <algorithm>
 #include <queue>
+#include <string>
+#include <vector>
+
+#include "gtest/gtest.h"
 
 using namespace std;
 
@@ -20,7 +24,7 @@ struct TreeNode {
     TreeNode(int x, TreeNode *left, TreeNode *right)
         : val(x), left(left), right(right) {}
 };
-#include <gtest/gtest.h>
+
 namespace {
 class Solution {
    public:
@@ -44,7 +48,6 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 class SolutionV2 {
    public:
     int DeepestLeavesSum(TreeNode *root) {
@@ -68,11 +71,6 @@ class SolutionV2 {
         return sum;
     }
 };
-
-#include <gtest/gtest.h>
-
-#include <vector>
-using namespace std;
 
 #define null -1
 

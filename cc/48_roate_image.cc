@@ -1,8 +1,11 @@
 // This is a personal academic project. Dear PVS-Studio, please check it.
 // PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
 // https://pvs-studio.com
+#include <stddef.h>
 #include <algorithm>
 #include <vector>
+#include <string>
+
 /*
 
 You are given an n x n 2D matrix representing an image, rotate the image by 90
@@ -13,6 +16,8 @@ You have to rotate the image in-place, which means you have to modify the input
 */
 using namespace std;
 #include <cassert>
+
+#include "gtest/gtest.h"
 
 #include<gtest/gtest.h>
 namespace { 
@@ -68,9 +73,7 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     std::vector<std::vector<int>> matrix = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};

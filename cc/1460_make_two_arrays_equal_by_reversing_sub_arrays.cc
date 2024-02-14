@@ -11,6 +11,10 @@ Return true if you can make arr equal to target or false otherwise.
 
 #include <algorithm>
 #include <vector>
+#include <string>
+
+#include "gtest/gtest.h"
+
 using namespace std;
 
 #include<gtest/gtest.h>
@@ -26,7 +30,6 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
 TEST(t0, t1) {
     std::vector<int> target = {1, 2, 3, 4}, arr = {2, 4, 1, 3};

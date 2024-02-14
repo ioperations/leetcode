@@ -9,8 +9,12 @@ Note: You must not use any built-in BigInteger library or convert the inputs to
 integer directly.
 */
 
+#include <stddef.h>
 #include <string>
 #include <vector>
+
+#include "gtest/gtest.h"
+
 using namespace std;
 
 #include<gtest/gtest.h>
@@ -51,9 +55,7 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     std::string num1 = "2", num2 = "3";

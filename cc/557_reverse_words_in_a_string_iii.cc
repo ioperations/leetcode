@@ -7,11 +7,12 @@
 */
 
 #include <benchmark/benchmark.h>
-#include <gtest/gtest.h>
-
-#include <algorithm>
 #include <stack>
 #include <string>
+#include <utility>
+
+#include "gtest/gtest.h"
+
 using namespace std;
 
 namespace {
@@ -67,9 +68,7 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     string const s = "Let's take LeetCode contest";

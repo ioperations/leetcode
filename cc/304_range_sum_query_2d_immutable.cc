@@ -14,9 +14,14 @@ col1) and lower right corner (row2, col2).
  */
 
 #include <vector>
+#include <string>
+
+#include "gtest/gtest.h"
+
 using namespace std;
 
 #include <gtest/gtest.h>
+
 namespace {
 class NumMatrix {
    public:
@@ -41,7 +46,6 @@ class NumMatrix {
    private:
     vector<vector<int>> m_matrix;
 };
-#include <gtest/gtest.h>
 class NumMatrixV1 {
     vector<vector<int>> sum;
 
@@ -76,9 +80,7 @@ class NumMatrixV1 {
  * int param_1 = obj->sumRegion(row1,col1,row2,col2);
  */
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     // ["NumMatrix", "sumRegion", "sumRegion", "sumRegion"]

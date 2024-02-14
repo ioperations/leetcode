@@ -19,6 +19,10 @@ false.
 
 #include <map>
 #include <vector>
+#include <string>
+
+#include "gtest/gtest.h"
+
 using namespace std;
 
 #include<gtest/gtest.h>
@@ -76,9 +80,7 @@ class Solution {
     std::map<int, bool> cache;
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     vector<int> nums = {4, 4, 4, 5, 6};

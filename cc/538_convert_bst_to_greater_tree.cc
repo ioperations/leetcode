@@ -25,10 +25,11 @@ struct TreeNode {
         : val(x), left(left), right(right) {}
 };
 
-#include <gtest/gtest.h>
-
-#include <iostream>
 #include <queue>
+#include <string>
+#include <vector>
+
+#include "gtest/gtest.h"
 
 namespace {
 class Solution {

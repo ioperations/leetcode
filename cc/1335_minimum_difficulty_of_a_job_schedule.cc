@@ -18,6 +18,11 @@ for the jobs return -1.*/
 #include <climits>
 #include <limits>
 #include <vector>
+#include <iterator>
+#include <string>
+
+#include "gtest/gtest.h"
+
 using namespace std;
 #include<gtest/gtest.h>
 namespace { 
@@ -88,7 +93,6 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
 TEST(t0, t1) {
     vector<int> job_difficulty = {6, 5, 4, 3, 2, 1};

@@ -14,6 +14,13 @@
 
 #include <queue>
 #include <vector>
+#include <algorithm>
+#include <functional>
+#include <string>
+#include <utility>
+
+#include "gtest/gtest.h"
+
 using namespace std;
 
 #include<gtest/gtest.h>
@@ -97,9 +104,7 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     vector<vector<int>> times = {{2, 1, 1}, {2, 3, 1}, {3, 4, 1}};

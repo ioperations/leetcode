@@ -13,6 +13,9 @@ Open brackets must be closed in the correct order.
 
 #include <stack>
 #include <string>
+
+#include "gtest/gtest.h"
+
 using namespace std;
 #include<gtest/gtest.h>
 namespace { 
@@ -59,9 +62,7 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     string s = "()";

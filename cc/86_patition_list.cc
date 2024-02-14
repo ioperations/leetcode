@@ -10,7 +10,11 @@ You should preserve the original relative order of the nodes in each of the two
 partitions.
 */
 
+#include <string>
+
 #include "datastruct_base.hh"
+#include "gtest/gtest.h"
+
 //* Definition for singly-linked list.
 using ListNode  = List::ListNode<int>;
 
@@ -45,9 +49,6 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
-
-#include <iostream>
 #include <vector>
 
 void ExpectEqList(ListNode *const head, const std::vector<int> &elements) {

@@ -15,6 +15,10 @@ Return the number of weak characters.*/
 #include <algorithm>
 #include <climits>
 #include <vector>
+#include <string>
+
+#include "gtest/gtest.h"
+
 using namespace std;
 
 #include<gtest/gtest.h>
@@ -39,9 +43,7 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     std::vector<vector<int>> properties = {{5, 5}, {6, 3}, {3, 6}};

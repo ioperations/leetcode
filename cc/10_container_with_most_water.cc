@@ -3,6 +3,10 @@
 // https://pvs-studio.com
 #include <algorithm>
 #include <vector>
+#include <string>
+
+#include "gtest/gtest.h"
+
 #include<gtest/gtest.h>
 namespace { 
 class Solution {
@@ -42,7 +46,6 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
 TEST(t1, t1) {
     Solution s;

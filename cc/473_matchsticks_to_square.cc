@@ -11,6 +11,10 @@ Return true if you can make this square and false otherwise.*/
 #include <algorithm>
 #include <numeric>
 #include <vector>
+#include <string>
+
+#include "gtest/gtest.h"
+
 using namespace std;
 
 #include<gtest/gtest.h>
@@ -60,9 +64,7 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     vector<int> matchsticks = {1, 1, 2, 2, 2};

@@ -14,8 +14,12 @@
 */
 
 #include <cstdlib>
+#include <optional>
+#include <vector>
 
 #include "datastruct_base.hh"
+#include "gtest/gtest.h"
+
 using namespace Tree;
 
 #include<gtest/gtest.h>
@@ -49,10 +53,6 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
-
-#include <iostream>
-#include <queue>
 #include <string>
 
 using namespace std;

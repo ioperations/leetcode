@@ -3,6 +3,9 @@
 // https://pvs-studio.com
 
 #include <string>
+
+#include "gtest/gtest.h"
+
 using namespace std;
 
 #include<gtest/gtest.h>
@@ -40,7 +43,6 @@ class Solution {
     string ret = "";
 };
 
-#include <gtest/gtest.h>
 
 TEST(t1, t0) {
     string s = "1111";

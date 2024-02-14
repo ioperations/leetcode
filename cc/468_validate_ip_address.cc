@@ -26,10 +26,12 @@ are invalid IPv6 addresses.
 #include <algorithm>
 #include <sstream>
 #include <string>
+
+#include "gtest/gtest.h"
+
 using namespace std;
 
-#include<gtest/gtest.h>
-namespace { 
+namespace {
 class Solution {
    private:
     std::string ipv4 = "IPv4";
@@ -127,10 +129,6 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
-
-#include <iostream>
-
 TEST(t0, t0) {
     string query_ip = "192.0.0.1";
     string output = "IPv4";
@@ -220,4 +218,4 @@ TEST(t1, t3) {
     EXPECT_EQ(ret, output);
 }
 
-}
+}  // namespace

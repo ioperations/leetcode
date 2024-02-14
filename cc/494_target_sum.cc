@@ -14,6 +14,10 @@ expressions that you can build, which evaluates to target.
 */
 
 #include <vector>
+#include <string>
+
+#include "gtest/gtest.h"
+
 using namespace std;
 
 #include<gtest/gtest.h>
@@ -49,9 +53,7 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     std::vector<int> nums = {1, 1, 1, 1, 1};

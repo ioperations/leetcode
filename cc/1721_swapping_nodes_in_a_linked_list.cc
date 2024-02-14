@@ -8,9 +8,13 @@ Return the head of the linked list after swapping the values of the kth node
 from the beginning and the kth node from the end (the list is 1-indexed).
 */
 
-#include <iostream>
+#include <string>
+#include <utility>
+#include <vector>
 
 #include "datastruct_base.hh"
+#include "gtest/gtest.h"
+
 //* Definition for singly-linked list.
 using ListNode = List::ListNode<int>;
 
@@ -43,9 +47,7 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 void ExpectEqList(ListNode *const head, const std::vector<int> &elements) {
     int i = 0;
@@ -64,9 +66,7 @@ TEST(memleak, t1) {
     List::FreeList(head);
 }
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     std::vector<int> v{1, 2, 3, 4, 5};

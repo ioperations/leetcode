@@ -9,8 +9,11 @@ Return the number of good nodes in the binary tree.
 // Definition for a binary tree node.
 #include <algorithm>
 #include <functional>
+#include <string>
 
 #include "datastruct_base.hh"
+#include "gtest/gtest.h"
+
 using namespace Tree;
 
 #include<gtest/gtest.h>
@@ -35,12 +38,9 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
+#include <optional>
 
-#include <optional>
 using namespace std;
-#include <algorithm>
-#include <optional>
 #include <vector>
 
 using namespace std;

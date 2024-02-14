@@ -28,9 +28,16 @@ Given a string s, return true if s is a valid number.
 
 #include <string>
 #include <utility>
+#include <vector>
+
+#include "gtest/gtest.h"
+
 using namespace std;
 
 #include <gtest/gtest.h>
+#include <_ctype.h>
+#include <stddef.h>
+
 namespace {
 class Solution {
    public:

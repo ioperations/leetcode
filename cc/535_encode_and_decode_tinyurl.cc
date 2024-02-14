@@ -21,8 +21,11 @@ shortUrl. It is guaranteed that the given shortUrl was encoded by the same
 object.
 */
 
+#include <stdlib.h>
 #include <string>
 #include <unordered_map>
+
+#include "gtest/gtest.h"
 
 using namespace std;
 #include<gtest/gtest.h>
@@ -78,9 +81,7 @@ class Solution {
 // Solution solution;
 // solution.decode(solution.encode(url));
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(testName, testNum) {
     std::string url = "https://leetcode.com/problems/design-tinyurl";

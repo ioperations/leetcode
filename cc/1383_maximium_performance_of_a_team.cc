@@ -20,6 +20,11 @@ number, return it modulo 109 + 7.*/
 #include <queue>
 #include <set>
 #include <vector>
+#include <string>
+#include <utility>
+
+#include "gtest/gtest.h"
+
 using namespace std;
 #include<gtest/gtest.h>
 namespace { 
@@ -101,7 +106,6 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
 TEST(t0, t1) {
     int n = 6;

@@ -15,9 +15,11 @@ the capacity from this operation, evict the least recently used key. The
 functions get and put must each run in O(1) average time complexity.
 */
 
-#include <gtest/gtest.h>
-
 #include <map>
+#include <string>
+
+#include "gtest/gtest.h"
+
 namespace {
 class LRUCache {
    public:

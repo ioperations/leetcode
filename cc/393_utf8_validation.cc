@@ -39,6 +39,9 @@ each integer is used to store the data. This means each integer represents only
 */
 
 #include <vector>
+#include <string>
+
+#include "gtest/gtest.h"
 
 using namespace std;
 
@@ -81,9 +84,7 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     vector<int> data = {197, 130, 1};

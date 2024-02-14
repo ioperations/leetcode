@@ -19,6 +19,10 @@ Your solution must use only constant extra space.
 */
 
 #include <vector>
+#include <string>
+
+#include "gtest/gtest.h"
+
 using namespace std;
 
 #include<gtest/gtest.h>
@@ -57,9 +61,7 @@ class Solution {
         return 0;
     }
 };
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     vector<int> numbers = {2, 7, 11, 15};

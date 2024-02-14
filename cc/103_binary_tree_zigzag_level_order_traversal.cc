@@ -16,10 +16,14 @@ struct TreeNode {
         : val(x), left(left), right(right) {}
 };
 
+#include <stddef.h>
 #include <algorithm>
 #include <optional>
 #include <queue>
 #include <vector>
+#include <string>
+
+#include "gtest/gtest.h"
 
 using namespace std;
 
@@ -48,8 +52,6 @@ class Solution {
         }
     }
 };
-
-#include <gtest/gtest.h>
 
 // Decodes your encoded data to tree.
 TreeNode *ConstructBinaryTree(std::vector<std::optional<int>> &data) {

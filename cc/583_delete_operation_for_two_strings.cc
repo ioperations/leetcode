@@ -10,6 +10,9 @@ In one step, you can delete exactly one character in either string.
 
 #include <string>
 #include <vector>
+#include <algorithm>
+
+#include "gtest/gtest.h"
 
 using namespace std;
 
@@ -45,9 +48,7 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     string word1 = "sea", word2 = "eat";

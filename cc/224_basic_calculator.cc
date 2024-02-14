@@ -12,10 +12,13 @@ as mathematical expressions, such as eval().
 */
 
 #include <benchmark/benchmark.h>
-#include <gtest/gtest.h>
-
+#include <_ctype.h>
+#include <stddef.h>
 #include <stack>
 #include <string>
+
+#include "gtest/gtest.h"
+
 using namespace std;
 
 namespace {
@@ -133,7 +136,6 @@ class Solution {
     };
 };
 
-#include <gtest/gtest.h>
 class SolutionV2 {
    public:
     int Calculate(string s) {
@@ -169,7 +171,6 @@ class SolutionV2 {
     }
 };
 
-#include <gtest/gtest.h>
 class SolutionV3 {
    public:
     int Calculate(string s) {
@@ -283,7 +284,6 @@ class SolutionV3 {
         return 0;
     }
 };
-#include <gtest/gtest.h>
 
 TEST(t0, t1) {
     const std::string s = "1+1";

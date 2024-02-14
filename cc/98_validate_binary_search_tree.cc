@@ -14,11 +14,13 @@ node's key. Both the left and right subtrees must also be binary search trees.
 
 //* Definition for a binary tree node.
 #include <limits.h>
-
 #include <functional>
 #include <limits>
-#include <numeric>
 #include <vector>
+#include <string>
+
+#include "gtest/gtest.h"
+
 struct TreeNode {
     int val;
     TreeNode *left;
@@ -114,9 +116,7 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TreeNode *AddToRoot(TreeNode *root, int val) {
     if (root == nullptr) {

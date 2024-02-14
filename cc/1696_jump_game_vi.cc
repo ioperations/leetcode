@@ -13,15 +13,13 @@ sum of all nums[j] for each index j you visited in the array.
 
 Return the maximum score you can get.*/
 #include <limits.h>
-
-#include <algorithm>
-#include <functional>
-#include <limits>
-#include <map>
-#include <numeric>
 #include <queue>
-#include <tuple>
 #include <vector>
+#include <string>
+#include <utility>
+
+#include "gtest/gtest.h"
+
 using namespace std;
 
 #include<gtest/gtest.h>
@@ -51,9 +49,7 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     std::vector<int> nums{1, -1, -2, 4, -7, 3};

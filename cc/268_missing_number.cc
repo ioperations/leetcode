@@ -5,6 +5,10 @@
  * the only number in the range that is missing from the array.*/
 
 #include <vector>
+#include <algorithm>
+#include <string>
+
+#include "gtest/gtest.h"
 
 using namespace std;
 
@@ -25,9 +29,7 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t0) {
     std::vector<int> nums = {1};

@@ -13,6 +13,10 @@ Return the maximum number of courses that you can take.*/
 #include <algorithm>
 #include <queue>
 #include <vector>
+#include <string>
+
+#include "gtest/gtest.h"
+
 using namespace std;
 
 #include<gtest/gtest.h>
@@ -56,9 +60,7 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     std::vector<vector<int>> courses = {

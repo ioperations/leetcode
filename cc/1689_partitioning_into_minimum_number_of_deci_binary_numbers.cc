@@ -13,6 +13,9 @@ number of positive deci-binary numbers needed so that they sum up to n.
 */
 #include <algorithm>
 #include <string>
+
+#include "gtest/gtest.h"
+
 using namespace std;
 
 #include<gtest/gtest.h>
@@ -37,9 +40,7 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     string n = "32";

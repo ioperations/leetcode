@@ -7,6 +7,9 @@ Given an integer num, return a string of its base 7 representation.
 */
 
 #include <string>
+
+#include "gtest/gtest.h"
+
 using namespace std;
 
 #include<gtest/gtest.h>
@@ -27,9 +30,7 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     int num = 100;

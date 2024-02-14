@@ -10,13 +10,18 @@ Return any array that satisfies this condition.
 
 */
 
-#include <functional>
 #include <queue>
 #include <set>
 #include <vector>
+#include <string>
+#include <utility>
+
+#include "gtest/gtest.h"
+
 using namespace std;
 
 #include <gtest/gtest.h>
+
 namespace {
 class Solution {
     struct Fun {
@@ -56,7 +61,6 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 class SolutionV2 {
    public:
     vector<int> SortArrayByParity(vector<int> &nums) {
@@ -80,9 +84,7 @@ class SolutionV2 {
     }
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     std::vector<int> nums = {3, 1, 2, 4};

@@ -10,6 +10,11 @@ order.
 */
 
 #include <vector>
+#include <set>
+#include <string>
+
+#include "gtest/gtest.h"
+
 using namespace std;
 #include <gtest/gtest.h>
 
@@ -67,9 +72,7 @@ class SolutionV1 {
         return ans;
     }
 };
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     std::vector<int> input{1, 2, 3};

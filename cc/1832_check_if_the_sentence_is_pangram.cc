@@ -10,10 +10,11 @@ if sentence is a pangram, or false otherwise.
 */
 
 #include <benchmark/benchmark.h>
-#include <gtest/gtest.h>
-
 #include <set>
 #include <string>
+
+#include "gtest/gtest.h"
+
 using namespace std;
 
 namespace {
@@ -38,9 +39,7 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     string sentence = "thequickbrownfoxjumpsoverthelazydog";

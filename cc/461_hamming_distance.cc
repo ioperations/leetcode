@@ -10,8 +10,10 @@ Given two integers x and y, return the Hamming distance between them.
 
 */
 
-#include <algorithm>
 #include <string>
+
+#include "gtest/gtest.h"
+
 #include<gtest/gtest.h>
 namespace { 
 class Solution {
@@ -53,9 +55,7 @@ class Solution {
     int HammingDistanceV2(int x, int y) { return HammingWeight(x ^ y); }
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     int x = 1, y = 4;

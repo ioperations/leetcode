@@ -22,13 +22,17 @@ the target file or directory (i.e., no period '.' or double period '..') Return
 the simplified canonical path.
 */
 
+#include <stddef.h>
+
 #include <algorithm>
 #include <sstream>
 #include <stack>
 #include <string>
 
+#include "gtest/gtest.h"
+
 using namespace std;
-#include <gtest/gtest.h>
+
 namespace {
 class Solution {
    public:
@@ -102,8 +106,6 @@ class SolutionV2 {
         return ret;
     }
 };
-
-#include <gtest/gtest.h>
 
 TEST(t0, t1) {
     std::string path = "/home/";

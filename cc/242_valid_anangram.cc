@@ -11,6 +11,9 @@ word or phrase, typically using all the original letters exactly once.
 */
 #include <algorithm>
 #include <string>
+
+#include "gtest/gtest.h"
+
 using namespace std;
 
 #include<gtest/gtest.h>
@@ -24,9 +27,7 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     string s = "anagram", t = "nagaram";

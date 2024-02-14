@@ -14,6 +14,8 @@ relationship between the string and the original binary tree.
 #include <string>
 
 #include "datastruct_base.hh"
+#include "gtest/gtest.h"
+
 using namespace std;
 using namespace Tree;
 
@@ -46,12 +48,9 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
-
-#include <iostream>
 #include <optional>
-#include <queue>
 #include <vector>
+
 using namespace std;
 
 #define null optional<int>()

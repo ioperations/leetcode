@@ -19,6 +19,9 @@ input array in-place with O(1) extra memory.
 */
 
 #include <vector>
+#include <string>
+
+#include "gtest/gtest.h"
 
 using namespace std;
 #include<gtest/gtest.h>
@@ -43,9 +46,7 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     vector<int> nums = {1, 1, 1, 2, 2, 3};

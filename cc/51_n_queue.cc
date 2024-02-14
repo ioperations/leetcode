@@ -15,6 +15,10 @@ respectively.
 */
 #include <string>
 #include <vector>
+#include <iterator>
+
+#include "gtest/gtest.h"
+
 using namespace std;
 
 #include<gtest/gtest.h>
@@ -69,14 +73,11 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
-
 #include <set>
+
 using namespace std;
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     // pass

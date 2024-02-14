@@ -16,12 +16,15 @@ column. In such a case, sort these nodes by their values.
 
 Return the vertical order traversal of the binary tree.*/
 
-//* Definition for a binary tree node.
-#include <cstddef>
 #include <queue>
 #include <vector>
+#include <functional>
+#include <optional>
+#include <string>
+#include <utility>
 
 #include "datastruct_base.hh"
+#include "gtest/gtest.h"
 
 using namespace std;
 using namespace Tree;
@@ -134,8 +137,6 @@ class Solution {
         return ret;
     }
 };
-
-#include <gtest/gtest.h>
 
 #define null optional<int>()
 

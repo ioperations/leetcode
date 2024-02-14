@@ -24,11 +24,16 @@ correct.
 */
 
 #include <vector>
+#include <string>
+
+#include "gtest/gtest.h"
+
 using namespace std;
 
 // This is the interface that allows for creating nested lists.
 // You should not implement it, or speculate about its implementation
 #include <gtest/gtest.h>
+
 namespace {
 class NestedInteger {
     bool is_integer;
@@ -64,7 +69,6 @@ class NestedInteger {
     vector<NestedInteger> &GetList() { return vec; };
 };
 
-#include <gtest/gtest.h>
 class NestedIterator {
     int i;
     vector<int> faltterned;
@@ -104,9 +108,7 @@ class NestedIterator {
  * while (i.hasNext()) cout << i.next();
  */
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     // vector<NestedInteger> nestedList = {{1,1},2,{1,1}};

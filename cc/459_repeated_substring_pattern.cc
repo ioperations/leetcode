@@ -9,6 +9,8 @@
 #include <string>
 #include <vector>
 
+#include "gtest/gtest.h"
+
 using namespace std;
 
 #include<gtest/gtest.h>
@@ -30,9 +32,7 @@ class Solution {
     }
     bool RepeatedSubstringPattern(string s) { return PrefixFunction(s); }
 };
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     string s = "abab";

@@ -10,9 +10,10 @@ You must solve the problem without modifying the array nums and uses only
 constant extra space.*/
 
 #include <benchmark/benchmark.h>
-#include <gtest/gtest.h>
-
 #include <vector>
+#include <string>
+
+#include "gtest/gtest.h"
 
 using namespace std;
 
@@ -55,9 +56,7 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 TEST(t0, t1) {
     std::vector<int> v{1, 3, 4, 2, 2};
 

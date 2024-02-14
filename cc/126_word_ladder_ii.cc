@@ -20,6 +20,9 @@ should be returned as a list of the words [beginWord, s1, s2, ..., sk].*/
 #include <queue>
 #include <string>
 #include <vector>
+#include <set>
+
+#include "gtest/gtest.h"
 
 using namespace std;
 #include<gtest/gtest.h>
@@ -103,7 +106,6 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
 TEST(t0, t1) {
     string begin_word = "hit", end_word = "cog";

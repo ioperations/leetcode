@@ -8,8 +8,12 @@
 
 */
 #include <vector>
+#include <string>
+
 using namespace std;
 #include <stack>
+
+#include "gtest/gtest.h"
 
 #include<gtest/gtest.h>
 namespace { 
@@ -34,9 +38,7 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     std::vector<int> temperatures{73, 74, 75, 71, 69, 72, 76, 73};

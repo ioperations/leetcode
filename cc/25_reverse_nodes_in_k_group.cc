@@ -15,8 +15,11 @@ changed.
 
 */
 
+#include <string>
+
 //* Definition for singly-linked list.
 #include "datastruct_base.hh"
+#include "gtest/gtest.h"
 
 using ListNode = List::ListNode<int>;
 #include<gtest/gtest.h>
@@ -76,9 +79,6 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
-
-#include <iostream>
 #include <vector>
 
 void ExpectEqList(ListNode *const head, const std::vector<int> &elements) {

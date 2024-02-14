@@ -10,8 +10,10 @@ perfect squares while 3 and 11 are not.*/
 
 #include <algorithm>
 #include <climits>
-#include <functional>
 #include <vector>
+#include <string>
+
+#include "gtest/gtest.h"
 
 #include<gtest/gtest.h>
 namespace { 
@@ -34,9 +36,7 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     int n = 12;

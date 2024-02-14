@@ -14,8 +14,13 @@ node. A leaf is a node with no children.
 // Definition for a binary tree node.
 
 #include <numeric>
+#include <optional>
+#include <string>
+#include <vector>
 
 #include "datastruct_base.hh"
+#include "gtest/gtest.h"
+
 using namespace std;
 
 using namespace Tree;
@@ -55,7 +60,6 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 #define null optional<int>()
 using namespace std;
 

@@ -11,9 +11,12 @@ Given an integer array nums,
         Notice that the solution set must not contain duplicate triplets.
 */
 
+#include <stddef.h>
 #include <algorithm>
 #include <vector>
-#include "datastruct_base.hh"
+#include <string>
+
+#include "gtest/gtest.h"
 
 using namespace std;
 
@@ -118,7 +121,6 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
 TEST(t0, t1) {
     std::vector<int> nums = {-1, 0, 1, 2, -1, -4};

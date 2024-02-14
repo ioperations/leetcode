@@ -5,11 +5,12 @@
  * possible unique permutations in any order.*/
 
 #include <benchmark/benchmark.h>
-#include <gtest/gtest.h>
 #include <limits.h>
-
 #include <algorithm>
 #include <vector>
+#include <string>
+
+#include "gtest/gtest.h"
 
 using namespace std;
 
@@ -51,9 +52,6 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
-
-#include <iostream>
 #include <set>
 
 TEST(t0, t1) {

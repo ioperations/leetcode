@@ -28,7 +28,12 @@ function returns.
 
  */
 
+#include <string>
+#include <vector>
+
 #include "datastruct_base.hh"
+#include "gtest/gtest.h"
+
 // Definition for singly-linked list.
 using ListNode = List::ListNode<int>;
 
@@ -88,7 +93,6 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
 void ExpectEqList(ListNode *const head, const std::vector<int> &elements) {
     int i = 0;

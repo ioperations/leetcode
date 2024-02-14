@@ -27,9 +27,11 @@ using a list or deque (double-ended queue) as long as you use only a queue's
 standard operations.
 */
 
-#include <gtest/gtest.h>
-
 #include <queue>
+#include <string>
+
+#include "gtest/gtest.h"
+
 namespace {
 class MyStack {
     std::queue<int> q;
@@ -54,7 +56,6 @@ class MyStack {
     bool Empty() { return q.empty(); }
 };
 
-#include <gtest/gtest.h>
 class MyStackV2 {
    public:
     std::queue<int> q;
@@ -80,9 +81,7 @@ class MyStackV2 {
 
     bool Empty() { return q.empty(); }
 };
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     // * Your MyStack object will be instantiated and called as such:

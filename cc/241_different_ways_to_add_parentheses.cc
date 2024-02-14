@@ -11,9 +11,14 @@ and the number of different results does not exceed 104.*/
 #include <set>
 #include <string>
 #include <vector>
+
+#include "gtest/gtest.h"
+
 using namespace std;
 
 #include <gtest/gtest.h>
+#include <stddef.h>
+
 namespace {
 class Solution {
    public:
@@ -45,9 +50,8 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
-
 #include <unordered_map>
+
 class SolutionV2 {
    public:
     vector<int> DiffWaysToCompute(string expression) {
@@ -96,9 +100,7 @@ class SolutionV2 {
     /* data */
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     string expression = "2-1-1";

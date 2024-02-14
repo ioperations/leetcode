@@ -15,9 +15,13 @@ Therefore, in Example 2 above, the input represents the signed integer -3 and
 the output represents the signed integer -1073741825.
 */
 
+#include <stddef.h>
 #include <algorithm>
 #include <cstdint>
 #include <string>
+
+#include "gtest/gtest.h"
+
 using namespace std;
 
 uint32_t ConstructUint32T(const std::string &s) {
@@ -89,9 +93,7 @@ class Solution {
         return ret;
     }
 };
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(base, tp) {
     EXPECT_EQ(2 << 1, 4);

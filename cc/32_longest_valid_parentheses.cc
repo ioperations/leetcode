@@ -8,6 +8,10 @@ the longest valid (well-formed) parentheses substring.
 
 #include <stack>
 #include <string>
+#include <algorithm>
+
+#include "gtest/gtest.h"
+
 using namespace std;
 #include<gtest/gtest.h>
 namespace { 
@@ -33,9 +37,7 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     string s = "(()";

@@ -11,10 +11,12 @@ results will be in the range of [-231, 231 - 1].
 
 Note: You are not allowed to use any built-in function which evaluates strings
 as mathematical expressions, such as eval().*/
-#include <cstdlib>
 #include <string>
+
 using namespace std;
 #include <stack>
+
+#include "gtest/gtest.h"
 
 #include<gtest/gtest.h>
 namespace { 
@@ -81,7 +83,6 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
 TEST(t0, t1) {
     string s = "3+2*2";

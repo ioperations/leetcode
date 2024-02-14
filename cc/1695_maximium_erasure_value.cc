@@ -14,6 +14,10 @@
 */
 #include <unordered_map>
 #include <vector>
+#include <algorithm>
+#include <string>
+
+#include "gtest/gtest.h"
 
 using namespace std;
 
@@ -47,9 +51,7 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     vector<int> nums = {4, 2, 4, 5, 6};

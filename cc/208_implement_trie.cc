@@ -15,12 +15,13 @@ prefix) Returns true if there is a previously inserted string word that has the
 prefix prefix, and false otherwise.*/
 
 #include <benchmark/benchmark.h>
-#include <gtest/gtest.h>
-
-#include <algorithm>
+#include <stddef.h>
 #include <map>
 #include <string>
 #include <vector>
+
+#include "gtest/gtest.h"
+
 using namespace std;
 
 namespace {
@@ -152,9 +153,7 @@ class TrieV1 {
  * bool param_3 = obj->startsWith(prefix);
  */
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     //    ["Trie", "insert", "search", "search", "startsWith", "insert",

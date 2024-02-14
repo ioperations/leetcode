@@ -15,6 +15,10 @@ You must write an algorithm that runs in O(log n) time.
 */
 
 #include <vector>
+#include <string>
+
+#include "gtest/gtest.h"
+
 using namespace std;
 
 #include<gtest/gtest.h>
@@ -91,8 +95,6 @@ class Solution {
         return -1;
     }
 };
-
-#include <gtest/gtest.h>
 
 #include <set>
 

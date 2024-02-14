@@ -17,14 +17,17 @@ Return the largest possible score you can achieve after playing any number of
 tokens.*/
 
 #include <benchmark/benchmark.h>
-
 #include <algorithm>
 #include <functional>
 #include <set>
 #include <vector>
+#include <string>
+
+#include "gtest/gtest.h"
 
 using namespace std;
 #include <gtest/gtest.h>
+
 namespace {
 class Solution {
    public:
@@ -88,7 +91,6 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
 TEST(t0, t1) {
     vector<int> tokens = {100};

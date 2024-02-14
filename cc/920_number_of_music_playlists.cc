@@ -10,6 +10,11 @@
  */
 
 #include <vector>
+#include <algorithm>
+#include <string>
+
+#include "gtest/gtest.h"
+
 #define ll long long
 
 using namespace std;
@@ -68,7 +73,6 @@ class Solution {
     const int mod = 1000000007;
 };
 
-#include <gtest/gtest.h>
 
 TEST(t0, t1) {
     Solution s;

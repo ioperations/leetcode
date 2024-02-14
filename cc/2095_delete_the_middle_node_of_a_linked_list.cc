@@ -11,7 +11,11 @@ to x.
 For n = 1, 2, 3, 4, and 5, the middle nodes are 0, 1, 1, 2, and 2,
 respectively.*/
 
+#include <string>
+
 #include "datastruct_base.hh"
+#include "gtest/gtest.h"
+
 //* Definition for singly-linked list.
 using ListNode = List::ListNode<int>;
 
@@ -57,9 +61,6 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
-
-#include <iostream>
 #include <vector>
 
 void ExpectEqList(ListNode *const head, const std::vector<int> &elements) {
@@ -74,9 +75,7 @@ void ExpectEqList(ListNode *const head, const std::vector<int> &elements) {
     EXPECT_EQ(i, elements.size());
 }
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 using namespace std;
 
 TEST(t0, t1) {

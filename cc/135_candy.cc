@@ -13,6 +13,10 @@ to the children.*/
 
 #include <algorithm>
 #include <vector>
+#include <string>
+
+#include "gtest/gtest.h"
+
 using namespace std;
 
 #include<gtest/gtest.h>
@@ -44,7 +48,6 @@ class Solution {
         return sum;
     }
 };
-#include <gtest/gtest.h>
 
 TEST(t0, t1) {
     vector<int> ratings{1, 0, 2};

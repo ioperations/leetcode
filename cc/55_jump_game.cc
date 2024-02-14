@@ -2,9 +2,12 @@
 // PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
 // https://pvs-studio.com
 #include <benchmark/benchmark.h>
-
+#include <stddef.h>
 #include <algorithm>
 #include <vector>
+#include <string>
+
+#include "gtest/gtest.h"
 
 using namespace std;
 
@@ -15,6 +18,7 @@ at that position.
     */
 
 #include <gtest/gtest.h>
+
 namespace {
 class Solution {
    public:
@@ -55,9 +59,7 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(testName, testNum) {
     std::vector<int> nums = {2, 3, 1, 1, 4};

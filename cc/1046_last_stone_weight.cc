@@ -13,11 +13,13 @@
 // If x != y, the stone of weight x is destroyed, and the stone of weight y has
 // new weight y - x. At the end of the game, there is at most one stone left.
 
-// Return the smallest possible weight of the left stone. If there are no stones
-// left, return 0.
-#include <cmath>
+#include <stdlib.h>
 #include <queue>
 #include <vector>
+#include <string>
+
+#include "gtest/gtest.h"
+
 using namespace std;
 #include<gtest/gtest.h>
 namespace { 
@@ -46,7 +48,6 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
 TEST(t0, t1) {
     // Input:

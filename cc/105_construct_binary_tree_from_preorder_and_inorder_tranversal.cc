@@ -7,8 +7,11 @@
 
 //* Definition for a binary tree node.
 #include <unordered_map>
+#include <string>
+#include <vector>
 
 #include "datastruct_base.hh"
+#include "gtest/gtest.h"
 
 using namespace Tree;
 using namespace std;
@@ -44,7 +47,6 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
 using namespace std;
 

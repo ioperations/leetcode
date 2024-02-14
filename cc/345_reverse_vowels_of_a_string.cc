@@ -11,7 +11,9 @@ The vowels are 'a', 'e', 'i', 'o', and 'u', and they can appear in both cases.
 #include <set>
 #include <stack>
 #include <string>
-#include <vector>
+
+#include "gtest/gtest.h"
+
 using namespace std;
 #include<gtest/gtest.h>
 namespace { 
@@ -41,9 +43,7 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     std::string s = "hello";

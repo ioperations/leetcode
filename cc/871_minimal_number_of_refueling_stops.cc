@@ -22,8 +22,10 @@ refuel there. If the car reaches the destination with 0 fuel left, it is still
 considered to have arrived.*/
 #include <algorithm>
 #include <functional>
-#include <map>
 #include <vector>
+#include <string>
+
+#include "gtest/gtest.h"
 
 using namespace std;
 
@@ -101,9 +103,7 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     int target = 1, start_fuel = 1;

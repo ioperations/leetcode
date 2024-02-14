@@ -12,6 +12,9 @@ Return the maximum number of operations you can perform on the array.
 #include <algorithm>
 #include <unordered_map>
 #include <vector>
+#include <string>
+
+#include "gtest/gtest.h"
 
 using namespace std;
 
@@ -71,9 +74,7 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     std::vector<int> nums = {1, 2, 3, 4};

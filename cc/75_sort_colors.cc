@@ -12,10 +12,13 @@
     You must solve this problem without using the library's sort function.
 */
 #include <benchmark/benchmark.h>
-#include <gtest/gtest.h>
-
-#include <algorithm>
 #include <vector>
+#include <cstddef>
+#include <string>
+#include <utility>
+
+#include "gtest/gtest.h"
+
 namespace {
 class Solution {
    public:
@@ -64,7 +67,6 @@ class Solution {
     }
 };
 
-#include <vector>
 
 static void BenchBubbleSort(benchmark::State &state) {
     for (auto _ : state) {

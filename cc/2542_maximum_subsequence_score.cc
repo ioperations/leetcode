@@ -19,6 +19,9 @@ A subsequence of indices of an array is a set that can be derived from the set
 #include <algorithm>
 #include <functional>
 #include <vector>
+#include <string>
+
+#include "gtest/gtest.h"
 
 using namespace std;
 #include<gtest/gtest.h>
@@ -60,9 +63,7 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     vector<int> nums1 = {1, 3, 3, 2};

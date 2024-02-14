@@ -13,13 +13,13 @@ some or no elements without changing the order of the remaining elements.
 */
 
 #include <benchmark/benchmark.h>
-#include <gtest/gtest.h>
-
 #include <algorithm>
 #include <functional>
 #include <map>
 #include <string>
 #include <vector>
+
+#include "gtest/gtest.h"
 
 using namespace std;
 

@@ -16,6 +16,8 @@ For example, "ace" is a subsequence of "abcde".
 #include <unordered_map>
 #include <vector>
 
+#include "gtest/gtest.h"
+
 using namespace std;
 
 #include<gtest/gtest.h>
@@ -84,9 +86,7 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     string s = "abcde";

@@ -5,6 +5,10 @@
 
 #include <stack>
 #include <vector>
+#include <string>
+
+#include "gtest/gtest.h"
+
 using namespace std;
 
 #include<gtest/gtest.h>
@@ -27,7 +31,6 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
 TEST(t0, t1) {
     std::vector<int> nums{1, 2, 3, 4, 5, 6};

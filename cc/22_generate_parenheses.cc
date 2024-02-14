@@ -7,9 +7,10 @@ well-formed parentheses.
 */
 
 #include <set>
-#include <stack>
 #include <string>
 #include <vector>
+
+#include "gtest/gtest.h"
 
 using namespace std;
 
@@ -71,9 +72,7 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     int n = 3;

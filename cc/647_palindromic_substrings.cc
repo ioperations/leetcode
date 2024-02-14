@@ -8,13 +8,14 @@ A string is a palindrome when it reads the same backward as forward.
 A substring is a contiguous sequence of characters within the string.*/
 
 #include <benchmark/benchmark.h>
-
-#include <algorithm>
 #include <string>
-#include <vector>
+
+#include "gtest/gtest.h"
+
 using namespace std;
 
 #include <gtest/gtest.h>
+
 namespace {
 class Solution {
    public:
@@ -64,7 +65,6 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
 TEST(t0, t1) {
     string s = "abc";

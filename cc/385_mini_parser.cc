@@ -12,15 +12,20 @@ or other lists.
 // // This is the interface that allows for creating nested lists.
 // You should not implement it, or speculate about its implementation
 #include <benchmark/benchmark.h>
-
+#include <_ctype.h>
+#include <stddef.h>
 #include <algorithm>
 #include <functional>
 #include <stack>
 #include <string>
 #include <vector>
+
+#include "gtest/gtest.h"
+
 using namespace std;
 
 #include <gtest/gtest.h>
+
 namespace {
 class NestedInteger {
     bool is_integer = true;
@@ -65,7 +70,6 @@ class NestedInteger {
     // integer
     const vector<NestedInteger> &GetList() const { return vec; }
 };
-#include <gtest/gtest.h>
 class Solution {
    public:
     NestedInteger Deserialize(std::string s) {
@@ -132,9 +136,7 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 void Flattern(const NestedInteger &n, vector<int> &ret) {
     if (!n.IsInteger()) {
         for (auto &ptr : n.GetList()) {

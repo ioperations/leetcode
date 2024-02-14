@@ -1,6 +1,12 @@
 
 
 #include <vector>
+#include <algorithm>
+#include <string>
+#include <utility>
+
+#include "gtest/gtest.h"
+
 using namespace std;
 
 #include<gtest/gtest.h>
@@ -46,7 +52,6 @@ class MinStack {
     }
 };
 
-#include <gtest/gtest.h>
 
 TEST(t0, t1) {
     MinStack min_stack;

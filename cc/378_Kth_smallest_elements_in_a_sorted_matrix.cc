@@ -17,9 +17,11 @@ You must find a solution with a memory complexity better than O(n2).
 #include <functional>
 #include <queue>
 #include <set>
-#include <stack>
 #include <utility>
 #include <vector>
+#include <string>
+
+#include "gtest/gtest.h"
 
 using namespace std;
 
@@ -120,9 +122,7 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     vector<vector<int>> matrix = {{1, 5, 9}, {10, 11, 13}, {12, 13, 15}};

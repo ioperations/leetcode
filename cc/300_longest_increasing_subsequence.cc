@@ -11,6 +11,11 @@ example, [3,6,2,7] is a subsequence of the array [0,3,1,6,2,2,7].*/
 #include <functional>
 #include <limits>
 #include <vector>
+#include <algorithm>
+#include <string>
+
+#include "gtest/gtest.h"
+
 using namespace std;
 
 #include<gtest/gtest.h>
@@ -52,9 +57,7 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     vector<int> nums{10, 9, 2, 5, 3, 7, 101, 18};

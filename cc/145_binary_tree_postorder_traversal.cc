@@ -3,8 +3,11 @@
 // https://pvs-studio.com
 //* Definition for a binary tree node.
 #include <vector>
+#include <string>
 
 #include "datastruct_base.hh"
+#include "gtest/gtest.h"
+
 using namespace Tree;
 
 #include<gtest/gtest.h>
@@ -31,7 +34,6 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
 TEST(t0, t1) {
     TreeNode<int> *root = ConstructTree(std::vector<int>{1, 2, 3});

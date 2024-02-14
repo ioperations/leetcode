@@ -14,6 +14,10 @@ Return the maximum total number of units that can be put on the truck.*/
 
 #include <algorithm>
 #include <vector>
+#include <string>
+
+#include "gtest/gtest.h"
+
 using namespace std;
 
 #include<gtest/gtest.h>
@@ -44,9 +48,7 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     vector<vector<int>> box_types = {{1, 3}, {2, 2}, {3, 1}};

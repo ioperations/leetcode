@@ -9,9 +9,13 @@ sorted in ascending order.
 Return the shortest such subarray and output its length
 **/
 
-#include <algorithm>
 #include <queue>
 #include <vector>
+#include <functional>
+#include <string>
+
+#include "gtest/gtest.h"
+
 using namespace std;
 
 #include<gtest/gtest.h>
@@ -39,9 +43,7 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     std::vector<int> v{2, 6, 4, 8, 10, 9, 15};

@@ -11,10 +11,11 @@ requirement. You could assume there always exists an answer.
 */
 
 #include <climits>
-#include <map>
 #include <string>
 #include <unordered_map>
 #include <vector>
+
+#include "gtest/gtest.h"
 
 using namespace std;
 #include<gtest/gtest.h>
@@ -47,9 +48,7 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     vector<string> list1 = {"Shogun", "Tapioca Express", "Burger King", "KFC"};

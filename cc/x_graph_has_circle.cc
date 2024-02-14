@@ -1,9 +1,13 @@
 // This is a personal academic project. Dear PVS-Studio, please check it.
 // PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
 // https://pvs-studio.com
-#include <iostream>
+#include <stddef.h>
 #include <queue>
 #include <vector>
+#include <string>
+
+#include "gtest/gtest.h"
+
 using namespace std;
 
 // leetcode-cn.com/problems/course-schedule/solution/c-you-xiang-tu-cheng-huan-jian-ce-by-hank-31/
@@ -58,9 +62,7 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     // numCourses = 2, prerequisites = [[1,0],[0,1]]

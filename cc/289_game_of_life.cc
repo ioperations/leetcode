@@ -34,6 +34,9 @@ the active area encroaches upon the border of the array (i.e., live cells reach
 the border). How would you address these problems?
 */
 #include <vector>
+#include <string>
+
+#include "gtest/gtest.h"
 
 using namespace std;
 
@@ -93,9 +96,7 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     // pass

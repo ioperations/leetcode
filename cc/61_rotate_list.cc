@@ -8,7 +8,11 @@ Given the head of a linked list, rotate the list to the right by k places.
 
 //* Definition for singly-linked list.
 
+#include <string>
+
 #include "datastruct_base.hh"
+#include "gtest/gtest.h"
+
 using ListNode = List::ListNode<int>;
 
 #include<gtest/gtest.h>
@@ -94,9 +98,6 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
-
-#include <iostream>
 #include <vector>
 
 void ExpectEqList(ListNode *const head, const std::vector<int> &elements) {

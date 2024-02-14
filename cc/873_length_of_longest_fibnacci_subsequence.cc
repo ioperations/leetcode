@@ -18,6 +18,10 @@ elements. For example, [3, 5, 8] is a subsequence of [3, 4, 5, 6, 7, 8].*/
 #include <functional>
 #include <map>
 #include <vector>
+#include <string>
+
+#include "gtest/gtest.h"
+
 using namespace std;
 
 #include<gtest/gtest.h>
@@ -94,9 +98,7 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     std::vector<int> arr{1, 2, 3, 4, 5, 6, 7, 8};

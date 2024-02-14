@@ -15,10 +15,12 @@ Notice that |val| denotes the absolute value of val
 */
 
 #include <limits.h>
-
 #include <algorithm>
-#include <functional>
 #include <vector>
+#include <string>
+
+#include "gtest/gtest.h"
+
 using namespace std;
 
 #include<gtest/gtest.h>
@@ -55,9 +57,7 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     vector<int> nums = {3, 1, 4, 1, 5};

@@ -12,7 +12,12 @@ Return the maximum profit you can achieve from this transaction. If you cannot
 achieve any profit, return 0.
 */
 
+#include <stddef.h>
 #include <vector>
+#include <string>
+
+#include "gtest/gtest.h"
+
 using namespace std;
 #include<gtest/gtest.h>
 namespace { 
@@ -43,7 +48,6 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
 TEST(t0, t1) {
     std::vector<int> prices = {7, 1, 5, 3, 6, 4};

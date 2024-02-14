@@ -17,8 +17,10 @@ less than 150 combinations for the given input.
 */
 
 #include <algorithm>
-#include <functional>
 #include <vector>
+#include <string>
+
+#include "gtest/gtest.h"
 
 using namespace std;
 
@@ -81,9 +83,7 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     std::vector<int> candidates = {2, 3, 6, 7};

@@ -16,6 +16,8 @@ A substring is a contiguous sequence of characters within the string.
 #include <string>
 #include <unordered_map>
 
+#include "gtest/gtest.h"
+
 using namespace std;
 
 #include<gtest/gtest.h>
@@ -91,9 +93,7 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     string const s = "ADOBECODEBANC";

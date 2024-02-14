@@ -10,6 +10,10 @@ number.
 The nth super ugly number is guaranteed to fit in a 32-bit signed integer.*/
 
 #include <vector>
+#include <string>
+
+#include "gtest/gtest.h"
+
 using namespace std;
 #include<gtest/gtest.h>
 namespace { 
@@ -35,9 +39,7 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     int n = 12;

@@ -4,13 +4,13 @@
 /// given two string
 /// find the max length of the substring containing same characters
 
-/// 子串 是 不连续的
-/// 子序列 是连续的
-#include <gtest/gtest.h>
-
 #include <cstring>
 #include <functional>
-#include <iostream>
+#include <algorithm>
+#include <string>
+
+#include "gtest/gtest.h"
+
 namespace {
 
 int MaxSubStringLengthOfTwoString(const char *s1, int s1_len, const char *s2,

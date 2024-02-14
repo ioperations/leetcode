@@ -2,10 +2,12 @@
 // PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
 // https://pvs-studio.com
 
-// reverse words in a string
-#include <gtest/gtest.h>
-
+#include <stddef.h>
 #include <functional>
+#include <string>
+
+#include "gtest/gtest.h"
+
 namespace {
 
 class Solution {

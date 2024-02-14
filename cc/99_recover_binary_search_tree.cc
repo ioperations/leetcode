@@ -8,10 +8,14 @@ changing its structure.
 */
 
 #include <utility>
+#include <string>
 
 #include "datastruct_base.hh"
+#include "gtest/gtest.h"
+
 using namespace Tree;
 #include <gtest/gtest.h>
+
 namespace {
 
 template <typename T>
@@ -41,11 +45,9 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
-
 #include <optional>
-#include <queue>
 #include <vector>
+
 using namespace std;
 
 TEST(t0, t1) {

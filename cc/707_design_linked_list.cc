@@ -21,7 +21,9 @@ index equals the length of the linked list, the node will be appended to the end
 of the linked list. If index is greater than the length, the node will not be
 inserted. void deleteAtIndex(int index) Delete the indexth node in the linked
 list, if the index is valid.*/
-#include <gtest/gtest.h>
+#include <string>
+
+#include "gtest/gtest.h"
 
 namespace {
 class Node {

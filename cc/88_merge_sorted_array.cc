@@ -18,6 +18,10 @@ last n elements are set to 0 and should be ignored. nums2 has a length of n.
 */
 
 #include <vector>
+#include <string>
+
+#include "gtest/gtest.h"
+
 using namespace std;
 #include<gtest/gtest.h>
 namespace { 
@@ -49,9 +53,7 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     std::vector<int> nums1 = {1, 2, 3, 0, 0, 0};

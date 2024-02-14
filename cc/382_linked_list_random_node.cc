@@ -3,8 +3,13 @@
 // https://pvs-studio.com
 #include <cstdlib>
 #include <vector>
+#include <map>
+#include <set>
+#include <string>
 
 #include "datastruct_base.hh"
+#include "gtest/gtest.h"
+
 using namespace std;
 
 // Definition for singly-linked list.
@@ -29,9 +34,7 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 void ExpectEqList(ListNode *const head, const std::vector<int> &elements) {
     int i = 0;
     ListNode *m_head = head;

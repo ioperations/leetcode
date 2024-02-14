@@ -14,10 +14,11 @@ circumference of the circle is considered to be in the circle. The answer is
 returned as an array [x, y].
 */
 
-#include <climits>
 #include <cmath>
 #include <cstdlib>
 #include <vector>
+#include <string>
+
 using namespace std;
 
 #include<gtest/gtest.h>
@@ -51,9 +52,7 @@ class Solution {
  * vector<double> param_1 = obj->randPoint();
  */
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     Solution sl(1.0, 0.0, 0.0);

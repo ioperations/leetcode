@@ -8,8 +8,12 @@ An integer a is closer to x than an integer b if:
 
 |a - x| < |b - x|, or
 |a - x| == |b - x| and a < b*/
+#include <stdlib.h>
 #include <algorithm>
 #include <vector>
+#include <string>
+
+#include "gtest/gtest.h"
 
 using namespace std;
 
@@ -49,7 +53,6 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
 TEST(t0, t1) {
     vector<int> arr = {1, 2, 3, 4, 5};

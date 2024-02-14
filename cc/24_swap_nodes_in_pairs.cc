@@ -2,7 +2,12 @@
 // PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
 // https://pvs-studio.com
 
+#include <string>
+#include <vector>
+
 #include "datastruct_base.hh"
+#include "gtest/gtest.h"
+
 // Definition for singly-linked list.
 using ListNode = List::ListNode<int>;
 
@@ -33,9 +38,7 @@ nodes themselves may be changed.)
     }
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 void ExpectEqList(ListNode *const head, const std::vector<int> &elements) {
     int i = 0;

@@ -20,9 +20,10 @@ integers less than -231 should be clamped to -231, and integers greater than 231
 - 1 should be clamped to 231 - 1. Return the integer as the final result.
  */
 
-#include <gtest/gtest.h>
-
 #include <string>
+
+#include "gtest/gtest.h"
+
 namespace {
 class Solution {
    public:

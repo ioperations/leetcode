@@ -8,12 +8,16 @@ node values in the path is a palindrome.
 Return the number of pseudo-palindromic paths going from the root node to leaf
 nodes.*/
 
+#include <stddef.h>
 // Definition for a binary tree node.
 #include <algorithm>
 #include <stack>
 #include <vector>
+#include <string>
 
 #include "datastruct_base.hh"
+#include "gtest/gtest.h"
+
 using namespace std;
 using namespace Tree;
 
@@ -112,10 +116,8 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
-
 #include <optional>
-#include <vector>
+
 using namespace std;
 
 #define null optional<int>()

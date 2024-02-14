@@ -9,6 +9,9 @@ A palindrome string is a string that reads the same backward as forward.*/
 
 #include <string>
 #include <vector>
+
+#include "gtest/gtest.h"
+
 using namespace std;
 #include<gtest/gtest.h>
 namespace { 
@@ -54,7 +57,6 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
 TEST(t0, t1) {
     string s = "aab";

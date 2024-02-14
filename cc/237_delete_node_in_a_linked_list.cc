@@ -8,9 +8,11 @@ be deleted directly.
 
 It is guaranteed that the node to be deleted is not a tail node in the list.
  */
-#include <iostream>
+#include <string>
+#include <utility>
 
 #include "datastruct_base.hh"
+#include "gtest/gtest.h"
 
 // Definition for singly-linked list.
 using ListNode  = List::ListNode<int>;
@@ -35,13 +37,10 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
-
-#include <iostream>
 #include <vector>
+
 using namespace std;
 
-#include <vector>
 
 void ExpectEqList(ListNode *const head, const std::vector<int> &elements) {
     ListNode *m_head = head;

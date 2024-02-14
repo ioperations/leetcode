@@ -11,10 +11,11 @@ struct TreeNode {
     TreeNode(int x, TreeNode *left, TreeNode *right)
         : val(x), left(left), right(right) {}
 };
-#include <gtest/gtest.h>
-
 #include <queue>
 #include <vector>
+#include <string>
+
+#include "gtest/gtest.h"
 
 namespace {
 

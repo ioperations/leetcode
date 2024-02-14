@@ -9,9 +9,12 @@ the sum of the even values of nums.
 
 Return an integer array answer where answer[i] is the answer to the ith query.*/
 
-#include <algorithm>
 #include <numeric>
 #include <vector>
+#include <iterator>
+#include <string>
+
+#include "gtest/gtest.h"
 
 using namespace std;
 #include<gtest/gtest.h>
@@ -44,9 +47,7 @@ class Solution {
     static bool IsEven(int x) { return !(x & 1); }
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     vector<int> nums = {1, 2, 3, 4};

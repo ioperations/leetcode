@@ -19,6 +19,10 @@ you can obtain.
 #include <numeric>
 #include <tuple>
 #include <vector>
+#include <algorithm>
+#include <string>
+
+#include "gtest/gtest.h"
 
 using namespace std;
 
@@ -72,7 +76,6 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
 TEST(t0, t1) {
     vector<int> card_points = {1, 2, 3, 4, 5, 6, 1};

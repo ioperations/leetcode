@@ -14,8 +14,12 @@ be proven that the answer is unique.
 
 #include <algorithm>
 #include <string>
+#include <utility>
+
 using namespace std;
 #include <stack>
+
+#include "gtest/gtest.h"
 
 #include<gtest/gtest.h>
 namespace { 
@@ -50,7 +54,6 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
 TEST(t0, t1) {
     std::string s = "abbaca";

@@ -15,19 +15,20 @@ Clarification: The input/output format is the same as how LeetCode serializes a
 binary tree. You do not necessarily need to follow this format, so please be
 creative and come up with different approaches yourself.*/
 
+#include <stdlib.h>
 //* Definition for a binary tree node.
 #include <algorithm>
-#include <iostream>
 #include <queue>
 #include <sstream>
 #include <string>
 
 #include "datastruct_base.hh"
+#include "gtest/gtest.h"
+
 using namespace std;
 using namespace Tree;
 
-#include<gtest/gtest.h>
-namespace { 
+namespace {
 class Codec {
    public:
     // Encodes a tree to a single string.
@@ -101,12 +102,9 @@ class Codec {
 // Codec ser, deser;
 // TreeNode* ans = deser.deserialize(ser.serialize(root));
 
-#include <gtest/gtest.h>
-
-#include <iostream>
 #include <optional>
-#include <queue>
 #include <vector>
+
 using namespace std;
 
 TEST(construtTest, t1) {
@@ -178,4 +176,4 @@ TEST(t0, t2) {
     FreeTreeNode(ret);
 }
 
-}
+}  // namespace

@@ -11,6 +11,9 @@
 #include <map>
 #include <tuple>
 #include <vector>
+#include <string>
+
+#include "gtest/gtest.h"
 
 using namespace std;
 #include<gtest/gtest.h>
@@ -54,9 +57,7 @@ class Solution {
     map<tuple<int, int, int>, int> cache;
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     vector<int> nums = {2, 3, 2};

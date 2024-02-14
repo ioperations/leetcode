@@ -10,6 +10,10 @@ array are removed.*/
 #include <queue>
 #include <unordered_map>
 #include <vector>
+#include <string>
+
+#include "gtest/gtest.h"
+
 using namespace std;
 
 #include<gtest/gtest.h>
@@ -35,7 +39,6 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
 TEST(t0, t1) {
     vector<int> arr = {3, 3, 3, 3, 5, 5, 5, 2, 2, 7};

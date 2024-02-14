@@ -25,6 +25,9 @@
 #include <cstring>
 #include <string>
 #include <vector>
+
+#include "gtest/gtest.h"
+
 using namespace std;
 
 const int mxn = 15 + 2;
@@ -70,9 +73,7 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     std::vector<int> destination = {2, 3};

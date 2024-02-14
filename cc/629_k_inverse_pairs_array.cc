@@ -7,8 +7,12 @@
 Given two integers n and k, return the number of different arrays consist of
 numbers from 1 to n such that there are exactly k inverse pairs. Since the
 answer can be huge, return it modulo 109 + 7.*/
-#include <stack>
 #include <vector>
+#include <algorithm>
+#include <string>
+
+#include "gtest/gtest.h"
+
 using namespace std;
 
 #include<gtest/gtest.h>
@@ -52,9 +56,7 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     const int n = 3;

@@ -37,6 +37,9 @@ Output
 */
 
 #include <vector>
+#include <string>
+
+#include "gtest/gtest.h"
 
 #include<gtest/gtest.h>
 namespace { 
@@ -70,19 +73,7 @@ class MyCircularQueue {
     bool IsFull() { return len == (int)v.size(); }
 };
 
-/**
- * Your MyCircularQueue object will be instantiated and called as such:
- * MyCircularQueue* obj = new MyCircularQueue(k);
- * bool param_1 = obj->enQueue(value);
- * bool param_2 = obj->deQueue();
- * int param_3 = obj->Front();
- * int param_4 = obj->Rear();
- * bool param_5 = obj->isEmpty();
- * bool param_6 = obj->isFull();
- */
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     MyCircularQueue my_circular_queue(3);

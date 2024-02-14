@@ -11,6 +11,11 @@ Return true if there is a 132 pattern in nums, otherwise, return false.
 
 #include <stack>
 #include <vector>
+#include <algorithm>
+#include <string>
+
+#include "gtest/gtest.h"
+
 using namespace std;
 #include<gtest/gtest.h>
 namespace { 
@@ -35,9 +40,7 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     std::vector<int> v{1, 2, 3, 4};

@@ -31,6 +31,9 @@ Given an integer, convert it to a roman numeral.
  */
 
 #include <string>
+
+#include "gtest/gtest.h"
+
 using namespace std;
 #include<gtest/gtest.h>
 namespace { 
@@ -53,7 +56,6 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
 TEST(t0, t1) {
     int num = 3;

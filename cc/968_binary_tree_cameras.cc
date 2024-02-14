@@ -2,7 +2,13 @@
 // PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
 // https://pvs-studio.com
 //* Definition for a binary tree node.
+#include <optional>
+#include <string>
+#include <vector>
+
 #include "datastruct_base.hh"
+#include "gtest/gtest.h"
+
 using namespace Tree;
 
 #include<gtest/gtest.h>
@@ -38,7 +44,6 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
 using namespace std;
 #define null optional<int>()

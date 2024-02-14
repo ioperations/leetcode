@@ -8,6 +8,9 @@ Given an integer n, return the nth digit of the infinite integer sequence
 
 #include <cmath>
 #include <string>
+
+#include "gtest/gtest.h"
+
 using namespace std;
 #include<gtest/gtest.h>
 namespace { 
@@ -27,9 +30,7 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 /*
 _________________________________________________________________

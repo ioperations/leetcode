@@ -7,15 +7,14 @@ values.
 Nary-Tree input serialization is represented in their level order traversal.
 Each group of children is separated by the null value (See examples)*/
 
-// Definition for a Node.
-#include <gtest/gtest.h>
-
-#include <iostream>
 #include <optional>
 #include <queue>
 #include <stack>
-#include <unordered_set>
 #include <vector>
+#include <string>
+
+#include "gtest/gtest.h"
+
 using namespace std;
 
 namespace {
@@ -52,7 +51,6 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
 Node *ConstructNode(vector<optional<int>> &elements) {
     Node *node = nullptr;

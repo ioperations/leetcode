@@ -16,6 +16,8 @@ using namespace std;
 
 #include <unordered_set>
 
+#include "gtest/gtest.h"
+
 #include<gtest/gtest.h>
 namespace { 
 class Solution {
@@ -32,7 +34,6 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
 TEST(t0, t1) {
     string s = "00110110";

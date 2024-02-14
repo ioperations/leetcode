@@ -9,6 +9,9 @@
 #include <algorithm>
 #include <string>
 #include <vector>
+
+#include "gtest/gtest.h"
+
 using namespace std;
 
 #include<gtest/gtest.h>
@@ -77,9 +80,7 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     std::vector<string> words = {"abcw", "baz", "foo", "bar", "xtfn", "abcdef"};

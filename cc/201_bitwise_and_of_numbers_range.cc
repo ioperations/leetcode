@@ -7,11 +7,10 @@
 // inclusive.
 
 #include <benchmark/benchmark.h>
-#include <gtest/gtest.h>
-
-#include <algorithm>
 #include <cmath>
-#include <vector>
+#include <string>
+
+#include "gtest/gtest.h"
 
 namespace {
 class Solution {
@@ -34,9 +33,7 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     Solution s;

@@ -21,8 +21,11 @@ Pushing 6 into the middle of [1, 2, 3, 4, 5] results in [1, 2, 6, 3, 4, 5].
 Popping the middle from [1, 2, 3, 4, 5, 6] returns 3 and results in [1, 2, 4, 5,
 6].
 */
-#include <queue>
-#include <stack>
+#include <deque>
+#include <string>
+
+#include "gtest/gtest.h"
+
 using namespace std;
 
 #include<gtest/gtest.h>
@@ -95,9 +98,7 @@ class FrontMiddleBackQueue {
     }
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     FrontMiddleBackQueue *q = new FrontMiddleBackQueue();

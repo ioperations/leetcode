@@ -19,6 +19,11 @@ you use the given ladders and bricks optimally*/
 #include <queue>
 #include <tuple>
 #include <vector>
+#include <algorithm>
+#include <string>
+
+#include "gtest/gtest.h"
+
 using namespace std;
 
 #include<gtest/gtest.h>
@@ -93,9 +98,7 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     vector<int> heights{4, 2, 7, 6, 9, 14, 12};

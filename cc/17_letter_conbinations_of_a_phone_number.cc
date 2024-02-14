@@ -14,6 +14,8 @@ below. Note that 1 does not map to any letters.
 #include <string>
 #include <vector>
 
+#include "gtest/gtest.h"
+
 using namespace std;
 
 #include<gtest/gtest.h>
@@ -50,9 +52,7 @@ class Solution {
     // clang-format on
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     vector<string> expected = {"ad", "ae", "af", "bd", "be",

@@ -4,6 +4,8 @@
 //* Definition for a binary tree node.
 #include <functional>
 #include <vector>
+#include <string>
+
 struct TreeNode {
     int val;
     TreeNode *left;
@@ -14,8 +16,10 @@ struct TreeNode {
         : val(x), left(left), right(right) {}
 };
 
-#include <algorithm>
 #include <queue>
+
+#include "gtest/gtest.h"
+
 #include<gtest/gtest.h>
 namespace { 
 class Solution {
@@ -101,9 +105,7 @@ void FreeRoot(TreeNode *root) {
     delete root;
 }
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     std::vector<int> root = {3, 1, 4, 2};

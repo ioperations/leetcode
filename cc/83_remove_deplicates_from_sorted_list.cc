@@ -7,8 +7,11 @@ Given the head of a sorted linked list, delete all duplicates such that each
 element appears only once. Return the linked list sorted as well.
 */
 
+#include <string>
+
 //* Definition for singly-linked list.
 #include "datastruct_base.hh"
+#include "gtest/gtest.h"
 
 using ListNode  = List::ListNode<int>;
 
@@ -40,10 +43,8 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
-
-#include <iostream>
 #include <vector>
+
 void ExpectEqList(ListNode *const head, const std::vector<int> &elements) {
     int i = 0;
     ListNode *m_head = head;

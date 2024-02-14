@@ -9,9 +9,10 @@ into empty text editors. '#' means a backspace character.
 Note that after backspacing an empty text, the text will continue empty.
 */
 
-#include <algorithm>
 #include <stack>
 #include <string>
+
+#include "gtest/gtest.h"
 
 using namespace std;
 
@@ -47,9 +48,7 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     std::string s = "ab#c", t = "ad#c";

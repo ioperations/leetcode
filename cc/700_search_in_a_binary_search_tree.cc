@@ -8,7 +8,12 @@ Find the node in the BST that the node's value equals val and return the subtree
 rooted with that node. If such a node does not exist, return null.
 */
 
+#include <string>
+#include <vector>
+
 #include "datastruct_base.hh"
+#include "gtest/gtest.h"
+
 using namespace Tree;
 
 #include<gtest/gtest.h>
@@ -32,7 +37,6 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
 TEST(t0, t1) {
     std::vector<int> v{4, 2, 7, 1, 3};

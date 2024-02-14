@@ -13,6 +13,10 @@ with the same frequency by their lexicographical order.
 #include <string>
 #include <unordered_map>
 #include <vector>
+#include <utility>
+
+#include "gtest/gtest.h"
+
 using namespace std;
 
 #include<gtest/gtest.h>
@@ -38,7 +42,6 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
 TEST(t0, t1) {
     std::vector<string> words = {"i", "love", "leetcode",

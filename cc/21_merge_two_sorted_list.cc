@@ -6,11 +6,13 @@
  */
 
 #include <benchmark/benchmark.h>
-
+#include <assert.h>
 #include <algorithm>
 #include <vector>
+#include <string>
 
 #include "datastruct_base.hh"
+#include "gtest/gtest.h"
 
 /**
  *  @brief 单链表节点
@@ -18,6 +20,7 @@
 using ListNode = List::ListNode<int>;
 
 #include <gtest/gtest.h>
+
 namespace {
 class Solution {
    public:
@@ -83,9 +86,7 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     ListNode *s1 = List::ConstructList(std::vector<int>{1, 2, 4});

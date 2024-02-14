@@ -8,8 +8,10 @@ Integers in each row are sorted in ascending from left to right.
 Integers in each column are sorted in ascending from top to bottom.
 */
 
-#include <algorithm>
 #include <vector>
+#include <string>
+
+#include "gtest/gtest.h"
 
 using namespace std;
 
@@ -55,9 +57,7 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     vector<vector<int>> matrix = {{1, 4, 7, 11, 15},

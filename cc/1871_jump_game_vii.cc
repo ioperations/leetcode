@@ -12,10 +12,13 @@
     Return true if you can reach index s.length - 1 in s, or false otherwise.
 */
 
-#include <functional>
-#include <map>
 #include <queue>
 #include <string>
+#include <utility>
+#include <vector>
+
+#include "gtest/gtest.h"
+
 using namespace std;
 
 #include<gtest/gtest.h>
@@ -43,9 +46,7 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     string s = "011010";

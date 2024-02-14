@@ -14,6 +14,9 @@ The test cases are generated so that the answer will be less than or equal to 2
 
 #include <functional>
 #include <vector>
+#include <string>
+
+#include "gtest/gtest.h"
 
 using namespace std;
 
@@ -44,9 +47,7 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     int m = 3, n = 7;

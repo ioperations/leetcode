@@ -19,6 +19,11 @@ positions of the remaining elements. (i.e., [1,3,5] is a subsequence of
 #include <queue>
 #include <unordered_map>
 #include <vector>
+#include <functional>
+#include <string>
+
+#include "gtest/gtest.h"
+
 using namespace std;
 
 #include<gtest/gtest.h>
@@ -80,7 +85,6 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
 TEST(t0, t1) {
     vector<int> nums = {1, 2, 3, 3, 4, 5};

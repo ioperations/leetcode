@@ -17,8 +17,8 @@ Return the minimum effort required to travel from the top-left cell to the
 bottom-right cell.
 */
 
+#include <stdlib.h>
 #include <algorithm>
-#include <cstdint>
 #include <functional>
 #include <limits>
 #include <map>
@@ -26,6 +26,10 @@ bottom-right cell.
 #include <set>
 #include <utility>
 #include <vector>
+#include <string>
+
+#include "gtest/gtest.h"
+
 using namespace std;
 
 #include<gtest/gtest.h>
@@ -168,9 +172,7 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     /*

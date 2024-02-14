@@ -3,6 +3,8 @@
 // https://pvs-studio.com
 #include <string>
 
+#include "gtest/gtest.h"
+
 #include<gtest/gtest.h>
 namespace { 
 class Solution {
@@ -66,7 +68,6 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
 TEST(t0, t1) {
     Solution s;

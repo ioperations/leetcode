@@ -27,6 +27,9 @@ maxWidth. The input array words contains at least one word.
 #include <queue>
 #include <string>
 #include <vector>
+
+#include "gtest/gtest.h"
+
 using namespace std;
 
 #include<gtest/gtest.h>
@@ -131,7 +134,6 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
 TEST(test, t0) {
     Solution s;

@@ -15,10 +15,13 @@ repeat numbers, k. For example, there will not be input like 3a or 2[4].
 The test cases are generated so that the length of the output will never exceed
 105.*/
 
-#include <iterator>
+#include <_ctype.h>
 #include <stack>
 #include <string>
+
 #include "datastruct_base.hh"
+#include "gtest/gtest.h"
+
 using namespace Tree;
 using namespace std;
 
@@ -53,7 +56,6 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
 TEST(t0, t1) {
     string s = "3[a]2[bc]";
@@ -80,7 +82,6 @@ TEST(t0, t3) {
 }
 
 using namespace Tree;
-#include <optional>
 #include <vector>
 
 TEST(t0, t4) {

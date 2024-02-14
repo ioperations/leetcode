@@ -19,6 +19,10 @@ Answers within 10-5 of the actual answer will be accepted.
 #include <cfloat>
 #include <iterator>
 #include <set>
+#include <string>
+
+#include "gtest/gtest.h"
+
 using namespace std;
 #include <gtest/gtest.h>
 
@@ -116,13 +120,7 @@ class MedianFinder {
 // };
 // END: Time Limit Exceeded
 
-// Your MedianFinder object will be instantiated and called as such:
-// MedianFinder mf;
-// mf.addNum(1);
-// mf.findMedian();
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     MedianFinder mf;

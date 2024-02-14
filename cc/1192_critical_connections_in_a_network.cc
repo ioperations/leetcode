@@ -16,6 +16,10 @@ Return all critical connections in the network in any order.
 
 #include <functional>
 #include <vector>
+#include <algorithm>
+#include <string>
+
+#include "gtest/gtest.h"
 
 using namespace std;
 
@@ -56,7 +60,6 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
 TEST(t0, t1) {
     int n = 4;

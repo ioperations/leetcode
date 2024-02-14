@@ -14,7 +14,6 @@ Replace a character
 // #pragma GCC optimize("O2")
 
 #include <benchmark/benchmark.h>
-
 #include <algorithm>
 #include <functional>
 #include <map>
@@ -22,8 +21,11 @@ Replace a character
 #include <utility>
 #include <vector>
 
+#include "gtest/gtest.h"
+
 using namespace std;
 #include <gtest/gtest.h>
+
 namespace {
 class Solution {
    public:
@@ -114,9 +116,7 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t1, t2) {
     std::string word1 = "intention", word2 = "execution";

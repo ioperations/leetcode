@@ -9,8 +9,12 @@ the root node down to the farthest leaf node.
 
 */
 
+#include <string>
+#include <vector>
+
 //* Definition for a binary tree node.
 #include "datastruct_base.hh"
+#include "gtest/gtest.h"
 
 using namespace Tree;
 #include<gtest/gtest.h>
@@ -35,9 +39,8 @@ class Solution {
    private:
     int ret = 0;
 };
-#include <gtest/gtest.h>
-
 #include <optional>
+
 using namespace std;
 
 TEST(memleak, t0) {

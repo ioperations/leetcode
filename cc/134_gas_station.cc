@@ -15,8 +15,14 @@ return -1. If there exists a solution, it is guaranteed to be unique
 */
 
 #include <vector>
+#include <string>
+
+#include "gtest/gtest.h"
+
 using namespace std;
 #include <gtest/gtest.h>
+#include <stddef.h>
+
 namespace {
 class Solution {
    public:
@@ -44,7 +50,6 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 class SolutionV {
    public:
     int CanCompleteCircuit(std::vector<int> &gas, std::vector<int> &cost) {
@@ -68,7 +73,6 @@ class SolutionV {
     }
 };
 
-#include <gtest/gtest.h>
 
 TEST(t0, t1) {
     std::vector<int> gas = {1, 2, 3, 4, 5}, cost = {3, 4, 5, 1, 2};

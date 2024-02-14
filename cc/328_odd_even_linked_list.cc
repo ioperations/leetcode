@@ -14,7 +14,11 @@ You must solve the problem in O(1) extra space complexity and O(n) time
 complexity.
 */
 
+#include <string>
+
 #include "datastruct_base.hh"
+#include "gtest/gtest.h"
+
 // Definition for singly-linked lis
 using ListNode = List::ListNode<int>;
 
@@ -96,10 +100,8 @@ class Solution {
         return node.next;
     }
 };
-#include <gtest/gtest.h>
-
-#include <iostream>
 #include <vector>
+
 void ExpectEqList(ListNode *const head, const std::vector<int> &elements) {
     int i = 0;
     ListNode *m_head = head;

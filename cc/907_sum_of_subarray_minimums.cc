@@ -6,6 +6,10 @@
  * answer modulo 109 + 7.*/
 #include <stack>
 #include <vector>
+#include <string>
+
+#include "gtest/gtest.h"
+
 using namespace std;
 
 #include<gtest/gtest.h>
@@ -51,9 +55,7 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     std::vector<int> arr{3, 1, 2, 4};

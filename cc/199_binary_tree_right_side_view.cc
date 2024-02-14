@@ -6,13 +6,13 @@
 
  */
 
-#include <gtest/gtest.h>
-
 #include <optional>
 #include <vector>
+#include <string>
 
 // Definition for a binary tree node.
 #include "datastruct_base.hh"
+#include "gtest/gtest.h"
 
 using namespace std;
 using namespace Tree;

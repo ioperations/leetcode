@@ -10,10 +10,13 @@ Note that every number in the answer must not have leading zeros. For example,
 You may return the answer in any order.*/
 #include <cstdlib>
 #include <vector>
+
 using namespace std;
 #include <functional>
 #include <set>
 #include <string>
+
+#include "gtest/gtest.h"
 
 #include<gtest/gtest.h>
 namespace { 
@@ -48,9 +51,7 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     int n = 3, k = 7;

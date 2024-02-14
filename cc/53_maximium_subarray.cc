@@ -10,9 +10,11 @@ A subarray is a contiguous part of an array.
 
 */
 
-#include <gtest/gtest.h>
-
 #include <vector>
+#include <algorithm>
+#include <string>
+
+#include "gtest/gtest.h"
 
 using namespace std;
 

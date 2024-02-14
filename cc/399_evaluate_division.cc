@@ -18,11 +18,14 @@
 
 */
 
-#include <map>
 #include <string>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
+#include <__hash_table>
+
+#include "gtest/gtest.h"
+
 using namespace std;
 
 #include<gtest/gtest.h>
@@ -67,9 +70,7 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     vector<vector<string>> equations{{"a", "b"}, {"b", "c"}};

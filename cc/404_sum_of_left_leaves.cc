@@ -40,10 +40,10 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
-
-#include <iostream>
 #include <vector>
+#include <string>
+
+#include "gtest/gtest.h"
 
 TreeNode *AddToRoot(TreeNode *root, int val) {
     if (root == nullptr) {
@@ -98,9 +98,7 @@ void FreeRoot(TreeNode *root) {
     FreeRoot(root->right);
     delete root;
 }
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     const std::vector<int> elements = {7, 3, 20, 15, 9};

@@ -8,8 +8,12 @@
     Test cases are designed so that the answer will fit in a 32-bit integer.
 */
 
+#include <stdlib.h>
 #include <algorithm>
 #include <vector>
+#include <string>
+
+#include "gtest/gtest.h"
 
 using namespace std;
 #include<gtest/gtest.h>
@@ -35,7 +39,6 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
 TEST(t0, t1) {
     vector<int> nums{1, 2, 3};

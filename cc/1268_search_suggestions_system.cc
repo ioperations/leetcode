@@ -16,6 +16,8 @@ searchWord is typed.*/
 #include <string>
 #include <vector>
 
+#include "gtest/gtest.h"
+
 using namespace std;
 #include <gtest/gtest.h>
 
@@ -81,7 +83,6 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 class SolutionV2 {
     class TrieNode {
        public:

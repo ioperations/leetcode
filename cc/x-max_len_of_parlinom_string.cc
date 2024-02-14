@@ -6,13 +6,12 @@
 /// abcba => abcda
 /// abcbs => bcb
 
-#include <gtest/gtest.h>
-
 #include <algorithm>
 #include <cstring>
-#include <iostream>
 #include <limits>
 #include <string>
+
+#include "gtest/gtest.h"
 
 namespace {
 

@@ -11,10 +11,11 @@ A set x is a subset of a set y if all elements of x are also elements of y.
 */
 
 #include <algorithm>
-#include <functional>
 #include <string>
 #include <utility>
 #include <vector>
+
+#include "gtest/gtest.h"
 
 using namespace std;
 #include<gtest/gtest.h>
@@ -65,9 +66,7 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     vector<string> strs = {"10", "0001", "111001", "1", "0"};

@@ -5,14 +5,15 @@
  * elements. You may return the answer in any order.*/
 
 #include <benchmark/benchmark.h>
-#include <gtest/gtest.h>
-
 #include <algorithm>
 #include <map>
 #include <queue>
 #include <unordered_map>
 #include <utility>
 #include <vector>
+#include <string>
+
+#include "gtest/gtest.h"
 
 using namespace std;
 
@@ -67,9 +68,7 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
 
-#include <iostream>
 
 TEST(t0, t1) {
     std::vector<int> nums = {1, 1, 1, 2, 2, 3};
