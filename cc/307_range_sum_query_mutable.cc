@@ -17,6 +17,8 @@ between indices left and right inclusive (i.e. nums[left] + nums[left + 1] + ...
 #include <vector>
 using namespace std;
 
+#include<gtest/gtest.h>
+namespace { 
 class NumArray {
     vector<int> m_arr;
 #define ll int
@@ -138,7 +140,4 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, 8);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

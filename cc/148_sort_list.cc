@@ -5,6 +5,9 @@
 Given the head of a linked list, return the list after sorting it in ascending
 order.
 */
+
+#include <benchmark/benchmark.h>
+
 #include <vector>
 
 #include "datastruct_base.hh"
@@ -12,6 +15,8 @@ order.
 //* Definition for singly-linked list.
 using ListNode = List::ListNode<int>;
 
+#include <gtest/gtest.h>
+namespace {
 class SolutionV2 {
    public:
     ListNode *SortList(ListNode *head) {
@@ -123,8 +128,6 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
-
 void ExpectEqList(ListNode *list, const std::vector<int> &elemets) {
     int count = 0;
     ListNode *ptr = list;
@@ -183,10 +186,6 @@ TEST(t1, t3) {
     List::FreeList(n);
 }
 
-#include <benchmark/benchmark.h>
-
-#include <vector>
-
 void BenchV2(benchmark::State &state) {
     for (auto _ : state) {
         ListNode *n = List::ConstructList(std::vector<int>{-4, 5, 3, 4, 0});
@@ -209,12 +208,4 @@ void BenchV1(benchmark::State &state) {
 }
 BENCHMARK(BenchV1);
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    const int ret = RUN_ALL_TESTS();
-    ::benchmark::Initialize(&argc, argv);
-    if (::benchmark::ReportUnrecognizedArguments(argc, argv)) return 1;
-    ::benchmark::RunSpecifiedBenchmarks();
-    ::benchmark::Shutdown();
-    return ret;
-}
+}  // namespace

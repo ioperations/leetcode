@@ -10,6 +10,8 @@ Return the answer in an array.*/
 #include <algorithm>
 #include <vector>
 using namespace std;
+#include<gtest/gtest.h>
+namespace { 
 class Solution {
    public:
     vector<int> SmallerNumbersThanCurrent(vector<int> &nums) {
@@ -54,7 +56,4 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

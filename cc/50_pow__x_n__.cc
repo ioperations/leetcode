@@ -5,6 +5,8 @@
 // Implement pow(x, n), which calculates x raised to the
 // power n(i.e., xn).
 
+#include<gtest/gtest.h>
+namespace { 
 class Solution {
    public:
     double MyPow(double x, int n) {
@@ -95,7 +97,4 @@ TEST(t0, t4) {
     EXPECT_EQ(ret, expected);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

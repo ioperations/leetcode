@@ -15,6 +15,8 @@ Since the answer may be too large, return it modulo 10^9 + 7.*/
 #include <vector>
 using namespace std;
 
+#include<gtest/gtest.h>
+namespace { 
 class Solution {
    public:
     int CountVowelPermutation(int n) {
@@ -71,7 +73,4 @@ TEST(t0, t3) {
     int ret = sl.CountVowelPermutation(n);
     EXPECT_EQ(ret, output);
 }
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

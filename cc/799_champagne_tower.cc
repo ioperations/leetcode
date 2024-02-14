@@ -22,6 +22,8 @@
 #include <vector>
 
 using namespace std;
+#include<gtest/gtest.h>
+namespace { 
 class Solution {
    public:
     double ChampagneTower(int poured, int query_row, int query_glass) {
@@ -77,7 +79,4 @@ TEST(t0, t3) {
     EXPECT_DOUBLE_EQ(output, ret);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

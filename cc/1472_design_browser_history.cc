@@ -20,6 +20,8 @@ current url after forwarding in history at most steps.*/
 
 using namespace std;
 
+#include <gtest/gtest.h>
+namespace {
 class BrowserHistory {
     /*
         1 <= homepage.length <= 20
@@ -332,7 +334,4 @@ TEST(t0, t2) {
     delete browser_history;
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
-}
+}  // namespace

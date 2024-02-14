@@ -33,6 +33,8 @@ order.
 #include <vector>
 using namespace std;
 
+#include <gtest/gtest.h>
+namespace {
 class UndergroundSystem {
    public:
     UndergroundSystem() {}
@@ -86,8 +88,9 @@ class UndergroundSystem {
     std::map<std::pair<std::string, std::string>, std::vector<int>> m_already;
 };
 
-#include <unordered_map>
+#include <gtest/gtest.h>
 
+#include <unordered_map>
 class Solution2 {
    public:
     // startStation:endStation -> {totalTime, numberOfTrips}
@@ -266,7 +269,4 @@ TEST(t0, t3) {
 
     delete rgs;
 }
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
-}
+}  // namespace

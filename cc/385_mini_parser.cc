@@ -11,14 +11,17 @@ or other lists.
 
 // // This is the interface that allows for creating nested lists.
 // You should not implement it, or speculate about its implementation
+#include <benchmark/benchmark.h>
+
 #include <algorithm>
 #include <functional>
 #include <stack>
 #include <string>
 #include <vector>
-
 using namespace std;
 
+#include <gtest/gtest.h>
+namespace {
 class NestedInteger {
     bool is_integer = true;
     int val;
@@ -62,6 +65,7 @@ class NestedInteger {
     // integer
     const vector<NestedInteger> &GetList() const { return vec; }
 };
+#include <gtest/gtest.h>
 class Solution {
    public:
     NestedInteger Deserialize(std::string s) {
@@ -197,10 +201,6 @@ TEST(t0, t2) {
     EXPECT_EQ(vec, (std::vector<int>{123, 456, 789}));
 }
 
-#include <benchmark/benchmark.h>
-
-#include <algorithm>
-#include <vector>
 void BenchV1(benchmark::State &state) {
     for (auto _ : state) {
         const string s = "[123,[456,[789]]]";
@@ -249,14 +249,4 @@ void BenchV2(benchmark::State &state) {
 }
 BENCHMARK(BenchV2);
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    const int ret = RUN_ALL_TESTS();
-
-    ::benchmark::Initialize(&argc, argv);
-
-    if (::benchmark::ReportUnrecognizedArguments(argc, argv)) return 1;
-    ::benchmark::RunSpecifiedBenchmarks();
-    ::benchmark::Shutdown();
-    return ret;
-}
+}  // namespace

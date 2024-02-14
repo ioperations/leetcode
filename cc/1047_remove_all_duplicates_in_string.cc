@@ -17,6 +17,8 @@ be proven that the answer is unique.
 using namespace std;
 #include <stack>
 
+#include<gtest/gtest.h>
+namespace { 
 class Solution {
    public:
     string RemoveDuplicates(const string &s, int k = 2) {
@@ -76,7 +78,4 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, expected);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

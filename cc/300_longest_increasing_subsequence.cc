@@ -13,6 +13,8 @@ example, [3,6,2,7] is a subsequence of the array [0,3,1,6,2,2,7].*/
 #include <vector>
 using namespace std;
 
+#include<gtest/gtest.h>
+namespace { 
 class Solution {
    public:
     int LengthOfLisV1(vector<int> &nums) {
@@ -78,7 +80,4 @@ TEST(t0, t3) {
     int ret = sl.LengthOfLis(nums);
     EXPECT_EQ(ret, output);
 }
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

@@ -13,6 +13,9 @@ Replace a character
 */
 // #pragma GCC optimize("O2")
 
+#include <benchmark/benchmark.h>
+
+#include <algorithm>
 #include <functional>
 #include <map>
 #include <string>
@@ -20,6 +23,8 @@ Replace a character
 #include <vector>
 
 using namespace std;
+#include <gtest/gtest.h>
+namespace {
 class Solution {
    public:
     int MinDistance(string word1, string word2) {
@@ -171,11 +176,6 @@ TEST(t3, t4) {
     EXPECT_EQ(ret, output);
 }
 
-#include <benchmark/benchmark.h>
-
-#include <algorithm>
-#include <vector>
-
 static void BenchMarkFirst(benchmark::State &state) {
     for (auto _ : state) {
         std::string word1 = "horse", word2 = "ros";
@@ -215,12 +215,4 @@ static void BenchMarkThird(benchmark::State &state) {
 }
 BENCHMARK(BenchMarkThird);
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    int ret = RUN_ALL_TESTS();
-    ::benchmark::Initialize(&argc, argv);
-    if (::benchmark::ReportUnrecognizedArguments(argc, argv)) return 1;
-    ::benchmark::RunSpecifiedBenchmarks();
-    ::benchmark::Shutdown();
-    return ret;
-}
+}  // namespace

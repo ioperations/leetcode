@@ -9,9 +9,14 @@ if sentence is a pangram, or false otherwise.
 
 */
 
+#include <benchmark/benchmark.h>
+#include <gtest/gtest.h>
+
 #include <set>
 #include <string>
 using namespace std;
+
+namespace {
 
 class Solution {
    public:
@@ -73,11 +78,6 @@ TEST(t1, t2) {
     EXPECT_EQ(ret, output);
 }
 
-#include <benchmark/benchmark.h>
-
-#include <algorithm>
-#include <vector>
-
 static void BenchMarkV1(benchmark::State &state) {
     string sentence = "thequickbrownfoxjumpsoverthelazydog";
     for (auto _ : state) {
@@ -104,12 +104,4 @@ static void BenchMarkV2(benchmark::State &state) {
 }
 BENCHMARK(BenchMarkV2);
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    int ret = RUN_ALL_TESTS();
-    ::benchmark::Initialize(&argc, argv);
-    if (::benchmark::ReportUnrecognizedArguments(argc, argv)) return 1;
-    ::benchmark::RunSpecifiedBenchmarks();
-    ::benchmark::Shutdown();
-    return ret;
-}
+}  // namespace

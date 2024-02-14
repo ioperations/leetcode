@@ -24,6 +24,8 @@ Return the maximum score you can get.*/
 #include <vector>
 using namespace std;
 
+#include<gtest/gtest.h>
+namespace { 
 class Solution {
    public:
     int MaxResult(vector<int> &nums, int k) {
@@ -189,7 +191,4 @@ TEST(t0, t4) {
 
     EXPECT_EQ(ret, out);
 }
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

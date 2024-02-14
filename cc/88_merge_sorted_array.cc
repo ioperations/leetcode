@@ -19,6 +19,8 @@ last n elements are set to 0 and should be ignored. nums2 has a length of n.
 
 #include <vector>
 using namespace std;
+#include<gtest/gtest.h>
+namespace { 
 class Solution {
    public:
     void Merge(vector<int> &nums1, int m, vector<int> &nums2, int n) {
@@ -86,7 +88,4 @@ TEST(t0, t3) {
 
     EXPECT_EQ(nums1, (std::vector<int>{1}));
 }
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

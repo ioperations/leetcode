@@ -29,6 +29,8 @@ maxWidth. The input array words contains at least one word.
 #include <vector>
 using namespace std;
 
+#include<gtest/gtest.h>
+namespace { 
 class Solution {
    public:
     vector<string> FullJustify(vector<string> &words, int max_width) {
@@ -213,7 +215,4 @@ TEST(t0, t4) {
     EXPECT_EQ(ret, expected);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

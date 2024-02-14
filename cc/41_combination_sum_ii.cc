@@ -13,6 +13,8 @@ Note: The solution set must not contain duplicate combinations.
 #include <functional>
 #include <vector>
 using namespace std;
+#include<gtest/gtest.h>
+namespace { 
 class Solution {
    public:
     void Find(int i, vector<vector<int>> &ans, vector<int> &v, vector<int> &arr,
@@ -65,7 +67,4 @@ TEST(t0, t2) {
     EXPECT_EQ(ret_set, out_set);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

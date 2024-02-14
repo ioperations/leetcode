@@ -13,6 +13,8 @@ Return true if you can make this square and false otherwise.*/
 #include <vector>
 using namespace std;
 
+#include<gtest/gtest.h>
+namespace { 
 class Solution {
    public:
     bool Makesquare(vector<int> &matchsticks) {
@@ -81,7 +83,4 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

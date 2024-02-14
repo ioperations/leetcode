@@ -19,6 +19,8 @@ return the answer modulo 109 + 7.*/
 
 using namespace std;
 
+#include<gtest/gtest.h>
+namespace { 
 class Solution {
     std::map<int, int> cache;
 
@@ -102,7 +104,4 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

@@ -17,6 +17,9 @@ satisfy all the given equations, or false otherwise.*/
 #include <vector>
 
 using namespace std;
+#include <gtest/gtest.h>
+
+namespace {
 class DSU {
    public:
     int rank[26], parent[26];
@@ -105,7 +108,4 @@ TEST(t0, t2) {
     bool const ret = sl.EquationsPossible(equations);
     EXPECT_EQ(ret, output);
 }
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
-}
+}  // namespace

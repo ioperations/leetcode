@@ -3,8 +3,10 @@
 // https://pvs-studio.com
 
 // reverse words in a string
+#include <gtest/gtest.h>
+
 #include <functional>
-#include <iostream>
+namespace {
 
 class Solution {
    public:
@@ -48,12 +50,6 @@ class Solution {
     }
 };
 
-#if defined(TEST_ADQ)
-
-#include <gtest/gtest.h>
-
-#include <iostream>
-
 TEST(t1, t2) {
     const std::string s(" hello world ");
     Solution slu;
@@ -86,10 +82,4 @@ TEST(t1, t6) {
     std::string ret = slu.ReverseWords(s);
     EXPECT_EQ(ret, std::string("bob like even not does Alice"));
 }
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
-}
-#else
-
-#endif
+}  // namespace

@@ -28,6 +28,8 @@ the simplified canonical path.
 #include <string>
 
 using namespace std;
+#include <gtest/gtest.h>
+namespace {
 class Solution {
    public:
     string SimplifyPath(string path) {
@@ -103,8 +105,6 @@ class SolutionV2 {
 
 #include <gtest/gtest.h>
 
-#include <iostream>
-
 TEST(t0, t1) {
     std::string path = "/home/";
     std::string output = "/home";
@@ -166,7 +166,4 @@ TEST(t1, t3) {
     auto ret = s.SimplifyPath(path);
     EXPECT_EQ(ret, output);
 }
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
-}
+}  // namespace

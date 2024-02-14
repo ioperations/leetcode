@@ -18,6 +18,8 @@ struct TreeNode {
     TreeNode(int x, TreeNode *left, TreeNode *right)
         : val(x), left(left), right(right) {}
 };
+#include<gtest/gtest.h>
+namespace { 
 class Solution {
    public:
     int SumOfLeftLeaves(TreeNode *root) {
@@ -130,7 +132,4 @@ TEST(t0, t2) {
     FreeRoot(root);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

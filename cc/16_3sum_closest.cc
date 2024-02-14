@@ -1,16 +1,18 @@
 // This is a personal academic project. Dear PVS-Studio, please check it.
 // PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
 // https://pvs-studio.com
+
+#include <benchmark/benchmark.h>
 #include <gtest/gtest.h>
 
 #include <algorithm>
 #include <cmath>
-#include <iostream>
 #include <limits>
 #include <vector>
 
 /// 给一个数字的数组，返回距离target最近的算数和,由任意三个数字组成
 /// 3 <= nums.length <= 1000
+namespace {
 class Solution {
    public:
     Solution(){};
@@ -62,8 +64,6 @@ class Solution {
     }
 };
 
-#ifdef TEST_ADQ
-
 TEST(t1, t1) {
     Solution s;
     std::vector<int> nums{-1, 2, 1, 4};
@@ -87,12 +87,6 @@ TEST(t1, t3) {
 
     EXPECT_EQ(ret, 0);
 }
-
-#include <benchmark/benchmark.h>
-
-#include <algorithm>
-#include <vector>
-
 static void BenchV2(benchmark::State &state) {
     Solution s;
     for (auto _ : state) {
@@ -111,15 +105,4 @@ static void BenchV1(benchmark::State &state) {
     }
 }
 BENCHMARK(BenchV1);
-
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    int ret = RUN_ALL_TESTS();
-    ::benchmark::Initialize(&argc, argv);
-    if (::benchmark::ReportUnrecognizedArguments(argc, argv)) return 1;
-    ::benchmark::RunSpecifiedBenchmarks();
-    ::benchmark::Shutdown();
-    return ret;
-}
-
-#endif
+}  // namespace

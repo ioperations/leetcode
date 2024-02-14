@@ -11,6 +11,8 @@ Given the head of a linked list, rotate the list to the right by k places.
 #include "datastruct_base.hh"
 using ListNode = List::ListNode<int>;
 
+#include<gtest/gtest.h>
+namespace { 
 class Solution {
    public:
     ListNode *RotateRight(ListNode *head, int k) {
@@ -208,7 +210,4 @@ TEST(t0, t9) {
     List::FreeList(head);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

@@ -19,6 +19,8 @@
 #include <queue>
 #include <vector>
 using namespace std;
+#include<gtest/gtest.h>
+namespace { 
 class Solution {
    public:
     int LastStoneWeight(vector<int> &stones) {
@@ -68,7 +70,4 @@ TEST(t0, t2) {
     int ret = s.LastStoneWeight(stones);
     EXPECT_EQ(ret, 1);
 }
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

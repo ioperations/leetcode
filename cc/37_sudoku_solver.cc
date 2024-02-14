@@ -8,6 +8,8 @@
 #include <vector>
 
 using namespace std;
+#include<gtest/gtest.h>
+namespace { 
 class Solution {
    public:
     void solveSudoku(vector<vector<char>> &board);
@@ -43,29 +45,4 @@ void Solution::solveSudoku(vector<vector<char>> &board) {
      */
 }
 
-int main(int argc, char *argv[]) {
-    Solution p;
-    vector<char> v_1({'5', '3', '.', '.', '7', '.', '.', '.', '.'});
-    vector<char> v_2({'6', '.', '.', '1', '9', '5', '.', '.', '.'});
-    vector<char> v_3({'.', '9', '8', '.', '.', '.', '.', '6', '.'});
-    vector<char> v_4({'8', '.', '.', '.', '6', '.', '.', '.', '3'});
-    vector<char> v_5({'4', '.', '.', '8', '.', '3', '.', '.', '1'});
-    vector<char> v_6({'7', '.', '.', '.', '2', '.', '.', '.', '6'});
-    vector<char> v_7({'.', '6', '.', '.', '.', '.', '2', '8', '.'});
-    vector<char> v_8({'.', '.', '.', '4', '1', '9', '.', '.', '5'});
-    vector<char> v_9({'.', '.', '.', '.', '8', '.', '.', '7', '9'});
-
-    vector<vector<char>> v({v_1, v_2, v_3, v_4, v_5, v_6, v_7, v_8, v_9});
-
-    p.solveSudoku(v);
-
-    for (auto &p : v) {
-        for (auto &z : p) {
-            std::cout << z << " ";
-        }
-        std::cout << std::endl;
-    }
-
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

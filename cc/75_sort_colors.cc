@@ -11,7 +11,12 @@
 
     You must solve this problem without using the library's sort function.
 */
+#include <benchmark/benchmark.h>
+#include <gtest/gtest.h>
+
+#include <algorithm>
 #include <vector>
+namespace {
 class Solution {
    public:
     void SortColors(std::vector<int> &nums) {
@@ -59,11 +64,6 @@ class Solution {
     }
 };
 
-#include <benchmark/benchmark.h>
-#include <gtest/gtest.h>
-
-#include <algorithm>
-#include <iostream>
 #include <vector>
 
 static void BenchBubbleSort(benchmark::State &state) {
@@ -113,12 +113,4 @@ TEST(t0, t2) {
     EXPECT_EQ(nums2, (std::vector<int>{0, 1, 2}));
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    int ret = RUN_ALL_TESTS();
-    ::benchmark::Initialize(&argc, argv);
-    if (::benchmark::ReportUnrecognizedArguments(argc, argv)) return 1;
-    ::benchmark::RunSpecifiedBenchmarks();
-    ::benchmark::Shutdown();
-    return ret;
-}
+}  // namespace

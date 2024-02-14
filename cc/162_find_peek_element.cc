@@ -17,6 +17,8 @@ You must write an algorithm that runs in O(log n) time.
 #include <vector>
 using namespace std;
 
+#include<gtest/gtest.h>
+namespace { 
 class Solution {
    public:
     /**
@@ -112,7 +114,4 @@ TEST(t0, t2) {
     EXPECT_EQ(expectd.count(ret), true);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

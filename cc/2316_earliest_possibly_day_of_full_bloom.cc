@@ -22,6 +22,8 @@ Return the earliest possible day where all seeds are blooming.*/
 #include <vector>
 using namespace std;
 
+#include<gtest/gtest.h>
+namespace { 
 class Solution {
    public:
     int EarliestFullBloom(vector<int> &plant_time, vector<int> &grow_time) {
@@ -142,7 +144,4 @@ TEST(t0, t3) {
     int ret = sl.EarliestFullBloom(plant_time, grow_time);
     EXPECT_EQ(ret, output);
 }
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

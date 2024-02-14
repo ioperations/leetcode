@@ -15,6 +15,8 @@ number, return this modulo 109 + 7.*/
 
 #include <vector>
 using namespace std;
+#include<gtest/gtest.h>
+namespace { 
 class Solution {
    public:
     int MaxArea(int h, int w, vector<int> &horizontal_cuts,
@@ -77,7 +79,4 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

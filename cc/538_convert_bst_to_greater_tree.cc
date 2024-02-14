@@ -25,6 +25,12 @@ struct TreeNode {
         : val(x), left(left), right(right) {}
 };
 
+#include <gtest/gtest.h>
+
+#include <iostream>
+#include <queue>
+
+namespace {
 class Solution {
    public:
     int Dfs(TreeNode *root, int above_sum) {
@@ -45,11 +51,6 @@ class Solution {
         return root;
     }
 };
-
-#include <gtest/gtest.h>
-
-#include <iostream>
-#include <queue>
 
 TreeNode *AddToRoot(TreeNode *root, int val) {
     if (root == nullptr) {
@@ -176,7 +177,4 @@ TEST(t0, t2) {
     FreeRoot(root);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
-}
+}  // namespace

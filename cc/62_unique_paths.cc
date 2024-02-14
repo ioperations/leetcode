@@ -17,6 +17,8 @@ The test cases are generated so that the answer will be less than or equal to 2
 
 using namespace std;
 
+#include<gtest/gtest.h>
+namespace { 
 class Solution {
    public:
     int UniquePaths(int m, int n) {
@@ -69,7 +71,4 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

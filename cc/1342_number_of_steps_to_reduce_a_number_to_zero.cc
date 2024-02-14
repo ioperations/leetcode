@@ -6,6 +6,8 @@
 In one step, if the current number is even, you have to divide it by 2,
 otherwise, you have to subtract 1 from it.*/
 
+#include<gtest/gtest.h>
+namespace { 
 class Solution {
    public:
     int NumberOfSteps(int num) {
@@ -66,7 +68,4 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

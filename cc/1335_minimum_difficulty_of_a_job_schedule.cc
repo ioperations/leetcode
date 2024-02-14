@@ -19,6 +19,8 @@ for the jobs return -1.*/
 #include <limits>
 #include <vector>
 using namespace std;
+#include<gtest/gtest.h>
+namespace { 
 class Solution {
    public:
     int MinDifficulty(vector<int> &job_difficulty, int d) {
@@ -172,7 +174,4 @@ TEST(t1, t3) {
     EXPECT_EQ(output, ret);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

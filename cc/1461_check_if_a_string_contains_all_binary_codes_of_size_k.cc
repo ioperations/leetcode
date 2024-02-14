@@ -16,6 +16,8 @@ using namespace std;
 
 #include <unordered_set>
 
+#include<gtest/gtest.h>
+namespace { 
 class Solution {
    public:
     bool HasAllCodes(string s, int k) {
@@ -66,7 +68,4 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

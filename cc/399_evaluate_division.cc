@@ -25,6 +25,8 @@
 #include <vector>
 using namespace std;
 
+#include<gtest/gtest.h>
+namespace { 
 class Solution {
     unordered_map<string, unordered_map<string, double>> unmp;
     unordered_set<string> visited;
@@ -107,7 +109,4 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

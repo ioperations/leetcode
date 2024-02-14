@@ -13,6 +13,8 @@ Return the number of good nodes in the binary tree.
 #include "datastruct_base.hh"
 using namespace Tree;
 
+#include<gtest/gtest.h>
+namespace { 
 class Solution {
    public:
     template <typename T>
@@ -104,7 +106,4 @@ TEST(t0, t4) {
     FreeTreeNode(node);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

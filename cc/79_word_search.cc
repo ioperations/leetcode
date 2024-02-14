@@ -18,6 +18,8 @@ may not be used more than once.
 #include <vector>
 using namespace std;
 
+#include <gtest/gtest.h>
+namespace {
 class Solution {
    public:
     bool ExistV(vector<vector<char>> &board, string word) {
@@ -373,7 +375,4 @@ TEST(t1, t4) {
     EXPECT_EQ(ret, false);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
-}
+}  // namespace

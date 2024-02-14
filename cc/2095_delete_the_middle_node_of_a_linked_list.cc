@@ -29,6 +29,8 @@ using ListNode = List::ListNode<int>;
 
 
 */
+#include<gtest/gtest.h>
+namespace { 
 class Solution {
     ListNode *MiddlePrev(ListNode *head) {
         ListNode *slow = head;
@@ -126,7 +128,4 @@ Node 0 with value 2 is the only node remaining after removing node 1.
     List::FreeList(list);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

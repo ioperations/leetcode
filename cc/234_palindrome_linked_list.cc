@@ -6,12 +6,16 @@
 Given the head of a singly linked list, return true if it is a palindrome.
 */
 
+#include <benchmark/benchmark.h>
+#include <gtest/gtest.h>
+
+#include <vector>
+
 #include "datastruct_base.hh"
 //* Definition for singly-linked list.
 using ListNode = List::ListNode<int>;
 
-#include <vector>
-
+namespace {
 class Solution2 {
    public:
     bool IsPalindrome(ListNode *head) {
@@ -57,6 +61,7 @@ class Solution2 {
     }
 };
 
+#include <gtest/gtest.h>
 class Solution {
    public:
     bool IsPalindrome(ListNode *head) {
@@ -164,11 +169,6 @@ TEST(t1, t2) {
     EXPECT_EQ(ret, false);
 }
 
-#include <benchmark/benchmark.h>
-
-#include <algorithm>
-#include <vector>
-
 static void BenchFastSlow(benchmark::State &state) {
     Solution2 s;
     for (auto _ : state) {
@@ -232,13 +232,4 @@ static void BenchMyVec(benchmark::State &state) {
 }
 BENCHMARK(BenchMyVec);
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    int ret = RUN_ALL_TESTS();
-
-    ::benchmark::Initialize(&argc, argv);
-    if (::benchmark::ReportUnrecognizedArguments(argc, argv)) return 1;
-    ::benchmark::RunSpecifiedBenchmarks();
-    ::benchmark::Shutdown();
-    return ret;
-}
+}  // namespace

@@ -4,6 +4,8 @@
 
 #include <vector>
 using namespace std;
+#include<gtest/gtest.h>
+namespace { 
 class Solution {
    private:
     int Combination(vector<int> &nums, int target, vector<int> &dp) {
@@ -160,7 +162,4 @@ TEST(t2, t2) {
     EXPECT_EQ(ret, 0);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

@@ -23,6 +23,8 @@ You must find a solution with a memory complexity better than O(n2).
 
 using namespace std;
 
+#include<gtest/gtest.h>
+namespace { 
 class Solution {
    public:
     int KthSmallest(const vector<vector<int>> &matrix, int k) {
@@ -186,7 +188,4 @@ TEST(t2, t2) {
     int ret = sl.KthSmallestV2(matrix, k);
     EXPECT_EQ(ret, expected);
 }
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

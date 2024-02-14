@@ -1,6 +1,8 @@
 
 #include <algorithm>
 
+#include<gtest/gtest.h>
+namespace { 
 class QuickSort {
     int Partition(int arr[], int start, int end) {
         int pivot = arr[start];
@@ -65,7 +67,4 @@ TEST(t0, t1) {
     EXPECT_TRUE(0 == memcmp(output, expected, sizeof(expected)));
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

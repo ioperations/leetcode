@@ -22,6 +22,8 @@ surrounded by water.
 
 using namespace std;
 
+#include<gtest/gtest.h>
+namespace { 
 class Solution {
    public:
     int NumIslands(vector<vector<char>> &grid) {
@@ -197,7 +199,4 @@ TEST(t1, t2) {
     EXPECT_EQ(ret, expected);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

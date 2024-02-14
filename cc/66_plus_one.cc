@@ -12,6 +12,8 @@ Increment the large integer by one and return the resulting array of digits.
 #include <vector>
 using namespace std;
 
+#include<gtest/gtest.h>
+namespace { 
 class Solution {
    public:
     vector<int> PlusOne(vector<int> &digits) {
@@ -56,7 +58,4 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, (std::vector<int>{1, 0}));
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

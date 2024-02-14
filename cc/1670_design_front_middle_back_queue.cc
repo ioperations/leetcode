@@ -25,6 +25,8 @@ Popping the middle from [1, 2, 3, 4, 5, 6] returns 3 and results in [1, 2, 4, 5,
 #include <stack>
 using namespace std;
 
+#include<gtest/gtest.h>
+namespace { 
 class FrontMiddleBackQueue {
     deque<int> q;
 
@@ -116,18 +118,4 @@ TEST(t0, t1) {
     delete q;
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }
-
-/**
- * Your FrontMiddleBackQueue object will be instantiated and called as such:
- * FrontMiddleBackQueue* obj = new FrontMiddleBackQueue();
- * obj->pushFront(val);
- * obj->pushMiddle(val);
- * obj->pushBack(val);
- * int param_4 = obj->popFront();
- * int param_5 = obj->popMiddle();
- * int param_6 = obj->popBack();
- */

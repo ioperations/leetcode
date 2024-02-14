@@ -1,7 +1,11 @@
 // This is a personal academic project. Dear PVS-Studio, please check it.
 // PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
 // https://pvs-studio.com
+#include <benchmark/benchmark.h>
+
+#include <algorithm>
 #include <vector>
+
 using namespace std;
 
 /*
@@ -10,6 +14,8 @@ first index, and each element in the array represents your maximum jump length
 at that position.
     */
 
+#include <gtest/gtest.h>
+namespace {
 class Solution {
    public:
     bool CanJump(vector<int> &nums) {
@@ -73,11 +79,6 @@ TEST(testName, t1) {
     EXPECT_EQ(ret, output);
 }
 
-#include <benchmark/benchmark.h>
-
-#include <algorithm>
-#include <vector>
-
 static void BenchMarkMyImpl(benchmark::State &state) {
     for (auto _ : state) {
         std::vector<int> nums = {2, 3, 1, 1, 4};
@@ -104,12 +105,4 @@ static void BenchMarkDp(benchmark::State &state) {
 }
 BENCHMARK(BenchMarkDp);
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    int ret = RUN_ALL_TESTS();
-    ::benchmark::Initialize(&argc, argv);
-    if (::benchmark::ReportUnrecognizedArguments(argc, argv)) return 1;
-    ::benchmark::RunSpecifiedBenchmarks();
-    ::benchmark::Shutdown();
-    return ret;
-}
+}  // namespace

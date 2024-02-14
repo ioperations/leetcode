@@ -7,6 +7,8 @@
 #include <unordered_map>
 using namespace std;
 
+#include <gtest/gtest.h>
+namespace {
 class Solution {
    public:
     int FirstUniqChar(string s) {
@@ -25,10 +27,6 @@ class Solution {
         return 0;
     }
 };
-
-#include <gtest/gtest.h>
-
-#include <iostream>
 
 TEST(t0, t1) {
     string s = "leetcode";
@@ -51,7 +49,4 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, -1);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
-}
+}  // namespace

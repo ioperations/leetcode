@@ -4,6 +4,8 @@
 
 #include <string>
 
+#include<gtest/gtest.h>
+namespace { 
 class Solution {
    public:
     Solution(){};
@@ -47,7 +49,4 @@ TEST(t0, t3) {
 
     EXPECT_EQ(ret, false);
 }
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

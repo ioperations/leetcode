@@ -15,6 +15,8 @@ Return the maximum number of courses that you can take.*/
 #include <vector>
 using namespace std;
 
+#include<gtest/gtest.h>
+namespace { 
 class Solution {
     bool static Comp(vector<int> &course1, vector<int> &course2) {
         return (course1[1] != course2[1]) ? (course1[1] < course2[1])
@@ -90,7 +92,4 @@ TEST(t0, t3) {
     int ret = sl.ScheduleCourse(courses);
     EXPECT_EQ(ret, output);
 }
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

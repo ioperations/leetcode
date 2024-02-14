@@ -10,6 +10,8 @@ using namespace std;
 // Definition for singly-linked list.
 using ListNode = List::ListNode<int>;
 
+#include<gtest/gtest.h>
+namespace { 
 class Solution {
     vector<int> vec;
 
@@ -60,7 +62,4 @@ TEST(t0, t1) {
     // EXPECT_EQ(set.count(ret), 1);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

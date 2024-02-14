@@ -1,6 +1,8 @@
 // This is a personal academic project. Dear PVS-Studio, please check it.
 // PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
 // https://pvs-studio.com
+#include <gtest/gtest.h>
+
 #include <algorithm>
 
 namespace {
@@ -31,30 +33,8 @@ int Func(int number) {
     return max;
 }
 
-}  // namespace
-#if defined(TEST_ADQ)
-#include <gtest/gtest.h>
-
 TEST(t1, t1) { EXPECT_EQ(Func(5), 1); }
 TEST(t1, t2) { EXPECT_EQ(Func(3), 2); }
 TEST(t1, t4) { EXPECT_EQ(Func(110), 3); }
 TEST(t1, t5) { EXPECT_EQ(Func(126), 6); }
-
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
-}
-
-#else
-
-int main() {
-    int in;
-    while (std::cin >> in) {
-        int t = func(in);
-
-        std::cout << t << std::endl;
-    }
-    return 0;
-}
-
-#endif
+}  // namespace

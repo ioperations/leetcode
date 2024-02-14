@@ -2,6 +2,8 @@
 // PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
 // https://pvs-studio.com
 /*
+#include<gtest/gtest.h>
+namespace {
 Implement the BSTIterator class that represents an iterator over the in-order
 traversal of a binary search tree (BST):
 
@@ -20,12 +22,15 @@ least a next number in the in-order traversal when next() is called.
 
 // * Definition for a binary tree node.
 
+#include <gtest/gtest.h>
+
 #include <stack>
 
 #include "datastruct_base.hh"
 
 using namespace Tree;
 
+namespace {
 template <typename T>
 class BSTIterator {
    private:
@@ -101,7 +106,4 @@ TEST(t0, t2) {
 
     FreeRoot(root);
 }
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
-}
+}  // namespace

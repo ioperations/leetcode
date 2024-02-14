@@ -14,6 +14,8 @@ same combination twice, and the combinations may be returned in any order.
 #include <vector>
 using namespace std;
 
+#include<gtest/gtest.h>
+namespace { 
 class Solution {
    public:
     vector<vector<int>> CombinationSum3(int k, int n) {
@@ -79,7 +81,4 @@ TEST(t0, t3) {
     // is 1+2+3+4 = 10 and since 10 > 1, there are no valid combination.
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

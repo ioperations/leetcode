@@ -16,14 +16,13 @@ void addNum(int num) adds the integer num from the data stream to the data
 structure. double findMedian() returns the median of all elements so far.
 Answers within 10-5 of the actual answer will be accepted.
 */
-#include <algorithm>
-#include <cassert>
 #include <cfloat>
-#include <cmath>
-#include <iostream>
 #include <iterator>
 #include <set>
 using namespace std;
+#include <gtest/gtest.h>
+
+namespace {
 class MedianFinder {
    public:
     // Adds a number into the data structure.
@@ -186,7 +185,4 @@ TEST(t0, t1) {
     EXPECT_NEAR(3.0, result, DBL_EPSILON);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
-}
+}  // namespace

@@ -8,6 +8,8 @@ T0 = 0, T1 = 1, T2 = 1, and Tn+3 = Tn + Tn+1 + Tn+2 for n >= 0.
 Given n, return the value of Tn.*/
 
 #include <map>
+#include<gtest/gtest.h>
+namespace { 
 class Solution {
     std::map<int, int> cache;
 
@@ -48,7 +50,4 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, out);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

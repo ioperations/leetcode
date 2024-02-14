@@ -14,6 +14,8 @@ wrap-around is not allowed).
 #include <cstring>
 #include <vector>
 using namespace std;
+#include<gtest/gtest.h>
+namespace { 
 class Solution {
    public:
     int n, m;
@@ -77,7 +79,4 @@ TEST(t0, t2) {
     // Explanation: The longest increasing path is [1, 2, 6, 9].
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

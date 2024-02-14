@@ -4,6 +4,8 @@
 /*
 Given the root of a binary tree, flatten the tree into a "linked list":
 
+#include<gtest/gtest.h>
+namespace { 
 The "linked list" should use the same TreeNode class where the right child
 pointer points to the next node in the list and the left child pointer is always
 null. The "linked list" should be in the same order as a pre-order traversal of
@@ -23,6 +25,8 @@ struct TreeNode {
 #include <queue>
 #include <vector>
 
+#include<gtest/gtest.h>
+namespace { 
 class Solution {
    public:
     void Flatten(TreeNode *root) {
@@ -180,7 +184,4 @@ TEST(t0, t3) {
     FreeRoot(n);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

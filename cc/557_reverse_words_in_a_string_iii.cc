@@ -6,12 +6,15 @@
 
 */
 
+#include <benchmark/benchmark.h>
+#include <gtest/gtest.h>
+
 #include <algorithm>
 #include <stack>
 #include <string>
-
 using namespace std;
 
+namespace {
 class Solution {
    public:
     string ReverseWordsV1(string s) {
@@ -84,11 +87,6 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
 }
 
-#include <benchmark/benchmark.h>
-
-#include <algorithm>
-#include <vector>
-
 static void BenchMarkStack(benchmark::State &state) {
     string const s = "Let's take LeetCode contest";
     Solution sl;
@@ -111,12 +109,4 @@ static void BenchMarkTwoPointer(benchmark::State &state) {
 }
 BENCHMARK(BenchMarkTwoPointer);
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    int const ret = RUN_ALL_TESTS();
-    ::benchmark::Initialize(&argc, argv);
-    if (::benchmark::ReportUnrecognizedArguments(argc, argv)) return 1;
-    ::benchmark::RunSpecifiedBenchmarks();
-    ::benchmark::Shutdown();
-    return ret;
-}
+}  // namespace

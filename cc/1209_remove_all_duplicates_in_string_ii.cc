@@ -12,11 +12,15 @@ Return the final string after all such duplicate removals have been made. It is
 guaranteed that the answer is unique.
 */
 
+#include <gtest/gtest.h>
+
 #include <algorithm>
 #include <stack>
 #include <string>
 #include <vector>
 using namespace std;
+
+namespace {
 class Solution {
    public:
     string RemoveDuplicates(const string &s, int k) {
@@ -73,7 +77,9 @@ class Solution {
         return true;
     }
 };
+}  // namespace
 
+namespace {
 class SolutionV2 {
    public:
     struct Node {
@@ -136,7 +142,6 @@ class SolutionV2 {
         return ans;
     }
 };
-#include <gtest/gtest.h>
 
 TEST(t0, t1) {
     string s = "abcd";
@@ -162,7 +167,4 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, "ps");
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
-}
+}  // namespace

@@ -23,6 +23,8 @@ struct TreeNode {
 
 using namespace std;
 
+#include<gtest/gtest.h>
+namespace { 
 class Solution {
    public:
     vector<vector<int>> ZigzagLevelOrder(TreeNode *root) {
@@ -164,7 +166,4 @@ TEST(t0, t3) {
     FreeTreeNode(binary_tree);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

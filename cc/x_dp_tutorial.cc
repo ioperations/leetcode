@@ -14,6 +14,7 @@
 #include <iostream>
 
 // 每一个步骤  只有删除 添加 改变
+namespace {
 
 int FindMinPath(const char *s1, const int s1_length, const char *s2,
                 const int s2_length) {
@@ -71,7 +72,4 @@ TEST(t1, r2) {
     EXPECT_EQ(FindMinPath(s1_1, strlen(s1_1), s2_1, strlen(s2_1)), 1);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
-}
+}  // namespace

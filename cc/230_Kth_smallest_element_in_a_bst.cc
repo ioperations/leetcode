@@ -16,6 +16,8 @@ struct TreeNode {
 
 #include <algorithm>
 #include <queue>
+#include<gtest/gtest.h>
+namespace { 
 class Solution {
    public:
     int KthSmallest(TreeNode *root, int k) {
@@ -125,7 +127,4 @@ TEST(t0, t2) {
     FreeRoot(head);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

@@ -8,9 +8,17 @@ Nary-Tree input serialization is represented in their level order traversal.
 Each group of children is separated by the null value (See examples)*/
 
 // Definition for a Node.
-#include <vector>
+#include <gtest/gtest.h>
 
+#include <iostream>
+#include <optional>
+#include <queue>
+#include <stack>
+#include <unordered_set>
+#include <vector>
 using namespace std;
+
+namespace {
 class Node {
    public:
     int m_val;
@@ -25,9 +33,6 @@ class Node {
         m_children = children;
     }
 };
-#include <stack>
-#include <unordered_set>
-
 class Solution {
    public:
     vector<int> Preorder(Node *root) {
@@ -48,10 +53,6 @@ class Solution {
 };
 
 #include <gtest/gtest.h>
-
-#include <iostream>
-#include <optional>
-#include <queue>
 
 Node *ConstructNode(vector<optional<int>> &elements) {
     Node *node = nullptr;
@@ -123,7 +124,4 @@ TEST(t0, t2) {
     FreeNode(tree);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
-}
+}  // namespace

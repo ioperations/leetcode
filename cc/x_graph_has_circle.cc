@@ -7,6 +7,8 @@
 using namespace std;
 
 // leetcode-cn.com/problems/course-schedule/solution/c-you-xiang-tu-cheng-huan-jian-ce-by-hank-31/
+#include<gtest/gtest.h>
+namespace { 
 class Solution {
    public:
     bool CanFinish(int num_courses, vector<vector<int>> &prerequisites) {
@@ -85,7 +87,4 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, true);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

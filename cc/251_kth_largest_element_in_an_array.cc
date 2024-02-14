@@ -11,6 +11,8 @@ distinct element.*/
 #include <vector>
 using namespace std;
 
+#include<gtest/gtest.h>
+namespace { 
 class Solution {
    public:
     int FindKthLargest(vector<int> &nums, int k) {
@@ -46,7 +48,4 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, 4);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

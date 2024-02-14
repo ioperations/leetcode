@@ -10,11 +10,13 @@ A subarray is a contiguous part of an array.
 
 */
 
-#include <functional>
-#include <map>
+#include <gtest/gtest.h>
+
 #include <vector>
+
 using namespace std;
 
+namespace {
 class Solution {
    public:
     int MaxSubArray(vector<int> &nums) {
@@ -32,10 +34,6 @@ class Solution {
         return max_sum;
     }
 };
-
-#include <gtest/gtest.h>
-
-#include <iostream>
 
 TEST(t0, t1) {
     std::vector<int> v{-2, 1, -3, 4, -1, 2, 1, -5, 4};
@@ -64,7 +62,4 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, o);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
-}
+}  // namespace

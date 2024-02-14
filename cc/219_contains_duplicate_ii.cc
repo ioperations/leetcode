@@ -12,6 +12,8 @@ j) <= k.
 #include <vector>
 using namespace std;
 
+#include<gtest/gtest.h>
+namespace { 
 class Solution {
    public:
     bool ContainsNearbyDuplicate(const vector<int> &nums, int k) {
@@ -103,8 +105,4 @@ TEST(t1, t3) {
 #include <algorithm>
 #include <vector>
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    int ret = RUN_ALL_TESTS();
-    return ret;
 }

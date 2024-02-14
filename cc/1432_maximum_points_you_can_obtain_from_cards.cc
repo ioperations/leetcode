@@ -22,6 +22,8 @@ you can obtain.
 
 using namespace std;
 
+#include<gtest/gtest.h>
+namespace { 
 class Solution {
    public:
     int MaxScore(vector<int> &card_points, int k) {
@@ -139,7 +141,4 @@ TEST(t1, t3) {
     // You have to take all the cards. Your score is the sum of points of all
     // cards.
 }
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

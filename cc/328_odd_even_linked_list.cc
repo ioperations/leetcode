@@ -19,6 +19,8 @@ complexity.
 using ListNode = List::ListNode<int>;
 
 
+#include<gtest/gtest.h>
+namespace { 
 class Solution {
    public:
     ListNode *OddEvenListV1(ListNode *head) {
@@ -203,7 +205,4 @@ TEST(t1, t2) {
     ExpectEqList(head, ex);
     List::FreeList(head);
 }
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

@@ -11,6 +11,8 @@ changing its structure.
 
 #include "datastruct_base.hh"
 using namespace Tree;
+#include <gtest/gtest.h>
+namespace {
 
 template <typename T>
 class Solution {
@@ -95,7 +97,4 @@ TEST(t0, t2) {
     EXPECT_EQ(ou, in);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
-}
+}  // namespace

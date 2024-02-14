@@ -19,6 +19,8 @@ changed.
 #include "datastruct_base.hh"
 
 using ListNode = List::ListNode<int>;
+#include<gtest/gtest.h>
+namespace { 
 class Solution {
    public:
     ListNode *ReverseKGroup(ListNode *head, int k) {
@@ -144,7 +146,4 @@ TEST(t0, t2) {
     // Output: [2,1,4,3,5]
     List::FreeList(root);
 }
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

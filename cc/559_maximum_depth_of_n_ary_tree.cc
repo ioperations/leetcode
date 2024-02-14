@@ -11,9 +11,16 @@ each group of children is separated by the null value (See examples).
 
 */
 
+#include <gtest/gtest.h>
+
+#include <functional>
+#include <optional>
+#include <queue>
 #include <vector>
+
 using namespace std;
 
+namespace {
 class Node {
    public:
     int m_val;
@@ -28,7 +35,6 @@ class Node {
         m_children = children;
     }
 };
-#include <functional>
 
 class Solution {
    public:
@@ -47,15 +53,8 @@ class Solution {
     }
 };
 
-#include <gtest/gtest.h>
-
-#include <iostream>
-#include <optional>
-
 #define null \
     optional<int> {}
-
-#include <queue>
 
 vector<Node *> ConstructTreeNode(Node *z1, vector<int> &z) {
     for (auto &ptr : z) {
@@ -134,7 +133,4 @@ TEST(t0, t2) {
     FreeNode(n);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
-}
+}  // namespace

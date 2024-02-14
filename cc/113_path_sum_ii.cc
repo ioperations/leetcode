@@ -19,6 +19,8 @@ node. A leaf is a node with no children.
 using namespace std;
 
 using namespace Tree;
+#include<gtest/gtest.h>
+namespace { 
 class Solution {
     std::vector<vector<int>> m_ret;
     template <typename T>
@@ -113,7 +115,4 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, output);
     FreeTreeNode(node);
 }
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

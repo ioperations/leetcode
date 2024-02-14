@@ -19,6 +19,8 @@ using List::ConstructList;
 using List::FreeList;
 
 
+#include<gtest/gtest.h>
+namespace { 
 class Solution {
    public:
     bool HasCycle(ListNode *head) {
@@ -150,7 +152,4 @@ TEST(t0, t4) {
     FreeList(head);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

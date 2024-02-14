@@ -16,6 +16,8 @@ col1) and lower right corner (row2, col2).
 #include <vector>
 using namespace std;
 
+#include <gtest/gtest.h>
+namespace {
 class NumMatrix {
    public:
     NumMatrix(vector<vector<int>> &matrix) {
@@ -39,6 +41,7 @@ class NumMatrix {
    private:
     vector<vector<int>> m_matrix;
 };
+#include <gtest/gtest.h>
 class NumMatrixV1 {
     vector<vector<int>> sum;
 
@@ -133,7 +136,4 @@ TEST(t0, t2) {
     // blue rectangle)
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
-}
+}  // namespace

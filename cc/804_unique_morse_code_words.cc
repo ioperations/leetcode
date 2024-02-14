@@ -28,6 +28,8 @@ const char *table[] = {".-",   "-...", "-.-.", "-..",  ".",    "..-.", "--.",
                        "....", "..",   ".---", "-.-",  ".-..", "--",   "-.",
                        "---",  ".--.", "--.-", ".-.",  "...",  "-",    "..-",
                        "...-", ".--",  "-..-", "-.--", "--.."};
+#include<gtest/gtest.h>
+namespace { 
 class Solution {
     std::string Convert(std::string &s) {
         string ret;
@@ -79,7 +81,4 @@ TEST(t0, t2) {
     int ret = sl.UniqueMorseRepresentations(words);
     EXPECT_EQ(ret, output);
 }
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

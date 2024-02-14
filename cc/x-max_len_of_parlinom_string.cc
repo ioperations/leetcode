@@ -14,6 +14,8 @@
 #include <limits>
 #include <string>
 
+namespace {
+
 int MaxRet(const char *str, int str_len) {
     /*
     for
@@ -79,7 +81,4 @@ TEST(t1, t0) {
     EXPECT_EQ(MaxRet(s1, strlen(s1)), 7);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
-}
+}  // namespace

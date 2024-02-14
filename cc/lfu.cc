@@ -1,7 +1,10 @@
 
+#include <gtest/gtest.h>
+
 #include <list>
 #include <optional>
 #include <unordered_map>
+namespace {
 
 template <typename K, typename V>
 class LfuCache {
@@ -89,8 +92,6 @@ std::optional<V> LfuCache<K, V>::Get(const K &key) {
     return std::optional<V>();
 }
 
-#include <gtest/gtest.h>
-
 TEST(t0, t1) {
     LfuCache<int, int> lfu(2);
     lfu.Set(1, 1);
@@ -105,8 +106,4 @@ TEST(t0, t1) {
     ret = lfu.Get(3);
     EXPECT_EQ(ret, 3);
 }
-
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
-}
+}  // namespace

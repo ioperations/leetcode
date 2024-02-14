@@ -20,6 +20,8 @@ returned as an array [x, y].
 #include <vector>
 using namespace std;
 
+#include<gtest/gtest.h>
+namespace { 
 class Solution {
     double x_center;
     double y_center;
@@ -61,7 +63,4 @@ TEST(t0, t1) {
     t1 = sl.RandPoint();  // return [0.36572, 0.17248]
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

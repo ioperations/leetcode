@@ -10,6 +10,8 @@
 #include "datastruct_base.hh"
 using namespace Tree;
 
+#include<gtest/gtest.h>
+namespace { 
 class Solution {
    public:
     template <typename T>
@@ -53,7 +55,4 @@ TEST(t1, t0) {
     FreeTreeNode(root);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

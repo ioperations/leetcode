@@ -28,6 +28,8 @@ using namespace std;
 
 // This is the interface that allows for creating nested lists.
 // You should not implement it, or speculate about its implementation
+#include <gtest/gtest.h>
+namespace {
 class NestedInteger {
     bool is_integer;
     int val;
@@ -62,6 +64,7 @@ class NestedInteger {
     vector<NestedInteger> &GetList() { return vec; };
 };
 
+#include <gtest/gtest.h>
 class NestedIterator {
     int i;
     vector<int> faltterned;
@@ -154,7 +157,4 @@ TEST(t0, t2) {
     EXPECT_EQ(v, output);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
-}
+}  // namespace

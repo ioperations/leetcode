@@ -25,6 +25,8 @@
 #include <vector>
 using namespace std;
 
+#include <gtest/gtest.h>
+namespace {
 class Iterator {
     const std::vector<int> &nums;
     int size;
@@ -54,6 +56,7 @@ class Iterator {
     bool hasNext() const { return 0 <= (i + 1) && (i + 1) < size; };
 };
 
+#include <gtest/gtest.h>
 class PeekingIterator : public Iterator {
     int nextVal;
 
@@ -146,7 +149,4 @@ TEST(t0, t2) {
     delete peeking_iterator;
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
-}
+}  // namespace

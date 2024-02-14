@@ -20,6 +20,8 @@ elements. For example, [3, 5, 8] is a subsequence of [3, 4, 5, 6, 7, 8].*/
 #include <vector>
 using namespace std;
 
+#include<gtest/gtest.h>
+namespace { 
 class Solution {
    public:
     int LenLongestFibSubseq(vector<int> &arr) {
@@ -126,7 +128,4 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, out);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

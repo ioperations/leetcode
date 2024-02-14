@@ -6,8 +6,14 @@ sum(nums[0]…nums[i]).
 
 Return the running sum of nums.*/
 
+#include <benchmark/benchmark.h>
+#include <gtest/gtest.h>
+
 #include <vector>
 using namespace std;
+
+namespace {
+
 class Solution {
    public:
     vector<int> RunningSum(vector<int> &nums) {
@@ -25,8 +31,6 @@ class Solution {
         return nums;
     }
 };
-
-#include <gtest/gtest.h>
 
 TEST(t0, t1) {
     std::vector<int> p{1, 2, 3, 4};
@@ -54,10 +58,6 @@ TEST(t0, t3) {
     auto ret = sl.RunningSum(p);
     EXPECT_EQ(ret, output);
 }
-#include <benchmark/benchmark.h>
-
-#include <algorithm>
-#include <vector>
 
 static void BenchV1(benchmark::State &state) {
     for (auto _ : state) {
@@ -83,12 +83,4 @@ static void BenchV2(benchmark::State &state) {
 }
 BENCHMARK(BenchV2);
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    int ret = RUN_ALL_TESTS();
-    ::benchmark::Initialize(&argc, argv);
-    if (::benchmark::ReportUnrecognizedArguments(argc, argv)) return 1;
-    ::benchmark::RunSpecifiedBenchmarks();
-    ::benchmark::Shutdown();
-    return ret;
-}
+}  // namespace

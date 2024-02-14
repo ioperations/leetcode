@@ -14,6 +14,8 @@ from the beginning and the kth node from the end (the list is 1-indexed).
 //* Definition for singly-linked list.
 using ListNode = List::ListNode<int>;
 
+#include<gtest/gtest.h>
+namespace { 
 class Solution {
    public:
     ListNode *SwapNodes(ListNode *head, int k) {
@@ -114,7 +116,4 @@ TEST(t0, t4) {
     List::FreeList(head);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

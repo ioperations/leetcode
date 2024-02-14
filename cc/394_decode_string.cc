@@ -22,6 +22,8 @@ The test cases are generated so that the length of the output will never exceed
 using namespace Tree;
 using namespace std;
 
+#include<gtest/gtest.h>
+namespace { 
 class Solution {
    public:
     string DecodeString(string encoded_string) {
@@ -88,7 +90,4 @@ TEST(t0, t4) {
     FreeTreeNode<int>(n);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

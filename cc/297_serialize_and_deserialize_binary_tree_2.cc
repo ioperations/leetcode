@@ -26,6 +26,8 @@ creative and come up with different approaches yourself.*/
 using namespace std;
 using namespace Tree;
 
+#include<gtest/gtest.h>
+namespace { 
 class Codec {
    public:
     // Encodes a tree to a single string.
@@ -176,7 +178,4 @@ TEST(t0, t2) {
     FreeTreeNode(ret);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

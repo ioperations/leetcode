@@ -16,6 +16,8 @@ sell the stock before you buy again).*/
 #include <vector>
 
 using namespace std;
+#include<gtest/gtest.h>
+namespace { 
 class Solution {
    public:
     int MaxProfit(int k, vector<int> &prices) {
@@ -112,7 +114,4 @@ TEST(t0, t4) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

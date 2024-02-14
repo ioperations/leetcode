@@ -14,6 +14,8 @@ partitions.
 //* Definition for singly-linked list.
 using ListNode  = List::ListNode<int>;
 
+#include<gtest/gtest.h>
+namespace { 
 class Solution {
    public:
     ListNode *Partition(ListNode *head, int x) {
@@ -96,7 +98,4 @@ TEST(t0, t3) {
     List::FreeList(head);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

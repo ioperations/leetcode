@@ -13,6 +13,8 @@ The vowels are 'a', 'e', 'i', 'o', and 'u', and they can appear in both cases.
 #include <string>
 #include <vector>
 using namespace std;
+#include<gtest/gtest.h>
+namespace { 
 class Solution {
    public:
     std::string ReverseVowels(std::string s) {
@@ -59,7 +61,4 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

@@ -20,7 +20,12 @@ or null if it does not point to any node. Your code will only be given the head
 of the original linked list.*/
 
 // Definition for a Node.
+#include <gtest/gtest.h>
+
+#include <unordered_map>
 #include <vector>
+
+namespace {
 class Node {
    public:
     int val;
@@ -34,7 +39,6 @@ class Node {
     }
 };
 
-#include <unordered_map>
 class Solution {
    public:
     Node *CopyRandomList(Node *head) {
@@ -195,7 +199,4 @@ TEST(t0, t3) {
     EXPECT_EQ(output, vec);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
-}
+}  // namespace

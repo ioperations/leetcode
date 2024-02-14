@@ -17,6 +17,8 @@ Return the number of weak characters.*/
 #include <vector>
 using namespace std;
 
+#include<gtest/gtest.h>
+namespace { 
 class Solution {
     static bool Comp(vector<int> &a, vector<int> &b) {
         if (a[0] == b[0]) return a[1] > b[1];
@@ -80,7 +82,4 @@ TEST(t0, t4) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

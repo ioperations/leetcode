@@ -13,6 +13,8 @@ climb to the top?
 #include <vector>
 using namespace std;
 
+#include <gtest/gtest.h>
+namespace {
 class Solution {
    public:
     int ClimbStairs(int n) {
@@ -24,6 +26,7 @@ class Solution {
         return dp[n];
     }
 };
+
 class SolutionV2 {
    public:
     int ClimbStairs(int n) {
@@ -109,9 +112,4 @@ TEST(t1, t2) {
     EXPECT_EQ(ret, 3);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
-}
-
-#include <benchmark/benchmark.h>
+}  // namespace

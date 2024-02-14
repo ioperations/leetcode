@@ -21,6 +21,8 @@ struct TreeNode {
 #include <vector>
 using namespace std;
 
+#include<gtest/gtest.h>
+namespace { 
 class Solution {
    public:
     TreeNode *SortedArrayToBst(std::vector<int> &nums) {
@@ -74,7 +76,4 @@ TEST(t0, t1) {
     FreeTreeNode(root);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

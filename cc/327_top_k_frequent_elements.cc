@@ -4,13 +4,19 @@
 /*Given an integer array nums and an integer k, return the k most frequent
  * elements. You may return the answer in any order.*/
 
+#include <benchmark/benchmark.h>
+#include <gtest/gtest.h>
+
 #include <algorithm>
 #include <map>
 #include <queue>
 #include <unordered_map>
 #include <utility>
 #include <vector>
+
 using namespace std;
+
+namespace {
 class Solution {
    public:
     vector<int> TopKFrequent(vector<int> &nums, int k) {
@@ -109,10 +115,6 @@ TEST(t1, t2) {
     EXPECT_EQ(ret, output);
 }
 
-#include <benchmark/benchmark.h>
-
-#include <algorithm>
-#include <vector>
 static void BenchMarkV0(benchmark::State &state) {
     for (auto _ : state) {
         std::vector<int> nums = {
@@ -161,12 +163,4 @@ static void BenchMarkV1(benchmark::State &state) {
 }
 BENCHMARK(BenchMarkV1);
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    int ret = RUN_ALL_TESTS();
-    ::benchmark::Initialize(&argc, argv);
-    if (::benchmark::ReportUnrecognizedArguments(argc, argv)) return 1;
-    ::benchmark::RunSpecifiedBenchmarks();
-    ::benchmark::Shutdown();
-    return ret;
-}
+}  // namespace

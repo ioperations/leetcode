@@ -17,6 +17,8 @@ Return true if there is a cycle in the linked list. Otherwise, return false
 
 using ListNode = List::ListNode<int>;
 
+#include<gtest/gtest.h>
+namespace { 
 class Solution {
    public:
     ListNode *DetectCycle(ListNode *head) {
@@ -146,7 +148,4 @@ TEST(t0, t4) {
     FreeList(head);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

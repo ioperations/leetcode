@@ -15,6 +15,8 @@ lexicographically in this alien language.*/
 
 using namespace std;
 
+#include<gtest/gtest.h>
+namespace { 
 class Solution {
     std::map<char, int> map;
 
@@ -89,7 +91,4 @@ TEST(t0, t3) {
     EXPECT_EQ(false, ret);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

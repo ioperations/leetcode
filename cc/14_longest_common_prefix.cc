@@ -13,6 +13,8 @@ If there is no common prefix, return an empty string "".
 #include <string>
 #include <vector>
 using namespace std;
+#include<gtest/gtest.h>
+namespace { 
 class Solution {
    public:
     string LongestCommonPrefix(vector<string> &strs) {
@@ -72,7 +74,4 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

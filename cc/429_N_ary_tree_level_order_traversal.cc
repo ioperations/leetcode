@@ -7,8 +7,14 @@ Nary-Tree input serialization is represented in their level order traversal,
 each group of children is separated by the null value (See examples).*/
 
 //
+#include <gtest/gtest.h>
+
+#include <queue>
 #include <vector>
+
 using namespace std;
+
+namespace {
 class Node {
    public:
     int m_val;
@@ -23,7 +29,6 @@ class Node {
         m_children = children;
     }
 };
-#include <queue>
 
 class Solution {
    public:
@@ -139,7 +144,4 @@ TEST(t0, t2) {
     FreeNode(tree);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
-}
+}  // namespace

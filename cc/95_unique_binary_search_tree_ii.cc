@@ -17,11 +17,18 @@ struct TreeNode {
     TreeNode(int x, TreeNode *left, TreeNode *right)
         : val(x), left(left), right(right) {}
 };
+#include <gtest/gtest.h>
+
 #include <functional>
+#include <iostream>
 #include <map>
+#include <queue>
 #include <set>
 #include <vector>
+
 using namespace std;
+
+namespace {
 class Solution {
    public:
     vector<TreeNode *> GenerateTrees(int n) { return SubTrees(1, n); }
@@ -85,12 +92,6 @@ class Solution {
         return ret;
     }
 };
-
-#include <gtest/gtest.h>
-
-#include <functional>
-#include <iostream>
-#include <queue>
 
 std::vector<vector<optional<int>>> Flattern(vector<TreeNode *> &vec) {
     std::vector<vector<optional<int>>> ret;
@@ -173,7 +174,4 @@ TEST(t0, t2) {
     }
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
-}
+}  // namespace

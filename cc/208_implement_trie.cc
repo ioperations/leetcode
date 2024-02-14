@@ -14,11 +14,17 @@ boolean search(String word) Returns true if the string word is in the trie
 prefix) Returns true if there is a previously inserted string word that has the
 prefix prefix, and false otherwise.*/
 
+#include <benchmark/benchmark.h>
+#include <gtest/gtest.h>
+
+#include <algorithm>
 #include <map>
 #include <string>
 #include <vector>
-
 using namespace std;
+
+namespace {
+
 class Trie {
    private:
     class TrieNode {
@@ -197,11 +203,6 @@ TEST(t1, t1) {
     delete trie;
 }
 
-#include <benchmark/benchmark.h>
-
-#include <algorithm>
-#include <vector>
-
 void BenchMarkOther(benchmark::State &state) {
     for (auto _ : state) {
         bool ret;
@@ -240,12 +241,4 @@ void BenchMarkMyImpl(benchmark::State &state) {
 }
 BENCHMARK(BenchMarkMyImpl);
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    const int ret = RUN_ALL_TESTS();
-    ::benchmark::Initialize(&argc, argv);
-    if (::benchmark::ReportUnrecognizedArguments(argc, argv)) return 1;
-    ::benchmark::RunSpecifiedBenchmarks();
-    ::benchmark::Shutdown();
-    return ret;
-}
+}  // namespace

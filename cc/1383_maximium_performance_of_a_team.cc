@@ -21,6 +21,8 @@ number, return it modulo 109 + 7.*/
 #include <set>
 #include <vector>
 using namespace std;
+#include<gtest/gtest.h>
+namespace { 
 class Solution {
    public:
     int MaxPerformance(int n, vector<int> &speed, vector<int> &efficiency,
@@ -146,7 +148,4 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

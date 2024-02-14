@@ -14,6 +14,8 @@ The matching should cover the entire input string (not partial).
 
 using namespace std;
 
+#include<gtest/gtest.h>
+namespace { 
 class Solution {
    public:
     bool IsMatch(string s, string p) {
@@ -75,7 +77,4 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, false);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

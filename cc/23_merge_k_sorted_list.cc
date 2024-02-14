@@ -16,6 +16,8 @@ using namespace std;
 using MyListNode = List::ListNode<int>;
 
 #define inf 0x7fffffff
+#include <gtest/gtest.h>
+namespace {
 class LoserTree {
    private:
     // 以下存ls的下标
@@ -85,6 +87,7 @@ class LoserTree {
     }
 };
 
+#include <gtest/gtest.h>
 class Solution {
    public:
     std::vector<int> GetLeastNumbers(std::vector<int> &arr, int k) {
@@ -220,7 +223,7 @@ TEST(memleak, t2) {
 TEST(memleak, t3) {
     std::vector<int> list1{1, 4, 5};
 
-    MyListNode* n1 = ConstructList<int>(list1);
+    MyListNode *n1 = ConstructList<int>(list1);
     FreeList(n1);
 }
 
@@ -305,7 +308,4 @@ TEST(t1, null2) {
     FreeList(n1);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
-}
+}  // namespace

@@ -27,8 +27,10 @@ using a list or deque (double-ended queue) as long as you use only a queue's
 standard operations.
 */
 
-#include <queue>
+#include <gtest/gtest.h>
 
+#include <queue>
+namespace {
 class MyStack {
     std::queue<int> q;
 
@@ -52,6 +54,7 @@ class MyStack {
     bool Empty() { return q.empty(); }
 };
 
+#include <gtest/gtest.h>
 class MyStackV2 {
    public:
     std::queue<int> q;
@@ -157,7 +160,4 @@ TEST(t1, t2) {
     delete my_stack;
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
-}
+}  // namespace

@@ -18,6 +18,8 @@ using ListNode = List::ListNode<int>;
 
 
 */
+#include<gtest/gtest.h>
+namespace { 
 class Solution {
    public:
     /// 从 @left 到 @right反转链表
@@ -173,7 +175,4 @@ TEST(t1, t4) {
     List::FreeList(head);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

@@ -16,6 +16,8 @@ Return the maximum total number of units that can be put on the truck.*/
 #include <vector>
 using namespace std;
 
+#include<gtest/gtest.h>
+namespace { 
 class Solution {
    public:
     static bool Comp(vector<int> &p1, vector<int> &p2) {
@@ -71,7 +73,4 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

@@ -10,6 +10,8 @@ You may assume the input array always has a valid answer.*/
 #include <vector>
 
 using namespace std;
+#include<gtest/gtest.h>
+namespace { 
 class Solution {
    public:
     void WiggleSort(vector<int> &nums) {
@@ -56,7 +58,4 @@ TEST(t0, t2) {
 
     EXPECT_EQ(nums, output);
 }
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

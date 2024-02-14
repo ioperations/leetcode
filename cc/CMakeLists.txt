@@ -4,20 +4,19 @@ set(CMAKE_CXX_STANDARD 17)
 SET(CXX "clang++")
 
 set(CXX_FLAGS
-        # -Wextra
+        -Wextra
         #-Wconversion
-        # -Wno-unused-parameter
+        -Wno-unused-parameter
         # -Wold-style-cast
-        # -Wpointer-arith
+        -Wpointer-arith
         # -Wshadow
         # -Wwrite-strings
         -Wall
         -Wpedantic
         -march=native
-        -DTEST_ADQ
         -fuse-ld=lld
         -g
-        -O2
+        -O3
         )
 
 enable_testing()
@@ -41,22 +40,18 @@ foreach (CXX_SRC ${source_list})
 endforeach ()
 
 
-set(leetcode ${OBJ_FILES})
+set(T leetcode)
+add_executable(leetcode)
+target_sources(leetcode PUBLIC ${source_list})
+target_compile_definitions(${T} PUBLIC "TEST_ADQ")
+target_compile_options(${T} PUBLIC "-std=c++17")
+target_compile_options(${T} PRIVATE "-fsanitize=address")
+if (${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
+    target_compile_options(${T} PRIVATE "-stdlib=libc++")
+endif()
+target_include_directories(${T} PUBLIC "/usr/local/include")
+target_link_directories(${T} PUBLIC "/usr/local/lib")
+target_link_libraries(${T} gtest gtest_main pthread benchmark)
+target_link_options(${T} PUBLIC "-fsanitize=address")
 
-
-foreach (curlist ${leetcode})
-    get_filename_component(test1 ${curlist} NAME_WLE)
-    add_executable(${test1} ${test1}.cc)
-    target_compile_definitions(${test1} PUBLIC "TEST_ADQ")
-    target_compile_options(${test1} PUBLIC "-std=c++17")
-    target_compile_options(${test1} PRIVATE "-fsanitize=address")
-    if (${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
-        target_compile_options(${test1} PRIVATE "-stdlib=libc++")
-    endif()
-    target_include_directories(${test1} PUBLIC "/usr/local/include")
-    target_link_directories(${test1} PUBLIC "/usr/local/lib")
-    target_link_libraries(${test1} gtest pthread benchmark)
-    target_link_options(${test1} PUBLIC "-fsanitize=address")
-
-    add_test(NAME ${test1} COMMAND ${test1} WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
-endforeach ()
+add_test(NAME ${T} COMMAND ${T} WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})

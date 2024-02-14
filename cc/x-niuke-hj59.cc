@@ -1,6 +1,8 @@
 // This is a personal academic project. Dear PVS-Studio, please check it.
 // PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
 // https://pvs-studio.com
+#include <gtest/gtest.h>
+
 #include <iostream>
 #include <limits>
 #include <string>
@@ -9,6 +11,7 @@
 
 using namespace std;
 
+namespace {
 /// output the first char existing only once
 void Process(std::string str) {
     for (int i = 0; i < (int)str.size(); i++) {
@@ -19,12 +22,6 @@ void Process(std::string str) {
         if (i == (int)str.size() - 1) cout << -1 << endl;
     }
 }
-
-#if defined(TEST_ADQ)
-
-#include <gtest/gtest.h>
-
-#include <iostream>
 
 TEST(ta, t2) {
     std::string ss("aabb");
@@ -40,19 +37,4 @@ TEST(t1, t2) {
     std::string out = testing::internal::GetCapturedStdout();
     EXPECT_EQ(out, std::string("o\n"));
 }
-
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
-}
-
-#else
-
-int main() {
-    std::string s;
-    while (std::cin >> s) {
-        Process(s);
-    }
-    return 0;
-}
-#endif
+}  // namespace

@@ -10,6 +10,8 @@ very large, return it modulo 1337.
 */
 #include <string>
 
+#include<gtest/gtest.h>
+namespace { 
 class Solution {
    public:
     bool IsPalindrome(unsigned long val) {
@@ -141,7 +143,4 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, expected);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

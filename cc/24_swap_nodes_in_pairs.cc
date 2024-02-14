@@ -6,6 +6,8 @@
 // Definition for singly-linked list.
 using ListNode = List::ListNode<int>;
 
+#include<gtest/gtest.h>
+namespace { 
 class Solution {
    public:
     ListNode *SwapPairs(ListNode *head) {
@@ -89,7 +91,4 @@ TEST(t0, t3) {
     List::FreeList(ret);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

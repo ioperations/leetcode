@@ -1,14 +1,16 @@
 // This is a personal academic project. Dear PVS-Studio, please check it.
 // PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
 // https://pvs-studio.com
+#include <gtest/gtest.h>
+
 #include <algorithm>
 #include <functional>
 #include <iostream>
 #include <limits>
-#include <memory>
-#include <set>
 #include <string>
 #include <vector>
+
+namespace {
 
 /// FIXME: output the result to stdout
 void Processing(std::vector<int> nums) {
@@ -51,12 +53,6 @@ void Processing(std::vector<int> nums) {
     return;
 }
 
-#if defined(TEST_ADQ)
-
-#include <gtest/gtest.h>
-
-#include <iostream>
-
 TEST(t1, t2) {
     std::vector<int> s{3, 10, 81};
     testing::internal::CaptureStdout();
@@ -65,23 +61,4 @@ TEST(t1, t2) {
 
     EXPECT_EQ(ret, std::string("1\n5\n40\n"));
 }
-
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
-}
-
-#else
-int main() {
-    std::vector<int> nums{};
-    int s = 0;
-    while (std::cin >> s) {
-        if (s == 0) {
-            processing(nums);
-            return 0;
-        }
-        nums.push_back(s);
-    }
-}
-
-#endif
+}  // namespace

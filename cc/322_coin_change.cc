@@ -13,6 +13,8 @@ You may assume that you have an infinite number of each kind of coin.
 
 */
 
+#include <benchmark/benchmark.h>
+#include <gtest/gtest.h>
 #include <limits.h>
 
 #include <algorithm>
@@ -22,6 +24,7 @@ You may assume that you have an infinite number of each kind of coin.
 
 using namespace std;
 
+namespace {
 class Solution {
    public:
     int CoinChange(vector<int> &coins, int amount) {
@@ -137,11 +140,6 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, output);
 }
 
-#include <benchmark/benchmark.h>
-
-#include <algorithm>
-#include <vector>
-
 static void BenchMarkV0(benchmark::State &state) {
     for (auto _ : state) {
         std::vector<int> coins = {1, 2, 5};
@@ -181,12 +179,4 @@ static void BenchMarkV2(benchmark::State &state) {
 }
 BENCHMARK(BenchMarkV2);
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    int ret = RUN_ALL_TESTS();
-    ::benchmark::Initialize(&argc, argv);
-    if (::benchmark::ReportUnrecognizedArguments(argc, argv)) return 1;
-    ::benchmark::RunSpecifiedBenchmarks();
-    ::benchmark::Shutdown();
-    return ret;
-}
+}  // namespace

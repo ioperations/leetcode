@@ -23,6 +23,8 @@ and do not add the event to the calendar.*/
 #include <vector>
 using namespace std;
 
+#include<gtest/gtest.h>
+namespace { 
 class MyCalendar {
    public:
     MyCalendar() {}
@@ -73,7 +75,4 @@ TEST(t0, t1) {
     // takes every time less than 20, but not including 20.
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

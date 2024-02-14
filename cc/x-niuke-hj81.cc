@@ -1,9 +1,13 @@
 // This is a personal academic project. Dear PVS-Studio, please check it.
 // PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
 // https://pvs-studio.com
+#include <gtest/gtest.h>
+
 #include <algorithm>
 #include <iostream>
 #include <map>
+
+namespace {
 
 void Func(std::string &less, std::string &more) {
     bool t = true;
@@ -25,11 +29,6 @@ void Func(std::string &less, std::string &more) {
     std::cout << (t ? "true" : "false") << std::endl;
 }
 
-#if defined(TEST_ADQ)
-#include <gtest/gtest.h>
-
-#include <iostream>
-
 TEST(t1, t2) {
     testing::internal::CaptureStdout();
     std::string le("bc");
@@ -50,21 +49,4 @@ TEST(t1, t3) {
     EXPECT_EQ(out, expected);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
-}
-
-#else
-
-int main() {
-    std::string less{};
-    std::string more{};
-    while (std::cin >> less >> more) {
-        Func(less, more);
-    }
-
-    return 0;
-}
-
-#endif
+}  // namespace

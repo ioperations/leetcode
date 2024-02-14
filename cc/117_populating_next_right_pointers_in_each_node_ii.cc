@@ -16,6 +16,8 @@ right node, the next pointer should be set to nullptr.
 Initially, all next pointers are set to nullptr.*/
 
 // Definition for a Node.
+#include <gtest/gtest.h>
+namespace {
 class Node {
    public:
     int val;
@@ -31,6 +33,7 @@ class Node {
         : val(val), left(left), right(right), next(next) {}
 };
 
+#include <gtest/gtest.h>
 class Solution {
    public:
     Node *Connect(Node *root) {
@@ -63,7 +66,4 @@ class Solution {
 
 TEST(t0, t1) {}
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
-}
+}  // namespace

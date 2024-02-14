@@ -11,15 +11,22 @@ struct TreeNode {
     TreeNode(int x, TreeNode *left, TreeNode *right)
         : val(x), left(left), right(right) {}
 };
+#include <gtest/gtest.h>
+
+#include <queue>
+#include <vector>
+
+namespace {
+
 class Solution {
    public:
-    TreeNode *increasingBST(TreeNode *root) {
+    TreeNode *IncreasingBst(TreeNode *root) {
         if (root == nullptr) {
             return nullptr;
         }
 
-        TreeNode *right = increasingBST(root->right);
-        TreeNode *left = increasingBST(root->left);
+        TreeNode *right = IncreasingBst(root->right);
+        TreeNode *left = IncreasingBst(root->left);
         if (left != nullptr) {
             TreeNode *left_it = left;
             while (left_it->right != nullptr) {
@@ -37,9 +44,6 @@ class Solution {
         return root;
     }
 };
-
-#include <iostream>
-#include <queue>
 
 TreeNode *AddToRoot(TreeNode *root, int val) {
     if (root == nullptr) {
@@ -109,10 +113,6 @@ std::vector<int> BFS(TreeNode *root) {
     return ret;
 }
 
-#include <gtest/gtest.h>
-
-#include <vector>
-
 TEST(memleak, t1) {
     TreeNode *root = new TreeNode(-1);
 
@@ -127,7 +127,7 @@ TEST(t0, t1) {
 
     root = AddToRoot(root, (std::vector<int>{3, 6, 2, 4, 8, 1, 7, 9}));
     Solution s;
-    root = s.increasingBST(root);
+    root = s.IncreasingBst(root);
     auto ret = BFS(root);
     EXPECT_EQ(ret, (std::vector<int>{1, 2, 3, 4, 5, 6, 7, 8, 9}));
 
@@ -139,14 +139,11 @@ TEST(t0, t2) {
 
     root = AddToRoot(root, (std::vector<int>{1, 7}));
     Solution s;
-    root = s.increasingBST(root);
+    root = s.IncreasingBst(root);
     auto ret = BFS(root);
     EXPECT_EQ(ret, (std::vector<int>{1, 5, 7}));
 
     FreeRoot(root);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
-}
+}  // namespace

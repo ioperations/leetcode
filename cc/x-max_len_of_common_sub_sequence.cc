@@ -11,6 +11,7 @@
 #include <cstring>
 #include <functional>
 #include <iostream>
+namespace {
 
 int MaxSubStringLengthOfTwoString(const char *s1, int s1_len, const char *s2,
                                   int s2_len) {
@@ -68,7 +69,4 @@ TEST(t1j, t5) {
     EXPECT_EQ(ret, 0);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
-}
+}  // namespace

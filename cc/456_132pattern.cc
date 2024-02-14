@@ -12,6 +12,8 @@ Return true if there is a 132 pattern in nums, otherwise, return false.
 #include <stack>
 #include <vector>
 using namespace std;
+#include<gtest/gtest.h>
+namespace { 
 class Solution {
    public:
     bool Find132pattern(vector<int> &nums) {
@@ -61,7 +63,4 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, expected);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

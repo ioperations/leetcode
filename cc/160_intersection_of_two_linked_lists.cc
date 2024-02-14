@@ -32,6 +32,8 @@ function returns.
 // Definition for singly-linked list.
 using ListNode = List::ListNode<int>;
 
+#include<gtest/gtest.h>
+namespace { 
 class Solution {
    public:
     ListNode *GetIntersectionNode(ListNode *head_a, ListNode *head_b) {
@@ -222,7 +224,4 @@ TEST(t0, t3) {
     List::FreeList(second);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

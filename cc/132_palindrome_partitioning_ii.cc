@@ -13,6 +13,8 @@
 #include <unordered_map>
 using namespace std;
 
+#include<gtest/gtest.h>
+namespace { 
 class Solution {
    public:
     int MinCut(string s) {
@@ -71,7 +73,4 @@ TEST(t0, t3) {
     int ret = sl.MinCut(s);
     EXPECT_EQ(ret, i);
 }
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

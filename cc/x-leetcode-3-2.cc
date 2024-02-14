@@ -9,6 +9,8 @@
 
 using namespace std;
 
+#include<gtest/gtest.h>
+namespace { 
 class Solution {
    public:
     int LengthOfLongestSubstring(string s) {
@@ -32,12 +34,4 @@ class Solution {
     }
 };
 
-int main() {
-    Solution s;
-
-    std::string sb("ancbbsdsdax");
-
-    int ret = s.LengthOfLongestSubstring(sb);
-    std::cout << "lengthOfLongestSubstring of \"ancbbsdsdax\" is : " << ret
-              << std::endl;
 }

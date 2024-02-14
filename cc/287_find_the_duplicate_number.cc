@@ -9,8 +9,14 @@ There is only one repeated number in nums, return this repeated number.
 You must solve the problem without modifying the array nums and uses only
 constant extra space.*/
 
+#include <benchmark/benchmark.h>
+#include <gtest/gtest.h>
+
 #include <vector>
+
 using namespace std;
+
+namespace {
 class Solution {
    public:
     int FindDuplicate(vector<int> &nums) {
@@ -87,10 +93,6 @@ TEST(t1, t2) {
     int ret = sll.FindDuplicateV1(v);
     EXPECT_EQ(ret, i);
 }
-#include <benchmark/benchmark.h>
-
-#include <algorithm>
-#include <vector>
 static void BenchMarkV0(benchmark::State &state) {
     for (auto _ : state) {
         std::vector<int> v{3, 1, 3, 4, 2};
@@ -115,12 +117,4 @@ static void BenchMarkV1(benchmark::State &state) {
 }
 BENCHMARK(BenchMarkV1);
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    int ret = RUN_ALL_TESTS();
-    ::benchmark::Initialize(&argc, argv);
-    if (::benchmark::ReportUnrecognizedArguments(argc, argv)) return 1;
-    ::benchmark::RunSpecifiedBenchmarks();
-    ::benchmark::Shutdown();
-    return ret;
-}
+}  // namespace

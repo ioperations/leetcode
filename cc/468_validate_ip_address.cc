@@ -28,6 +28,8 @@ are invalid IPv6 addresses.
 #include <string>
 using namespace std;
 
+#include<gtest/gtest.h>
+namespace { 
 class Solution {
    private:
     std::string ipv4 = "IPv4";
@@ -218,7 +220,4 @@ TEST(t1, t3) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

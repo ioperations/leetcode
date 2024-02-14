@@ -21,6 +21,8 @@ Your solution must use only constant extra space.
 #include <vector>
 using namespace std;
 
+#include<gtest/gtest.h>
+namespace { 
 class Solution {
    public:
     vector<int> TwoSum(vector<int> &numbers, int target) {
@@ -103,7 +105,4 @@ TEST(t0, t4) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

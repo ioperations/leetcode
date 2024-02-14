@@ -20,8 +20,10 @@ integers less than -231 should be clamped to -231, and integers greater than 231
 - 1 should be clamped to 231 - 1. Return the integer as the final result.
  */
 
-#include <string>
+#include <gtest/gtest.h>
 
+#include <string>
+namespace {
 class Solution {
    public:
     int MyAtoi(std::string s) {
@@ -46,12 +48,6 @@ class Solution {
         return negative ? -ret : ret;
     }
 };
-
-#ifdef TEST_ADQ
-
-#include <gtest/gtest.h>
-
-#include <iostream>
 
 TEST(t1, t2) {
     const std::string s = "42";
@@ -80,9 +76,4 @@ TEST(t4, t2) {
     const int ret = sl.MyAtoi(s);
     EXPECT_EQ(987, ret);
 }
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
-}
-
-#endif
+}  // namespace

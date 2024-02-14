@@ -29,6 +29,8 @@ struct TreeNode {
         : val(x), left(left), right(right) {}
 };
 
+#include<gtest/gtest.h>
+namespace { 
 class Solution {
    public:
     bool IsValidBstV2(TreeNode *root) {
@@ -223,7 +225,4 @@ TEST(t0, t3) {
     // Explanation: The root node's value is 5 but its right child's value is 4.
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

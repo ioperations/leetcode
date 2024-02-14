@@ -5,6 +5,9 @@
  * Definition for singly-linked list.
  */
 
+#include <benchmark/benchmark.h>
+
+#include <algorithm>
 #include <vector>
 
 #include "datastruct_base.hh"
@@ -14,6 +17,8 @@
  */
 using ListNode = List::ListNode<int>;
 
+#include <gtest/gtest.h>
+namespace {
 class Solution {
    public:
     ListNode *MergeTwoListsV2(ListNode *list1, ListNode *list2) {
@@ -82,7 +87,6 @@ class Solution {
 
 #include <iostream>
 
-
 TEST(t0, t1) {
     ListNode *s1 = List::ConstructList(std::vector<int>{1, 2, 4});
 
@@ -139,11 +143,6 @@ TEST(t0, t2) {
         assert(false);
     }
 }
-
-#include <benchmark/benchmark.h>
-
-#include <algorithm>
-#include <vector>
 
 void Benchmakrv1(benchmark::State &state) {
     std::vector<int> t{1,  2,  3,  4,  5,  6,  7,  8, 9,
@@ -209,12 +208,4 @@ void Benchmakrv2(benchmark::State &state) {
 }
 BENCHMARK(Benchmakrv2);
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    const int ret = RUN_ALL_TESTS();
-    ::benchmark::Initialize(&argc, argv);
-    if (::benchmark::ReportUnrecognizedArguments(argc, argv)) return 1;
-    ::benchmark::RunSpecifiedBenchmarks();
-    ::benchmark::Shutdown();
-    return ret;
-}
+}  // namespace

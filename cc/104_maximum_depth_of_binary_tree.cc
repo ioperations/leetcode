@@ -13,6 +13,8 @@ the root node down to the farthest leaf node.
 #include "datastruct_base.hh"
 
 using namespace Tree;
+#include<gtest/gtest.h>
+namespace { 
 class Solution {
    public:
     template <typename T>
@@ -64,7 +66,4 @@ TEST(t0, t2) {
     FreeTreeNode(binary_tree);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

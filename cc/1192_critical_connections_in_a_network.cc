@@ -19,6 +19,8 @@ Return all critical connections in the network in any order.
 
 using namespace std;
 
+#include<gtest/gtest.h>
+namespace { 
 class Solution {
    public:
     // You can search "find bridges graph" in youtube or google to understand
@@ -81,7 +83,4 @@ TEST(t0, t2) {
     EXPECT_EQ(output, ret);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

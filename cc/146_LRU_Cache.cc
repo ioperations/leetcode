@@ -15,8 +15,10 @@ the capacity from this operation, evict the least recently used key. The
 functions get and put must each run in O(1) average time complexity.
 */
 
-#include <map>
+#include <gtest/gtest.h>
 
+#include <map>
+namespace {
 class LRUCache {
    public:
     LRUCache(int capacity) : capacity(capacity) {
@@ -129,8 +131,6 @@ class Node {
  * obj->put(key,value);
  */
 
-#include <gtest/gtest.h>
-
 TEST(t0, t1) {
     LRUCache obj(10);
     const int param_1 = obj.Get(1);
@@ -153,7 +153,4 @@ TEST(t0, t2) {
     EXPECT_EQ(lru.Get(4), 4);   // {}
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
-}
+}  // namespace

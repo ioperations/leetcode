@@ -18,6 +18,8 @@
 #include "datastruct_base.hh"
 using namespace Tree;
 
+#include<gtest/gtest.h>
+namespace { 
 class Solution {
    public:
     int steps = 0;
@@ -80,7 +82,4 @@ TEST(t0, t2) {
     FreeTreeNode(root);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

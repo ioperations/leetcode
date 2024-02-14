@@ -22,6 +22,8 @@ less than 150 combinations for the given input.
 
 using namespace std;
 
+#include<gtest/gtest.h>
+namespace { 
 class Solution {
    public:
     void Sum(vector<int> &candidates, int target, vector<vector<int>> &res,
@@ -116,7 +118,4 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, (std::vector<std::vector<int>>{}));
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

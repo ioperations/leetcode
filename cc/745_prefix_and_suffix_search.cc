@@ -21,6 +21,8 @@ the dictionary, return -1.
 
 using namespace std;
 
+#include <gtest/gtest.h>
+namespace {
 class Trie {
    public:
     struct Node {
@@ -82,6 +84,7 @@ class Trie {
     }
 };
 
+#include <gtest/gtest.h>
 class WordFilter {
     Trie trie;
 
@@ -126,6 +129,7 @@ class WordFilter {
     }
 };
 
+#include <gtest/gtest.h>
 class WordFilterMy {
     struct Pp {
         string s;
@@ -239,7 +243,4 @@ TEST(t0, t2) {
     delete obj;
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
-}
+}  // namespace

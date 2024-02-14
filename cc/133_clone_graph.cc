@@ -5,6 +5,8 @@
 Return a deep copy (clone) of the graph.
 Each node in the graph contains a value (int) and a list (List[Node]) of its
 neighbors.
+#include<gtest/gtest.h>
+namespace {
 class Node {
     public int val;
     public List<Node> neighbors;
@@ -27,6 +29,8 @@ copy of the given node as a reference to the cloned graph.
 using namespace std;
 
 // Definition for a Node.
+#include <gtest/gtest.h>
+namespace {
 class Node {
    public:
     int val;
@@ -45,6 +49,7 @@ class Node {
     }
 };
 
+#include <gtest/gtest.h>
 class Solution {
    public:
     unordered_map<int, Node *> track;
@@ -238,7 +243,4 @@ TEST(t1, t3) {
     /*This an empty graph, it does not have any nodes.*/
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
-}
+}  // namespace

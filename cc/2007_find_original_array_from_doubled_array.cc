@@ -13,6 +13,8 @@ may be returned in any order.*/
 #include <vector>
 using namespace std;
 
+#include<gtest/gtest.h>
+namespace { 
 class Solution {
    public:
     std::vector<int> FindOriginalArray(std::vector<int> &changed) {
@@ -87,7 +89,4 @@ TEST(t0, t3) {
     EXPECT_EQ(ret_set, output_set);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

@@ -12,9 +12,16 @@ Each group of children is separated by the null value (See examples)
 */
 
 // Definition for a Node.
+#include <gtest/gtest.h>
+
+#include <iostream>
+#include <optional>
+#include <queue>
 #include <vector>
+
 using namespace std;
 
+namespace {
 class Node {
    public:
     int val;
@@ -46,12 +53,6 @@ class Solution {
         ret.push_back(root->val);
     }
 };
-
-#include <gtest/gtest.h>
-
-#include <iostream>
-#include <optional>
-#include <queue>
 
 vector<Node *> ConstructTreeNode(Node *z1, vector<int> &z) {
     for (auto &ptr : z) {
@@ -128,7 +129,4 @@ TEST(t0, t2) {
     FreeNode(tree);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
-}
+}  // namespace

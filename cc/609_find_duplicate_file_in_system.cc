@@ -32,6 +32,8 @@ is a string that has the following format:
 #include <string>
 #include <vector>
 using namespace std;
+#include<gtest/gtest.h>
+namespace { 
 class Solution {
     /*
         1 <= paths.length <= 2 * 104
@@ -115,7 +117,4 @@ TEST(t0, t2) {
     EXPECT_EQ(ret_set, output_set);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

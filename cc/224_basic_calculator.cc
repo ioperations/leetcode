@@ -10,10 +10,15 @@ to evaluate it, and return the result of the evaluation.
 Note: You are not allowed to use any built-in function which evaluates strings
 as mathematical expressions, such as eval().
 */
+
+#include <benchmark/benchmark.h>
+#include <gtest/gtest.h>
+
 #include <stack>
 #include <string>
 using namespace std;
 
+namespace {
 class Solution {
    public:
     int Calculate(string s) {
@@ -128,6 +133,7 @@ class Solution {
     };
 };
 
+#include <gtest/gtest.h>
 class SolutionV2 {
    public:
     int Calculate(string s) {
@@ -163,6 +169,7 @@ class SolutionV2 {
     }
 };
 
+#include <gtest/gtest.h>
 class SolutionV3 {
    public:
     int Calculate(string s) {
@@ -278,8 +285,6 @@ class SolutionV3 {
 };
 #include <gtest/gtest.h>
 
-#include <iostream>
-
 TEST(t0, t1) {
     const std::string s = "1+1";
 
@@ -334,11 +339,6 @@ TEST(t1, t3) {
     EXPECT_EQ(ret, 23);
 }
 
-#include <benchmark/benchmark.h>
-
-#include <algorithm>
-#include <vector>
-
 void BenchV2(benchmark::State &state) {
     for (auto _ : state) {
         const std::string s = "(1+(4+5+2)-3)+(6+8)";
@@ -363,12 +363,4 @@ void BenchV3(benchmark::State &state) {
 }
 BENCHMARK(BenchV3);
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    const int ret = RUN_ALL_TESTS();
-    ::benchmark::Initialize(&argc, argv);
-    if (::benchmark::ReportUnrecognizedArguments(argc, argv)) return 1;
-    ::benchmark::RunSpecifiedBenchmarks();
-    ::benchmark::Shutdown();
-    return ret;
-}
+}  // namespace

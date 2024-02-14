@@ -22,6 +22,8 @@ given list of words.*/
 
 using namespace std;
 
+#include<gtest/gtest.h>
+namespace { 
 class Solution {
    public:
     bool Check(const string &a, const string &b) {
@@ -91,7 +93,4 @@ TEST(t0, t3) {
     int ret = sl.LongestStrChain(words);
     EXPECT_EQ(ret, output);
 }
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

@@ -7,9 +7,15 @@ A string is a palindrome when it reads the same backward as forward.
 
 A substring is a contiguous sequence of characters within the string.*/
 
+#include <benchmark/benchmark.h>
+
+#include <algorithm>
 #include <string>
+#include <vector>
 using namespace std;
 
+#include <gtest/gtest.h>
+namespace {
 class Solution {
    public:
     int CountSubstrings(string s) {
@@ -100,11 +106,6 @@ TEST(t1, t2) {
     EXPECT_EQ(ret, output);
 }
 
-#include <benchmark/benchmark.h>
-
-#include <algorithm>
-#include <vector>
-
 static void BenchMarkV1(benchmark::State &state) {
     for (auto _ : state) {
         string s = "aaa";
@@ -133,12 +134,4 @@ static void BenchMarkV0(benchmark::State &state) {
 }
 BENCHMARK(BenchMarkV0);
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    int ret = RUN_ALL_TESTS();
-    ::benchmark::Initialize(&argc, argv);
-    if (::benchmark::ReportUnrecognizedArguments(argc, argv)) return 1;
-    ::benchmark::RunSpecifiedBenchmarks();
-    ::benchmark::Shutdown();
-    return ret;
-}
+}  // namespace

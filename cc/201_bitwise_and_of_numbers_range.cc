@@ -6,7 +6,14 @@
 // range [left, right], return the bitwise AND of all numbers in this range,
 // inclusive.
 
+#include <benchmark/benchmark.h>
+#include <gtest/gtest.h>
+
+#include <algorithm>
 #include <cmath>
+#include <vector>
+
+namespace {
 class Solution {
    public:
     int RangeBitwiseAnd(int left, int right) {
@@ -55,11 +62,6 @@ TEST(t0, t4) {
     EXPECT_EQ(ret, 0);
 }
 
-#include <benchmark/benchmark.h>
-
-#include <algorithm>
-#include <vector>
-
 void BenchMarkSeqBitAnd(benchmark::State &state) {
     for (auto _ : state) {
         Solution s;
@@ -82,12 +84,4 @@ void BenchMarkWise(benchmark::State &state) {
 }
 BENCHMARK(BenchMarkWise);
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    const int ret = RUN_ALL_TESTS();
-    ::benchmark::Initialize(&argc, argv);
-    if (::benchmark::ReportUnrecognizedArguments(argc, argv)) return 1;
-    ::benchmark::RunSpecifiedBenchmarks();
-    ::benchmark::Shutdown();
-    return ret;
-}
+}  // namespace

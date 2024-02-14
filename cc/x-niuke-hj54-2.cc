@@ -3,9 +3,15 @@
 // https://pvs-studio.com
 /// 这个题目考验的是对 编译器 的 表达式 执行的过程
 /// 中缀表达式 转为 后缀表达式
+#include <gtest/gtest.h>
+
 #include <iostream>
 #include <stack>
+
 using namespace std;
+
+namespace {
+
 int pos;
 
 int Result(const string &data) {
@@ -55,11 +61,6 @@ int Result(const string &data) {
     }
     return sum;
 }
-#if defined(TEST_ADQ)
-
-#include <gtest/gtest.h>
-
-#include <iostream>
 
 TEST(t1, t2) {
     pos = 0;
@@ -88,18 +89,4 @@ TEST(t1, t5) {
     int ret = Result(s);
     EXPECT_EQ(ret, 0);
 }
-
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
-}
-
-#else
-
-int main() {
-    const char *str = "400*(4+4)";
-    pos = 0;
-    cout << result(str) << endl;
-    return 0;
-}
-#endif
+}  // namespace

@@ -12,6 +12,8 @@ i or index i + 1 on the next row.
 #include <vector>
 using namespace std;
 
+#include<gtest/gtest.h>
+namespace { 
 class Solution {
    public:
     int FindMin(int i, int j, int n, vector<vector<int>> &triangle,
@@ -57,7 +59,4 @@ TEST(t0, t2) {
     int ret = sl.MinimumTotal(v);
     EXPECT_EQ(ret, out);
 }
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

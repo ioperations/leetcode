@@ -11,6 +11,11 @@ A subsequence is an array that can be derived from another array by deleting
 some or no elements without changing the order of the remaining elements.
 
 */
+
+#include <benchmark/benchmark.h>
+#include <gtest/gtest.h>
+
+#include <algorithm>
 #include <functional>
 #include <map>
 #include <string>
@@ -18,6 +23,7 @@ some or no elements without changing the order of the remaining elements.
 
 using namespace std;
 
+namespace {
 class Solution {
    public:
     int MaxLength(vector<string> &arr) {
@@ -92,8 +98,6 @@ class Solution {
         return ans;
     }
 };
-
-#include <gtest/gtest.h>
 
 TEST(t0, t1) {
     vector<string> arr = {"un", "iq", "ue"};
@@ -171,11 +175,6 @@ TEST(t1, t3) {
     EXPECT_EQ(ret, output);
 }
 
-#include <benchmark/benchmark.h>
-
-#include <algorithm>
-#include <vector>
-
 static void BenchMarkV1(benchmark::State &state) {
     vector<string> arr = {"un", "iq", "ue"};
     for (auto _ : state) {
@@ -200,12 +199,4 @@ static void BenchMarkV2(benchmark::State &state) {
 }
 BENCHMARK(BenchMarkV2);
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    int ret = RUN_ALL_TESTS();
-    ::benchmark::Initialize(&argc, argv);
-    if (::benchmark::ReportUnrecognizedArguments(argc, argv)) return 1;
-    ::benchmark::RunSpecifiedBenchmarks();
-    ::benchmark::Shutdown();
-    return ret;
-}
+}  // namespace

@@ -22,6 +22,8 @@ there are exactly target neighborhoods. If it is not possible, return -1.*/
 #include <vector>
 using namespace std;
 
+#include<gtest/gtest.h>
+namespace { 
 class Solution {
    private:
     vector<vector<vector<int>>> mem;
@@ -113,7 +115,4 @@ TEST(t0, t3) {
     [{3},{1},{2},{3}] different of target = 3. */
     EXPECT_EQ(ret, output);
 }
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

@@ -21,6 +21,8 @@ positions of the remaining elements. (i.e., [1,3,5] is a subsequence of
 #include <vector>
 using namespace std;
 
+#include<gtest/gtest.h>
+namespace { 
 class Solution {
    public:
     bool IsPossible(vector<int> &nums) {
@@ -111,7 +113,4 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

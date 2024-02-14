@@ -16,6 +16,8 @@ return -1. If there exists a solution, it is guaranteed to be unique
 
 #include <vector>
 using namespace std;
+#include <gtest/gtest.h>
+namespace {
 class Solution {
    public:
     int CanCompleteCircuit(vector<int> &gas, vector<int> &cost) {
@@ -42,6 +44,7 @@ class Solution {
     }
 };
 
+#include <gtest/gtest.h>
 class SolutionV {
    public:
     int CanCompleteCircuit(std::vector<int> &gas, std::vector<int> &cost) {
@@ -96,7 +99,4 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, expected);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
-}
+}  // namespace

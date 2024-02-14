@@ -16,6 +16,8 @@ input represents the signed integer. -3.
 */
 
 #include <cstdint>
+#include<gtest/gtest.h>
+namespace { 
 class Solution {
    public:
     int HammingWeight(uint32_t n) {
@@ -58,7 +60,4 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, expected);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

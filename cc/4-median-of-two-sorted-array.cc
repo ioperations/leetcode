@@ -12,6 +12,8 @@ using namespace std;
 
 /// 寻找两个已经排好序的数组的中位数
 /// 要求算法时间复杂度是O(log(m+n))
+#include<gtest/gtest.h>
+namespace { 
 class Solution {
    public:
     double FindMedianSortedArrays(vector<int> &nums1, vector<int> &nums2) {
@@ -162,7 +164,4 @@ TEST(t1, t2) {
     EXPECT_EQ(1.0, n.FindMedianSortedArrays(n3, n4));
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

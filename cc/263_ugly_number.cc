@@ -7,6 +7,8 @@ and 5. Given an integer n, return true if n is an ugly number.*/
 #include <unordered_map>
 using namespace std;
 
+#include<gtest/gtest.h>
+namespace { 
 class Solution {
     std::unordered_map<int, bool> cache;
 
@@ -82,7 +84,4 @@ TEST(t0, t4) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

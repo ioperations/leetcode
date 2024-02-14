@@ -10,10 +10,16 @@ less than 2k but greater than or equal to k characters, then reverse the first k
 characters and leave the other as original.
 */
 
+#include <benchmark/benchmark.h>
+#include <gtest/gtest.h>
+
 #include <algorithm>
 #include <stack>
 #include <string>
+
 using namespace std;
+
+namespace {
 class Solution {
    public:
     string ReverseStr(string s, int k) {
@@ -102,11 +108,6 @@ TEST(t1, t2) {
     EXPECT_EQ(ret, output);
 }
 
-#include <benchmark/benchmark.h>
-
-#include <algorithm>
-#include <vector>
-
 static void BenchV1(benchmark::State &state) {
     std::string s = "abcd";
     int k = 2;
@@ -132,12 +133,4 @@ static void BenchV2(benchmark::State &state) {
 }
 BENCHMARK(BenchV2);
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    int ret = RUN_ALL_TESTS();
-    ::benchmark::Initialize(&argc, argv);
-    if (::benchmark::ReportUnrecognizedArguments(argc, argv)) return 1;
-    ::benchmark::RunSpecifiedBenchmarks();
-    ::benchmark::Shutdown();
-    return ret;
-}
+}  // namespace

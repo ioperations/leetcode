@@ -13,6 +13,8 @@
 using namespace std;
 #include <map>
 
+#include<gtest/gtest.h>
+namespace { 
 class Solution {
    public:
     int NumTrees(int n) {
@@ -68,7 +70,4 @@ TEST(t0, t3) {
     }
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

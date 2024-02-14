@@ -12,6 +12,8 @@ element appears only once. Return the linked list sorted as well.
 
 using ListNode  = List::ListNode<int>;
 
+#include<gtest/gtest.h>
+namespace { 
 class Solution {
    public:
     ListNode *DeleteDuplicates(ListNode *head) {
@@ -77,7 +79,4 @@ TEST(t0, t2) {
     List::FreeList(root);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

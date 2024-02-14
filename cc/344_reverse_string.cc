@@ -13,6 +13,8 @@ You must do this by modifying the input array in-place with O(1) extra memory.
 #include <stack>
 #include <vector>
 
+#include<gtest/gtest.h>
+namespace { 
 class Solution {
    public:
     void ReverseString(std::vector<char> &s) {
@@ -62,7 +64,4 @@ TEST(t0, t2) {
 
     EXPECT_EQ(s, output);
 }
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

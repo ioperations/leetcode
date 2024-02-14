@@ -14,6 +14,8 @@ You have to rotate the image in-place, which means you have to modify the input
 using namespace std;
 #include <cassert>
 
+#include<gtest/gtest.h>
+namespace { 
 class Solution {
    public:
     /**
@@ -92,7 +94,4 @@ TEST(t0, t2) {
 
     EXPECT_EQ(matrix, expected);
 }
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

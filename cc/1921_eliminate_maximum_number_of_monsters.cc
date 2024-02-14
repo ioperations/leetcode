@@ -25,6 +25,8 @@
 #include <queue>
 #include <vector>
 using namespace std;
+#include<gtest/gtest.h>
+namespace { 
 class Solution {
    public:
     int EliminateMaximum(vector<int> &dist, vector<int> &speed) {
@@ -99,7 +101,4 @@ TEST(t0, t3) {
     EXPECT_EQ(output, ret);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

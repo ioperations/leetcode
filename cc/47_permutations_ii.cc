@@ -4,12 +4,16 @@
 /*Given a collection of numbers, nums, that might contain duplicates, return all
  * possible unique permutations in any order.*/
 
+#include <benchmark/benchmark.h>
+#include <gtest/gtest.h>
 #include <limits.h>
 
 #include <algorithm>
 #include <vector>
+
 using namespace std;
 
+namespace {
 class Solution {
    public:
     vector<vector<int>> PermuteUnique(vector<int> &nums) {
@@ -102,11 +106,6 @@ TEST(t1, t2) {
     EXPECT_EQ(ret_set, output_set);
 }
 
-#include <benchmark/benchmark.h>
-
-#include <algorithm>
-#include <vector>
-
 static void BenchMarkStlFunction(benchmark::State &state) {
     for (auto _ : state) {
         std::vector<int> nums = {1, 2, 3};
@@ -139,12 +138,4 @@ static void BenchMarkLocalImpl(benchmark::State &state) {
 }
 BENCHMARK(BenchMarkLocalImpl);
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    int ret = RUN_ALL_TESTS();
-    ::benchmark::Initialize(&argc, argv);
-    if (::benchmark::ReportUnrecognizedArguments(argc, argv)) return 1;
-    ::benchmark::RunSpecifiedBenchmarks();
-    ::benchmark::Shutdown();
-    return ret;
-}
+}  // namespace

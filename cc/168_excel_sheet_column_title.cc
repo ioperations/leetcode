@@ -12,6 +12,8 @@ appears in an Excel sheet.
 #include <string>
 using namespace std;
 
+#include<gtest/gtest.h>
+namespace { 
 class Solution {
    public:
     string ConvertToTitle(int column_number) {
@@ -61,7 +63,4 @@ TEST(t0, t5) {
     EXPECT_EQ(ret, "ZY");
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

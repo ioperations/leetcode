@@ -16,12 +16,16 @@ to play all the tokens.
 Return the largest possible score you can achieve after playing any number of
 tokens.*/
 
+#include <benchmark/benchmark.h>
+
 #include <algorithm>
 #include <functional>
 #include <set>
 #include <vector>
 
 using namespace std;
+#include <gtest/gtest.h>
+namespace {
 class Solution {
    public:
     int Recursion(vector<int> &tokens, int power, int start, int end,
@@ -151,11 +155,6 @@ TEST(t1, t3) {
     EXPECT_EQ(ret, output);
     EXPECT_EQ(ret1, output);
 }
-#include <benchmark/benchmark.h>
-
-#include <algorithm>
-#include <vector>
-
 static void BenchmarkTwoArrayDpv1(benchmark::State &state) {
     vector<int> tokens = {100, 200, 300, 400, 500, 600, 700, 800, 900, 1000};
     int power = 200;
@@ -182,12 +181,4 @@ static void BenchmarkMyImplementation(benchmark::State &state) {
 }
 BENCHMARK(BenchmarkMyImplementation);
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    int ret = RUN_ALL_TESTS();
-    ::benchmark::Initialize(&argc, argv);
-    if (::benchmark::ReportUnrecognizedArguments(argc, argv)) return 1;
-    ::benchmark::RunSpecifiedBenchmarks();
-    ::benchmark::Shutdown();
-    return ret;
-}
+}  // namespace

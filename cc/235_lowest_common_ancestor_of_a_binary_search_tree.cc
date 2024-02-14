@@ -18,6 +18,8 @@ struct TreeNode {
     TreeNode *right;
     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
 };
+#include<gtest/gtest.h>
+namespace { 
 class Solution {
    public:
     TreeNode *Solve(TreeNode *root, int &p, int &q) {
@@ -206,7 +208,4 @@ TEST(t0, t3) {
     EXPECT_EQ(ret->val, expeced);
     FreeRoot(root);
 }
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

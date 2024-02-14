@@ -17,6 +17,8 @@ magical string s.
 
 #include <string>
 
+#include<gtest/gtest.h>
+namespace { 
 class Solution {
    public:
     int MagicalString(int n) {
@@ -122,7 +124,4 @@ TEST(t0, t6) {
     EXPECT_EQ(ret, expected);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

@@ -14,6 +14,8 @@
 
 using namespace std;
 
+#include<gtest/gtest.h>
+namespace { 
 class Solution {
    public:
     ll Solve(int n, int goal, int k, vector<vector<int>> &dp) {
@@ -88,7 +90,4 @@ TEST(t0, t3) {
     EXPECT_EQ(s.NumMusicPlaylists(2, 3, 1), 2);
 }
 
-int main(int argc, char *argv[]) {
-    ::testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

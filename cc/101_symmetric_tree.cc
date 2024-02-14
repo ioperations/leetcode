@@ -17,6 +17,8 @@ struct TreeNode {
 };
 #include <vector>
 
+#include<gtest/gtest.h>
+namespace { 
 class Solution {
    public:
     bool IsSymmetric(TreeNode *root) {
@@ -131,7 +133,4 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, false);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

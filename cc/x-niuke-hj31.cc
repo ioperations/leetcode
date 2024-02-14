@@ -1,9 +1,13 @@
 // This is a personal academic project. Dear PVS-Studio, please check it.
 // PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
 // https://pvs-studio.com
+#include <gtest/gtest.h>
+
 #include <functional>
 #include <iostream>
 #include <string>
+
+namespace {
 
 void ReverseOutPutAllWords(const char *s, int len) {
     std::function<std::string(const char *, int)> recursive =
@@ -42,12 +46,6 @@ void ReverseOutPutAllWords(const char *s, int len) {
     std::cout << ret2 << std::endl;
 }
 
-#if defined(TEST_ADQ)
-
-#include <gtest/gtest.h>
-
-#include <iostream>
-
 TEST(t1, t2) {
     testing::internal::CaptureStdout();
     std::string s("i am a student");
@@ -67,19 +65,4 @@ TEST(t2, t2) {
 
     EXPECT_EQ(out, std::string("l r gi y bo\n"));
 }
-
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
-}
-
-#else
-
-int main() {
-    std::string s;
-    std::getline(std::cin, s);
-    reverseOutPutAllWords(s.c_str(), s.size());
-    return 0;
-}
-
-#endif
+}  // namespace

@@ -20,6 +20,8 @@ struct TreeNode {
     TreeNode(int x, TreeNode *left, TreeNode *right)
         : val(x), left(left), right(right) {}
 };
+#include <gtest/gtest.h>
+namespace {
 class Solution {
    public:
     int Height(TreeNode *root) {
@@ -42,6 +44,7 @@ class Solution {
     }
 };
 
+#include <gtest/gtest.h>
 class SolutionV2 {
    public:
     int DeepestLeavesSum(TreeNode *root) {
@@ -169,7 +172,4 @@ TEST(t0, t2) {
 
     FreeTreeNode(root);
 }
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
-}
+}  // namespace

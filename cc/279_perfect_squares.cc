@@ -13,6 +13,8 @@ perfect squares while 3 and 11 are not.*/
 #include <functional>
 #include <vector>
 
+#include<gtest/gtest.h>
+namespace { 
 class Solution {
    public:
     int NumSquares(int n) {
@@ -54,7 +56,4 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

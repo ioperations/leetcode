@@ -7,6 +7,7 @@
 #include <cstring>
 #include <functional>
 #include <iostream>
+namespace {
 
 int MaxLengthOfdijizixulie(int nums[], int length) {
     /// 最长递增子序列的长度
@@ -97,7 +98,4 @@ TEST(t2, t4) {
     EXPECT_EQ(MaxLengthOfdijizixulie(z, sizeof(z) / sizeof(int)), 2);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
-}
+}  // namespace

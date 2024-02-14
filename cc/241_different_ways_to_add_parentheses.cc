@@ -13,6 +13,8 @@ and the number of different results does not exceed 104.*/
 #include <vector>
 using namespace std;
 
+#include <gtest/gtest.h>
+namespace {
 class Solution {
    public:
     vector<int> DiffWaysToCompute(string str) {
@@ -43,8 +45,9 @@ class Solution {
     }
 };
 
-#include <unordered_map>
+#include <gtest/gtest.h>
 
+#include <unordered_map>
 class SolutionV2 {
    public:
     vector<int> DiffWaysToCompute(string expression) {
@@ -163,7 +166,4 @@ TEST(t1, t2) {
     EXPECT_EQ(ret_set, out_set);
 }
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
-}
+}  // namespace

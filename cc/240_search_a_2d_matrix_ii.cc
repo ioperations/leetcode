@@ -13,6 +13,8 @@ Integers in each column are sorted in ascending from top to bottom.
 
 using namespace std;
 
+#include<gtest/gtest.h>
+namespace { 
 class Solution {
    public:
     bool Binarys(vector<int> &row, int target) {
@@ -84,7 +86,4 @@ TEST(t0, t2) {
     bool ret = sl.SearchMatrix(matrix, target);
     EXPECT_EQ(ret, output);
 }
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }
