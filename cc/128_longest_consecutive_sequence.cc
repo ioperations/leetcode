@@ -9,15 +9,12 @@ You must write an algorithm that runs in O(n) time.*/
 #include <algorithm>
 #include <unordered_set>
 #include <vector>
-#include <__hash_table>
-#include <string>
 
 #include "gtest/gtest.h"
 
 using namespace std;
 
-#include<gtest/gtest.h>
-namespace { 
+namespace {
 class Solution {
    public:
     int LongestConsecutive(vector<int> &nums) {
@@ -43,7 +40,6 @@ class Solution {
     }
 };
 
-
 TEST(t0, t1) {
     vector<int> nums = {100, 4, 200, 1, 3, 2};
     int output = 4;
@@ -64,4 +60,4 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
 }
 
-}
+}  // namespace

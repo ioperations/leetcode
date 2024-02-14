@@ -22,14 +22,13 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
-#include <__hash_table>
 
 #include "gtest/gtest.h"
 
 using namespace std;
 
-#include<gtest/gtest.h>
-namespace { 
+#include <gtest/gtest.h>
+namespace {
 class Solution {
     unordered_map<string, unordered_map<string, double>> unmp;
     unordered_set<string> visited;
@@ -70,8 +69,6 @@ class Solution {
     }
 };
 
-
-
 TEST(t0, t1) {
     vector<vector<string>> equations{{"a", "b"}, {"b", "c"}};
     vector<double> values{2.0, 3.0};
@@ -110,4 +107,4 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, output);
 }
 
-}
+}  // namespace
