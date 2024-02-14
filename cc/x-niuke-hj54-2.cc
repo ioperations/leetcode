@@ -3,7 +3,6 @@
 // https://pvs-studio.com
 /// 这个题目考验的是对 编译器 的 表达式 执行的过程
 /// 中缀表达式 转为 后缀表达式
-#include <_ctype.h>
 #include <stack>
 #include <string>
 

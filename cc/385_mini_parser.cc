@@ -12,8 +12,8 @@ or other lists.
 // // This is the interface that allows for creating nested lists.
 // You should not implement it, or speculate about its implementation
 #include <benchmark/benchmark.h>
-#include <_ctype.h>
 #include <stddef.h>
+
 #include <algorithm>
 #include <functional>
 #include <stack>
@@ -23,7 +23,6 @@ or other lists.
 #include "gtest/gtest.h"
 
 using namespace std;
-
 
 namespace {
 class NestedInteger {
@@ -134,7 +133,6 @@ class Solution {
         return stk.top().GetList().front();
     }
 };
-
 
 void Flattern(const NestedInteger &n, vector<int> &ret) {
     if (!n.IsInteger()) {

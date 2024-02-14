@@ -12,8 +12,8 @@ as mathematical expressions, such as eval().
 */
 
 #include <benchmark/benchmark.h>
-#include <_ctype.h>
 #include <stddef.h>
+
 #include <stack>
 #include <string>
 

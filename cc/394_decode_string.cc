@@ -15,7 +15,6 @@ repeat numbers, k. For example, there will not be input like 3a or 2[4].
 The test cases are generated so that the length of the output will never exceed
 105.*/
 
-#include <_ctype.h>
 #include <stack>
 #include <string>
 
@@ -25,8 +24,8 @@ The test cases are generated so that the length of the output will never exceed
 using namespace Tree;
 using namespace std;
 
-#include<gtest/gtest.h>
-namespace { 
+#include <gtest/gtest.h>
+namespace {
 class Solution {
    public:
     string DecodeString(string encoded_string) {
@@ -55,7 +54,6 @@ class Solution {
         return curr;
     }
 };
-
 
 TEST(t0, t1) {
     string s = "3[a]2[bc]";
@@ -91,4 +89,4 @@ TEST(t0, t4) {
     FreeTreeNode<int>(n);
 }
 
-}
+}  // namespace
