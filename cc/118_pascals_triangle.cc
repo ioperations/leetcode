@@ -8,11 +8,14 @@ In Pascal's triangle, each number is the sum of the two numbers directly above
 it as shown:
 */
 
-
+#include <set>
 #include <vector>
+
+#include "gtest/gtest.h"
+
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
    public:
     vector<vector<int>> Generate(int num_rows) {
@@ -37,8 +40,6 @@ class Solution {
         return ret;
     }
 };
-
-#include <set>
 
 TEST(t0, t1) {
     int num_rows = 5;
@@ -65,4 +66,4 @@ TEST(t0, t2) {
     EXPECT_EQ(ret_set, output_set);
 }
 
-}
+}  // namespace

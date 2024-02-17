@@ -17,11 +17,12 @@ returned as an array [x, y].
 #include <cmath>
 #include <cstdlib>
 #include <vector>
-#include <string>
+
+#include "gtest/gtest.h"
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
     double x_center;
     double y_center;
@@ -51,8 +52,6 @@ class Solution {
  * vector<double> param_1 = obj->randPoint();
  */
 
-
-
 TEST(t0, t1) {
     Solution sl(1.0, 0.0, 0.0);
     vector<double> t1;
@@ -61,4 +60,4 @@ TEST(t0, t1) {
     t1 = sl.RandPoint();  // return [0.36572, 0.17248]
 }
 
-}
+}  // namespace

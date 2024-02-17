@@ -8,10 +8,12 @@
 
 #include <algorithm>
 #include <vector>
-#include <string>
+
+#include "gtest/gtest.h"
 
 using namespace std;
-namespace { 
+
+namespace {
 class Solution {
    public:
     vector<vector<int>> Merge(vector<vector<int>> &intervals) {
@@ -38,8 +40,6 @@ class Solution {
         return ret;
     }
 };
-
-#include <iostream>
 
 TEST(t0, t1) {
     std::vector<std::vector<int>> intervals = {
@@ -101,4 +101,4 @@ TEST(t0, t3) {
     // [1,6].
 }
 
-}
+}  // namespace

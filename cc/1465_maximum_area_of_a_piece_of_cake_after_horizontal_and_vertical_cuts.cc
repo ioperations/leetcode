@@ -11,10 +11,14 @@ a piece of cake after you cut at each horizontal and vertical position provided
 in the arrays horizontalCuts and verticalCuts. Since the answer can be a large
 number, return this modulo 109 + 7.*/
 
-
+#include <algorithm>
 #include <vector>
+
+#include "gtest/gtest.h"
+
 using namespace std;
-namespace { 
+
+namespace {
 class Solution {
    public:
     int MaxArea(int h, int w, vector<int> &horizontal_cuts,
@@ -77,4 +81,4 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, output);
 }
 
-}
+}  // namespace

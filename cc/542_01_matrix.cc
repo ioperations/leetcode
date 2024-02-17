@@ -5,13 +5,14 @@ each cell.
 The distance between two adjacent cells is 1.
 */
 
-
-#include <iostream>
 #include <queue>
 #include <vector>
+
+#include "gtest/gtest.h"
+
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
    public:
     int dx[4] = {0, 0, 1, -1};
@@ -72,4 +73,4 @@ TEST(t0, t2) {
     EXPECT_EQ(output, ret);
 }
 
-}
+}  // namespace

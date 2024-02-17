@@ -11,14 +11,15 @@ as descendants (where we allow a node to be a descendant of itself).”
 
 */
 
+#include <vector>
+
+#include "datastruct_base.hh"
+#include "gtest/gtest.h"
+
 //* Definition for a binary tree node.
-struct TreeNode {
-    int val;
-    TreeNode *left;
-    TreeNode *right;
-    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
-};
-namespace { 
+using TreeNode = Tree::TreeNode<int>;
+
+namespace {
 class Solution {
    public:
     TreeNode *Solve(TreeNode *root, int &p, int &q) {
@@ -37,11 +38,6 @@ class Solution {
         return Solve(root, p->val, q->val);
     }
 };
-
-#include <vector>
-#include <string>
-
-#include "gtest/gtest.h"
 
 TreeNode *AddToRoot(TreeNode *root, int val) {
     if (root == nullptr) {
@@ -109,8 +105,6 @@ TreeNode *FindTreeNode(TreeNode *root, int val) {
     }
     return FindTreeNode(root->right, val);
 }
-
-
 
 TEST(t0, t1) {
     /**
@@ -208,4 +202,4 @@ TEST(t0, t3) {
     EXPECT_EQ(ret->val, expeced);
     FreeRoot(root);
 }
-}
+}  // namespace

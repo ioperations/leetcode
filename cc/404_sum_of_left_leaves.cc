@@ -9,16 +9,14 @@ of another node.
 */
 
 //* Definition for a binary tree node.
-struct TreeNode {
-    int val;
-    TreeNode *left;
-    TreeNode *right;
-    TreeNode() : val(0), left(nullptr), right(nullptr) {}
-    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
-    TreeNode(int x, TreeNode *left, TreeNode *right)
-        : val(x), left(left), right(right) {}
-};
-namespace { 
+#include <vector>
+
+#include "datastruct_base.hh"
+#include "gtest/gtest.h"
+
+using TreeNode = Tree::TreeNode<int>;
+
+namespace {
 class Solution {
    public:
     int SumOfLeftLeaves(TreeNode *root) {
@@ -38,11 +36,6 @@ class Solution {
         return SumOfLeftLeaves(root->right) + SumOfLeftLeaves(root->left);
     }
 };
-
-#include <vector>
-#include <string>
-
-#include "gtest/gtest.h"
 
 TreeNode *AddToRoot(TreeNode *root, int val) {
     if (root == nullptr) {
@@ -98,7 +91,6 @@ void FreeRoot(TreeNode *root) {
     delete root;
 }
 
-
 TEST(t0, t1) {
     const std::vector<int> elements = {7, 3, 20, 15, 9};
     TreeNode *root = ConstructTree(elements);
@@ -129,4 +121,4 @@ TEST(t0, t2) {
     FreeRoot(root);
 }
 
-}
+}  // namespace

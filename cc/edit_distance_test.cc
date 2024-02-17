@@ -3,10 +3,12 @@
 // https://pvs-studio.com
 
 #include <algorithm>
-#include <iostream>
 #include <string>
 #include <vector>
-namespace { 
+
+#include "gtest/gtest.h"
+
+namespace {
 class Solution {
    public:
     int MinDistance(const std::string &word1, const std::string &word2) {
@@ -93,4 +95,4 @@ TEST(editdistanceV2, t1) {
     EXPECT_EQ(ret, 2);
 }
 
-}
+}  // namespace
