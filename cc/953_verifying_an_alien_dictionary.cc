@@ -17,7 +17,6 @@ lexicographically in this alien language.*/
 
 using namespace std;
 
-#include<gtest/gtest.h>
 namespace { 
 class Solution {
     std::map<char, int> map;

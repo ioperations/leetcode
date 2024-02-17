@@ -14,7 +14,6 @@ number, return this modulo 109 + 7.*/
 
 #include <vector>
 using namespace std;
-#include<gtest/gtest.h>
 namespace { 
 class Solution {
    public:

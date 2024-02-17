@@ -15,7 +15,6 @@ answer can be huge, return it modulo 109 + 7.*/
 
 using namespace std;
 
-#include<gtest/gtest.h>
 namespace { 
 class Solution {
    public:

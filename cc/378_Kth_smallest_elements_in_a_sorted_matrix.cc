@@ -25,7 +25,6 @@ You must find a solution with a memory complexity better than O(n2).
 
 using namespace std;
 
-#include<gtest/gtest.h>
 namespace { 
 class Solution {
    public:

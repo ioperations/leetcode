@@ -29,7 +29,6 @@ considered to have arrived.*/
 
 using namespace std;
 
-#include<gtest/gtest.h>
 namespace { 
 class Solution {
     ///* 1 <= target, startFuel <= 109

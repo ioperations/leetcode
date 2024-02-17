@@ -20,7 +20,6 @@ Return the maximum total number of units that can be put on the truck.*/
 
 using namespace std;
 
-#include<gtest/gtest.h>
 namespace { 
 class Solution {
    public:

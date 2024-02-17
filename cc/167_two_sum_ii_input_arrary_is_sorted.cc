@@ -25,7 +25,6 @@ Your solution must use only constant extra space.
 
 using namespace std;
 
-#include<gtest/gtest.h>
 namespace { 
 class Solution {
    public:

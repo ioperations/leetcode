@@ -26,7 +26,6 @@ The testcases are generated so that the answer will be less than or equal to 2 *
 
 using namespace std;
 
-#include<gtest/gtest.h>
 namespace { 
 class Solution {
    public:

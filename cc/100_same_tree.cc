@@ -17,7 +17,6 @@ the nodes have the same value.
 #include "gtest/gtest.h"
 
 using namespace Tree;
-#include<gtest/gtest.h>
 namespace { 
 class Solution {
    public:

@@ -20,7 +20,6 @@ input represents the signed integer. -3.
 
 #include "gtest/gtest.h"
 
-#include<gtest/gtest.h>
 namespace { 
 class Solution {
    public:

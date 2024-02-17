@@ -12,7 +12,6 @@ Given an integer n, return the nth digit of the infinite integer sequence
 #include "gtest/gtest.h"
 
 using namespace std;
-#include<gtest/gtest.h>
 namespace { 
 class Solution {
    public:

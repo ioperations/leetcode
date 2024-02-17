@@ -16,7 +16,6 @@ In one step, you can delete exactly one character in either string.
 
 using namespace std;
 
-#include<gtest/gtest.h>
 namespace { 
 class Solution {
    public:

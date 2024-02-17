@@ -47,7 +47,6 @@ Here's the implementation which runs in 188ms and passes all test cases.
 
 using namespace std;
 
-#include<gtest/gtest.h>
 namespace { 
 class Solution {
    public:

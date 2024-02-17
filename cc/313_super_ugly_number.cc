@@ -15,7 +15,6 @@ The nth super ugly number is guaranteed to fit in a 32-bit signed integer.*/
 #include "gtest/gtest.h"
 
 using namespace std;
-#include<gtest/gtest.h>
 namespace { 
 class Solution {
    public:

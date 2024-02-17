@@ -16,7 +16,6 @@ rooted with that node. If such a node does not exist, return null.
 
 using namespace Tree;
 
-#include<gtest/gtest.h>
 namespace { 
 class Solution {
    public:

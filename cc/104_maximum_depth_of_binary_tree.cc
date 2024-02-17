@@ -17,7 +17,6 @@ the root node down to the farthest leaf node.
 #include "gtest/gtest.h"
 
 using namespace Tree;
-#include<gtest/gtest.h>
 namespace { 
 class Solution {
    public:

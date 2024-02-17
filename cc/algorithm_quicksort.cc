@@ -5,7 +5,6 @@
 
 #include "gtest/gtest.h"
 
-#include<gtest/gtest.h>
 namespace { 
 class QuickSort {
     int Partition(int arr[], int start, int end) {

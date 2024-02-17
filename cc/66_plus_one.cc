@@ -16,7 +16,6 @@ Increment the large integer by one and return the resulting array of digits.
 
 using namespace std;
 
-#include<gtest/gtest.h>
 namespace { 
 class Solution {
    public:

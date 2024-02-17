@@ -17,7 +17,6 @@ i or index i + 1 on the next row.
 
 using namespace std;
 
-#include<gtest/gtest.h>
 namespace { 
 class Solution {
    public:

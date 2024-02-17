@@ -26,7 +26,6 @@ and do not add the event to the calendar.*/
 
 using namespace std;
 
-#include<gtest/gtest.h>
 namespace { 
 class MyCalendar {
    public:

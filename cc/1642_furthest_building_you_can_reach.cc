@@ -26,7 +26,6 @@ you use the given ladders and bricks optimally*/
 
 using namespace std;
 
-#include<gtest/gtest.h>
 namespace { 
 class Solution {
    public:

@@ -20,7 +20,6 @@ Return the maximum area of an island in grid. If there is no island, return 0.*/
 
 using namespace std;
 
-#include<gtest/gtest.h>
 namespace { 
 class Solution {
     set<pair<int, int>> visited;

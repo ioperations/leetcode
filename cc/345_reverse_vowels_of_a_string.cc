@@ -15,7 +15,6 @@ The vowels are 'a', 'e', 'i', 'o', and 'u', and they can appear in both cases.
 #include "gtest/gtest.h"
 
 using namespace std;
-#include<gtest/gtest.h>
 namespace { 
 class Solution {
    public:

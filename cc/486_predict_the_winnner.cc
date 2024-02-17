@@ -25,7 +25,6 @@ may assume that both players are playing optimally.
 
 using namespace std;
 
-#include<gtest/gtest.h>
 namespace { 
 class Solution {
    public:

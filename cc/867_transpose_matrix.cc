@@ -13,7 +13,6 @@ switching the matrix's row and column indices.*/
 
 using namespace std;
 
-#include<gtest/gtest.h>
 namespace { 
 class Solution {
    public:

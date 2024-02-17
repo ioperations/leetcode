@@ -11,7 +11,6 @@ and 5. Given an integer n, return true if n is an ugly number.*/
 
 using namespace std;
 
-#include<gtest/gtest.h>
 namespace { 
 class Solution {
     std::unordered_map<int, bool> cache;

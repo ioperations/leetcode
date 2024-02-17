@@ -19,7 +19,6 @@ magical string s.
 
 #include "gtest/gtest.h"
 
-#include<gtest/gtest.h>
 namespace { 
 class Solution {
    public:

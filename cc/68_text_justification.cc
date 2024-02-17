@@ -32,7 +32,6 @@ maxWidth. The input array words contains at least one word.
 
 using namespace std;
 
-#include<gtest/gtest.h>
 namespace { 
 class Solution {
    public:

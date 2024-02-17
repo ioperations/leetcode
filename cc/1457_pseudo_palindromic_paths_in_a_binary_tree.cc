@@ -21,7 +21,6 @@ nodes.*/
 using namespace std;
 using namespace Tree;
 
-#include<gtest/gtest.h>
 namespace { 
 class Solution {
    public:

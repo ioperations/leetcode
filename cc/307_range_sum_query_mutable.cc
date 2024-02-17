@@ -21,7 +21,6 @@ between indices left and right inclusive (i.e. nums[left] + nums[left + 1] + ...
 
 using namespace std;
 
-#include<gtest/gtest.h>
 namespace { 
 class NumArray {
     vector<int> m_arr;

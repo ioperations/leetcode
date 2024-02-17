@@ -15,7 +15,6 @@ using namespace std;
 // Definition for singly-linked list.
 using ListNode = List::ListNode<int>;
 
-#include<gtest/gtest.h>
 namespace { 
 class Solution {
     vector<int> vec;

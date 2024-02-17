@@ -21,7 +21,6 @@ Return the maximum score after performing m operations.*/
 
 using namespace std;
 
-#include<gtest/gtest.h>
 namespace { 
 class Solution {
    public:

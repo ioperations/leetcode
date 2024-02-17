@@ -23,7 +23,6 @@ You must decrease the overall operation steps as much as possible.
 
 using namespace std;
 
-#include<gtest/gtest.h>
 namespace { 
 class Solution {
    public:

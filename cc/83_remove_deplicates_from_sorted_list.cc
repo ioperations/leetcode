@@ -15,7 +15,6 @@ element appears only once. Return the linked list sorted as well.
 
 using ListNode  = List::ListNode<int>;
 
-#include<gtest/gtest.h>
 namespace { 
 class Solution {
    public:

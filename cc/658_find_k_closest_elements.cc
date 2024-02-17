@@ -17,7 +17,6 @@ An integer a is closer to x than an integer b if:
 
 using namespace std;
 
-#include<gtest/gtest.h>
 namespace { 
 class Solution {
    public:

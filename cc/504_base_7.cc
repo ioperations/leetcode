@@ -12,7 +12,6 @@ Given an integer num, return a string of its base 7 representation.
 
 using namespace std;
 
-#include<gtest/gtest.h>
 namespace { 
 class Solution {
    public:

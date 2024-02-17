@@ -22,7 +22,6 @@ using ListNode = List::ListNode<int>;
 
 
 */
-#include<gtest/gtest.h>
 namespace { 
 class Solution {
    public:

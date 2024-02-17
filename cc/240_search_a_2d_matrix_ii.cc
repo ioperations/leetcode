@@ -15,7 +15,6 @@ Integers in each column are sorted in ascending from top to bottom.
 
 using namespace std;
 
-#include<gtest/gtest.h>
 namespace { 
 class Solution {
    public:

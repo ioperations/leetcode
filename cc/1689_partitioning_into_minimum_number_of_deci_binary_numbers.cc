@@ -18,7 +18,6 @@ number of positive deci-binary numbers needed so that they sum up to n.
 
 using namespace std;
 
-#include<gtest/gtest.h>
 namespace { 
 class Solution {
    public:

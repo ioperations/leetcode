@@ -13,7 +13,6 @@ the same order (i.e., an equal array).
 
 using namespace std;
 
-#include<gtest/gtest.h>
 namespace { 
 class Solution {
    public:

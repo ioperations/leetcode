@@ -40,7 +40,6 @@ the border). How would you address these problems?
 
 using namespace std;
 
-#include<gtest/gtest.h>
 namespace { 
 class Solution {
    public:

@@ -25,7 +25,6 @@ should be returned as a list of the words [beginWord, s1, s2, ..., sk].*/
 #include "gtest/gtest.h"
 
 using namespace std;
-#include<gtest/gtest.h>
 namespace { 
 class Solution {
    public:

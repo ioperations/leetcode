@@ -13,7 +13,6 @@ Given an integer n, return true if it is a power of three.Otherwise,
 
 #include "gtest/gtest.h"
 
-#include<gtest/gtest.h>
 namespace { 
 class Solution {
    public:

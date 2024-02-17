@@ -14,7 +14,6 @@ Given two integers x and y, return the Hamming distance between them.
 
 #include "gtest/gtest.h"
 
-#include<gtest/gtest.h>
 namespace { 
 class Solution {
    public:

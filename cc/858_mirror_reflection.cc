@@ -19,7 +19,6 @@ The test cases are guaranteed so that the ray will meet a receptor eventually.*/
 
 using namespace std;
 
-#include<gtest/gtest.h>
 namespace { 
 class Solution {
    public:

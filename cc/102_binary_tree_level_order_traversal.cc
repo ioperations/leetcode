@@ -18,7 +18,6 @@ values. (i.e., from left to right, level by level).
 using namespace std;
 using namespace Tree;
 
-#include<gtest/gtest.h>
 namespace { 
 class Solution {
    public:

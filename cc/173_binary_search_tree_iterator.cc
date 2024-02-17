@@ -2,7 +2,6 @@
 // PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
 // https://pvs-studio.com
 /*
-#include<gtest/gtest.h>
 namespace {
 Implement the BSTIterator class that represents an iterator over the in-order
 traversal of a binary search tree (BST):

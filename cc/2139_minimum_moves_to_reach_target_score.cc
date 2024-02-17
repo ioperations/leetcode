@@ -26,7 +26,6 @@ needed to reach target starting with 1.
 
 using namespace std;
 
-#include<gtest/gtest.h>
 namespace { 
 class Solution {
    public:

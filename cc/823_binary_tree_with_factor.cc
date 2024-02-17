@@ -22,7 +22,6 @@ return the answer modulo 109 + 7.*/
 
 using namespace std;
 
-#include<gtest/gtest.h>
 namespace { 
 class Solution {
     std::map<int, int> cache;

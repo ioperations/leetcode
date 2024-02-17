@@ -2,17 +2,16 @@
 // PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
 // https://pvs-studio.com
 #include <stddef.h>
+
 #include <queue>
 #include <vector>
-#include <string>
 
 #include "gtest/gtest.h"
 
 using namespace std;
 
 // leetcode-cn.com/problems/course-schedule/solution/c-you-xiang-tu-cheng-huan-jian-ce-by-hank-31/
-#include<gtest/gtest.h>
-namespace { 
+namespace {
 class Solution {
    public:
     bool CanFinish(int num_courses, vector<vector<int>> &prerequisites) {
@@ -62,8 +61,6 @@ class Solution {
     }
 };
 
-
-
 TEST(t0, t1) {
     // numCourses = 2, prerequisites = [[1,0],[0,1]]
     // 输出：false
@@ -89,4 +86,4 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, true);
 }
 
-}
+}  // namespace

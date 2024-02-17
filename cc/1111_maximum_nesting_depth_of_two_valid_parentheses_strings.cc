@@ -35,7 +35,6 @@ even though multiple answers may exist, you may return any of them.
 
 using namespace std;
 
-#include<gtest/gtest.h>
 namespace { 
 class Solution {
    public:

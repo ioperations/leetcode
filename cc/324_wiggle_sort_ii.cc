@@ -13,7 +13,6 @@ You may assume the input array always has a valid answer.*/
 #include "gtest/gtest.h"
 
 using namespace std;
-#include<gtest/gtest.h>
 namespace { 
 class Solution {
    public:

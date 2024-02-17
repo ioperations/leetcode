@@ -18,7 +18,6 @@ example, [3,6,2,7] is a subsequence of the array [0,3,1,6,2,2,7].*/
 
 using namespace std;
 
-#include<gtest/gtest.h>
 namespace { 
 class Solution {
    public:

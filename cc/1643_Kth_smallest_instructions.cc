@@ -31,7 +31,6 @@
 using namespace std;
 
 const int mxn = 15 + 2;
-#include<gtest/gtest.h>
 namespace { 
 class Solution {
    public:

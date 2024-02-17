@@ -17,7 +17,6 @@ Return an integer array answer where answer[i] is the answer to the ith query.*/
 #include "gtest/gtest.h"
 
 using namespace std;
-#include<gtest/gtest.h>
 namespace { 
 class Solution {
    public:

@@ -39,7 +39,6 @@ output as such: [...,[2 3],[4 5],[12 7],...]
 #include "gtest/gtest.h"
 
 using namespace std;
-#include<gtest/gtest.h>
 namespace { 
 class Solution {
    public:

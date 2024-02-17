@@ -25,7 +25,6 @@ Return true if and only if it is bipartite.
 
 using namespace std;
 
-#include<gtest/gtest.h>
 namespace { 
 class Solution {
    public:

@@ -18,7 +18,6 @@ Return the shortest such subarray and output its length
 
 using namespace std;
 
-#include<gtest/gtest.h>
 namespace { 
 class Solution {
    public:

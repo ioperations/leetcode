@@ -19,7 +19,6 @@ Since the answer may be too large, return it modulo 10^9 + 7.*/
 
 using namespace std;
 
-#include<gtest/gtest.h>
 namespace { 
 class Solution {
    public:

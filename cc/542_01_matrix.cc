@@ -11,7 +11,6 @@ The distance between two adjacent cells is 1.
 #include <vector>
 using namespace std;
 
-#include<gtest/gtest.h>
 namespace { 
 class Solution {
    public:

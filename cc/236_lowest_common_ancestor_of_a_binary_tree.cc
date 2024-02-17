@@ -16,7 +16,6 @@ as descendants (where we allow a node to be a descendant of itself).”*/
 
 using namespace Tree;
 
-#include<gtest/gtest.h>
 namespace { 
 class Solution {
    public:

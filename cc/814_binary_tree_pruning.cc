@@ -16,7 +16,6 @@ A subtree of a node node is node plus every node that is a descendant of node.*/
 
 using namespace Tree;
 
-#include<gtest/gtest.h>
 namespace { 
 class Solution {
    public:

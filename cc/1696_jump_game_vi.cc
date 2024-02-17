@@ -22,7 +22,6 @@ Return the maximum score you can get.*/
 
 using namespace std;
 
-#include<gtest/gtest.h>
 namespace { 
 class Solution {
    public:

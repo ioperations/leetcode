@@ -26,7 +26,6 @@ positions of the remaining elements. (i.e., [1,3,5] is a subsequence of
 
 using namespace std;
 
-#include<gtest/gtest.h>
 namespace { 
 class Solution {
    public:

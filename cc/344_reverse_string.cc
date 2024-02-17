@@ -16,7 +16,6 @@ You must do this by modifying the input array in-place with O(1) extra memory.
 
 #include "gtest/gtest.h"
 
-#include<gtest/gtest.h>
 namespace { 
 class Solution {
    public:

@@ -24,7 +24,6 @@ less than 150 combinations for the given input.
 
 using namespace std;
 
-#include<gtest/gtest.h>
 namespace { 
 class Solution {
    public:

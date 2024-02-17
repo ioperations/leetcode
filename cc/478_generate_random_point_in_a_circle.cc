@@ -21,7 +21,6 @@ returned as an array [x, y].
 
 using namespace std;
 
-#include<gtest/gtest.h>
 namespace { 
 class Solution {
     double x_center;

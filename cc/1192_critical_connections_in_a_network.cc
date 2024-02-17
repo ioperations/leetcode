@@ -23,7 +23,6 @@ Return all critical connections in the network in any order.
 
 using namespace std;
 
-#include<gtest/gtest.h>
 namespace { 
 class Solution {
    public:

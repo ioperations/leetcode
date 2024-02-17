@@ -24,7 +24,6 @@ using List::ConstructList;
 using List::FreeList;
 
 
-#include<gtest/gtest.h>
 namespace { 
 class Solution {
    public:

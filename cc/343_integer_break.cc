@@ -13,7 +13,6 @@ Return the maximum product you can get.
 
 #include "gtest/gtest.h"
 
-#include<gtest/gtest.h>
 namespace { 
 class Solution {
    public:

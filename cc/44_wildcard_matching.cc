@@ -16,7 +16,6 @@ The matching should cover the entire input string (not partial).
 
 using namespace std;
 
-#include<gtest/gtest.h>
 namespace { 
 class Solution {
    public:

@@ -23,7 +23,6 @@ Notice that |val| denotes the absolute value of val
 
 using namespace std;
 
-#include<gtest/gtest.h>
 namespace { 
 class Solution {
    public:

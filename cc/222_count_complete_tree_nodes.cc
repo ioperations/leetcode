@@ -19,7 +19,6 @@ Design an algorithm that runs in less than O(n) time complexity.*/
 
 using namespace Tree;
 
-#include<gtest/gtest.h>
 namespace { 
 class Solution {
    public:

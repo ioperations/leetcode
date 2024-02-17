@@ -24,7 +24,6 @@ node. A leaf is a node with no children.
 using namespace std;
 
 using namespace Tree;
-#include<gtest/gtest.h>
 namespace { 
 class Solution {
     std::vector<vector<int>> m_ret;

@@ -17,7 +17,6 @@ Return true if there is a 132 pattern in nums, otherwise, return false.
 #include "gtest/gtest.h"
 
 using namespace std;
-#include<gtest/gtest.h>
 namespace { 
 class Solution {
    public:

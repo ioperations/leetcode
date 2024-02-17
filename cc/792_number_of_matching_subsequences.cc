@@ -20,7 +20,6 @@ For example, "ace" is a subsequence of "abcde".
 
 using namespace std;
 
-#include<gtest/gtest.h>
 namespace { 
 class Solution {
     unordered_map<string, bool> cache;

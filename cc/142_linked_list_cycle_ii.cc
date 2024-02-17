@@ -21,7 +21,6 @@ Return true if there is a cycle in the linked list. Otherwise, return false
 
 using ListNode = List::ListNode<int>;
 
-#include<gtest/gtest.h>
 namespace { 
 class Solution {
    public:

@@ -10,7 +10,6 @@ otherwise, you have to subtract 1 from it.*/
 
 #include "gtest/gtest.h"
 
-#include<gtest/gtest.h>
 namespace { 
 class Solution {
    public:

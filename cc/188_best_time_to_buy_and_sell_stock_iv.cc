@@ -19,7 +19,6 @@ sell the stock before you buy again).*/
 #include "gtest/gtest.h"
 
 using namespace std;
-#include<gtest/gtest.h>
 namespace { 
 class Solution {
    public:

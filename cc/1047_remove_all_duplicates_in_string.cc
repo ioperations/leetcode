@@ -17,12 +17,12 @@ be proven that the answer is unique.
 #include <utility>
 
 using namespace std;
+#include <gtest/gtest.h>
+
 #include <stack>
 
 #include "gtest/gtest.h"
-
-#include<gtest/gtest.h>
-namespace { 
+namespace {
 class Solution {
    public:
     string RemoveDuplicates(const string &s, int k = 2) {
@@ -54,7 +54,6 @@ class Solution {
     }
 };
 
-
 TEST(t0, t1) {
     std::string s = "abbaca";
     string expected = "ca";
@@ -81,4 +80,4 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, expected);
 }
 
-}
+}  // namespace

@@ -18,7 +18,6 @@ Return the maximum number of operations you can perform on the array.
 
 using namespace std;
 
-#include<gtest/gtest.h>
 namespace { 
 class Solution {
    public:

@@ -21,7 +21,6 @@ You must write an algorithm that runs in O(log n) time.
 
 using namespace std;
 
-#include<gtest/gtest.h>
 namespace { 
 class Solution {
    public:

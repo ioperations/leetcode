@@ -21,7 +21,6 @@ The length of a clear path is the number of visited cells of this path.*/
 
 using namespace std;
 
-#include<gtest/gtest.h>
 namespace { 
 class Solution {
    private:

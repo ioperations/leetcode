@@ -21,7 +21,6 @@ in the form of an array.
 
 using namespace std;
 
-#include<gtest/gtest.h>
 namespace { 
 class Solution {
    public:

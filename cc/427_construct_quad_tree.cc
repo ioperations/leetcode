@@ -9,7 +9,6 @@ and both are accepted in the answer. A Quad-Tree is a tree data structure in
 which each internal node has exactly four children. Besides, each node has two
 attributes: val: True if the node represents a grid of 1's or False if the node
 represents a grid of 0's. isLeaf: True if the node is leaf node on the tree or
-#include<gtest/gtest.h>
 namespace {
 False if the node has the four children. class Node { public boolean val; public
 boolean isLeaf; public Node topLeft; public Node topRight; public Node

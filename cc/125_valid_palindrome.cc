@@ -13,7 +13,6 @@ Given a string s, return true if it is a palindrome, or false otherwise.*/
 #include "gtest/gtest.h"
 
 using namespace std;
-#include<gtest/gtest.h>
 namespace { 
 class Solution {
    public:

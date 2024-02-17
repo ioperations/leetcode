@@ -16,7 +16,6 @@ word or phrase, typically using all the original letters exactly once.
 
 using namespace std;
 
-#include<gtest/gtest.h>
 namespace { 
 class Solution {
    public:

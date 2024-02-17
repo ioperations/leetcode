@@ -12,7 +12,6 @@ very large, return it modulo 1337.
 
 #include "gtest/gtest.h"
 
-#include<gtest/gtest.h>
 namespace { 
 class Solution {
    public:

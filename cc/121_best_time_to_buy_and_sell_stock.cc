@@ -19,7 +19,6 @@ achieve any profit, return 0.
 #include "gtest/gtest.h"
 
 using namespace std;
-#include<gtest/gtest.h>
 namespace { 
 class Solution {
    public:

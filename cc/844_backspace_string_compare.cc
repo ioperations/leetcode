@@ -16,7 +16,6 @@ Note that after backspacing an empty text, the text will continue empty.
 
 using namespace std;
 
-#include<gtest/gtest.h>
 namespace { 
 class Solution {
    public:

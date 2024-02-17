@@ -20,7 +20,6 @@ Return the minimum cost to reach the top of the floor.
 
 using namespace std;
 
-#include<gtest/gtest.h>
 namespace { 
 class Solution {
    public:

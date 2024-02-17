@@ -14,15 +14,15 @@
 // new weight y - x. At the end of the game, there is at most one stone left.
 
 #include <stdlib.h>
+
 #include <queue>
-#include <vector>
 #include <string>
+#include <vector>
 
 #include "gtest/gtest.h"
 
 using namespace std;
-#include<gtest/gtest.h>
-namespace { 
+namespace {
 class Solution {
    public:
     int LastStoneWeight(vector<int> &stones) {
@@ -48,7 +48,6 @@ class Solution {
     }
 };
 
-
 TEST(t0, t1) {
     // Input:
     // stones = [ 2, 7, 4, 1, 8, 1 ] Output : 1 Explanation
@@ -71,4 +70,4 @@ TEST(t0, t2) {
     int ret = s.LastStoneWeight(stones);
     EXPECT_EQ(ret, 1);
 }
-}
+}  // namespace

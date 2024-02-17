@@ -15,7 +15,6 @@ Given the head of a linked list, rotate the list to the right by k places.
 
 using ListNode = List::ListNode<int>;
 
-#include<gtest/gtest.h>
 namespace { 
 class Solution {
    public:

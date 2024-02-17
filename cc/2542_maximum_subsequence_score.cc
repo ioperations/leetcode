@@ -24,7 +24,6 @@ A subsequence of indices of an array is a set that can be derived from the set
 #include "gtest/gtest.h"
 
 using namespace std;
-#include<gtest/gtest.h>
 namespace { 
 class Solution {
    public:

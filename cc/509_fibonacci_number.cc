@@ -15,7 +15,6 @@ Given n, calculate F(n).*/
 
 #include "gtest/gtest.h"
 
-#include<gtest/gtest.h>
 namespace { 
 class Solution {
     std::map<int, int> cache;

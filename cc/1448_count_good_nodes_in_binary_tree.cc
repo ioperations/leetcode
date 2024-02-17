@@ -16,7 +16,6 @@ Return the number of good nodes in the binary tree.
 
 using namespace Tree;
 
-#include<gtest/gtest.h>
 namespace { 
 class Solution {
    public:

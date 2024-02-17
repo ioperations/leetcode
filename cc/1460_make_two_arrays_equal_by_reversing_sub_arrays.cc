@@ -17,7 +17,6 @@ Return true if you can make arr equal to target or false otherwise.
 
 using namespace std;
 
-#include<gtest/gtest.h>
 namespace { 
 class Solution {
    public:

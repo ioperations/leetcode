@@ -19,7 +19,6 @@ Return the maximum number of courses that you can take.*/
 
 using namespace std;
 
-#include<gtest/gtest.h>
 namespace { 
 class Solution {
     bool static Comp(vector<int> &course1, vector<int> &course2) {

@@ -20,7 +20,6 @@ expressions that you can build, which evaluates to target.
 
 using namespace std;
 
-#include<gtest/gtest.h>
 namespace { 
 class Solution {
    public:

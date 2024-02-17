@@ -45,7 +45,6 @@ each integer is used to store the data. This means each integer represents only
 
 using namespace std;
 
-#include<gtest/gtest.h>
 namespace { 
 class Solution {
    public:

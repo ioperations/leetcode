@@ -12,7 +12,6 @@ Given n, return the value of Tn.*/
 
 #include "gtest/gtest.h"
 
-#include<gtest/gtest.h>
 namespace { 
 class Solution {
     std::map<int, int> cache;

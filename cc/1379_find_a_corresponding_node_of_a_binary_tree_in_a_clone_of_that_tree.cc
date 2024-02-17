@@ -39,7 +39,6 @@ TreeNode<T> *FindNodeInBinaryTree(TreeNode<T> *head, int target) {
 
 using namespace std;
 
-#include<gtest/gtest.h>
 namespace { 
 class Solution {
    public:

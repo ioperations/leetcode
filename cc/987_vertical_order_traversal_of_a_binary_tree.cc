@@ -47,7 +47,6 @@ struct Mystruct {
 
 #include <map>
 
-#include<gtest/gtest.h>
 namespace { 
 class Solution {
    public:

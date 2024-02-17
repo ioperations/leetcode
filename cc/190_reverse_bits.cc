@@ -52,7 +52,6 @@ std::string ConstructString(uint32_t n) {
     return ret;
 }
 
-#include<gtest/gtest.h>
 namespace { 
 class Solution {
    public:

@@ -17,7 +17,6 @@ ends at time X you will be able to start another job that starts at time X.
 
 using namespace std;
 
-#include<gtest/gtest.h>
 namespace { 
 class Solution {
     void SortByStartTime(vector<int> &start_time, vector<int> &end_time,

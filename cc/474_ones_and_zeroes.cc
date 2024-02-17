@@ -18,7 +18,6 @@ A set x is a subset of a set y if all elements of x are also elements of y.
 #include "gtest/gtest.h"
 
 using namespace std;
-#include<gtest/gtest.h>
 namespace { 
 class Solution {
    public:

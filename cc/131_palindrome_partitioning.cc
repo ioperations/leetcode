@@ -13,7 +13,6 @@ A palindrome string is a string that reads the same backward as forward.*/
 #include "gtest/gtest.h"
 
 using namespace std;
-#include<gtest/gtest.h>
 namespace { 
 class Solution {
    public:

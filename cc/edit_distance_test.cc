@@ -6,7 +6,6 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include<gtest/gtest.h>
 namespace { 
 class Solution {
    public:

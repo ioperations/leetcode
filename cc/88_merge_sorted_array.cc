@@ -23,7 +23,6 @@ last n elements are set to 0 and should be ignored. nums2 has a length of n.
 #include "gtest/gtest.h"
 
 using namespace std;
-#include<gtest/gtest.h>
 namespace { 
 class Solution {
    public:

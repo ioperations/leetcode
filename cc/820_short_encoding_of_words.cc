@@ -20,7 +20,6 @@ valid encoding of words.*/
 
 using namespace std;
 
-#include<gtest/gtest.h>
 namespace { 
 class Solution {
     // pass

@@ -21,7 +21,6 @@ Return the number of weak characters.*/
 
 using namespace std;
 
-#include<gtest/gtest.h>
 namespace { 
 class Solution {
     static bool Comp(vector<int> &a, vector<int> &b) {

@@ -24,7 +24,6 @@ input array in-place with O(1) extra memory.
 #include "gtest/gtest.h"
 
 using namespace std;
-#include<gtest/gtest.h>
 namespace { 
 class Solution {
    public:

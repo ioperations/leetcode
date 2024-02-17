@@ -17,7 +17,6 @@ It is guaranteed that the node to be deleted is not a tail node in the list.
 // Definition for singly-linked list.
 using ListNode  = List::ListNode<int>;
 
-#include<gtest/gtest.h>
 namespace { 
 class Solution {
    public:
