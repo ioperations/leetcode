@@ -10,7 +10,6 @@ values. (i.e., from left to right, level by level).
 // Definition for a binary tree node.
 #include <queue>
 #include <vector>
-#include <string>
 
 #include "datastruct_base.hh"
 #include "gtest/gtest.h"
@@ -18,7 +17,7 @@ values. (i.e., from left to right, level by level).
 using namespace std;
 using namespace Tree;
 
-namespace { 
+namespace {
 class Solution {
    public:
     template <typename T>
@@ -102,4 +101,4 @@ TEST(t0, t3) {
     FreeTreeNode(tree);
 }
 
-}
+}  // namespace

@@ -13,7 +13,8 @@ A palindrome string is a string that reads the same backward as forward.*/
 #include "gtest/gtest.h"
 
 using namespace std;
-namespace { 
+
+namespace {
 class Solution {
    public:
     vector<vector<string>> Partition(string s) {
@@ -56,7 +57,6 @@ class Solution {
     }
 };
 
-
 TEST(t0, t1) {
     string s = "aab";
     vector<vector<string>> output = {{"a", "a", "b"}, {"aa", "b"}};
@@ -75,4 +75,4 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
 }
 
-}
+}  // namespace

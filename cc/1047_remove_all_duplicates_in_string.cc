@@ -17,8 +17,6 @@ be proven that the answer is unique.
 #include <utility>
 
 using namespace std;
-#include <gtest/gtest.h>
-
 #include <stack>
 
 #include "gtest/gtest.h"

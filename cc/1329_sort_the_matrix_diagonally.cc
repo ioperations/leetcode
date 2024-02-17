@@ -14,13 +14,12 @@ order and return the resulting matrix.
 
 #include <algorithm>
 #include <vector>
-#include <string>
 
 #include "gtest/gtest.h"
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
    public:
     vector<vector<int>> DiagonalSort(vector<vector<int>> &mat) {
@@ -89,7 +88,6 @@ class Solution {
     }
 };
 
-
 TEST(t0, t1) {
     vector<vector<int>> mat = {{3, 3, 1, 1}, {2, 2, 1, 2}, {1, 1, 1, 2}};
     vector<vector<int>> expected = {{1, 1, 1, 1}, {1, 2, 2, 2}, {1, 2, 3, 3}};
@@ -114,4 +112,4 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, expected);
 }
 
-}
+}  // namespace

@@ -8,15 +8,16 @@ operators. You may return the answer in any order.
 The test cases are generated such that the output values fit in a 32-bit integer
 and the number of different results does not exceed 104.*/
 
+#include <stddef.h>
+
 #include <set>
 #include <string>
+#include <unordered_map>
 #include <vector>
 
 #include "gtest/gtest.h"
 
 using namespace std;
-
-#include <stddef.h>
 
 namespace {
 class Solution {
@@ -48,8 +49,6 @@ class Solution {
         return ans;
     }
 };
-
-#include <unordered_map>
 
 class SolutionV2 {
    public:
@@ -98,8 +97,6 @@ class SolutionV2 {
     unordered_map<string, vector<int>> memo;
     /* data */
 };
-
-
 
 TEST(t0, t1) {
     string expression = "2-1-1";

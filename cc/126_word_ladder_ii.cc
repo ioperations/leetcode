@@ -18,14 +18,14 @@ should be returned as a list of the words [beginWord, s1, s2, ..., sk].*/
 
 #include <algorithm>
 #include <queue>
+#include <set>
 #include <string>
 #include <vector>
-#include <set>
 
 #include "gtest/gtest.h"
 
 using namespace std;
-namespace { 
+namespace {
 class Solution {
    public:
     bool Able(string s, string t) {
@@ -104,7 +104,6 @@ class Solution {
         return ans;
     }
 };
-
 
 TEST(t0, t1) {
     string begin_word = "hit", end_word = "cog";
@@ -210,4 +209,4 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, output);
 }
 
-}
+}  // namespace

@@ -13,13 +13,12 @@ Each vowel 'u' may only be followed by an 'a'.
 Since the answer may be too large, return it modulo 10^9 + 7.*/
 
 #include <vector>
-#include <string>
 
 #include "gtest/gtest.h"
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
    public:
     int CountVowelPermutation(int n) {
@@ -44,7 +43,6 @@ class Solution {
         return ans;
     }
 };
-
 
 TEST(t0, t1) {
     int n = 1;
@@ -75,4 +73,4 @@ TEST(t0, t3) {
     int ret = sl.CountVowelPermutation(n);
     EXPECT_EQ(ret, output);
 }
-}
+}  // namespace

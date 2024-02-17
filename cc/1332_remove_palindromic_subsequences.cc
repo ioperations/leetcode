@@ -23,7 +23,7 @@ forward.
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
    public:
     int RemovePalindromeSub(string s) {
@@ -35,7 +35,6 @@ class Solution {
         return 1;
     }
 };
-
 
 TEST(t0, t1) {
     string s = "ababa";
@@ -65,4 +64,4 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, out);
 }
 
-}
+}  // namespace

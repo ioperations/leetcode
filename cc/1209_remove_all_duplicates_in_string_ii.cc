@@ -15,8 +15,8 @@ guaranteed that the answer is unique.
 #include <algorithm>
 #include <stack>
 #include <string>
-#include <vector>
 #include <utility>
+#include <vector>
 
 #include "gtest/gtest.h"
 
@@ -79,9 +79,7 @@ class Solution {
         return true;
     }
 };
-}  // namespace
 
-namespace {
 class SolutionV2 {
    public:
     struct Node {

@@ -14,16 +14,16 @@
    exists.
 */
 
-#include <string>
-
-using namespace std;
 #include <queue>
 #include <set>
+#include <string>
 #include <vector>
 
 #include "gtest/gtest.h"
 
-namespace { 
+using namespace std;
+
+namespace {
 class Solution {
    public:
     int LadderLength(string begin_word, string end_word,
@@ -71,7 +71,6 @@ class Solution {
     }
 };
 
-
 TEST(t0, t1) {
     const string begin_word = "hit", end_word = "cog";
     std::vector<string> word_list = {"hot", "dot", "dog", "lot", "log", "cog"};
@@ -95,4 +94,4 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
 }
 
-}
+}  // namespace

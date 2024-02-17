@@ -9,24 +9,15 @@ A height-balanced binary tree is a binary tree in which the depth of the two
 subtrees of every node never differs by more than one.
 */
 
-struct TreeNode {
-    int val;
-    TreeNode *left;
-    TreeNode *right;
-    TreeNode() : val(0), left(nullptr), right(nullptr) {}
-    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
-    TreeNode(int x, TreeNode *left, TreeNode *right)
-        : val(x), left(left), right(right) {}
-};
 #include <vector>
-#include <set>
-#include <string>
 
+#include "datastruct_base.hh"
 #include "gtest/gtest.h"
 
+using TreeNode = Tree::TreeNode<int>;
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
    public:
     TreeNode *SortedArrayToBst(std::vector<int> &nums) {
@@ -42,15 +33,6 @@ class Solution {
         return bs_ttree;
     }
 };
-
-/// 将二分树销毁掉
-void FreeTreeNode(TreeNode *root) {
-    if (root) {
-        FreeTreeNode(root->left);
-        FreeTreeNode(root->right);
-        delete root;
-    }
-}
 
 void InorderLeft(TreeNode *root, std::vector<int> &vec) {
     if (root == nullptr) {
@@ -75,7 +57,7 @@ TEST(t0, t1) {
     InorderLeft(root, visit);
     EXPECT_TRUE(expected.count(visit) != 0);
 
-    FreeTreeNode(root);
+    Tree::FreeTreeNode(root);
 }
 
-}
+}  // namespace

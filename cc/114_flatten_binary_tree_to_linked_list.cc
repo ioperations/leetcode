@@ -12,7 +12,6 @@ the binary tree
 
 //* Definition for a binary tree node.
 #include <queue>
-#include <string>
 #include <vector>
 
 #include "datastruct_base.hh"

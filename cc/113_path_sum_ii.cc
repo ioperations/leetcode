@@ -15,7 +15,6 @@ node. A leaf is a node with no children.
 
 #include <numeric>
 #include <optional>
-#include <string>
 #include <vector>
 
 #include "datastruct_base.hh"
@@ -24,7 +23,7 @@ node. A leaf is a node with no children.
 using namespace std;
 
 using namespace Tree;
-namespace { 
+namespace {
 class Solution {
     std::vector<vector<int>> m_ret;
     template <typename T>
@@ -60,7 +59,6 @@ class Solution {
 };
 
 #define null optional<int>()
-using namespace std;
 
 TEST(t0, t1) {
     vector<optional<int>> root = {5, 4, 8,    11,   null, 13, 4,
@@ -118,4 +116,4 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, output);
     FreeTreeNode(node);
 }
-}
+}  // namespace

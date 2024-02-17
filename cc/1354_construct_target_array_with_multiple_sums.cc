@@ -12,13 +12,12 @@ return false.*/
 
 #include <queue>
 #include <vector>
-#include <string>
 
 #include "gtest/gtest.h"
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
    public:
     bool IsPossible(vector<int> &targets) {
@@ -42,7 +41,6 @@ class Solution {
     }
 };
 
-
 TEST(t0, t1) {
     vector<int> target = {9, 3, 5};
     bool output = true;
@@ -60,4 +58,4 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
 }
 
-}
+}  // namespace

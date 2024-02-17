@@ -29,13 +29,13 @@ order.
 #include <algorithm>
 #include <map>
 #include <string>
+#include <unordered_map>
 #include <utility>
 #include <vector>
 
 #include "gtest/gtest.h"
 
 using namespace std;
-
 
 namespace {
 class UndergroundSystem {
@@ -91,8 +91,6 @@ class UndergroundSystem {
     std::map<std::pair<std::string, std::string>, std::vector<int>> m_already;
 };
 
-#include <unordered_map>
-
 class Solution2 {
    public:
     // startStation:endStation -> {totalTime, numberOfTrips}
@@ -141,7 +139,6 @@ class Solution2 {
  * obj->checkOut(id,stationName,t);
  * double param_3 = obj->getAverageTime(startStation,endStation);
  */
-
 
 TEST(t0, t1) {
     /*

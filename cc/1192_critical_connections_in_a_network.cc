@@ -14,16 +14,15 @@ unable to reach some other server.
 Return all critical connections in the network in any order.
 */
 
+#include <algorithm>
 #include <functional>
 #include <vector>
-#include <algorithm>
-#include <string>
 
 #include "gtest/gtest.h"
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
    public:
     // You can search "find bridges graph" in youtube or google to understand
@@ -59,7 +58,6 @@ class Solution {
     }
 };
 
-
 TEST(t0, t1) {
     int n = 4;
     std::vector<vector<int>> connections = {{0, 1}, {1, 2}, {2, 0}, {1, 3}};
@@ -85,4 +83,4 @@ TEST(t0, t2) {
     EXPECT_EQ(output, ret);
 }
 
-}
+}  // namespace

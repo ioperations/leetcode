@@ -9,15 +9,14 @@ ends at time X you will be able to start another job that starts at time X.
 */
 #include <algorithm>
 #include <map>
-#include <vector>
-#include <string>
 #include <utility>
+#include <vector>
 
 #include "gtest/gtest.h"
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
     void SortByStartTime(vector<int> &start_time, vector<int> &end_time,
                          vector<int> &profit) {
@@ -51,7 +50,6 @@ class Solution {
         return res;
     }
 };
-
 
 TEST(t0, t1) {
     vector<int> start_time = {1, 2, 3, 3}, end_time = {3, 4, 5, 6},
@@ -96,4 +94,4 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, output);
 }
 
-}
+}  // namespace

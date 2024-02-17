@@ -5,8 +5,7 @@
 
 #include "gtest/gtest.h"
 
-
-namespace { 
+namespace {
 class Solution {
    public:
     int RomanToInt(std::string s) {
@@ -68,7 +67,6 @@ class Solution {
     }
 };
 
-
 TEST(t0, t1) {
     Solution s;
 
@@ -91,4 +89,4 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, 1994);
 }
 
-}
+}  // namespace

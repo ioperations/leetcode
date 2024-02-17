@@ -9,15 +9,14 @@ i or index i + 1 on the next row.
 
  */
 
-#include <vector>
 #include <algorithm>
-#include <string>
+#include <vector>
 
 #include "gtest/gtest.h"
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
    public:
     int FindMin(int i, int j, int n, vector<vector<int>> &triangle,
@@ -35,7 +34,6 @@ class Solution {
         return FindMin(0, 0, triangle.size(), triangle, mem);
     }
 };
-
 
 TEST(t0, t1) {
     std::vector<vector<int>> v{{2}, {3, 4}, {6, 5, 7}, {4, 1, 8, 3}};
@@ -62,4 +60,4 @@ TEST(t0, t2) {
     int ret = sl.MinimumTotal(v);
     EXPECT_EQ(ret, out);
 }
-}
+}  // namespace

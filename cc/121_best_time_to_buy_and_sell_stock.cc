@@ -13,13 +13,13 @@ achieve any profit, return 0.
 */
 
 #include <stddef.h>
+
 #include <vector>
-#include <string>
 
 #include "gtest/gtest.h"
 
 using namespace std;
-namespace { 
+namespace {
 class Solution {
    public:
     int MaxProfit(vector<int> &prices) {
@@ -47,7 +47,6 @@ class Solution {
     }
 };
 
-
 TEST(t0, t1) {
     std::vector<int> prices = {7, 1, 5, 3, 6, 4};
     int expected = 5;
@@ -71,4 +70,4 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, expected);
 }
 
-}
+}  // namespace

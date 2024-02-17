@@ -13,7 +13,8 @@ Given a string s, return true if it is a palindrome, or false otherwise.*/
 #include "gtest/gtest.h"
 
 using namespace std;
-namespace { 
+
+namespace {
 class Solution {
    public:
     bool IsPalindrome(string s) {
@@ -48,7 +49,6 @@ class Solution {
         return true;
     }
 };
-
 
 TEST(t0, t1) {
     string s = "A man, a plan, a canal: Panama";
@@ -90,4 +90,4 @@ TEST(t0, t4) {
     bool ret = sl.IsPalindrome(s);
     EXPECT_EQ(ret, output);
 }
-}
+}  // namespace

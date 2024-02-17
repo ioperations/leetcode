@@ -56,7 +56,6 @@ class Solution {
     }
 };
 
-
 TEST(t0, t1) {
     int num = 3;
     string output = "III";
@@ -84,4 +83,4 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, output);
 }
 
-}
+}  // namespace

@@ -23,7 +23,7 @@ character, and 'c' is smaller than 'd'.
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
    public:
     string BreakPalindrome(string palindrome) {
@@ -47,7 +47,6 @@ class Solution {
         return "";
     }
 };
-
 
 TEST(t0, t1) {
     string const palindrome = "abccba";
@@ -79,4 +78,4 @@ TEST(t0, t3) {
     auto const ret = sl.BreakPalindrome(palindrome);
     EXPECT_EQ(ret, output);
 }
-}
+}  // namespace

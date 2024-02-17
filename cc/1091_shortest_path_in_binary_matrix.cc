@@ -13,15 +13,14 @@ different and they share an edge or a corner).
 The length of a clear path is the number of visited cells of this path.*/
 
 #include <queue>
-#include <vector>
-#include <string>
 #include <utility>
+#include <vector>
 
 #include "gtest/gtest.h"
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
    private:
     bool InBoundsAndClear(vector<vector<int>> &grid, int i, int j) {
@@ -72,7 +71,6 @@ class Solution {
     }
 };
 
-
 TEST(t0, t1) {
     std::vector<vector<int>> v{{0, 1}, {1, 0}};
     int expected = 2;
@@ -99,4 +97,4 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, expected);
 }
 
-}
+}  // namespace

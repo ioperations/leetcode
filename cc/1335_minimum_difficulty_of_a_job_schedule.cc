@@ -16,15 +16,15 @@ for the jobs return -1.*/
 
 #include <algorithm>
 #include <climits>
-#include <limits>
-#include <vector>
 #include <iterator>
+#include <limits>
 #include <string>
+#include <vector>
 
 #include "gtest/gtest.h"
 
 using namespace std;
-namespace { 
+namespace {
 class Solution {
    public:
     int MinDifficulty(vector<int> &job_difficulty, int d) {
@@ -91,7 +91,6 @@ class Solution {
         return result == std::numeric_limits<int>::max() ? -1 : result;
     }
 };
-
 
 TEST(t0, t1) {
     vector<int> job_difficulty = {6, 5, 4, 3, 2, 1};
@@ -177,4 +176,4 @@ TEST(t1, t3) {
     EXPECT_EQ(output, ret);
 }
 
-}
+}  // namespace

@@ -8,15 +8,15 @@ Return the minimum size of the set so that at least half of the integers of the
 array are removed.*/
 
 #include <queue>
+#include <string>
 #include <unordered_map>
 #include <vector>
-#include <string>
 
 #include "gtest/gtest.h"
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
    public:
     int MinSetSize(vector<int> &arr) {
@@ -37,7 +37,6 @@ class Solution {
         return val;
     }
 };
-
 
 TEST(t0, t1) {
     vector<int> arr = {3, 3, 3, 3, 5, 5, 5, 2, 2, 7};
@@ -66,4 +65,4 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
 }
 
-}
+}  // namespace

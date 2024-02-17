@@ -15,6 +15,7 @@ in any order.
 
 /// Definition for a binary tree node.
 #include <array>
+#include <iostream>
 #include <unordered_set>
 #include <vector>
 
@@ -47,10 +48,6 @@ class Solution {
         return ans;
     }
 };
-
-#include <iostream>
-
-#include "gtest/gtest.h"
 
 void InOrderTranverse(TreeNode *root, std::vector<int> &vec) {
     if (root == nullptr) {

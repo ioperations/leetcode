@@ -8,15 +8,16 @@
 */
 
 #include <limits.h>
+
+#include <algorithm>
 #include <string>
 #include <unordered_map>
-#include <algorithm>
 
 #include "gtest/gtest.h"
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
    public:
     int MinCut(string s) {
@@ -47,7 +48,6 @@ class Solution {
     }
 };
 
-
 TEST(t0, t1) {
     std::string s = "aab";
 
@@ -74,4 +74,4 @@ TEST(t0, t3) {
     int ret = sl.MinCut(s);
     EXPECT_EQ(ret, i);
 }
-}
+}  // namespace
