@@ -4,15 +4,15 @@
 /*Given an array of integers arr, find the sum of min(b), where b ranges over
  * every (contiguous) subarray of arr. Since the answer may be large, return the
  * answer modulo 109 + 7.*/
+
 #include <stack>
 #include <vector>
-#include <string>
 
 #include "gtest/gtest.h"
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
    public:
     int SumSubarrayMins(vector<int> &arr) {
@@ -53,8 +53,6 @@ class Solution {
         return ret;
     }
 };
-
-
 
 TEST(t0, t1) {
     std::vector<int> arr{3, 1, 2, 4};
@@ -181,4 +179,4 @@ TEST(t0, t3) {
     int ret = sl.SumSubarrayMins(arr);
     EXPECT_EQ(ret, output);
 }
-}
+}  // namespace
