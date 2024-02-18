@@ -18,7 +18,7 @@ using namespace std;
 
 #include "gtest/gtest.h"
 
-namespace { 
+namespace {
 class Solution {
    public:
     vector<int> NumsSameConsecDiff(int n, int k) {
@@ -49,8 +49,6 @@ class Solution {
         return std::vector<int>(ret.begin(), ret.end());
     }
 };
-
-
 
 TEST(t0, t1) {
     int n = 3, k = 7;
@@ -84,4 +82,4 @@ TEST(t0, t3) {
     std::set<int> ret_set(ret.begin(), ret.end());
     EXPECT_EQ(ret_set, out_set);
 }
-}
+}  // namespace

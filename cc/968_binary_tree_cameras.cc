@@ -3,7 +3,6 @@
 // https://pvs-studio.com
 //* Definition for a binary tree node.
 #include <optional>
-#include <string>
 #include <vector>
 
 #include "datastruct_base.hh"
@@ -11,7 +10,7 @@
 
 using namespace Tree;
 
-namespace { 
+namespace {
 class Solution {
    public:
     template <typename T>
@@ -43,7 +42,6 @@ class Solution {
     }
 };
 
-
 using namespace std;
 #define null optional<int>()
 
@@ -72,4 +70,4 @@ TEST(t0, t2) {
     FreeTreeNode(n);
 }
 
-}
+}  // namespace
