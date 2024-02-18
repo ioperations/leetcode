@@ -34,13 +34,12 @@ the active area encroaches upon the border of the array (i.e., live cells reach
 the border). How would you address these problems?
 */
 #include <vector>
-#include <string>
 
 #include "gtest/gtest.h"
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
    public:
     void GameOfLife(vector<vector<int>> &board) {
@@ -95,8 +94,6 @@ class Solution {
     }
 };
 
-
-
 TEST(t0, t1) {
     // pass
     std::vector<std::vector<int>> board = {
@@ -119,4 +116,4 @@ TEST(t0, t2) {
     EXPECT_EQ(board, expected);
 }
 
-}
+}  // namespace

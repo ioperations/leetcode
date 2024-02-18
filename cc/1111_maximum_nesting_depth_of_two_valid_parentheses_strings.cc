@@ -35,7 +35,7 @@ even though multiple answers may exist, you may return any of them.
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
    public:
     std::vector<int> MaxDepthAfterSplit(const string &seq) {
@@ -54,7 +54,6 @@ class Solution {
         return ans;
     }
 };
-
 
 TEST(t0, t1) {
     Solution s;
@@ -78,4 +77,4 @@ TEST(t0, t3) {
                                      0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0}));
 }
 
-}
+}  // namespace

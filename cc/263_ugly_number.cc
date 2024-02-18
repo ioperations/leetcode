@@ -5,13 +5,12 @@
 and 5. Given an integer n, return true if n is an ugly number.*/
 
 #include <unordered_map>
-#include <string>
 
 #include "gtest/gtest.h"
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
     std::unordered_map<int, bool> cache;
 
@@ -45,8 +44,6 @@ class Solution {
         return false;
     }
 };
-
-
 
 TEST(t0, t1) {
     int n = 6;
@@ -85,4 +82,4 @@ TEST(t0, t4) {
     EXPECT_EQ(ret, output);
 }
 
-}
+}  // namespace

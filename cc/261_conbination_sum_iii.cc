@@ -12,13 +12,12 @@ same combination twice, and the combinations may be returned in any order.
 */
 
 #include <vector>
-#include <string>
 
 #include "gtest/gtest.h"
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
    public:
     vector<vector<int>> CombinationSum3(int k, int n) {
@@ -41,8 +40,6 @@ class Solution {
         }
     }
 };
-
-
 
 TEST(t0, t1) {
     int k = 3, n = 7;
@@ -82,4 +79,4 @@ TEST(t0, t3) {
     // is 1+2+3+4 = 10 and since 10 > 1, there are no valid combination.
 }
 
-}
+}  // namespace

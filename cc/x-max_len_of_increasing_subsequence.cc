@@ -3,7 +3,6 @@
 // https://pvs-studio.com
 #include <algorithm>
 #include <cstring>
-#include <string>
 
 #include "gtest/gtest.h"
 

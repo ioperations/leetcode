@@ -16,7 +16,7 @@ word or phrase, typically using all the original letters exactly once.
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
    public:
     bool IsAnagram(string s, string t) {
@@ -25,8 +25,6 @@ class Solution {
         return s == t;
     }
 };
-
-
 
 TEST(t0, t1) {
     string s = "anagram", t = "nagaram";
@@ -44,4 +42,4 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
 }
 
-}
+}  // namespace

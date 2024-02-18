@@ -16,12 +16,11 @@ column. In such a case, sort these nodes by their values.
 
 Return the vertical order traversal of the binary tree.*/
 
-#include <queue>
-#include <vector>
 #include <functional>
 #include <optional>
-#include <string>
+#include <queue>
 #include <utility>
+#include <vector>
 
 #include "datastruct_base.hh"
 #include "gtest/gtest.h"
@@ -47,7 +46,7 @@ struct Mystruct {
 
 #include <map>
 
-namespace { 
+namespace {
 class Solution {
    public:
     template <typename T>
@@ -187,4 +186,4 @@ TEST(t0, t3) {
     FreeTreeNode(node);
 }
 
-}
+}  // namespace

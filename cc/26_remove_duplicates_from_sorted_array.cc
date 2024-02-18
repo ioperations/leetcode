@@ -74,8 +74,6 @@ class Solution {
     }
 };
 
-
-
 TEST(t0, t1) {
     std::vector<int> nums = {1, 1, 2};
     int output = 2;
@@ -99,4 +97,4 @@ TEST(t0, t2) {
     }
 }
 
-} // namespace
+}  // namespace

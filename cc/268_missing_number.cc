@@ -4,15 +4,14 @@
 /*Given an array nums containing n distinct numbers in the range [0, n], return
  * the only number in the range that is missing from the array.*/
 
-#include <vector>
 #include <algorithm>
-#include <string>
+#include <vector>
 
 #include "gtest/gtest.h"
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
    public:
     int MissingNumber(vector<int> &nums) {
@@ -27,8 +26,6 @@ class Solution {
         return ret;
     }
 };
-
-
 
 TEST(t0, t0) {
     std::vector<int> nums = {1};
@@ -78,4 +75,4 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, output);
 }
 
-}
+}  // namespace

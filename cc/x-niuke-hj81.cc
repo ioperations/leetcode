@@ -2,10 +2,11 @@
 // PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
 // https://pvs-studio.com
 #include <stddef.h>
+
 #include <algorithm>
 #include <iostream>
-#include <map>
 #include <iterator>
+#include <map>
 #include <string>
 
 #include "gtest/gtest.h"

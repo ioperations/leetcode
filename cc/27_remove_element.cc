@@ -57,8 +57,6 @@ class Solution {
     }
 };
 
-
-
 TEST(t0, t1) {
     std::vector<int> v{3, 2, 2, 3};
     int val = 3;
@@ -92,4 +90,4 @@ TEST(t0, t2) {
     }
 }
 
-} // namespace
+}  // namespace

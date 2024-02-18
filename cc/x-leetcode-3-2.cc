@@ -2,14 +2,12 @@
 // PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
 // https://pvs-studio.com
 #include <climits>
-#include <iostream>
-#include <map>
 #include <string>
 #include <unordered_map>
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
    public:
     int LengthOfLongestSubstring(string s) {
@@ -33,4 +31,4 @@ class Solution {
     }
 };
 
-}
+}  // namespace

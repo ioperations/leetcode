@@ -9,10 +9,9 @@ There is only one repeated number in nums, return this repeated number.
 You must solve the problem without modifying the array nums and uses only
 constant extra space.*/
 
-#include <benchmark/benchmark.h>
 #include <vector>
-#include <string>
 
+#include "benchmark/benchmark.h"
 #include "gtest/gtest.h"
 
 using namespace std;
@@ -55,7 +54,6 @@ class Solution {
         return slow;
     }
 };
-
 
 TEST(t0, t1) {
     std::vector<int> v{1, 3, 4, 2, 2};

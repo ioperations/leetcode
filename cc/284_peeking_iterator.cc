@@ -22,12 +22,10 @@
  */
 
 #include <vector>
-#include <string>
 
 #include "gtest/gtest.h"
 
 using namespace std;
-
 
 namespace {
 class Iterator {
@@ -60,34 +58,32 @@ class Iterator {
 };
 
 class PeekingIterator : public Iterator {
-    int nextVal;
+    int next_val;
 
    public:
     PeekingIterator(const vector<int> &nums) : Iterator(nums) {
-        nextVal = Iterator::next();
+        next_val = Iterator::next();
         // Initialize any member here.
         // **DO NOT** save a copy of nums and manipulate it directly.
         // You should only use the Iterator interface methods.
     }
 
     // Returns the next element in the iteration without advancing the iterator.
-    int Peek() { return nextVal; }
+    int Peek() { return next_val; }
 
     // hasNext() and next() should behave the same as in the Iterator interface.
     // Override them if needed.
     int next() {
-        int temp = nextVal;
+        int temp = next_val;
         if (Iterator::hasNext())
-            nextVal = Iterator::next();
+            next_val = Iterator::next();
         else
-            nextVal = 0;
+            next_val = 0;
         return temp;
     }
 
-    bool hasNext() const { return (nextVal != 0); }
+    bool hasNext() const { return (next_val != 0); }
 };
-
-
 
 TEST(t0, t1) {
     // Input ["PeekingIterator", "next", "peek", "next", "next", "hasNext"]

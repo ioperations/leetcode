@@ -8,7 +8,6 @@ Return the minimum size of the set so that at least half of the integers of the
 array are removed.*/
 
 #include <queue>
-#include <string>
 #include <unordered_map>
 #include <vector>
 

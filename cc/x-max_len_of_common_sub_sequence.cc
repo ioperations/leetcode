@@ -4,10 +4,9 @@
 /// given two string
 /// find the max length of the substring containing same characters
 
+#include <algorithm>
 #include <cstring>
 #include <functional>
-#include <algorithm>
-#include <string>
 
 #include "gtest/gtest.h"
 

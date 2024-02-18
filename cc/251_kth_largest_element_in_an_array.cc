@@ -9,13 +9,12 @@ distinct element.*/
 
 #include <queue>
 #include <vector>
-#include <string>
 
 #include "gtest/gtest.h"
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
    public:
     int FindKthLargest(vector<int> &nums, int k) {
@@ -30,8 +29,6 @@ class Solution {
         return q.top();
     }
 };
-
-
 
 TEST(t0, t1) {
     std::vector<int> v{3, 2, 1, 5, 6, 4};
@@ -49,4 +46,4 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, 4);
 }
 
-}
+}  // namespace

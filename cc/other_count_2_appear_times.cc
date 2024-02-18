@@ -13,11 +13,9 @@
     所以一共出现了6次2
 */
 
-#include <string>
-
 #include "gtest/gtest.h"
 
-namespace { 
+namespace {
 class Solution {
    public:
     int Solve(int left, int right) {
@@ -29,8 +27,6 @@ class Solution {
     /* data */
 };
 
-
-
 TEST(t0, t1) {
     int left = 1;
     int right = 22;
@@ -40,4 +36,4 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, output);
 }
 
-}
+}  // namespace

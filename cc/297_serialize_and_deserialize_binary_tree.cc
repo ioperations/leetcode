@@ -27,7 +27,6 @@ creative and come up with different approaches yourself.*/
 using namespace std;
 using namespace Tree;
 
-
 namespace {
 class Codec {
    public:

@@ -9,7 +9,6 @@ the root node down to the farthest leaf node.
 
 */
 
-#include <string>
 #include <vector>
 
 //* Definition for a binary tree node.
@@ -17,7 +16,7 @@ the root node down to the farthest leaf node.
 #include "gtest/gtest.h"
 
 using namespace Tree;
-namespace { 
+namespace {
 class Solution {
    public:
     template <typename T>
@@ -68,4 +67,4 @@ TEST(t0, t2) {
     FreeTreeNode(binary_tree);
 }
 
-}
+}  // namespace

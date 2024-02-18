@@ -119,8 +119,6 @@ class MedianFinder {
 // };
 // END: Time Limit Exceeded
 
-
-
 TEST(t0, t1) {
     MedianFinder mf;
     double result = 0.0;

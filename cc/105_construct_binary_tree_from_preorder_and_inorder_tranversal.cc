@@ -7,7 +7,6 @@
 
 //* Definition for a binary tree node.
 #include <unordered_map>
-#include <string>
 #include <vector>
 
 #include "datastruct_base.hh"
@@ -15,7 +14,7 @@
 
 using namespace Tree;
 using namespace std;
-namespace { 
+namespace {
 class Solution {
    public:
     template <typename T>
@@ -46,7 +45,6 @@ class Solution {
     }
 };
 
-
 using namespace std;
 
 TEST(t0, t1) {
@@ -73,4 +71,4 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
 }
 
-}
+}  // namespace

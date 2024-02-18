@@ -8,7 +8,6 @@ changing its structure.
 */
 
 #include <utility>
-#include <string>
 
 #include "datastruct_base.hh"
 #include "gtest/gtest.h"

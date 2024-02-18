@@ -1,11 +1,11 @@
 
 #include <string.h>
-#include <string>
+
 #include <utility>
 
 #include "gtest/gtest.h"
 
-namespace { 
+namespace {
 class QuickSort {
     int Partition(int arr[], int start, int end) {
         int pivot = arr[start];
@@ -58,7 +58,6 @@ class QuickSort {
     }
 };
 
-
 TEST(t0, t1) {
     int output[] = {1, 3, 2};
 
@@ -69,4 +68,4 @@ TEST(t0, t1) {
     EXPECT_TRUE(0 == memcmp(output, expected, sizeof(expected)));
 }
 
-}
+}  // namespace

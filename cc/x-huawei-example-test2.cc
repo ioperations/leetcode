@@ -5,8 +5,8 @@
 #include <functional>
 #include <iostream>
 #include <set>
-#include <vector>
 #include <string>
+#include <vector>
 
 #include "gtest/gtest.h"
 

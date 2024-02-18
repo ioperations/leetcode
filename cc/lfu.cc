@@ -2,7 +2,6 @@
 #include <list>
 #include <optional>
 #include <unordered_map>
-#include <string>
 
 #include "gtest/gtest.h"
 
@@ -54,7 +53,9 @@ void LfuCache<K, V>::Set(const K &key, const V &value) {
             freq_to_list.erase(freq);
             if (freq == min_freq) ++min_freq;
         }
-        freq_to_list[++freq].push_front(Node(key, value, freq));
+        Node tmp(key, value, freq);
+        freq++;
+        freq_to_list[freq].push_front(tmp);
         key_to_list_head[key] = freq_to_list[freq].begin();
 
     } else {

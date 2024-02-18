@@ -24,7 +24,7 @@ given list of words.*/
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
    public:
     bool Check(const string &a, const string &b) {
@@ -63,7 +63,6 @@ class Solution {
     }
 };
 
-
 TEST(t0, t1) {
     vector<string> words = {"a", "b", "ba", "bca", "bda", "bdca"};
     int output = 4;
@@ -93,4 +92,4 @@ TEST(t0, t3) {
     int ret = sl.LongestStrChain(words);
     EXPECT_EQ(ret, output);
 }
-}
+}  // namespace

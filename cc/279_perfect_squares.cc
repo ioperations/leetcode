@@ -11,11 +11,10 @@ perfect squares while 3 and 11 are not.*/
 #include <algorithm>
 #include <climits>
 #include <vector>
-#include <string>
 
 #include "gtest/gtest.h"
 
-namespace { 
+namespace {
 class Solution {
    public:
     int NumSquares(int n) {
@@ -35,8 +34,6 @@ class Solution {
     }
 };
 
-
-
 TEST(t0, t1) {
     int n = 12;
     int const output = 3;
@@ -55,4 +52,4 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
 }
 
-}
+}  // namespace

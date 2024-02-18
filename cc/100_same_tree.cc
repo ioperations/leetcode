@@ -9,7 +9,6 @@ Two binary trees are considered the same if they are structurally identical, and
 the nodes have the same value.
 */
 
-#include <string>
 #include <vector>
 
 // * Definition for a binary tree node.
@@ -17,7 +16,7 @@ the nodes have the same value.
 #include "gtest/gtest.h"
 
 using namespace Tree;
-namespace { 
+namespace {
 class Solution {
    public:
     template <typename T>
@@ -40,7 +39,6 @@ class Solution {
         return false;
     }
 };
-
 
 TEST(memleak, t0) {
     std::vector<int> p = {1, 2, 3}, q = {1, 2, 3};
@@ -126,4 +124,4 @@ TEST(t0, t5) {
     FreeRoot(root2);
 }
 
-}
+}  // namespace

@@ -25,8 +25,6 @@ class Solution {
     }
 };
 
-
-
 TEST(t0, t1) {
     Solution s;
 
@@ -48,4 +46,4 @@ TEST(t0, t3) {
 
     EXPECT_EQ(ret, false);
 }
-}
+}  // namespace

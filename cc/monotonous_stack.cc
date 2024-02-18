@@ -5,13 +5,12 @@
 
 #include <stack>
 #include <vector>
-#include <string>
 
 #include "gtest/gtest.h"
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
    public:
     std::vector<int> Solve(vector<int> &nums) {
@@ -29,7 +28,6 @@ class Solution {
         return ret;
     }
 };
-
 
 TEST(t0, t1) {
     std::vector<int> nums{1, 2, 3, 4, 5, 6};
@@ -55,4 +53,4 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, output);
 }
 
-}
+}  // namespace
