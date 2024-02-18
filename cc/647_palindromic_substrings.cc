@@ -85,7 +85,7 @@ TEST(palindromic_substrings, t2) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t1, t1) {
+TEST(palindromic_substrings_v2, t1) {
     string s = "abc";
     int output = 3;
     // Explanation: Three palindromic strings: "a", "b", "c".
@@ -95,7 +95,7 @@ TEST(t1, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t1, t2) {
+TEST(palindromic_substrings_v2, t2) {
     string s = "aaa";
     int output = 6;
     // Explanation: Six palindromic strings: "a", "a", "a", "aa", "aa", "aaa".

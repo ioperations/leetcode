@@ -206,7 +206,7 @@ class BrowserHistorySysV2 {
 };
 
 
-TEST(t1, t1) {
+TEST(design_browser_history_v2, t1) {
     BrowserHistorySysV2 br("w3.huawei.com", 10);
     int ret = br.Visit("google.com");
     EXPECT_EQ(2, ret);
@@ -231,7 +231,7 @@ TEST(t1, t1) {
     EXPECT_EQ(3, ret);
 }
 
-TEST(t1, t2) {
+TEST(design_browser_history_v2, t2) {
     BrowserHistorySysV2 br("www.huawei.com", 3);
     int ret = br.Visit("w3.huawei.com");
     EXPECT_EQ(2, ret);

@@ -121,7 +121,7 @@ void ExpectEqList(ListNode *const head, const std::vector<int> &elements) {
     EXPECT_EQ(i, elements.size());
 }
 
-TEST(t1, t0) {
+TEST(reverse_link_list_v2, t0) {
     // head = [1,2,3,4,5], left = 2, right = 4 Output: [1,4,3,2,5]
 
     ListNode *head = List::ConstructList(std::vector<int>{1, 2, 3, 4, 5});
@@ -132,7 +132,7 @@ TEST(t1, t0) {
     List::FreeList(head);
 }
 
-TEST(t1, t1) {
+TEST(reverse_link_list_v2, t1) {
     // , 2, 4
 
     ListNode *head = List::ConstructList(std::vector<int>{1, 2, 3, 4, 5});
@@ -143,7 +143,7 @@ TEST(t1, t1) {
     List::FreeList(head);
 }
 
-TEST(t1, t2) {
+TEST(reverse_link_list_v2, t2) {
     // , 2, 4
 
     ListNode *head = List::ConstructList(std::vector<int>{5});
@@ -154,7 +154,7 @@ TEST(t1, t2) {
     List::FreeList(head);
 }
 
-TEST(t1, t3) {
+TEST(reverse_link_list_v2, t3) {
     // , 2, 4
 
     ListNode *head = List::ConstructList(std::vector<int>{3, 5});
@@ -164,7 +164,7 @@ TEST(t1, t3) {
 
     List::FreeList(head);
 }
-TEST(t1, t4) {
+TEST(reverse_link_list_v2, t4) {
     // , 2, 4
 
     ListNode *head = List::ConstructList(std::vector<int>{1, 2, 3});

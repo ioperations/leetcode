@@ -134,7 +134,7 @@ TEST(minimum_difficulty_of_a_job_schedule, t3) {
     EXPECT_EQ(output, ret);
 }
 
-TEST(t1, t1) {
+TEST(minimum_difficulty_of_a_job_schedule_v2, t1) {
     vector<int> job_difficulty = {6, 5, 4, 3, 2, 1};
     int const d = 2;
     int const output = 7;
@@ -149,7 +149,7 @@ TEST(t1, t1) {
     EXPECT_EQ(output, ret);
 }
 
-TEST(t1, t2) {
+TEST(minimum_difficulty_of_a_job_schedule_v2, t2) {
     vector<int> job_difficulty = {9, 9, 9};
     int const d = 4;
     int const output = -1;
@@ -163,7 +163,7 @@ TEST(t1, t2) {
     EXPECT_EQ(output, ret);
 }
 
-TEST(t1, t3) {
+TEST(minimum_difficulty_of_a_job_schedule_v2, t3) {
     vector<int> job_difficulty = {1, 1, 1};
     int const d = 3;
     int const output = 3;

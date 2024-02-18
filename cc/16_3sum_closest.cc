@@ -63,7 +63,7 @@ class Solution {
     }
 };
 
-TEST(t1, t1) {
+TEST(sum_closest_v2, t1) {
     Solution s;
     std::vector<int> nums{-1, 2, 1, 4};
     int ret = s.ThreeSum(nums, 1);
@@ -71,7 +71,7 @@ TEST(t1, t1) {
     EXPECT_EQ(ret, 2);
 }
 
-TEST(t1, t2) {
+TEST(sum_closest_v2, t2) {
     Solution s;
     std::vector<int> nums{0, 0, 0};
     int ret = s.ThreeSum(nums, 1);
@@ -79,7 +79,7 @@ TEST(t1, t2) {
     EXPECT_EQ(ret, 0);
 }
 
-TEST(t1, t3) {
+TEST(sum_closest_v2, t3) {
     Solution s;
     std::vector<int> nums{-55, -24, -18, -11, -7, -3, 4, 5, 6, 9, 11, 23, 33};
     int ret = s.ThreeSum2(nums, 0);

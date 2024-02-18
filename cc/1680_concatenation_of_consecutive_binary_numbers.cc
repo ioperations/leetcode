@@ -52,7 +52,7 @@ class Solution {
 
 
 
-TEST(t1, t0) {
+TEST(concatenation_of_consecutive_binary_numbers_v2, t0) {
     int const n = 10;
     Solution sl;
     std::string const ret = sl.demical_to_binary(n);

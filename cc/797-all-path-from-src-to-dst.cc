@@ -37,7 +37,7 @@ class Solution {
 
 
 
-TEST(t1, t2) {
+TEST(_all_path_from_src_to_dstv2, t2) {
     Solution n;
 
     (void)n;

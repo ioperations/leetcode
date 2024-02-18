@@ -38,7 +38,7 @@ class Solution {
 
 using namespace std;
 
-TEST(t1, t0) {
+TEST(binary_tree_inorder_tranverse_v2, t0) {
 #define null optional<int>()
     std::vector<optional<int>> vec = {1, null, 2, 3};
     // Output: [1,3,2]

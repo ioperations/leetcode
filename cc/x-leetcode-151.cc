@@ -53,33 +53,33 @@ class Solution {
     }
 };
 
-TEST(t1, t2) {
+TEST(x_leetcode_v2, t2) {
     const std::string s(" hello world ");
     Solution slu;
     const std::string ret = slu.ReverseWords(s);
     EXPECT_EQ(ret, std::string("world hello"));
 }
 
-TEST(t1, t3) {
+TEST(x_leetcode_v2, t3) {
     std::string s("a good  example");
     Solution slu;
     std::string ret = slu.ReverseWords(s);
     EXPECT_EQ(ret, std::string("example good a"));
 }
 
-TEST(t1, t4) {
+TEST(x_leetcode_v2, t4) {
     std::string s("the sky is blue");
     Solution slu;
     std::string ret = slu.ReverseWords(s);
     EXPECT_EQ(ret, std::string("blue is sky the"));
 }
-TEST(t1, t5) {
+TEST(x_leetcode_v2, t5) {
     std::string s(" Bob  Loves Alice ");
     Solution slu;
     std::string ret = slu.ReverseWords(s);
     EXPECT_EQ(ret, std::string("Alice Loves Bob"));
 }
-TEST(t1, t6) {
+TEST(x_leetcode_v2, t6) {
     std::string s("Alice does not even like bob");
     Solution slu;
     std::string ret = slu.ReverseWords(s);

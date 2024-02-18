@@ -209,7 +209,7 @@ TEST(validate_ip_address, t8) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t1, t3) {
+TEST(validate_ip_address_v2, t3) {
     string query_ip = "256.256.256.256";
     string output = "Neither";
     // Explanation: This is neither a IPv4 address nor a IPv6 address.

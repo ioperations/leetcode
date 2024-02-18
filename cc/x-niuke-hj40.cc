@@ -37,7 +37,7 @@ void Func(const char *s, int len) {
     }
 }
 
-TEST(t1, t2) {
+TEST(x_niuke_hjv2, t2) {
     std::string s = "1qazxsw23 edcvfr45tgbn hy67uj m,ki89ol.\\\\/;p0-=\\\\][";
     testing::internal::CaptureStdout();
     Func(s.c_str(), s.size());

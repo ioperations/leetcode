@@ -202,7 +202,7 @@ TEST(clone_graph, t3) {
     /*This an empty graph, it does not have any nodes.*/
 }
 
-TEST(t1, t1) {
+TEST(clone_graph_v2, t1) {
     std::vector<std::vector<int>> adj_list = {
         std::vector<int>{2, 4}, std::vector<int>{1, 3}, std::vector<int>{2, 4},
         std::vector<int>{1, 3}};
@@ -219,7 +219,7 @@ TEST(t1, t1) {
     // 3rd node (val = 3).
 }
 
-TEST(t1, t2) {
+TEST(clone_graph_v2, t2) {
     std::vector<std::vector<int>> adj_list = {std::vector<int>{}};
     Node *node = BuildNode(adj_list);
     Solution sl;
@@ -230,7 +230,7 @@ TEST(t1, t2) {
      * one node with val = 1 and it does not have any neighbors*/
 }
 
-TEST(t1, t3) {
+TEST(clone_graph_v2, t3) {
     std::vector<std::vector<int>> adj_list = {};
     Node *node = BuildNode(adj_list);
     Solution sl;

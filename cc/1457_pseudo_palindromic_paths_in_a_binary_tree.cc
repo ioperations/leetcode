@@ -202,7 +202,7 @@ TEST(pseudo_palindromic_paths_in_a_binary_tree, t3) {
     FreeTreeNode(node);
 }
 
-TEST(t1, t1) {
+TEST(pseudo_palindromic_paths_in_a_binary_tree_v2, t1) {
     /*
                              _______
                              |     |
@@ -235,7 +235,7 @@ TEST(t1, t1) {
     FreeTreeNode(node);
 }
 
-TEST(t1, t2) {
+TEST(pseudo_palindromic_paths_in_a_binary_tree_v2, t2) {
     std::vector<optional<int>> root = {2,    1,    1,    1,    3, null,
                                        null, null, null, null, 1};
     /*
@@ -273,7 +273,7 @@ TEST(t1, t2) {
     FreeTreeNode(node);
 }
 
-TEST(t1, t3) {
+TEST(pseudo_palindromic_paths_in_a_binary_tree_v2, t3) {
     std::vector<optional<int>> root = {9};
     int output = 1;
     auto *node = ConstructBinaryTree(root);

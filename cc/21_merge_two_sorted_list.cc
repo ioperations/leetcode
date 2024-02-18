@@ -104,7 +104,7 @@ TEST(merge_two_sorted_list, t1) {
 
     List::FreeList(it_2);
 }
-TEST(t1, t1) {
+TEST(merge_two_sorted_list_v2, t1) {
     ListNode *s1 = List::ConstructList(std::vector<int>{1, 2, 4});
 
     ListNode *l1 = List::ConstructList(std::vector<int>{1, 3, 4});

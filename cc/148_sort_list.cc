@@ -147,7 +147,7 @@ TEST(sort_list, t1) {
     List::FreeList(n);
 }
 
-TEST(t1, t1) {
+TEST(sort_list_v2, t1) {
     ListNode *n = List::ConstructList(std::vector<int>{4, 2, 1, 3});
     SolutionV2 s;
     n = s.SortList(n);
@@ -163,7 +163,7 @@ TEST(sort_list, t2) {
     List::FreeList(n);
 }
 
-TEST(t1, t2) {
+TEST(sort_list_v2, t2) {
     ListNode *n = List::ConstructList(std::vector<int>{-4, 5, 3, 4, 0});
     SolutionV2 s;
     n = s.SortList(n);
@@ -179,7 +179,7 @@ TEST(sort_list, t3) {
     List::FreeList(n);
 }
 
-TEST(t1, t3) {
+TEST(sort_list_v2, t3) {
     ListNode *n = List::ConstructList(std::vector<int>{});
     SolutionV2 s;
     n = s.SortList(n);

@@ -40,14 +40,14 @@ TEST(t2, t2) {
     EXPECT_EQ(1, ret);
 }
 
-TEST(t1, t2) {
+TEST(longest_substring_without_repeating_characters_v2, t2) {
     std::string s("abcabcbb");
     Solution sss;
     int ret = sss.LengthOfLongestSubstring(s);
     EXPECT_EQ(3, ret);
 }
 
-TEST(t1, t2ss) {
+TEST(longest_substring_without_repeating_characters_v2, t2ss) {
     std::string s("");
     Solution sss;
     int ret = sss.LengthOfLongestSubstring(s);

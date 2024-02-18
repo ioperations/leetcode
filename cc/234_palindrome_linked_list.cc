@@ -131,7 +131,7 @@ TEST(palindrome_linked_list, t1) {
     List::FreeList(head);
 }
 
-TEST(t1, t1) {
+TEST(palindrome_linked_list_v2, t1) {
     ListNode head(1);
     ListNode head2(2);
     ListNode head3(2);
@@ -155,7 +155,7 @@ TEST(palindrome_linked_list, t2) {
     List::FreeList(head);
 }
 
-TEST(t1, t2) {
+TEST(palindrome_linked_list_v2, t2) {
     ListNode head(1);
     ListNode head2(2);
     head.next = &head2;

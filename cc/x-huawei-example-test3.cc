@@ -31,7 +31,7 @@ void Processing(std::string s) {
     std::cout << ret << std::endl;
 }
 
-TEST(t1, t2) {
+TEST(x_huawei_example_testv2, t2) {
     std::string s = "0xA";
     testing::internal::CaptureStdout();
     Processing(s);

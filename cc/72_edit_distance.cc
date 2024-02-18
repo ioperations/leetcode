@@ -117,7 +117,7 @@ class Solution {
 
 
 
-TEST(t1, t2) {
+TEST(edit_distance_v2, t2) {
     std::string word1 = "intention", word2 = "execution";
     int output = 5;
     Solution s;
@@ -126,7 +126,7 @@ TEST(t1, t2) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t1, t3) {
+TEST(edit_distance_v2, t3) {
     std::string word1 = "horse", word2 = "ros";
 
     int output = 3;
@@ -136,7 +136,7 @@ TEST(t1, t3) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t1, t4) {
+TEST(edit_distance_v2, t4) {
     std::string word1 = "dinitrophenylhydrazine",
                 word2 = "acetylphenylhydrazine";
 

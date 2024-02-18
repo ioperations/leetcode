@@ -73,7 +73,7 @@ TEST(find_the_duplicate_number, t2) {
     EXPECT_EQ(ret, i);
 }
 
-TEST(t1, t1) {
+TEST(find_the_duplicate_number_v2, t1) {
     std::vector<int> v{1, 3, 4, 2, 2};
 
     int i = 2;
@@ -82,7 +82,7 @@ TEST(t1, t1) {
     EXPECT_EQ(ret, i);
 }
 
-TEST(t1, t2) {
+TEST(find_the_duplicate_number_v2, t2) {
     std::vector<int> v{3, 1, 3, 4, 2};
 
     int i = 3;

@@ -24,7 +24,7 @@ void Processing(std::vector<int> &nums) {
     }
 }
 
-TEST(t1, t2) {
+TEST(x_huawei_example_testv2, t2) {
     std::vector<int> t{1, 2, 4, 5, 5, 6, 6, 7, 7, 7, 3};
     testing::internal::CaptureStdout();
     Processing(t);

@@ -50,7 +50,7 @@ class Solution {
     }
 };
 
-TEST(t1, t2) {
+TEST(string_to_integer_v2, t2) {
     const std::string s = "42";
     Solution sl;
     const int ret = sl.MyAtoi(s);

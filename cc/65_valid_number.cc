@@ -373,7 +373,7 @@ TEST(valid_number, t1) {
     EXPECT_EQ(ret, expected);
 }
 
-TEST(t1, t1) {
+TEST(valid_number_v2, t1) {
     std::string s = "0";
     bool expected = true;
 
@@ -391,7 +391,7 @@ TEST(valid_number, t2) {
     EXPECT_EQ(ret, expected);
 }
 
-TEST(t1, t2) {
+TEST(valid_number_v2, t2) {
     std::string s = "e";
     bool expected = false;
 
@@ -409,7 +409,7 @@ TEST(valid_number, t4) {
     EXPECT_EQ(ret, expected);
 }
 
-TEST(t1, t4) {
+TEST(valid_number_v2, t4) {
     std::string s = ".";
     bool expected = false;
 
@@ -418,7 +418,7 @@ TEST(t1, t4) {
     EXPECT_EQ(ret, expected);
 }
 
-TEST(t1, t5) {
+TEST(valid_number_v2, t5) {
     std::vector<std::string> s = {"2",    "0089",  "-0.1",    "+3.14",
                                   "4.",   "-.9",   "2e10",    "-90E3",
                                   "3e+7", "+6e-1", "53.5e93", "-123.456e789"};
@@ -431,7 +431,7 @@ TEST(t1, t5) {
     }
 }
 
-TEST(t1, t6) {
+TEST(valid_number_v2, t6) {
     std::vector<std::string> s = {"abc",    "1a",  "1e",  "e3",
                                   "99e2.5", "--6", "-+3", "95a54e53"};
     bool expected = false;

@@ -101,7 +101,7 @@ TEST(reverse_integer, t1) {
     EXPECT_EQ(ret, 1);
 }
 
-TEST(t1, t1) {
+TEST(reverse_integer_v2, t1) {
     Solution s;
     auto ret = s.ReverseV1(100);
 
@@ -115,7 +115,7 @@ TEST(reverse_integer, t2) {
     EXPECT_EQ(ret, -101);
 }
 
-TEST(t1, t2) {
+TEST(reverse_integer_v2, t2) {
     Solution s;
     auto ret = s.ReverseV1(-101);
 
@@ -129,7 +129,7 @@ TEST(reverse_integer, t3) {
     EXPECT_EQ(ret, 0);
 }
 
-TEST(t1, t3) {
+TEST(reverse_integer_v2, t3) {
     Solution s;
     auto ret = s.ReverseV1(1534236469);
 
@@ -150,14 +150,14 @@ TEST(reverse_integer, t5) {
     EXPECT_EQ(ret, 0);
 }
 
-TEST(t1, t4) {
+TEST(reverse_integer_v2, t4) {
     Solution s;
     auto ret = s.ReverseV1(-2147483412);
 
     EXPECT_EQ(ret, -2143847412);
 }
 
-TEST(t1, t5) {
+TEST(reverse_integer_v2, t5) {
     Solution s;
     auto ret = s.ReverseV1(-2147483648);
 

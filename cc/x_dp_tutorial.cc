@@ -57,7 +57,7 @@ int FindMinPath(const char *s1, const int s1_length, const char *s2,
     return dp_fun(s1_length - 1, s2_length - 1);
 }
 
-TEST(t1, r2) {
+TEST(x_dp_tutorial_v2, r2) {
     int expected = 5;
 
     const char *s1 = "rad";

@@ -33,7 +33,7 @@ void Func(std::string &less, std::string &more) {
     std::cout << (t ? "true" : "false") << std::endl;
 }
 
-TEST(t1, t2) {
+TEST(x_niuke_hjv2, t2) {
     testing::internal::CaptureStdout();
     std::string le("bc");
     std::string more("abc");
@@ -43,7 +43,7 @@ TEST(t1, t2) {
     EXPECT_EQ(out, expected);
 }
 
-TEST(t1, t3) {
+TEST(x_niuke_hjv2, t3) {
     testing::internal::CaptureStdout();
     std::string le("bd");
     std::string more("abc");

@@ -135,7 +135,7 @@ TEST(bag_of_tokens, t3) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t1, t3) {
+TEST(bag_of_tokens_v2, t3) {
     vector<int> tokens = {100, 200, 300, 400, 500, 600, 700, 800, 900, 1000};
     int power = 200;
     Solution sl;

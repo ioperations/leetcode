@@ -53,7 +53,7 @@ void Processing(std::vector<int> nums) {
     return;
 }
 
-TEST(t1, t2) {
+TEST(x_huawei_example_testv2, t2) {
     std::vector<int> s{3, 10, 81};
     testing::internal::CaptureStdout();
     Processing(s);

@@ -114,7 +114,7 @@ TEST(reverse_pairs, t1) {
     EXPECT_EQ(ret, expected);
 }
 
-TEST(t1, t1) {
+TEST(reverse_pairs_v2, t1) {
     std::vector<int> nums = {1, 3, 2, 3, 1};
     int expected = 2;
 
@@ -132,7 +132,7 @@ TEST(reverse_pairs, t2) {
     EXPECT_EQ(ret, expected);
 }
 
-TEST(t1, t2) {
+TEST(reverse_pairs_v2, t2) {
     std::vector<int> nums = {2, 4, 3, 5, 1};
     int expected = 3;
 
@@ -150,7 +150,7 @@ TEST(reverse_pairs, t3) {
     int ret = sl.ReversePairs(nums);
     EXPECT_EQ(ret, expected);
 }
-TEST(t1, t3) {
+TEST(reverse_pairs_v2, t3) {
     std::vector<int> nums = {2147483647, 2147483647, 2147483647,
                              2147483647, 2147483647, 2147483647};
     int expected = 0;

@@ -137,7 +137,7 @@ TEST(Maximum_Length_of_a_Concatenated_String_with_Unique_Characters, t3) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t1, t1) {
+TEST(Maximum_Length_of_a_Concatenated_String_with_Unique_Characters_v2, t1) {
     vector<string> arr = {"un", "iq", "ue"};
     int output = 4;
     /*Explanation: All the valid concatenations are:
@@ -154,7 +154,7 @@ TEST(t1, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t1, t2) {
+TEST(Maximum_Length_of_a_Concatenated_String_with_Unique_Characters_v2, t2) {
     vector<string> arr = {"cha", "r", "act", "ers"};
     int output = 6;
     /*
@@ -166,7 +166,7 @@ TEST(t1, t2) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t1, t3) {
+TEST(Maximum_Length_of_a_Concatenated_String_with_Unique_Characters_v2, t3) {
     vector<string> arr = {"abcdefghijklmnopqrstuvwxyz"};
     int output = 26;
     // Explanation: The only string in arr has all 26 characters.};

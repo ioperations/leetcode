@@ -225,7 +225,7 @@ TEST(memleak, t3) {
     FreeList(n1);
 }
 
-TEST(t1, t1_1) {
+TEST(merge_k_sorted_list_v2, t1_1) {
     /// Input: lists = [[1,4,5],[1,3,4],[2,6]]
     /// Output: [1,1,2,3,4,4,5,6]
     std::vector<int> list1{1, 4, 5};
@@ -255,7 +255,7 @@ void ExpectEqList(MyListNode *list, const std::vector<int> &elemets) {
     }
 }
 
-TEST(t1, priority_queue) {
+TEST(merge_k_sorted_list_v2, priority_queue) {
     /// Input: lists = [[1,4,5],[1,3,4],[2,6]]
     /// Output: [1,1,2,3,4,4,5,6]
     std::vector<int> list1{1, 4, 5};
@@ -277,7 +277,7 @@ TEST(t1, priority_queue) {
     FreeList(ret);
 }
 
-TEST(t1, null) {
+TEST(merge_k_sorted_list_v2, null) {
     /// Input: lists = [[1,4,5],[1,3,4],[2,6]]
     /// Output: [1,1,2,3,4,4,5,6]
 
@@ -290,7 +290,7 @@ TEST(t1, null) {
     // FreeListList(ret);
 }
 
-TEST(t1, null2) {
+TEST(merge_k_sorted_list_v2, null2) {
     /// Input: lists = [[1,4,5],[1,3,4],[2,6]]
     /// Output: [1,1,2,3,4,4,5,6]
     std::vector<int> list1{};

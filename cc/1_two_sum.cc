@@ -27,7 +27,7 @@ class Solution {
 
 
 
-TEST(t1, t1) {
+TEST(two_sum_v2, t1) {
     Solution s;
     std::vector<int> nums{2, 7, 11, 15};
     int target = 9;
@@ -35,7 +35,7 @@ TEST(t1, t1) {
     EXPECT_EQ(ret, (std::vector<int>{0, 1}));
 }
 
-TEST(t1, t2) {
+TEST(two_sum_v2, t2) {
     Solution s;
     std::vector<int> nums{3, 2, 4};
     int target = 6;
@@ -43,7 +43,7 @@ TEST(t1, t2) {
     EXPECT_EQ(ret, (std::vector<int>{1, 2}));
 }
 
-TEST(t1, t3) {
+TEST(two_sum_v2, t3) {
     Solution s;
     std::vector<int> nums{3, 3};
     int target = 6;

@@ -62,28 +62,28 @@ int Result(const string &data) {
     return sum;
 }
 
-TEST(t1, t2) {
+TEST(x_niuke_hj54_v2, t2) {
     pos = 0;
     const char *s = "400+5";
     int ret = Result(s);
     EXPECT_EQ(ret, 405);
 }
 
-TEST(t1, t3) {
+TEST(x_niuke_hj54_v2, t3) {
     pos = 0;
     const char *s = "4*(2+5)";
     int ret = Result(s);
     EXPECT_EQ(ret, 28);
 }
 
-TEST(t1, t4) {
+TEST(x_niuke_hj54_v2, t4) {
     pos = 0;
     const char *s = "4*(2+(5-7))";
     int ret = Result(s);
     EXPECT_EQ(ret, 0);
 }
 
-TEST(t1, t5) {
+TEST(x_niuke_hj54_v2, t5) {
     pos = 0;
     const char *s = "(2+(5-7))*(-4)";
     int ret = Result(s);

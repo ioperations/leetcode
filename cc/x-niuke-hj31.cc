@@ -46,7 +46,7 @@ void ReverseOutPutAllWords(const char *s, int len) {
     std::cout << ret2 << std::endl;
 }
 
-TEST(t1, t2) {
+TEST(x_niuke_hjv2, t2) {
     testing::internal::CaptureStdout();
     std::string s("i am a student");
 

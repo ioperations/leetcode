@@ -27,7 +27,7 @@ TEST(ta, t2) {
     std::string out = testing::internal::GetCapturedStdout();
     EXPECT_EQ(out, std::string("-1\n"));
 }
-TEST(t1, t2) {
+TEST(x_niuke_hjv2, t2) {
     std::string ss("asdfasdfo");
     testing::internal::CaptureStdout();
     Process(ss);

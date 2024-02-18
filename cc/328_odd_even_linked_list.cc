@@ -160,7 +160,7 @@ TEST(odd_even_linked_list, t2) {
     List::FreeList(head);
 }
 
-TEST(t1, t1) {
+TEST(odd_even_linked_list_v2, t1) {
     std::vector<int> v{1, 2, 3, 4, 5};
     std::vector<int> ex{1, 3, 5, 2, 4};
 
@@ -184,7 +184,7 @@ TEST(t1, t1) {
     List::FreeList(head);
 }
 
-TEST(t1, t2) {
+TEST(odd_even_linked_list_v2, t2) {
     std::vector<int> v{2, 1, 3, 5, 6, 4, 7};
     std::vector<int> ex{2, 3, 6, 7, 1, 5, 4};
     /*

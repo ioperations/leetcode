@@ -43,7 +43,7 @@ class Solution {
 };
 
 
-TEST(t1, t0) {
+TEST(_add_binaryv2, t0) {
     string s = "1111";
     string b = "10101";
 
@@ -53,7 +53,7 @@ TEST(t1, t0) {
     EXPECT_EQ(ret, "100100");
 }
 
-TEST(t1, t1) {
+TEST(_add_binaryv2, t1) {
     string s = "11";
     string b = "1";
 

@@ -73,7 +73,7 @@ TEST(contains_duplicate_ii, t3) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t1, t1) {
+TEST(contains_duplicate_ii_v2, t1) {
     std::vector<int> nums = {1, 2, 3, 1};
     int k = 3;
     bool output = true;
@@ -83,7 +83,7 @@ TEST(t1, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t1, t2) {
+TEST(contains_duplicate_ii_v2, t2) {
     std::vector<int> nums = {1, 0, 1, 1};
     int k = 1;
     bool output = true;
@@ -93,7 +93,7 @@ TEST(t1, t2) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t1, t3) {
+TEST(contains_duplicate_ii_v2, t3) {
     std::vector<int> nums = {1, 2, 3, 1, 2, 3};
     int k = 2;
     bool output = false;

@@ -95,7 +95,7 @@ TEST(kth_smallest_element_in_a_sorted_matrix, t2) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t1, t1) {
+TEST(kth_smallest_element_in_a_sorted_matrix_v2, t1) {
     vector<vector<int>> matrix = {{1, 5, 9}, {10, 11, 13}, {12, 13, 15}};
     int k = 8;
     int output = 13;
@@ -106,7 +106,7 @@ TEST(t1, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t1, t2) {
+TEST(kth_smallest_element_in_a_sorted_matrix_v2, t2) {
     vector<vector<int>> matrix = {{-5}};
     int k = 1;
     int output = -5;

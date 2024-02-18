@@ -78,7 +78,7 @@ TEST(reverse_string_ii, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t1, t1) {
+TEST(reverse_string_ii_v2, t1) {
     std::string s = "abcdefg";
     int k = 2;
     std::string output = "bacdfeg";
@@ -96,7 +96,7 @@ TEST(reverse_string_ii, t2) {
 
     EXPECT_EQ(ret, output);
 }
-TEST(t1, t2) {
+TEST(reverse_string_ii_v2, t2) {
     std::string s = "abcd";
     int k = 2;
     std::string output = "bacd";
