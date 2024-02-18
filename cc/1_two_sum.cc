@@ -3,7 +3,6 @@
 // https://pvs-studio.com
 #include <stddef.h>
 #include <vector>
-#include <string>
 
 #include "gtest/gtest.h"
 

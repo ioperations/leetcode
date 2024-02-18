@@ -65,4 +65,4 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, 2.5);
 }
 
-}
+} // namespace
