@@ -33,7 +33,6 @@ The functions get and Put must each run in O(1) average time complexity.
 
 using namespace std;
 
-
 namespace {
 
 template <typename K, typename V>
@@ -51,7 +50,10 @@ class LFUCacheImpl {
                 freq_table.erase(freq);
                 if (freq == min_freq) ++min_freq;
             }
-            freq_table[++freq].push_front(Node(key, value, freq));
+
+            freq++;
+            Node tmp(key, value, freq);
+            freq_table[freq].push_front(tmp);
             key_table[key] = freq_table[freq].begin();
         } else {
             if (key_table.size() == capacity) {
@@ -80,7 +82,9 @@ class LFUCacheImpl {
                 freq_table.erase(freq);
                 if (freq == min_freq) ++min_freq;
             }
-            freq_table[++freq].push_front(Node(key, val, freq));
+            ++freq;
+            Node tmp(key, val, freq);
+            freq_table[freq].push_front(tmp);
             key_table[key] = freq_table[freq].begin();
             return val;
         }
@@ -136,7 +140,6 @@ class LFUCache<K, int> {
    private:
     LFUCacheImpl<K, int> impl;
 };
-
 
 TEST(lfu_cache, t1) {
     LFUCache<int, int> lfu(2);
@@ -207,3 +210,10 @@ TEST(lfu_cache, t3) {
     EXPECT_EQ(ret, "4");  // cache=[4,3], cnt(4)=2, cnt(3)=3
 }
 }  // namespace
+
+#ifdef TEST_ADQ
+int main(int argc, char *argv[]) {
+    testing::InitGoogleTest(&argc, argv);
+    return RUN_ALL_TESTS();
+}
+#endif
