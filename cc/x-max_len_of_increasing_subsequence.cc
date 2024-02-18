@@ -90,7 +90,7 @@ TEST(x_max_len_of_increasing_subsequence_v2, t4) {
     EXPECT_EQ(MaxLengthOfdijizixulie(z, sizeof(z) / sizeof(int)), 2);
 }
 
-TEST(t2, t4) {
+TEST(x_max_len_of_increasing_subsequence_v3, t4) {
     int z[] = {-1, 9, 3, 4, 5, 6, 7};
     int ret = MaxLengthOf(z, sizeof(z) / sizeof(int));
     EXPECT_EQ(ret, 6);

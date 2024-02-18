@@ -134,7 +134,7 @@ TEST(combination_sum_iv_v2, t2) {
     EXPECT_EQ(ret, 0);
 }
 
-TEST(t2, t1) {
+TEST(combination_sum_iv_v3, t1) {
     vector<int> nums = {1, 2, 3};
     int target = 4;
     Solution sl;
@@ -154,7 +154,7 @@ TEST(t2, t1) {
     EXPECT_EQ(ret, 7);
 }
 
-TEST(t2, t2) {
+TEST(combination_sum_iv_v3, t2) {
     vector<int> nums = {9};
     int target = 3;
     Solution sl;

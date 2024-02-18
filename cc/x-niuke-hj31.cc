@@ -56,7 +56,7 @@ TEST(x_niuke_hjv2, t2) {
     EXPECT_EQ(out, std::string("student a am i\n"));
 }
 
-TEST(t2, t2) {
+TEST(x_niuke_hjv3, t2) {
     testing::internal::CaptureStdout();
     std::string s("$bo*y gi!r#l");
 

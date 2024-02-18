@@ -57,14 +57,14 @@ TEST(string_to_integer_v2, t2) {
     EXPECT_EQ(42, ret);
 }
 
-TEST(t2, t2) {
+TEST(string_to_integer_v3, t2) {
     const std::string s = "    -42";
     Solution sl;
     const int ret = sl.MyAtoi(s);
     EXPECT_EQ(-42, ret);
 }
 
-TEST(t3, t2) {
+TEST(string_to_integer_v4, t2) {
     const std::string s = "4193 with words";
     Solution sl;
     const int ret = sl.MyAtoi(s);

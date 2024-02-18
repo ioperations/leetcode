@@ -107,7 +107,7 @@ TEST(max_number_of_k_sum_pairs_v2, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t2, t1) {
+TEST(max_number_of_k_sum_pairs_v3, t1) {
     std::vector<int> nums = {1, 2, 3, 4};
     int k = 5;
     int output = 2;
@@ -153,7 +153,7 @@ TEST(max_number_of_k_sum_pairs_v2, t2) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t2, t2) {
+TEST(max_number_of_k_sum_pairs_v3, t2) {
     std::vector<int> nums = {3, 1, 3, 4, 3};
     int k = 6;
     int output = 1;

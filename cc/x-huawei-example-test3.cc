@@ -40,7 +40,7 @@ TEST(x_huawei_example_testv2, t2) {
     EXPECT_EQ(ret, std::string("10\n"));
 }
 
-TEST(t2, t2) {
+TEST(x_huawei_example_testv3, t2) {
     std::string s = "0xF";
     testing::internal::CaptureStdout();
     Processing(s);
@@ -49,7 +49,7 @@ TEST(t2, t2) {
     EXPECT_EQ(ret, std::string("15\n"));
 }
 
-TEST(t3, t1) {
+TEST(x_huawei_example_testv4, t1) {
     std::string s = "0xFF";
     testing::internal::CaptureStdout();
     Processing(s);

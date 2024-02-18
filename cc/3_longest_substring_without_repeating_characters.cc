@@ -33,7 +33,7 @@ class Solution {
     }
 };
 
-TEST(t2, t2) {
+TEST(longest_substring_without_repeating_characters_v3, t2) {
     std::string s("bbbbb");
     Solution sss;
     int ret = sss.LengthOfLongestSubstring(s);
