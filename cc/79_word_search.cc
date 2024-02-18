@@ -24,7 +24,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    bool ExistV(vector<vector<char>> &board, string word) {
+    bool ExistV(vector<vector<char>> &board, const string& word) {
         /*
             m == board.length
             n = board[i].length
@@ -41,7 +41,7 @@ class Solution {
         return false;
     }
 
-    bool ExistV(vector<vector<char>> &board, int x, int y, string word) {
+    bool ExistV(vector<vector<char>> &board, int x, int y, const string& word) {
         std::stack<std::pair<int, int>> stack;
         // std::set<std::pair<int, int>> seen;
 
@@ -143,7 +143,7 @@ class Solution {
         return (i >= 0 && j >= 0 && i < row && j < col) ? true : false;
     }
 
-    void Backtrack(int i, int j, vector<vector<char>> &board, string &word) {
+    void Backtrack(int i, int j, vector<vector<char>> &board, const string &word) {
         if (index >= (int)word.size()) return;   // base-case
         if (word[index] != board[i][j]) return;  // search pruning
 
@@ -162,7 +162,7 @@ class Solution {
         index--;
     }
 
-    bool Exist(vector<vector<char>> &board, string word) {
+    bool Exist(vector<vector<char>> &board, const string& word) {
         // apply dfs from all starting characters in board
         row = board.size(), col = board[0].size();
         for (int i = 0; i < row; i++)
@@ -177,7 +177,7 @@ class Solution {
 
 class SolutionV2 {
    public:
-    bool Exist(vector<vector<char>> &board, string word) {
+    bool Exist(vector<vector<char>> &board, const string &word) {
         const int m = board.size();
         if (m == 0) return false;
         const int n = board[0].size();
@@ -193,7 +193,7 @@ class SolutionV2 {
     }
 
     bool Dfs(int i, int j, vector<vector<char>> &board,
-             vector<vector<bool>> &visited, string word) {
+             vector<vector<bool>> &visited, const string &word) {
         // int step[4][2] = {{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
 
         stack<vector<int>> stack;
