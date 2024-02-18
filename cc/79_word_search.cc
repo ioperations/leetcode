@@ -21,8 +21,6 @@ may not be used more than once.
 
 using namespace std;
 
-#include <stddef.h>
-
 namespace {
 class Solution {
    public:
@@ -242,8 +240,6 @@ class SolutionV2 {
     }
 };
 
-
-
 TEST(t0, t1) {
     /*
          ___ ___ ___ ___
@@ -378,3 +374,10 @@ TEST(t1, t4) {
 }
 
 }  // namespace
+
+#ifdef TEST_ADQ
+int main(int argc, char *argv[]) {
+    testing::InitGoogleTest(&argc, argv);
+    return RUN_ALL_TESTS();
+}
+#endif
