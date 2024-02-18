@@ -97,7 +97,7 @@ class Solution {
 
 #include <set>
 
-TEST(t0, t1) {
+TEST(find_peek_element, t1) {
     std::set<int> expectd{2};
     std::vector<int> nums{1, 2, 3, 1};
     Solution s;
@@ -106,7 +106,7 @@ TEST(t0, t1) {
     EXPECT_EQ(expectd.count(ret), true);
 }
 
-TEST(t0, t2) {
+TEST(find_peek_element, t2) {
     std::set<int> expectd{1, 5};
     std::vector<int> nums{1, 2, 1, 3, 5, 6, 4};
     Solution s;

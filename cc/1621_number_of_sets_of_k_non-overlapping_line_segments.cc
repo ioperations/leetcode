@@ -89,7 +89,7 @@ class Solution {
     }
 };
 
-TEST(t0, t1) {
+TEST(number_of_sets_of_k_non_overlapping_line_segments, t1) {
     int n = 4, k = 2;
     int output = 5;
     // Explanation: The two line segments are shown in red and blue.
@@ -101,7 +101,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t2) {
+TEST(number_of_sets_of_k_non_overlapping_line_segments, t2) {
     int n = 3, k = 1;
     int output = 3;
     // Explanation: The 3 ways are {(0,1)}, {(0,2)}, {(1,2)}.
@@ -112,7 +112,7 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t3) {
+TEST(number_of_sets_of_k_non_overlapping_line_segments, t3) {
     int n = 30, k = 7;
     int output = 796297179;
     // Explanation: The total number of possible ways to draw 7 line segments is

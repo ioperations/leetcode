@@ -81,7 +81,7 @@ class Solution {
 
 
 
-TEST(t0, t1) {
+TEST(maximium_product_of_word_lengths, t1) {
     std::vector<string> words = {"abcw", "baz", "foo", "bar", "xtfn", "abcdef"};
     int output = 16;
     // Explanation: The two words can be "abcw", "xtfn".
@@ -90,7 +90,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t2) {
+TEST(maximium_product_of_word_lengths, t2) {
     std::vector<string> words = {"a", "ab", "abc", "d", "cd", "bcd", "abcd"};
     int output = 4;
     // The two words can be "ab", "cd".
@@ -99,7 +99,7 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t3) {
+TEST(maximium_product_of_word_lengths, t3) {
     std::vector<string> words = {"a", "aa", "aaa", "aaaa"};
     int output = 0;
     // No such pair of words.

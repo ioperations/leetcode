@@ -123,7 +123,7 @@ TEST(memleak, t1) {
 
     FreeRoot(root);
 }
-TEST(t0, t1) {
+TEST(increasing_order_search_tree, t1) {
     TreeNode *root = new TreeNode(5);
 
     root = AddToRoot(root, (std::vector<int>{3, 6, 2, 4, 8, 1, 7, 9}));
@@ -135,7 +135,7 @@ TEST(t0, t1) {
     FreeRoot(root);
 }
 
-TEST(t0, t2) {
+TEST(increasing_order_search_tree, t2) {
     TreeNode *root = new TreeNode(5);
 
     root = AddToRoot(root, (std::vector<int>{1, 7}));

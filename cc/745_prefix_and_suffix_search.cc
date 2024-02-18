@@ -196,7 +196,7 @@ class WordFilterMy {
 
 
 
-TEST(t0, t1) {
+TEST(prefix_and_suffix_search, t1) {
     std::vector<string> words{"apple"};
     WordFilter *obj = new WordFilter(words);
     int ret;
@@ -205,7 +205,7 @@ TEST(t0, t1) {
     delete obj;
 }
 
-TEST(t0, t2) {
+TEST(prefix_and_suffix_search, t2) {
     std::vector<string> words{
         "cabaabaaaa", "ccbcababac", "bacaabccba", "bcbbcbacaa", "abcaccbcaa",
         "accabaccaa", "cabcbbbcca", "ababccabcb", "caccbbcbab", "bccbacbcba"};

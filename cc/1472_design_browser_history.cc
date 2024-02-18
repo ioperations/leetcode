@@ -257,7 +257,7 @@ TEST(t1, t2) {
  */
 
 
-TEST(t0, t1) {
+TEST(design_browser_history, t1) {
     // Explanation:
     BrowserHistory *browser_history = new BrowserHistory("leetcode.com");
     // You are in "leetcode.com". Visit "google.com"
@@ -285,7 +285,7 @@ TEST(t0, t1) {
     delete browser_history;
 }
 
-TEST(t0, t2) {
+TEST(design_browser_history, t2) {
     // Input:
     // ["BrowserHistory","visit","visit","visit","back","back","forward","visit","forward","back","back"]
     // [["leetcode.com"],["google.com"],["facebook.com"],["youtube.com"],[1],[1],[1],["linkedin.com"],[2],[2],[7]]

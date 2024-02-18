@@ -67,7 +67,7 @@ TEST(memleak, t1) {
 
 
 
-TEST(t0, t1) {
+TEST(swapping_nodes_in_a_linked_list, t1) {
     std::vector<int> v{1, 2, 3, 4, 5};
     int k = 2;
 
@@ -79,7 +79,7 @@ TEST(t0, t1) {
     List::FreeList(head);
 }
 
-TEST(t0, t2) {
+TEST(swapping_nodes_in_a_linked_list, t2) {
     std::vector<int> v{7, 9, 6, 6, 7, 8, 3, 0, 9, 5};
     int k = 5;
 
@@ -91,7 +91,7 @@ TEST(t0, t2) {
     List::FreeList(head);
 }
 
-TEST(t0, t3) {
+TEST(swapping_nodes_in_a_linked_list, t3) {
     std::vector<int> v{1, 2};
     int k = 1;
 
@@ -103,7 +103,7 @@ TEST(t0, t3) {
     List::FreeList(head);
 }
 
-TEST(t0, t4) {
+TEST(swapping_nodes_in_a_linked_list, t4) {
     std::vector<int> v{1, 2};
     int k = 2;
 

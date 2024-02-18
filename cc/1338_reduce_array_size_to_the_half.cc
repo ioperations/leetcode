@@ -37,7 +37,7 @@ class Solution {
     }
 };
 
-TEST(t0, t1) {
+TEST(reduce_array_size_to_the_half, t1) {
     vector<int> arr = {3, 3, 3, 3, 5, 5, 5, 2, 2, 7};
     int output = 2;
     /*
@@ -52,7 +52,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t2) {
+TEST(reduce_array_size_to_the_half, t2) {
     vector<int> arr = {7, 7, 7, 7, 7, 7};
     int output = 1;
     /*

@@ -99,7 +99,7 @@ class Solution {
     }
 };
 
-TEST(t0, t1) {
+TEST(Maximum_Length_of_a_Concatenated_String_with_Unique_Characters, t1) {
     vector<string> arr = {"un", "iq", "ue"};
     int output = 4;
     /*Explanation: All the valid concatenations are:
@@ -116,7 +116,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t2) {
+TEST(Maximum_Length_of_a_Concatenated_String_with_Unique_Characters, t2) {
     vector<string> arr = {"cha", "r", "act", "ers"};
     int output = 6;
     /*
@@ -128,7 +128,7 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t3) {
+TEST(Maximum_Length_of_a_Concatenated_String_with_Unique_Characters, t3) {
     vector<string> arr = {"abcdefghijklmnopqrstuvwxyz"};
     int output = 26;
     // Explanation: The only string in arr has all 26 characters.};

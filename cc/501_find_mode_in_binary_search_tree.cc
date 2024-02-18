@@ -131,7 +131,7 @@ void FreeRoot(TreeNode *root) {
     delete root;
 }
 
-TEST(t0, t1) {
+TEST(find_mode_in_binary_search_tree, t1) {
     std::vector<int> root = {1, 2, 2};
     std::vector<int> output{2};
 
@@ -145,7 +145,7 @@ TEST(t0, t1) {
     FreeRoot(node);
 }
 
-TEST(t0, t2) {
+TEST(find_mode_in_binary_search_tree, t2) {
     std::vector<int> root = {1};
     std::vector<int> output{1};
 

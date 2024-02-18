@@ -154,7 +154,7 @@ TEST(base, t0) {
     EXPECT_EQ(vec, vector<int>{1});
 }
 
-TEST(t0, t1) {
+TEST(mini_parser, t1) {
     const string s = "324";
     // Explanation: You should return a NestedInteger object which contains
     // a single integer 324.
@@ -173,7 +173,7 @@ TEST(t0, t1) {
     EXPECT_EQ(vec, (std::vector<int>{324}));
 }
 
-TEST(t0, t2) {
+TEST(mini_parser, t2) {
     const string s = "[123,[456,[789]]]";
     // Output: [123,[456,[789]]]
     // Explanation: Return a NestedInteger object containing a nested list

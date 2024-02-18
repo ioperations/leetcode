@@ -48,7 +48,7 @@ TEST(memleak, t0) {
     Tree::FreeTreeNode(binary_tree);
 }
 
-TEST(t0, t1) {
+TEST(binary_tree_zigzag_level_order_traversal, t1) {
     vector<optional<int>> elements{3,  9, 20, optional<int>(), optional<int>(),
                                    15, 7};
     auto *binary_tree = Tree::ConstructBinaryTree(elements);
@@ -60,7 +60,7 @@ TEST(t0, t1) {
     Tree::FreeTreeNode(binary_tree);
 }
 
-TEST(t0, t2) {
+TEST(binary_tree_zigzag_level_order_traversal, t2) {
     vector<optional<int>> elements{1};
     auto *binary_tree = Tree::ConstructBinaryTree(elements);
 
@@ -71,7 +71,7 @@ TEST(t0, t2) {
     Tree::FreeTreeNode(binary_tree);
 }
 
-TEST(t0, t3) {
+TEST(binary_tree_zigzag_level_order_traversal, t3) {
     vector<optional<int>> elements{};
     auto *binary_tree = Tree::ConstructBinaryTree(elements);
 

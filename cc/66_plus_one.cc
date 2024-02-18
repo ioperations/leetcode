@@ -36,7 +36,7 @@ class Solution {
 };
 
 
-TEST(t0, t1) {
+TEST(plus_one, t1) {
     std::vector<int> digits = {1, 2, 3};
 
     Solution s;
@@ -44,7 +44,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, (std::vector<int>{1, 2, 4}));
 }
 
-TEST(t0, t2) {
+TEST(plus_one, t2) {
     std::vector<int> digits = {4, 3, 2, 1};
 
     Solution s;
@@ -52,7 +52,7 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, (std::vector<int>{4, 3, 2, 2}));
 }
 
-TEST(t0, t3) {
+TEST(plus_one, t3) {
     std::vector<int> digits = {9};
 
     Solution s;

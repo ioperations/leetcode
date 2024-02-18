@@ -103,7 +103,7 @@ class Solution {
 };
 
 
-TEST(t0, t1) {
+TEST(max_area_of_island, t1) {
     std::vector<std::vector<int>> grid = {
         {0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0},
         {0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0},
@@ -119,7 +119,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, 6);
 }
 
-TEST(t0, t2) {
+TEST(max_area_of_island, t2) {
     std::vector<std::vector<int>> grid = {{0, 0, 0, 0, 0, 0, 0, 0}};
 
     Solution sl;

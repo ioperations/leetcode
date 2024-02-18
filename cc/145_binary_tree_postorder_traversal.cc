@@ -34,7 +34,7 @@ class Solution {
 };
 
 
-TEST(t0, t1) {
+TEST(binary_tree_postorder_traversal, t1) {
     TreeNode<int> *root = ConstructTree(std::vector<int>{1, 2, 3});
     Solution s;
     std::vector<int> ret = s.PostorderTraversal(root);
@@ -43,7 +43,7 @@ TEST(t0, t1) {
 
     FreeRoot(root);
 }
-TEST(t0, t2) {
+TEST(binary_tree_postorder_traversal, t2) {
     TreeNode<int> *root = ConstructTree(std::vector<int>{});
     Solution s;
     std::vector<int> ret = s.PostorderTraversal(root);
@@ -52,7 +52,7 @@ TEST(t0, t2) {
 
     FreeRoot(root);
 }
-TEST(t0, t3) {
+TEST(binary_tree_postorder_traversal, t3) {
     TreeNode<int> *root = ConstructTree(std::vector<int>{1});
     Solution s;
     std::vector<int> ret = s.PostorderTraversal(root);

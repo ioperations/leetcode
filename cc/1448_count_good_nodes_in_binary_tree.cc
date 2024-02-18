@@ -44,7 +44,7 @@ using namespace std;
 
 using namespace std;
 
-TEST(t0, t1) {
+TEST(count_good_nodes_in_binary_tree, t1) {
 #define null optional<int>()
     vector<optional<int>> root = {3, 1, 4, 3, null, 1, 5};
     int output = 4;
@@ -61,7 +61,7 @@ TEST(t0, t1) {
     FreeTreeNode(node);
 }
 
-TEST(t0, t2) {
+TEST(count_good_nodes_in_binary_tree, t2) {
 #define null optional<int>()
     vector<optional<int>> root = {3, 3, null, 4, 2};
     int output = 3;
@@ -73,7 +73,7 @@ TEST(t0, t2) {
     FreeTreeNode(node);
 }
 
-TEST(t0, t3) {
+TEST(count_good_nodes_in_binary_tree, t3) {
 #define null optional<int>()
     vector<optional<int>> root = {1};
     int output = 1;
@@ -85,7 +85,7 @@ TEST(t0, t3) {
     FreeTreeNode(node);
 }
 
-TEST(t0, t4) {
+TEST(count_good_nodes_in_binary_tree, t4) {
 #define null optional<int>()
     vector<optional<int>> root = {9, null, 3, 6};
     /*

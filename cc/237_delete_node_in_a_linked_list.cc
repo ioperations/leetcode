@@ -61,7 +61,7 @@ ListNode *FindNode(ListNode *const head, int v) {
     return head;
 }
 
-TEST(t0, t1) {
+TEST(delete_node_in_a_linked_list, t1) {
     std::vector<int> v{4, 5, 1, 9};
     int node = 5;
     std::vector<int> final{4, 1, 9};
@@ -75,7 +75,7 @@ TEST(t0, t1) {
     List::FreeList(head);
 }
 
-TEST(t0, t2) {
+TEST(delete_node_in_a_linked_list, t2) {
     std::vector<int> v{4, 5, 1, 9};
     int node = 1;
     std::vector<int> final{4, 5, 9};

@@ -155,7 +155,7 @@ class TrieV1 {
 
 
 
-TEST(t0, t1) {
+TEST(implement_trie, t1) {
     //    ["Trie", "insert", "search", "search", "startsWith", "insert",
     //    "search"]
     //    [[], ["apple"], ["apple"], ["app"], ["app"], ["app"], ["app"]]

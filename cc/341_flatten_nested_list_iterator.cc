@@ -109,7 +109,7 @@ class NestedIterator {
 
 
 
-TEST(t0, t1) {
+TEST(flatten_nested_list_iterator, t1) {
     // vector<NestedInteger> nestedList = {{1,1},2,{1,1}};
 
     NestedInteger i1(1);
@@ -128,7 +128,7 @@ TEST(t0, t1) {
     EXPECT_EQ(n.GetList().size(), 3);
 };
 
-TEST(t0, t2) {
+TEST(flatten_nested_list_iterator, t2) {
     // vector<NestedInteger> nestedList = {{1,1},2,{1,1}};
 
     NestedInteger i1(1);

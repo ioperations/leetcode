@@ -87,7 +87,7 @@ class Solution {
 
 
 
-TEST(t0, t1) {
+TEST(divide_two_integers, t1) {
     int dividend = 10, divisor = 3;
     int output = 3;
     // Explanation: 10/3 = 3.33333.. which is truncated to 3.
@@ -96,7 +96,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t2) {
+TEST(divide_two_integers, t2) {
     int dividend = 7, divisor = -3;
     int output = -2;
     // Explanation: 7/-3 = -2.33333.. which is truncated to -2.

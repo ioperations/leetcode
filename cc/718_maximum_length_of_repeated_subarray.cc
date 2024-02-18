@@ -53,7 +53,7 @@ class Solution {
 
 
 
-TEST(t0, t1) {
+TEST(maximum_length_of_repeated_subarray, t1) {
     vector<int> nums1 = {1, 2, 3, 2, 1}, nums2 = {3, 2, 1, 4, 7};
 
     int output = 3;
@@ -63,7 +63,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t2) {
+TEST(maximum_length_of_repeated_subarray, t2) {
     vector<int> nums1 = {0, 0, 0, 0, 0}, nums2 = {0, 0, 0, 0, 0};
 
     int output = 5;

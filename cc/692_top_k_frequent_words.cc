@@ -42,7 +42,7 @@ class Solution {
 };
 
 
-TEST(t0, t1) {
+TEST(top_k_frequent_words, t1) {
     std::vector<string> words = {"i", "love", "leetcode",
                                  "i", "love", "coding"};
     int k = 2;
@@ -57,7 +57,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t2) {
+TEST(top_k_frequent_words, t2) {
     std::vector<string> words = {"the", "day", "is",    "sunny", "the",
                                  "the", "the", "sunny", "is",    "is"};
     int k = 4;

@@ -70,7 +70,7 @@ class Solution {
 
 
 
-TEST(t0, t1) {
+TEST(top_k_frequent_elements, t1) {
     std::vector<int> nums = {1, 1, 1, 2, 2, 3};
     int k = 2;
     std::vector<int> output = {1, 2};
@@ -92,7 +92,7 @@ TEST(t1, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t2) {
+TEST(top_k_frequent_elements, t2) {
     std::vector<int> nums = {1};
     int k = 1;
     std::vector<int> output = {1};

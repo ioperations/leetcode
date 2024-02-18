@@ -41,7 +41,7 @@ class Solution {
 
 
 
-TEST(t0, t1) {
+TEST(check_if_the_sentence_is_pangram, t1) {
     string sentence = "thequickbrownfoxjumpsoverthelazydog";
     bool const output = true;
     // Explanation: sentence contains at least one of every letter of the
@@ -51,7 +51,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t2) {
+TEST(check_if_the_sentence_is_pangram, t2) {
     string sentence = "leetcode";
     bool const output = false;
     Solution sl;

@@ -41,7 +41,7 @@ class Solution {
 
 
 
-TEST(t0, t1) {
+TEST(pattern, t1) {
     std::vector<int> v{1, 2, 3, 4};
     bool expected = false;
     Solution sl;
@@ -49,7 +49,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, expected);
 }
 
-TEST(t0, t2) {
+TEST(pattern, t2) {
     std::vector<int> v{3, 1, 4, 2};
     bool expected = true;
     Solution sl;
@@ -57,7 +57,7 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, expected);
 }
 
-TEST(t0, t3) {
+TEST(pattern, t3) {
     std::vector<int> v{-1, 3, 2, 0};
     bool expected = true;
     Solution sl;

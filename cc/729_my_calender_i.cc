@@ -52,7 +52,7 @@ class MyCalendar {
 
 
 
-TEST(t0, t1) {
+TEST(my_calender_i, t1) {
     // Input["MyCalendar", "book", "book", "book"][ [], [ 10, 20 ], [ 15, 25 ],
     // [ 20, 30 ]] Output[null, true, false, true]
 

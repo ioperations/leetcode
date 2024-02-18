@@ -26,7 +26,7 @@ class Solution {
 
 
 
-TEST(t0, t1) {
+TEST(count_primes, t1) {
     int n = 10;
     int output = 4;
     // Explanation: There are 4 prime numbers less than 10, they are 2, 3, 5, 7.
@@ -35,7 +35,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t2) {
+TEST(count_primes, t2) {
     int n = 0;
     int output = 0;
     Solution sl;
@@ -43,7 +43,7 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t3) {
+TEST(count_primes, t3) {
     int n = 1;
     int output = 0;
     Solution sl;

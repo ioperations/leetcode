@@ -48,7 +48,7 @@ TEST(memleak, t0) {
     FreeTreeNode(binary_tree);
 }
 
-TEST(t0, t1) {
+TEST(maximum_depth_of_binary_tree, t1) {
     vector<optional<int>> elements{3,  9, 20, optional<int>(), optional<int>(),
                                    15, 7};
     auto *binary_tree = ConstructBinaryTree(elements);
@@ -58,7 +58,7 @@ TEST(t0, t1) {
     FreeTreeNode(binary_tree);
 }
 
-TEST(t0, t2) {
+TEST(maximum_depth_of_binary_tree, t2) {
     vector<optional<int>> elements{1, optional<int>(), 2};
     auto *binary_tree = ConstructBinaryTree(elements);
     Solution sl;

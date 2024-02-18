@@ -34,7 +34,7 @@ class Solution {
     }
 };
 
-TEST(t0, t1) {
+TEST(perfect_squares, t1) {
     int n = 12;
     int const output = 3;
     // Explanation: 12 = 4 + 4 + 4.
@@ -43,7 +43,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t2) {
+TEST(perfect_squares, t2) {
     int n = 13;
     int const output = 2;
     // Explanation: 12 = 4 + 9

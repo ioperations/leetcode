@@ -78,7 +78,7 @@ using namespace std;
 
 
 
-TEST(t0, t1) {
+TEST(n_queue, t1) {
     // pass
     int n = 4;
     vector<vector<string>> output = {{".Q..", "...Q", "Q...", "..Q."},
@@ -93,7 +93,7 @@ TEST(t0, t1) {
     // shown above
 }
 
-TEST(t0, t2) {
+TEST(n_queue, t2) {
     // pass
     int n = 1;
     vector<vector<string>> output = {{"Q"}};

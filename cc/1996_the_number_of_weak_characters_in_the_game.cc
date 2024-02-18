@@ -44,7 +44,7 @@ class Solution {
 
 
 
-TEST(t0, t1) {
+TEST(the_number_of_weak_characters_in_the_game, t1) {
     std::vector<vector<int>> properties = {{5, 5}, {6, 3}, {3, 6}};
     int output = 0;
     // Explanation: No character has strictly greater attack and defense than
@@ -54,7 +54,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t2) {
+TEST(the_number_of_weak_characters_in_the_game, t2) {
     std::vector<vector<int>> properties = {{2, 2}, {3, 3}};
     int output = 1;
     // The first character is weak because the second character has a strictly
@@ -64,7 +64,7 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t3) {
+TEST(the_number_of_weak_characters_in_the_game, t3) {
     std::vector<vector<int>> properties = {{1, 5}, {10, 4}, {4, 3}};
     int output = 1;
     // Explanation: The third character is weak because the second character has
@@ -73,7 +73,7 @@ TEST(t0, t3) {
     int ret = sl.NumberOfWeakCharacters(properties);
     EXPECT_EQ(ret, output);
 }
-TEST(t0, t4) {
+TEST(the_number_of_weak_characters_in_the_game, t4) {
     std::vector<vector<int>> properties = {{1, 1}, {2, 1}, {2, 2}, {1, 2}};
     int output = 1;
     // Explanation: The third character is weak because the second character has

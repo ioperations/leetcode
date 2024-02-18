@@ -74,7 +74,7 @@ class MyCircularQueue {
 
 
 
-TEST(t0, t1) {
+TEST(design_circular_queue, t1) {
     MyCircularQueue my_circular_queue(3);
     bool ret = my_circular_queue.EnQueue(1);  // return True
     EXPECT_EQ(ret, true);

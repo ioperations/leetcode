@@ -32,7 +32,7 @@ class Solution {
 
 
 
-TEST(t0, t1) {
+TEST(transpose_matrix, t1) {
     vector<vector<int>> matrix = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
     vector<vector<int>> output = {{1, 4, 7}, {2, 5, 8}, {3, 6, 9}};
     Solution sl;
@@ -40,7 +40,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t2) {
+TEST(transpose_matrix, t2) {
     vector<vector<int>> matrix = {{1, 2, 3}, {4, 5, 6}};
     vector<vector<int>> output = {{1, 4}, {2, 5}, {3, 6}};
     Solution sl;

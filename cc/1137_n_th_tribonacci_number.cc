@@ -30,7 +30,7 @@ class Solution {
     }
 };
 
-TEST(t0, t1) {
+TEST(n_th_tribonacci_number, t1) {
     int n = 4;
     int out = 4;
     Solution sl;
@@ -42,7 +42,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, out);
 }
 
-TEST(t0, t2) {
+TEST(n_th_tribonacci_number, t2) {
     int n = 25;
     int out = 1389537;
     Solution sl;

@@ -63,7 +63,7 @@ class Solution {
 using namespace std;
 
 #define null optional<int>()
-TEST(t0, t1) {
+TEST(average_of_levels_in_binary_tree, t1) {
     vector<optional<int>> root = {3, 9, 20, null, null, 15, 7};
     vector<double> output = {3.00000, 14.50000, 11.00000};
     // Explanation: The average value of nodes on level 0 is 3, on level 1
@@ -79,7 +79,7 @@ TEST(t0, t1) {
     FreeTreeNode(rootnode);
 }
 
-TEST(t0, t2) {
+TEST(average_of_levels_in_binary_tree, t2) {
     vector<optional<int>> root = {3, 9, 20, 15, 7};
     vector<double> output = {3.00000, 14.50000, 11.00000};
     // Explanation: The average value of nodes on level 0 is 3, on level 1
@@ -95,7 +95,7 @@ TEST(t0, t2) {
     FreeTreeNode(rootnode);
 }
 
-TEST(t0, t3) {
+TEST(average_of_levels_in_binary_tree, t3) {
     vector<optional<int>> root = {3, 9, 20, null, null, 15, 7};
     vector<double> output = {3.00000, 14.50000, 11.00000};
     // Explanation: The average value of nodes on level 0 is 3, on level 1

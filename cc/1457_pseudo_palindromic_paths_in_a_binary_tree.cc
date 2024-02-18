@@ -120,7 +120,7 @@ class Solution {
 using namespace std;
 
 #define null optional<int>()
-TEST(t0, t1) {
+TEST(pseudo_palindromic_paths_in_a_binary_tree, t1) {
     /*
                              _______
                              |     |
@@ -153,7 +153,7 @@ TEST(t0, t1) {
     FreeTreeNode(node);
 }
 
-TEST(t0, t2) {
+TEST(pseudo_palindromic_paths_in_a_binary_tree, t2) {
     std::vector<optional<int>> root = {2,    1,    1,    1,    3, null,
                                        null, null, null, null, 1};
     /*
@@ -191,7 +191,7 @@ TEST(t0, t2) {
     FreeTreeNode(node);
 }
 
-TEST(t0, t3) {
+TEST(pseudo_palindromic_paths_in_a_binary_tree, t3) {
     std::vector<optional<int>> root = {9};
     int output = 1;
     auto *node = ConstructBinaryTree(root);

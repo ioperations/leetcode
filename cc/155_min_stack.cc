@@ -52,7 +52,7 @@ class MinStack {
 };
 
 
-TEST(t0, t1) {
+TEST(min_stack, t1) {
     MinStack min_stack;
     min_stack.Push(-2);
     min_stack.Push(0);

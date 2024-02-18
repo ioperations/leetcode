@@ -94,7 +94,7 @@ class Solution {
 };
 
 
-TEST(t0, t1) {
+TEST(reverse_integer, t1) {
     Solution s;
     auto ret = s.Reverse(100);
 
@@ -108,7 +108,7 @@ TEST(t1, t1) {
     EXPECT_EQ(ret, 1);
 }
 
-TEST(t0, t2) {
+TEST(reverse_integer, t2) {
     Solution s;
     auto ret = s.Reverse(-101);
 
@@ -122,7 +122,7 @@ TEST(t1, t2) {
     EXPECT_EQ(ret, -101);
 }
 
-TEST(t0, t3) {
+TEST(reverse_integer, t3) {
     Solution s;
     auto ret = s.Reverse(1534236469);
 
@@ -136,14 +136,14 @@ TEST(t1, t3) {
     EXPECT_EQ(ret, 0);
 }
 
-TEST(t0, t4) {
+TEST(reverse_integer, t4) {
     Solution s;
     auto ret = s.Reverse(-2147483412);
 
     EXPECT_EQ(ret, -2143847412);
 }
 
-TEST(t0, t5) {
+TEST(reverse_integer, t5) {
     Solution s;
     auto ret = s.Reverse(-2147483648);
 

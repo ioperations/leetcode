@@ -62,7 +62,7 @@ void ExpectEqList(ListNode *const head, const std::vector<int> &elements) {
     EXPECT_EQ(i, elements.size());
 }
 
-TEST(t0, t1) {
+TEST(patition_list, t1) {
     std::vector<int> vec = {1, 4, 3, 2, 5, 2};
     int x = 3;
 
@@ -74,7 +74,7 @@ TEST(t0, t1) {
     List::FreeList(head);
 }
 
-TEST(t0, t2) {
+TEST(patition_list, t2) {
     std::vector<int> vec = {2, 1};
     int x = 2;
 
@@ -86,7 +86,7 @@ TEST(t0, t2) {
     List::FreeList(head);
 }
 
-TEST(t0, t3) {
+TEST(patition_list, t3) {
     std::vector<int> vec = {2, 1};
     int x = 0;
 

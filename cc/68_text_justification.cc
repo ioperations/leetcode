@@ -162,7 +162,7 @@ TEST(test, t2) {
 
     EXPECT_EQ(ret, "hello   world  i");
 }
-TEST(t0, t1) {
+TEST(text_justification, t1) {
     vector<string> words = {
         "This", "is", "an", "example", "of", "text", "justification."};
     int max_width = 16;
@@ -174,7 +174,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, expected);
 }
 
-TEST(t0, t2) {
+TEST(text_justification, t2) {
     vector<string> words = {"What",           "must",  "be",
                             "acknowledgment", "shall", "be"};
     vector<string> expected = {"What   must   be", "acknowledgment  ",
@@ -186,7 +186,7 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, expected);
 }
 
-TEST(t0, t3) {
+TEST(text_justification, t3) {
     vector<string> words =
 
         {"Science", "is", "what",       "we",   "understand", "well",
@@ -203,7 +203,7 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, expected);
 }
 
-TEST(t0, t4) {
+TEST(text_justification, t4) {
     vector<string> words = {"Listen", "to", "many,", "speak",
                             "to",     "a",  "few."};
 

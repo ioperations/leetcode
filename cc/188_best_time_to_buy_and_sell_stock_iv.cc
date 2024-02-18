@@ -71,7 +71,7 @@ class Solution {
 
 
 
-TEST(t0, t1) {
+TEST(best_time_to_buy_and_sell_stock_iv, t1) {
     int k = 2;
     vector<int> prices = {2, 4, 1};
     int output = 2;
@@ -82,7 +82,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t2) {
+TEST(best_time_to_buy_and_sell_stock_iv, t2) {
     int k = 2;
     vector<int> prices = {3, 2, 6, 5, 0, 3};
     int output = 7;
@@ -94,7 +94,7 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t3) {
+TEST(best_time_to_buy_and_sell_stock_iv, t3) {
     int k = 2;
     vector<int> prices = {3, 3, 5, 0, 0, 3, 1, 4};
     int output = 6;
@@ -103,7 +103,7 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t4) {
+TEST(best_time_to_buy_and_sell_stock_iv, t4) {
     int k = 7;
     vector<int> prices = {48, 12, 60, 93, 97, 42, 25, 64, 17, 56,
                           85, 93, 9,  48, 52, 42, 58, 85, 81, 84,

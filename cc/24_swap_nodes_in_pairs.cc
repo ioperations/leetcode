@@ -50,7 +50,7 @@ void ExpectEqList(ListNode *const head, const std::vector<int> &elements) {
     EXPECT_EQ(i, elements.size());
 }
 
-TEST(t0, t0) {
+TEST(swap_nodes_in_pairs, t0) {
     // Input: head = [1,2,3,4]
     // Output: [2,1,4,3]
 
@@ -59,7 +59,7 @@ TEST(t0, t0) {
     List::FreeList(ret);
 }
 
-TEST(t0, t1) {
+TEST(swap_nodes_in_pairs, t1) {
     // Input: head = [1,2,3,4]
     // Output: [2,1,4,3]
 
@@ -70,7 +70,7 @@ TEST(t0, t1) {
     List::FreeList(ret);
 }
 
-TEST(t0, t2) {
+TEST(swap_nodes_in_pairs, t2) {
     // Input: head = []
     // Output: []
 
@@ -81,7 +81,7 @@ TEST(t0, t2) {
     List::FreeList(ret);
 }
 
-TEST(t0, t3) {
+TEST(swap_nodes_in_pairs, t3) {
     // Input: head = [1]
     // Output: [1]
 

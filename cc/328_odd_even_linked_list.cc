@@ -113,7 +113,7 @@ void ExpectEqList(ListNode *const head, const std::vector<int> &elements) {
     EXPECT_EQ(i, elements.size());
 }
 
-TEST(t0, t1) {
+TEST(odd_even_linked_list, t1) {
     std::vector<int> v{1, 2, 3, 4, 5};
     std::vector<int> ex{1, 3, 5, 2, 4};
 
@@ -137,7 +137,7 @@ TEST(t0, t1) {
     List::FreeList(head);
 }
 
-TEST(t0, t2) {
+TEST(odd_even_linked_list, t2) {
     std::vector<int> v{2, 1, 3, 5, 6, 4, 7};
     std::vector<int> ex{2, 6, 4, 1, 3, 5, 7};
     /*

@@ -52,7 +52,7 @@ class Solution {
 
 
 
-TEST(t0, t1) {
+TEST(search_in_rotated_sorted_array_ii, t1) {
     vector<int> nums = {2, 5, 6, 0, 0, 1, 2};
     int target = 0;
     bool output = true;
@@ -61,7 +61,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t2) {
+TEST(search_in_rotated_sorted_array_ii, t2) {
     vector<int> nums = {2, 5, 6, 0, 0, 1, 2};
     int target = 3;
     bool output = false;

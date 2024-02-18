@@ -49,7 +49,7 @@ class Solution {
 
 
 
-TEST(t0, t1) {
+TEST(backspace_string_compare, t1) {
     std::string s = "ab#c", t = "ad#c";
     bool expected = true;
 
@@ -58,7 +58,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, expected);
     // Explanation: Both s and t become "ac".
 }
-TEST(t0, t2) {
+TEST(backspace_string_compare, t2) {
     std::string s = "ab##", t = "c#d#";
     bool expected = true;
 
@@ -68,7 +68,7 @@ TEST(t0, t2) {
     // Explanation: Both s and t become "ac".
 }
 
-TEST(t0, t3) {
+TEST(backspace_string_compare, t3) {
     std::string s = "a#c", t = "b";
     bool expected = false;
 

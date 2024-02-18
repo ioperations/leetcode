@@ -37,7 +37,7 @@ class Solution {
 };
 
 
-TEST(t0, t1) {
+TEST(search_in_a_binary_search_tree, t1) {
     std::vector<int> v{4, 2, 7, 1, 3};
     int val = 2;
     std::vector<int> expected{2, 1, 3};
@@ -50,7 +50,7 @@ TEST(t0, t1) {
     FreeRoot(node);
 }
 
-TEST(t0, t2) {
+TEST(search_in_a_binary_search_tree, t2) {
     std::vector<int> v{4, 2, 7, 1, 3};
     int val = 5;
     std::vector<int> expected{};

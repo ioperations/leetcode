@@ -101,7 +101,7 @@ TEST(memleak, t0) {
     List::FreeList(root);
 }
 
-TEST(t0, t0) {
+TEST(reverse_nodes_in_k_group, t0) {
     std::vector<int> head = {1, 2, 3, 4, 5};
     int k = 2;
     ListNode *root = List::ConstructList(head);
@@ -115,7 +115,7 @@ TEST(t0, t0) {
     List::FreeList(root);
 }
 
-TEST(t0, t1) {
+TEST(reverse_nodes_in_k_group, t1) {
     std::vector<int> head = {1, 2, 3, 4, 5};
     int k = 3;
     std::vector<int> expect = {3, 2, 1, 4, 5};
@@ -130,7 +130,7 @@ TEST(t0, t1) {
     List::FreeList(root);
 }
 
-TEST(t0, t2) {
+TEST(reverse_nodes_in_k_group, t2) {
     std::vector<int> head = {1, 2, 3, 4, 5};
     int k = 1;
     std::vector<int> expect = {1, 2, 3, 4, 5};

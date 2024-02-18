@@ -64,7 +64,7 @@ class SolutionV2 {
 
 
 
-TEST(t0, t1) {
+TEST(climbing_stairs, t1) {
     Solution sl;
     int ret = sl.ClimbStairs(2);
 
@@ -88,7 +88,7 @@ TEST(t1, t1) {
     EXPECT_EQ(ret, 2);
 }
 
-TEST(t0, t2) {
+TEST(climbing_stairs, t2) {
     Solution sl;
     int ret = sl.ClimbStairs(3);
 

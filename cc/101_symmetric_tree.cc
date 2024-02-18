@@ -60,7 +60,7 @@ class Solution {
     }
 };
 
-TEST(t0, t1) {
+TEST(symmetric_tree, t1) {
     /*
                           ___
                          | 1 |
@@ -94,7 +94,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, true);
 }
 
-TEST(t0, t2) {
+TEST(symmetric_tree, t2) {
     /*
                           ___
                          | 1 |

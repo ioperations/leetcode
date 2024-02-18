@@ -44,7 +44,7 @@ class Solution {
 
 
 
-TEST(t0, t1) {
+TEST(reverse_vowels_of_a_string, t1) {
     std::string s = "hello";
     std::string output = "holle";
     Solution sl;
@@ -52,7 +52,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t2) {
+TEST(reverse_vowels_of_a_string, t2) {
     std::string s = "leetcode";
     std::string output = "leotcede";
     Solution sl;

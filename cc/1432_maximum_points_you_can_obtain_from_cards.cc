@@ -76,7 +76,7 @@ class Solution {
 };
 
 
-TEST(t0, t1) {
+TEST(maximum_points_you_can_obtain_from_cards, t1) {
     vector<int> card_points = {1, 2, 3, 4, 5, 6, 1};
     int k = 3;
     int output = 12;
@@ -89,7 +89,7 @@ TEST(t0, t1) {
     // score of 1 + 6 + 5 = 12.
 }
 
-TEST(t0, t2) {
+TEST(maximum_points_you_can_obtain_from_cards, t2) {
     vector<int> card_points = {2, 2, 2};
     int k = 2;
     int output = 4;
@@ -99,7 +99,7 @@ TEST(t0, t2) {
     // Regardless of which two cards you take, your score will always be 4.
 }
 
-TEST(t0, t3) {
+TEST(maximum_points_you_can_obtain_from_cards, t3) {
     vector<int> card_points = {9, 7, 7, 9, 7, 7, 9};
     int k = 7;
     int output = 55;

@@ -129,7 +129,7 @@ class Solution {
     }
 };
 
-TEST(t0, t0) {
+TEST(validate_ip_address, t0) {
     string query_ip = "192.0.0.1";
     string output = "IPv4";
     // Explanation: This is a valid IPv4 address, return "IPv4".
@@ -137,7 +137,7 @@ TEST(t0, t0) {
     auto ret = sl.ValidIpAddress(query_ip);
     EXPECT_EQ(ret, output);
 }
-TEST(t0, t1) {
+TEST(validate_ip_address, t1) {
     string query_ip = "172.16.254.1";
     string output = "IPv4";
     // Explanation: This is a valid IPv4 address, return "IPv4".
@@ -146,7 +146,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t2) {
+TEST(validate_ip_address, t2) {
     string query_ip = "2001:0db8:85a3:0:0:8A2E:0370:7334";
     string output = "IPv6";
     // Explanation: This is a valid IPv6 address, return "IPv6".
@@ -155,7 +155,7 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t3) {
+TEST(validate_ip_address, t3) {
     string query_ip = "2001:0db8:85a3::8A2E:037j:7334";
     string output = "Neither";
     // Explanation: This is a valid IPv6 address, return "IPv6".
@@ -164,7 +164,7 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t4) {
+TEST(validate_ip_address, t4) {
     string query_ip = "02001:0db8:85a3:0000:0000:8a2e:0370:7334";
     string output = "Neither";
     // Explanation: This is a valid IPv6 address, return "IPv6".
@@ -173,7 +173,7 @@ TEST(t0, t4) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t5) {
+TEST(validate_ip_address, t5) {
     string query_ip = "2001:0db8:85a3:0000:0000:8a2e:0370:7334";
     string output = "IPv6";
     // Explanation: This is a valid IPv6 address, return "IPv6".
@@ -182,7 +182,7 @@ TEST(t0, t5) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t6) {
+TEST(validate_ip_address, t6) {
     string query_ip = "2001:db8:85a3:0:0:8A2E:0370:7334";
     string output = "IPv6";
     // Explanation: This is a valid IPv6 address, return "IPv6".
@@ -191,7 +191,7 @@ TEST(t0, t6) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t7) {
+TEST(validate_ip_address, t7) {
     string query_ip = "2001:db8:85a3:0:0:8A2E:0370:7334";
     string output = "IPv6";
     // Explanation: This is a valid IPv6 address, return "IPv6".
@@ -200,7 +200,7 @@ TEST(t0, t7) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t8) {
+TEST(validate_ip_address, t8) {
     string query_ip = "2001:db8:85a3:0::8a2E:0370:7334";
     string output = "Neither";
     // Explanation: This is a valid IPv6 address, return "IPv6".

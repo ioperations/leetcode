@@ -56,7 +56,7 @@ class Solution {
 
 
 
-TEST(t0, t1) {
+TEST(multiply_strings, t1) {
     std::string num1 = "2", num2 = "3";
     std::string expected = "6";
 
@@ -65,7 +65,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, expected);
 }
 
-TEST(t0, t2) {
+TEST(multiply_strings, t2) {
     std::string num1 = "123", num2 = "456";
     std::string expected = "56088";
 
@@ -73,7 +73,7 @@ TEST(t0, t2) {
     auto ret = s.Multiply(num1, num2);
     EXPECT_EQ(ret, expected);
 }
-TEST(t0, t3) {
+TEST(multiply_strings, t3) {
     std::string num1 = "123456789", num2 = "987654321";
     std::string expected = "121932631112635269";
 
@@ -81,7 +81,7 @@ TEST(t0, t3) {
     auto ret = s.Multiply(num1, num2);
     EXPECT_EQ(ret, expected);
 }
-TEST(t0, t4) {
+TEST(multiply_strings, t4) {
     std::string num1 = "498828660196", num2 = "840477629533";
     std::string expected = "419254329864656431168468";
 

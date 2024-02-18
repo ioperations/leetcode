@@ -45,7 +45,7 @@ class Solution {
     }
 };
 
-TEST(t0, t1) {
+TEST(ugly_number, t1) {
     int n = 6;
     bool output = true;
     // Explanation: 6 = 2 × 3
@@ -54,7 +54,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t2) {
+TEST(ugly_number, t2) {
     int n = 1;
     bool output = true;
     // 1 has no prime factors, therefore all of its prime factors are limited to
@@ -64,7 +64,7 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t3) {
+TEST(ugly_number, t3) {
     int n = 14;
     bool output = false;
     // 14 is not ugly since it includes the prime factor 7.
@@ -73,7 +73,7 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t4) {
+TEST(ugly_number, t4) {
     int n = 0;
     bool output = false;
     // 14 is not ugly since it includes the prime factor 7.

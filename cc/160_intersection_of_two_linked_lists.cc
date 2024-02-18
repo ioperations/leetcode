@@ -105,7 +105,7 @@ void ExpectEqList(ListNode *const head, const std::vector<int> &elements) {
     EXPECT_EQ(i, elements.size());
 }
 
-TEST(t0, t1) {
+TEST(intersection_of_two_linked_lists, t1) {
     // intersectVal = 8, listA = [4,1,8,4,5], listB = [5,6,1,8,4,5], skipA = 2,
     // skipB = 3
     // Output: Intersected at '8'
@@ -150,7 +150,7 @@ TEST(t0, t1) {
     List::FreeList(second);
 }
 
-TEST(t0, t2) {
+TEST(intersection_of_two_linked_lists, t2) {
     // intersectVal = 8, listA = [4,1,8,4,5], listB = [5,6,1,8,4,5], skipA = 2,
     // skipB = 3
     // Output: Intersected at '8'
@@ -196,7 +196,7 @@ TEST(t0, t2) {
     List::FreeList(second);
 }
 
-TEST(t0, t3) {
+TEST(intersection_of_two_linked_lists, t3) {
     // intersectVal = 8, listA = [4,1,8,4,5], listB = [5,6,1,8,4,5], skipA = 2,
     // skipB = 3
     // Output: Intersected at '8'

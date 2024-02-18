@@ -62,7 +62,7 @@ class Solution {
 };
 
 
-TEST(t0, t1) {
+TEST(two_sum_ii_input_arrary_is_sorted, t1) {
     vector<int> numbers = {2, 7, 11, 15};
     int target = 9;
     vector<int> output = {1, 2};
@@ -73,7 +73,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t2) {
+TEST(two_sum_ii_input_arrary_is_sorted, t2) {
     vector<int> numbers = {2, 3, 4};
     int target = 6;
     vector<int> output = {1, 3};
@@ -84,7 +84,7 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t3) {
+TEST(two_sum_ii_input_arrary_is_sorted, t3) {
     vector<int> numbers = {-1, 0};
     int target = -1;
     vector<int> output = {1, 2};
@@ -95,7 +95,7 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t4) {
+TEST(two_sum_ii_input_arrary_is_sorted, t4) {
     vector<int> numbers = {3, 24, 50, 79, 88, 150, 345};
     int target = 200;
     vector<int> output = {3, 6};

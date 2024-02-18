@@ -73,7 +73,7 @@ class Solution {
 
 
 
-TEST(t0, t1) {
+TEST(minimum_moves_to_reach_target_score, t1) {
     int target = 19;
     int max_double = 2;
     int ret = 7;
@@ -89,7 +89,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, out);
 }
 
-TEST(t0, t2) {
+TEST(minimum_moves_to_reach_target_score, t2) {
     int target = 10;
     int max_double = 4;
     int ret = 4;
@@ -105,7 +105,7 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, out);
 }
 
-TEST(t0, t3) {
+TEST(minimum_moves_to_reach_target_score, t3) {
     int target = 5;
     int max_double = 0;
     int ret = 4;
@@ -114,7 +114,7 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, out);
 }
 
-TEST(t0, t4) {
+TEST(minimum_moves_to_reach_target_score, t4) {
     int target = 766972377;
     int max_double = 92;
     int ret = 45;

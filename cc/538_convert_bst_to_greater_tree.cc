@@ -131,7 +131,7 @@ TEST(memleak, t1) {
     FreeRoot(root);
 }
 
-TEST(t0, t1) {
+TEST(convert_bst_to_greater_tree, t1) {
     // root = [4,1,6,0,2,5,7,null,null,null,3,null,null,null,8]
     // Output: [4,1,6,0,2,5,7,null,null,null,3,null,null,null,8]
     TreeNode *root = new TreeNode(4);
@@ -155,7 +155,7 @@ TEST(t0, t1) {
     FreeRoot(root);
 }
 
-TEST(t0, t2) {
+TEST(convert_bst_to_greater_tree, t2) {
     // Input: root = [0,null,1]
     // Output: [1,null,1]
 

@@ -99,7 +99,7 @@ class Solution {
 
 
 
-TEST(t0, t1) {
+TEST(furthest_building_you_can_reach, t1) {
     vector<int> heights{4, 2, 7, 6, 9, 14, 12};
     int bricks = 5, ladders = 1;
 
@@ -118,7 +118,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, 4);
 }
 
-TEST(t0, t2) {
+TEST(furthest_building_you_can_reach, t2) {
     vector<int> heights{4, 12, 2, 7, 3, 18, 20, 3, 19};
     int bricks = 10, ladders = 2;
 
@@ -127,7 +127,7 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, 7);
 }
 
-TEST(t0, t3) {
+TEST(furthest_building_you_can_reach, t3) {
     vector<int> heights{14, 3, 19, 3};
     int bricks = 17, ladders = 0;
 

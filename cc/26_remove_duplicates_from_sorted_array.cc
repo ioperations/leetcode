@@ -74,7 +74,7 @@ class Solution {
     }
 };
 
-TEST(t0, t1) {
+TEST(remove_duplicates_from_sorted_array, t1) {
     std::vector<int> nums = {1, 1, 2};
     int output = 2;
     std::vector<int> nums_expected = {1, 2};
@@ -85,7 +85,7 @@ TEST(t0, t1) {
         EXPECT_EQ(nums[i], nums_expected[i]);
     }
 }
-TEST(t0, t2) {
+TEST(remove_duplicates_from_sorted_array, t2) {
     std::vector<int> nums = {0, 0, 1, 1, 1, 2, 2, 3, 3, 4};
     int output = 5;
     std::vector<int> nums_expected = {0, 1, 2, 3, 4};

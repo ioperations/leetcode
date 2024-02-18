@@ -153,7 +153,7 @@ TEST(base, t1) {
     EXPECT_EQ(output, vec);
 }
 
-TEST(t0, t1) {
+TEST(copy_list_with_random_pointer, t1) {
     std::vector<std::vector<std::optional<int>>> head =
         std::vector<std::vector<std::optional<int>>>{
             {7, null}, {13, 0}, {11, 4}, {10, 2}, {1, 0}};
@@ -168,7 +168,7 @@ TEST(t0, t1) {
     EXPECT_EQ(output, vec);
 }
 
-TEST(t0, t2) {
+TEST(copy_list_with_random_pointer, t2) {
     std::vector<std::vector<std::optional<int>>> head =
         std::vector<std::vector<std::optional<int>>>{{1, 1}, {2, 1}};
     std::vector<std::vector<std::optional<int>>> output =
@@ -181,7 +181,7 @@ TEST(t0, t2) {
     EXPECT_EQ(output, vec);
 }
 
-TEST(t0, t3) {
+TEST(copy_list_with_random_pointer, t3) {
     std::vector<std::vector<std::optional<int>>> head =
         std::vector<std::vector<std::optional<int>>>{
             {3, null}, {3, 0}, {3, null}};

@@ -133,14 +133,14 @@ class Node {
  * obj->put(key,value);
  */
 
-TEST(t0, t1) {
+TEST(LRU_Cache, t1) {
     LRUCache obj(10);
     const int param_1 = obj.Get(1);
     (void)param_1;
     obj.Put(1, 10);
 }
 
-TEST(t0, t2) {
+TEST(LRU_Cache, t2) {
     LRUCache lru(2);
     lru.Put(1, 1);             // {1,1}
     lru.Put(2, 2);             // {2,2}

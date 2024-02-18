@@ -55,7 +55,7 @@ TEST(memleak, t1) {
     FreeList(head);
 }
 
-TEST(t0, t1) {
+TEST(linked_list_cycle_ii, t1) {
     /*
              ___       ___         ___       ___
             | 3 |---->| 2 |------>| 0 |---->|-4 |------|
@@ -94,7 +94,7 @@ TEST(t0, t1) {
     FreeList(head);
 }
 
-TEST(t0, t2) {
+TEST(linked_list_cycle_ii, t2) {
     /*
          ___       ___
         | 1 |---->| 2 |------|
@@ -124,7 +124,7 @@ TEST(t0, t2) {
     FreeList(head);
 }
 
-TEST(t0, t3) {
+TEST(linked_list_cycle_ii, t3) {
     /*
          ___
         | 1 |
@@ -140,7 +140,7 @@ TEST(t0, t3) {
     FreeList(head);
 }
 
-TEST(t0, t4) {
+TEST(linked_list_cycle_ii, t4) {
     ListNode *head = List::ConstructList(std::vector<int>{});
 
     Solution s;

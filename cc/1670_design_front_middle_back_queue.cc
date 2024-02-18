@@ -99,7 +99,7 @@ class FrontMiddleBackQueue {
 
 
 
-TEST(t0, t1) {
+TEST(design_front_middle_back_queue, t1) {
     FrontMiddleBackQueue *q = new FrontMiddleBackQueue();
     q->PushFront(1);          // [1]
     q->PushBack(2);           // [1, 2]

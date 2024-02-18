@@ -31,7 +31,7 @@ class Solution {
 
 
 
-TEST(t0, t1) {
+TEST(toeplitz_matrix, t1) {
     vector<vector<int>> matrix = {{1, 2, 3, 4}, {5, 1, 2, 3}, {9, 5, 1, 2}};
     bool const output = true;
     /*
@@ -45,7 +45,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t2) {
+TEST(toeplitz_matrix, t2) {
     vector<vector<int>> matrix = {{1, 2}, {2, 2}};
     bool const output = false;
     /*

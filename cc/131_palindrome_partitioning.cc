@@ -57,7 +57,7 @@ class Solution {
     }
 };
 
-TEST(t0, t1) {
+TEST(palindrome_partitioning, t1) {
     string s = "aab";
     vector<vector<string>> output = {{"a", "a", "b"}, {"aa", "b"}};
 
@@ -66,7 +66,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t2) {
+TEST(palindrome_partitioning, t2) {
     string s = "a";
     vector<vector<string>> output = {{"a"}};
 

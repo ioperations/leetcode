@@ -52,7 +52,7 @@ class Solution {
  * vector<double> param_1 = obj->randPoint();
  */
 
-TEST(t0, t1) {
+TEST(generate_random_point_in_a_circle, t1) {
     Solution sl(1.0, 0.0, 0.0);
     vector<double> t1;
     t1 = sl.RandPoint();  // return [-0.02493, -0.38077]

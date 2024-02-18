@@ -139,7 +139,7 @@ void ExpectEqList(ListNode *list, const std::vector<int> &elemets) {
     }
 }
 
-TEST(t0, t1) {
+TEST(sort_list, t1) {
     ListNode *n = List::ConstructList(std::vector<int>{4, 2, 1, 3});
     Solution s;
     n = s.SortList(n);
@@ -155,7 +155,7 @@ TEST(t1, t1) {
     List::FreeList(n);
 }
 
-TEST(t0, t2) {
+TEST(sort_list, t2) {
     ListNode *n = List::ConstructList(std::vector<int>{-4, 5, 3, 4, 0});
     Solution s;
     n = s.SortList(n);
@@ -171,7 +171,7 @@ TEST(t1, t2) {
     List::FreeList(n);
 }
 
-TEST(t0, t3) {
+TEST(sort_list, t3) {
     ListNode *n = List::ConstructList(std::vector<int>{});
     Solution s;
     n = s.SortList(n);

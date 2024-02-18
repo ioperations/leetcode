@@ -50,7 +50,7 @@ class Solution {
 
 #include <set>
 
-TEST(t0, t1) {
+TEST(find_original_array_from_doubled_array, t1) {
     std::vector<int> changed = {1, 3, 4, 2, 6, 8};
     std::vector<int> output = {1, 3, 4};
     std::set<int> output_set(output.begin(), output.end());
@@ -66,7 +66,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret_set, output_set);
 }
 
-TEST(t0, t2) {
+TEST(find_original_array_from_doubled_array, t2) {
     std::vector<int> changed = {6, 3, 0, 1};
     std::vector<int> output = {};
     std::set<int> output_set(output.begin(), output.end());
@@ -78,7 +78,7 @@ TEST(t0, t2) {
     EXPECT_EQ(ret_set, output_set);
 }
 
-TEST(t0, t3) {
+TEST(find_original_array_from_doubled_array, t3) {
     std::vector<int> changed = {1};
     std::vector<int> output = {};
     std::set<int> output_set(output.begin(), output.end());

@@ -45,7 +45,7 @@ class Solution {
 
 
 
-TEST(t0, t1) {
+TEST(increasing_subsequences, t1) {
     vector<int> nums = {4, 6, 7, 7};
     vector<vector<int>> output = {{4, 6},    {4, 6, 7}, {4, 6, 7, 7}, {4, 7},
                                   {4, 7, 7}, {6, 7},    {6, 7, 7},    {7, 7}};
@@ -54,7 +54,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t2) {
+TEST(increasing_subsequences, t2) {
     vector<int> nums = {4, 4, 3, 2, 1};
     vector<vector<int>> output = {{4, 4}};
 

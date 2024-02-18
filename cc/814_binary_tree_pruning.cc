@@ -36,7 +36,7 @@ class Solution {
 using namespace std;
 #define null optional<int>()
 
-TEST(t0, t1) {
+TEST(binary_tree_pruning, t1) {
     vector<optional<int>> root = {1, null, 0, 0, 1};
     auto *node = ConstructBinaryTree(root);
     Solution sl;
@@ -53,7 +53,7 @@ TEST(t0, t1) {
     FreeTreeNode(node);
 }
 
-TEST(t0, t2) {
+TEST(binary_tree_pruning, t2) {
     vector<optional<int>> root = {1, 0, 1, 0, 0, 0, 1};
     auto *node = ConstructBinaryTree(root);
     Solution sl;
@@ -69,7 +69,7 @@ TEST(t0, t2) {
     EXPECT_EQ(ret_node, output);
     FreeTreeNode(node);
 }
-TEST(t0, t3) {
+TEST(binary_tree_pruning, t3) {
     vector<optional<int>> root = {1, 1, 0, 1, 1, 0, 1, 0};
     auto *node = ConstructBinaryTree(root);
     Solution sl;

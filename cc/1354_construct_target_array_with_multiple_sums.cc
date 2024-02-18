@@ -41,7 +41,7 @@ class Solution {
     }
 };
 
-TEST(t0, t1) {
+TEST(construct_target_array_with_multiple_sums, t1) {
     vector<int> target = {9, 3, 5};
     bool output = true;
     Solution sl;
@@ -50,7 +50,7 @@ TEST(t0, t1) {
     // Impossible to create target array from [1,1,1,1].
 }
 
-TEST(t0, t2) {
+TEST(construct_target_array_with_multiple_sums, t2) {
     vector<int> target = {8, 5};
     bool output = true;
     Solution sl;

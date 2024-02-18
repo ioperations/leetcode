@@ -61,7 +61,7 @@ class Solution {
     }
 };
 
-TEST(t0, t1) {
+TEST(x_graph_has_circle, t1) {
     // numCourses = 2, prerequisites = [[1,0],[0,1]]
     // 输出：false
     // 解释：总共有 2 门课程。学习课程 1
@@ -75,7 +75,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, false);
 }
 
-TEST(t0, t2) {
+TEST(x_graph_has_circle, t2) {
     // numCourses = 2, prerequisites = [[1,0]]
     // 输出：true
     // 解释：总共有 2 门课程。学习课程 1 之前，你需要完成课程 0 。这是可能的。

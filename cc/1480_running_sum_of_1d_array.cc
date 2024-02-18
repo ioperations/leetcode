@@ -34,7 +34,7 @@ class Solution {
     }
 };
 
-TEST(t0, t1) {
+TEST(running_sum_of_1d_array, t1) {
     std::vector<int> p{1, 2, 3, 4};
     std::vector<int> output{1, 3, 6, 10};
 
@@ -43,7 +43,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t2) {
+TEST(running_sum_of_1d_array, t2) {
     std::vector<int> p{1, 1, 1, 1, 1};
     std::vector<int> output{1, 2, 3, 4, 5};
 
@@ -52,7 +52,7 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t3) {
+TEST(running_sum_of_1d_array, t3) {
     std::vector<int> p{3, 1, 2, 10, 1};
     std::vector<int> output{3, 4, 6, 16, 17};
 

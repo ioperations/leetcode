@@ -60,7 +60,7 @@ TEST(t1, t0) {
     EXPECT_EQ(ret, std::string("1010"));
 }
 
-TEST(t0, t1) {
+TEST(concatenation_of_consecutive_binary_numbers, t1) {
     int const n = 1;
     int const output = 1;
     Solution sl;
@@ -73,7 +73,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t2) {
+TEST(concatenation_of_consecutive_binary_numbers, t2) {
     int const n = 3;
     int const output = 27;
     Solution sl;
@@ -91,7 +91,7 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t3) {
+TEST(concatenation_of_consecutive_binary_numbers, t3) {
     int const n = 12;
     int const output = 505379714;
     std::string expected_str = "1101110010111011110001001101010111100";

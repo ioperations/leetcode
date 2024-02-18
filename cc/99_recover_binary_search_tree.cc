@@ -48,7 +48,7 @@ class Solution {
 
 using namespace std;
 
-TEST(t0, t1) {
+TEST(recover_binary_search_tree, t1) {
 #define null optional<int>()
     vector<optional<int>> root = {1, 3, null, null, 2};
     vector<optional<int>> output = {3, 1, null, null, 2};
@@ -72,7 +72,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ou, in);
 }
 
-TEST(t0, t2) {
+TEST(recover_binary_search_tree, t2) {
 #define null optional<int>()
     vector<optional<int>> root = {3, 1, 4, null, null, 2};
     vector<optional<int>> output = {2, 1, 4, null, null, 3};

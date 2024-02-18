@@ -60,7 +60,7 @@ class Solution {
 
 
 
-TEST(t0, t1) {
+TEST(magical_string, t1) {
     int n = 6;
     int expected = 3;
     // Explanation: The first 6 elements of magical string s is "122112" and it
@@ -71,7 +71,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, expected);
 }
 
-TEST(t0, t2) {
+TEST(magical_string, t2) {
     int n = 1;
     int expected = 1;
 
@@ -80,7 +80,7 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, expected);
 }
 
-TEST(t0, t3) {
+TEST(magical_string, t3) {
     int n = 36;
     int expected = 18;
     // Explanation: The first 6 elements of magical string s is "122112" and it
@@ -91,7 +91,7 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, expected);
 }
 
-TEST(t0, t4) {
+TEST(magical_string, t4) {
     int n = 37;
     int expected = 19;
     // Explanation: The first 6 elements of magical string s is "122112" and it
@@ -101,7 +101,7 @@ TEST(t0, t4) {
     int ret = s.MagicalString(n);
     EXPECT_EQ(ret, expected);
 }
-TEST(t0, t5) {
+TEST(magical_string, t5) {
     int n = 38;
     int expected = 19;
     // Explanation: The first 6 elements of magical string s is "122112" and it
@@ -112,7 +112,7 @@ TEST(t0, t5) {
     EXPECT_EQ(ret, expected);
 }
 
-TEST(t0, t6) {
+TEST(magical_string, t6) {
     int n = 9758;
     int expected = 4874;
     // Explanation: The first 6 elements of magical string s is "122112" and it

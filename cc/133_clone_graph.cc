@@ -161,7 +161,7 @@ void CheckEqual(Node *node, std::vector<std::vector<int>> &adj_list) {
     // TODO:: to implemen
 }
 
-TEST(t0, t1) {
+TEST(clone_graph, t1) {
     std::vector<std::vector<int>> adj_list = {
         std::vector<int>{2, 4}, std::vector<int>{1, 3}, std::vector<int>{2, 4},
         std::vector<int>{1, 3}};
@@ -179,7 +179,7 @@ TEST(t0, t1) {
     // 3rd node (val = 3).
 }
 
-TEST(t0, t2) {
+TEST(clone_graph, t2) {
     std::vector<std::vector<int>> adj_list = {std::vector<int>{}};
     Node *node = BuildNode(adj_list);
     Solution sl;
@@ -191,7 +191,7 @@ TEST(t0, t2) {
      * one node with val = 1 and it does not have any neighbors*/
 }
 
-TEST(t0, t3) {
+TEST(clone_graph, t3) {
     std::vector<std::vector<int>> adj_list = {};
     Node *node = BuildNode(adj_list);
     Solution sl;

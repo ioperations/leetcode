@@ -63,7 +63,7 @@ class Solution {
     }
 };
 
-TEST(t0, t1) {
+TEST(longest_string_chain, t1) {
     vector<string> words = {"a", "b", "ba", "bca", "bda", "bdca"};
     int output = 4;
     // Explanation: One of the longest word chains is ["a","ba","bda","bdca"].
@@ -72,7 +72,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t2) {
+TEST(longest_string_chain, t2) {
     vector<string> words = {"xbc", "pcxbcf", "xb", "cxbc", "pcxbc"};
     int output = 5;
     // All the words can be put in a word chain ["xb", "xbc", "cxbc", "pcxbc",
@@ -82,7 +82,7 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t3) {
+TEST(longest_string_chain, t3) {
     vector<string> words = {"abcd", "dbqca"};
     int output = 1;
     // The trivial word chain ["abcd"] is one of the longest word chains.

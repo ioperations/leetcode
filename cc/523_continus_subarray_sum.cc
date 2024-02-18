@@ -104,7 +104,7 @@ class Solution {
 
 
 
-TEST(t0, t1) {
+TEST(continus_subarray_sum, t1) {
     vector<int> nums = {23, 2, 4, 6, 7};
     int k = 6;
     bool output = true;
@@ -115,7 +115,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t2) {
+TEST(continus_subarray_sum, t2) {
     vector<int> nums = {23, 2, 6, 4, 7};
     int k = 6;
     bool output = true;
@@ -127,7 +127,7 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t3) {
+TEST(continus_subarray_sum, t3) {
     vector<int> nums = {23, 2, 6, 4, 7};
     int k = 13;
     bool output = false;

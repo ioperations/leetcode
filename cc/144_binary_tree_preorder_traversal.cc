@@ -39,7 +39,7 @@ class Solution {
 using namespace std;
 
 
-TEST(t0, t1) {
+TEST(binary_tree_preorder_traversal, t1) {
     std::vector<optional<int>> vec{1, 2, 3};
     TreeNode<int> *root = ConstructBinaryTree(vec);
     Solution s;
@@ -50,7 +50,7 @@ TEST(t0, t1) {
     FreeTreeNode(root);
 }
 
-TEST(t0, t2) {
+TEST(binary_tree_preorder_traversal, t2) {
     std::vector<optional<int>> vec{};
     TreeNode<int> *root = ConstructBinaryTree(vec);
     Solution s;
@@ -61,7 +61,7 @@ TEST(t0, t2) {
     FreeTreeNode(root);
 }
 
-TEST(t0, t3) {
+TEST(binary_tree_preorder_traversal, t3) {
     std::vector<optional<int>> vec{1};
     TreeNode<int> *root = ConstructBinaryTree(vec);
     Solution s;

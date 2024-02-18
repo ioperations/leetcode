@@ -33,31 +33,31 @@ class Solution {
 
 
 
-TEST(t0, t1) {
+TEST(excel_sheet_column_title, t1) {
     Solution s;
     auto ret = s.ConvertToTitle(1);
     EXPECT_EQ(ret, "A");
 }
 
-TEST(t0, t2) {
+TEST(excel_sheet_column_title, t2) {
     Solution s;
     auto ret = s.ConvertToTitle(26);
     EXPECT_EQ(ret, "Z");
 }
 
-TEST(t0, t3) {
+TEST(excel_sheet_column_title, t3) {
     Solution s;
     auto ret = s.ConvertToTitle(28);
     EXPECT_EQ(ret, "AB");
 }
 
-TEST(t0, t4) {
+TEST(excel_sheet_column_title, t4) {
     Solution s;
     auto ret = s.ConvertToTitle(27);
     EXPECT_EQ(ret, "AA");
 }
 
-TEST(t0, t5) {
+TEST(excel_sheet_column_title, t5) {
     Solution s;
     auto ret = s.ConvertToTitle(701);
     EXPECT_EQ(ret, "ZY");

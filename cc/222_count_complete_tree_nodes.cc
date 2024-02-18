@@ -44,7 +44,7 @@ class Solution {
 
 using namespace std;
 
-TEST(t0, t1) {
+TEST(count_complete_tree_nodes, t1) {
     vector<optional<int>> root = {1, 2, 3, 4, 5, 6};
     int output = 6;
     auto *const node = ConstructBinaryTree(root);
@@ -54,7 +54,7 @@ TEST(t0, t1) {
     FreeTreeNode(node);
 }
 
-TEST(t0, t2) {
+TEST(count_complete_tree_nodes, t2) {
     vector<optional<int>> root = {};
     int output = 0;
     auto *const node = ConstructBinaryTree(root);
@@ -64,7 +64,7 @@ TEST(t0, t2) {
     FreeTreeNode(node);
 }
 
-TEST(t0, t3) {
+TEST(count_complete_tree_nodes, t3) {
     vector<optional<int>> root = {1};
     int output = 1;
     auto *const node = ConstructBinaryTree(root);

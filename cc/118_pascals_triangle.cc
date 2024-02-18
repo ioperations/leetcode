@@ -41,7 +41,7 @@ class Solution {
     }
 };
 
-TEST(t0, t1) {
+TEST(pascals_triangle, t1) {
     int num_rows = 5;
     std::vector<std::vector<int>> output = {
         {1}, {1, 1}, {1, 2, 1}, {1, 3, 3, 1}, {1, 4, 6, 4, 1}};
@@ -54,7 +54,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret_set, output_set);
 }
 
-TEST(t0, t2) {
+TEST(pascals_triangle, t2) {
     int num_rows = 1;
     std::vector<std::vector<int>> output = {{1}};
 

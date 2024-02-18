@@ -57,7 +57,7 @@ class Solution {
     }
 };
 
-TEST(t0, t1) {
+TEST(remove_element, t1) {
     std::vector<int> v{3, 2, 2, 3};
     int val = 3;
     int output = 2;
@@ -73,7 +73,7 @@ TEST(t0, t1) {
     }
 }
 
-TEST(t0, t2) {
+TEST(remove_element, t2) {
     std::vector<int> v{0, 1, 2, 2, 3, 0, 4, 2};
     int val = 2;
     int output = 5;

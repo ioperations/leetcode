@@ -74,7 +74,7 @@ class Solution {
 
 
 
-TEST(t0, t1) {
+TEST(Kth_smallest_instructions, t1) {
     std::vector<int> destination = {2, 3};
     int k = 1;
     string output = "HHHVV";
@@ -88,7 +88,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t2) {
+TEST(Kth_smallest_instructions, t2) {
     std::vector<int> destination = {2, 3};
     int k = 2;
     string output = "HHVHV";
@@ -98,7 +98,7 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t3) {
+TEST(Kth_smallest_instructions, t3) {
     std::vector<int> destination = {2, 3};
     int k = 3;
     string output = "HHVVH";

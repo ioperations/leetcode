@@ -44,7 +44,7 @@ void InorderLeft(TreeNode *root, std::vector<int> &vec) {
     InorderLeft(root->right, vec);
 }
 
-TEST(t0, t1) {
+TEST(convert_sorted_array_to_binary_tree, t1) {
     std::set<std::vector<int>> expected{{-10, -3, 0, 5, 9}, {0, -10, 5, -3, 9}};
     // Explanation: [0,-10,5,null,-3,null,9] is also accepted:
 

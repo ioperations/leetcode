@@ -33,7 +33,7 @@ class Solution {
 };
 
 
-TEST(t0, t1) {
+TEST(repeated_substring_pattern, t1) {
     string s = "abab";
     bool output = true;
     Solution sl;
@@ -42,7 +42,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t2) {
+TEST(repeated_substring_pattern, t2) {
     string s = "aba";
     bool output = false;
     Solution sl;
@@ -51,7 +51,7 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t3) {
+TEST(repeated_substring_pattern, t3) {
     string s = "abcabcabcabc";
     bool output = true;
     Solution sl;

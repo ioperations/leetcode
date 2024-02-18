@@ -55,7 +55,7 @@ class Solution {
 
 
 
-TEST(t0, t1) {
+TEST(k_th_largest_element_in_an_array, t1) {
     vector<int> nums = {3, 2, 1, 5, 6, 4};
     int k = 2;
     int out = 5;
@@ -67,7 +67,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, out);
 }
 
-TEST(t0, t2) {
+TEST(k_th_largest_element_in_an_array, t2) {
     vector<int> nums = {3, 2, 3, 1, 2, 4, 5, 5, 6};
     int k = 4;
     int out = 4;

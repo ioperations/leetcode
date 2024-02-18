@@ -98,7 +98,7 @@ class Solution {
 
 
 
-TEST(t0, t1) {
+TEST(the_skyline_problem, t1) {
     vector<vector<int>> buildings = {
         {2, 9, 10}, {3, 7, 15}, {5, 12, 12}, {15, 20, 10}, {19, 24, 8}};
     vector<vector<int>> const output = {{2, 10},  {3, 15}, {7, 12}, {12, 0},
@@ -115,7 +115,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t2) {
+TEST(the_skyline_problem, t2) {
     vector<vector<int>> buildings = {{0, 2, 3}, {2, 5, 3}};
     vector<vector<int>> const output = {{0, 3}, {5, 0}};
     /*

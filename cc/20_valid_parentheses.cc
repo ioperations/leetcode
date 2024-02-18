@@ -64,7 +64,7 @@ class Solution {
 
 
 
-TEST(t0, t1) {
+TEST(valid_parentheses, t1) {
     string s = "()";
     bool output = true;
 
@@ -73,7 +73,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t2) {
+TEST(valid_parentheses, t2) {
     string s = "()[]{}";
     bool output = true;
 
@@ -82,7 +82,7 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t3) {
+TEST(valid_parentheses, t3) {
     string s = "(]";
 
     bool output = false;

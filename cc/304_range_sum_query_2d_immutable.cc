@@ -81,7 +81,7 @@ class NumMatrixV1 {
 
 
 
-TEST(t0, t1) {
+TEST(range_sum_query_2d_immutable, t1) {
     // ["NumMatrix", "sumRegion", "sumRegion", "sumRegion"]
     vector<vector<int>> input = {{3, 0, 1, 4, 2},
                                  {5, 6, 3, 2, 1},
@@ -109,7 +109,7 @@ TEST(t0, t1) {
     // blue rectangle)
 }
 
-TEST(t0, t2) {
+TEST(range_sum_query_2d_immutable, t2) {
     // ["NumMatrix", "sumRegion", "sumRegion", "sumRegion"]
     vector<vector<int>> input = {{3, 0, 1, 4, 2},
                                  {5, 6, 3, 2, 1},

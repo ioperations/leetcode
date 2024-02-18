@@ -121,7 +121,7 @@ void ExpectEqList(ListNode *const head, const std::vector<int> &elements) {
 
 
 
-TEST(t0, t1) {
+TEST(palindrome_linked_list, t1) {
     ListNode *head = List::ConstructList(std::vector<int>{1, 2, 2, 1});
 
     Solution s;
@@ -145,7 +145,7 @@ TEST(t1, t1) {
     EXPECT_EQ(ret, true);
 }
 
-TEST(t0, t2) {
+TEST(palindrome_linked_list, t2) {
     ListNode *head = List::ConstructList(std::vector<int>{1, 2});
 
     Solution s;

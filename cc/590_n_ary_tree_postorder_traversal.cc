@@ -101,7 +101,7 @@ void FreeNode(Node *n) {
     }
     delete n;
 }
-TEST(t0, t1) {
+TEST(n_ary_tree_postorder_traversal, t1) {
 #define null optional<int>()
 
     vector<optional<int>> root = {1, null, 3, 2, 4, null, 5, 6};
@@ -113,7 +113,7 @@ TEST(t0, t1) {
     FreeNode(tree);
 }
 
-TEST(t0, t2) {
+TEST(n_ary_tree_postorder_traversal, t2) {
 #define null optional<int>()
 
     vector<optional<int>> root = {

@@ -56,7 +56,7 @@ class Solution {
 
 
 
-TEST(t0, t1) {
+TEST(min_cost_climbing_stairs, t1) {
     std::vector<int> v{10, 15, 20};
 
     int expected = 15;
@@ -71,7 +71,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, expected);
 }
 
-TEST(t0, t2) {
+TEST(min_cost_climbing_stairs, t2) {
     std::vector<int> v{1, 100, 1, 1, 1, 100, 1, 1, 100, 1};
 
     int expected = 6;

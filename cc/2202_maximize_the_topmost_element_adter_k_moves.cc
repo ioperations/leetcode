@@ -44,7 +44,7 @@ class Solution {
 
 
 
-TEST(t0, t1) {
+TEST(maximize_the_topmost_element_adter_k_moves, t1) {
     std::vector<int> nums{5, 2, 2, 4, 0, 6};
     int k = 4;
     int output = 5;
@@ -62,7 +62,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t2) {
+TEST(maximize_the_topmost_element_adter_k_moves, t2) {
     std::vector<int> nums{2};
     int k = 1;
     int output = -1;
@@ -74,7 +74,7 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t3) {
+TEST(maximize_the_topmost_element_adter_k_moves, t3) {
     std::vector<int> nums{99, 95, 68, 24, 18};
     int k = 69;
     int output = 99;

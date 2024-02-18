@@ -55,7 +55,7 @@ class Solution {
     }
 };
 
-TEST(t0, t1) {
+TEST(decode_string, t1) {
     string s = "3[a]2[bc]";
     string out = "aaabcbc";
     Solution sl;
@@ -63,7 +63,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, out);
 }
 
-TEST(t0, t2) {
+TEST(decode_string, t2) {
     string s = "3[a2[c]]";
     string out = "accaccacc";
     Solution sl;
@@ -71,7 +71,7 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, out);
 }
 
-TEST(t0, t3) {
+TEST(decode_string, t3) {
     string s = "2[abc]3[cd]ef";
     string out = "abcabccdcdcdef";
     Solution sl;
@@ -82,7 +82,7 @@ TEST(t0, t3) {
 using namespace Tree;
 #include <vector>
 
-TEST(t0, t4) {
+TEST(decode_string, t4) {
 #define null std::optional<int>()
     std::vector<int> values{1, 2, 3, 4, 5, 6, 7};
     TreeNode<int> *n = ConstructTree<int>(values);

@@ -36,7 +36,7 @@ class Solution {
     }
 };
 
-TEST(t0, t1) {
+TEST(remove_palindromic_subsequences, t1) {
     string s = "ababa";
     int out = 1;
     // s is already a palindrome, so its entirety can be removed in a single
@@ -46,7 +46,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, out);
 }
 
-TEST(t0, t2) {
+TEST(remove_palindromic_subsequences, t2) {
     string s = "abb";
     int out = 2;
     //"abb" -> "bb" -> "". Remove palindromic subsequence "a" then "bb".
@@ -55,7 +55,7 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, out);
 }
 
-TEST(t0, t3) {
+TEST(remove_palindromic_subsequences, t3) {
     string s = "baabb";
     int out = 2;
     // "baabb" -> "b" -> "". Remove palindromic subsequence "baab" then "b".

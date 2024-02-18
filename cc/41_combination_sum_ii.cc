@@ -45,7 +45,7 @@ class Solution {
     }
 };
 
-TEST(t0, t1) {
+TEST(combination_sum_ii, t1) {
     std::vector<int> candidates{10, 1, 2, 7, 6, 1, 5};
     int target = 8;
     Solution sl;
@@ -56,7 +56,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret_set, out_set);
 }
 
-TEST(t0, t2) {
+TEST(combination_sum_ii, t2) {
     std::vector<int> candidates{2, 5, 2, 1, 2};
     int target = 5;
     Solution sl;

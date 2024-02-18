@@ -285,7 +285,7 @@ class SolutionV3 {
     }
 };
 
-TEST(t0, t1) {
+TEST(basic_calculator, t1) {
     const std::string s = "1+1";
 
     SolutionV2 sl;
@@ -294,7 +294,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, 2);
 }
 
-TEST(t0, t2) {
+TEST(basic_calculator, t2) {
     const std::string s = "2-1+2";
 
     SolutionV2 sl;
@@ -303,7 +303,7 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, 3);
 }
 
-TEST(t0, t3) {
+TEST(basic_calculator, t3) {
     const std::string s = "(1+(4+5+2)-3)+(6+8)";
 
     SolutionV2 sl;

@@ -141,7 +141,7 @@ void FreeNodes(TreeNode *root) {
     delete root;
 }
 
-TEST(t0, t1) {
+TEST(unique_binary_search_tree_ii, t1) {
     int n = 3;
 #define null optional<int>()
     vector<vector<optional<int>>> output = {{1, null, 2, null, 3},
@@ -161,7 +161,7 @@ TEST(t0, t1) {
     }
 }
 
-TEST(t0, t2) {
+TEST(unique_binary_search_tree_ii, t2) {
     int n = 1;
 #define null optional<int>()
     vector<vector<optional<int>>> output = {{1}};

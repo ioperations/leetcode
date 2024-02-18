@@ -31,7 +31,7 @@ class Solution {
 
 
 
-TEST(t0, t1) {
+TEST(base_7, t1) {
     int num = 100;
     string output = "202";
     Solution sl;
@@ -39,7 +39,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t2) {
+TEST(base_7, t2) {
     int num = -7;
     string output = "-10";
     Solution sl;

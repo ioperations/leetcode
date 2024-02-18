@@ -107,7 +107,7 @@ class SolutionV2 {
     }
 };
 
-TEST(t0, t1) {
+TEST(simplify_path, t1) {
     std::string path = "/home/";
     std::string output = "/home";
     // Explanation : Note that there is no trailing slash after the last
@@ -118,7 +118,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t2) {
+TEST(simplify_path, t2) {
     std::string path = "/../";
     std::string output = "/";
     // Explanation: Going one level up from the root directory is a no-op, as
@@ -128,7 +128,7 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t3) {
+TEST(simplify_path, t3) {
     std::string path = "/home//foo/";
     std::string output = "/home/foo";
     // Explanation: In the canonical path, multiple consecutive slashes are

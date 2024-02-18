@@ -46,7 +46,7 @@ class KthLargest {
 
 
 
-TEST(t0, t1) {
+TEST(kth_largest_element_in_a_stream, t1) {
     // * Your KthLargest object will be instantiated and called as such:
     int k = 3;
     std::vector<int> nums{4, 5, 8, 2};

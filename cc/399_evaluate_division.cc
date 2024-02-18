@@ -69,7 +69,7 @@ class Solution {
     }
 };
 
-TEST(t0, t1) {
+TEST(evaluate_division, t1) {
     vector<vector<string>> equations{{"a", "b"}, {"b", "c"}};
     vector<double> values{2.0, 3.0};
     vector<vector<string>> queries{
@@ -85,7 +85,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t2) {
+TEST(evaluate_division, t2) {
     vector<vector<string>> equations{{"a", "b"}, {"b", "c"}, {"bc", "cd"}};
     vector<double> values{1.5, 2.5, 5.0};
     vector<vector<string>> queries{
@@ -96,7 +96,7 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t3) {
+TEST(evaluate_division, t3) {
     vector<vector<string>> equations{{"a", "b"}};
     vector<double> values{0.5};
     vector<vector<string>> queries{

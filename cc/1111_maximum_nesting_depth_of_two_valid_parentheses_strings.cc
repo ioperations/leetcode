@@ -55,21 +55,21 @@ class Solution {
     }
 };
 
-TEST(t0, t1) {
+TEST(maximum_nesting_depth_of_two_valid_parentheses_strings, t1) {
     Solution s;
     std::vector<int> ret = s.MaxDepthAfterSplit("(()())");
 
     EXPECT_EQ(ret, (std::vector<int>{0, 1, 1, 1, 1, 0}));
 }
 
-TEST(t0, t2) {
+TEST(maximum_nesting_depth_of_two_valid_parentheses_strings, t2) {
     Solution s;
     std::vector<int> ret = s.MaxDepthAfterSplit("()(())()");
 
     EXPECT_EQ(ret, (std::vector<int>{0, 0, 0, 1, 1, 0, 0, 0}));
 }
 
-TEST(t0, t3) {
+TEST(maximum_nesting_depth_of_two_valid_parentheses_strings, t3) {
     Solution s;
     std::vector<int> ret = s.MaxDepthAfterSplit("()(()())()()()()()(())");
 

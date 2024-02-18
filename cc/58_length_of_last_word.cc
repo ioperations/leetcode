@@ -28,7 +28,7 @@ class Solution {
 
 
 
-TEST(t0, t1) {
+TEST(length_of_last_word, t1) {
     std::string s = "Hello World";
     int output = 5;
 
@@ -37,7 +37,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t2) {
+TEST(length_of_last_word, t2) {
     std::string s = "   fly me   to   the moon  ";
     int output = 4;
     Solution sl;
@@ -45,7 +45,7 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t3) {
+TEST(length_of_last_word, t3) {
     std::string s = "luffy is still joyboy";
     int output = 6;
     Solution sl;

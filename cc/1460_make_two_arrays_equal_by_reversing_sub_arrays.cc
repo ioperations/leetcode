@@ -30,7 +30,7 @@ class Solution {
 };
 
 
-TEST(t0, t1) {
+TEST(make_two_arrays_equal_by_reversing_sub_arrays, t1) {
     std::vector<int> target = {1, 2, 3, 4}, arr = {2, 4, 1, 3};
     bool output = true;
 
@@ -47,7 +47,7 @@ TEST(t0, t1) {
     to do so.*/
 }
 
-TEST(t0, t2) {
+TEST(make_two_arrays_equal_by_reversing_sub_arrays, t2) {
     std::vector<int> target = {7}, arr = {7};
     bool output = true;
 
@@ -57,7 +57,7 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t3) {
+TEST(make_two_arrays_equal_by_reversing_sub_arrays, t3) {
     std::vector<int> target = {3, 7, 9}, arr = {3, 7, 11};
     bool output = false;
 

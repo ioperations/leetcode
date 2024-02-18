@@ -44,7 +44,7 @@ class Solution {
 using namespace std;
 
 
-TEST(t0, t1) {
+TEST(lowest_common_ancestor_of_a_binary_tree, t1) {
 #define null optional<int>()
     vector<optional<int>> root = {3, 5, 1, 6, 2, 0, 8, null, null, 7, 4};
     int p = 5, q = 1;
@@ -59,7 +59,7 @@ TEST(t0, t1) {
     FreeTreeNode(node);
 }
 
-TEST(t0, t2) {
+TEST(lowest_common_ancestor_of_a_binary_tree, t2) {
 #define null optional<int>()
     vector<optional<int>> root = {3, 5, 1, 6, 2, 0, 8, null, null, 7, 4};
     int p = 5, q = 4;
@@ -74,7 +74,7 @@ TEST(t0, t2) {
     FreeTreeNode(node);
 }
 
-TEST(t0, t3) {
+TEST(lowest_common_ancestor_of_a_binary_tree, t3) {
 #define null optional<int>()
     vector<optional<int>> root = {1, 2};
     int p = 1, q = 2;

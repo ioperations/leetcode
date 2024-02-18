@@ -68,7 +68,7 @@ namespace {
     };
 
 
-    TEST(t0, t1) {
+    TEST(search_in_rotated_sorted_array, t1) {
         std::vector<int> nums = {4, 5, 6, 7, 0, 1, 2};
         int target = 0;
         int output = 4;
@@ -77,7 +77,7 @@ namespace {
         EXPECT_EQ(ret, output);
     }
 
-    TEST(t0, t2) {
+    TEST(search_in_rotated_sorted_array, t2) {
         std::vector<int> nums = {4, 5, 6, 7, 0, 1, 2};
         int target = 3;
         int output = -1;
@@ -86,7 +86,7 @@ namespace {
         EXPECT_EQ(ret, output);
     }
 
-    TEST(t0, t3) {
+    TEST(search_in_rotated_sorted_array, t3) {
         std::vector<int> nums = {1};
         int target = 0;
         int output = -1;

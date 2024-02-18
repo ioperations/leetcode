@@ -58,7 +58,7 @@ class Solution {
 
 
 
-TEST(t0, t1) {
+TEST(can_i_win, t1) {
     int max_choosable_integerer = 10, desired_total = 11;
     bool expected = false;
     // Explanation:
@@ -74,7 +74,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, expected);
 }
 
-TEST(t0, t2) {
+TEST(can_i_win, t2) {
     int max_choosable_integer = 10, desired_total = 0;
     bool expected = true;
 
@@ -83,7 +83,7 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, expected);
 }
 
-TEST(t0, t3) {
+TEST(can_i_win, t3) {
     int max_choosable_integer = 10, desired_total = 1;
     bool expected = true;
 

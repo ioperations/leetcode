@@ -51,7 +51,7 @@ class Solution {
     }
 };
 
-TEST(t0, t1) {
+TEST(maximum_profit_in_job_scheduling, t1) {
     vector<int> start_time = {1, 2, 3, 3}, end_time = {3, 4, 5, 6},
                 profit = {50, 10, 40, 70};
     int output = 120;
@@ -64,7 +64,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t2) {
+TEST(maximum_profit_in_job_scheduling, t2) {
     vector<int> start_time = {1, 2, 3, 4, 6}, end_time = {3, 5, 10, 6, 9},
                 profit = {20, 20, 100, 70, 60};
     int output = 150;
@@ -79,7 +79,7 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t3) {
+TEST(maximum_profit_in_job_scheduling, t3) {
     vector<int> start_time = {1, 1, 1}, end_time = {2, 3, 4},
                 profit = {5, 6, 4};
     int output = 6;

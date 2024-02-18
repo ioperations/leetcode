@@ -40,7 +40,7 @@ class Solution {
 
 
 
-TEST(t0, t1) {
+TEST(super_ugly_number, t1) {
     int n = 12;
     vector<int> primes = {2, 7, 13, 19};
     int output = 32;
@@ -51,7 +51,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t2) {
+TEST(super_ugly_number, t2) {
     int n = 1;
     vector<int> primes = {2, 3, 5};
     int output = 1;

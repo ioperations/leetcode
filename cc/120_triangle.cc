@@ -35,7 +35,7 @@ class Solution {
     }
 };
 
-TEST(t0, t1) {
+TEST(triangle, t1) {
     std::vector<vector<int>> v{{2}, {3, 4}, {6, 5, 7}, {4, 1, 8, 3}};
     int out = 11;
     Solution sl;
@@ -53,7 +53,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, out);
 }
 
-TEST(t0, t2) {
+TEST(triangle, t2) {
     std::vector<vector<int>> v{{-10}};
     int out = -10;
     Solution sl;

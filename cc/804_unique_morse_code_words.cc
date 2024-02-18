@@ -55,7 +55,7 @@ class Solution {
 
 
 
-TEST(t0, t1) {
+TEST(unique_morse_code_words, t1) {
     vector<string> words = {"gin", "zen", "gig", "msg"};
     int output = 2;
     /*
@@ -72,7 +72,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t2) {
+TEST(unique_morse_code_words, t2) {
     vector<string> words = {"a"};
     int output = 1;
     Solution sl;

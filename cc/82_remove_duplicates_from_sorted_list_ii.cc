@@ -96,7 +96,7 @@ TEST(test, t1) {
     List::FreeList(root);
 }
 
-TEST(t0, t1) {
+TEST(remove_duplicates_from_sorted_list_ii, t1) {
     std::vector<int> head{1, 2, 3, 3, 4, 4, 5};
 
     /*
@@ -118,7 +118,7 @@ TEST(t0, t1) {
     List::FreeList(root);
 }
 
-TEST(t0, t2) {
+TEST(remove_duplicates_from_sorted_list_ii, t2) {
     std::vector<int> head{1, 1, 1, 2, 3};
 
     /*

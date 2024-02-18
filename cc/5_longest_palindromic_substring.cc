@@ -47,7 +47,7 @@ class Solution {
 
 
 
-TEST(t0, t1) {
+TEST(longest_palindromic_substring, t1) {
     std::string s("babad");
     Solution *sl = new Solution();
 
@@ -57,7 +57,7 @@ TEST(t0, t1) {
     delete sl;
 }
 
-TEST(t0, t2) {
+TEST(longest_palindromic_substring, t2) {
     std::string s("cbbd");
     Solution *sl = new Solution();
 
@@ -65,7 +65,7 @@ TEST(t0, t2) {
     delete sl;
     EXPECT_EQ(ret, "bb");
 }
-TEST(t0, t3) {
+TEST(longest_palindromic_substring, t3) {
     std::string s("ac");
     Solution *sl = new Solution();
 

@@ -67,7 +67,7 @@ class Solution {
     }
 };
 
-TEST(t0, t1) {
+TEST(roman_to_integer, t1) {
     Solution s;
 
     std::string input = "III";
@@ -75,14 +75,14 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, 3);
 }
 
-TEST(t0, t2) {
+TEST(roman_to_integer, t2) {
     Solution s;
     std::string input = "LVIII";
     int ret = s.RomanToInt(input);
     EXPECT_EQ(ret, 58);
 }
 
-TEST(t0, t3) {
+TEST(roman_to_integer, t3) {
     Solution s;
     std::string input = "MCMXCIV";
     int ret = s.RomanToInt(input);

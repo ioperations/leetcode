@@ -58,7 +58,7 @@ class QuickSort {
     }
 };
 
-TEST(t0, t1) {
+TEST(algorithm_quicksort, t1) {
     int output[] = {1, 3, 2};
 
     QuickSort sl;

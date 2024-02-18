@@ -147,7 +147,7 @@ void ExpectEqRight(TreeNode *const root, const std::vector<int> &elements) {
     EXPECT_EQ(i, elements.size());
 }
 
-TEST(t0, t1) {
+TEST(flatten_binary_tree_to_linked_list, t1) {
     TreeNode *n = ConstructTree(std::vector<int>{1, 2, 5, 3, 4, 6});
     Solution s;
     auto ret = s.PreOrder(n);
@@ -156,7 +156,7 @@ TEST(t0, t1) {
     FreeRoot(n);
 }
 
-TEST(t0, t2) {
+TEST(flatten_binary_tree_to_linked_list, t2) {
     TreeNode *n = ConstructTree(std::vector<int>{});
     Solution s;
     auto ret = s.PreOrder(n);
@@ -165,7 +165,7 @@ TEST(t0, t2) {
     FreeRoot(n);
 }
 
-TEST(t0, t3) {
+TEST(flatten_binary_tree_to_linked_list, t3) {
     TreeNode *n = ConstructTree(std::vector<int>{0});
     Solution s;
     auto ret = s.PreOrder(n);

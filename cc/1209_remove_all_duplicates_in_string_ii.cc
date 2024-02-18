@@ -143,7 +143,7 @@ class SolutionV2 {
     }
 };
 
-TEST(t0, t1) {
+TEST(remove_all_duplicates_in_string_ii, t1) {
     string s = "abcd";
     int k = 2;
     Solution sl;
@@ -151,7 +151,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, "abcd");
 }
 
-TEST(t0, t2) {
+TEST(remove_all_duplicates_in_string_ii, t2) {
     string s = "deeedbbcccbdaa";
     int k = 3;
     Solution sl;
@@ -159,7 +159,7 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, "aa");
 }
 
-TEST(t0, t3) {
+TEST(remove_all_duplicates_in_string_ii, t3) {
     string s = "pbbcggttciiippooaais";
     int k = 2;
     Solution sl;

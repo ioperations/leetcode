@@ -76,7 +76,7 @@ class Solution {
 
 
 
-TEST(t0, t1) {
+TEST(minimium_operations_to_reduce_x_to_zero, t1) {
     vector<int> nums = {1, 1, 4, 2, 3};
     int x = 5;
     int output = 2;
@@ -87,7 +87,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t2) {
+TEST(minimium_operations_to_reduce_x_to_zero, t2) {
     vector<int> nums = {5, 6, 7, 8, 9};
     int x = 4;
     int output = -1;
@@ -98,7 +98,7 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t3) {
+TEST(minimium_operations_to_reduce_x_to_zero, t3) {
     vector<int> nums = {3, 2, 20, 1, 1, 3};
     int x = 10;
     int output = 5;

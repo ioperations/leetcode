@@ -29,7 +29,7 @@ class Solution {
 
 
 
-TEST(t0, t1) {
+TEST(power_of_three, t1) {
     int n = 27;
     bool expected = true;
 
@@ -38,7 +38,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, expected);
 }
 
-TEST(t0, t2) {
+TEST(power_of_three, t2) {
     int n = 0;
     bool expected = false;
 
@@ -46,7 +46,7 @@ TEST(t0, t2) {
     bool ret = sl.IsPowerOfThree(n);
     EXPECT_EQ(ret, expected);
 }
-TEST(t0, t3) {
+TEST(power_of_three, t3) {
     int n = 9;
     bool expected = true;
 

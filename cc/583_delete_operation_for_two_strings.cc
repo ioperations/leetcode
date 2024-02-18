@@ -49,7 +49,7 @@ class Solution {
 
 
 
-TEST(t0, t1) {
+TEST(delete_operation_for_two_strings, t1) {
     string word1 = "sea", word2 = "eat";
     int output = 2;
     // Explanation: You need one step to make "sea" to "ea" and another step to
@@ -60,7 +60,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t2) {
+TEST(delete_operation_for_two_strings, t2) {
     string word1 = "leetcode", word2 = "etco";
     int output = 4;
 

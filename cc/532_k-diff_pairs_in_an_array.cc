@@ -58,7 +58,7 @@ class Solution {
 
 
 
-TEST(t0, t1) {
+TEST(k_diff_pairs_in_an_array, t1) {
     vector<int> nums = {3, 1, 4, 1, 5};
     int k = 2;
     int output = 2;
@@ -74,7 +74,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t2) {
+TEST(k_diff_pairs_in_an_array, t2) {
     vector<int> nums = {1, 2, 3, 4, 5};
     int k = 1;
     int output = 4;
@@ -90,7 +90,7 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t3) {
+TEST(k_diff_pairs_in_an_array, t3) {
     vector<int> nums = {1, 3, 1, 5, 4};
     int k = 0;
     int output = 1;

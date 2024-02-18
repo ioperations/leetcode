@@ -81,7 +81,7 @@ class Solution {
 
 
 
-TEST(t0, t1) {
+TEST(check_if_there_is_a_valid_partition_for_the_array, t1) {
     vector<int> nums = {4, 4, 4, 5, 6};
     bool output = true;
     // Explanation: The array can be partitioned into the subarrays [4,4] and
@@ -91,7 +91,7 @@ TEST(t0, t1) {
     EXPECT_EQ(output, ret);
 }
 
-TEST(t0, t2) {
+TEST(check_if_there_is_a_valid_partition_for_the_array, t2) {
     vector<int> nums = {1, 1, 1, 2};
     bool output = false;
     // There is no valid partition for this array.

@@ -47,7 +47,7 @@ using namespace std;
 
 using namespace std;
 
-TEST(t0, t1) {
+TEST(binary_tree_cameras, t1) {
     std::vector<optional<int>> v{0, 0, null, 0, 0};
     int out = 1;
     auto *n = ConstructBinaryTree(v);
@@ -58,7 +58,7 @@ TEST(t0, t1) {
     FreeTreeNode(n);
 }
 
-TEST(t0, t2) {
+TEST(binary_tree_cameras, t2) {
     std::vector<optional<int>> v{0, 0, null, 0, null, 0, null, null, 0};
     int out = 2;
     auto *n = ConstructBinaryTree(v);

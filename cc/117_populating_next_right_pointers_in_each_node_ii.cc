@@ -62,6 +62,6 @@ class Solution {
     }
 };
 
-TEST(t0, t1) {}
+TEST(populating_next_right_pointers_in_each_node_ii, t1) {}
 
 }  // namespace

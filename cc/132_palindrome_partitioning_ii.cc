@@ -48,7 +48,7 @@ class Solution {
     }
 };
 
-TEST(t0, t1) {
+TEST(palindrome_partitioning_ii, t1) {
     std::string s = "aab";
 
     int i = 1;
@@ -57,7 +57,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, i);
 }
 
-TEST(t0, t2) {
+TEST(palindrome_partitioning_ii, t2) {
     std::string s = "a";
 
     int i = 0;
@@ -66,7 +66,7 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, i);
 }
 
-TEST(t0, t3) {
+TEST(palindrome_partitioning_ii, t3) {
     std::string s = "ab";
 
     int i = 1;

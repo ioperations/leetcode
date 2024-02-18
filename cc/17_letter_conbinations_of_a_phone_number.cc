@@ -53,7 +53,7 @@ class Solution {
 
 
 
-TEST(t0, t1) {
+TEST(letter_conbinations_of_a_phone_number, t1) {
     vector<string> expected = {"ad", "ae", "af", "bd", "be",
                                "bf", "cd", "ce", "cf"};
 
@@ -67,7 +67,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret_set, expected_set);
 }
 
-TEST(t0, t2) {
+TEST(letter_conbinations_of_a_phone_number, t2) {
     vector<string> expected = {};
 
     string digits = "";
@@ -80,7 +80,7 @@ TEST(t0, t2) {
     EXPECT_EQ(ret_set, expected_set);
 }
 
-TEST(t0, t3) {
+TEST(letter_conbinations_of_a_phone_number, t3) {
     vector<string> expected = {"a", "b", "c"};
 
     string digits = "2";

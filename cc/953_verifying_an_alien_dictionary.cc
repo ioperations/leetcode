@@ -58,7 +58,7 @@ class Solution {
 
 
 
-TEST(t0, t1) {
+TEST(verifying_an_alien_dictionary, t1) {
     vector<string> words = {"hello", "leetcode"};
     string order = "hlabcdefgijkmnopqrstuvwxyz";
     Solution sl;
@@ -67,7 +67,7 @@ TEST(t0, t1) {
     EXPECT_EQ(true, ret);
 }
 
-TEST(t0, t2) {
+TEST(verifying_an_alien_dictionary, t2) {
     vector<string> words = {"word", "world", "row"};
     string order = "worldabcefghijkmnpqstuvxyz";
     Solution sl;
@@ -77,7 +77,7 @@ TEST(t0, t2) {
     EXPECT_EQ(false, ret);
 }
 
-TEST(t0, t3) {
+TEST(verifying_an_alien_dictionary, t3) {
     vector<string> words = {"apple", "app"};
     string order = "abcdefghijklmnopqrstuvwxyz";
     Solution sl;

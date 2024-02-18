@@ -73,7 +73,7 @@ class Solution {
 };
 
 
-TEST(t0, t1) {
+TEST(is_graph_bipartite, t1) {
     /*
          ___         ___
         | 0 |_______| 1 |
@@ -95,7 +95,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, expected);
 }
 
-TEST(t0, t2) {
+TEST(is_graph_bipartite, t2) {
     /*
          ___         ___
         | 0 |_______| 1 |

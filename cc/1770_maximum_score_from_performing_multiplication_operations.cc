@@ -64,7 +64,7 @@ class Solution {
 
 
 
-TEST(t0, t1) {
+TEST(maximum_score_from_performing_multiplication_operations, t1) {
     vector<int> nums = {1, 2, 3}, multipliers = {3, 2, 1};
     int output = 14;
     Solution sl;
@@ -80,7 +80,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t2) {
+TEST(maximum_score_from_performing_multiplication_operations, t2) {
     vector<int> nums = {-5, -3, -3, -2, 7, 1}, multipliers = {-10, -5, 3, 4, 6};
     int output = 102;
     Solution sl;

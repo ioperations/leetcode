@@ -85,7 +85,7 @@ class Solution {
 
 
 
-TEST(t0, t1) {
+TEST(utf8_validation, t1) {
     vector<int> data = {197, 130, 1};
     bool output = true;
     // Explanation: data represents the octet sequence: 11000101 10000010
@@ -97,7 +97,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t2) {
+TEST(utf8_validation, t2) {
     vector<int> data = {235, 140, 4};
     bool output = false;
     // data represented the octet sequence: 11101011 10001100 00000100.

@@ -153,7 +153,7 @@ class Solution {
 
 
 
-TEST(t0, t1) {
+TEST(number_of_islands, t1) {
     std::vector<std::vector<char>> grid = {{'1', '1', '1', '1', '0'},
                                            {'1', '1', '0', '1', '0'},
                                            {'1', '1', '0', '0', '0'},
@@ -177,7 +177,7 @@ TEST(t1, t1) {
     EXPECT_EQ(ret, expected);
 }
 
-TEST(t0, t2) {
+TEST(number_of_islands, t2) {
     std::vector<std::vector<char>> grid = {{'1', '1', '0', '0', '0'},
                                            {'1', '1', '0', '0', '0'},
                                            {'0', '0', '1', '0', '0'},

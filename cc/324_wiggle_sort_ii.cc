@@ -39,7 +39,7 @@ class Solution {
 
 
 
-TEST(t0, t1) {
+TEST(wiggle_sort_ii, t1) {
     std::vector<int> nums = {1, 5, 1, 1, 6, 4};
     std::vector<int> output = {1, 6, 1, 5, 1, 4};
     std::vector<int> output1 = {1, 4, 1, 5, 1, 6};
@@ -49,7 +49,7 @@ TEST(t0, t1) {
 
     EXPECT_TRUE(nums == output1 || nums == output);
 }
-TEST(t0, t2) {
+TEST(wiggle_sort_ii, t2) {
     std::vector<int> nums = {1, 3, 2, 2, 3, 1};
     std::vector<int> output = {2, 3, 1, 3, 1, 2};
 

@@ -41,7 +41,7 @@ class Solution {
 
 
 
-TEST(t0, t1) {
+TEST(partitioning_into_minimum_number_of_deci_binary_numbers, t1) {
     string n = "32";
     int output = 3;
     Solution sl;
@@ -50,7 +50,7 @@ TEST(t0, t1) {
     // Explanation: 10 + 11 + 11 = 32;
 }
 
-TEST(t0, t2) {
+TEST(partitioning_into_minimum_number_of_deci_binary_numbers, t2) {
     string n = "38273";
     int output = 8;
     Solution sl;
@@ -59,7 +59,7 @@ TEST(t0, t2) {
     // Explanation: 10 + 11 + 11 = 32;
 }
 
-TEST(t0, t3) {
+TEST(partitioning_into_minimum_number_of_deci_binary_numbers, t3) {
     string n = "27346209830709182346";
     int output = 9;
     Solution sl;

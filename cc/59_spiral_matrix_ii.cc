@@ -130,7 +130,7 @@ class Solution {
 
 
 
-TEST(t0, t0) {
+TEST(spiral_matrix_ii, t0) {
     int n = 3;
 
     std::vector<std::vector<int>> expected = {{1, 2, 3}, {8, 9, 4}, {7, 6, 5}};
@@ -139,7 +139,7 @@ TEST(t0, t0) {
     EXPECT_EQ(ret, expected);
 }
 
-TEST(t0, t1) {
+TEST(spiral_matrix_ii, t1) {
     int n = 1;
     std::vector<std::vector<int>> expected = {{1}};
     Solution s;

@@ -50,7 +50,7 @@ class Solution {
     }
 };
 
-TEST(t0, t1) {
+TEST(valid_palindrome, t1) {
     string s = "A man, a plan, a canal: Panama";
     bool output = true;
     // Explanation: "amanaplanacanalpanama" is a palindrome.
@@ -59,7 +59,7 @@ TEST(t0, t1) {
     bool ret = sl.IsPalindrome(s);
     EXPECT_EQ(ret, output);
 }
-TEST(t0, t2) {
+TEST(valid_palindrome, t2) {
     string s = "race a car";
     bool output = false;
     //  "raceacar" is not a palindrome.
@@ -69,7 +69,7 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t3) {
+TEST(valid_palindrome, t3) {
     string s = " ";
     bool output = true;
     // Explanation: s is an empty string "" after removing non-alphanumeric
@@ -82,7 +82,7 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t4) {
+TEST(valid_palindrome, t4) {
     string s = "0P";
     bool output = false;
 

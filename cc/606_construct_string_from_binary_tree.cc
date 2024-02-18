@@ -54,7 +54,7 @@ using namespace std;
 
 #define null optional<int>()
 
-TEST(t0, t1) {
+TEST(construct_string_from_binary_tree, t1) {
     /*
                           _________
                           |       |
@@ -87,7 +87,7 @@ TEST(t0, t1) {
 
     FreeTreeNode(node);
 }
-TEST(t0, t2) {
+TEST(construct_string_from_binary_tree, t2) {
     vector<optional<int>> root = {1, 2, 3, null, 4};
 
     /*

@@ -54,7 +54,7 @@ class Solution {
 
 
 
-TEST(t0, t1) {
+TEST(target_sum, t1) {
     std::vector<int> nums = {1, 1, 1, 1, 1};
     int target = 3;
 
@@ -71,7 +71,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, 5);
 }
 
-TEST(t0, t2) {
+TEST(target_sum, t2) {
     std::vector<int> nums = {1};
     int target = 1;
 

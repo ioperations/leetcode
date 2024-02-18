@@ -40,7 +40,7 @@ class Solution {
 
 
 
-TEST(t0, t1) {
+TEST(unique_binary_search_tree, t1) {
     int n = 3;
     int out = 5;
     Solution sl;
@@ -48,7 +48,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, out);
 }
 
-TEST(t0, t2) {
+TEST(unique_binary_search_tree, t2) {
     int n = 1;
     int out = 1;
     Solution sl;
@@ -56,7 +56,7 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, out);
 }
 
-TEST(t0, t3) {
+TEST(unique_binary_search_tree, t3) {
     vector<int> test_case{1,       1,        2,         5,         14,
                           42,      132,      429,       1430,      4862,
                           16796,   58786,    208012,    742900,    2674440,

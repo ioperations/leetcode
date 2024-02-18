@@ -59,7 +59,7 @@ class Solution {
 
 
 
-TEST(t0, t1) {
+TEST(longest_increasing_path_in_a_matrix, t1) {
     vector<vector<int>> matrix = {{9, 9, 4}, {6, 6, 8}, {2, 1, 1}};
     int output = 4;
 
@@ -68,7 +68,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, output);
     // Explanation: The longest increasing path is [1, 2, 6, 9].
 }
-TEST(t0, t2) {
+TEST(longest_increasing_path_in_a_matrix, t2) {
     vector<vector<int>> matrix = {{3, 4, 5}, {3, 2, 6}, {2, 2, 1}};
     int output = 4;
 

@@ -60,7 +60,7 @@ class Solution {
 
 #define null optional<int>()
 
-TEST(t0, t1) {
+TEST(path_sum_ii, t1) {
     vector<optional<int>> root = {5, 4, 8,    11,   null, 13, 4,
                                   7, 2, null, null, 5,    1};
     int const target_sum = 22;
@@ -80,7 +80,7 @@ TEST(t0, t1) {
     FreeTreeNode(node);
 }
 
-TEST(t0, t2) {
+TEST(path_sum_ii, t2) {
     vector<optional<int>> root = {1, 2, 3};
     int const target_sum = 5;
     vector<vector<int>> const output = {};
@@ -99,7 +99,7 @@ TEST(t0, t2) {
     FreeTreeNode(node);
 }
 
-TEST(t0, t3) {
+TEST(path_sum_ii, t3) {
     vector<optional<int>> root = {1, 2};
     int const target_sum = 0;
     vector<vector<int>> const output = {};

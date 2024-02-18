@@ -44,7 +44,7 @@ class Solution {
 };
 
 
-TEST(t0, t1) {
+TEST(set_mismatch, t1) {
     vector<int> nums = {1, 2, 2, 4};
     vector<int> output = {2, 3};
 
@@ -53,7 +53,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t2) {
+TEST(set_mismatch, t2) {
     vector<int> nums = {1, 1};
 
     vector<int> const output = {1, 2};

@@ -25,7 +25,7 @@ class Solution {
     }
 };
 
-TEST(t0, t1) {
+TEST(number_of_steps_to_reduce_a_number_to_zero, t1) {
     int num = 14;
     int output = 6;
     // Explanation:
@@ -42,7 +42,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t2) {
+TEST(number_of_steps_to_reduce_a_number_to_zero, t2) {
     int num = 8;
     int output = 4;
     // Explanation:
@@ -57,7 +57,7 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t3) {
+TEST(number_of_steps_to_reduce_a_number_to_zero, t3) {
     int num = 123;
     int output = 12;
 

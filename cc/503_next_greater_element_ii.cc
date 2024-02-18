@@ -45,7 +45,7 @@ class Solution {
 
 
 
-TEST(t0, t1) {
+TEST(next_greater_element_ii, t1) {
     vector<int> nums = {1, 2, 1};
     vector<int> output = {2, -1, 2};
     Solution sl;
@@ -57,7 +57,7 @@ TEST(t0, t1) {
     // also 2.
 }
 
-TEST(t0, t2) {
+TEST(next_greater_element_ii, t2) {
     vector<int> nums = {1, 2, 3, 4, 3};
     vector<int> output = {2, 3, 4, -1, 4};
     Solution sl;

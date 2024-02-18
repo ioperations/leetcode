@@ -76,7 +76,7 @@ class Solution {
 
 
 
-TEST(t0, t1) {
+TEST(combination_sum_iv, t1) {
     vector<int> nums = {1, 2, 3};
     int target = 4;
     Solution sl;
@@ -96,7 +96,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, 7);
 }
 
-TEST(t0, t2) {
+TEST(combination_sum_iv, t2) {
     vector<int> nums = {9};
     int target = 3;
     Solution sl;

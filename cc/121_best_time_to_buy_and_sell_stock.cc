@@ -47,7 +47,7 @@ class Solution {
     }
 };
 
-TEST(t0, t1) {
+TEST(best_time_to_buy_and_sell_stock, t1) {
     std::vector<int> prices = {7, 1, 5, 3, 6, 4};
     int expected = 5;
     // Explanation: Buy on day 2 (price = 1) and sell on day 5 (price = 6),
@@ -60,7 +60,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, expected);
 }
 
-TEST(t0, t2) {
+TEST(best_time_to_buy_and_sell_stock, t2) {
     std::vector<int> prices = {7, 6, 4, 3, 1};
     int expected = 0;
     // In this case, no transactions are done and the max profit = 0.

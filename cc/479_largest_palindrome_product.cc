@@ -125,7 +125,7 @@ TEST(t, t2) {
     EXPECT_EQ(ret, true);
 }
 
-TEST(t0, t1) {
+TEST(largest_palindrome_product, t1) {
     const int n = 2;
     const int expected = 987;
     // Explanation: 99 x 91 = 9009, 9009 % 1337 = 987
@@ -134,7 +134,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, expected);
 }
 
-TEST(t0, t2) {
+TEST(largest_palindrome_product, t2) {
     const int n = 1;
     const int expected = 9;
     Solution s;

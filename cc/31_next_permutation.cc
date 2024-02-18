@@ -56,7 +56,7 @@ class Solution {
 
 
 
-TEST(t0, t1) {
+TEST(next_permutation, t1) {
     vector<int> nums = {1, 2, 3};
     vector<int> output = {1, 3, 2};
     Solution sl;
@@ -64,7 +64,7 @@ TEST(t0, t1) {
     EXPECT_EQ(nums, output);
 }
 
-TEST(t0, t2) {
+TEST(next_permutation, t2) {
     vector<int> nums = {3, 2, 1};
     vector<int> output = {1, 2, 3};
     Solution sl;
@@ -72,7 +72,7 @@ TEST(t0, t2) {
     EXPECT_EQ(nums, output);
 }
 
-TEST(t0, t3) {
+TEST(next_permutation, t3) {
     vector<int> nums = {1, 1, 5};
     vector<int> output = {1, 5, 1};
     Solution sl;

@@ -47,7 +47,7 @@ class Solution {
 };
 
 
-TEST(t0, t1) {
+TEST(equal_row_and_column_pairs, t1) {
     // clang-format off
     vector<vector<int>> grid = {
         {3, 2, 1}, 
@@ -63,7 +63,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t2) {
+TEST(equal_row_and_column_pairs, t2) {
     // clang-format off
     vector<vector<int>> grid = {
         {3, 1, 2, 2}, 

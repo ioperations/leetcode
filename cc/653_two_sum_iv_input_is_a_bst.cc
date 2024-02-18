@@ -67,7 +67,7 @@ using namespace std;
 
 #define null optional<int>()
 
-TEST(t0, t1) {
+TEST(two_sum_iv_input_is_a_bst, t1) {
     vector<optional<int>> root = {5, 3, 6, 2, 4, null, 7};
     int const k = 9;
     bool const output = true;
@@ -78,7 +78,7 @@ TEST(t0, t1) {
     FreeTreeNode(node);
 }
 
-TEST(t0, t2) {
+TEST(two_sum_iv_input_is_a_bst, t2) {
     vector<optional<int>> root = {5, 3, 6, 2, 4, null, 7};
     int const k = 28;
     bool const output = false;

@@ -71,7 +71,7 @@ using namespace std;
 #define null \
     optional<int> {}
 
-TEST(t0, t1) {
+TEST(binary_tree_level_order_traversal, t1) {
     vector<optional<int>> root = {3, 9, 20, null, null, 15, 7};
     vector<vector<int>> output = {{3}, {9, 20}, {15, 7}};
     Solution sl;
@@ -81,7 +81,7 @@ TEST(t0, t1) {
     FreeTreeNode(tree);
 }
 
-TEST(t0, t2) {
+TEST(binary_tree_level_order_traversal, t2) {
     vector<optional<int>> root = {1};
     vector<vector<int>> output = {{1}};
     Solution sl;
@@ -91,7 +91,7 @@ TEST(t0, t2) {
     FreeTreeNode(tree);
 }
 
-TEST(t0, t3) {
+TEST(binary_tree_level_order_traversal, t3) {
     vector<optional<int>> root = {};
     vector<vector<int>> output = {};
     Solution sl;

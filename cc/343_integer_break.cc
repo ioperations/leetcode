@@ -38,7 +38,7 @@ class Solution {
 
 
 
-TEST(t0, t1) {
+TEST(integer_break, t1) {
     int n = 2;
     int output = 1;
     Solution sl;
@@ -47,7 +47,7 @@ TEST(t0, t1) {
     // Explanation: 2 = 1 + 1, 1 × 1 = 1.
 }
 
-TEST(t0, t2) {
+TEST(integer_break, t2) {
     int n = 10;
     int output = 36;
     Solution sl;

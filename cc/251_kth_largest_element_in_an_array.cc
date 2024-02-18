@@ -30,7 +30,7 @@ class Solution {
     }
 };
 
-TEST(t0, t1) {
+TEST(kth_largest_element_in_an_array, t1) {
     std::vector<int> v{3, 2, 1, 5, 6, 4};
     int k = 2;
     Solution sl;
@@ -38,7 +38,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, 5);
 }
 
-TEST(t0, t2) {
+TEST(kth_largest_element_in_an_array, t2) {
     std::vector<int> v{3, 2, 3, 1, 2, 4, 5, 5, 6};
     int k = 4;
     Solution sl;

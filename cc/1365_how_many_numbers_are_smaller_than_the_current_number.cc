@@ -34,7 +34,7 @@ class Solution {
 };
 
 
-TEST(t0, t1) {
+TEST(how_many_numbers_are_smaller_than_the_current_number, t1) {
     std::vector<int> nums{8, 1, 2, 2, 3};
     std::vector<int> output{4, 0, 1, 1, 3};
     Solution sl;
@@ -42,7 +42,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t2) {
+TEST(how_many_numbers_are_smaller_than_the_current_number, t2) {
     std::vector<int> nums{6, 5, 4, 8};
     std::vector<int> output{2, 1, 0, 3};
     Solution sl;
@@ -50,7 +50,7 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t3) {
+TEST(how_many_numbers_are_smaller_than_the_current_number, t3) {
     std::vector<int> nums{7, 7, 7, 7};
     std::vector<int> output{0, 0, 0, 0};
     Solution sl;

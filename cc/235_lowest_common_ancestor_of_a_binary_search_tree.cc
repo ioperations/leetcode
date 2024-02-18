@@ -106,7 +106,7 @@ TreeNode *FindTreeNode(TreeNode *root, int val) {
     return FindTreeNode(root->right, val);
 }
 
-TEST(t0, t1) {
+TEST(lowest_common_ancestor_of_a_binary_search_tree, t1) {
     /**
                   ___
                  | 3 |
@@ -140,7 +140,7 @@ TEST(t0, t1) {
     FreeRoot(root);
 }
 
-TEST(t0, t2) {
+TEST(lowest_common_ancestor_of_a_binary_search_tree, t2) {
     /**
                   ___
                  | 3 |
@@ -175,7 +175,7 @@ TEST(t0, t2) {
     FreeRoot(root);
 }
 
-TEST(t0, t3) {
+TEST(lowest_common_ancestor_of_a_binary_search_tree, t3) {
     /**
                   ___
                  | 1 |

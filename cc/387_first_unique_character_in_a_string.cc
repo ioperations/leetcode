@@ -33,21 +33,21 @@ class Solution {
     }
 };
 
-TEST(t0, t1) {
+TEST(first_unique_character_in_a_string, t1) {
     string s = "leetcode";
     Solution sl;
     int ret = sl.FirstUniqChar(s);
     EXPECT_EQ(ret, 0);
 }
 
-TEST(t0, t2) {
+TEST(first_unique_character_in_a_string, t2) {
     string s = "loveleetcode";
     Solution sl;
     int ret = sl.FirstUniqChar(s);
     EXPECT_EQ(ret, 2);
 }
 
-TEST(t0, t3) {
+TEST(first_unique_character_in_a_string, t3) {
     string s = "aabb";
     Solution sl;
     int ret = sl.FirstUniqChar(s);

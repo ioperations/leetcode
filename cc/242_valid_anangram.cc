@@ -26,7 +26,7 @@ class Solution {
     }
 };
 
-TEST(t0, t1) {
+TEST(valid_anangram, t1) {
     string s = "anagram", t = "nagaram";
     bool output = true;
     Solution sl;
@@ -34,7 +34,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t2) {
+TEST(valid_anangram, t2) {
     string s = "rat", t = "car";
     bool output = false;
     Solution sl;

@@ -71,7 +71,7 @@ class Solution {
     }
 };
 
-TEST(t0, t1) {
+TEST(shortest_path_in_binary_matrix, t1) {
     std::vector<vector<int>> v{{0, 1}, {1, 0}};
     int expected = 2;
 
@@ -80,7 +80,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, expected);
 }
 
-TEST(t0, t2) {
+TEST(shortest_path_in_binary_matrix, t2) {
     std::vector<vector<int>> v{{0, 0, 0}, {1, 1, 0}, {1, 1, 0}};
     int expected = 4;
 
@@ -88,7 +88,7 @@ TEST(t0, t2) {
     int ret = sl.ShortestPathBinaryMatrix(v);
     EXPECT_EQ(ret, expected);
 }
-TEST(t0, t3) {
+TEST(shortest_path_in_binary_matrix, t3) {
     std::vector<vector<int>> v{{1, 0, 0}, {1, 1, 0}, {1, 1, 0}};
     int expected = -1;
 

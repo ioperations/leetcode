@@ -83,7 +83,7 @@ class MyStackV2 {
 };
 
 
-TEST(t0, t1) {
+TEST(implement_stack_using_queues, t1) {
     // * Your MyStack object will be instantiated and called as such:
     MyStack *obj = new MyStack();
     int x = 0;
@@ -115,7 +115,7 @@ TEST(t1, t1) {
     delete obj;
 }
 
-TEST(t0, t2) {
+TEST(implement_stack_using_queues, t2) {
     // * Your MyStack object will be instantiated and called as such:
 
     // ["MyStack", "push", "push", "top", "pop", "empty"]

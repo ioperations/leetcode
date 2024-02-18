@@ -39,7 +39,7 @@ _________________________________________________________________
 |___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|
 */
 
-TEST(t0, t1) {
+TEST(nth_digit, t1) {
     int n = 3;
 
     int output = 3;
@@ -48,7 +48,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t2) {
+TEST(nth_digit, t2) {
     int n = 11;
     int output = 0;
     // Explanation: The 11th digit of the sequence 1, 2, 3, 4, 5, 6, 7, 8, 9,
@@ -58,7 +58,7 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t3) {
+TEST(nth_digit, t3) {
     int n = 99;
     int output = 4;
     Solution sl;
@@ -66,7 +66,7 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t4) {
+TEST(nth_digit, t4) {
     int n = 100;
     int output = 5;
     Solution sl;
@@ -74,7 +74,7 @@ TEST(t0, t4) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t5) {
+TEST(nth_digit, t5) {
     int n = 1000;
     int output = 3;
     Solution sl;

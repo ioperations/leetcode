@@ -94,7 +94,7 @@ class Solution {
 
 
 
-TEST(t0, t1) {
+TEST(earliest_possibly_day_of_full_bloom, t1) {
     vector<int> plant_time = {1, 4, 3}, grow_time = {2, 3, 1};
     int output = 9;
     /*
@@ -113,7 +113,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t2) {
+TEST(earliest_possibly_day_of_full_bloom, t2) {
     vector<int> plant_time = {1, 2, 3, 2}, grow_time = {2, 1, 2, 1};
     int output = 9;
     /*
@@ -133,7 +133,7 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t3) {
+TEST(earliest_possibly_day_of_full_bloom, t3) {
     vector<int> plant_time = {1}, grow_time = {1};
     int output = 2;
     /*

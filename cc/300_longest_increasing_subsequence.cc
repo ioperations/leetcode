@@ -58,7 +58,7 @@ class Solution {
 
 
 
-TEST(t0, t1) {
+TEST(longest_increasing_subsequence, t1) {
     vector<int> nums{10, 9, 2, 5, 3, 7, 101, 18};
     int output = 4;
     Solution sl;
@@ -67,7 +67,7 @@ TEST(t0, t1) {
     // is 4.
     EXPECT_EQ(ret, output);
 }
-TEST(t0, t2) {
+TEST(longest_increasing_subsequence, t2) {
     vector<int> nums{0, 1, 0, 3, 2, 3};
     int output = 4;
     Solution sl;
@@ -75,7 +75,7 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t3) {
+TEST(longest_increasing_subsequence, t3) {
     vector<int> nums{7, 7, 7, 7, 7, 7, 7};
     int output = 1;
     Solution sl;

@@ -111,7 +111,7 @@ void ExpectEqList(ListNode *const head, const std::vector<int> &elements) {
     EXPECT_EQ(i, elements.size());
 }
 
-TEST(t0, t1) {
+TEST(rotate_list, t1) {
     std::vector<int> v{1, 2, 3, 4, 5};
     int k = 2;
     std::vector<int> output{4, 5, 1, 2, 3};
@@ -122,7 +122,7 @@ TEST(t0, t1) {
     List::FreeList(head);
 };
 
-TEST(t0, t2) {
+TEST(rotate_list, t2) {
     std::vector<int> v{0, 1, 2};
     int k = 4;
     std::vector<int> output{2, 0, 1};
@@ -133,7 +133,7 @@ TEST(t0, t2) {
     List::FreeList(head);
 };
 
-TEST(t0, t3) {
+TEST(rotate_list, t3) {
     std::vector<int> v{1, 2};
     int k = 1;
     std::vector<int> output{2, 1};
@@ -144,7 +144,7 @@ TEST(t0, t3) {
     List::FreeList(head);
 };
 
-TEST(t0, t4) {
+TEST(rotate_list, t4) {
     std::vector<int> v{1, 2};
     int k = 1;
     std::vector<int> output{2, 1};
@@ -155,7 +155,7 @@ TEST(t0, t4) {
     List::FreeList(head);
 };
 
-TEST(t0, t5) {
+TEST(rotate_list, t5) {
     std::vector<int> v{};
     int k = 1;
     std::vector<int> output{};
@@ -166,7 +166,7 @@ TEST(t0, t5) {
     List::FreeList(head);
 };
 
-TEST(t0, t6) {
+TEST(rotate_list, t6) {
     std::vector<int> v{1, 2, 3};
     int k = 2000000000;
     std::vector<int> output{2, 3, 1};
@@ -177,7 +177,7 @@ TEST(t0, t6) {
     List::FreeList(head);
 };
 
-TEST(t0, t7) {
+TEST(rotate_list, t7) {
     std::vector<int> v{1, 2};
     int k = 2;
     std::vector<int> output{1, 2};
@@ -188,7 +188,7 @@ TEST(t0, t7) {
     List::FreeList(head);
 };
 
-TEST(t0, t8) {
+TEST(rotate_list, t8) {
     std::vector<int> v{1, 2, 3};
     int k = 3;
     std::vector<int> output{1, 2, 3};
@@ -199,7 +199,7 @@ TEST(t0, t8) {
     List::FreeList(head);
 }
 
-TEST(t0, t9) {
+TEST(rotate_list, t9) {
     std::vector<int> v{1, 2, 3, 4, 5};
     int k = 10;
     std::vector<int> output{1, 2, 3, 4, 5};

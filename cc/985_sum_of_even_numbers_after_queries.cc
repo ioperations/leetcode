@@ -48,7 +48,7 @@ class Solution {
 
 
 
-TEST(t0, t1) {
+TEST(sum_of_even_numbers_after_queries, t1) {
     vector<int> nums = {1, 2, 3, 4};
 
     vector<vector<int>> queries = {{1, 0}, {-3, 1}, {-4, 0}, {2, 3}};
@@ -58,7 +58,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t2) {
+TEST(sum_of_even_numbers_after_queries, t2) {
     vector<int> nums = {1};
     vector<vector<int>> queries = {{4, 0}};
     vector<int> const output = {0};

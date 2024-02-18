@@ -78,7 +78,7 @@ class Solution {
 };
 
 
-TEST(t0, t1) {
+TEST(remove_invalid_parentheses, t1) {
     string s = "()())()";
     vector<string> output = {"(())()", "()()()"};
 
@@ -89,7 +89,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret_set, output_set);
 }
 
-TEST(t0, t2) {
+TEST(remove_invalid_parentheses, t2) {
     string s = "(a)())()";
     vector<string> output = {"(a())()", "(a)()()"};
 
@@ -100,7 +100,7 @@ TEST(t0, t2) {
     EXPECT_EQ(ret_set, output_set);
 }
 
-TEST(t0, t3) {
+TEST(remove_invalid_parentheses, t3) {
     string s = ")(";
     vector<string> output = {""};
 

@@ -56,7 +56,7 @@ void ExpectEqList(ListNode *const head, const std::vector<int> &elements) {
     EXPECT_EQ(i, elements.size());
 }
 
-TEST(t0, t1) {
+TEST(remove_deplicates_from_sorted_list, t1) {
     std::vector<int> head{1, 1, 2};
     std::vector<int> output{1, 2};
 
@@ -67,7 +67,7 @@ TEST(t0, t1) {
     ExpectEqList(ret, output);
     List::FreeList(root);
 }
-TEST(t0, t2) {
+TEST(remove_deplicates_from_sorted_list, t2) {
     std::vector<int> head{1, 1, 2, 3, 3};
     std::vector<int> output{1, 2, 3};
 

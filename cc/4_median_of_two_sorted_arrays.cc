@@ -49,7 +49,7 @@ class Solution {
 
 
 
-TEST(t0, t1) {
+TEST(median_of_two_sorted_arrays, t1) {
     Solution s;
     std::vector<int> nums1{1, 3};
     std::vector<int> nums2{2};
@@ -57,7 +57,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, 2);
 }
 
-TEST(t0, t2) {
+TEST(median_of_two_sorted_arrays, t2) {
     Solution s;
     std::vector<int> nums1{1, 2};
     std::vector<int> nums2{3, 4};

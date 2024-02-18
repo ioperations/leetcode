@@ -50,7 +50,7 @@ class Solution {
 
 
 
-TEST(t0, t1) {
+TEST(jump_game_vi, t1) {
     std::vector<int> nums{1, -1, -2, 4, -7, 3};
     int k = 2;
     int out = 7;
@@ -61,7 +61,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, out);
 }
 
-TEST(t0, t2) {
+TEST(jump_game_vi, t2) {
     std::vector<int> nums{10, -5, -2, 4, 0, 3};
     int k = 3;
     int out = 17;
@@ -73,7 +73,7 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, out);
 }
 
-TEST(t0, t3) {
+TEST(jump_game_vi, t3) {
     std::vector<int> nums{1, -5, -20, 4, -1, 3, -6, -3};
     int k = 2;
     int out = 0;
@@ -83,7 +83,7 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, out);
 }
 
-TEST(t0, t4) {
+TEST(jump_game_vi, t4) {
     std::vector<int> nums{
         -5582, -5317, 6711,  -639,  1001,  1845,  1728,  -4575, -6066, -7770,
         128,   -3254, 7281,  3966,  6857,  5477,  8968,  -1771, 9986,  -6267,

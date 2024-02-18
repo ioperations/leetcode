@@ -37,7 +37,7 @@ class Solution {
     }
 };
 
-TEST(t0, t1) {
+TEST(maximium_subarray, t1) {
     std::vector<int> v{-2, 1, -3, 4, -1, 2, 1, -5, 4};
 
     int o = 6;
@@ -46,7 +46,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, o);
 }
 
-TEST(t0, t2) {
+TEST(maximium_subarray, t2) {
     std::vector<int> v{1};
 
     int o = 1;
@@ -55,7 +55,7 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, o);
 }
 
-TEST(t0, t3) {
+TEST(maximium_subarray, t3) {
     std::vector<int> v{5, 4, -1, 7, 8};
 
     int o = 23;

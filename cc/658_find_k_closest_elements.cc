@@ -53,7 +53,7 @@ class Solution {
 };
 
 
-TEST(t0, t1) {
+TEST(find_k_closest_elements, t1) {
     vector<int> arr = {1, 2, 3, 4, 5};
     int const k = 4, x = 3;
     vector<int> const output = {1, 2, 3, 4};
@@ -62,7 +62,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, output);
 };
 
-TEST(t0, t2) {
+TEST(find_k_closest_elements, t2) {
     vector<int> arr = {1, 2, 3, 4, 5};
     int const k = 4, x = -1;
     vector<int> const output = {1, 2, 3, 4};

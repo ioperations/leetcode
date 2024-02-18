@@ -38,7 +38,7 @@ class Solution {
 
 
 
-TEST(t0, t1) {
+TEST(check_if_two_arrays_are_equivalent, t1) {
     vector<string> word1 = {"ab", "c"}, word2 = {"a", "bc"};
     bool output = true;
     /*
@@ -52,7 +52,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t2) {
+TEST(check_if_two_arrays_are_equivalent, t2) {
     vector<string> word1 = {"a", "cb"}, word2 = {"ab", "c"};
     bool output = false;
     Solution sl;
@@ -60,7 +60,7 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t3) {
+TEST(check_if_two_arrays_are_equivalent, t3) {
     vector<string> word1 = {"abc", "d", "defg"}, word2 = {"abcddefg"};
     bool output = true;
     Solution sl;

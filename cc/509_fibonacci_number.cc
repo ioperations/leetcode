@@ -35,7 +35,7 @@ class Solution {
 
 
 
-TEST(t0, t1) {
+TEST(fibonacci_number, t1) {
     int n = 2;
     int out = 1;
     Solution sl;
@@ -43,7 +43,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, out);
 }
 
-TEST(t0, t2) {
+TEST(fibonacci_number, t2) {
     int n = 3;
     int out = 2;
     Solution sl;
@@ -51,7 +51,7 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, out);
 }
 
-TEST(t0, t3) {
+TEST(fibonacci_number, t3) {
     int n = 4;
     int out = 3;
     Solution sl;

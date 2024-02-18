@@ -93,7 +93,7 @@ class Solution {
 
 
 
-TEST(t0, t1) {
+TEST(minimum_deletions_to_make_Character_frequencies_unique, t1) {
     string s = "aab";
     int out = 0;
     Solution sl;
@@ -102,7 +102,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, out);
 }
 
-TEST(t0, t2) {
+TEST(minimum_deletions_to_make_Character_frequencies_unique, t2) {
     string s = "aaabbbcc";
     int out = 2;
     Solution sl;
@@ -113,7 +113,7 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, out);
 }
 
-TEST(t0, t3) {
+TEST(minimum_deletions_to_make_Character_frequencies_unique, t3) {
     string s = "ceabaacb";
     int out = 2;
     Solution sl;

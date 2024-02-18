@@ -131,7 +131,7 @@ TEST(memleak, t0) {
     FreeTreeNode(head);
 }
 
-TEST(t0, t1) {
+TEST(serialize_and_deserialize_binary_tree_2, t1) {
 #define null optional<int>()
     std::vector<optional<int>> input{1, 2, 3, null, null, 4, 5};
     std::vector<int> output = {1, 2, 3, 4, 5};
@@ -155,7 +155,7 @@ TEST(t0, t1) {
     FreeTreeNode(ret);
 }
 
-TEST(t0, t2) {
+TEST(serialize_and_deserialize_binary_tree_2, t2) {
     std::vector<optional<int>> input(10, optional<int>());
     std::vector<int> output = {};
 

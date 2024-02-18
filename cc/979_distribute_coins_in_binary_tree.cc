@@ -56,7 +56,7 @@ class Solution {
 
 using namespace std;
 
-TEST(t0, t1) {
+TEST(distribute_coins_in_binary_tree, t1) {
     std::vector<optional<int>> v{3, 0, 0};
     auto *root = ConstructBinaryTree(v);
     int out = 2;
@@ -68,7 +68,7 @@ TEST(t0, t1) {
     FreeTreeNode(root);
 }
 
-TEST(t0, t2) {
+TEST(distribute_coins_in_binary_tree, t2) {
     std::vector<optional<int>> v{0, 3, 0};
     auto *root = ConstructBinaryTree(v);
     // From the left child of the root, we move two coins to the root [taking

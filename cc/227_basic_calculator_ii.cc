@@ -83,7 +83,7 @@ class Solution {
 };
 
 
-TEST(t0, t1) {
+TEST(basic_calculator_ii, t1) {
     string s = "3+2*2";
     int output = 7;
     Solution sl;
@@ -91,7 +91,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t2) {
+TEST(basic_calculator_ii, t2) {
     string s = " 3/2 ";
     int output = 1;
     Solution sl;
@@ -99,7 +99,7 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t3) {
+TEST(basic_calculator_ii, t3) {
     string s = " 3+5 / 2 ";
     int output = 5;
     Solution sl;

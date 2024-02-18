@@ -86,7 +86,7 @@ static void BenchMergeSort(benchmark::State &state) {
 }
 BENCHMARK(BenchMergeSort);
 
-TEST(t0, t1) {
+TEST(sort_colors, t1) {
     // nums = [2,0,2,1,1,0]
     // Output: [0,0,1,1,2,2]
 
@@ -100,7 +100,7 @@ TEST(t0, t1) {
     s.SortColorsV2(nums2);
     EXPECT_EQ(nums2, (std::vector<int>{0, 0, 1, 1, 2, 2}));
 }
-TEST(t0, t2) {
+TEST(sort_colors, t2) {
     // nums = [2,0,1]
     // Output: [0,1,2]
 

@@ -46,7 +46,7 @@ void ExpectEqList(ListNode *const head, const std::vector<int> &elements) {
     EXPECT_EQ(i, elements.size());
 }
 
-TEST(t0, t1) {
+TEST(linked_list_random_node, t1) {
     std::vector<int> rt{1, 2, 3};
     ListNode *head = List::ConstructList(rt);
     Solution *s = new Solution(head);

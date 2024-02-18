@@ -71,7 +71,7 @@ class Solution {
     }
 };
 
-TEST(t0, t1) {
+TEST(word_ladder, t1) {
     const string begin_word = "hit", end_word = "cog";
     std::vector<string> word_list = {"hot", "dot", "dog", "lot", "log", "cog"};
     const int output = 5;
@@ -82,7 +82,7 @@ TEST(t0, t1) {
     const int ret = sl.LadderLength(begin_word, end_word, word_list);
     EXPECT_EQ(ret, output);
 }
-TEST(t0, t2) {
+TEST(word_ladder, t2) {
     const string begin_word = "hit", end_word = "cog";
     std::vector<string> word_list = {"hot", "dot", "dog", "lot", "log"};
     const int output = 0;

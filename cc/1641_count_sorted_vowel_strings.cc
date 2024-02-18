@@ -82,7 +82,7 @@ class Solution {
 };
 
 
-TEST(t0, t1) {
+TEST(count_sorted_vowel_strings, t1) {
     const int n = 1;
     const int output = 5;
     // Explanation: The 5 sorted strings that consist of vowels only are
@@ -96,7 +96,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t2) {
+TEST(count_sorted_vowel_strings, t2) {
     const int n = 2;
     const int output = 15;
 
@@ -113,7 +113,7 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t3) {
+TEST(count_sorted_vowel_strings, t3) {
     const int n = 33;
     const int output = 66045;
 

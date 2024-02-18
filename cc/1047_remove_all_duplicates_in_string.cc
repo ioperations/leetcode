@@ -52,7 +52,7 @@ class Solution {
     }
 };
 
-TEST(t0, t1) {
+TEST(remove_all_duplicates_in_string, t1) {
     std::string s = "abbaca";
     string expected = "ca";
     // Explanation: For example, in "abbaca" we could remove "bb" since the
@@ -65,7 +65,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, expected);
 }
 
-TEST(t0, t2) {
+TEST(remove_all_duplicates_in_string, t2) {
     std::string s = "azxxzy";
     string expected = "ay";
     // Explanation: For example, in "abbaca" we could remove "bb" since the

@@ -52,7 +52,7 @@ class Solution {
 
 
 
-TEST(t0, t1) {
+TEST(maximium_erasure_value, t1) {
     vector<int> nums = {4, 2, 4, 5, 6};
 
     int out = 17;
@@ -62,7 +62,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, out);
 }
 
-TEST(t0, t2) {
+TEST(maximium_erasure_value, t2) {
     vector<int> nums = {5, 2, 1, 2, 5, 2, 1, 2, 5};
 
     int out = 8;

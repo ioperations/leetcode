@@ -42,7 +42,7 @@ class Solution {
 
 
 
-TEST(t0, t1) {
+TEST(longest_palindromic_subsequence, t1) {
     string s = "bbbab";
     int output = 4;
     // Explanation: One possible longest palindromic subsequence is "bbbb".
@@ -51,7 +51,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t2) {
+TEST(longest_palindromic_subsequence, t2) {
     string s = "cbbd";
     int output = 2;
     // One possible longest palindromic subsequence is "bb".

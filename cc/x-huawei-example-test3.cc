@@ -58,7 +58,7 @@ TEST(t3, t1) {
     EXPECT_EQ(ret, std::string("255\n"));
 }
 
-TEST(t0, t2) {
+TEST(x_huawei_example_test3, t2) {
     std::string s = "0xAA";
     testing::internal::CaptureStdout();
     Processing(s);

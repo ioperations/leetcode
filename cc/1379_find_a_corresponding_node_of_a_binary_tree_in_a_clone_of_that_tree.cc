@@ -121,7 +121,7 @@ TEST(memleak, t1) {
     FreeTreeNode(head2);
 }
 
-TEST(t0, t1) {
+TEST(find_a_corresponding_node_of_a_binary_tree_in_a_clone_of_that_tree, t1) {
     std::vector<optional<int>> v{7, 4, 3, null, null, 6, 19};
 
     auto *head = ConstructBinaryTree(v);
@@ -136,7 +136,7 @@ TEST(t0, t1) {
     FreeTreeNode(head2);
 }
 
-TEST(t0, t2) {
+TEST(find_a_corresponding_node_of_a_binary_tree_in_a_clone_of_that_tree, t2) {
     std::vector<optional<int>> v{7};
 
     auto *head = ConstructBinaryTree(v);
@@ -152,7 +152,7 @@ TEST(t0, t2) {
     FreeTreeNode(head2);
 }
 
-TEST(t0, t3) {
+TEST(find_a_corresponding_node_of_a_binary_tree_in_a_clone_of_that_tree, t3) {
     std::vector<optional<int>> v{8,    null, 6,    null, 5,    null, 4,
                                  null, 3,    null, 2,    null, 1};
 

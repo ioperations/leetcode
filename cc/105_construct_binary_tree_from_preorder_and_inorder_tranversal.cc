@@ -47,7 +47,7 @@ class Solution {
 
 using namespace std;
 
-TEST(t0, t1) {
+TEST(construct_binary_tree_from_preorder_and_inorder_tranversal, t1) {
     vector<int> preorder = {3, 9, 20, 15, 7}, inorder = {9, 3, 15, 20, 7};
     Solution sl;
     auto *node = sl.BuildTree(preorder, inorder);
@@ -59,7 +59,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t2) {
+TEST(construct_binary_tree_from_preorder_and_inorder_tranversal, t2) {
     vector<int> preorder = {-1}, inorder = {-1};
     Solution sl;
     auto *node = sl.BuildTree(preorder, inorder);

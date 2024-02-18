@@ -141,7 +141,7 @@ class Solution {
 
 
 
-TEST(t0, t1) {
+TEST(maximum_number_of_tasks_you_can_assign, t1) {
     std::vector<int> tasks = {3, 2, 1}, workers = {0, 3, 3};
     int pills = 1, strength = 1;
     int output = 3;
@@ -156,7 +156,7 @@ TEST(t0, t1) {
     // - Assign worker 2 to task 0 (3 >= 3)
 }
 
-TEST(t0, t2) {
+TEST(maximum_number_of_tasks_you_can_assign, t2) {
     std::vector<int> tasks = {5, 4}, workers = {0, 0, 0};
     int pills = 1, strength = 5;
     int output = 1;
@@ -170,7 +170,7 @@ TEST(t0, t2) {
     */
 }
 
-TEST(t0, t3) {
+TEST(maximum_number_of_tasks_you_can_assign, t3) {
     std::vector<int> tasks = {10, 15, 30}, workers = {0, 10, 10, 10, 10};
     int pills = 3, strength = 10;
     int output = 2;

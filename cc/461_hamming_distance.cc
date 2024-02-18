@@ -56,7 +56,7 @@ class Solution {
 
 
 
-TEST(t0, t1) {
+TEST(hamming_distance, t1) {
     int x = 1, y = 4;
     int output = 2;
     // Explanation:
@@ -73,7 +73,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t2) {
+TEST(hamming_distance, t2) {
     int x = 3, y = 1;
     int output = 1;
     // Explanation:

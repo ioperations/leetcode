@@ -34,7 +34,7 @@ class Solution {
 };
 
 
-TEST(t0, t1) {
+TEST(check_if_a_string_contains_all_binary_codes_of_size_k, t1) {
     string s = "00110110";
     int k = 2;
     bool output = true;
@@ -46,7 +46,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t2) {
+TEST(check_if_a_string_contains_all_binary_codes_of_size_k, t2) {
     string s = "0110";
     int k = 1;
     bool output = true;
@@ -57,7 +57,7 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t3) {
+TEST(check_if_a_string_contains_all_binary_codes_of_size_k, t3) {
     string s = "0110";
     int k = 2;
     bool output = false;

@@ -47,7 +47,7 @@ class Solution {
 
 
 
-TEST(t0, t1) {
+TEST(jump_game_vii, t1) {
     string s = "011010";
     int min_jump = 2, max_jump = 3;
     bool output = true;
@@ -58,7 +58,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t2) {
+TEST(jump_game_vii, t2) {
     string s = "01101110";
     int min_jump = 2, max_jump = 3;
     bool output = false;

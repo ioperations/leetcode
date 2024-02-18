@@ -364,7 +364,7 @@ class Solution2 {
     bool IsEnd() { return it == m_s.end(); }
 };
 
-TEST(t0, t1) {
+TEST(valid_number, t1) {
     std::string s = "0";
     bool expected = true;
 
@@ -382,7 +382,7 @@ TEST(t1, t1) {
     EXPECT_EQ(ret, expected);
 }
 
-TEST(t0, t2) {
+TEST(valid_number, t2) {
     std::string s = "e";
     bool expected = false;
 
@@ -400,7 +400,7 @@ TEST(t1, t2) {
     EXPECT_EQ(ret, expected);
 }
 
-TEST(t0, t4) {
+TEST(valid_number, t4) {
     std::string s = ".";
     bool expected = false;
 

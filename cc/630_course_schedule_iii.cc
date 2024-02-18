@@ -61,7 +61,7 @@ class Solution {
 
 
 
-TEST(t0, t1) {
+TEST(course_schedule_iii, t1) {
     std::vector<vector<int>> courses = {
         {100, 200}, {200, 1300}, {1000, 1250}, {2000, 3200}};
     int output = 3;
@@ -78,7 +78,7 @@ TEST(t0, t1) {
     // it on the 3300th day, which exceeds the closed date.
 }
 
-TEST(t0, t2) {
+TEST(course_schedule_iii, t2) {
     std::vector<vector<int>> courses = {{1, 2}};
     int output = 1;
     Solution sl;
@@ -86,7 +86,7 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t3) {
+TEST(course_schedule_iii, t3) {
     std::vector<vector<int>> courses = {{3, 2}, {4, 3}};
     int output = 0;
     Solution sl;

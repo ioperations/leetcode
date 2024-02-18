@@ -46,7 +46,7 @@ class Solution {
 
 
 
-TEST(t0, t1) {
+TEST(queue_reconstruction_by_height, t1) {
     std::vector<vector<int>> people{{7, 0}, {4, 4}, {7, 1},
                                     {5, 0}, {6, 1}, {5, 2}};
     std::vector<vector<int>> output = {{5, 0}, {7, 0}, {5, 2},
@@ -66,7 +66,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ert, output);
 }
 
-TEST(t0, t2) {
+TEST(queue_reconstruction_by_height, t2) {
     std::vector<vector<int>> people{{6, 0}, {5, 0}, {4, 0},
                                     {3, 2}, {2, 2}, {1, 4}};
     std::vector<vector<int>> output = {{4, 0}, {5, 0}, {2, 2},

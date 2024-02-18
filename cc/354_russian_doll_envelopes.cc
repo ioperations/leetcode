@@ -51,7 +51,7 @@ class Solution {
 
 
 
-TEST(t0, t1) {
+TEST(russian_doll_envelopes, t1) {
     std::vector<vector<int>> envelopes = {{5, 4}, {6, 4}, {6, 7}, {2, 3}};
     int output = 3;
 
@@ -61,7 +61,7 @@ TEST(t0, t1) {
     int ret = sl.MaxEnvelopes(envelopes);
     EXPECT_EQ(ret, output);
 }
-TEST(t0, t2) {
+TEST(russian_doll_envelopes, t2) {
     std::vector<vector<int>> envelopes = {{1, 1}, {1, 1}, {1, 1}};
     int output = 1;
 

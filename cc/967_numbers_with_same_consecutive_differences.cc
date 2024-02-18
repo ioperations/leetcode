@@ -50,7 +50,7 @@ class Solution {
     }
 };
 
-TEST(t0, t1) {
+TEST(numbers_with_same_consecutive_differences, t1) {
     int n = 3, k = 7;
     vector<int> output = {181, 292, 707, 818, 929};
     // Explanation: Note that 070 is not a valid number, because it has leading
@@ -62,7 +62,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret_set, out_set);
 }
 
-TEST(t0, t2) {
+TEST(numbers_with_same_consecutive_differences, t2) {
     int n = 2, k = 1;
     vector<int> output = {10, 12, 21, 23, 32, 34, 43, 45, 54,
                           56, 65, 67, 76, 78, 87, 89, 98};
@@ -73,7 +73,7 @@ TEST(t0, t2) {
     EXPECT_EQ(ret_set, out_set);
 }
 
-TEST(t0, t3) {
+TEST(numbers_with_same_consecutive_differences, t3) {
     int n = 2, k = 0;
     vector<int> output = {11, 22, 33, 44, 55, 66, 77, 88, 99};
     set<int> out_set(output.begin(), output.end());

@@ -55,7 +55,7 @@ class Solution {
 
 using namespace std;
 
-TEST(t0, t1) {
+TEST(invert_binary_tree, t1) {
     std::vector<optional<int>> root = {4, 2, 7, 1, 3, 6, 9};
     std::vector<int> output = {4, 7, 2, 9, 6, 3, 1};
 
@@ -72,7 +72,7 @@ TEST(t0, t1) {
     FreeTreeNode(head);
 };
 
-TEST(t0, t2) {
+TEST(invert_binary_tree, t2) {
     std::vector<optional<int>> root = {1,  2,  3,  4,  5,  6,  7,  8,  9,  10,
                                        11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
                                        21, 22, 23, 24, 25, 26, 27, 28, 29};
@@ -93,7 +93,7 @@ TEST(t0, t2) {
     FreeTreeNode(head);
 };
 
-TEST(t0, t3) {
+TEST(invert_binary_tree, t3) {
     std::vector<optional<int>> root = {2, 1, 3};
     std::vector<int> output = {2, 3, 1};
 

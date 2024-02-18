@@ -104,7 +104,7 @@ class Solution {
 
 
 
-TEST(t0, t1) {
+TEST(minimal_number_of_refueling_stops, t1) {
     int target = 1, start_fuel = 1;
     vector<vector<int>> stations = {};
     int output = 0;
@@ -114,7 +114,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t2) {
+TEST(minimal_number_of_refueling_stops, t2) {
     int target = 100, start_fuel = 0;
     vector<vector<int>> stations = {{10, 100}};
     int output = -1;
@@ -124,7 +124,7 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t3) {
+TEST(minimal_number_of_refueling_stops, t3) {
     int target = 100, start_fuel = 10;
     vector<vector<int>> stations = {{10, 60}, {20, 30}, {30, 30}, {60, 40}};
     int output = 2;

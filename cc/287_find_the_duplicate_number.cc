@@ -55,7 +55,7 @@ class Solution {
     }
 };
 
-TEST(t0, t1) {
+TEST(find_the_duplicate_number, t1) {
     std::vector<int> v{1, 3, 4, 2, 2};
 
     int i = 2;
@@ -64,7 +64,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, i);
 }
 
-TEST(t0, t2) {
+TEST(find_the_duplicate_number, t2) {
     std::vector<int> v{3, 1, 3, 4, 2};
 
     int i = 3;
