@@ -7,26 +7,18 @@
 
  */
 
-// Definition for a binary tree node.
-struct TreeNode {
-    int val;
-    TreeNode *left;
-    TreeNode *right;
-    TreeNode() : val(0), left(nullptr), right(nullptr) {}
-    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
-    TreeNode(int x, TreeNode *left, TreeNode *right)
-        : val(x), left(left), right(right) {}
-};
 #include <stddef.h>
-#include <functional>
 #include <map>
 #include <queue>
 #include <set>
 #include <vector>
 #include <optional>
-#include <string>
 
 #include "gtest/gtest.h"
+#include "datastruct_base.hh"
+
+// Definition for a binary tree node.
+using TreeNode = Tree::TreeNode<int>;
 
 using namespace std;
 
@@ -134,13 +126,6 @@ std::vector<vector<optional<int>>> Flattern(vector<TreeNode *> &vec) {
     return ret;
 }
 
-void FreeNodes(TreeNode *root) {
-    if (root == nullptr) return;
-    FreeNodes(root->left);
-    FreeNodes(root->right);
-    delete root;
-}
-
 TEST(unique_binary_search_tree_ii, t1) {
     int n = 3;
 #define null optional<int>()
@@ -157,7 +142,7 @@ TEST(unique_binary_search_tree_ii, t1) {
     EXPECT_EQ(flatted_set, output_set);
 
     for (auto &ptr : ret) {
-        FreeNodes(ptr);
+        Tree::FreeTreeNode(ptr);
     }
 }
 
@@ -172,7 +157,7 @@ TEST(unique_binary_search_tree_ii, t2) {
     std::set<vector<optional<int>>> output_set(output.begin(), output.end());
     EXPECT_EQ(flatted_set, output_set);
     for (auto &ptr : ret) {
-        FreeNodes(ptr);
+        Tree::FreeTreeNode(ptr);
     }
 }
 
