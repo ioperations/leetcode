@@ -18,7 +18,7 @@ number of positive deci-binary numbers needed so that they sum up to n.
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
    public:
     int MinPartitions(string n) {
@@ -38,8 +38,6 @@ class Solution {
         return *max_element(n.begin(), n.end()) - '0';
     }
 };
-
-
 
 TEST(partitioning_into_minimum_number_of_deci_binary_numbers, t1) {
     string n = "32";
@@ -67,4 +65,4 @@ TEST(partitioning_into_minimum_number_of_deci_binary_numbers, t3) {
     EXPECT_EQ(ret, output);
     // Explanation: 10 + 11 + 11 = 32;
 }
-}
+}  // namespace

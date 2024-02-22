@@ -19,13 +19,12 @@ Your solution must use only constant extra space.
 */
 
 #include <vector>
-#include <string>
 
 #include "gtest/gtest.h"
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
    public:
     vector<int> TwoSum(vector<int> &numbers, int target) {
@@ -60,7 +59,6 @@ class Solution {
         return 0;
     }
 };
-
 
 TEST(two_sum_ii_input_arrary_is_sorted, t1) {
     vector<int> numbers = {2, 7, 11, 15};
@@ -106,4 +104,4 @@ TEST(two_sum_ii_input_arrary_is_sorted, t4) {
     EXPECT_EQ(ret, output);
 }
 
-}
+}  // namespace

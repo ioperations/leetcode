@@ -12,10 +12,10 @@
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
    public:
-    inline std::string demical_to_binary(int i) {
+    inline std::string DemicalToBinary(int i) {
         std::string ret;
         while (i) {
             ret = std::to_string(i % 2) + ret;
@@ -24,18 +24,18 @@ class Solution {
         return ret;
     }
 
-    inline void append_to_stringv1(int i, std::string &str) {
-        std::string ret = demical_to_binary(i);
+    inline void AppendToStringv1(int i, std::string &str) {
+        std::string ret = DemicalToBinary(i);
         str += ret;
     }
-    void append_to_string(int n, std::string &str) {
+    void AppendToString(int n, std::string &str) {
         for (int i = 1; i < (n + 1); ++i) {
-            append_to_stringv1(i, str);
+            AppendToStringv1(i, str);
         }
     }
 
    public:
-    int concatenatedBinary(int n) {
+    int ConcatenatedBinary(int n) {
         int next = 1;  //  length = 1;
         long max_n = pow(10, 9) + 7, result = 0;
         for (int i = 0; i <= n; i++) {
@@ -50,12 +50,10 @@ class Solution {
     }
 };
 
-
-
 TEST(concatenation_of_consecutive_binary_numbers_v2, t0) {
     int const n = 10;
     Solution sl;
-    std::string const ret = sl.demical_to_binary(n);
+    std::string const ret = sl.DemicalToBinary(n);
     // "1" in binary corresponds to the decimal value 1.
     EXPECT_EQ(ret, std::string("1010"));
 }
@@ -64,11 +62,11 @@ TEST(concatenation_of_consecutive_binary_numbers, t1) {
     int const n = 1;
     int const output = 1;
     Solution sl;
-    int const ret = sl.concatenatedBinary(n);
+    int const ret = sl.ConcatenatedBinary(n);
     std::string expected_str = "1";
     // "1" in binary corresponds to the decimal value 1.
     std::string str;
-    sl.append_to_string(n, str);
+    sl.AppendToString(n, str);
     EXPECT_EQ(str, expected_str);
     EXPECT_EQ(ret, output);
 }
@@ -77,7 +75,7 @@ TEST(concatenation_of_consecutive_binary_numbers, t2) {
     int const n = 3;
     int const output = 27;
     Solution sl;
-    int const ret = sl.concatenatedBinary(n);
+    int const ret = sl.ConcatenatedBinary(n);
     std::string expected_str = "11011";
     /*
         In binary, 1, 2, and 3 corresponds to "1", "10", and "11".
@@ -86,7 +84,7 @@ TEST(concatenation_of_consecutive_binary_numbers, t2) {
     */
 
     std::string str;
-    sl.append_to_string(n, str);
+    sl.AppendToString(n, str);
     EXPECT_EQ(str, expected_str);
     EXPECT_EQ(ret, output);
 }
@@ -101,11 +99,11 @@ TEST(concatenation_of_consecutive_binary_numbers, t3) {
         118505380540. After modulo 109 + 7, the result is 505379714.
     */
     Solution sl;
-    int const ret = sl.concatenatedBinary(n);
+    int const ret = sl.ConcatenatedBinary(n);
     std::string str;
-    sl.append_to_string(n, str);
+    sl.AppendToString(n, str);
     EXPECT_EQ(str, expected_str);
     EXPECT_EQ(ret, output);
 }
 
-}
+}  // namespace

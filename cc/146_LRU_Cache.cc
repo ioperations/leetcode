@@ -16,7 +16,6 @@ functions get and put must each run in O(1) average time complexity.
 */
 
 #include <map>
-#include <string>
 
 #include "gtest/gtest.h"
 
