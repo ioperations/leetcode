@@ -28,7 +28,6 @@ function returns.
 
  */
 
-#include <string>
 #include <vector>
 
 #include "datastruct_base.hh"
@@ -37,7 +36,7 @@ function returns.
 // Definition for singly-linked list.
 using ListNode = List::ListNode<int>;
 
-namespace { 
+namespace {
 class Solution {
    public:
     ListNode *GetIntersectionNode(ListNode *head_a, ListNode *head_b) {
@@ -91,7 +90,6 @@ class Solution {
         return nullptr;
     }
 };
-
 
 void ExpectEqList(ListNode *const head, const std::vector<int> &elements) {
     int i = 0;
@@ -227,4 +225,4 @@ TEST(intersection_of_two_linked_lists, t3) {
     List::FreeList(second);
 }
 
-}
+}  // namespace

@@ -41,13 +41,12 @@ Here's the implementation which runs in 188ms and passes all test cases.
 */
 
 #include <vector>
-#include <string>
 
 #include "gtest/gtest.h"
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
    public:
     int mod = 1e9 + 7;
@@ -123,4 +122,4 @@ TEST(number_of_sets_of_k_non_overlapping_line_segments, t3) {
     EXPECT_EQ(ret, output);
 }
 
-}
+}  // namespace
