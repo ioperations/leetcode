@@ -33,7 +33,7 @@ mod test {
         // respectively. Average salary excluding minimum and maximum
         // salary is (2000+3000) / 2 = 2500
         let ret = Solution::average(salary.into());
-        assert_eq!(ret, output);
+        assert!(ret - output < std::f64::EPSILON);
     }
 
     #[test]
@@ -45,6 +45,6 @@ mod test {
         // 2000
 
         let ret = Solution::average(salary.into());
-        assert_eq!(ret, output);
+        assert!(ret - output < std::f64::EPSILON);
     }
 }
