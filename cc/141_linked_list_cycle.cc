@@ -13,7 +13,6 @@ Note that pos is not passed as a parameter.
 Return true if there is a cycle in the linked list. Otherwise, return false
 */
 //* Definition for singly-linked list.
-#include <string>
 #include <vector>
 
 #include "datastruct_base.hh"
@@ -23,8 +22,7 @@ using ListNode = List::ListNode<int>;
 using List::ConstructList;
 using List::FreeList;
 
-
-namespace { 
+namespace {
 class Solution {
    public:
     bool HasCycle(ListNode *head) {
@@ -47,7 +45,6 @@ class Solution {
         return false;
     }
 };
-
 
 void ExpectEqList(ListNode *const head, const std::vector<int> &elements) {
     int i = 0;
@@ -155,4 +152,4 @@ TEST(linked_list_cycle, t4) {
     FreeList(head);
 }
 
-}
+}  // namespace

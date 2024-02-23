@@ -1,11 +1,9 @@
-#include <string>
-
-#include "datastruct_base.hh"
-#include "gtest/gtest.h"
-
 // This is a personal academic project. Dear PVS-Studio, please check it.
 // PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
 // https://pvs-studio.com
+#include "datastruct_base.hh"
+#include "gtest/gtest.h"
+
 //* Definition for singly-linked list.
 using ListNode = List::ListNode<int>;
 /*
@@ -22,7 +20,7 @@ using ListNode = List::ListNode<int>;
 
 
 */
-namespace { 
+namespace {
 class Solution {
    public:
     /// 从 @left 到 @right反转链表
@@ -176,4 +174,4 @@ TEST(reverse_link_list_v2, t4) {
     List::FreeList(head);
 }
 
-}
+}  // namespace

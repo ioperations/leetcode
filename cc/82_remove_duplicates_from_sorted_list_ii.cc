@@ -8,14 +8,13 @@ list sorted as well.
 */
 
 #include <vector>
-#include <string>
 
 #include "datastruct_base.hh"
 #include "gtest/gtest.h"
 
-using ListNode  = List::ListNode<int>;
+using ListNode = List::ListNode<int>;
 
-namespace { 
+namespace {
 class Solution {
    public:
     ListNode *DeleteDuplicates(ListNode *head) {
@@ -83,7 +82,6 @@ void ExpectEqList(ListNode *const head, const std::vector<int> &elements) {
     EXPECT_EQ(i, elements.size());
 }
 
-
 TEST(test, t1) {
     std::vector<int> head{1, 2, 3, 4, 5};
     std::vector<int> output{2, 3, 4, 5};
@@ -141,4 +139,4 @@ TEST(remove_duplicates_from_sorted_list_ii, t2) {
     List::FreeList(root);
 }
 
-}
+}  // namespace

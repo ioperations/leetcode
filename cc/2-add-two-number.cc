@@ -4,6 +4,7 @@
 /* * Definition for singly-linked list. */
 
 #include <iostream>
+
 #include "datastruct_base.hh"
 
 using ListNode = List::ListNode<int>;
@@ -85,4 +86,4 @@ void PrintNode(ListNode *n) {
     std::cout << std::endl;
 }
 
-}
+}  // namespace

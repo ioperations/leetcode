@@ -7,9 +7,9 @@ Given the head of a singly linked list, return true if it is a palindrome.
 */
 
 #include <benchmark/benchmark.h>
-#include <vector>
+
 #include <cstddef>
-#include <string>
+#include <vector>
 
 #include "datastruct_base.hh"
 #include "gtest/gtest.h"
@@ -105,8 +105,6 @@ class Solution {
     }
 };
 
-
-
 void ExpectEqList(ListNode *const head, const std::vector<int> &elements) {
     int i = 0;
     ListNode *m_head = head;
@@ -118,8 +116,6 @@ void ExpectEqList(ListNode *const head, const std::vector<int> &elements) {
     }
     EXPECT_EQ(i, elements.size());
 }
-
-
 
 TEST(palindrome_linked_list, t1) {
     ListNode *head = List::ConstructList(std::vector<int>{1, 2, 2, 1});

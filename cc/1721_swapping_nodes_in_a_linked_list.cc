@@ -8,7 +8,6 @@ Return the head of the linked list after swapping the values of the kth node
 from the beginning and the kth node from the end (the list is 1-indexed).
 */
 
-#include <string>
 #include <utility>
 #include <vector>
 
@@ -18,7 +17,7 @@ from the beginning and the kth node from the end (the list is 1-indexed).
 //* Definition for singly-linked list.
 using ListNode = List::ListNode<int>;
 
-namespace { 
+namespace {
 class Solution {
    public:
     ListNode *SwapNodes(ListNode *head, int k) {
@@ -46,8 +45,6 @@ class Solution {
     }
 };
 
-
-
 void ExpectEqList(ListNode *const head, const std::vector<int> &elements) {
     int i = 0;
     ListNode *m_head = head;
@@ -64,8 +61,6 @@ TEST(memleak, t1) {
 
     List::FreeList(head);
 }
-
-
 
 TEST(swapping_nodes_in_a_linked_list, t1) {
     std::vector<int> v{1, 2, 3, 4, 5};
@@ -115,4 +110,4 @@ TEST(swapping_nodes_in_a_linked_list, t4) {
     List::FreeList(head);
 }
 
-}
+}  // namespace

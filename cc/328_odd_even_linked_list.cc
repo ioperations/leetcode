@@ -14,16 +14,13 @@ You must solve the problem in O(1) extra space complexity and O(n) time
 complexity.
 */
 
-#include <string>
-
 #include "datastruct_base.hh"
 #include "gtest/gtest.h"
 
 // Definition for singly-linked lis
 using ListNode = List::ListNode<int>;
 
-
-namespace { 
+namespace {
 class Solution {
    public:
     ListNode *OddEvenListV1(ListNode *head) {
@@ -206,4 +203,4 @@ TEST(odd_even_linked_list_v2, t2) {
     ExpectEqList(head, ex);
     List::FreeList(head);
 }
-}
+}  // namespace

@@ -16,7 +16,6 @@ changed.
 
 #include <queue>
 #include <stack>
-#include <string>
 #include <vector>
 
 #include "datastruct_base.hh"
@@ -27,7 +26,7 @@ using namespace std;
 //* Definition for singly-linked list.
 using ListNode = List::ListNode<int>;
 
-namespace { 
+namespace {
 class Solution {
    public:
     void ReorderList(ListNode *head) { Solve(head); }
@@ -61,7 +60,6 @@ class Solution {
         head = node.next;
     }
 };
-
 
 void ExpectEqList(ListNode *const head, const std::vector<int> &elements) {
     int i = 0;
@@ -121,4 +119,4 @@ TEST(reorder_list, t2) {
     List::FreeList(head);
 }
 
-}
+}  // namespace

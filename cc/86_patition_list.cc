@@ -10,15 +10,13 @@ You should preserve the original relative order of the nodes in each of the two
 partitions.
 */
 
-#include <string>
-
 #include "datastruct_base.hh"
 #include "gtest/gtest.h"
 
 //* Definition for singly-linked list.
-using ListNode  = List::ListNode<int>;
+using ListNode = List::ListNode<int>;
 
-namespace { 
+namespace {
 class Solution {
    public:
     ListNode *Partition(ListNode *head, int x) {
@@ -98,4 +96,4 @@ TEST(patition_list, t3) {
     List::FreeList(head);
 }
 
-}
+}  // namespace

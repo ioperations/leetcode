@@ -6,16 +6,13 @@
 Given the head of a linked list, rotate the list to the right by k places.
 */
 
-//* Definition for singly-linked list.
-
-#include <string>
-
 #include "datastruct_base.hh"
 #include "gtest/gtest.h"
 
+//* Definition for singly-linked list.
 using ListNode = List::ListNode<int>;
 
-namespace { 
+namespace {
 class Solution {
    public:
     ListNode *RotateRight(ListNode *head, int k) {
@@ -210,4 +207,4 @@ TEST(rotate_list, t9) {
     List::FreeList(head);
 }
 
-}
+}  // namespace

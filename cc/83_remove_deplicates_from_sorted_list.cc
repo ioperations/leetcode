@@ -7,15 +7,13 @@ Given the head of a sorted linked list, delete all duplicates such that each
 element appears only once. Return the linked list sorted as well.
 */
 
-#include <string>
-
-//* Definition for singly-linked list.
 #include "datastruct_base.hh"
 #include "gtest/gtest.h"
 
-using ListNode  = List::ListNode<int>;
+//* Definition for singly-linked list.
+using ListNode = List::ListNode<int>;
 
-namespace { 
+namespace {
 class Solution {
    public:
     ListNode *DeleteDuplicates(ListNode *head) {
@@ -79,4 +77,4 @@ TEST(remove_deplicates_from_sorted_list, t2) {
     List::FreeList(root);
 }
 
-}
+}  // namespace

@@ -5,11 +5,11 @@
  * Definition for singly-linked list.
  */
 
-#include <benchmark/benchmark.h>
 #include <assert.h>
+#include <benchmark/benchmark.h>
+
 #include <algorithm>
 #include <vector>
-#include <string>
 
 #include "datastruct_base.hh"
 #include "gtest/gtest.h"
@@ -83,8 +83,6 @@ class Solution {
         return head;
     }
 };
-
-
 
 TEST(merge_two_sorted_list, t1) {
     ListNode *s1 = List::ConstructList(std::vector<int>{1, 2, 4});

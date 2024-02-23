@@ -11,8 +11,6 @@ to x.
 For n = 1, 2, 3, 4, and 5, the middle nodes are 0, 1, 1, 2, and 2,
 respectively.*/
 
-#include <string>
-
 #include "datastruct_base.hh"
 #include "gtest/gtest.h"
 
@@ -33,7 +31,7 @@ using ListNode = List::ListNode<int>;
 
 
 */
-namespace { 
+namespace {
 class Solution {
     ListNode *MiddlePrev(ListNode *head) {
         ListNode *slow = head;
@@ -73,7 +71,6 @@ void ExpectEqList(ListNode *const head, const std::vector<int> &elements) {
     }
     EXPECT_EQ(i, elements.size());
 }
-
 
 using namespace std;
 
@@ -126,4 +123,4 @@ Node 0 with value 2 is the only node remaining after removing node 1.
     List::FreeList(list);
 }
 
-}
+}  // namespace

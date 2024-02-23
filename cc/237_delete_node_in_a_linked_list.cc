@@ -8,16 +8,15 @@ be deleted directly.
 
 It is guaranteed that the node to be deleted is not a tail node in the list.
  */
-#include <string>
 #include <utility>
 
 #include "datastruct_base.hh"
 #include "gtest/gtest.h"
 
 // Definition for singly-linked list.
-using ListNode  = List::ListNode<int>;
+using ListNode = List::ListNode<int>;
 
-namespace { 
+namespace {
 class Solution {
    public:
     void DeleteNode(ListNode *node) {
@@ -39,7 +38,6 @@ class Solution {
 #include <vector>
 
 using namespace std;
-
 
 void ExpectEqList(ListNode *const head, const std::vector<int> &elements) {
     ListNode *m_head = head;
@@ -88,4 +86,4 @@ TEST(delete_node_in_a_linked_list, t2) {
 
     List::FreeList(head);
 }
-}
+}  // namespace

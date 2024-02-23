@@ -5,7 +5,6 @@
 #include <cmath>
 #include <limits>
 #include <queue>
-#include <vector>
 #include <utility>
 
 #include "datastruct_base.hh"
@@ -199,7 +198,6 @@ class Solution {
         return head;
     }
 };
-
 
 TEST(memleak, t1) {
     MyListNode *n1 = new MyListNode(1);

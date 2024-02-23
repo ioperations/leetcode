@@ -2,10 +2,9 @@
 // PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
 // https://pvs-studio.com
 #include <cstdlib>
-#include <vector>
 #include <map>
 #include <set>
-#include <string>
+#include <vector>
 
 #include "datastruct_base.hh"
 #include "gtest/gtest.h"
@@ -15,7 +14,7 @@ using namespace std;
 // Definition for singly-linked list.
 using ListNode = List::ListNode<int>;
 
-namespace { 
+namespace {
 class Solution {
     vector<int> vec;
 
@@ -32,7 +31,6 @@ class Solution {
         return vec[random_index];
     }
 };
-
 
 void ExpectEqList(ListNode *const head, const std::vector<int> &elements) {
     int i = 0;
@@ -64,4 +62,4 @@ TEST(linked_list_random_node, t1) {
     // EXPECT_EQ(set.count(ret), 1);
 }
 
-}
+}  // namespace

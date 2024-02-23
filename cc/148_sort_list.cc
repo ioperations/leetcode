@@ -6,16 +6,13 @@ Given the head of a linked list, return the list after sorting it in ascending
 order.
 */
 
-#include <benchmark/benchmark.h>
 #include <vector>
-#include <string>
 
+#include "benchmark/benchmark.h"
 #include "datastruct_base.hh"
 #include "gtest/gtest.h"
 
-//* Definition for singly-linked list.
 using ListNode = List::ListNode<int>;
-
 
 namespace {
 class SolutionV2 {

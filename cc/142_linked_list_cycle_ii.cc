@@ -12,16 +12,15 @@ Note that pos is not passed as a parameter.
 
 Return true if there is a cycle in the linked list. Otherwise, return false
 */
-//* Definition for singly-linked list.
-#include <string>
 #include <vector>
 
 #include "datastruct_base.hh"
 #include "gtest/gtest.h"
 
+//* Definition for singly-linked list.
 using ListNode = List::ListNode<int>;
 
-namespace { 
+namespace {
 class Solution {
    public:
     ListNode *DetectCycle(ListNode *head) {
@@ -47,7 +46,6 @@ class Solution {
         return k;
     }
 };
-
 
 TEST(memleak, t1) {
     ListNode *head = List::ConstructList(std::vector<int>{3, 2, 0, -4});
@@ -150,4 +148,4 @@ TEST(linked_list_cycle_ii, t4) {
     FreeList(head);
 }
 
-}
+}  // namespace
