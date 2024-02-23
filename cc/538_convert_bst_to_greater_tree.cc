@@ -15,21 +15,13 @@ node's key. Both the left and right subtrees must also be binary search trees.
 */
 
 // Definition for a binary tree node.
-struct TreeNode {
-    int val;
-    TreeNode *left;
-    TreeNode *right;
-    TreeNode() : val(0), left(nullptr), right(nullptr) {}
-    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
-    TreeNode(int x, TreeNode *left, TreeNode *right)
-        : val(x), left(left), right(right) {}
-};
-
 #include <queue>
-#include <string>
 #include <vector>
 
+#include "datastruct_base.hh"
 #include "gtest/gtest.h"
+
+using TreeNode = Tree::TreeNode<int>;
 
 namespace {
 class Solution {
@@ -76,16 +68,6 @@ TreeNode *AddToRoot(TreeNode *root, int val) {
     return root;
 }
 
-void FreeRoot(TreeNode *root) {
-    if (root == nullptr) {
-        return;
-    }
-
-    FreeRoot(root->left);
-    FreeRoot(root->right);
-    delete root;
-}
-
 /**
  * @brief 向 @root 当中加入节点
  * @param @elements 节点的数组
@@ -128,7 +110,7 @@ TEST(memleak, t1) {
         root = AddToRoot(root, i);
     }
 
-    FreeRoot(root);
+    Tree::FreeRoot(root);
 }
 
 TEST(convert_bst_to_greater_tree, t1) {
@@ -152,7 +134,7 @@ TEST(convert_bst_to_greater_tree, t1) {
         EXPECT_EQ(ret, (std::vector<int>{30, 36, 21, 36, 35, 26, 15, 33, 8}));
     }
 
-    FreeRoot(root);
+    Tree::FreeRoot(root);
 }
 
 TEST(convert_bst_to_greater_tree, t2) {
@@ -175,7 +157,7 @@ TEST(convert_bst_to_greater_tree, t2) {
         EXPECT_EQ(ret, (std::vector<int>{1, 1}));
     }
 
-    FreeRoot(root);
+    Tree::FreeRoot(root);
 }
 
 }  // namespace

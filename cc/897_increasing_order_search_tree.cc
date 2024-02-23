@@ -2,20 +2,13 @@
 // PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
 // https://pvs-studio.com
 //* Definition for a binary tree node.
-struct TreeNode {
-    int val;
-    TreeNode *left;
-    TreeNode *right;
-    TreeNode() : val(0), left(nullptr), right(nullptr) {}
-    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
-    TreeNode(int x, TreeNode *left, TreeNode *right)
-        : val(x), left(left), right(right) {}
-};
 #include <queue>
 #include <vector>
-#include <string>
 
+#include "datastruct_base.hh"
 #include "gtest/gtest.h"
+
+using TreeNode = Tree::TreeNode<int>;
 
 namespace {
 
@@ -69,16 +62,6 @@ TreeNode *AddToRoot(TreeNode *root, int val) {
     return root;
 }
 
-void FreeRoot(TreeNode *root) {
-    if (root == nullptr) {
-        return;
-    }
-
-    FreeRoot(root->left);
-    FreeRoot(root->right);
-    delete root;
-}
-
 /**
  * @brief 向 @root 当中加入节点
  * @param @elements 节点的数组
@@ -121,7 +104,7 @@ TEST(memleak, t1) {
         root = AddToRoot(root, i);
     }
 
-    FreeRoot(root);
+    Tree::FreeRoot(root);
 }
 TEST(increasing_order_search_tree, t1) {
     TreeNode *root = new TreeNode(5);
@@ -132,7 +115,7 @@ TEST(increasing_order_search_tree, t1) {
     auto ret = BFS(root);
     EXPECT_EQ(ret, (std::vector<int>{1, 2, 3, 4, 5, 6, 7, 8, 9}));
 
-    FreeRoot(root);
+    Tree::FreeRoot(root);
 }
 
 TEST(increasing_order_search_tree, t2) {
@@ -144,7 +127,7 @@ TEST(increasing_order_search_tree, t2) {
     auto ret = BFS(root);
     EXPECT_EQ(ret, (std::vector<int>{1, 5, 7}));
 
-    FreeRoot(root);
+    Tree::FreeRoot(root);
 }
 
 }  // namespace
