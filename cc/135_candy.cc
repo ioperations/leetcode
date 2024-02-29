@@ -12,14 +12,14 @@ Return the minimum number of candies you need to have to distribute the candies
 to the children.*/
 
 #include <algorithm>
-#include <vector>
 #include <string>
+#include <vector>
 
 #include "gtest/gtest.h"
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
    public:
     int Candy(vector<int> &ratings) {
@@ -73,4 +73,4 @@ TEST(candy, t2) {
     EXPECT_EQ(output, ret);
 }
 
-}
+}  // namespace

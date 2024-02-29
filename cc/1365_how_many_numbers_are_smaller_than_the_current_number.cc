@@ -9,12 +9,11 @@ Return the answer in an array.*/
 
 #include <algorithm>
 #include <vector>
-#include <string>
 
 #include "gtest/gtest.h"
 
 using namespace std;
-namespace { 
+namespace {
 class Solution {
    public:
     vector<int> SmallerNumbersThanCurrent(vector<int> &nums) {
@@ -32,7 +31,6 @@ class Solution {
         return f;
     }
 };
-
 
 TEST(how_many_numbers_are_smaller_than_the_current_number, t1) {
     std::vector<int> nums{8, 1, 2, 2, 3};
@@ -58,4 +56,4 @@ TEST(how_many_numbers_are_smaller_than_the_current_number, t3) {
     EXPECT_EQ(ret, output);
 }
 
-}
+}  // namespace

@@ -34,12 +34,11 @@ TreeNode<T> *FindNodeInBinaryTree(TreeNode<T> *head, int target) {
 }
 #include <deque>
 #include <optional>
-#include <string>
 #include <vector>
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
    public:
     template <typename T>
@@ -169,4 +168,4 @@ TEST(find_a_corresponding_node_of_a_binary_tree_in_a_clone_of_that_tree, t3) {
     FreeTreeNode(head2);
 }
 
-}
+}  // namespace
