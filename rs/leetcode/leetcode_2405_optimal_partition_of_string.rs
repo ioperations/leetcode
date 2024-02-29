@@ -31,7 +31,7 @@ impl Solution {
             let mut ret = std::i32::MAX;
 
             for (index, &value) in s.iter().enumerate().skip(1) {
-                if hs.get(&value).is_some() {
+                if hs.contains(&value) {
                     // this substring is not allowded anymore
                     let z = my_impl(&s[index..], cache);
                     ret = ret.min(z + 1);

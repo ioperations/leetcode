@@ -53,7 +53,7 @@ impl Solution {
                 if value < ret {
                     ret = value;
                 }
-                if seen.get(&i).is_none() {
+                if !seen.contains(&i) {
                     this.push_back(i);
                     seen.insert(i);
                 }
