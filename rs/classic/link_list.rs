@@ -910,7 +910,7 @@ mod test {
             assert_eq!(6 - i as i32, *elt);
         }
         let mut n = LinkedList::new();
-        assert_eq!(n.iter().rev().next(), None);
+        assert_eq!(n.iter().next_back(), None);
         n.push_front(4);
         let mut it = n.iter().rev();
         assert_eq!(it.size_hint(), (1, Some(1)));
