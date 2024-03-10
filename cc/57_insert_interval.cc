@@ -106,4 +106,4 @@ TEST(insert_interval, t2) {
     EXPECT_EQ(ret, output);
 }
 
-}
+} // namespace
