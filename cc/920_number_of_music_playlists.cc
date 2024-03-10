@@ -9,9 +9,8 @@
  * create. Since the answer can be very large, return it modulo 109 + 7.
  */
 
-#include <vector>
 #include <algorithm>
-#include <string>
+#include <vector>
 
 #include "gtest/gtest.h"
 
@@ -19,7 +18,7 @@
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
    public:
     ll Solve(int n, int goal, int k, vector<vector<int>> &dp) {
@@ -72,7 +71,6 @@ class Solution {
     const int mod = 1000000007;
 };
 
-
 TEST(number_of_music_playlists, t1) {
     Solution s;
     // There are 6 possible playlists: [1, 2, 3], [1, 3, 2], [2, 1, 3], [2, 3,
@@ -93,4 +91,4 @@ TEST(number_of_music_playlists, t3) {
     EXPECT_EQ(s.NumMusicPlaylists(2, 3, 1), 2);
 }
 
-}
+}  // namespace

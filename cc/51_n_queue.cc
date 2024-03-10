@@ -13,15 +13,15 @@ placement, where 'Q' and '.' both indicate a queen and an empty space,
 respectively.
 
 */
+#include <iterator>
 #include <string>
 #include <vector>
-#include <iterator>
 
 #include "gtest/gtest.h"
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
    public:
     vector<vector<string>> sols;  // 2D vector of strings to store the solutions
@@ -76,8 +76,6 @@ class Solution {
 
 using namespace std;
 
-
-
 TEST(n_queue, t1) {
     // pass
     int n = 4;
@@ -106,4 +104,4 @@ TEST(n_queue, t2) {
     // Explanation: There exist two distinct solutions to the 4-queens puzzle as
     // shown above
 }
-}
+}  // namespace

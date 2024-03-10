@@ -12,16 +12,15 @@
    subsequence of a, that is, if it is equal to a[l],a[l+1],...,a[r] for some
    (l,r).
 */
+#include <algorithm>
 #include <unordered_map>
 #include <vector>
-#include <algorithm>
-#include <string>
 
 #include "gtest/gtest.h"
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
    public:
     int MaximumUniqueSubarray(vector<int> &nums) {
@@ -50,8 +49,6 @@ class Solution {
     }
 };
 
-
-
 TEST(maximium_erasure_value, t1) {
     vector<int> nums = {4, 2, 4, 5, 6};
 
@@ -72,4 +69,4 @@ TEST(maximium_erasure_value, t2) {
     EXPECT_EQ(ret, out);
 }
 
-}
+}  // namespace

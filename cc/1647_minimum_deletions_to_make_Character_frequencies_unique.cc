@@ -22,7 +22,7 @@
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
    public:
     int MinDeletionsV2(string s) {
@@ -91,8 +91,6 @@ class Solution {
     }
 };
 
-
-
 TEST(minimum_deletions_to_make_Character_frequencies_unique, t1) {
     string s = "aab";
     int out = 0;
@@ -125,4 +123,4 @@ TEST(minimum_deletions_to_make_Character_frequencies_unique, t3) {
     EXPECT_EQ(ret, out);
 }
 
-}
+}  // namespace

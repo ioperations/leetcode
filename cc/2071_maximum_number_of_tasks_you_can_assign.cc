@@ -22,12 +22,11 @@
 #include <algorithm>
 #include <queue>
 #include <vector>
-#include <string>
 
 #include "gtest/gtest.h"
 
 using namespace std;
-namespace { 
+namespace {
 class Solution {
    public:
     int MaxTaskAssign(vector<int> &tasks, vector<int> &workers, int pills,
@@ -139,8 +138,6 @@ class Solution {
     }
 };
 
-
-
 TEST(maximum_number_of_tasks_you_can_assign, t1) {
     std::vector<int> tasks = {3, 2, 1}, workers = {0, 3, 3};
     int pills = 1, strength = 1;
@@ -187,4 +184,4 @@ TEST(maximum_number_of_tasks_you_can_assign, t3) {
     */
 }
 
-}
+}  // namespace

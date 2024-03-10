@@ -13,7 +13,6 @@ nodes.*/
 #include <algorithm>
 #include <stack>
 #include <vector>
-#include <string>
 
 #include "datastruct_base.hh"
 #include "gtest/gtest.h"
@@ -21,7 +20,7 @@ nodes.*/
 using namespace std;
 using namespace Tree;
 
-namespace { 
+namespace {
 class Solution {
    public:
     int count = 0;
@@ -284,4 +283,4 @@ TEST(pseudo_palindromic_paths_in_a_binary_tree_v2, t3) {
     FreeTreeNode(node);
 }
 
-}
+}  // namespace

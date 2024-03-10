@@ -11,6 +11,7 @@ surrounded by water.
 */
 
 #include <stddef.h>
+
 #include <vector>
 /*
     m == grid.length
@@ -20,14 +21,13 @@ surrounded by water.
 */
 #include <queue>
 #include <stack>
-#include <string>
 #include <utility>
 
 #include "gtest/gtest.h"
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
    public:
     int NumIslands(vector<vector<char>> &grid) {
@@ -151,8 +151,6 @@ class Solution {
     }
 };
 
-
-
 TEST(number_of_islands, t1) {
     std::vector<std::vector<char>> grid = {{'1', '1', '1', '1', '0'},
                                            {'1', '1', '0', '1', '0'},
@@ -201,4 +199,4 @@ TEST(number_of_islands_v2, t2) {
     EXPECT_EQ(ret, expected);
 }
 
-}
+}  // namespace

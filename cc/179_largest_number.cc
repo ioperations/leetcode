@@ -11,14 +11,14 @@
 
 */
 
+#include <algorithm>
 #include <string>
 #include <vector>
-#include <algorithm>
 
 #include "gtest/gtest.h"
 
 using namespace std;
-namespace { 
+namespace {
 class Solution {
    public:
     bool static Comp(string a, string b) { return a + b > b + a; }
@@ -42,8 +42,6 @@ class Solution {
     }
 };
 
-
-
 TEST(largest_number, t1) {
     std::vector<int> nums = {10, 2};
     string output = "210";
@@ -64,4 +62,4 @@ TEST(largest_number, t2) {
     EXPECT_EQ(ret, output);
 }
 
-}
+}  // namespace

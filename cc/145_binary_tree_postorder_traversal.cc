@@ -3,14 +3,13 @@
 // https://pvs-studio.com
 //* Definition for a binary tree node.
 #include <vector>
-#include <string>
 
 #include "datastruct_base.hh"
 #include "gtest/gtest.h"
 
 using namespace Tree;
 
-namespace { 
+namespace {
 class Solution {
    public:
     template <typename T>
@@ -32,7 +31,6 @@ class Solution {
         val.push_back(root->val);
     }
 };
-
 
 TEST(binary_tree_postorder_traversal, t1) {
     TreeNode<int> *root = ConstructTree(std::vector<int>{1, 2, 3});
@@ -61,4 +59,4 @@ TEST(binary_tree_postorder_traversal, t3) {
     FreeRoot(root);
 }
 
-}
+}  // namespace

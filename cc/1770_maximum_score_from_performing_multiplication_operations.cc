@@ -15,13 +15,12 @@ Return the maximum score after performing m operations.*/
 #include <climits>
 #include <functional>
 #include <vector>
-#include <string>
 
 #include "gtest/gtest.h"
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
    public:
     int MaximumScoreV1(vector<int> &nums, vector<int> &multipliers) {
@@ -62,8 +61,6 @@ class Solution {
     }
 };
 
-
-
 TEST(maximum_score_from_performing_multiplication_operations, t1) {
     vector<int> nums = {1, 2, 3}, multipliers = {3, 2, 1};
     int output = 14;
@@ -98,4 +95,4 @@ TEST(maximum_score_from_performing_multiplication_operations, t2) {
 
     EXPECT_EQ(ret, output);
 }
-}
+}  // namespace

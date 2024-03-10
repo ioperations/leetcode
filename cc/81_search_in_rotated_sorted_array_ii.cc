@@ -17,13 +17,12 @@ You must decrease the overall operation steps as much as possible.
 
 */
 #include <vector>
-#include <string>
 
 #include "gtest/gtest.h"
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
    public:
     bool Search(vector<int> &nums, int target) {
@@ -50,8 +49,6 @@ class Solution {
     }
 };
 
-
-
 TEST(search_in_rotated_sorted_array_ii, t1) {
     vector<int> nums = {2, 5, 6, 0, 0, 1, 2};
     int target = 0;
@@ -70,4 +67,4 @@ TEST(search_in_rotated_sorted_array_ii, t2) {
     EXPECT_EQ(ret, output);
 }
 
-}
+}  // namespace

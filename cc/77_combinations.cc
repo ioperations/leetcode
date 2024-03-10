@@ -9,12 +9,11 @@ You may return the answer in any order.
 */
 
 #include <vector>
-#include <string>
 
 #include "gtest/gtest.h"
 
 using namespace std;
-namespace { 
+namespace {
 class Solution {
    public:
     void Fn(int i, int k, int n, vector<int> &nums, vector<int> &v,
@@ -71,4 +70,4 @@ TEST(combinations, t2) {
     EXPECT_EQ(ret_set, o_set);
 }
 
-}
+}  // namespace

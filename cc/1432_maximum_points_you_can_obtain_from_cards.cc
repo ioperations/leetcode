@@ -14,19 +14,18 @@ Given the integer array cardPoints and the integer k, return the maximum score
 you can obtain.
 
 */
+#include <algorithm>
 #include <functional>
 #include <map>
 #include <numeric>
 #include <tuple>
 #include <vector>
-#include <algorithm>
-#include <string>
 
 #include "gtest/gtest.h"
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
    public:
     int MaxScore(vector<int> &card_points, int k) {
@@ -74,7 +73,6 @@ class Solution {
         return ans;
     }
 };
-
 
 TEST(maximum_points_you_can_obtain_from_cards, t1) {
     vector<int> card_points = {1, 2, 3, 4, 5, 6, 1};
@@ -143,4 +141,4 @@ TEST(maximum_points_you_can_obtain_from_cards_v2, t3) {
     // You have to take all the cards. Your score is the sum of points of all
     // cards.
 }
-}
+}  // namespace

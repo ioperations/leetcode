@@ -14,19 +14,18 @@ height, you do not need a ladder or bricks. If the current building's height is
 less than the next building's height, you can either use one ladder or (h[i+1] -
 h[i]) bricks. Return the furthest building index (0-indexed) you can reach if
 you use the given ladders and bricks optimally*/
+#include <algorithm>
 #include <functional>
 #include <map>
 #include <queue>
 #include <tuple>
 #include <vector>
-#include <algorithm>
-#include <string>
 
 #include "gtest/gtest.h"
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
    public:
     int FurthestBuilding(vector<int> &heights, int bricks, int ladders) {
@@ -97,8 +96,6 @@ class Solution {
     }
 };
 
-
-
 TEST(furthest_building_you_can_reach, t1) {
     vector<int> heights{4, 2, 7, 6, 9, 14, 12};
     int bricks = 5, ladders = 1;
@@ -136,4 +133,4 @@ TEST(furthest_building_you_can_reach, t3) {
     EXPECT_EQ(ret, 3);
 }
 
-}
+}  // namespace

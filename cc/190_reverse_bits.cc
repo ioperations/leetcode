@@ -16,6 +16,7 @@ the output represents the signed integer -1073741825.
 */
 
 #include <stddef.h>
+
 #include <algorithm>
 #include <cstdint>
 #include <string>
@@ -52,7 +53,7 @@ std::string ConstructString(uint32_t n) {
     return ret;
 }
 
-namespace { 
+namespace {
 class Solution {
    public:
     uint32_t ReverseBits(uint32_t n) {
@@ -92,7 +93,6 @@ class Solution {
         return ret;
     }
 };
-
 
 TEST(base, tp) {
     EXPECT_EQ(2 << 1, 4);
@@ -139,4 +139,4 @@ TEST(reverse_bits, t2) {
     EXPECT_EQ(ret_str, output_expected);
 }
 
-}
+}  // namespace

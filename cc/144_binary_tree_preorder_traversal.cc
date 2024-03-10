@@ -4,14 +4,13 @@
 //* Definition for a binary tree node.
 
 #include <vector>
-#include <string>
 
 #include "datastruct_base.hh"
 #include "gtest/gtest.h"
 
 using namespace Tree;
 
-namespace { 
+namespace {
 class Solution {
    public:
     template <typename T>
@@ -37,7 +36,6 @@ class Solution {
 #include <optional>
 
 using namespace std;
-
 
 TEST(binary_tree_preorder_traversal, t1) {
     std::vector<optional<int>> vec{1, 2, 3};
@@ -71,4 +69,4 @@ TEST(binary_tree_preorder_traversal, t3) {
     FreeTreeNode(root);
 }
 
-}
+}  // namespace

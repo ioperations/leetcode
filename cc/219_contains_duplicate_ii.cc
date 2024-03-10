@@ -8,15 +8,15 @@ j) <= k.
 */
 
 #include <stdlib.h>
+
 #include <unordered_map>
 #include <vector>
-#include <string>
 
 #include "gtest/gtest.h"
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
    public:
     bool ContainsNearbyDuplicate(const vector<int> &nums, int k) {
@@ -40,8 +40,6 @@ class Solution {
         return false;
     }
 };
-
-
 
 TEST(contains_duplicate_ii, t1) {
     std::vector<int> nums = {1, 2, 3, 1};
@@ -103,5 +101,4 @@ TEST(contains_duplicate_ii_v2, t3) {
     EXPECT_EQ(ret, output);
 }
 
-
-}
+}  // namespace

@@ -18,13 +18,12 @@ elements. For example, [3, 5, 8] is a subsequence of [3, 4, 5, 6, 7, 8].*/
 #include <functional>
 #include <map>
 #include <vector>
-#include <string>
 
 #include "gtest/gtest.h"
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
    public:
     int LenLongestFibSubseq(vector<int> &arr) {
@@ -97,8 +96,6 @@ class Solution {
     }
 };
 
-
-
 TEST(length_of_longest_fibnacci_subsequence, t1) {
     std::vector<int> arr{1, 2, 3, 4, 5, 6, 7, 8};
     int out = 5;
@@ -129,4 +126,4 @@ TEST(length_of_longest_fibnacci_subsequence, t3) {
     EXPECT_EQ(ret, out);
 }
 
-}
+}  // namespace

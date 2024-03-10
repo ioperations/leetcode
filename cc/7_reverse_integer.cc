@@ -93,7 +93,6 @@ class Solution {
     }
 };
 
-
 TEST(reverse_integer, t1) {
     Solution s;
     auto ret = s.Reverse(100);
@@ -164,4 +163,4 @@ TEST(reverse_integer_v2, t5) {
     EXPECT_EQ(ret, 0);
 }
 
-}
+}  // namespace

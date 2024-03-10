@@ -16,11 +16,10 @@ input represents the signed integer. -3.
 */
 
 #include <cstdint>
-#include <string>
 
 #include "gtest/gtest.h"
 
-namespace { 
+namespace {
 class Solution {
    public:
     int HammingWeight(uint32_t n) {
@@ -34,8 +33,6 @@ class Solution {
         return num;
     }
 };
-
-
 
 TEST(number_of_1_bits, t1) {
     uint32_t n = 11;  // 00000000000000000000000000001011;
@@ -61,4 +58,4 @@ TEST(number_of_1_bits, t3) {
     EXPECT_EQ(ret, expected);
 }
 
-}
+}  // namespace

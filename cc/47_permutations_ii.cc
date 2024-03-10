@@ -6,9 +6,9 @@
 
 #include <benchmark/benchmark.h>
 #include <limits.h>
+
 #include <algorithm>
 #include <vector>
-#include <string>
 
 #include "gtest/gtest.h"
 

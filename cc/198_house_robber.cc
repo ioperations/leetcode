@@ -15,13 +15,12 @@ police.*/
 #include <functional>
 #include <map>
 #include <vector>
-#include <string>
 
 #include "gtest/gtest.h"
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
    public:
     int Rob(vector<int> &nums) {
@@ -56,8 +55,6 @@ class Solution {
     }
 };
 
-
-
 TEST(house_robber, t1) {
     std::vector<int> nums{1, 2, 3, 1};
     int output = 4;
@@ -87,4 +84,4 @@ TEST(house_robber, t3) {
     EXPECT_EQ(ret, output);
 }
 
-}
+}  // namespace

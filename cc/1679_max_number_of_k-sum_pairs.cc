@@ -12,13 +12,12 @@ Return the maximum number of operations you can perform on the array.
 #include <algorithm>
 #include <unordered_map>
 #include <vector>
-#include <string>
 
 #include "gtest/gtest.h"
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
    public:
     int MaxOperations(vector<int> &nums, int sum) {
@@ -72,8 +71,6 @@ class Solution {
         return count;
     }
 };
-
-
 
 TEST(max_number_of_k_sum_pairs, t1) {
     std::vector<int> nums = {1, 2, 3, 4};
@@ -168,4 +165,4 @@ TEST(max_number_of_k_sum_pairs_v3, t2) {
     EXPECT_EQ(ret, output);
 }
 
-}
+}  // namespace

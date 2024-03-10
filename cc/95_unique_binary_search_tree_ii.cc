@@ -8,14 +8,15 @@
  */
 
 #include <stddef.h>
+
 #include <map>
+#include <optional>
 #include <queue>
 #include <set>
 #include <vector>
-#include <optional>
 
-#include "gtest/gtest.h"
 #include "datastruct_base.hh"
+#include "gtest/gtest.h"
 
 // Definition for a binary tree node.
 using TreeNode = Tree::TreeNode<int>;

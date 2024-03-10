@@ -6,14 +6,13 @@
 // 中序遍历
 
 #include <vector>
-#include <string>
 
 #include "datastruct_base.hh"
 #include "gtest/gtest.h"
 
 using namespace Tree;
 
-namespace { 
+namespace {
 class Solution {
    public:
     template <typename T>
@@ -53,4 +52,4 @@ TEST(binary_tree_inorder_tranverse_v2, t0) {
     FreeTreeNode(root);
 }
 
-}
+}  // namespace

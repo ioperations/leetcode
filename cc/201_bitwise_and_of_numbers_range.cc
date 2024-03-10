@@ -7,8 +7,8 @@
 // inclusive.
 
 #include <benchmark/benchmark.h>
+
 #include <cmath>
-#include <string>
 
 #include "gtest/gtest.h"
 
@@ -32,8 +32,6 @@ class Solution {
         return (left >> pow) << pow;
     }
 };
-
-
 
 TEST(bitwise_and_of_numbers_range, t1) {
     Solution s;

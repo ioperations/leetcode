@@ -8,14 +8,13 @@
 */
 #include <functional>
 #include <vector>
-#include <string>
 
 using namespace std;
 #include <map>
 
 #include "gtest/gtest.h"
 
-namespace { 
+namespace {
 class Solution {
    public:
     int NumTrees(int n) {
@@ -37,8 +36,6 @@ class Solution {
         return fun(n);
     }
 };
-
-
 
 TEST(unique_binary_search_tree, t1) {
     int n = 3;
@@ -69,4 +66,4 @@ TEST(unique_binary_search_tree, t3) {
     }
 }
 
-}
+}  // namespace

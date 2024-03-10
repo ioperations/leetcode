@@ -22,7 +22,6 @@ least a next number in the in-order traversal when next() is called.
 // * Definition for a binary tree node.
 
 #include <stack>
-#include <string>
 
 #include "datastruct_base.hh"
 #include "gtest/gtest.h"

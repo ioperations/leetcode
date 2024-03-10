@@ -9,9 +9,8 @@ The solution set must not contain duplicate subsets. Return the solution in any
 order.
 */
 
-#include <vector>
 #include <set>
-#include <string>
+#include <vector>
 
 #include "gtest/gtest.h"
 
@@ -71,7 +70,6 @@ class SolutionV1 {
         return ans;
     }
 };
-
 
 TEST(subsets, t1) {
     std::vector<int> input{1, 2, 3};

@@ -9,14 +9,13 @@ Return the number of good nodes in the binary tree.
 // Definition for a binary tree node.
 #include <algorithm>
 #include <functional>
-#include <string>
 
 #include "datastruct_base.hh"
 #include "gtest/gtest.h"
 
 using namespace Tree;
 
-namespace { 
+namespace {
 class Solution {
    public:
     template <typename T>
@@ -105,4 +104,4 @@ TEST(count_good_nodes_in_binary_tree, t4) {
     FreeTreeNode(node);
 }
 
-}
+}  // namespace

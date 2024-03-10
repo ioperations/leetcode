@@ -11,12 +11,10 @@ climb to the top?
 #include <functional>
 #include <map>
 #include <vector>
-#include <string>
 
 #include "gtest/gtest.h"
 
 using namespace std;
-
 
 namespace {
 class Solution {
@@ -61,8 +59,6 @@ class SolutionV2 {
         return fun(1) + fun(2);
     }
 };
-
-
 
 TEST(climbing_stairs, t1) {
     Solution sl;

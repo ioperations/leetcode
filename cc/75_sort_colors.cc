@@ -12,10 +12,10 @@
     You must solve this problem without using the library's sort function.
 */
 #include <benchmark/benchmark.h>
-#include <vector>
+
 #include <cstddef>
-#include <string>
 #include <utility>
+#include <vector>
 
 #include "gtest/gtest.h"
 
@@ -66,7 +66,6 @@ class Solution {
         Merge(nums, low, mid, high);
     }
 };
-
 
 static void BenchBubbleSort(benchmark::State &state) {
     for (auto _ : state) {

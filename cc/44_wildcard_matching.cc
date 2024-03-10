@@ -16,7 +16,7 @@ The matching should cover the entire input string (not partial).
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
    public:
     bool IsMatch(string s, string p) {
@@ -53,8 +53,6 @@ class Solution {
     }
 };
 
-
-
 TEST(wildcard_matching, t1) {
     std::string s = "aa", p = "a";
     Solution sl;
@@ -76,4 +74,4 @@ TEST(wildcard_matching, t3) {
     EXPECT_EQ(ret, false);
 }
 
-}
+}  // namespace

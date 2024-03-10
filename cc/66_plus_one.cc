@@ -10,13 +10,12 @@ Increment the large integer by one and return the resulting array of digits.
 */
 
 #include <vector>
-#include <string>
 
 #include "gtest/gtest.h"
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
    public:
     vector<int> PlusOne(vector<int> &digits) {
@@ -34,7 +33,6 @@ class Solution {
         return digits;
     }
 };
-
 
 TEST(plus_one, t1) {
     std::vector<int> digits = {1, 2, 3};
@@ -60,4 +58,4 @@ TEST(plus_one, t3) {
     EXPECT_EQ(ret, (std::vector<int>{1, 0}));
 }
 
-}
+}  // namespace

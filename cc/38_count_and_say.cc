@@ -51,8 +51,6 @@ class Solution {
     }
 };
 
-
-
 TEST(count_and_say, t1) {
     int n = 4;
     std::string output = "1211";
@@ -75,4 +73,4 @@ TEST(count_and_say, t2) {
     EXPECT_EQ(ret, output);
     // Explanation : This is the base case.
 }
-}
+}  // namespace

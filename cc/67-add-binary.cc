@@ -8,7 +8,7 @@
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
    public:
     string AddBinary(const string &a, const string &b) {
@@ -42,7 +42,6 @@ class Solution {
     string ret = "";
 };
 
-
 TEST(_add_binaryv2, t0) {
     string s = "1111";
     string b = "10101";
@@ -63,4 +62,4 @@ TEST(_add_binaryv2, t1) {
     EXPECT_EQ(ret, "100");
 }
 
-}
+}  // namespace

@@ -24,7 +24,7 @@ empty array.*/
 #include "gtest/gtest.h"
 
 using namespace std;
-namespace { 
+namespace {
 class Solution {
    public:
     bool CanReplace(string &stamp, string &target, int pos) {
@@ -75,8 +75,6 @@ class Solution {
     }
 };
 
-
-
 TEST(stamping_the_sequence, t1) {
     string stamp = "abc", target = "ababc";
     vector<int> output = {0, 2};
@@ -103,4 +101,4 @@ TEST(stamping_the_sequence, t2) {
     EXPECT_EQ(ret, output);
 }
 
-}
+}  // namespace

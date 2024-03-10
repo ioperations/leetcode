@@ -2,13 +2,12 @@
 // PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
 // https://pvs-studio.com
 #include <vector>
-#include <string>
 
 #include "gtest/gtest.h"
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
    public:
     int CountPrimes(int n) {
@@ -23,8 +22,6 @@ class Solution {
         return count;
     }
 };
-
-
 
 TEST(count_primes, t1) {
     int n = 10;
@@ -51,4 +48,4 @@ TEST(count_primes, t3) {
     EXPECT_EQ(ret, output);
 }
 
-}
+}  // namespace

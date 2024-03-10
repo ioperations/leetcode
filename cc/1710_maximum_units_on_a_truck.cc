@@ -14,13 +14,12 @@ Return the maximum total number of units that can be put on the truck.*/
 
 #include <algorithm>
 #include <vector>
-#include <string>
 
 #include "gtest/gtest.h"
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
    public:
     static bool Comp(vector<int> &p1, vector<int> &p2) {
@@ -47,8 +46,6 @@ class Solution {
     }
 };
 
-
-
 TEST(maximum_units_on_a_truck, t1) {
     vector<vector<int>> box_types = {{1, 3}, {2, 2}, {3, 1}};
     int truck_size = 4;
@@ -74,4 +71,4 @@ TEST(maximum_units_on_a_truck, t2) {
     EXPECT_EQ(ret, output);
 }
 
-}
+}  // namespace

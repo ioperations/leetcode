@@ -13,12 +13,11 @@ space.
 #include <cstdlib>
 #include <map>
 #include <vector>
-#include <string>
 
 #include "gtest/gtest.h"
 
 using namespace std;
-namespace { 
+namespace {
 class Solution {
    public:
     int FirstMissingPositive(std::vector<int> &nums) {
@@ -63,8 +62,6 @@ class Solution {
     }
 };
 
-
-
 TEST(first_missing_positive, t1) {
     std::vector<int> nums = {1, 2, 0};
     Solution s;
@@ -86,4 +83,4 @@ TEST(first_missing_positive, t3) {
     EXPECT_EQ(ret, 1);
 }
 
-}
+}  // namespace

@@ -14,6 +14,7 @@ Replace a character
 // #pragma GCC optimize("O2")
 
 #include <benchmark/benchmark.h>
+
 #include <algorithm>
 #include <functional>
 #include <map>
@@ -114,8 +115,6 @@ class Solution {
         return dp[m][n];
     }
 };
-
-
 
 TEST(edit_distance_v2, t2) {
     std::string word1 = "intention", word2 = "execution";

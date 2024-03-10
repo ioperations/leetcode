@@ -22,7 +22,7 @@ The interleaving is s1 + t1 + s2 + t2 + s3 + t3 + ... or t1 + s1 + t2 + s2 + t3
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
    public:
     bool Helper(string &s1, string &s2, string &s3) {
@@ -103,29 +103,27 @@ class Solution {
     }
 };
 
-
-
 TEST(interleaving_string, t1) {
-    string s1 = "aabcc", s2 = "dbbca", s3 = "aadbbcbcac";
+    string string1 = "aabcc", s2 = "dbbca", s3 = "aadbbcbcac";
     bool output = true;
 
     Solution sl;
-    bool ret = sl.IsInterleave(s1, s2, s3);
+    bool ret = sl.IsInterleave(string1, s2, s3);
     EXPECT_EQ(ret, output);
 
-    ret = sl.IsInterleaveV1(s1, s2, s3);
+    ret = sl.IsInterleaveV1(string1, s2, s3);
     EXPECT_EQ(ret, output);
 }
 
 TEST(interleaving_string, t2) {
-    string s1 = "", s2 = "", s3 = "";
+    string string1 = "", s2 = "", s3 = "";
     bool output = true;
 
     Solution sl;
-    bool ret = sl.IsInterleave(s1, s2, s3);
+    bool ret = sl.IsInterleave(string1, s2, s3);
     EXPECT_EQ(ret, output);
-    ret = sl.IsInterleaveV1(s1, s2, s3);
+    ret = sl.IsInterleaveV1(string1, s2, s3);
     EXPECT_EQ(ret, output);
 }
 
-}
+}  // namespace

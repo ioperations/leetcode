@@ -23,8 +23,8 @@ find the next permutation of nums.
 The replacement must be in place and use only constant extra memory.
 */
 
-#include <vector>
 #include <utility>
+#include <vector>
 
 #include "gtest/gtest.h"
 
@@ -54,8 +54,6 @@ class Solution {
     }
 };
 
-
-
 TEST(next_permutation, t1) {
     vector<int> nums = {1, 2, 3};
     vector<int> output = {1, 3, 2};
@@ -80,4 +78,4 @@ TEST(next_permutation, t3) {
     EXPECT_EQ(nums, output);
 }
 
-} // namespace
+}  // namespace

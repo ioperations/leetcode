@@ -19,12 +19,11 @@ input array in-place with O(1) extra memory.
 */
 
 #include <vector>
-#include <string>
 
 #include "gtest/gtest.h"
 
 using namespace std;
-namespace { 
+namespace {
 class Solution {
    public:
     int RemoveDuplicates(vector<int> &nums) {
@@ -44,8 +43,6 @@ class Solution {
         }
     }
 };
-
-
 
 TEST(remove_duplicates_from_sorted_arary_ii, t1) {
     vector<int> nums = {1, 1, 1, 2, 2, 3};
@@ -88,4 +85,4 @@ TEST(remove_duplicates_from_sorted_arary_ii, t2) {
     }
 }
 
-}
+}  // namespace

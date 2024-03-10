@@ -3,9 +3,9 @@
 // https://pvs-studio.com
 #include <benchmark/benchmark.h>
 #include <stddef.h>
+
 #include <algorithm>
 #include <vector>
-#include <string>
 
 #include "gtest/gtest.h"
 
@@ -16,7 +16,6 @@ You are given an integer array nums. You are initially positioned at the array's
 first index, and each element in the array represents your maximum jump length
 at that position.
     */
-
 
 namespace {
 class Solution {
@@ -57,8 +56,6 @@ class Solution {
         return true;
     }
 };
-
-
 
 TEST(testName, testNum) {
     std::vector<int> nums = {2, 3, 1, 1, 4};

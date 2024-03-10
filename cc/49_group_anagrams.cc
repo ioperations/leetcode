@@ -17,7 +17,7 @@ using namespace std;
 
 #include "gtest/gtest.h"
 
-namespace { 
+namespace {
 class Solution {
    public:
     vector<vector<string>> GroupAnagrams(vector<string> &strs) {
@@ -70,4 +70,4 @@ TEST(group_anagrams, t3) {
     EXPECT_EQ(ret_set, out_set);
 }
 
-}
+}  // namespace

@@ -15,13 +15,12 @@ Return the number of weak characters.*/
 #include <algorithm>
 #include <climits>
 #include <vector>
-#include <string>
 
 #include "gtest/gtest.h"
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
     static bool Comp(vector<int> &a, vector<int> &b) {
         if (a[0] == b[0]) return a[1] > b[1];
@@ -41,8 +40,6 @@ class Solution {
         return count;
     }
 };
-
-
 
 TEST(the_number_of_weak_characters_in_the_game, t1) {
     std::vector<vector<int>> properties = {{5, 5}, {6, 3}, {3, 6}};
@@ -83,4 +80,4 @@ TEST(the_number_of_weak_characters_in_the_game, t4) {
     EXPECT_EQ(ret, output);
 }
 
-}
+}  // namespace

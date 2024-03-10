@@ -2,9 +2,9 @@
 // PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
 // https://pvs-studio.com
 #include <stddef.h>
+
 #include <algorithm>
 #include <vector>
-#include <string>
 
 /*
 
@@ -19,7 +19,7 @@ using namespace std;
 
 #include "gtest/gtest.h"
 
-namespace { 
+namespace {
 class Solution {
    public:
     /**
@@ -72,8 +72,6 @@ class Solution {
     }
 };
 
-
-
 TEST(roate_image, t1) {
     std::vector<std::vector<int>> matrix = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
     const std::vector<std::vector<int>> expected = {
@@ -96,4 +94,4 @@ TEST(roate_image, t2) {
 
     EXPECT_EQ(matrix, expected);
 }
-}
+}  // namespace

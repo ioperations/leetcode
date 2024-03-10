@@ -15,14 +15,15 @@
     Return intervals after the insertion.
 */
 
-#include <vector>
 #include <algorithm>
+
+#include <vector>
 
 #include "gtest/gtest.h"
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
    public:
     vector<vector<int>> Insert(vector<vector<int>> &intervals,
@@ -82,8 +83,6 @@ class Solution {
         return ans;
     }
 };
-
-
 
 TEST(insert_interval, t1) {
     vector<vector<int>> intervals = {{1, 3}, {6, 9}};

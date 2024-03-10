@@ -9,13 +9,12 @@
 
 #include <algorithm>
 #include <vector>
-#include <string>
 
 #include "gtest/gtest.h"
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
    public:
     int LargestPerimeter(vector<int> &a) {
@@ -25,8 +24,6 @@ class Solution {
         return 0;
     }
 };
-
-
 
 TEST(largest_perimeter_triangle, t1) {
     vector<int> nums = {2, 1, 2};
@@ -44,4 +41,4 @@ TEST(largest_perimeter_triangle, t2) {
     EXPECT_EQ(ret, output);
 }
 
-}
+}  // namespace

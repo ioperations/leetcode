@@ -9,15 +9,15 @@ puzzle.
 
 */
 
-#include <vector>
 #include <iterator>
 #include <string>
+#include <vector>
 
 #include "gtest/gtest.h"
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
    public:
     int TotalNQueens(int n) {
@@ -42,8 +42,6 @@ class Solution {
     }
 };
 
-
-
 TEST(n_queue_II, t1) {
     int n = 4;
     int ret = 2;
@@ -61,4 +59,4 @@ TEST(n_queue_II, t2) {
     EXPECT_EQ(ret, out);
 }
 
-}
+}  // namespace

@@ -9,15 +9,15 @@ the sum of the even values of nums.
 
 Return an integer array answer where answer[i] is the answer to the ith query.*/
 
-#include <numeric>
-#include <vector>
 #include <iterator>
+#include <numeric>
 #include <string>
+#include <vector>
 
 #include "gtest/gtest.h"
 
 using namespace std;
-namespace { 
+namespace {
 class Solution {
    public:
     vector<int> SumEvenAfterQueries(vector<int> &nums,
@@ -46,8 +46,6 @@ class Solution {
     static bool IsEven(int x) { return !(x & 1); }
 };
 
-
-
 TEST(sum_of_even_numbers_after_queries, t1) {
     vector<int> nums = {1, 2, 3, 4};
 
@@ -67,4 +65,4 @@ TEST(sum_of_even_numbers_after_queries, t2) {
     EXPECT_EQ(ret, output);
 }
 
-}
+}  // namespace

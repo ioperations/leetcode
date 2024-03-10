@@ -31,7 +31,7 @@
 using namespace std;
 
 const int mxn = 15 + 2;
-namespace { 
+namespace {
 class Solution {
    public:
     int n, m;
@@ -72,8 +72,6 @@ class Solution {
     }
 };
 
-
-
 TEST(Kth_smallest_instructions, t1) {
     std::vector<int> destination = {2, 3};
     int k = 1;
@@ -108,4 +106,4 @@ TEST(Kth_smallest_instructions, t3) {
     EXPECT_EQ(ret, output);
 }
 
-}
+}  // namespace

@@ -15,13 +15,12 @@ possible, otherwise, return -1.
 
 #include <algorithm>
 #include <vector>
-#include <string>
 
 #include "gtest/gtest.h"
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
    public:
     int MinOperations(vector<int> &nums, int x) {
@@ -74,8 +73,6 @@ class Solution {
     }
 };
 
-
-
 TEST(minimium_operations_to_reduce_x_to_zero, t1) {
     vector<int> nums = {1, 1, 4, 2, 3};
     int x = 5;
@@ -111,4 +108,4 @@ TEST(minimium_operations_to_reduce_x_to_zero, t3) {
     int ret = sl.MinOperations(nums, x);
     EXPECT_EQ(ret, output);
 }
-}
+}  // namespace

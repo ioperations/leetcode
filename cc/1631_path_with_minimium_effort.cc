@@ -18,6 +18,7 @@ bottom-right cell.
 */
 
 #include <stdlib.h>
+
 #include <algorithm>
 #include <functional>
 #include <limits>
@@ -26,13 +27,12 @@ bottom-right cell.
 #include <set>
 #include <utility>
 #include <vector>
-#include <string>
 
 #include "gtest/gtest.h"
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
    public:
     int MinimumEffortPath(vector<vector<int>> &heights) {
@@ -171,8 +171,6 @@ class Solution {
     }
 };
 
-
-
 TEST(path_with_minimium_effort, t1) {
     /*
          ___ ___ ___
@@ -244,4 +242,4 @@ TEST(path_with_minimium_effort, t3) {
     EXPECT_EQ(ret, output);
 }
 
-}
+}  // namespace

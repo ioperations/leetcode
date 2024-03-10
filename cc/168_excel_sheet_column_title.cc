@@ -15,7 +15,7 @@ appears in an Excel sheet.
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
    public:
     string ConvertToTitle(int column_number) {
@@ -30,8 +30,6 @@ class Solution {
         return str;
     }
 };
-
-
 
 TEST(excel_sheet_column_title, t1) {
     Solution s;
@@ -63,4 +61,4 @@ TEST(excel_sheet_column_title, t5) {
     EXPECT_EQ(ret, "ZY");
 }
 
-}
+}  // namespace

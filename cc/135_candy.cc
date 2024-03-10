@@ -12,7 +12,6 @@ Return the minimum number of candies you need to have to distribute the candies
 to the children.*/
 
 #include <algorithm>
-#include <string>
 #include <vector>
 
 #include "gtest/gtest.h"

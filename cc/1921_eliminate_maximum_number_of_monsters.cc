@@ -24,12 +24,11 @@
 #include <functional>
 #include <queue>
 #include <vector>
-#include <string>
 
 #include "gtest/gtest.h"
 
 using namespace std;
-namespace { 
+namespace {
 class Solution {
    public:
     int EliminateMaximum(vector<int> &dist, vector<int> &speed) {
@@ -59,8 +58,6 @@ class Solution {
         return ret;
     }
 };
-
-
 
 TEST(eliminate_maximum_number_of_monsters, t1) {
     vector<int> dist = {1, 3, 4}, speed = {1, 1, 1};
@@ -102,4 +99,4 @@ TEST(eliminate_maximum_number_of_monsters, t3) {
     EXPECT_EQ(output, ret);
 }
 
-}
+}  // namespace

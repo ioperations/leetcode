@@ -18,12 +18,11 @@ last n elements are set to 0 and should be ignored. nums2 has a length of n.
 */
 
 #include <vector>
-#include <string>
 
 #include "gtest/gtest.h"
 
 using namespace std;
-namespace { 
+namespace {
 class Solution {
    public:
     void Merge(vector<int> &nums1, int m, vector<int> &nums2, int n) {
@@ -51,8 +50,6 @@ class Solution {
         }
     }
 };
-
-
 
 TEST(merge_sorted_array, t1) {
     std::vector<int> nums1 = {1, 2, 3, 0, 0, 0};
@@ -89,4 +86,4 @@ TEST(merge_sorted_array, t3) {
 
     EXPECT_EQ(nums1, (std::vector<int>{1}));
 }
-}
+}  // namespace

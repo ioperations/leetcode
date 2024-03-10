@@ -11,13 +11,12 @@ may be returned in any order.*/
 #include <algorithm>
 #include <unordered_map>
 #include <vector>
-#include <string>
 
 #include "gtest/gtest.h"
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
    public:
     std::vector<int> FindOriginalArray(std::vector<int> &changed) {
@@ -89,4 +88,4 @@ TEST(find_original_array_from_doubled_array, t3) {
     EXPECT_EQ(ret_set, output_set);
 }
 
-}
+}  // namespace

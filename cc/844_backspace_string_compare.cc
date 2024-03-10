@@ -16,7 +16,7 @@ Note that after backspacing an empty text, the text will continue empty.
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
    public:
     bool BackspaceCompare(string s, string t) {
@@ -47,8 +47,6 @@ class Solution {
     }
 };
 
-
-
 TEST(backspace_string_compare, t1) {
     std::string s = "ab#c", t = "ad#c";
     bool expected = true;
@@ -78,4 +76,4 @@ TEST(backspace_string_compare, t3) {
     // Explanation: Both s and t become "ac".
 }
 
-}
+}  // namespace

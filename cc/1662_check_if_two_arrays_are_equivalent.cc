@@ -17,7 +17,7 @@ forms the string.
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
    public:
     bool ArrayStringsAreEqual(vector<string> &word1, vector<string> &word2) {
@@ -35,8 +35,6 @@ class Solution {
         return i == (int)word1.size() and j == (int)word2.size();
     }
 };
-
-
 
 TEST(check_if_two_arrays_are_equivalent, t1) {
     vector<string> word1 = {"ab", "c"}, word2 = {"a", "bc"};
@@ -68,4 +66,4 @@ TEST(check_if_two_arrays_are_equivalent, t3) {
     EXPECT_EQ(ret, output);
 }
 
-}
+}  // namespace

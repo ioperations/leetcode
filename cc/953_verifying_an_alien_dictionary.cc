@@ -17,7 +17,7 @@ lexicographically in this alien language.*/
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
     std::map<char, int> map;
 
@@ -56,8 +56,6 @@ class Solution {
     }
 };
 
-
-
 TEST(verifying_an_alien_dictionary, t1) {
     vector<string> words = {"hello", "leetcode"};
     string order = "hlabcdefgijkmnopqrstuvwxyz";
@@ -90,4 +88,4 @@ TEST(verifying_an_alien_dictionary, t3) {
     EXPECT_EQ(false, ret);
 }
 
-}
+}  // namespace

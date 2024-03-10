@@ -23,13 +23,12 @@ considered to have arrived.*/
 #include <algorithm>
 #include <functional>
 #include <vector>
-#include <string>
 
 #include "gtest/gtest.h"
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
     ///* 1 <= target, startFuel <= 109
     ///* 0 <= stations.length <= 500
@@ -102,8 +101,6 @@ class Solution {
     }
 };
 
-
-
 TEST(minimal_number_of_refueling_stops, t1) {
     int target = 1, start_fuel = 1;
     vector<vector<int>> stations = {};
@@ -140,4 +137,4 @@ TEST(minimal_number_of_refueling_stops, t3) {
     EXPECT_EQ(ret, output);
 }
 
-}
+}  // namespace

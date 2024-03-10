@@ -13,13 +13,11 @@ meets first.
 
 The test cases are guaranteed so that the ray will meet a receptor eventually.*/
 
-#include <string>
-
 #include "gtest/gtest.h"
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
    public:
     int MirrorReflection(int p, int q) {
@@ -38,8 +36,6 @@ class Solution {
         return 0;  // when p is odd and q is even
     }
 };
-
-
 
 TEST(mirror_reflection, t1) {
     int p = 2, q = 1;
@@ -61,4 +57,4 @@ TEST(mirror_reflection, t2) {
     EXPECT_EQ(ret, output);
 }
 
-}
+}  // namespace

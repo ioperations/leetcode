@@ -19,13 +19,12 @@ false.
 
 #include <map>
 #include <vector>
-#include <string>
 
 #include "gtest/gtest.h"
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
    public:
     bool ValidPartition(vector<int> &nums) {
@@ -79,8 +78,6 @@ class Solution {
     std::map<int, bool> cache;
 };
 
-
-
 TEST(check_if_there_is_a_valid_partition_for_the_array, t1) {
     vector<int> nums = {4, 4, 4, 5, 6};
     bool output = true;
@@ -99,4 +96,4 @@ TEST(check_if_there_is_a_valid_partition_for_the_array, t2) {
     bool ret = sl.ValidPartition(nums);
     EXPECT_EQ(output, ret);
 }
-}
+}  // namespace

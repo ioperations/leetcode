@@ -18,7 +18,7 @@ using namespace std;
 
 #include "gtest/gtest.h"
 
-namespace { 
+namespace {
 class Solution {
    public:
     bool HasAllCodes(string s, int k) {
@@ -32,7 +32,6 @@ class Solution {
         return st.size() == pow(2, k);
     }
 };
-
 
 TEST(check_if_a_string_contains_all_binary_codes_of_size_k, t1) {
     string s = "00110110";
@@ -68,4 +67,4 @@ TEST(check_if_a_string_contains_all_binary_codes_of_size_k, t3) {
     EXPECT_EQ(ret, output);
 }
 
-}
+}  // namespace

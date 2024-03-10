@@ -13,7 +13,7 @@ the same order (i.e., an equal array).
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
    public:
     string Mapping(vector<int> &row) {
@@ -46,12 +46,11 @@ class Solution {
     }
 };
 
-
 TEST(equal_row_and_column_pairs, t1) {
     // clang-format off
     vector<vector<int>> grid = {
-        {3, 2, 1}, 
-        {1, 7, 6}, 
+        {3, 2, 1},
+        {1, 7, 6},
         {2, 7, 7}
     };
     // clang-format on
@@ -66,9 +65,9 @@ TEST(equal_row_and_column_pairs, t1) {
 TEST(equal_row_and_column_pairs, t2) {
     // clang-format off
     vector<vector<int>> grid = {
-        {3, 1, 2, 2}, 
-        {1, 4, 4, 5}, 
-        {2, 4, 2, 2}, 
+        {3, 1, 2, 2},
+        {1, 4, 4, 5},
+        {2, 4, 2, 2},
         {2, 4, 2, 2}
     };
     // clang-format on
@@ -83,4 +82,4 @@ TEST(equal_row_and_column_pairs, t2) {
     EXPECT_EQ(ret, output);
 }
 
-}
+}  // namespace

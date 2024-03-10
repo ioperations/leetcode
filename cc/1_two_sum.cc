@@ -2,11 +2,12 @@
 // PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
 // https://pvs-studio.com
 #include <stddef.h>
+
 #include <vector>
 
 #include "gtest/gtest.h"
 
-namespace { 
+namespace {
 class Solution {
    public:
     std::vector<int> TwoSum(std::vector<int> &nums, int target) {
@@ -24,8 +25,6 @@ class Solution {
 
    private:
 };
-
-
 
 TEST(two_sum_v2, t1) {
     Solution s;
@@ -50,4 +49,4 @@ TEST(two_sum_v2, t3) {
     auto ret = s.TwoSum(nums, target);
     EXPECT_EQ(ret, (std::vector<int>{0, 1}));
 }
-}
+}  // namespace

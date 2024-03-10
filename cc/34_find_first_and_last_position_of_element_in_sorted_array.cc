@@ -17,7 +17,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    vector<int> searchRange(vector<int> &nums, int target) {
+    vector<int> SearchRange(vector<int> &nums, int target) {
         vector<int> ans(2, -1);
         if (nums.size() == 0) return ans;  // base case
         auto it = lower_bound(nums.begin(), nums.end(), target);
@@ -36,12 +36,10 @@ class Solution {
     }
 };
 
-
-
 TEST(find_first_and_last_position_of_element_in_sorted_array, t1) {
     vector<int> elements{5, 7, 7, 8, 8, 10};
     Solution sl;
-    auto ret = sl.searchRange(elements, 8);
+    auto ret = sl.SearchRange(elements, 8);
     vector<int> output{3, 4};
     EXPECT_EQ(ret, output);
 }
@@ -49,7 +47,7 @@ TEST(find_first_and_last_position_of_element_in_sorted_array, t1) {
 TEST(find_first_and_last_position_of_element_in_sorted_array, t2) {
     vector<int> elements{5, 7, 7, 8, 8, 10};
     Solution sl;
-    auto ret = sl.searchRange(elements, 6);
+    auto ret = sl.SearchRange(elements, 6);
     vector<int> output{-1, -1};
     EXPECT_EQ(ret, output);
 }
@@ -57,9 +55,9 @@ TEST(find_first_and_last_position_of_element_in_sorted_array, t2) {
 TEST(find_first_and_last_position_of_element_in_sorted_array, t3) {
     vector<int> elements{};
     Solution sl;
-    auto ret = sl.searchRange(elements, 0);
+    auto ret = sl.SearchRange(elements, 0);
     vector<int> output{-1, -1};
     EXPECT_EQ(ret, output);
 }
 
-} // namespace
+}  // namespace

@@ -18,15 +18,14 @@ The testcases are generated so that the answer will be less than or equal to 2 *
  */
 
 #include <queue>
-#include <vector>
-#include <string>
 #include <utility>
+#include <vector>
 
 #include "gtest/gtest.h"
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
    public:
     int UniquePathsWithObstacles(vector<vector<int>> &obstacle_grid) {
@@ -81,8 +80,6 @@ class Solution {
     }
 };
 
-
-
 TEST(unique_paths_ii, t1) {
     vector<vector<int>> obstacle_grid = {{0, 0, 0}, {0, 1, 0}, {0, 0, 0}};
     int output = 2;
@@ -131,4 +128,4 @@ TEST(unique_paths_ii_v2, t2) {
     EXPECT_EQ(ret, output);
 }
 
-}
+}  // namespace

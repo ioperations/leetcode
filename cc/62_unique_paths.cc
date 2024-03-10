@@ -14,13 +14,12 @@ The test cases are generated so that the answer will be less than or equal to 2
 
 #include <functional>
 #include <vector>
-#include <string>
 
 #include "gtest/gtest.h"
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
    public:
     int UniquePaths(int m, int n) {
@@ -46,8 +45,6 @@ class Solution {
     }
 };
 
-
-
 TEST(unique_paths, t1) {
     int m = 3, n = 7;
     int output = 28;
@@ -71,4 +68,4 @@ TEST(unique_paths, t2) {
     EXPECT_EQ(ret, output);
 }
 
-}
+}  // namespace

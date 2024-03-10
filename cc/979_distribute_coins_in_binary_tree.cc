@@ -22,7 +22,7 @@
 
 using namespace Tree;
 
-namespace { 
+namespace {
 class Solution {
    public:
     int steps = 0;
@@ -52,8 +52,6 @@ class Solution {
     }
 };
 
-#include <string>
-
 using namespace std;
 
 TEST(distribute_coins_in_binary_tree, t1) {
@@ -81,4 +79,4 @@ TEST(distribute_coins_in_binary_tree, t2) {
     FreeTreeNode(root);
 }
 
-}
+}  // namespace

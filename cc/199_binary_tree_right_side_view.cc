@@ -8,7 +8,6 @@
 
 #include <optional>
 #include <vector>
-#include <string>
 
 // Definition for a binary tree node.
 #include "datastruct_base.hh"

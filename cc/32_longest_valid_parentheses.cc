@@ -6,9 +6,9 @@ Given a string containing just the characters '(' and ')', find the length of
 the longest valid (well-formed) parentheses substring.
 */
 
+#include <algorithm>
 #include <stack>
 #include <string>
-#include <algorithm>
 
 #include "gtest/gtest.h"
 
@@ -35,8 +35,6 @@ class Solution {
         return maxi;
     }
 };
-
-
 
 TEST(longest_valid_parentheses, t1) {
     string s = "(()";
@@ -66,4 +64,4 @@ TEST(longest_valid_parentheses, t3) {
     EXPECT_EQ(ret, output);
 }
 
-} // namespace
+}  // namespace

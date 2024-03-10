@@ -11,13 +11,12 @@ Return true if you can make arr equal to target or false otherwise.
 
 #include <algorithm>
 #include <vector>
-#include <string>
 
 #include "gtest/gtest.h"
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
    public:
     bool CanBeEqual(vector<int> &target, vector<int> &arr) {
@@ -28,7 +27,6 @@ class Solution {
         return target == arr;
     }
 };
-
 
 TEST(make_two_arrays_equal_by_reversing_sub_arrays, t1) {
     std::vector<int> target = {1, 2, 3, 4}, arr = {2, 4, 1, 3};
@@ -69,4 +67,4 @@ TEST(make_two_arrays_equal_by_reversing_sub_arrays, t3) {
     /*arr does not have value 9 and it can never be converted to target.*/
 }
 
-}
+}  // namespace

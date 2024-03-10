@@ -2,12 +2,11 @@
 // PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
 // https://pvs-studio.com
 #include <vector>
-#include <string>
 
 #include "gtest/gtest.h"
 
 using namespace std;
-namespace { 
+namespace {
 class Solution {
    public:
     vector<vector<int>> GenerateMatrix(int n) {
@@ -128,8 +127,6 @@ class Solution {
     }
 };
 
-
-
 TEST(spiral_matrix_ii, t0) {
     int n = 3;
 
@@ -147,4 +144,4 @@ TEST(spiral_matrix_ii, t1) {
     EXPECT_EQ(ret, expected);
 }
 
-}
+}  // namespace

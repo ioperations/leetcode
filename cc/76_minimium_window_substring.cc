@@ -20,7 +20,7 @@ A substring is a contiguous sequence of characters within the string.
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
    public:
     string MinWindow(string s, string t) {
@@ -92,8 +92,6 @@ class Solution {
     }
 };
 
-
-
 TEST(minimium_window_substring, t1) {
     string const s = "ADOBECODEBANC";
     string const t = "ABC";
@@ -130,4 +128,4 @@ TEST(minimium_window_substring, t3) {
     auto ret = sl.MinWindow(s, t);
     EXPECT_EQ(ret, output);
 }
-}
+}  // namespace

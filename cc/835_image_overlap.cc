@@ -18,17 +18,16 @@ Return the largest possible overlap.
 
 */
 
-#include <map>
-#include <vector>
 #include <algorithm>
-#include <string>
+#include <map>
 #include <utility>
+#include <vector>
 
 #include "gtest/gtest.h"
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
    public:
     int LargestOverlap(vector<vector<int>> &img1, vector<vector<int>> &img2) {
@@ -57,8 +56,6 @@ class Solution {
     }
 };
 
-
-
 TEST(image_overlap, t1) {
     vector<vector<int>> img1 = {{1, 1, 0}, {0, 1, 0}, {0, 1, 0}},
                         img2 = {{0, 0, 0}, {0, 1, 1}, {0, 0, 1}};
@@ -85,4 +82,4 @@ TEST(image_overlap, t3) {
     int ret = sl.LargestOverlap(img1, img2);
     EXPECT_EQ(ret, output);
 }
-}
+}  // namespace

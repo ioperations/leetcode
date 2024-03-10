@@ -16,6 +16,7 @@ prefix prefix, and false otherwise.*/
 
 #include <benchmark/benchmark.h>
 #include <stddef.h>
+
 #include <map>
 #include <string>
 #include <vector>
@@ -152,8 +153,6 @@ class TrieV1 {
  * bool param_2 = obj->search(word);
  * bool param_3 = obj->startsWith(prefix);
  */
-
-
 
 TEST(implement_trie, t1) {
     //    ["Trie", "insert", "search", "search", "startsWith", "insert",

@@ -17,11 +17,11 @@ Return the largest possible score you can achieve after playing any number of
 tokens.*/
 
 #include <benchmark/benchmark.h>
+
 #include <algorithm>
 #include <functional>
 #include <set>
 #include <vector>
-#include <string>
 
 #include "gtest/gtest.h"
 
@@ -89,7 +89,6 @@ class Solution {
         return fun(visited, power, 0);
     }
 };
-
 
 TEST(bag_of_tokens, t1) {
     vector<int> tokens = {100};

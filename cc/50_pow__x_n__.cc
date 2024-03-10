@@ -5,11 +5,9 @@
 // Implement pow(x, n), which calculates x raised to the
 // power n(i.e., xn).
 
-#include <string>
-
 #include "gtest/gtest.h"
 
-namespace { 
+namespace {
 class Solution {
    public:
     double MyPow(double x, int n) {
@@ -51,8 +49,6 @@ class Solution {
         return res;
     }
 };
-
-
 
 TEST(pow__x_n__, t1) {
     const double x = 2.00000;
@@ -98,4 +94,4 @@ TEST(pow__x_n__, t4) {
     EXPECT_EQ(ret, expected);
 }
 
-}
+}  // namespace

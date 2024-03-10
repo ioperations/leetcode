@@ -14,12 +14,11 @@ sell the stock before you buy again).*/
 #include <climits>
 #include <functional>
 #include <vector>
-#include <string>
 
 #include "gtest/gtest.h"
 
 using namespace std;
-namespace { 
+namespace {
 class Solution {
    public:
     int MaxProfit(int k, vector<int> &prices) {
@@ -69,8 +68,6 @@ class Solution {
     }
 };
 
-
-
 TEST(best_time_to_buy_and_sell_stock_iv, t1) {
     int k = 2;
     vector<int> prices = {2, 4, 1};
@@ -114,4 +111,4 @@ TEST(best_time_to_buy_and_sell_stock_iv, t4) {
     EXPECT_EQ(ret, output);
 }
 
-}
+}  // namespace

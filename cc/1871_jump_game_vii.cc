@@ -21,7 +21,7 @@
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
    public:
     bool CanReach(string s, int min_jump, int max_jump) {
@@ -45,8 +45,6 @@ class Solution {
     }
 };
 
-
-
 TEST(jump_game_vii, t1) {
     string s = "011010";
     int min_jump = 2, max_jump = 3;
@@ -69,4 +67,4 @@ TEST(jump_game_vii, t2) {
     EXPECT_EQ(ret, output);
 }
 
-}
+}  // namespace

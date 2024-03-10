@@ -13,16 +13,16 @@ sum of all nums[j] for each index j you visited in the array.
 
 Return the maximum score you can get.*/
 #include <limits.h>
+
 #include <queue>
-#include <vector>
-#include <string>
 #include <utility>
+#include <vector>
 
 #include "gtest/gtest.h"
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
    public:
     int MaxResult(vector<int> &nums, int k) {
@@ -47,8 +47,6 @@ class Solution {
         return mem[0];
     }
 };
-
-
 
 TEST(jump_game_vi, t1) {
     std::vector<int> nums{1, -1, -2, 4, -7, 3};
@@ -186,4 +184,4 @@ TEST(jump_game_vi, t4) {
 
     EXPECT_EQ(ret, out);
 }
-}
+}  // namespace

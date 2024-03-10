@@ -19,7 +19,6 @@
 */
 #include <limits.h>
 #include <stdlib.h>
-#include <string>
 
 #include "gtest/gtest.h"
 
@@ -85,8 +84,6 @@ class Solution {
     }
 };
 
-
-
 TEST(divide_two_integers, t1) {
     int dividend = 10, divisor = 3;
     int output = 3;
@@ -105,4 +102,4 @@ TEST(divide_two_integers, t2) {
     EXPECT_EQ(ret, output);
 }
 
-} // namespace
+}  // namespace

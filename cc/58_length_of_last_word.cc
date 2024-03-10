@@ -6,7 +6,7 @@
 #include "gtest/gtest.h"
 
 using namespace std;
-namespace { 
+namespace {
 class Solution {
    public:
     int LengthOfLastWord(string s) {
@@ -25,8 +25,6 @@ class Solution {
         return size;
     }
 };
-
-
 
 TEST(length_of_last_word, t1) {
     std::string s = "Hello World";
@@ -53,4 +51,4 @@ TEST(length_of_last_word, t3) {
     EXPECT_EQ(ret, output);
 }
 
-}
+}  // namespace

@@ -16,13 +16,12 @@ exactly k moves. In case it is not possible to obtain a non-empty pile after k
 moves, return -1.*/
 
 #include <vector>
-#include <string>
 
 #include "gtest/gtest.h"
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
    public:
     int MaximumTop(vector<int> &nums, int k) {
@@ -41,8 +40,6 @@ class Solution {
         return z_max;
     }
 };
-
-
 
 TEST(maximize_the_topmost_element_adter_k_moves, t1) {
     std::vector<int> nums{5, 2, 2, 4, 0, 6};
@@ -85,4 +82,4 @@ TEST(maximize_the_topmost_element_adter_k_moves, t3) {
     return -1.*/
     EXPECT_EQ(ret, output);
 }
-}
+}  // namespace

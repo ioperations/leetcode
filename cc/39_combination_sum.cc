@@ -18,13 +18,12 @@ less than 150 combinations for the given input.
 
 #include <algorithm>
 #include <vector>
-#include <string>
 
 #include "gtest/gtest.h"
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
    public:
     void Sum(vector<int> &candidates, int target, vector<vector<int>> &res,
@@ -82,8 +81,6 @@ class Solution {
     }
 };
 
-
-
 TEST(combination_sum, t1) {
     std::vector<int> candidates = {2, 3, 6, 7};
     int target = 7;
@@ -117,4 +114,4 @@ TEST(combination_sum, t3) {
     EXPECT_EQ(ret, (std::vector<std::vector<int>>{}));
 }
 
-}
+}  // namespace

@@ -22,13 +22,12 @@ Popping the middle from [1, 2, 3, 4, 5, 6] returns 3 and results in [1, 2, 4, 5,
 6].
 */
 #include <deque>
-#include <string>
 
 #include "gtest/gtest.h"
 
 using namespace std;
 
-namespace { 
+namespace {
 class FrontMiddleBackQueue {
     deque<int> q;
 
@@ -97,8 +96,6 @@ class FrontMiddleBackQueue {
     }
 };
 
-
-
 TEST(design_front_middle_back_queue, t1) {
     FrontMiddleBackQueue *q = new FrontMiddleBackQueue();
     q->PushFront(1);          // [1]
@@ -118,4 +115,4 @@ TEST(design_front_middle_back_queue, t1) {
     delete q;
 }
 
-}
+}  // namespace

@@ -12,14 +12,12 @@ Return any array that satisfies this condition.
 
 #include <queue>
 #include <set>
-#include <vector>
-#include <string>
 #include <utility>
+#include <vector>
 
 #include "gtest/gtest.h"
 
 using namespace std;
-
 
 namespace {
 class Solution {
@@ -82,8 +80,6 @@ class SolutionV2 {
         return nums;
     }
 };
-
-
 
 TEST(sort_array_by_parity, t1) {
     std::vector<int> nums = {3, 1, 2, 4};

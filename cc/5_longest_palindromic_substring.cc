@@ -45,8 +45,6 @@ class Solution {
     }
 };
 
-
-
 TEST(longest_palindromic_substring, t1) {
     std::string s("babad");
     Solution *sl = new Solution();
@@ -74,4 +72,4 @@ TEST(longest_palindromic_substring, t3) {
     EXPECT_TRUE(ret == "a" || ret == "c");
 }
 
-}
+}  // namespace

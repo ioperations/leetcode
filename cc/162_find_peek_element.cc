@@ -15,13 +15,12 @@ You must write an algorithm that runs in O(log n) time.
 */
 
 #include <vector>
-#include <string>
 
 #include "gtest/gtest.h"
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
    public:
     /**
@@ -115,4 +114,4 @@ TEST(find_peek_element, t2) {
     EXPECT_EQ(expectd.count(ret), true);
 }
 
-}
+}  // namespace

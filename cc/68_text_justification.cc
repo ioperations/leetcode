@@ -32,7 +32,7 @@ maxWidth. The input array words contains at least one word.
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
    public:
     vector<string> FullJustify(vector<string> &words, int max_width) {
@@ -133,7 +133,6 @@ class Solution {
     }
 };
 
-
 TEST(test, t0) {
     Solution s;
     auto ret = s.SaperateEvenly(11, 3);
@@ -216,4 +215,4 @@ TEST(text_justification, t4) {
     EXPECT_EQ(ret, expected);
 }
 
-}
+}  // namespace

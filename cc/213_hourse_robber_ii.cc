@@ -11,12 +11,11 @@
 #include <map>
 #include <tuple>
 #include <vector>
-#include <string>
 
 #include "gtest/gtest.h"
 
 using namespace std;
-namespace { 
+namespace {
 class Solution {
    public:
     int Rob(vector<int> &nums) {
@@ -56,8 +55,6 @@ class Solution {
     map<tuple<int, int, int>, int> cache;
 };
 
-
-
 TEST(hourse_robber_ii, t1) {
     vector<int> nums = {2, 3, 2};
     int output = 3;
@@ -95,4 +92,4 @@ TEST(hourse_robber_ii, t3) {
     EXPECT_EQ(output, ret);
 }
 
-}
+}  // namespace

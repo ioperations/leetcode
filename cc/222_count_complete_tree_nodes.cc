@@ -12,14 +12,13 @@ h.
 Design an algorithm that runs in less than O(n) time complexity.*/
 
 #include <queue>
-#include <string>
 
 #include "datastruct_base.hh"
 #include "gtest/gtest.h"
 
 using namespace Tree;
 
-namespace { 
+namespace {
 class Solution {
    public:
     template <typename T>
@@ -74,4 +73,4 @@ TEST(count_complete_tree_nodes, t3) {
     FreeTreeNode(node);
 }
 
-}
+}  // namespace

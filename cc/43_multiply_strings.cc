@@ -10,6 +10,7 @@ integer directly.
 */
 
 #include <stddef.h>
+
 #include <string>
 #include <vector>
 
@@ -17,7 +18,7 @@ integer directly.
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
    public:
     std::string ToStr(int num) {
@@ -54,8 +55,6 @@ class Solution {
     }
 };
 
-
-
 TEST(multiply_strings, t1) {
     std::string num1 = "2", num2 = "3";
     std::string expected = "6";
@@ -90,4 +89,4 @@ TEST(multiply_strings, t4) {
     EXPECT_EQ(ret, expected);
 }
 
-}
+}  // namespace

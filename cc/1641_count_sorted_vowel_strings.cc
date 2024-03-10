@@ -51,13 +51,12 @@ Effectively this is your answer. All you have to do is return this number.
 The Code is Below: Thank You!!! =]
 */
 #include <vector>
-#include <string>
 
 #include "gtest/gtest.h"
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
    public:
     int Choose4(int n) {
@@ -80,7 +79,6 @@ class Solution {
         return dp[4];
     }
 };
-
 
 TEST(count_sorted_vowel_strings, t1) {
     const int n = 1;
@@ -125,4 +123,4 @@ TEST(count_sorted_vowel_strings, t3) {
     EXPECT_EQ(ret, output);
 }
 
-}
+}  // namespace

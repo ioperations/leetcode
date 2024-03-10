@@ -30,16 +30,15 @@ output as such: [...,[2 3],[4 5],[12 7],...]
 
 */
 #include <algorithm>
-#include <map>
-#include <vector>
 #include <iterator>
-#include <string>
+#include <map>
 #include <utility>
+#include <vector>
 
 #include "gtest/gtest.h"
 
 using namespace std;
-namespace { 
+namespace {
 class Solution {
    public:
     vector<vector<int>> GetSkyline(vector<vector<int>> &buildings) {
@@ -96,8 +95,6 @@ class Solution {
     }
 };
 
-
-
 TEST(the_skyline_problem, t1) {
     vector<vector<int>> buildings = {
         {2, 9, 10}, {3, 7, 15}, {5, 12, 12}, {15, 20, 10}, {19, 24, 8}};
@@ -130,4 +127,4 @@ TEST(the_skyline_problem, t2) {
     EXPECT_EQ(ret, output);
 }
 
-}
+}  // namespace

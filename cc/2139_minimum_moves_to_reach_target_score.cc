@@ -16,17 +16,16 @@ Given the two integers target and maxDoubles, return the minimum number of moves
 needed to reach target starting with 1.
  */
 
+#include <algorithm>
 #include <functional>
 #include <map>
 #include <utility>
-#include <algorithm>
-#include <string>
 
 #include "gtest/gtest.h"
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
    public:
     int MinMoves(int target, int max_doubles) {
@@ -70,8 +69,6 @@ class Solution {
         return ops;
     }
 };
-
-
 
 TEST(minimum_moves_to_reach_target_score, t1) {
     int target = 19;
@@ -123,4 +120,4 @@ TEST(minimum_moves_to_reach_target_score, t4) {
     EXPECT_EQ(ret, out);
 }
 
-}
+}  // namespace
