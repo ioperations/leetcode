@@ -8,14 +8,13 @@
 
 */
 #include <vector>
-#include <string>
 
 using namespace std;
 #include <stack>
 
 #include "gtest/gtest.h"
 
-namespace { 
+namespace {
 class Solution {
    public:
     vector<int> DailyTemperatures(vector<int> &temperatures) {
@@ -36,8 +35,6 @@ class Solution {
         return ret;
     }
 };
-
-
 
 TEST(daily_temperature, t1) {
     std::vector<int> temperatures{73, 74, 75, 71, 69, 72, 76, 73};
@@ -63,4 +60,4 @@ TEST(daily_temperature, t3) {
     EXPECT_EQ(ret, output);
 }
 
-}
+}  // namespace

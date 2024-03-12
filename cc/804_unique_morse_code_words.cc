@@ -30,7 +30,7 @@ const char *table[] = {".-",   "-...", "-.-.", "-..",  ".",    "..-.", "--.",
                        "....", "..",   ".---", "-.-",  ".-..", "--",   "-.",
                        "---",  ".--.", "--.-", ".-.",  "...",  "-",    "..-",
                        "...-", ".--",  "-..-", "-.--", "--.."};
-namespace { 
+namespace {
 class Solution {
     std::string Convert(std::string &s) {
         string ret;
@@ -52,8 +52,6 @@ class Solution {
         return set.size();
     }
 };
-
-
 
 TEST(unique_morse_code_words, t1) {
     vector<string> words = {"gin", "zen", "gig", "msg"};
@@ -80,4 +78,4 @@ TEST(unique_morse_code_words, t2) {
     int ret = sl.UniqueMorseRepresentations(words);
     EXPECT_EQ(ret, output);
 }
-}
+}  // namespace

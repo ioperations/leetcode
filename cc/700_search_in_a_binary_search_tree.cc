@@ -8,7 +8,6 @@ Find the node in the BST that the node's value equals val and return the subtree
 rooted with that node. If such a node does not exist, return null.
 */
 
-#include <string>
 #include <vector>
 
 #include "datastruct_base.hh"
@@ -16,7 +15,7 @@ rooted with that node. If such a node does not exist, return null.
 
 using namespace Tree;
 
-namespace { 
+namespace {
 class Solution {
    public:
     template <typename T>
@@ -35,7 +34,6 @@ class Solution {
         return nullptr;
     }
 };
-
 
 TEST(search_in_a_binary_search_tree, t1) {
     std::vector<int> v{4, 2, 7, 1, 3};
@@ -63,4 +61,4 @@ TEST(search_in_a_binary_search_tree, t2) {
     FreeRoot(node);
 }
 
-}
+}  // namespace

@@ -16,17 +16,16 @@ by deleting some (can be none) of the elements without disturbing the relative
 positions of the remaining elements. (i.e., [1,3,5] is a subsequence of
 [1,2,3,4,5] while [1,3,2] is not).*/
 
+#include <functional>
 #include <queue>
 #include <unordered_map>
 #include <vector>
-#include <functional>
-#include <string>
 
 #include "gtest/gtest.h"
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
    public:
     bool IsPossible(vector<int> &nums) {
@@ -84,7 +83,6 @@ class Solution {
     }
 };
 
-
 TEST(split_array_into_consecutive_subsequence, t1) {
     vector<int> nums = {1, 2, 3, 3, 4, 5};
     bool output = true;
@@ -116,4 +114,4 @@ TEST(split_array_into_consecutive_subsequence, t3) {
     EXPECT_EQ(ret, output);
 }
 
-}
+}  // namespace

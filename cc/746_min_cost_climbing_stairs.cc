@@ -10,17 +10,16 @@ You can either start from the step with index 0, or the step with index 1.
 Return the minimum cost to reach the top of the floor.
 */
 
+#include <algorithm>
 #include <functional>
 #include <map>
 #include <vector>
-#include <algorithm>
-#include <string>
 
 #include "gtest/gtest.h"
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
    public:
     int MinCostClimbingStairs(vector<int> &cost) {
@@ -53,8 +52,6 @@ class Solution {
         return min(fun(0), fun(1));
     }
 };
-
-
 
 TEST(min_cost_climbing_stairs, t1) {
     std::vector<int> v{10, 15, 20};
@@ -89,4 +86,4 @@ TEST(min_cost_climbing_stairs, t2) {
     EXPECT_EQ(ret, expected);
 }
 
-}
+}  // namespace

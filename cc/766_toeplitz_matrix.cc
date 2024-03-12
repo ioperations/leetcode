@@ -9,13 +9,12 @@ same elements.
 
 */
 #include <vector>
-#include <string>
 
 #include "gtest/gtest.h"
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
    public:
     bool IsToeplitzMatrix(vector<vector<int>> &matrix) {
@@ -28,8 +27,6 @@ class Solution {
         return true;
     }
 };
-
-
 
 TEST(toeplitz_matrix, t1) {
     vector<vector<int>> matrix = {{1, 2, 3, 4}, {5, 1, 2, 3}, {9, 5, 1, 2}};
@@ -57,4 +54,4 @@ TEST(toeplitz_matrix, t2) {
     EXPECT_EQ(ret, output);
 }
 
-}
+}  // namespace

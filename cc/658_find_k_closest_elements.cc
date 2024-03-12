@@ -9,15 +9,15 @@ An integer a is closer to x than an integer b if:
 |a - x| < |b - x|, or
 |a - x| == |b - x| and a < b*/
 #include <stdlib.h>
+
 #include <algorithm>
 #include <vector>
-#include <string>
 
 #include "gtest/gtest.h"
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
    public:
     vector<int> FindClosestElements(vector<int> &arr, int k, int x) {
@@ -52,7 +52,6 @@ class Solution {
     }
 };
 
-
 TEST(find_k_closest_elements, t1) {
     vector<int> arr = {1, 2, 3, 4, 5};
     int const k = 4, x = 3;
@@ -70,4 +69,4 @@ TEST(find_k_closest_elements, t2) {
     auto ret = sl.FindClosestElements(arr, k, x);
     EXPECT_EQ(ret, output);
 };
-}
+}  // namespace

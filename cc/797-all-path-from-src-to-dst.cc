@@ -2,9 +2,9 @@
 // PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
 // https://pvs-studio.com
 #include <time.h>
+
 #include <iostream>
 #include <vector>
-#include <string>
 
 #include "gtest/gtest.h"
 
@@ -13,7 +13,7 @@ using namespace std;
 /// find add the paths from source to destnation
 /// 0 -> graph.size()-1
 /// graph is a dag (directed acyclic graph)
-namespace { 
+namespace {
 class Solution {
    public:
     vector<vector<int>> AllPathsSourceTarget(vector<vector<int>> &graph) {
@@ -35,8 +35,6 @@ class Solution {
     vector<vector<int>> ImplV1(vector<vector<int>> &graph) { return {{}}; }
 };
 
-
-
 TEST(_all_path_from_src_to_dstv2, t2) {
     Solution n;
 
@@ -44,4 +42,4 @@ TEST(_all_path_from_src_to_dstv2, t2) {
     EXPECT_EQ(0, 0 + 0);
 }
 
-}
+}  // namespace

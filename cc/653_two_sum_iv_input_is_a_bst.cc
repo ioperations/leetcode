@@ -7,10 +7,9 @@
 
 // * Definition for a binary tree node.
 
+#include <optional>
 #include <set>
 #include <unordered_map>
-#include <optional>
-#include <string>
 #include <vector>
 
 #include "datastruct_base.hh"
@@ -19,7 +18,7 @@
 using namespace std;
 using namespace Tree;
 
-namespace { 
+namespace {
 class Solution {
    public:
     std::unordered_map<int, bool> m;
@@ -62,7 +61,6 @@ class Solution {
     }
 };
 
-
 using namespace std;
 
 #define null optional<int>()
@@ -89,4 +87,4 @@ TEST(two_sum_iv_input_is_a_bst, t2) {
     FreeTreeNode(node);
 }
 
-}
+}  // namespace

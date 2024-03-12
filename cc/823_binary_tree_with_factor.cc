@@ -16,13 +16,12 @@ return the answer modulo 109 + 7.*/
 #include <map>
 #include <set>
 #include <vector>
-#include <string>
 
 #include "gtest/gtest.h"
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
     std::map<int, int> cache;
 
@@ -83,8 +82,6 @@ class Solution {
     }
 };
 
-
-
 TEST(binary_tree_with_factor, t1) {
     vector<int> arr = {2, 4};
     int output = 3;
@@ -104,4 +101,4 @@ TEST(binary_tree_with_factor, t2) {
     EXPECT_EQ(ret, output);
 }
 
-}
+}  // namespace

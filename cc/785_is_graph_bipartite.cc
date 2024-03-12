@@ -19,13 +19,12 @@ connects a node in set A and a node in set B.
 Return true if and only if it is bipartite.
 */
 #include <vector>
-#include <string>
 
 #include "gtest/gtest.h"
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
    public:
     vector<int> vis, col;
@@ -72,7 +71,6 @@ class Solution {
     }
 };
 
-
 TEST(is_graph_bipartite, t1) {
     /*
          ___         ___
@@ -116,4 +114,4 @@ TEST(is_graph_bipartite, t2) {
     EXPECT_EQ(ret, expected);
 }
 
-}
+}  // namespace

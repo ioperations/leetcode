@@ -20,13 +20,12 @@ and do not add the event to the calendar.*/
 #include <algorithm>
 #include <utility>
 #include <vector>
-#include <string>
 
 #include "gtest/gtest.h"
 
 using namespace std;
 
-namespace { 
+namespace {
 class MyCalendar {
    public:
     MyCalendar() {}
@@ -50,8 +49,6 @@ class MyCalendar {
     vector<pair<int, int>> slices;
 };
 
-
-
 TEST(my_calender_i, t1) {
     // Input["MyCalendar", "book", "book", "book"][ [], [ 10, 20 ], [ 15, 25 ],
     // [ 20, 30 ]] Output[null, true, false, true]
@@ -70,4 +67,4 @@ TEST(my_calender_i, t1) {
     // takes every time less than 20, but not including 20.
 }
 
-}
+}  // namespace

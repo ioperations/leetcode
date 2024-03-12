@@ -19,12 +19,11 @@
 
 #include <algorithm>
 #include <vector>
-#include <string>
 
 #include "gtest/gtest.h"
 
 using namespace std;
-namespace { 
+namespace {
 class Solution {
    public:
     double ChampagneTower(int poured, int query_row, int query_glass) {
@@ -43,8 +42,6 @@ class Solution {
         return min(1.0, row[query_glass]);
     }
 };
-
-
 
 TEST(champagne_tower, t1) {
     int poured = 1, query_row = 1, query_glass = 1;
@@ -78,4 +75,4 @@ TEST(champagne_tower, t3) {
     EXPECT_DOUBLE_EQ(output, ret);
 }
 
-}
+}  // namespace

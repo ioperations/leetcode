@@ -12,6 +12,7 @@ of words, return the length of the shortest reference string s possible of any
 valid encoding of words.*/
 
 #include <stddef.h>
+
 #include <string>
 #include <unordered_set>
 #include <vector>
@@ -20,13 +21,13 @@ valid encoding of words.*/
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
     // pass
     // we need to create a structure
    private:
     struct TrieNode {
-        int endsHere;
+        int ends_here;
         TrieNode *child[26];
     };
 
@@ -34,7 +35,7 @@ class Solution {
     TrieNode *GetNode() {
         // index is 0-25 representing characters of alphabets
         TrieNode *new_node = new TrieNode;
-        new_node->endsHere = 0;
+        new_node->ends_here = 0;
         // initialize every child node ptr to NULL
         for (int i = 0; i < 26; i++) new_node->child[i] = NULL;
         return new_node;
@@ -82,8 +83,8 @@ class Solution {
             }
             // a word ends here previously
             // so donot consider it in the result
-            if (curr->endsHere) {
-                curr->endsHere = 0;
+            if (curr->ends_here) {
+                curr->ends_here = 0;
                 count--;
                 res -= (len - i - 1);
             }
@@ -93,14 +94,12 @@ class Solution {
         // nodes ex- ["time","me"] for "me" the flag will be true so we dont
         // calculate the result
         if (!flag) {
-            curr->endsHere = 1;
+            curr->ends_here = 1;
             count++;
             res += len;
         }
     }
 };
-
-
 
 TEST(short_encoding_of_words, t1) {
     vector<string> words = {"time", "me", "bell"};
@@ -126,4 +125,4 @@ TEST(short_encoding_of_words, t2) {
     EXPECT_EQ(ret, output);
 }
 
-}
+}  // namespace

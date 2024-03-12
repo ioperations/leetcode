@@ -5,15 +5,14 @@
    subarray that appears in both arrays.
 */
 
-#include <vector>
 #include <algorithm>
-#include <string>
+#include <vector>
 
 #include "gtest/gtest.h"
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
    public:
     int FindLength(vector<int> &nums1, vector<int> &nums2) {
@@ -51,8 +50,6 @@ class Solution {
     }
 };
 
-
-
 TEST(maximum_length_of_repeated_subarray, t1) {
     vector<int> nums1 = {1, 2, 3, 2, 1}, nums2 = {3, 2, 1, 4, 7};
 
@@ -72,4 +69,4 @@ TEST(maximum_length_of_repeated_subarray, t2) {
     EXPECT_EQ(ret, output);
 }
 
-}
+}  // namespace

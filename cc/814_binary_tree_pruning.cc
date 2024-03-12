@@ -7,7 +7,6 @@ the given tree) not containing a 1 has been removed.
 A subtree of a node node is node plus every node that is a descendant of node.*/
 
 #include <optional>
-#include <string>
 #include <vector>
 
 //* Definition for a binary tree node.
@@ -16,7 +15,7 @@ A subtree of a node node is node plus every node that is a descendant of node.*/
 
 using namespace Tree;
 
-namespace { 
+namespace {
 class Solution {
    public:
     template <typename T>
@@ -85,4 +84,4 @@ TEST(binary_tree_pruning, t3) {
     EXPECT_EQ(ret_node, output);
     FreeTreeNode(node);
 }
-}
+}  // namespace

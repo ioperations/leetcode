@@ -15,13 +15,12 @@ in the form of an array.
 */
 
 #include <vector>
-#include <string>
 
 #include "gtest/gtest.h"
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
    public:
     vector<int> FindErrorNums(vector<int> &nums) {
@@ -43,7 +42,6 @@ class Solution {
     }
 };
 
-
 TEST(set_mismatch, t1) {
     vector<int> nums = {1, 2, 2, 4};
     vector<int> output = {2, 3};
@@ -62,4 +60,4 @@ TEST(set_mismatch, t2) {
     EXPECT_EQ(ret, output);
 }
 
-}
+}  // namespace

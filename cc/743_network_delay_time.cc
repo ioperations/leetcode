@@ -12,18 +12,17 @@
     receive the signal, return -1.
 */
 
-#include <queue>
-#include <vector>
 #include <algorithm>
 #include <functional>
-#include <string>
+#include <queue>
 #include <utility>
+#include <vector>
 
 #include "gtest/gtest.h"
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
    public:
     int NetworkDelayTime(vector<vector<int>> &times, int n, int k) {
@@ -103,8 +102,6 @@ class Solution {
     }
 };
 
-
-
 TEST(network_delay_time, t1) {
     vector<vector<int>> times = {{2, 1, 1}, {2, 3, 1}, {3, 4, 1}};
     int n = 4, k = 2;
@@ -143,4 +140,4 @@ TEST(network_delay_time, t3) {
     EXPECT_EQ(ret, output);
 }
 
-}
+}  // namespace

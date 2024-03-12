@@ -20,7 +20,7 @@ For example, "ace" is a subsequence of "abcde".
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
     unordered_map<string, bool> cache;
 
@@ -85,8 +85,6 @@ class Solution {
     }
 };
 
-
-
 TEST(number_of_matching_subsequences, t1) {
     string s = "abcde";
     vector<string> words = {"a", "bb", "acd", "ace"};
@@ -107,4 +105,4 @@ TEST(number_of_matching_subsequences, t2) {
     EXPECT_EQ(ret, output);
 }
 
-}
+}  // namespace

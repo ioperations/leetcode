@@ -6,10 +6,9 @@
  * be accepted.*/
 // Definition for a binary tree node.
 #include <queue>
-#include <vector>
 #include <stdexcept>
-#include <string>
 #include <utility>
+#include <vector>
 
 #include "datastruct_base.hh"
 #include "gtest/gtest.h"
@@ -17,7 +16,7 @@
 using namespace std;
 using namespace Tree;
 
-namespace { 
+namespace {
 class Solution {
    public:
     template <typename T>
@@ -111,4 +110,4 @@ TEST(average_of_levels_in_binary_tree, t3) {
     FreeTreeNode(rootnode);
 }
 
-}
+}  // namespace

@@ -13,13 +13,12 @@ Return the maximum number of courses that you can take.*/
 #include <algorithm>
 #include <queue>
 #include <vector>
-#include <string>
 
 #include "gtest/gtest.h"
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
     bool static Comp(vector<int> &course1, vector<int> &course2) {
         return (course1[1] != course2[1]) ? (course1[1] < course2[1])
@@ -59,8 +58,6 @@ class Solution {
     }
 };
 
-
-
 TEST(course_schedule_iii, t1) {
     std::vector<vector<int>> courses = {
         {100, 200}, {200, 1300}, {1000, 1250}, {2000, 3200}};
@@ -93,4 +90,4 @@ TEST(course_schedule_iii, t3) {
     int ret = sl.ScheduleCourse(courses);
     EXPECT_EQ(ret, output);
 }
-}
+}  // namespace

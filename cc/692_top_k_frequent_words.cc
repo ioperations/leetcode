@@ -12,14 +12,14 @@ with the same frequency by their lexicographical order.
 #include <queue>
 #include <string>
 #include <unordered_map>
-#include <vector>
 #include <utility>
+#include <vector>
 
 #include "gtest/gtest.h"
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
    public:
     vector<string> TopKFrequent(vector<string> &words, int k) {
@@ -40,7 +40,6 @@ class Solution {
         return res;
     }
 };
-
 
 TEST(top_k_frequent_words, t1) {
     std::vector<string> words = {"i", "love", "leetcode",
@@ -70,4 +69,4 @@ TEST(top_k_frequent_words, t2) {
     EXPECT_EQ(ret, output);
 }
 
-}
+}  // namespace

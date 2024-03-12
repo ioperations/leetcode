@@ -9,18 +9,17 @@ The area of an island is the number of cells with a value 1 in the island.
 
 Return the maximum area of an island in grid. If there is no island, return 0.*/
 
+#include <algorithm>
 #include <cassert>
 #include <set>
 #include <utility>
 #include <vector>
-#include <algorithm>
-#include <string>
 
 #include "gtest/gtest.h"
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
     set<pair<int, int>> visited;
 
@@ -102,7 +101,6 @@ class Solution {
     }
 };
 
-
 TEST(max_area_of_island, t1) {
     std::vector<std::vector<int>> grid = {
         {0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0},
@@ -127,4 +125,4 @@ TEST(max_area_of_island, t2) {
     EXPECT_EQ(ret, 0);
 }
 
-}
+}  // namespace
