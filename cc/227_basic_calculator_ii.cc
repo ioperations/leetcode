@@ -18,7 +18,7 @@ using namespace std;
 
 #include "gtest/gtest.h"
 
-namespace { 
+namespace {
 class Solution {
    public:
     int Calculate(string s) {
@@ -107,4 +107,4 @@ TEST(basic_calculator_ii, t3) {
     EXPECT_EQ(ret, output);
 }
 
-}
+} // namespace

@@ -13,7 +13,7 @@
 
 using namespace Tree;
 
-namespace { 
+namespace {
 class Solution {
    private:
     template <typename T>
@@ -108,4 +108,4 @@ TEST(invert_binary_tree, t3) {
     FreeTreeNode(head);
 };
 
-}
+} // namespace

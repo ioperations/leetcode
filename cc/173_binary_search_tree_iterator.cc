@@ -1,8 +1,8 @@
 // This is a personal academic project. Dear PVS-Studio, please check it.
 // PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
 // https://pvs-studio.com
+
 /*
-namespace {
 Implement the BSTIterator class that represents an iterator over the in-order
 traversal of a binary search tree (BST):
 
@@ -18,8 +18,6 @@ return the smallest element in the BST.
 You may assume that next() calls will always be valid. That is, there will be at
 least a next number in the in-order traversal when next() is called.
 */
-
-// * Definition for a binary tree node.
 
 #include <stack>
 

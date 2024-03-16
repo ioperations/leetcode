@@ -15,7 +15,7 @@ Integers in each column are sorted in ascending from top to bottom.
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
    public:
     bool Binarys(vector<int> &row, int target) {
@@ -85,4 +85,4 @@ TEST(search_a_2d_matrix_ii, t2) {
     bool ret = sl.SearchMatrix(matrix, target);
     EXPECT_EQ(ret, output);
 }
-}
+} // namespace

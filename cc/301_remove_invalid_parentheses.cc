@@ -17,7 +17,7 @@
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
    public:
     unordered_map<string, int> mp;
@@ -111,4 +111,4 @@ TEST(remove_invalid_parentheses, t3) {
     EXPECT_EQ(ret_set, output_set);
 }
 
-}
+} // namespace

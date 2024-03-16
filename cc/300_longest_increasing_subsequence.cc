@@ -18,7 +18,7 @@ example, [3,6,2,7] is a subsequence of the array [0,3,1,6,2,2,7].*/
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
    public:
     int LengthOfLisV1(vector<int> &nums) {
@@ -82,4 +82,4 @@ TEST(longest_increasing_subsequence, t3) {
     int ret = sl.LengthOfLis(nums);
     EXPECT_EQ(ret, output);
 }
-}
+} // namespace

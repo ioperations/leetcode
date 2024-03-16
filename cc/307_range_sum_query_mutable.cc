@@ -21,7 +21,7 @@ between indices left and right inclusive (i.e. nums[left] + nums[left + 1] + ...
 
 using namespace std;
 
-namespace { 
+namespace {
 class NumArray {
     vector<int> m_arr;
 #define ll int
@@ -141,4 +141,4 @@ TEST(range_sum_query_mutable, t1) {
     EXPECT_EQ(ret, 8);
 }
 
-}
+} // namespace

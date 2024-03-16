@@ -16,7 +16,7 @@ as descendants (where we allow a node to be a descendant of itself).”*/
 
 using namespace Tree;
 
-namespace { 
+namespace {
 class Solution {
    public:
     template <typename T>
@@ -89,4 +89,4 @@ TEST(lowest_common_ancestor_of_a_binary_tree, t3) {
     FreeTreeNode(node);
 }
 
-}
+} // namespace
