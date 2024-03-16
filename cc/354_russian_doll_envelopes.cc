@@ -22,7 +22,7 @@ Note: You cannot rotate an envelope.
 #include "gtest/gtest.h"
 
 using namespace std;
-namespace { 
+namespace {
 class Solution {
    public:
     bool static Comp(pair<int, int> &a, pair<int, int> &b) {
@@ -70,4 +70,4 @@ TEST(russian_doll_envelopes, t2) {
     EXPECT_EQ(ret, output);
 }
 
-}
+} // namespace

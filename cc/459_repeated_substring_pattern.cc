@@ -13,7 +13,7 @@
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
    public:
     bool PrefixFunction(string p) {
@@ -60,4 +60,4 @@ TEST(repeated_substring_pattern, t3) {
     EXPECT_EQ(ret, output);
 }
 
-}
+} // namespace

@@ -13,7 +13,7 @@
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
    public:
     /*
@@ -115,4 +115,4 @@ TEST(kth_smallest_element_in_a_sorted_matrix_v2, t2) {
     EXPECT_EQ(ret, output);
 }
 
-}
+} // namespace

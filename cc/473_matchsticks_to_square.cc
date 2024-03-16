@@ -17,7 +17,7 @@ Return true if you can make this square and false otherwise.*/
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
    public:
     bool Makesquare(vector<int> &matchsticks) {
@@ -84,4 +84,4 @@ TEST(matchsticks_to_square, t2) {
     EXPECT_EQ(ret, output);
 }
 
-}
+} // namespace

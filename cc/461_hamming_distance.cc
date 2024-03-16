@@ -14,7 +14,7 @@ Given two integers x and y, return the Hamming distance between them.
 
 #include "gtest/gtest.h"
 
-namespace { 
+namespace {
 class Solution {
    public:
     int HammingDistance(int x, int y) {
@@ -90,4 +90,4 @@ TEST(hamming_distance, t2) {
     EXPECT_EQ(ret, output);
 }
 
-}
+} // namespace

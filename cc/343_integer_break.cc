@@ -13,7 +13,7 @@ Return the maximum product you can get.
 
 #include "gtest/gtest.h"
 
-namespace { 
+namespace {
 class Solution {
    public:
     int IntegerBreak(int n) {
@@ -55,4 +55,4 @@ TEST(integer_break, t2) {
     // 10 = 3 + 3 + 4, 3 × 3 × 4 = 36.
     EXPECT_EQ(ret, output);
 }
-}
+} // namespace

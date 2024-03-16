@@ -19,7 +19,7 @@ words[j] is a palindrome.
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
    public:
     vector<vector<int>> PalindromePairs(vector<string> &words) {
@@ -283,4 +283,4 @@ TEST(palindrome_path, t2) {
     EXPECT_EQ(ret_set2, output_set);
 }
 
-}
+} // namespace

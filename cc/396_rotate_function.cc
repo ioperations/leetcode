@@ -24,7 +24,7 @@
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
    public:
     int MaxRotateFunction(vector<int> &nums) {
@@ -100,4 +100,4 @@ TEST(rotate_function, t2) {
     EXPECT_EQ(ret, output);
 }
 
-}
+} // namespace

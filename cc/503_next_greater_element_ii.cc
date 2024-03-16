@@ -20,7 +20,7 @@
 #include "gtest/gtest.h"
 
 using namespace std;
-namespace { 
+namespace {
 class Solution {
    public:
     vector<int> NextGreaterElements(vector<int> &nums) {
@@ -65,4 +65,4 @@ TEST(next_greater_element_ii, t2) {
     EXPECT_EQ(ret, output);
 }
 
-}
+} // namespace

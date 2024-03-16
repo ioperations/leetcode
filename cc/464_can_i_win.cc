@@ -22,7 +22,7 @@ players play optimally.
 #include "gtest/gtest.h"
 
 using namespace std;
-namespace { 
+namespace {
 class Solution {
    private:
     vector<vector<int>> dp;
@@ -92,4 +92,4 @@ TEST(can_i_win, t3) {
     EXPECT_EQ(ret, expected);
 }
 
-}
+} // namespace

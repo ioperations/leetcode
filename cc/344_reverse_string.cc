@@ -16,7 +16,7 @@ You must do this by modifying the input array in-place with O(1) extra memory.
 
 #include "gtest/gtest.h"
 
-namespace { 
+namespace {
 class Solution {
    public:
     void ReverseString(std::vector<char> &s) {
@@ -64,4 +64,4 @@ TEST(reverse_string, t2) {
 
     EXPECT_EQ(s, output);
 }
-}
+} // namespace

@@ -22,7 +22,7 @@ the front of the queue).*/
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
    public:
     vector<vector<int>> ReconstructQueue(vector<vector<int>> &people) {
@@ -76,4 +76,4 @@ TEST(queue_reconstruction_by_height, t2) {
     EXPECT_EQ(ert, output);
 }
 
-}
+} // namespace

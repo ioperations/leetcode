@@ -12,7 +12,7 @@ Given an integer num, return a string of its base 7 representation.
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
    public:
     string ConvertToBase7(int num) {
@@ -47,4 +47,4 @@ TEST(base_7, t2) {
     EXPECT_EQ(ret, output);
 }
 
-}
+} // namespace

@@ -25,7 +25,7 @@ may assume that both players are playing optimally.
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
    public:
     bool Ok(vector<int> &nums, int i, int j, int score, bool chance) {
@@ -120,4 +120,4 @@ TEST(predict_the_winnner, t2) {
     EXPECT_EQ(ret, expected);
 }
 
-}
+} // namespace

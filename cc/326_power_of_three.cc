@@ -13,7 +13,7 @@ Given an integer n, return true if it is a power of three.Otherwise,
 
 #include "gtest/gtest.h"
 
-namespace { 
+namespace {
 class Solution {
    public:
     bool IsPowerOfThree(int n) {
@@ -55,4 +55,4 @@ TEST(power_of_three, t3) {
     EXPECT_EQ(ret, expected);
 }
 
-}
+} // namespace

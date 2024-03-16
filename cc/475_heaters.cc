@@ -21,7 +21,7 @@ will the same.*/
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
    public:
     bool IsValid(int radius, vector<int> &houses, vector<int> &heaters) {
@@ -96,4 +96,4 @@ TEST(heaters, t3) {
     EXPECT_EQ(ret, output);
 };
 
-}
+} // namespace

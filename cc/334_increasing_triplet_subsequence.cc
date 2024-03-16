@@ -17,7 +17,7 @@
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
    public:
     bool IncreasingTriplet(vector<int> &nums) {
@@ -83,4 +83,4 @@ TEST(increasing_triplet_subsequence, t3) {
     EXPECT_EQ(ret, output);
 }
 
-}
+} // namespace

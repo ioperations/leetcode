@@ -19,7 +19,7 @@ this problem.
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
    public:
     string ToHex(int num) {
@@ -58,4 +58,4 @@ TEST(convert_a_number_to_hexidecimal, t2) {
     auto ret = s.ToHex(num);
     EXPECT_EQ(ret, output);
 }
-}
+} // namespace

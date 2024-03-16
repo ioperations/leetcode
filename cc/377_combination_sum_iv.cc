@@ -8,7 +8,7 @@
 #include "gtest/gtest.h"
 
 using namespace std;
-namespace { 
+namespace {
 class Solution {
    private:
     int Combination(vector<int> &nums, int target, vector<int> &dp) {
@@ -163,4 +163,4 @@ TEST(combination_sum_iv_v3, t2) {
     EXPECT_EQ(ret, 0);
 }
 
-}
+} // namespace

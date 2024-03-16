@@ -14,7 +14,7 @@
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
    public:
     int MaxProductV1(vector<string> &words) {
@@ -108,4 +108,4 @@ TEST(maximium_product_of_word_lengths, t3) {
     EXPECT_EQ(ret, output);
 }
 
-}
+} // namespace

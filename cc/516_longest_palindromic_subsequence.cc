@@ -16,7 +16,7 @@ elements.
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
    public:
     int Lcs(string string1, string string2) {
@@ -60,4 +60,4 @@ TEST(longest_palindromic_subsequence, t2) {
     EXPECT_EQ(ret, output);
 }
 
-}
+} // namespace

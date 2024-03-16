@@ -18,7 +18,7 @@ Return the shortest such subarray and output its length
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
    public:
     int FindUnsortedSubarray(vector<int> &nums) {
@@ -64,4 +64,4 @@ TEST(shortest_unsorted_continuous_subarray, t2) {
     EXPECT_EQ(ret, expected);
 }
 
-}
+} // namespace

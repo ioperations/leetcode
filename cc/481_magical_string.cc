@@ -19,7 +19,7 @@ magical string s.
 
 #include "gtest/gtest.h"
 
-namespace { 
+namespace {
 class Solution {
    public:
     int MagicalString(int n) {
@@ -123,4 +123,4 @@ TEST(magical_string, t6) {
     EXPECT_EQ(ret, expected);
 }
 
-}
+} // namespace

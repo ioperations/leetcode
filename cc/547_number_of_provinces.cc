@@ -23,7 +23,7 @@ Return the total number of provinces.
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
    public:
     int FindCircleNum(vector<vector<int>> &is_connected) {
@@ -98,4 +98,4 @@ TEST(number_of_provinces, t2) {
     EXPECT_EQ(ret, 3);
 }
 
-}
+} // namespace

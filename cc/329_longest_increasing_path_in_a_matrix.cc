@@ -19,7 +19,7 @@ wrap-around is not allowed).
 #include "gtest/gtest.h"
 
 using namespace std;
-namespace { 
+namespace {
 class Solution {
    public:
     int n, m;
@@ -81,4 +81,4 @@ TEST(longest_increasing_path_in_a_matrix, t2) {
     // Explanation: The longest increasing path is [1, 2, 6, 9].
 }
 
-}
+} // namespace

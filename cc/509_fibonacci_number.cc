@@ -15,7 +15,7 @@ Given n, calculate F(n).*/
 
 #include "gtest/gtest.h"
 
-namespace { 
+namespace {
 class Solution {
     std::map<int, int> cache;
 
@@ -59,4 +59,4 @@ TEST(fibonacci_number, t3) {
     EXPECT_EQ(ret, out);
 }
 
-}
+} // namespace

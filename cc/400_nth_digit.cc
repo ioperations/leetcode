@@ -12,7 +12,7 @@ Given an integer n, return the nth digit of the infinite integer sequence
 #include "gtest/gtest.h"
 
 using namespace std;
-namespace { 
+namespace {
 class Solution {
    public:
     int FindNthDigit(int n) {
@@ -82,4 +82,4 @@ TEST(nth_digit, t5) {
     EXPECT_EQ(ret, output);
 }
 
-}
+} // namespace

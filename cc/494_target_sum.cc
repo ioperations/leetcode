@@ -20,7 +20,7 @@ expressions that you can build, which evaluates to target.
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
    public:
     int FindTargetSumWaysV2(vector<int> &nums, int target) {
@@ -80,4 +80,4 @@ TEST(target_sum, t2) {
     EXPECT_EQ(ret, 1);
 }
 
-}
+} // namespace

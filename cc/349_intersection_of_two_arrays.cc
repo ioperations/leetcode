@@ -15,7 +15,7 @@ order.
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
    public:
     vector<int> Intersection(vector<int> &nums1, vector<int> &nums2) {
@@ -60,4 +60,4 @@ TEST(intersection_of_two_arrays, t2) {
     //
 }
 
-}
+} // namespace

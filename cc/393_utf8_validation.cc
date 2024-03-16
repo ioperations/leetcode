@@ -45,7 +45,7 @@ each integer is used to store the data. This means each integer represents only
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
    public:
     bool ValidUtf8(vector<int> &data) {
@@ -111,4 +111,4 @@ TEST(utf8_validation, t2) {
     EXPECT_EQ(ret, output);
 }
 
-}
+} // namespace

@@ -28,7 +28,7 @@
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
    public:
     int WiggleMaxLength(vector<int> &nums) {
@@ -78,4 +78,4 @@ TEST(wiggle_subsequence, t3) {
     EXPECT_EQ(ret, output);
 }
 
-}
+} // namespace

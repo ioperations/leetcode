@@ -12,7 +12,7 @@ very large, return it modulo 1337.
 
 #include "gtest/gtest.h"
 
-namespace { 
+namespace {
 class Solution {
    public:
     bool IsPalindrome(unsigned long val) {
@@ -142,4 +142,4 @@ TEST(largest_palindrome_product, t2) {
     EXPECT_EQ(ret, expected);
 }
 
-}
+} // namespace

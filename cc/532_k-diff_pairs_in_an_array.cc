@@ -23,7 +23,7 @@ Notice that |val| denotes the absolute value of val
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
    public:
     int FindPairs(vector<int> &nums, int k) {
@@ -104,4 +104,4 @@ TEST(k_diff_pairs_in_an_array, t3) {
     EXPECT_EQ(ret, output);
 }
 
-}
+} // namespace

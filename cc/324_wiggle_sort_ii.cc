@@ -13,7 +13,7 @@ You may assume the input array always has a valid answer.*/
 #include "gtest/gtest.h"
 
 using namespace std;
-namespace { 
+namespace {
 class Solution {
    public:
     void WiggleSort(vector<int> &nums) {
@@ -58,4 +58,4 @@ TEST(wiggle_sort_ii, t2) {
 
     EXPECT_EQ(nums, output);
 }
-}
+} // namespace

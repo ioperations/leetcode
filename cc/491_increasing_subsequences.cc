@@ -18,7 +18,7 @@ considered a special case of increasing sequence.
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
     void Dfs(int i, vector<int> &v, vector<int> &nums, set<vector<int>> &s) {
         if (v.size() >= 2) s.insert(v);
@@ -63,4 +63,4 @@ TEST(increasing_subsequences, t2) {
     EXPECT_EQ(ret, output);
 }
 
-}
+} // namespace

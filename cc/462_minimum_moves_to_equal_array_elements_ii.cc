@@ -16,7 +16,7 @@
 #include "gtest/gtest.h"
 
 using namespace std;
-namespace { 
+namespace {
 class Solution {
    public:
     int MinMoves2(vector<int> &nums) {
@@ -56,4 +56,4 @@ TEST(minimum_moves_to_equal_array_elements_ii, t2) {
     int ret = sl.MinMoves2(nums);
     EXPECT_EQ(ret, output);
 }
-}
+} // namespace
