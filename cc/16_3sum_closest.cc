@@ -2,6 +2,7 @@
 // PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
 // https://pvs-studio.com
 
+#include <algorithm>
 #include <benchmark/benchmark.h>
 #include <limits>
 #include <stdlib.h>
@@ -25,8 +26,8 @@ class Solution {
         int ret = std::numeric_limits<int>::max();
         int ret_ret = 0;
         do {
-            int tmp = t[0] + t[1] + t[2];
-            int distance = abs(tmp - target);
+            const int tmp = t[0] + t[1] + t[2];
+            const int distance = abs(tmp - target);
             if (distance < ret) {
                 ret = distance;
                 ret_ret = tmp;
@@ -39,15 +40,14 @@ class Solution {
     int ThreeSum2(std::vector<int> &nums, int target) {
         int i, j, k;
         sort(nums.begin(), nums.end());
-        int n = nums.size();
+        const int n = nums.size();
         int diff = std::numeric_limits<int>::max();
-        int d;
         int sum;
         for (i = 0; i < n; i++) {
             j = i + 1;
             k = n - 1;
             while (j < k) {
-                d = abs(target - (nums[i] + nums[j] + nums[k]));
+                const int d = abs(target - (nums[i] + nums[j] + nums[k]));
                 if (diff >= d) {
                     diff = d;
                     sum = nums[i] + nums[j] + nums[k];
@@ -66,7 +66,7 @@ class Solution {
 TEST(sum_closest_v2, t1) {
     Solution s;
     std::vector<int> nums{-1, 2, 1, 4};
-    int ret = s.ThreeSum(nums, 1);
+    const int ret = s.ThreeSum(nums, 1);
 
     EXPECT_EQ(ret, 2);
 }
@@ -74,7 +74,7 @@ TEST(sum_closest_v2, t1) {
 TEST(sum_closest_v2, t2) {
     Solution s;
     std::vector<int> nums{0, 0, 0};
-    int ret = s.ThreeSum(nums, 1);
+    const int ret = s.ThreeSum(nums, 1);
 
     EXPECT_EQ(ret, 0);
 }
@@ -82,7 +82,7 @@ TEST(sum_closest_v2, t2) {
 TEST(sum_closest_v2, t3) {
     Solution s;
     std::vector<int> nums{-55, -24, -18, -11, -7, -3, 4, 5, 6, 9, 11, 23, 33};
-    int ret = s.ThreeSum2(nums, 0);
+    const int ret = s.ThreeSum2(nums, 0);
 
     EXPECT_EQ(ret, 0);
 }

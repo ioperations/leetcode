@@ -27,7 +27,7 @@ class Solution {
             if (s != "") ans.push_back(s);
             return;
         }
-        int temp = digits[pos] - '0';
+        const int temp = digits[pos] - '0';
         for (int i = 0; i < (int)v[temp].size(); i++) {
             s.push_back(v[temp][i]);
             Solve(v, ans, digits, pos + 1, s);
