@@ -18,7 +18,7 @@ requirement. You could assume there always exists an answer.
 #include "gtest/gtest.h"
 
 using namespace std;
-namespace { 
+namespace {
 class Solution {
    public:
     vector<string> FindRestaurant(vector<string> &list1,
@@ -47,8 +47,6 @@ class Solution {
     }
 };
 
-
-
 TEST(minimum_index_sum_of_two_lists, t1) {
     vector<string> list1 = {"Shogun", "Tapioca Express", "Burger King", "KFC"};
     vector<string> list2 = {"Piatti", "The Grill at Torrey Pines",
@@ -71,4 +69,4 @@ TEST(minimum_index_sum_of_two_lists, t2) {
     EXPECT_EQ(ret, output);
 }
 
-}
+}  // namespace

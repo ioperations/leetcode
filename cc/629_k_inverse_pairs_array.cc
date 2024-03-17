@@ -54,8 +54,6 @@ class Solution {
     }
 };
 
-
-
 TEST(k_inverse_pairs_array, t1) {
     const int n = 3;
     const int k = 0;
