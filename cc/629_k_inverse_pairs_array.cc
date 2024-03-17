@@ -7,15 +7,14 @@
 Given two integers n and k, return the number of different arrays consist of
 numbers from 1 to n such that there are exactly k inverse pairs. Since the
 answer can be huge, return it modulo 109 + 7.*/
-#include <vector>
 #include <algorithm>
-#include <string>
+#include <vector>
 
 #include "gtest/gtest.h"
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
    public:
     int KInversePairs(int n, int k) {
