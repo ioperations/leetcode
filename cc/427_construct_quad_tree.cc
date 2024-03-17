@@ -40,7 +40,6 @@ val] and if the value of isLeaf or val is False we represent it as 0.
 #include <functional>
 #include <optional>
 #include <queue>
-#include <string>
 
 #include "gtest/gtest.h"
 
@@ -156,10 +155,10 @@ TEST(construct_quad_tree, t1) {
         vector<vector<int>>{vector<int>{0, 1}, vector<int>{1, 0}};
     vector<optional<vector<int>>> output = vector<optional<vector<int>>>{
         // clang-format off
-        vector<int>{0, 1}, 
-        vector<int>{1, 0}, 
+        vector<int>{0, 1},
+        vector<int>{1, 0},
         vector<int>{1, 1},
-        vector<int>{1, 1}, 
+        vector<int>{1, 1},
         vector<int>{1, 0}
         // clang-format on
     };

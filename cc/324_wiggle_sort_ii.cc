@@ -8,7 +8,6 @@ You may assume the input array always has a valid answer.*/
 
 #include <algorithm>
 #include <vector>
-#include <string>
 
 #include "gtest/gtest.h"
 
@@ -37,8 +36,6 @@ class Solution {
     }
 };
 
-
-
 TEST(wiggle_sort_ii, t1) {
     std::vector<int> nums = {1, 5, 1, 1, 6, 4};
     std::vector<int> output = {1, 6, 1, 5, 1, 4};
@@ -58,4 +55,4 @@ TEST(wiggle_sort_ii, t2) {
 
     EXPECT_EQ(nums, output);
 }
-} // namespace
+}  // namespace

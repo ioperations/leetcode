@@ -17,7 +17,6 @@ players play optimally.
 */
 
 #include <vector>
-#include <string>
 
 #include "gtest/gtest.h"
 
@@ -56,8 +55,6 @@ class Solution {
     }
 };
 
-
-
 TEST(can_i_win, t1) {
     int max_choosable_integerer = 10, desired_total = 11;
     bool expected = false;
@@ -92,4 +89,4 @@ TEST(can_i_win, t3) {
     EXPECT_EQ(ret, expected);
 }
 
-} // namespace
+}  // namespace

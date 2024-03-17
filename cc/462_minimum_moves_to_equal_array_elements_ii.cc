@@ -9,9 +9,9 @@
 */
 
 #include <stdlib.h>
+
 #include <algorithm>
 #include <vector>
-#include <string>
 
 #include "gtest/gtest.h"
 
@@ -38,7 +38,6 @@ class Solution {
     }
 };
 
-
 TEST(minimum_moves_to_equal_array_elements_ii, t1) {
     vector<int> nums{1, 2, 3};
     int output = 2;
@@ -56,4 +55,4 @@ TEST(minimum_moves_to_equal_array_elements_ii, t2) {
     int ret = sl.MinMoves2(nums);
     EXPECT_EQ(ret, output);
 }
-} // namespace
+}  // namespace

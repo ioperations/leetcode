@@ -19,7 +19,6 @@ You must find a solution with a memory complexity better than O(n2).
 #include <set>
 #include <utility>
 #include <vector>
-#include <string>
 
 #include "gtest/gtest.h"
 
@@ -121,8 +120,6 @@ class Solution {
     }
 };
 
-
-
 TEST(Kth_smallest_elements_in_a_sorted_matrix, t1) {
     vector<vector<int>> matrix = {{1, 5, 9}, {10, 11, 13}, {12, 13, 15}};
     int k = 8;
@@ -187,4 +184,4 @@ TEST(Kth_smallest_elements_in_a_sorted_matrix_v3, t2) {
     int ret = sl.KthSmallestV2(matrix, k);
     EXPECT_EQ(ret, expected);
 }
-} // namespace
+}  // namespace

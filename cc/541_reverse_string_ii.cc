@@ -11,6 +11,7 @@ characters and leave the other as original.
 */
 
 #include <benchmark/benchmark.h>
+
 #include <algorithm>
 #include <stack>
 #include <string>
@@ -66,8 +67,6 @@ class Solution {
         }
     }
 };
-
-
 
 TEST(reverse_string_ii, t1) {
     std::string s = "abcdefg";

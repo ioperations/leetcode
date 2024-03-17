@@ -9,10 +9,9 @@ sorted in ascending order.
 Return the shortest such subarray and output its length
 **/
 
+#include <functional>
 #include <queue>
 #include <vector>
-#include <functional>
-#include <string>
 
 #include "gtest/gtest.h"
 
@@ -42,8 +41,6 @@ class Solution {
     }
 };
 
-
-
 TEST(shortest_unsorted_continuous_subarray, t1) {
     std::vector<int> v{2, 6, 4, 8, 10, 9, 15};
     int expected = 5;
@@ -64,4 +61,4 @@ TEST(shortest_unsorted_continuous_subarray, t2) {
     EXPECT_EQ(ret, expected);
 }
 
-} // namespace
+}  // namespace

@@ -9,7 +9,6 @@ order.
 #include <algorithm>
 #include <set>
 #include <vector>
-#include <string>
 
 #include "gtest/gtest.h"
 
@@ -41,8 +40,6 @@ class Solution {
     }
 };
 
-
-
 TEST(intersection_of_two_arrays, t1) {
     std::vector<int> v{1, 2, 2, 1};
     std::vector<int> v2{2, 2};
@@ -60,4 +57,4 @@ TEST(intersection_of_two_arrays, t2) {
     //
 }
 
-} // namespace
+}  // namespace

@@ -39,7 +39,6 @@ each integer is used to store the data. This means each integer represents only
 */
 
 #include <vector>
-#include <string>
 
 #include "gtest/gtest.h"
 
@@ -83,8 +82,6 @@ class Solution {
     }
 };
 
-
-
 TEST(utf8_validation, t1) {
     vector<int> data = {197, 130, 1};
     bool output = true;
@@ -111,4 +108,4 @@ TEST(utf8_validation, t2) {
     EXPECT_EQ(ret, output);
 }
 
-} // namespace
+}  // namespace

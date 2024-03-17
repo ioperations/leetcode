@@ -14,12 +14,10 @@ col1) and lower right corner (row2, col2).
  */
 
 #include <vector>
-#include <string>
 
 #include "gtest/gtest.h"
 
 using namespace std;
-
 
 namespace {
 class NumMatrix {
@@ -78,8 +76,6 @@ class NumMatrixV1 {
  * NumMatrix* obj = new NumMatrix(matrix);
  * int param_1 = obj->sumRegion(row1,col1,row2,col2);
  */
-
-
 
 TEST(range_sum_query_2d_immutable, t1) {
     // ["NumMatrix", "sumRegion", "sumRegion", "sumRegion"]

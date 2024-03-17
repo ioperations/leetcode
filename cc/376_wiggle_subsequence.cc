@@ -20,9 +20,8 @@
    subsequence of nums.
 */
 
-#include <vector>
 #include <algorithm>
-#include <string>
+#include <vector>
 
 #include "gtest/gtest.h"
 
@@ -44,7 +43,6 @@ class Solution {
         return max(peak, valley);
     }
 };
-
 
 TEST(wiggle_subsequence, t1) {
     // pass
@@ -78,4 +76,4 @@ TEST(wiggle_subsequence, t3) {
     EXPECT_EQ(ret, output);
 }
 
-} // namespace
+}  // namespace

@@ -8,11 +8,10 @@ A subsequence is a sequence that can be derived from an array by deleting some
 or no elements without changing the order of the remaining elements. For
 example, [3,6,2,7] is a subsequence of the array [0,3,1,6,2,2,7].*/
 
+#include <algorithm>
 #include <functional>
 #include <limits>
 #include <vector>
-#include <algorithm>
-#include <string>
 
 #include "gtest/gtest.h"
 
@@ -56,8 +55,6 @@ class Solution {
     }
 };
 
-
-
 TEST(longest_increasing_subsequence, t1) {
     vector<int> nums{10, 9, 2, 5, 3, 7, 101, 18};
     int output = 4;
@@ -82,4 +79,4 @@ TEST(longest_increasing_subsequence, t3) {
     int ret = sl.LengthOfLis(nums);
     EXPECT_EQ(ret, output);
 }
-} // namespace
+}  // namespace

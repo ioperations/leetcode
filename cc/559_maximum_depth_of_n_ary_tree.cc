@@ -11,12 +11,11 @@ each group of children is separated by the null value (See examples).
 
 */
 
+#include <algorithm>
 #include <functional>
 #include <optional>
 #include <queue>
 #include <vector>
-#include <algorithm>
-#include <string>
 
 #include "gtest/gtest.h"
 

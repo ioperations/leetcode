@@ -17,7 +17,6 @@ Return the total number of provinces.
 */
 
 #include <vector>
-#include <string>
 
 #include "gtest/gtest.h"
 
@@ -63,8 +62,6 @@ class Solution {
     }
 };
 
-
-
 TEST(number_of_provinces, t1) {
     std::vector<vector<int>> v{{1, 1, 0}, {1, 1, 0}, {0, 0, 1}};
     /*
@@ -98,4 +95,4 @@ TEST(number_of_provinces, t2) {
     EXPECT_EQ(ret, 3);
 }
 
-} // namespace
+}  // namespace

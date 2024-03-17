@@ -8,15 +8,14 @@
 
  */
 
-#include <vector>
-#include <string>
 #include <utility>
+#include <vector>
 
 #include "gtest/gtest.h"
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
    public:
     vector<int> CountSmaller(vector<int> &nums) {
@@ -91,8 +90,6 @@ class Solution {
     }
 };
 
-
-
 TEST(count_of_smaller_numbers_after_self, t1) {
     vector<int> nums{5, 2, 6, 1};
     vector<int> output{2, 1, 1, 0};
@@ -122,4 +119,4 @@ TEST(count_of_smaller_numbers_after_self, t3) {
     EXPECT_EQ(ret, output);
 }
 
-}
+}  // namespace

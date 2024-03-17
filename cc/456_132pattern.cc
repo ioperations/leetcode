@@ -9,10 +9,9 @@ integers nums[i], nums[j] and nums[k] such that i < j < k and nums[i] < nums[k]
 Return true if there is a 132 pattern in nums, otherwise, return false.
 */
 
+#include <algorithm>
 #include <stack>
 #include <vector>
-#include <algorithm>
-#include <string>
 
 #include "gtest/gtest.h"
 
@@ -39,8 +38,6 @@ class Solution {
     }
 };
 
-
-
 TEST(pattern, t1) {
     std::vector<int> v{1, 2, 3, 4};
     bool expected = false;
@@ -65,4 +62,4 @@ TEST(pattern, t3) {
     EXPECT_EQ(ret, expected);
 }
 
-} // namespace
+}  // namespace

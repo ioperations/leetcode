@@ -15,7 +15,6 @@ between indices left and right inclusive (i.e. nums[left] + nums[left + 1] + ...
 + nums[right]).
 */
 #include <vector>
-#include <string>
 
 #include "gtest/gtest.h"
 
@@ -117,8 +116,6 @@ class NumArray {
     }
 };
 
-
-
 TEST(range_sum_query_mutable, t1) {
     /**
      * Your NumArray object will be instantiated and called as such:
@@ -141,4 +138,4 @@ TEST(range_sum_query_mutable, t1) {
     EXPECT_EQ(ret, 8);
 }
 
-} // namespace
+}  // namespace

@@ -8,8 +8,6 @@ According to the definition of LCA on Wikipedia: “The lowest common ancestor i
 defined between two nodes p and q as the lowest node in T that has both p and q
 as descendants (where we allow a node to be a descendant of itself).”*/
 
-#include <string>
-
 // Definition for a binary tree node.
 #include "datastruct_base.hh"
 #include "gtest/gtest.h"
@@ -42,7 +40,6 @@ class Solution {
 #include <vector>
 
 using namespace std;
-
 
 TEST(lowest_common_ancestor_of_a_binary_tree, t1) {
 #define null optional<int>()
@@ -89,4 +86,4 @@ TEST(lowest_common_ancestor_of_a_binary_tree, t3) {
     FreeTreeNode(node);
 }
 
-} // namespace
+}  // namespace

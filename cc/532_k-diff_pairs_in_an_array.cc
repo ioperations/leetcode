@@ -15,9 +15,9 @@ Notice that |val| denotes the absolute value of val
 */
 
 #include <limits.h>
+
 #include <algorithm>
 #include <vector>
-#include <string>
 
 #include "gtest/gtest.h"
 
@@ -55,8 +55,6 @@ class Solution {
         return ret;
     }
 };
-
-
 
 TEST(k_diff_pairs_in_an_array, t1) {
     vector<int> nums = {3, 1, 4, 1, 5};
@@ -104,4 +102,4 @@ TEST(k_diff_pairs_in_an_array, t3) {
     EXPECT_EQ(ret, output);
 }
 
-} // namespace
+}  // namespace

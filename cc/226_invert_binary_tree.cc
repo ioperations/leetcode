@@ -6,7 +6,6 @@
 //* Definition for a binary tree node.
 #include <cstddef>
 #include <utility>
-#include <string>
 
 #include "datastruct_base.hh"
 #include "gtest/gtest.h"
@@ -108,4 +107,4 @@ TEST(invert_binary_tree, t3) {
     FreeTreeNode(head);
 };
 
-} // namespace
+}  // namespace

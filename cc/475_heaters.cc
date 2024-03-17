@@ -15,7 +15,6 @@ will the same.*/
 
 #include <algorithm>
 #include <vector>
-#include <string>
 
 #include "gtest/gtest.h"
 
@@ -63,8 +62,6 @@ class Solution {
     }
 };
 
-
-
 TEST(heaters, t1) {
     vector<int> houses = {1, 2, 3};
     vector<int> heaters = {2};
@@ -96,4 +93,4 @@ TEST(heaters, t3) {
     EXPECT_EQ(ret, output);
 };
 
-} // namespace
+}  // namespace

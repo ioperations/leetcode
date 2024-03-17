@@ -24,7 +24,6 @@ correct.
 */
 
 #include <vector>
-#include <string>
 
 #include "gtest/gtest.h"
 
@@ -106,8 +105,6 @@ class NestedIterator {
  * NestedIterator i(nestedList);
  * while (i.hasNext()) cout << i.next();
  */
-
-
 
 TEST(flatten_nested_list_iterator, t1) {
     // vector<NestedInteger> nestedList = {{1,1},2,{1,1}};

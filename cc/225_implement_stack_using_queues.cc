@@ -28,7 +28,6 @@ standard operations.
 */
 
 #include <queue>
-#include <string>
 
 #include "gtest/gtest.h"
 
@@ -81,7 +80,6 @@ class MyStackV2 {
 
     bool Empty() { return q.empty(); }
 };
-
 
 TEST(implement_stack_using_queues, t1) {
     // * Your MyStack object will be instantiated and called as such:

@@ -11,7 +11,6 @@ F(n) = F(n - 1) + F(n - 2), for n > 1.
 Given n, calculate F(n).*/
 
 #include <map>
-#include <string>
 
 #include "gtest/gtest.h"
 
@@ -32,8 +31,6 @@ class Solution {
         return ret;
     }
 };
-
-
 
 TEST(fibonacci_number, t1) {
     int n = 2;
@@ -59,4 +56,4 @@ TEST(fibonacci_number, t3) {
     EXPECT_EQ(ret, out);
 }
 
-} // namespace
+}  // namespace

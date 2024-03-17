@@ -7,11 +7,10 @@
 
 */
 
+#include <algorithm>
 #include <climits>
 #include <stack>
 #include <vector>
-#include <algorithm>
-#include <string>
 
 #include "gtest/gtest.h"
 
@@ -53,8 +52,6 @@ class Solution {
     }
 };
 
-
-
 TEST(increasing_triplet_subsequence, t1) {
     vector<int> nums = {1, 2, 3, 4, 5};
     bool const output = true;
@@ -83,4 +80,4 @@ TEST(increasing_triplet_subsequence, t3) {
     EXPECT_EQ(ret, output);
 }
 
-} // namespace
+}  // namespace

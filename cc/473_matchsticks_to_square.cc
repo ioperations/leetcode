@@ -11,7 +11,6 @@ Return true if you can make this square and false otherwise.*/
 #include <algorithm>
 #include <numeric>
 #include <vector>
-#include <string>
 
 #include "gtest/gtest.h"
 
@@ -63,8 +62,6 @@ class Solution {
     }
 };
 
-
-
 TEST(matchsticks_to_square, t1) {
     vector<int> matchsticks = {1, 1, 2, 2, 2};
     bool output = true;
@@ -84,4 +81,4 @@ TEST(matchsticks_to_square, t2) {
     EXPECT_EQ(ret, output);
 }
 
-} // namespace
+}  // namespace

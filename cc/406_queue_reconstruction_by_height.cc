@@ -12,11 +12,10 @@ kj] is the attributes of the jth person in the queue (queue[0] is the person at
 the front of the queue).*/
 
 #include <algorithm>
-#include <map>
-#include <vector>
 #include <iterator>
-#include <string>
+#include <map>
 #include <utility>
+#include <vector>
 
 #include "gtest/gtest.h"
 
@@ -43,8 +42,6 @@ class Solution {
         return ans;
     }
 };
-
-
 
 TEST(queue_reconstruction_by_height, t1) {
     std::vector<vector<int>> people{{7, 0}, {4, 4}, {7, 1},
@@ -76,4 +73,4 @@ TEST(queue_reconstruction_by_height, t2) {
     EXPECT_EQ(ert, output);
 }
 
-} // namespace
+}  // namespace

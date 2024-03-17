@@ -14,7 +14,6 @@ expressions that you can build, which evaluates to target.
 */
 
 #include <vector>
-#include <string>
 
 #include "gtest/gtest.h"
 
@@ -52,8 +51,6 @@ class Solution {
     }
 };
 
-
-
 TEST(target_sum, t1) {
     std::vector<int> nums = {1, 1, 1, 1, 1};
     int target = 3;
@@ -80,4 +77,4 @@ TEST(target_sum, t2) {
     EXPECT_EQ(ret, 1);
 }
 
-} // namespace
+}  // namespace

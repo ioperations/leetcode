@@ -12,12 +12,10 @@ nums[j].
 */
 
 #include <vector>
-#include <string>
 
 #include "gtest/gtest.h"
 
 using namespace std;
-
 
 namespace {
 class Solution {
@@ -103,7 +101,6 @@ class SolutionV2 {
         return cnt;
     };
 };
-
 
 TEST(reverse_pairs, t1) {
     std::vector<int> nums = {1, 3, 2, 3, 1};

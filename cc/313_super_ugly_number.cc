@@ -10,7 +10,6 @@ number.
 The nth super ugly number is guaranteed to fit in a 32-bit signed integer.*/
 
 #include <vector>
-#include <string>
 
 #include "gtest/gtest.h"
 
@@ -38,8 +37,6 @@ class Solution {
     }
 };
 
-
-
 TEST(super_ugly_number, t1) {
     int n = 12;
     vector<int> primes = {2, 7, 13, 19};
@@ -62,4 +59,4 @@ TEST(super_ugly_number, t2) {
     EXPECT_EQ(ret, output);
 }
 
-} // namespace
+}  // namespace

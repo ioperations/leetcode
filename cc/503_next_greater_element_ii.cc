@@ -15,7 +15,6 @@
 */
 
 #include <vector>
-#include <string>
 
 #include "gtest/gtest.h"
 
@@ -43,8 +42,6 @@ class Solution {
     }
 };
 
-
-
 TEST(next_greater_element_ii, t1) {
     vector<int> nums = {1, 2, 1};
     vector<int> output = {2, -1, 2};
@@ -65,4 +62,4 @@ TEST(next_greater_element_ii, t2) {
     EXPECT_EQ(ret, output);
 }
 
-} // namespace
+}  // namespace

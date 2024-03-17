@@ -16,10 +16,9 @@ equal, then player 1 is still the winner, and you should also return true. You
 may assume that both players are playing optimally.
 */
 
+#include <algorithm>
 #include <cstring>
 #include <vector>
-#include <algorithm>
-#include <string>
 
 #include "gtest/gtest.h"
 
@@ -79,8 +78,6 @@ class Solution {
     }
 };
 
-
-
 TEST(predict_the_winnner, t1) {
     std::vector<int> nums = {1, 5, 2};
     bool expected = false;
@@ -120,4 +117,4 @@ TEST(predict_the_winnner, t2) {
     EXPECT_EQ(ret, expected);
 }
 
-} // namespace
+}  // namespace

@@ -7,9 +7,9 @@
 Return the maximum product you can get.
 */
 #include <limits.h>
-#include <vector>
+
 #include <algorithm>
-#include <string>
+#include <vector>
 
 #include "gtest/gtest.h"
 
@@ -36,8 +36,6 @@ class Solution {
     }
 };
 
-
-
 TEST(integer_break, t1) {
     int n = 2;
     int output = 1;
@@ -55,4 +53,4 @@ TEST(integer_break, t2) {
     // 10 = 3 + 3 + 4, 3 × 3 × 4 = 36.
     EXPECT_EQ(ret, output);
 }
-} // namespace
+}  // namespace

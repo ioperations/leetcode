@@ -4,10 +4,9 @@
 /*
  */
 
+#include <functional>
 #include <queue>
 #include <vector>
-#include <functional>
-#include <string>
 
 #include "gtest/gtest.h"
 
@@ -73,8 +72,6 @@ Space Complexity: O(1), constant space.
     }
 };
 
-
-
 TEST(kth_smallest_element_in_a_sorted_matrix, t1) {
     vector<vector<int>> matrix = {{1, 5, 9}, {10, 11, 13}, {12, 13, 15}};
     int k = 8;
@@ -115,4 +112,4 @@ TEST(kth_smallest_element_in_a_sorted_matrix_v2, t2) {
     EXPECT_EQ(ret, output);
 }
 
-} // namespace
+}  // namespace

@@ -15,9 +15,8 @@ Note: You cannot rotate an envelope.
 */
 
 #include <algorithm>
-#include <vector>
-#include <string>
 #include <utility>
+#include <vector>
 
 #include "gtest/gtest.h"
 
@@ -49,8 +48,6 @@ class Solution {
     }
 };
 
-
-
 TEST(russian_doll_envelopes, t1) {
     std::vector<vector<int>> envelopes = {{5, 4}, {6, 4}, {6, 7}, {2, 3}};
     int output = 3;
@@ -70,4 +67,4 @@ TEST(russian_doll_envelopes, t2) {
     EXPECT_EQ(ret, output);
 }
 
-} // namespace
+}  // namespace

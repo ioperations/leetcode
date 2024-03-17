@@ -3,7 +3,6 @@
 // https://pvs-studio.com
 
 #include <vector>
-#include <string>
 
 #include "gtest/gtest.h"
 
@@ -73,8 +72,6 @@ class Solution {
         return ans;
     }
 };
-
-
 
 TEST(combination_sum_iv, t1) {
     vector<int> nums = {1, 2, 3};
@@ -163,4 +160,4 @@ TEST(combination_sum_iv_v3, t2) {
     EXPECT_EQ(ret, 0);
 }
 
-} // namespace
+}  // namespace

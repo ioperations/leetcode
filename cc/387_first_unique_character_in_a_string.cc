@@ -3,15 +3,13 @@
 // https://pvs-studio.com
 /*Given a string s, find the first non-repeating character in it and return its
  * index. If it does not exist, return -1.*/
-#include <string>
-#include <unordered_map>
 #include <algorithm>
+#include <unordered_map>
 #include <utility>
 
 #include "gtest/gtest.h"
 
 using namespace std;
-
 
 namespace {
 class Solution {

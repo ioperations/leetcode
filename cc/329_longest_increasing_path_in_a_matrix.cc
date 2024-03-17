@@ -11,10 +11,9 @@ wrap-around is not allowed).
 
 */
 
+#include <algorithm>
 #include <cstring>
 #include <vector>
-#include <algorithm>
-#include <string>
 
 #include "gtest/gtest.h"
 
@@ -57,8 +56,6 @@ class Solution {
     }
 };
 
-
-
 TEST(longest_increasing_path_in_a_matrix, t1) {
     vector<vector<int>> matrix = {{9, 9, 4}, {6, 6, 8}, {2, 1, 1}};
     int output = 4;
@@ -81,4 +78,4 @@ TEST(longest_increasing_path_in_a_matrix, t2) {
     // Explanation: The longest increasing path is [1, 2, 6, 9].
 }
 
-} // namespace
+}  // namespace

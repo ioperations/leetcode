@@ -9,7 +9,6 @@ Integers in each column are sorted in ascending from top to bottom.
 */
 
 #include <vector>
-#include <string>
 
 #include "gtest/gtest.h"
 
@@ -56,8 +55,6 @@ class Solution {
     }
 };
 
-
-
 TEST(search_a_2d_matrix_ii, t1) {
     vector<vector<int>> matrix = {{1, 4, 7, 11, 15},
                                   {2, 5, 8, 12, 19},
@@ -85,4 +82,4 @@ TEST(search_a_2d_matrix_ii, t2) {
     bool ret = sl.SearchMatrix(matrix, target);
     EXPECT_EQ(ret, output);
 }
-} // namespace
+}  // namespace

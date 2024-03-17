@@ -14,11 +14,11 @@
 */
 
 #include <limits.h>
+
 #include <algorithm>
 #include <limits>
 #include <numeric>
 #include <vector>
-#include <string>
 
 #include "gtest/gtest.h"
 
@@ -73,8 +73,6 @@ class Solution {
     }
 };
 
-
-
 TEST(rotate_function, t1) {
     std::vector<int> nums{4, 3, 2, 6};
     int output = 26;
@@ -100,4 +98,4 @@ TEST(rotate_function, t2) {
     EXPECT_EQ(ret, output);
 }
 
-} // namespace
+}  // namespace

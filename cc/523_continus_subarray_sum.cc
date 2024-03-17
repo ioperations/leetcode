@@ -12,7 +12,6 @@ k. 0 is always a multiple of k.
 
 #include <unordered_map>
 #include <vector>
-#include <string>
 
 #include "gtest/gtest.h"
 
@@ -102,8 +101,6 @@ class Solution {
     }
 };
 
-
-
 TEST(continus_subarray_sum, t1) {
     vector<int> nums = {23, 2, 4, 6, 7};
     int k = 6;
@@ -136,4 +133,4 @@ TEST(continus_subarray_sum, t3) {
     EXPECT_EQ(ret, output);
 }
 
-} // namespace
+}  // namespace

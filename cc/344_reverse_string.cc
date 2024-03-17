@@ -12,7 +12,6 @@ You must do this by modifying the input array in-place with O(1) extra memory.
 #include <algorithm>
 #include <stack>
 #include <vector>
-#include <string>
 
 #include "gtest/gtest.h"
 
@@ -39,8 +38,6 @@ class Solution {
     }
 };
 
-
-
 TEST(reverse_string, t1) {
     std::vector<char> s = {'h', 'e', 'l', 'l', 'o'};
     std::vector<char> output = {'o', 'l', 'l', 'e', 'h'
@@ -64,4 +61,4 @@ TEST(reverse_string, t2) {
 
     EXPECT_EQ(s, output);
 }
-} // namespace
+}  // namespace

@@ -12,7 +12,6 @@ considered a special case of increasing sequence.
 
 #include <set>
 #include <vector>
-#include <string>
 
 #include "gtest/gtest.h"
 
@@ -43,8 +42,6 @@ class Solution {
     }
 };
 
-
-
 TEST(increasing_subsequences, t1) {
     vector<int> nums = {4, 6, 7, 7};
     vector<vector<int>> output = {{4, 6},    {4, 6, 7}, {4, 6, 7, 7}, {4, 7},
@@ -63,4 +60,4 @@ TEST(increasing_subsequences, t2) {
     EXPECT_EQ(ret, output);
 }
 
-} // namespace
+}  // namespace

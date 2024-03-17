@@ -8,7 +8,6 @@ each group of children is separated by the null value (See examples).*/
 
 #include <queue>
 #include <vector>
-#include <string>
 
 #include "gtest/gtest.h"
 
