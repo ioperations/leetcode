@@ -35,14 +35,14 @@ TEST(palindrom_number, t1) {
 TEST(palindrom_number, t2) {
     Solution s;
 
-    bool ret = s.IsPalindrome(-121);
+    const bool ret = s.IsPalindrome(-121);
     EXPECT_EQ(ret, false);
 }
 
 TEST(palindrom_number, t3) {
     Solution s;
 
-    bool ret = s.IsPalindrome(10);
+    const bool ret = s.IsPalindrome(10);
 
     EXPECT_EQ(ret, false);
 }

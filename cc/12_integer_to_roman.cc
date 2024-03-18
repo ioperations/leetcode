@@ -57,29 +57,29 @@ class Solution {
 };
 
 TEST(integer_to_roman, t1) {
-    int num = 3;
-    string output = "III";
+    const int num = 3;
+    const string output = "III";
     // Explanation: 3 is represented as 3 ones.
     Solution sl;
-    string ret = sl.IntToRoman(num);
+    const string ret = sl.IntToRoman(num);
     EXPECT_EQ(ret, output);
 }
 
 TEST(integer_to_roman, t2) {
-    int num = 58;
-    string output = "LVIII";
+    const int num = 58;
+    const string output = "LVIII";
     // Explanation: L = 50, V = 5, III = 3.";
     Solution sl;
-    string ret = sl.IntToRoman(num);
+    const string ret = sl.IntToRoman(num);
     EXPECT_EQ(ret, output);
 }
 
 TEST(integer_to_roman, t3) {
-    int num = 1994;
-    string output = "MCMXCIV";
+    const int num = 1994;
+    const string output = "MCMXCIV";
     // Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.
     Solution sl;
-    string ret = sl.IntToRoman(num);
+    const string ret = sl.IntToRoman(num);
     EXPECT_EQ(ret, output);
 }
 

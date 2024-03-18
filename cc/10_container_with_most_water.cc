@@ -54,21 +54,21 @@ TEST(container_with_most_water, t1) {
 TEST(container_with_most_water, t2) {
     Solution s;
     std::vector<int> height{1, 8, 6, 2, 5, 4, 8, 3, 7};
-    int ret = s.MaxAreaV2(height);
+    const int ret = s.MaxAreaV2(height);
     EXPECT_EQ(ret, 49);
 }
 
 TEST(container_with_most_water_v2, t1) {
     Solution s;
     std::vector<int> height{1, 1};
-    int ret = s.MaxAreaV2(height);
+    const int ret = s.MaxAreaV2(height);
     EXPECT_EQ(ret, 1);
 }
 
 TEST(container_with_most_water_v2, t2) {
     Solution s;
     std::vector<int> height{1, 8, 6, 2, 5, 4, 8, 3, 7};
-    int ret = s.MaxAreaV2(height);
+    const int ret = s.MaxAreaV2(height);
     EXPECT_EQ(ret, 49);
 }
 

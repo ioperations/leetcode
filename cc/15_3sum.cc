@@ -120,26 +120,26 @@ class Solution {
 
 TEST(sum, t1) {
     std::vector<int> nums = {-1, 0, 1, 2, -1, -4};
-    std::vector<std::vector<int>> expected = {{-1, -1, 2}, {-1, 0, 1}};
-    std::vector<std::vector<int>> expected1 = {{-1, 0, 1}, {-1, -1, 2}};
+    const std::vector<std::vector<int>> expected = {{-1, -1, 2}, {-1, 0, 1}};
+    const std::vector<std::vector<int>> expected1 = {{-1, 0, 1}, {-1, -1, 2}};
     Solution s;
-    auto ret = s.ThreeSum(nums);
+    const auto ret = s.ThreeSum(nums);
     // EXPECT_TRUE(ret == expected || ret == expected1);
 }
 
 TEST(sum, t2) {
     std::vector<int> nums = {};
-    std::vector<std::vector<int>> expected = {};
+    const std::vector<std::vector<int>> expected = {};
     Solution s;
-    auto ret = s.ThreeSum(nums);
+    const auto ret = s.ThreeSum(nums);
     // EXPECT_EQ(ret, expected);
 }
 
 TEST(sum, t3) {
     std::vector<int> nums = {0};
-    std::vector<std::vector<int>> expected = {};
+    const std::vector<std::vector<int>> expected = {};
     Solution s;
-    auto ret = s.ThreeSum(nums);
+    const auto ret = s.ThreeSum(nums);
     EXPECT_EQ(ret, expected);
 }
 

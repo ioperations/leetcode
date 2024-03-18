@@ -11,7 +11,7 @@ class Solution {
     int RomanToInt(std::string s) {
         int i = 0;
         int sum = 0;
-        int len = s.length();
+        const int len = s.length();
         int current, next;
 
         for (i = 0; i < len; i++) {
@@ -70,22 +70,22 @@ class Solution {
 TEST(roman_to_integer, t1) {
     Solution s;
 
-    std::string input = "III";
-    int ret = s.RomanToInt(input);
+    const std::string input = "III";
+    const int ret = s.RomanToInt(input);
     EXPECT_EQ(ret, 3);
 }
 
 TEST(roman_to_integer, t2) {
     Solution s;
-    std::string input = "LVIII";
-    int ret = s.RomanToInt(input);
+    const std::string input = "LVIII";
+    const int ret = s.RomanToInt(input);
     EXPECT_EQ(ret, 58);
 }
 
 TEST(roman_to_integer, t3) {
     Solution s;
-    std::string input = "MCMXCIV";
-    int ret = s.RomanToInt(input);
+    const std::string input = "MCMXCIV";
+    const int ret = s.RomanToInt(input);
     EXPECT_EQ(ret, 1994);
 }
 

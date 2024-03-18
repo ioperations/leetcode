@@ -57,20 +57,20 @@ class Solution {
 
 TEST(longest_common_prefix, t1) {
     std::vector<std::string> strs = {"flower", "flow", "flight"};
-    std::string output = "fl";
+    const std::string output = "fl";
 
     Solution s;
-    auto ret = s.LongestCommonPrefix(strs);
+    const auto ret = s.LongestCommonPrefix(strs);
 
     EXPECT_EQ(ret, output);
 }
 
 TEST(longest_common_prefix, t2) {
     std::vector<std::string> strs = {"dog", "racecar", "car"};
-    std::string output = "";
+    const std::string output = "";
 
     Solution s;
-    auto ret = s.LongestCommonPrefix(strs);
+    const auto ret = s.LongestCommonPrefix(strs);
 
     EXPECT_EQ(ret, output);
 }

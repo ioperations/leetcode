@@ -158,9 +158,9 @@ TEST(_median_of_two_sorted_arrayv2, t2) {
     vector<int> n3{};
     vector<int> n4{1};
 
-    EXPECT_EQ(3.0, n.FindMedianSortedArrays(n1, n2));
-    EXPECT_EQ(3.0, n.FindMedianSortedArrays(n1, n3));
-    EXPECT_EQ(1.0, n.FindMedianSortedArrays(n3, n4));
+    EXPECT_DOUBLE_EQ(3.0, n.FindMedianSortedArrays(n1, n2));
+    EXPECT_DOUBLE_EQ(3.0, n.FindMedianSortedArrays(n1, n3));
+    EXPECT_DOUBLE_EQ(1.0, n.FindMedianSortedArrays(n3, n4));
 }
 
 }  // namespace
