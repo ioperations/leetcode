@@ -169,26 +169,4 @@ TEST(palindrome_linked_list_v2, t2) {
     EXPECT_EQ(ret, false);
 }
 
-TEST(IsPalindrome, t1) {
-    Solution2 s;
-
-    BENCHMARK("BenchFastSlow") {
-        List::ListNode<int> *list = List::ConstructList(
-            std::vector<int>{1, 2, 3, 4, 5, 6, 5, 4, 3, 2, 1});
-        bool ret = s.IsPalindrome(list);
-        EXPECT_EQ(ret, true);
-        List::FreeList(list);
-    };
-}
-
-TEST(IsPalindrome, t1) {
-    Solution s;
-    BENCHMARK("BenchMyVec") {
-        List::ListNode<int> *list = List::ConstructList(
-            std::vector<int>{1, 2, 3, 4, 5, 6, 5, 4, 3, 2, 1});
-        bool ret = s.IsPalindrome(list);
-        EXPECT_EQ(ret, true);
-    };
-}
-
 }  // namespace
