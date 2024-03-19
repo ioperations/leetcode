@@ -49,7 +49,7 @@ TEST_CASE("memleak", "t0") {
     FreeRoot(root2);
 }
 
-TEST_CASE("same_tree", "t1") {
+TEST_CASE("same_tree_t1", "t1") {
     std::vector<int> p = {1, 2, 3}, q = {1, 2, 3};
 
     auto *root1 = ConstructTree(p);
@@ -64,7 +64,7 @@ TEST_CASE("same_tree", "t1") {
     FreeRoot(root2);
 }
 
-TEST_CASE("same_tree", "t2") {
+TEST_CASE("same_tree_t2", "t2") {
     std::vector<int> p = {1, 2}, q = {1, 2};
     auto *root1 = ConstructTree(p);
     auto *root2 = ConstructTree(q);
@@ -78,7 +78,7 @@ TEST_CASE("same_tree", "t2") {
     FreeRoot(root2);
 }
 
-TEST_CASE("same_tree", "t3") {
+TEST_CASE("same_tree_t3", "t3") {
     std::vector<int> p = {1, 2, 1}, q = {1, 1, 2};
 
     auto *root1 = ConstructTree(p);
@@ -93,7 +93,7 @@ TEST_CASE("same_tree", "t3") {
     FreeRoot(root2);
 }
 
-TEST_CASE("same_tree", "t4") {
+TEST_CASE("same_tree_t4", "t4") {
     std::vector<int> p = {1, 2, 1}, q = {};
 
     auto *root1 = ConstructTree(p);
@@ -108,7 +108,7 @@ TEST_CASE("same_tree", "t4") {
     FreeRoot(root2);
 }
 
-TEST_CASE("same_tree", "t5") {
+TEST_CASE("same_tree_t5", "t5") {
     std::vector<int> p = {}, q = {1, 2, 1};
 
     auto *root1 = ConstructTree(p);

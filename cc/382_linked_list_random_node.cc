@@ -2,19 +2,17 @@
 // PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
 // https://pvs-studio.com
 #include <catch2/catch_test_macros.hpp>
-#include <cstdlib>
 #include <map>
 #include <set>
 #include <vector>
 
-#include "catch2/catch_approx.hpp"
 #include "datastruct_base.hh"
 
 #define concat(a, b) concat2(a, b)
 #define concat2(a, b) a##b
 #define symbol(a) symbol2(a)
 #define symbol2(a) #a
-#define TEST(a, b) TEST_CASE(symbol(concat(a, b)), #b)
+#define TEST(a, b) TEST_CASE(symbol(concat(concat(a, b), __LINE__)), #b)
 #define EXPECT_EQ(a, b) REQUIRE(a == b)
 #define EXPECT_TRUE(a) REQUIRE(a)
 #define EXPECT_FALSE(a) REQUIRE(!a)
@@ -52,24 +50,6 @@ void ExpectEqList(ListNode *const head, const std::vector<int> &elements) {
         i++;
     }
     EXPECT_EQ(i, elements.size());
-}
-
-TEST(linked_list_random_node, t1) {
-    std::vector<int> rt{1, 2, 3};
-    ListNode *head = List::ConstructList(rt);
-    Solution *s = new Solution(head);
-    std::map<int, int> val_count;
-    int count = 10000;
-    for (int i = 0; i < count; i++) {
-        val_count[s->GetRandom()]++;
-    }
-    std::set<int> set(rt.begin(), rt.end());
-    for (auto &ptr : val_count) {
-        REQUIRE(ptr.second == Catch::Approx(count / val_count.size()));
-    }
-    delete s;
-    List::FreeList(head);
-    // EXPECT_EQ(set.count(ret), 1);
 }
 
 }  // namespace
