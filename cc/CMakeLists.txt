@@ -3,7 +3,13 @@ project(leetcode LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 17)
 SET(CXX "g++")
 
-set(CXX_FLAGS
+if(MSVC)
+    set(CXX_FLAGS
+        /std:c++17
+        /Za
+    )
+else()
+    set(CXX_FLAGS
         -Wextra
         #-Wconversion
         -Wno-unused-parameter
@@ -17,7 +23,9 @@ set(CXX_FLAGS
         -fuse-ld=lld
         -ggdb
         -O3
-        )
+    )
+
+endif()
 
 enable_testing()
 
@@ -43,14 +51,18 @@ endforeach ()
 set(T leetcode)
 add_executable(leetcode)
 target_sources(leetcode PUBLIC ${source_list})
-target_compile_options(${T} PUBLIC "-std=c++17")
-target_compile_options(${T} PRIVATE "-fsanitize=address")
 if (${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
     target_compile_options(${T} PRIVATE "-stdlib=libc++")
 endif()
 target_include_directories(${T} PUBLIC "/usr/local/include")
 target_link_directories(${T} PUBLIC "/usr/local/lib")
 target_link_libraries(${T} pthread Catch2::Catch2WithMain) 
+if(MSVC)
+target_compile_options(${T} PUBLIC "/std:c++17")
+else()
+target_compile_options(${T} PUBLIC "-std=c++17")
+target_compile_options(${T} PRIVATE "-fsanitize=address")
 target_link_options(${T} PUBLIC "-fsanitize=address")
+endif()
 
 add_test(NAME ${T} COMMAND ${T} WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
