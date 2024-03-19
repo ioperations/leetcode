@@ -13,19 +13,18 @@ some or no elements without changing the order of the remaining elements.
 */
 
 #include <algorithm>
+#include <catch2/benchmark/catch_benchmark.hpp>
+#include <catch2/catch_test_macros.hpp>
 #include <functional>
 #include <map>
 #include <string>
 #include <vector>
 
-#include "benchmark/benchmark.h"
-#include <catch2/catch_test_macros.hpp>
-
 #define concat(a, b) concat2(a, b)
 #define concat2(a, b) a##b
 #define symbol(a) symbol2(a)
 #define symbol2(a) #a
-#define TEST(a, b) TEST_CASE(symbol(concat(concat(a, b),__LINE__)), #b)
+#define TEST(a, b) TEST_CASE(symbol(concat(concat(a, b), __LINE__)), #b)
 #define EXPECT_EQ(a, b) REQUIRE(a == b)
 #define EXPECT_TRUE(a) REQUIRE(a)
 #define EXPECT_FALSE(a) REQUIRE(!a)
@@ -184,28 +183,27 @@ TEST(Maximum_Length_of_a_Concatenated_String_with_Unique_Characters_v2, t3) {
     EXPECT_EQ(ret, output);
 }
 
-static void BenchMarkV1(benchmark::State &state) {
+TEST(MaxLength, t1) {
     vector<string> arr = {"un", "iq", "ue"};
-    for (auto _ : state) {
-        int output = 4;
+    int output = 4;
 
-        Solution sl;
+    Solution sl;
+    BENCHMARK("BenchMarkV1") {
         int ret = sl.MaxLength(arr);
         EXPECT_EQ(ret, output);
-    }
+    };
 }
-BENCHMARK(BenchMarkV1);
 
-static void BenchMarkV2(benchmark::State &state) {
+TEST(MaxLengthV2, t1) {
     vector<string> arr = {"un", "iq", "ue"};
-    for (auto _ : state) {
-        int output = 4;
+    int output = 4;
 
-        Solution sl;
-        int ret = sl.MaxLengthV2(arr);
+    Solution sl;
+
+    BENCHMARK("BenchMarkV2") {
+        const int ret = sl.MaxLengthV2(arr);
         EXPECT_EQ(ret, output);
-    }
+    };
 }
-BENCHMARK(BenchMarkV2);
 
 }  // namespace

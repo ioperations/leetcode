@@ -9,7 +9,7 @@ target_cpp = $(patsubst %.cpp, %, $(srcs_cpp))
 
 
 CXX=clang++
-override CPPFLAGS := -std=c++20  -DTEST_ADQ -Wpedantic -Wall -fsanitize=address  -lgtest -lpthread  -lbenchmark -L/usr/local/lib -I/usr/local/include 
+override CPPFLAGS := -std=c++20  -DTEST_ADQ -Wpedantic -Wall -fsanitize=address -lpthread -L/usr/local/lib -I/usr/local/include 
 #-fuse-ld=lld
 default:${target_cc} # ${target_ccu}
 	

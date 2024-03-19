@@ -6,17 +6,17 @@ Given the head of a linked list, return the list after sorting it in ascending
 order.
 */
 
+#include <catch2/benchmark/catch_benchmark.hpp>
+#include <catch2/catch_test_macros.hpp>
 #include <vector>
 
-#include "benchmark/benchmark.h"
 #include "datastruct_base.hh"
-#include <catch2/catch_test_macros.hpp>
 
 #define concat(a, b) concat2(a, b)
 #define concat2(a, b) a##b
 #define symbol(a) symbol2(a)
 #define symbol2(a) #a
-#define TEST(a, b) TEST_CASE(symbol(concat(concat(a, b),__LINE__)), #b)
+#define TEST(a, b) TEST_CASE(symbol(concat(concat(a, b), __LINE__)), #b)
 #define EXPECT_EQ(a, b) REQUIRE(a == b)
 #define EXPECT_TRUE(a) REQUIRE(a)
 #define EXPECT_FALSE(a) REQUIRE(!a)
@@ -193,26 +193,24 @@ TEST(sort_list_v2, t3) {
     List::FreeList(n);
 }
 
-void BenchV2(benchmark::State &state) {
-    for (auto _ : state) {
+TEST(SortList, t1) {
+    BENCHMARK("BenchV2") {
         ListNode *n = List::ConstructList(std::vector<int>{-4, 5, 3, 4, 0});
         SolutionV2 s;
         n = s.SortList(n);
         ExpectEqList(n, std::vector<int>{-4, 0, 3, 4, 5});
         List::FreeList(n);
-    }
+    };
 }
-BENCHMARK(BenchV2);
 
-void BenchV1(benchmark::State &state) {
-    for (auto _ : state) {
+TEST(SortList, t2) {
+    Solution s;
+    BENCHMARK("BenchV1") {
         ListNode *n = List::ConstructList(std::vector<int>{-4, 5, 3, 4, 0});
-        Solution s;
         n = s.SortList(n);
         ExpectEqList(n, std::vector<int>{-4, 0, 3, 4, 5});
         List::FreeList(n);
-    }
+    };
 }
-BENCHMARK(BenchV1);
 
 }  // namespace

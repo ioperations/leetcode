@@ -16,20 +16,18 @@ to play all the tokens.
 Return the largest possible score you can achieve after playing any number of
 tokens.*/
 
-#include <benchmark/benchmark.h>
-
 #include <algorithm>
+#include <catch2/benchmark/catch_benchmark.hpp>
+#include <catch2/catch_test_macros.hpp>
 #include <functional>
 #include <set>
 #include <vector>
-
-#include <catch2/catch_test_macros.hpp>
 
 #define concat(a, b) concat2(a, b)
 #define concat2(a, b) a##b
 #define symbol(a) symbol2(a)
 #define symbol2(a) #a
-#define TEST(a, b) TEST_CASE(symbol(concat(concat(a, b),__LINE__)), #b)
+#define TEST(a, b) TEST_CASE(symbol(concat(concat(a, b), __LINE__)), #b)
 #define EXPECT_EQ(a, b) REQUIRE(a == b)
 #define EXPECT_TRUE(a) REQUIRE(a)
 #define EXPECT_FALSE(a) REQUIRE(!a)
@@ -164,30 +162,29 @@ TEST(bag_of_tokens_v2, t3) {
     EXPECT_EQ(ret, output);
     EXPECT_EQ(ret1, output);
 }
-static void BenchmarkTwoArrayDpv1(benchmark::State &state) {
+
+TEST(BagOfTokensScore, t1) {
     vector<int> tokens = {100, 200, 300, 400, 500, 600, 700, 800, 900, 1000};
     int power = 200;
     Solution sl;
     int output = 4;
 
-    for (auto _ : state) {
+    BENCHMARK("BenchmarkTwoArrayDpv1") {
         int ret = sl.BagOfTokensScore(tokens, power);
         EXPECT_EQ(output, ret);
-    }
+    };
 }
-BENCHMARK(BenchmarkTwoArrayDpv1);
 
-static void BenchmarkMyImplementation(benchmark::State &state) {
+TEST(BagOfTokensScoreV1, t1) {
     vector<int> tokens = {100, 200, 300, 400, 500, 600, 700, 800, 900, 1000};
     int power = 200;
     Solution sl;
     int output = 4;
 
-    for (auto _ : state) {
+    BENCHMARK("BenchmarkMyImplementation") {
         int ret = sl.BagOfTokensScoreV1(tokens, power);
         EXPECT_EQ(output, ret);
-    }
+    };
 }
-BENCHMARK(BenchmarkMyImplementation);
 
 }  // namespace
