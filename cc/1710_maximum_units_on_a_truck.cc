@@ -17,7 +17,9 @@ Return the maximum total number of units that can be put on the truck.*/
 
 #include <catch2/catch_test_macros.hpp>
 
-#define TEST(a, b) TEST_CASE(#a,#b)
+#define concat(a, b) a##b
+#define symbol(a) #a
+#define TEST(a, b) TEST_CASE(symbol(concat(a, b)), #b)
 #define EXPECT_EQ(a, b) REQUIRE(a == b)
 #define EXPECT_TRUE(a) REQUIRE(a)
 #define EXPECT_FALSE(a) REQUIRE(!a)

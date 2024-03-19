@@ -8,13 +8,15 @@ Return the head of the linked list after swapping the values of the kth node
 from the beginning and the kth node from the end (the list is 1-indexed).
 */
 
+#include <catch2/catch_test_macros.hpp>
 #include <utility>
 #include <vector>
 
 #include "datastruct_base.hh"
-#include <catch2/catch_test_macros.hpp>
 
-#define TEST(a, b) TEST_CASE(#a,#b)
+#define concat(a, b) a##b
+#define symbol(a) #a
+#define TEST(a, b) TEST_CASE(symbol(concat(a, b)), #b)
 #define EXPECT_EQ(a, b) REQUIRE(a == b)
 #define EXPECT_TRUE(a) REQUIRE(a)
 #define EXPECT_FALSE(a) REQUIRE(!a)
@@ -61,7 +63,7 @@ void ExpectEqList(ListNode *const head, const std::vector<int> &elements) {
     }
     EXPECT_EQ(i, elements.size());
 }
-TEST(memleak, t1) {
+TEST(memleak, swapping_nodes_in_alinked_list_1721) {
     ListNode *head = List::ConstructList(std::vector<int>{3, 2, 0, -4});
 
     List::FreeList(head);

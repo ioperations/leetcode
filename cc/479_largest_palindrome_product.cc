@@ -8,11 +8,12 @@ represented as the product of two n-digits integers. Since the answer can be
 very large, return it modulo 1337.
 
 */
+#include <catch2/catch_test_macros.hpp>
 #include <string>
 
-#include <catch2/catch_test_macros.hpp>
-
-#define TEST(a, b) TEST_CASE(#a,#b)
+#define concat(a, b) a##b
+#define symbol(a) #a
+#define TEST(a, b) TEST_CASE(symbol(concat(a, b)), #b)
 #define EXPECT_EQ(a, b) REQUIRE(a == b)
 #define EXPECT_TRUE(a) REQUIRE(a)
 #define EXPECT_FALSE(a) REQUIRE(!a)
@@ -114,23 +115,21 @@ class Solution {
     }
 };
 
-
-
-TEST(t, t1) {
+TEST(largest_palindrome_product, t1) {
     // Explanation: 99 x 91 = 9009, 9009 % 1337 = 987
     Solution s;
     const bool ret = s.IsPalindrome("9009");
     EXPECT_EQ(ret, true);
 }
 
-TEST(t, t2) {
+TEST(largest_palindrome_product, t2) {
     // Explanation: 99 x 91 = 9009, 9009 % 1337 = 987
     Solution s;
     const bool ret = s.IsPalindrome("000");
     EXPECT_EQ(ret, true);
 }
 
-TEST(largest_palindrome_product, t1) {
+TEST(largest_palindrome_product_v2, t2) {
     const int n = 2;
     const int expected = 987;
     // Explanation: 99 x 91 = 9009, 9009 % 1337 = 987
@@ -139,7 +138,7 @@ TEST(largest_palindrome_product, t1) {
     EXPECT_EQ(ret, expected);
 }
 
-TEST(largest_palindrome_product, t2) {
+TEST(largest_palindrome_product_v2, t3) {
     const int n = 1;
     const int expected = 9;
     Solution s;
@@ -147,4 +146,4 @@ TEST(largest_palindrome_product, t2) {
     EXPECT_EQ(ret, expected);
 }
 
-} // namespace
+}  // namespace

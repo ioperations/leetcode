@@ -12,10 +12,13 @@ the root node down to the farthest leaf node.
 #include <vector>
 
 //* Definition for a binary tree node.
-#include "datastruct_base.hh"
 #include <catch2/catch_test_macros.hpp>
 
-#define TEST(a, b) TEST_CASE(#a,#b)
+#include "datastruct_base.hh"
+
+#define concat(a, b) a##b
+#define symbol(a) #a
+#define TEST(a, b) TEST_CASE(symbol(concat(a, b)), #b)
 #define EXPECT_EQ(a, b) REQUIRE(a == b)
 #define EXPECT_TRUE(a) REQUIRE(a)
 #define EXPECT_FALSE(a) REQUIRE(!a)
@@ -46,7 +49,7 @@ class Solution {
 
 using namespace std;
 
-TEST(memleak, t0) {
+TEST(memleak, maximum_depth_of_binray_tree_104) {
     vector<optional<int>> elements{3,  9, 20, optional<int>(), optional<int>(),
                                    15, 7};
     auto *binary_tree = ConstructBinaryTree(elements);

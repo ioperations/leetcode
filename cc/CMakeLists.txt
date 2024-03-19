@@ -50,7 +50,7 @@ if (${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
 endif()
 target_include_directories(${T} PUBLIC "/usr/local/include")
 target_link_directories(${T} PUBLIC "/usr/local/lib")
-target_link_libraries(${T} gtest gtest_main pthread benchmark Catch2::Catch2WithMain) 
+target_link_libraries(${T} gtest pthread benchmark Catch2::Catch2WithMain) 
 # target_link_libraries(${T} PRIVATE Catch2::Catch2WithMain)
 target_link_options(${T} PUBLIC "-fsanitize=address")
 

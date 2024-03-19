@@ -2,15 +2,17 @@
 // PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
 // https://pvs-studio.com
 
+#include <catch2/catch_test_macros.hpp>
 #include <cmath>
 #include <limits>
 #include <queue>
 #include <utility>
 
 #include "datastruct_base.hh"
-#include <catch2/catch_test_macros.hpp>
 
-#define TEST(a, b) TEST_CASE(#a,#b)
+#define concat(a, b) a##b
+#define symbol(a) #a
+#define TEST(a, b) TEST_CASE(symbol(concat(a, b)), #b)
 #define EXPECT_EQ(a, b) REQUIRE(a == b)
 #define EXPECT_TRUE(a) REQUIRE(a)
 #define EXPECT_FALSE(a) REQUIRE(!a)
@@ -204,7 +206,7 @@ class Solution {
     }
 };
 
-TEST(memleak, t1) {
+TEST(memleak, merge_k_sorted_list_23) {
     MyListNode *n1 = new MyListNode(1);
     MyListNode *n2 = new MyListNode(3);
     MyListNode *n3 = new MyListNode(4);

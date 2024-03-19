@@ -18,12 +18,13 @@ the output represents the signed integer -1073741825.
 #include <stddef.h>
 
 #include <algorithm>
+#include <catch2/catch_test_macros.hpp>
 #include <cstdint>
 #include <string>
 
-#include <catch2/catch_test_macros.hpp>
-
-#define TEST(a, b) TEST_CASE(#a,#b)
+#define concat(a, b) a##b
+#define symbol(a) #a
+#define TEST(a, b) TEST_CASE(symbol(concat(a, b)), #b)
 #define EXPECT_EQ(a, b) REQUIRE(a == b)
 #define EXPECT_TRUE(a) REQUIRE(a)
 #define EXPECT_FALSE(a) REQUIRE(!a)
@@ -104,14 +105,14 @@ TEST(base, tp) {
     EXPECT_EQ(2 << 0, 2);
 }
 
-TEST(base, t0) {
+TEST(base, reverse_bits_190_random) {
     std::string z = "00000000000000000000000000000001";
     uint32_t n = ConstructUint32T(z);           //
     std::string expected = ConstructString(n);  //(
     EXPECT_EQ(expected, z);
 }
 
-TEST(base, t1) {
+TEST(base, reverse_bits_190) {
     std::string z = "00000010100101000001111010011100";
     uint32_t n = ConstructUint32T(z);  //
 

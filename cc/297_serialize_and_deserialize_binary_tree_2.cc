@@ -18,14 +18,16 @@ creative and come up with different approaches yourself.*/
 #include <stdlib.h>
 //* Definition for a binary tree node.
 #include <algorithm>
+#include <catch2/catch_test_macros.hpp>
 #include <queue>
 #include <sstream>
 #include <string>
 
 #include "datastruct_base.hh"
-#include <catch2/catch_test_macros.hpp>
 
-#define TEST(a, b) TEST_CASE(#a,#b)
+#define concat(a, b) a##b
+#define symbol(a) #a
+#define TEST(a, b) TEST_CASE(symbol(concat(a, b)), #b)
 #define EXPECT_EQ(a, b) REQUIRE(a == b)
 #define EXPECT_TRUE(a) REQUIRE(a)
 #define EXPECT_FALSE(a) REQUIRE(!a)
@@ -112,7 +114,7 @@ class Codec {
 
 using namespace std;
 
-TEST(construtTest, t1) {
+TEST(construtTest, serialize_and_deserialize_binary_tree_2_297) {
     std::vector<std::optional<int>> input{
         1, 2, 3, optional<int>(), optional<int>(), 4, 5};
 
@@ -127,7 +129,7 @@ TEST(construtTest, t1) {
     FreeTreeNode(ret);
 }
 
-TEST(memleak, t0) {
+TEST(memleak, serialize_and_deserialize_binary_tree_2_297) {
     std::vector<optional<int>> input{};
     std::vector<int> output = {};
 

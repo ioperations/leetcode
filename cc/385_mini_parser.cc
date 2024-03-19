@@ -15,14 +15,15 @@ or other lists.
 #include <stddef.h>
 
 #include <algorithm>
+#include <catch2/catch_test_macros.hpp>
 #include <functional>
 #include <stack>
 #include <string>
 #include <vector>
 
-#include <catch2/catch_test_macros.hpp>
-
-#define TEST(a, b) TEST_CASE(#a,#b)
+#define concat(a, b) a##b
+#define symbol(a) #a
+#define TEST(a, b) TEST_CASE(symbol(concat(a, b)), #b)
 #define EXPECT_EQ(a, b) REQUIRE(a == b)
 #define EXPECT_TRUE(a) REQUIRE(a)
 #define EXPECT_FALSE(a) REQUIRE(!a)
@@ -149,7 +150,7 @@ void Flattern(const NestedInteger &n, vector<int> &ret) {
     }
 }
 
-TEST(base, t0) {
+TEST(base, mini_parser_385) {
     const NestedInteger tmp(1);
 
     vector<int> vec;

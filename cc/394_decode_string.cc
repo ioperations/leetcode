@@ -15,13 +15,15 @@ repeat numbers, k. For example, there will not be input like 3a or 2[4].
 The test cases are generated so that the length of the output will never exceed
 105.*/
 
+#include <catch2/catch_test_macros.hpp>
 #include <stack>
 #include <string>
 
 #include "datastruct_base.hh"
-#include <catch2/catch_test_macros.hpp>
 
-#define TEST(a, b) TEST_CASE(#a,#b)
+#define concat(a, b) a##b
+#define symbol(a) #a
+#define TEST(a, b) TEST_CASE(symbol(concat(a, b)), #b)
 #define EXPECT_EQ(a, b) REQUIRE(a == b)
 #define EXPECT_TRUE(a) REQUIRE(a)
 #define EXPECT_FALSE(a) REQUIRE(!a)
@@ -29,7 +31,6 @@ The test cases are generated so that the length of the output will never exceed
 using namespace Tree;
 using namespace std;
 
-#include <gtest/gtest.h>
 namespace {
 class Solution {
    public:

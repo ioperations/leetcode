@@ -12,12 +12,14 @@ Note that pos is not passed as a parameter.
 
 Return true if there is a cycle in the linked list. Otherwise, return false
 */
+#include <catch2/catch_test_macros.hpp>
 #include <vector>
 
 #include "datastruct_base.hh"
-#include <catch2/catch_test_macros.hpp>
 
-#define TEST(a, b) TEST_CASE(#a,#b)
+#define concat(a, b) a##b
+#define symbol(a) #a
+#define TEST(a, b) TEST_CASE(symbol(concat(a, b)), #b)
 #define EXPECT_EQ(a, b) REQUIRE(a == b)
 #define EXPECT_TRUE(a) REQUIRE(a)
 #define EXPECT_FALSE(a) REQUIRE(!a)
@@ -52,7 +54,7 @@ class Solution {
     }
 };
 
-TEST(memleak, t1) {
+TEST(memleak, linked_list_cycle_ii_2) {
     ListNode *head = List::ConstructList(std::vector<int>{3, 2, 0, -4});
 
     FreeList(head);
