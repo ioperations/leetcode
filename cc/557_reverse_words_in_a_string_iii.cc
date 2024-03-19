@@ -6,18 +6,17 @@
 
 */
 
-#include <benchmark/benchmark.h>
+#include <catch2/benchmark/catch_benchmark.hpp>
+#include <catch2/catch_test_macros.hpp>
 #include <stack>
 #include <string>
 #include <utility>
-
-#include <catch2/catch_test_macros.hpp>
 
 #define concat(a, b) concat2(a, b)
 #define concat2(a, b) a##b
 #define symbol(a) symbol2(a)
 #define symbol2(a) #a
-#define TEST(a, b) TEST_CASE(symbol(concat(concat(a, b),__LINE__)), #b)
+#define TEST(a, b) TEST_CASE(symbol(concat(concat(a, b), __LINE__)), #b)
 #define EXPECT_EQ(a, b) REQUIRE(a == b)
 #define EXPECT_TRUE(a) REQUIRE(a)
 #define EXPECT_FALSE(a) REQUIRE(!a)
@@ -77,8 +76,6 @@ class Solution {
     }
 };
 
-
-
 TEST(reverse_words_in_a_string_iii, t1) {
     string const s = "Let's take LeetCode contest";
     string const output = "s'teL ekat edoCteeL tsetnoc";
@@ -95,26 +92,26 @@ TEST(reverse_words_in_a_string_iii, t2) {
     EXPECT_EQ(ret, output);
 }
 
-static void BenchMarkStack(benchmark::State &state) {
+TEST(reverse_words_in_a_string_iii, bench) {
     string const s = "Let's take LeetCode contest";
     Solution sl;
     string const output = "s'teL ekat edoCteeL tsetnoc";
-    for (auto _ : state) {
+
+    BENCHMARK("BenchMarkStack") {
         auto ret = sl.ReverseWords(s);
         EXPECT_EQ(ret, output);
-    }
+    };
 }
-BENCHMARK(BenchMarkStack);
 
-static void BenchMarkTwoPointer(benchmark::State &state) {
+TEST(reverse_words_in_a_string_iii, benchv2) {
     string const s = "Let's take LeetCode contest";
     Solution sl;
     string const output = "s'teL ekat edoCteeL tsetnoc";
-    for (auto _ : state) {
+
+    BENCHMARK("BenchMarkTwoPointer") {
         auto ret = sl.ReverseWordsV1(s);
         EXPECT_EQ(ret, output);
-    }
+    };
 }
-BENCHMARK(BenchMarkTwoPointer);
 
 }  // namespace

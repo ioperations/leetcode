@@ -9,16 +9,15 @@ There is only one repeated number in nums, return this repeated number.
 You must solve the problem without modifying the array nums and uses only
 constant extra space.*/
 
-#include <vector>
-
-#include "benchmark/benchmark.h"
+#include <catch2/benchmark/catch_benchmark.hpp>
 #include <catch2/catch_test_macros.hpp>
+#include <vector>
 
 #define concat(a, b) concat2(a, b)
 #define concat2(a, b) a##b
 #define symbol(a) symbol2(a)
 #define symbol2(a) #a
-#define TEST(a, b) TEST_CASE(symbol(concat(concat(a, b),__LINE__)), #b)
+#define TEST(a, b) TEST_CASE(symbol(concat(concat(a, b), __LINE__)), #b)
 #define EXPECT_EQ(a, b) REQUIRE(a == b)
 #define EXPECT_TRUE(a) REQUIRE(a)
 #define EXPECT_FALSE(a) REQUIRE(!a)
@@ -99,28 +98,28 @@ TEST(find_the_duplicate_number_v2, t2) {
     int ret = sll.FindDuplicateV1(v);
     EXPECT_EQ(ret, i);
 }
-static void BenchMarkV0(benchmark::State &state) {
-    for (auto _ : state) {
-        std::vector<int> v{3, 1, 3, 4, 2};
 
-        int i = 3;
-        Solution sll;
+TEST(FindDuplicate, V1) {
+    std::vector<int> v{3, 1, 3, 4, 2};
+
+    int i = 3;
+    Solution sll;
+
+    BENCHMARK("BenchMarkV0") {
         int ret = sll.FindDuplicate(v);
         EXPECT_EQ(ret, i);
-    }
+    };
 }
-BENCHMARK(BenchMarkV0);
 
-static void BenchMarkV1(benchmark::State &state) {
-    for (auto _ : state) {
-        std::vector<int> v{3, 1, 3, 4, 2};
+TEST(FindDuplicateV1, t1) {
+    std::vector<int> v{3, 1, 3, 4, 2};
 
-        int i = 3;
-        Solution sll;
+    int i = 3;
+    Solution sll;
+    BENCHMARK("BenchMarkV1") {
         int ret = sll.FindDuplicateV1(v);
         EXPECT_EQ(ret, i);
-    }
+    };
 }
-BENCHMARK(BenchMarkV1);
 
 }  // namespace

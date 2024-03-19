@@ -11,19 +11,18 @@
 
     You must solve this problem without using the library's sort function.
 */
-#include <benchmark/benchmark.h>
 
+#include <catch2/benchmark/catch_benchmark.hpp>
+#include <catch2/catch_test_macros.hpp>
 #include <cstddef>
 #include <utility>
 #include <vector>
-
-#include <catch2/catch_test_macros.hpp>
 
 #define concat(a, b) concat2(a, b)
 #define concat2(a, b) a##b
 #define symbol(a) symbol2(a)
 #define symbol2(a) #a
-#define TEST(a, b) TEST_CASE(symbol(concat(concat(a, b),__LINE__)), #b)
+#define TEST(a, b) TEST_CASE(symbol(concat(concat(a, b), __LINE__)), #b)
 #define EXPECT_EQ(a, b) REQUIRE(a == b)
 #define EXPECT_TRUE(a) REQUIRE(a)
 #define EXPECT_FALSE(a) REQUIRE(!a)
@@ -76,23 +75,21 @@ class Solution {
     }
 };
 
-static void BenchBubbleSort(benchmark::State &state) {
-    for (auto _ : state) {
-        Solution s;
+TEST(BenchBubbleSort, t1) {
+    Solution s;
+    BENCHMARK("BenchBubbleSort") {
         std::vector<int> nums{2, 0, 2, 1, 1, 0};
         s.SortColors(nums);
-    }
+    };
 }
-BENCHMARK(BenchBubbleSort);
 
-static void BenchMergeSort(benchmark::State &state) {
-    for (auto _ : state) {
-        Solution s;
+TEST(SortColorsV2, t2) {
+    Solution s;
+    BENCHMARK("BenchMergeSort") {
         std::vector<int> nums{2, 0, 2, 1, 1, 0};
         s.SortColorsV2(nums);
-    }
+    };
 }
-BENCHMARK(BenchMergeSort);
 
 TEST(sort_colors, t1) {
     // nums = [2,0,2,1,1,0]

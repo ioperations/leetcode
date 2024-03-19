@@ -6,17 +6,15 @@
 // range [left, right], return the bitwise AND of all numbers in this range,
 // inclusive.
 
-#include <benchmark/benchmark.h>
-
-#include <cmath>
-
+#include <catch2/benchmark/catch_benchmark.hpp>
 #include <catch2/catch_test_macros.hpp>
+#include <cmath>
 
 #define concat(a, b) concat2(a, b)
 #define concat2(a, b) a##b
 #define symbol(a) symbol2(a)
 #define symbol2(a) #a
-#define TEST(a, b) TEST_CASE(symbol(concat(concat(a, b),__LINE__)), #b)
+#define TEST(a, b) TEST_CASE(symbol(concat(concat(a, b), __LINE__)), #b)
 #define EXPECT_EQ(a, b) REQUIRE(a == b)
 #define EXPECT_TRUE(a) REQUIRE(a)
 #define EXPECT_FALSE(a) REQUIRE(!a)
@@ -66,26 +64,25 @@ TEST(bitwise_and_of_numbers_range, t4) {
     EXPECT_EQ(ret, 0);
 }
 
-void BenchMarkSeqBitAnd(benchmark::State &state) {
-    for (auto _ : state) {
-        Solution s;
-        const int left = 1, right = 200000;
+TEST(BenchMarkSeqBitAnd, t1) {
+    Solution s;
+    const int left = 1, right = 200000;
+
+    BENCHMARK("BenchMarkSeqBitAnd") {
         const int ret = s.RangeBitwiseAnd(left, right);
 
         EXPECT_EQ(ret, 0);
-    }
+    };
 }
-BENCHMARK(BenchMarkSeqBitAnd);
 
-void BenchMarkWise(benchmark::State &state) {
-    for (auto _ : state) {
-        Solution s;
-        const int left = 1, right = 200000;
+TEST(RangeBitwiseAndV2, t2) {
+    Solution s;
+    const int left = 1, right = 200000;
+    BENCHMARK("BenchMarkWise") {
         const int ret = s.RangeBitwiseAndV2(left, right);
 
         EXPECT_EQ(ret, 0);
-    }
+    };
 }
-BENCHMARK(BenchMarkWise);
 
 }  // namespace

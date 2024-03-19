@@ -11,10 +11,10 @@ or other lists.
 
 // // This is the interface that allows for creating nested lists.
 // You should not implement it, or speculate about its implementation
-#include <benchmark/benchmark.h>
 #include <stddef.h>
 
 #include <algorithm>
+#include <catch2/benchmark/catch_benchmark.hpp>
 #include <catch2/catch_test_macros.hpp>
 #include <functional>
 #include <stack>
@@ -25,7 +25,7 @@ or other lists.
 #define concat2(a, b) a##b
 #define symbol(a) symbol2(a)
 #define symbol2(a) #a
-#define TEST(a, b) TEST_CASE(symbol(concat(concat(a, b),__LINE__)), #b)
+#define TEST(a, b) TEST_CASE(symbol(concat(concat(a, b), __LINE__)), #b)
 #define EXPECT_EQ(a, b) REQUIRE(a == b)
 #define EXPECT_TRUE(a) REQUIRE(a)
 #define EXPECT_FALSE(a) REQUIRE(!a)
@@ -208,18 +208,18 @@ TEST(mini_parser, t2) {
     EXPECT_EQ(vec, (std::vector<int>{123, 456, 789}));
 }
 
-void BenchV1(benchmark::State &state) {
-    for (auto _ : state) {
-        const string s = "[123,[456,[789]]]";
-        // Output: [123,[456,[789]]]
-        // Explanation: Return a NestedInteger object containing a nested list
-        // with 2 elements:
-        // 1. An integer containing value 123.
-        // 2. A nested list containing two elements:
-        //     i.  An integer containing value 456.
-        //     ii. A nested list with one element:
-        //          a. An integer containing value 789
+TEST(Deserialize, t1) {
+    const string s = "[123,[456,[789]]]";
+    // Output: [123,[456,[789]]]
+    // Explanation: Return a NestedInteger object containing a nested list
+    // with 2 elements:
+    // 1. An integer containing value 123.
+    // 2. A nested list containing two elements:
+    //     i.  An integer containing value 456.
+    //     ii. A nested list with one element:
+    //          a. An integer containing value 789
 
+    BENCHMARK("Deserialize") {
         Solution sl;
         // Output: [123,[456,[789]]]
         auto ret = sl.Deserialize(s);
@@ -228,22 +228,21 @@ void BenchV1(benchmark::State &state) {
         Flattern(ret, vec);
 
         EXPECT_EQ(vec, (std::vector<int>{123, 456, 789}));
-    }
+    };
 }
-BENCHMARK(BenchV1);
 
-void BenchV2(benchmark::State &state) {
-    for (auto _ : state) {
-        const string s = "[123,[456,[789]]]";
-        // Output: [123,[456,[789]]]
-        // Explanation: Return a NestedInteger object containing a nested list
-        // with 2 elements:
-        // 1. An integer containing value 123.
-        // 2. A nested list containing two elements:
-        //     i.  An integer containing value 456.
-        //     ii. A nested list with one element:
-        //          a. An integer containing value 789
+TEST(DeserializeV1, t1) {
+    const string s = "[123,[456,[789]]]";
+    // Output: [123,[456,[789]]]
+    // Explanation: Return a NestedInteger object containing a nested list
+    // with 2 elements:
+    // 1. An integer containing value 123.
+    // 2. A nested list containing two elements:
+    //     i.  An integer containing value 456.
+    //     ii. A nested list with one element:
+    //          a. An integer containing value 789
 
+    BENCHMARK("BenchV2") {
         Solution sl;
         // Output: [123,[456,[789]]]
         auto ret = sl.DeserializeV1(s);
@@ -252,8 +251,7 @@ void BenchV2(benchmark::State &state) {
         Flattern(ret, vec);
 
         EXPECT_EQ(vec, (std::vector<int>{123, 456, 789}));
-    }
+    };
 }
-BENCHMARK(BenchV2);
 
 }  // namespace

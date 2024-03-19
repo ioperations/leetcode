@@ -6,19 +6,19 @@
  */
 
 #include <assert.h>
-#include <benchmark/benchmark.h>
 
 #include <algorithm>
+#include <catch2/benchmark/catch_benchmark.hpp>
+#include <catch2/catch_test_macros.hpp>
 #include <vector>
 
 #include "datastruct_base.hh"
-#include <catch2/catch_test_macros.hpp>
 
 #define concat(a, b) concat2(a, b)
 #define concat2(a, b) a##b
 #define symbol(a) symbol2(a)
 #define symbol2(a) #a
-#define TEST(a, b) TEST_CASE(symbol(concat(concat(a, b),__LINE__)), #b)
+#define TEST(a, b) TEST_CASE(symbol(concat(concat(a, b), __LINE__)), #b)
 #define EXPECT_EQ(a, b) REQUIRE(a == b)
 #define EXPECT_TRUE(a) REQUIRE(a)
 #define EXPECT_FALSE(a) REQUIRE(!a)
@@ -150,7 +150,7 @@ TEST(merge_two_sorted_list, t2) {
     }
 }
 
-void Benchmakrv1(benchmark::State &state) {
+TEST(merge_two_sorted_list, v1) {
     std::vector<int> t{1,  2,  3,  4,  5,  6,  7,  8, 9,
                        10, 11, 12, 13, 14, 15, 16, 17};
 
@@ -162,12 +162,13 @@ void Benchmakrv1(benchmark::State &state) {
         expected.push_back(t[i]);
     }
 
-    for (auto _ : state) {
+    Solution solution;
+
+    BENCHMARK("Benchmakrv1") {
         ListNode *s1 = List::ConstructList(t);
 
         ListNode *l1 = List::ConstructList(t);
 
-        Solution solution;
         auto *it = solution.MergeTwoLists(s1, l1);
         auto *it2 = it;
 
@@ -177,11 +178,10 @@ void Benchmakrv1(benchmark::State &state) {
         }
 
         List::FreeList(it2);
-    }
+    };
 }
-BENCHMARK(Benchmakrv1);
 
-void Benchmakrv2(benchmark::State &state) {
+TEST(mergeTwoListsV2, v2) {
     std::vector<int> t{1,  2,  3,  4,  5,  6,  7,  8, 9,
                        10, 11, 12, 13, 14, 15, 16, 17};
 
@@ -194,24 +194,22 @@ void Benchmakrv2(benchmark::State &state) {
     }
     sort(expected.begin(), expected.end());
 
-    for (auto _ : state) {
+    Solution solution;
+
+    BENCHMARK("Benchmakrv2") {
         ListNode *s1 = List::ConstructList(t);
 
         ListNode *l1 = List::ConstructList(t);
 
-        Solution solution;
         auto *it = solution.MergeTwoListsV2(s1, l1);
-
         auto *it2 = it;
 
         for (auto &ptr : expected) {
             EXPECT_EQ(ptr, it->val);
             it = it->next;
         }
-
         List::FreeList(it2);
-    }
+    };
 }
-BENCHMARK(Benchmakrv2);
 
 }  // namespace

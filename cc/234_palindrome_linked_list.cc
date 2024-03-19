@@ -6,19 +6,18 @@
 Given the head of a singly linked list, return true if it is a palindrome.
 */
 
-#include <benchmark/benchmark.h>
-
+#include <catch2/benchmark/catch_benchmark.hpp>
+#include <catch2/catch_test_macros.hpp>
 #include <cstddef>
 #include <vector>
 
 #include "datastruct_base.hh"
-#include <catch2/catch_test_macros.hpp>
 
 #define concat(a, b) concat2(a, b)
 #define concat2(a, b) a##b
 #define symbol(a) symbol2(a)
 #define symbol2(a) #a
-#define TEST(a, b) TEST_CASE(symbol(concat(concat(a, b),__LINE__)), #b)
+#define TEST(a, b) TEST_CASE(symbol(concat(concat(a, b), __LINE__)), #b)
 #define EXPECT_EQ(a, b) REQUIRE(a == b)
 #define EXPECT_TRUE(a) REQUIRE(a)
 #define EXPECT_FALSE(a) REQUIRE(!a)
@@ -170,67 +169,26 @@ TEST(palindrome_linked_list_v2, t2) {
     EXPECT_EQ(ret, false);
 }
 
-static void BenchFastSlow(benchmark::State &state) {
+TEST(IsPalindrome, t1) {
     Solution2 s;
-    for (auto _ : state) {
-        ListNode head(1);
-        ListNode head2(2);
-        ListNode head3(3);
-        ListNode head4(4);
-        ListNode head5(5);
-        ListNode head6(6);
-        ListNode head7(5);
-        ListNode head8(4);
-        ListNode head9(3);
-        ListNode head10(2);
-        ListNode head11(1);
 
-        head.next = &head2;
-        head2.next = &head3;
-        head3.next = &head4;
-        head4.next = &head5;
-        head5.next = &head6;
-        head6.next = &head7;
-        head7.next = &head8;
-        head8.next = &head9;
-        head9.next = &head10;
-        head10.next = &head11;
-
-        bool ret = s.IsPalindrome(&head);
+    BENCHMARK("BenchFastSlow") {
+        List::ListNode<int> *list = List::ConstructList(
+            std::vector<int>{1, 2, 3, 4, 5, 6, 5, 4, 3, 2, 1});
+        bool ret = s.IsPalindrome(list);
         EXPECT_EQ(ret, true);
-    }
+        List::FreeList(list);
+    };
 }
-BENCHMARK(BenchFastSlow);
-static void BenchMyVec(benchmark::State &state) {
+
+TEST(IsPalindrome, t1) {
     Solution s;
-    for (auto _ : state) {
-        ListNode head(1);
-        ListNode head2(2);
-        ListNode head3(3);
-        ListNode head4(4);
-        ListNode head5(5);
-        ListNode head6(6);
-        ListNode head7(5);
-        ListNode head8(4);
-        ListNode head9(3);
-        ListNode head10(2);
-        ListNode head11(1);
-
-        head.next = &head2;
-        head2.next = &head3;
-        head3.next = &head4;
-        head4.next = &head5;
-        head5.next = &head6;
-        head6.next = &head7;
-        head7.next = &head8;
-        head8.next = &head9;
-        head9.next = &head10;
-        head10.next = &head11;
-
-        bool ret = s.IsPalindrome(&head);
+    BENCHMARK("BenchMyVec") {
+        List::ListNode<int> *list = List::ConstructList(
+            std::vector<int>{1, 2, 3, 4, 5, 6, 5, 4, 3, 2, 1});
+        bool ret = s.IsPalindrome(list);
         EXPECT_EQ(ret, true);
-    }
+    };
 }
-BENCHMARK(BenchMyVec);
 
 }  // namespace
