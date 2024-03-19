@@ -8,7 +8,12 @@
 #include <stdlib.h>
 #include <vector>
 
-#include "gtest/gtest.h"
+#include <catch2/catch_test_macros.hpp>
+
+#define TEST(a, b) TEST_CASE(#a,#b)
+#define EXPECT_EQ(a, b) REQUIRE(a == b)
+#define EXPECT_TRUE(a) REQUIRE(a)
+#define EXPECT_FALSE(a) REQUIRE(!a)
 
 /// 给一个数字的数组，返回距离target最近的算数和,由任意三个数字组成
 /// 3 <= nums.length <= 1000

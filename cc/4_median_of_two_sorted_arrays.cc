@@ -2,10 +2,16 @@
 // PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
 // https://pvs-studio.com
 
-#include "gtest/gtest.h"
+#include <catch2/catch_approx.hpp>
+#include <catch2/catch_test_macros.hpp>
 
-#include<vector>
-namespace { 
+#define TEST(a, b) TEST_CASE(#a, #b)
+#define EXPECT_EQ(a, b) REQUIRE(a == b)
+#define EXPECT_TRUE(a) REQUIRE(a)
+#define EXPECT_FALSE(a) REQUIRE(!a)
+
+#include <vector>
+namespace {
 class Solution {
    public:
     Solution(){};
@@ -47,14 +53,12 @@ class Solution {
    private:
 };
 
-
-
 TEST(median_of_two_sorted_arrays, t1) {
     Solution s;
     std::vector<int> nums1{1, 3};
     std::vector<int> nums2{2};
     const double ret = s.FindMedianSortedArrays(nums1, nums2);
-    EXPECT_DOUBLE_EQ(ret , 2 );
+    REQUIRE(ret == Catch::Approx(2));
 }
 
 TEST(median_of_two_sorted_arrays, t2) {
@@ -62,7 +66,7 @@ TEST(median_of_two_sorted_arrays, t2) {
     std::vector<int> nums1{1, 2};
     std::vector<int> nums2{3, 4};
     const double ret = s.FindMedianSortedArrays(nums1, nums2);
-    EXPECT_DOUBLE_EQ(ret , 2.5);
+    REQUIRE(ret == Catch::Approx(2.5));
 }
 
-} // namespace
+}  // namespace

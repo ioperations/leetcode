@@ -4,10 +4,15 @@
 #include <limits.h>
 #include <time.h>
 
+#include <catch2/catch_approx.hpp>
+#include <catch2/catch_test_macros.hpp>
 #include <iostream>
 #include <vector>
 
-#include "gtest/gtest.h"
+#define TEST(a, b) TEST_CASE(#a, #b)
+#define EXPECT_EQ(a, b) REQUIRE(a == b)
+#define EXPECT_TRUE(a) REQUIRE(a)
+#define EXPECT_FALSE(a) REQUIRE(!a)
 using namespace std;
 
 /// 寻找两个已经排好序的数组的中位数
@@ -157,10 +162,12 @@ TEST(_median_of_two_sorted_arrayv2, t2) {
 
     vector<int> n3{};
     vector<int> n4{1};
-
-    EXPECT_DOUBLE_EQ(3.0, n.FindMedianSortedArrays(n1, n2));
-    EXPECT_DOUBLE_EQ(3.0, n.FindMedianSortedArrays(n1, n3));
-    EXPECT_DOUBLE_EQ(1.0, n.FindMedianSortedArrays(n3, n4));
+    double ret = n.FindMedianSortedArrays(n1, n2);
+    REQUIRE(ret == Catch::Approx(3.0));
+    ret = n.FindMedianSortedArrays(n1, n3);
+    REQUIRE(ret == Catch::Approx(3.0));
+    ret = n.FindMedianSortedArrays(n3, n4);
+    REQUIRE(ret == Catch::Approx(1.0));
 }
 
 }  // namespace

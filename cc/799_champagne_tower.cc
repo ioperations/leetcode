@@ -18,9 +18,15 @@
  * */
 
 #include <algorithm>
+#include <catch2/catch_test_macros.hpp>
 #include <vector>
 
-#include "gtest/gtest.h"
+#include "catch2/catch_approx.hpp"
+
+#define TEST(a, b) TEST_CASE(#a, #b)
+#define EXPECT_EQ(a, b) REQUIRE(a == b)
+#define EXPECT_TRUE(a) REQUIRE(a)
+#define EXPECT_FALSE(a) REQUIRE(!a)
 
 using namespace std;
 namespace {
@@ -48,7 +54,7 @@ TEST(champagne_tower, t1) {
     double output = 0.00000;
     Solution sl;
     double ret = sl.ChampagneTower(poured, query_row, query_glass);
-    EXPECT_DOUBLE_EQ(output, ret);
+    REQUIRE(output == Catch::Approx(ret));
     // Explanation: We poured 1 cup of champange to the top glass of the tower
     // (which is indexed as (0, 0)). There will be no excess liquid so all the
     // glasses under the top glass will remain empty.
@@ -59,7 +65,7 @@ TEST(champagne_tower, t2) {
     double output = 0.50000;
     Solution sl;
     double ret = sl.ChampagneTower(poured, query_row, query_glass);
-    EXPECT_DOUBLE_EQ(output, ret);
+    REQUIRE(output == Catch::Approx(ret));
     // ќ Explanation: We poured 1 cup of champange to the top glass of the tower
     // We poured 2 cups of champange to the top glass of the tower (which is
     // indexed as (0, 0)). There is one cup of excess liquid. The glass indexed
@@ -72,7 +78,7 @@ TEST(champagne_tower, t3) {
     double output = 1.00000;
     Solution sl;
     double ret = sl.ChampagneTower(poured, query_row, query_glass);
-    EXPECT_DOUBLE_EQ(output, ret);
+    REQUIRE(output == Catch::Approx(ret));
 }
 
 }  // namespace

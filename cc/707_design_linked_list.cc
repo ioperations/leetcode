@@ -22,7 +22,12 @@ of the linked list. If index is greater than the length, the node will not be
 inserted. void deleteAtIndex(int index) Delete the indexth node in the linked
 list, if the index is valid.*/
 
-#include "gtest/gtest.h"
+#include <catch2/catch_test_macros.hpp>
+
+#define TEST(a, b) TEST_CASE(#a,#b)
+#define EXPECT_EQ(a, b) REQUIRE(a == b)
+#define EXPECT_TRUE(a) REQUIRE(a)
+#define EXPECT_FALSE(a) REQUIRE(!a)
 
 namespace {
 class Node {

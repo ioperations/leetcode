@@ -14,9 +14,14 @@ You must write an algorithm that runs in O(log n) time.
 
 */
 
+#include <catch2/catch_test_macros.hpp>
+#include <set>
 #include <vector>
 
-#include "gtest/gtest.h"
+#define TEST(a, b) TEST_CASE(#a, #b)
+#define EXPECT_EQ(a, b) REQUIRE(a == b)
+#define EXPECT_TRUE(a) REQUIRE(a)
+#define EXPECT_FALSE(a) REQUIRE(!a)
 
 using namespace std;
 
@@ -93,8 +98,6 @@ class Solution {
         return -1;
     }
 };
-
-#include <set>
 
 TEST(find_peek_element, t1) {
     std::set<int> expectd{2};

@@ -9,7 +9,12 @@ Given an integer n, return true if it is a power of three.Otherwise,
     if there exists an integer x such that n == 3x.
 */
 
-#include "gtest/gtest.h"
+#include <catch2/catch_test_macros.hpp>
+
+#define TEST(a, b) TEST_CASE(#a,#b)
+#define EXPECT_EQ(a, b) REQUIRE(a == b)
+#define EXPECT_TRUE(a) REQUIRE(a)
+#define EXPECT_FALSE(a) REQUIRE(!a)
 
 namespace {
 class Solution {

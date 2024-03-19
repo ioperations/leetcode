@@ -10,7 +10,12 @@
 #include <cstring>
 #include <functional>
 
-#include "gtest/gtest.h"
+#include <catch2/catch_test_macros.hpp>
+
+#define TEST(a, b) TEST_CASE(#a,#b)
+#define EXPECT_EQ(a, b) REQUIRE(a == b)
+#define EXPECT_TRUE(a) REQUIRE(a)
+#define EXPECT_FALSE(a) REQUIRE(!a)
 
 // 每一个步骤  只有删除 添加 改变
 namespace {

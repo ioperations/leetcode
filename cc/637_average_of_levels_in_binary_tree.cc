@@ -5,13 +5,19 @@
  * level in the form of an array. Answers within 10-5 of the actual answer will
  * be accepted.*/
 // Definition for a binary tree node.
+#include <catch2/catch_approx.hpp>
+#include <catch2/catch_test_macros.hpp>
 #include <queue>
 #include <stdexcept>
 #include <utility>
 #include <vector>
 
 #include "datastruct_base.hh"
-#include "gtest/gtest.h"
+
+#define TEST(a, b) TEST_CASE(#a, #b)
+#define EXPECT_EQ(a, b) REQUIRE(a == b)
+#define EXPECT_TRUE(a) REQUIRE(a)
+#define EXPECT_FALSE(a) REQUIRE(!a)
 
 using namespace std;
 using namespace Tree;
@@ -72,7 +78,7 @@ TEST(average_of_levels_in_binary_tree, t1) {
     auto ret = sl.AverageOfLevels(rootnode);
     int i = 0;
     for (auto ptr1 : ret) {
-        EXPECT_DOUBLE_EQ(ptr1, output[i]);
+        REQUIRE(ptr1 == Catch::Approx(output[i]));
         i++;
     }
     FreeTreeNode(rootnode);
@@ -88,7 +94,7 @@ TEST(average_of_levels_in_binary_tree, t2) {
     auto ret = sl.AverageOfLevels(rootnode);
     int i = 0;
     for (auto ptr1 : ret) {
-        EXPECT_DOUBLE_EQ(ptr1, output[i]);
+        REQUIRE(ptr1 == Catch::Approx(output[i]));
         i++;
     }
     FreeTreeNode(rootnode);
@@ -104,7 +110,7 @@ TEST(average_of_levels_in_binary_tree, t3) {
     auto ret = sl.AverageOfLevels(rootnode);
     int i = 0;
     for (auto ptr1 : ret) {
-        EXPECT_DOUBLE_EQ(ptr1, output[i]);
+        REQUIRE(ptr1 == Catch::Approx(output[i]));
         i++;
     }
     FreeTreeNode(rootnode);

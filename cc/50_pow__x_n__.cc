@@ -5,7 +5,13 @@
 // Implement pow(x, n), which calculates x raised to the
 // power n(i.e., xn).
 
-#include "gtest/gtest.h"
+#include <catch2/catch_approx.hpp>
+#include <catch2/catch_test_macros.hpp>
+
+#define TEST(a, b) TEST_CASE(#a, #b)
+#define EXPECT_EQ(a, b) REQUIRE(a == b)
+#define EXPECT_TRUE(a) REQUIRE(a)
+#define EXPECT_FALSE(a) REQUIRE(!a)
 
 namespace {
 class Solution {
@@ -69,7 +75,7 @@ TEST(pow__x_n__, t2) {
 
     Solution s;
     const double ret = s.MyPow(x, n);
-    EXPECT_NEAR(ret, expected, 0.001);
+    REQUIRE(ret == Catch::Approx(expected));
 }
 
 TEST(pow__x_n__, t3) {

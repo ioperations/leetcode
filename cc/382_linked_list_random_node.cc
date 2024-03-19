@@ -1,13 +1,19 @@
 // This is a personal academic project. Dear PVS-Studio, please check it.
 // PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
 // https://pvs-studio.com
+#include <catch2/catch_test_macros.hpp>
 #include <cstdlib>
 #include <map>
 #include <set>
 #include <vector>
 
+#include "catch2/catch_approx.hpp"
 #include "datastruct_base.hh"
-#include "gtest/gtest.h"
+
+#define TEST(a, b) TEST_CASE(#a, #b)
+#define EXPECT_EQ(a, b) REQUIRE(a == b)
+#define EXPECT_TRUE(a) REQUIRE(a)
+#define EXPECT_FALSE(a) REQUIRE(!a)
 
 using namespace std;
 
@@ -55,7 +61,7 @@ TEST(linked_list_random_node, t1) {
     }
     std::set<int> set(rt.begin(), rt.end());
     for (auto &ptr : val_count) {
-        EXPECT_NEAR(ptr.second, count / val_count.size(), 1000);
+        REQUIRE(ptr.second == Catch::Approx(count / val_count.size()));
     }
     delete s;
     List::FreeList(head);

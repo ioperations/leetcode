@@ -16,12 +16,16 @@ void addNum(int num) adds the integer num from the data stream to the data
 structure. double findMedian() returns the median of all elements so far.
 Answers within 10-5 of the actual answer will be accepted.
 */
-#include <cfloat>
+#include <catch2/catch_approx.hpp>
+#include <catch2/catch_test_macros.hpp>
 #include <iterator>
 #include <set>
 #include <string>
 
-#include "gtest/gtest.h"
+#define TEST(a, b) TEST_CASE(#a, #b)
+#define EXPECT_EQ(a, b) REQUIRE(a == b)
+#define EXPECT_TRUE(a) REQUIRE(a)
+#define EXPECT_FALSE(a) REQUIRE(!a)
 
 using namespace std;
 
@@ -118,6 +122,8 @@ class MedianFinder {
 // 	multiset<int> rbtree;
 // };
 // END: Time Limit Exceeded
+
+#define EXPECT_NEAR(a, b, c) REQUIRE(a == Catch::Approx(b))
 
 TEST(find_median_from_data_stream, t1) {
     MedianFinder mf;

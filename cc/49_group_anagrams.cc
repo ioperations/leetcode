@@ -8,14 +8,19 @@ An Anagram is a word or phrase formed by rearranging the letters of a different
 word or phrase, typically using all the original letters exactly once.
 
 */
+#include <set>
 #include <vector>
 
 using namespace std;
 #include <algorithm>
+#include <catch2/catch_test_macros.hpp>
 #include <string>
 #include <unordered_map>
 
-#include "gtest/gtest.h"
+#define TEST(a, b) TEST_CASE(#a, #b)
+#define EXPECT_EQ(a, b) REQUIRE(a == b)
+#define EXPECT_TRUE(a) REQUIRE(a)
+#define EXPECT_FALSE(a) REQUIRE(!a)
 
 namespace {
 class Solution {
@@ -34,8 +39,6 @@ class Solution {
         return ans;
     }
 };
-
-#include <set>
 
 TEST(group_anagrams, t1) {
     vector<string> strs{"eat", "tea", "tan", "ate", "nat", "bat"};

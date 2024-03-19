@@ -18,7 +18,12 @@ node. A leaf is a node with no children.
 #include <vector>
 
 #include "datastruct_base.hh"
-#include "gtest/gtest.h"
+#include <catch2/catch_test_macros.hpp>
+
+#define TEST(a, b) TEST_CASE(#a,#b)
+#define EXPECT_EQ(a, b) REQUIRE(a == b)
+#define EXPECT_TRUE(a) REQUIRE(a)
+#define EXPECT_FALSE(a) REQUIRE(!a)
 
 using namespace std;
 

@@ -1,6 +1,6 @@
 default:
-	ninja -C build 
+	ninja -C ./cmake_build_ninja
 
 clean:
-	make -C cc clean
+	make -C ./cmake_build_ninja clean
 
