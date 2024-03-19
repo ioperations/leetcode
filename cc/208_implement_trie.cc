@@ -14,20 +14,19 @@ boolean search(String word) Returns true if the string word is in the trie
 prefix) Returns true if there is a previously inserted string word that has the
 prefix prefix, and false otherwise.*/
 
-#include <benchmark/benchmark.h>
 #include <stddef.h>
 
+#include <catch2/benchmark/catch_benchmark.hpp>
+#include <catch2/catch_test_macros.hpp>
 #include <map>
 #include <string>
 #include <vector>
-
-#include <catch2/catch_test_macros.hpp>
 
 #define concat(a, b) concat2(a, b)
 #define concat2(a, b) a##b
 #define symbol(a) symbol2(a)
 #define symbol2(a) #a
-#define TEST(a, b) TEST_CASE(symbol(concat(concat(a, b),__LINE__)), #b)
+#define TEST(a, b) TEST_CASE(symbol(concat(concat(a, b), __LINE__)), #b)
 #define EXPECT_EQ(a, b) REQUIRE(a == b)
 #define EXPECT_TRUE(a) REQUIRE(a)
 #define EXPECT_FALSE(a) REQUIRE(!a)
@@ -210,8 +209,8 @@ TEST(implement_trie_v2, t1) {
     delete trie;
 }
 
-void BenchMarkOther(benchmark::State &state) {
-    for (auto _ : state) {
+TEST(BenchMarkOther, t1) {
+    BENCHMARK("BenchMarkOther") {
         bool ret;
         Trie *trie = new Trie();
         trie->Insert("apple");
@@ -225,12 +224,11 @@ void BenchMarkOther(benchmark::State &state) {
         ret = trie->Search("app");  // return True
         EXPECT_EQ(ret, true);
         delete trie;
-    }
+    };
 }
-BENCHMARK(BenchMarkOther);
 
-void BenchMarkMyImpl(benchmark::State &state) {
-    for (auto _ : state) {
+TEST(BenchMarkMyImpl, t1) {
+    BENCHMARK("BenchMarkMyImpl") {
         bool ret;
         TrieV1 *trie = new TrieV1();
         trie->Insert("apple");
@@ -244,8 +242,7 @@ void BenchMarkMyImpl(benchmark::State &state) {
         ret = trie->Search("app");  // return True
         EXPECT_EQ(ret, true);
         delete trie;
-    }
+    };
 }
-BENCHMARK(BenchMarkMyImpl);
 
 }  // namespace
