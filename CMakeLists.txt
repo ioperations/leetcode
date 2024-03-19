@@ -6,8 +6,8 @@ enable_testing()
 
 Include(FetchContent)
 
-find_package(Catch2)
-if(NOT Catch2_FOUND)
+find_package(Catch2 3)
+# if(NOT Catch2_FOUND)
     FetchContent_Declare(
       Catch2
       GIT_REPOSITORY https://github.com/catchorg/Catch2.git
@@ -15,6 +15,6 @@ if(NOT Catch2_FOUND)
     )
 
     FetchContent_MakeAvailable(Catch2)
-endif()
+# endif()
 
 add_subdirectory(cc)
