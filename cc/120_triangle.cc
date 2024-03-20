@@ -28,7 +28,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    int FindMin(int i, int j, int n, vector<vector<int>> &triangle,
+    int FindMin(std::size_t i, std::size_t j, int n, vector<vector<int>> &triangle,
                 vector<vector<int>> &mem) {
         if (i == n - 1) return triangle[i][j];
         if (mem[i][j] != -1) return mem[i][j];

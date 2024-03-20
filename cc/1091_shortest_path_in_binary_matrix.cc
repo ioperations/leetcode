@@ -51,8 +51,8 @@ class Solution {
         while (!fill_values.empty()) {
             steps++;
 
-            int size = fill_values.size();
-            for (int i = 0; i < size; i++) {
+            std::size_t size = fill_values.size();
+            for (std::size_t i = 0; i < size; i++) {
                 pair<int, int> coord = fill_values.front();
                 fill_values.pop();
 

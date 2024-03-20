@@ -28,8 +28,8 @@ class Solution {
    public:
     template <typename T>
     TreeNode<T> *Build(vector<T> &preorder, int p_start, int p_end,
-                       unordered_map<int, int> &inorder_map, int i_start,
-                       int i_end) {
+                       unordered_map<int, int> &inorder_map, std::size_t i_start,
+                       std::size_t i_end) {
         if (p_start > p_end || i_start > i_end) return nullptr;
 
         auto *root = new TreeNode(preorder[p_start]);

@@ -145,7 +145,7 @@ class SolutionV2 {
         }
 
         string s;
-        int len = search_word.length();
+        const std::size_t len = search_word.length();
         vector<vector<string>> res(len);
 
         for (int i = 0; i < (int)search_word.length(); i++) {

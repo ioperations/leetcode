@@ -52,7 +52,7 @@ class Solution {
         int depth = 0;
         while (!q.empty()) {
             depth += 1;
-            int qsize = q.size();
+            std::size_t qsize = q.size();
             // traverse all nodes of current level
             // bcz we are not going to use depth array
             while (qsize--) {
