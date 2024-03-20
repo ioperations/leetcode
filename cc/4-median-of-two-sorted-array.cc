@@ -81,8 +81,8 @@ class Solution {
         if (nums1.size() > nums2.size()) {
             return FindMedianSortedArrays(nums2, nums1);
         }
-        int x = nums1.size();
-        int y = nums2.size();
+        int x = static_cast<int>(nums1.size());
+        int y = static_cast<int>(nums2.size());
 
         int high = x;
         int low = 0;
@@ -114,7 +114,7 @@ class Solution {
     }
 
     double ImplV3(vector<int> &nums1, vector<int> &nums2) {
-        int m = nums1.size(), n = nums2.size();
+        const int m = static_cast<int>(nums1.size()), n = static_cast<int>(nums2.size());
 
         if (!m)
             return n & 1 ? nums2[n / 2]

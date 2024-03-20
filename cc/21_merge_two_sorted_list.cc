@@ -155,7 +155,7 @@ TEST(merge_two_sorted_list, v1) {
                        10, 11, 12, 13, 14, 15, 16, 17};
 
     std::vector<int> expected;
-    const int size = t.size();
+    const std::size_t size = t.size();
     expected.reserve(size * 2);
     for (int i = 0; i < size; i++) {
         expected.push_back(t[i]);
@@ -186,7 +186,7 @@ TEST(mergeTwoListsV2, v2) {
                        10, 11, 12, 13, 14, 15, 16, 17};
 
     std::vector<int> expected;
-    const int size = t.size();
+    const std::size_t size = t.size();
     expected.reserve(size * 2);
     for (int i = 0; i < size; i++) {
         expected.push_back(t[i]);

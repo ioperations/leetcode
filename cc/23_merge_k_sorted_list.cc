@@ -38,7 +38,7 @@ class LoserTree {
     vector<int> *base;  // 数组副本(叶节点数据)
    public:
     LoserTree(vector<int> &nums) {
-        const int nums_size = nums.size();
+        const std::size_t nums_size = nums.size();
         if (nums_size == 0) return;
         const int power_num = ceil(log2(nums_size));
         const int leaves_num = 1 << power_num;

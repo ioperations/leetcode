@@ -24,7 +24,7 @@ class Solution {
     double FindMedianSortedArrays(std::vector<int> &nums1,
                                   std::vector<int> &nums2) {
         std::vector<int> merged;
-        const int size = nums1.size() + nums2.size();
+        const std::size_t size = nums1.size() + nums2.size();
         merged.reserve(size);
 
         std::size_t i = 0, j = 0;

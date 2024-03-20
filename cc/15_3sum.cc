@@ -47,7 +47,7 @@ class Solution {
     }
 
     vector<vector<int>> ThreeSumV2(vector<int> &nums) {
-        int n = nums.size();
+        int n = static_cast<int>(nums.size());
         vector<vector<int>> res;
         sort(nums.begin(), nums.end());
 
@@ -112,7 +112,7 @@ class Solution {
         return false;
     }
 
-    std::vector<int> TwoSum(vector<int> &nums, int left, int target) {
+    std::vector<int> TwoSum(vector<int> &nums, std::size_t left, std::size_t target) {
         std::vector<int> ret;
         for (size_t i = left; i < nums.size(); ++i) {
             for (size_t j = i + 1; j < nums.size(); j++) {

@@ -53,7 +53,7 @@ class Solution {
             if (OutOfRange(ret)) {
                 return 0;
             }
-            return -atol(ret.c_str());
+            return -atoi(ret.c_str());
         }
 
         auto str = std::to_string(std::abs(x));
@@ -63,7 +63,7 @@ class Solution {
             return 0;
         }
 
-        return atol(ret.c_str());
+        return atoi(ret.c_str());
     }
 
    private:
