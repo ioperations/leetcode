@@ -1,4 +1,4 @@
-name: leetcode.rs
+name: cpp
 
 # Run this workflow every time a new commit pushed to your repository
 on:
@@ -17,7 +17,7 @@ jobs:
     timeout-minutes: 45
     steps:
       - uses: actions/checkout@v4
-      - run: sudo apt update && sudo apt install cmake build-essential libbenchmark-dev clang-12 catch2 -y
+      - run: sudo apt update && sudo apt install cmake build-essential clang-12 -y
       - name: ccache
         uses: hendrikmuhs/ccache-action@v1.2
       - name: PATH
