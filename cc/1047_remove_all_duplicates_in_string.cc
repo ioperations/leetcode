@@ -33,11 +33,11 @@ namespace {
 class Solution {
    public:
     string RemoveDuplicates(const string &s, int k = 2) {
-        int n = s.size();
+        std::size_t n = s.size();
         if (n < k) return s;
 
         stack<pair<char, int>> stk;
-        for (int i = 0; i < (int)n; ++i) {
+        for (std::size_t i = 0; i < n; ++i) {
             if (stk.empty() || stk.top().first != s[i])
                 stk.push({s[i], 1});
             else {
