@@ -31,12 +31,12 @@ namespace {
 class Solution {
    public:
     TreeNode *SortedArrayToBst(std::vector<int> &nums) {
-        return Helper(nums, 0, nums.size() - 1);
+        return Helper(nums, 0, static_cast<int>(nums.size() - 1));
     }
 
     TreeNode *Helper(const vector<int> &nums, int start, int end) {
         if (start > end) return nullptr;
-        std::size_t mid = start + (end - start) / 2;
+        int mid = start + (end - start) / 2;
         TreeNode *bs_ttree = new TreeNode(nums[mid]);
         bs_ttree->left = Helper(nums, start, mid - 1);
         bs_ttree->right = Helper(nums, mid + 1, end);
