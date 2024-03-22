@@ -169,10 +169,8 @@ TEST(BagOfTokensScore, t1) {
     Solution sl;
     int output = 4;
 
-    BENCHMARK("BenchmarkTwoArrayDpv1") {
-        int ret = sl.BagOfTokensScore(tokens, power);
-        EXPECT_EQ(output, ret);
-    };
+    int ret = sl.BagOfTokensScore(tokens, power);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(BagOfTokensScoreV1, t1) {
@@ -181,10 +179,8 @@ TEST(BagOfTokensScoreV1, t1) {
     Solution sl;
     int output = 4;
 
-    BENCHMARK("BenchmarkMyImplementation") {
-        int ret = sl.BagOfTokensScoreV1(tokens, power);
-        EXPECT_EQ(output, ret);
-    };
+    int ret = sl.BagOfTokensScoreV1(tokens, power);
+    EXPECT_EQ(output, ret);
 }
 
 }  // namespace
