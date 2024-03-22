@@ -93,6 +93,8 @@ TEST(add_two_number, t1) {
     Solution sl;
     auto *ret = sl.AddTwoNumbers(l1, l2);
     List::FreeList(ret);
+    List::FreeList(l1);
+    List::FreeList(l2);
 }
 
 }  // namespace
