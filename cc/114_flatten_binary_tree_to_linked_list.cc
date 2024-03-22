@@ -45,7 +45,7 @@ class Solution {
     }
 
     void FlattenV2(TreeNode *root) {
-        if (!root or (!root->left and !root->right)) return;
+        if (!root || (!root->left && !root->right)) return;
         std::queue<TreeNode *> nodes;
         Search(root, nodes);
         TreeNode *p = root;

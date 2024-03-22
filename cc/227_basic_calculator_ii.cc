@@ -43,14 +43,14 @@ class Solution {
         stack<char> op;
         for (int j = 0; j < i; j++) {
             char ch = s[j];
-            if (ch == '+' or ch == '-') {
+            if (ch == '+' || ch == '-') {
                 op.push(ch);
-            } else if (ch == '/' or ch == '*') {
+            } else if (ch == '/' || ch == '*') {
                 int lastval = values.top();
                 values.pop();
                 int nextval = 0;
                 j++;
-                while (s[j] <= '9' and s[j] >= '0') {
+                while (s[j] <= '9' && s[j] >= '0') {
                     nextval *= 10;
                     nextval += (int)(s[j] - '0');
                     j++;
@@ -64,7 +64,7 @@ class Solution {
 
             } else {
                 int val = 0;
-                while (s[j] <= '9' and s[j] >= '0') {
+                while (s[j] <= '9' && s[j] >= '0') {
                     val *= 10;
                     val += (int)(s[j] - '0');
                     j++;

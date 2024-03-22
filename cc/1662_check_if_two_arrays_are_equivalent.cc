@@ -33,7 +33,7 @@ class Solution {
         int i = 0, j = 0;  // word pointers
         int m = 0, n = 0;  // char pointers
 
-        while (i < (int)word1.size() and j < (int)word2.size()) {
+        while (i < (int)word1.size() && j < (int)word2.size()) {
             if (word1[i][m++] != word2[j][n++]) return false;
 
             if (m >= (int)word1[i].size()) i++, m = 0;
@@ -41,7 +41,7 @@ class Solution {
             if (n >= (int)word2[j].size()) j++, n = 0;
         }
 
-        return i == (int)word1.size() and j == (int)word2.size();
+        return i == (int)word1.size() && j == (int)word2.size();
     }
 };
 

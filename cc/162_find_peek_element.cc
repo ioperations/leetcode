@@ -38,7 +38,7 @@ class Solution {
      * @return 最大的局部值所在的偏移量
      */
     int FindPeakElement(vector<int> &nums)
-        __attribute__((deprecated("use v2 instead"))) {
+         {
         // O(n)
         if (nums.size() == 0) return 0;
         if (nums.size() == 2) {

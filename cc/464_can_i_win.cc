@@ -41,7 +41,7 @@ class Solution {
         for (int i = 1; i <= max_int; i++) {
             int nmask = (1 << (i - 1));
             if ((mask & nmask) == 0) {
-                if (curr + i >= desire or
+                if (curr + i >= desire ||
                     !Backtrack(curr + i, max_int, desire, mask + nmask,
                                (player + 1) % 2)) {
                     return (dp[player][mask] = true);

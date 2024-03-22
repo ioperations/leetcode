@@ -39,7 +39,7 @@ class Solution {
     bool CanReplace(string &stamp, string &target, int pos) {
         int m = stamp.size();
         for (int i = 0; i < m; i++) {
-            if (target[i + pos] != '?' and target[i + pos] != stamp[i])
+            if (target[i + pos] != '?' && target[i + pos] != stamp[i])
                 return false;
         }
         return true;
@@ -69,7 +69,7 @@ class Solution {
         while (count != n) {
             bool flag = false;
             for (int i = 0; i <= n - m; i++) {
-                if (!vis[i] and CanReplace(stamp, target, i)) {
+                if (!vis[i] && CanReplace(stamp, target, i)) {
                     vis[i] = 1;
                     count += Replace(stamp, target, i);
                     flag = true;

@@ -31,7 +31,7 @@ class Solution {
         vector<ll> prefix(n, 0);
         for (ll i = 1; i < n; i++) {
             ll j = prefix[i - 1];
-            while (j > 0 and p[i] != p[j]) j = prefix[j - 1];
+            while (j > 0 && p[i] != p[j]) j = prefix[j - 1];
             if (p[i] == p[j]) j++;
             prefix[i] = j;
         }

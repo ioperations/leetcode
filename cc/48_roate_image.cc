@@ -47,7 +47,7 @@ class Solution {
             |___|___|___|    |___|___|___|
         */
 
-        const bool __attribute__((unused)) ok =
+        const bool ok =
             matrix.size() ? matrix.size() == matrix[0].size() : true;
         assert(ok && "should be ok");
 

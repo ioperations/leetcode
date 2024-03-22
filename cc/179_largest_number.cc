@@ -43,7 +43,7 @@ class Solution {
         }
         // boundary case when the given vector has only zero elements
         // [0,0,0,...]
-        while (ans[0] == '0' and ans.length() > 1) {
+        while (ans[0] == '0' && ans.length() > 1) {
             ans.erase(0, ans.size() - 1);
         }
 

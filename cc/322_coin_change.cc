@@ -107,7 +107,7 @@ class Solution {
             }
         }
 
-        if (dp[n][sum] == INT_MAX or dp[n][sum] == INT_MAX - 1) {
+        if (dp[n][sum] == INT_MAX || dp[n][sum] == INT_MAX - 1) {
             return -1;
         }
 

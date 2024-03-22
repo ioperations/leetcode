@@ -76,12 +76,12 @@ class SolutionV2 {
         int last_odd_index = -1;
 
         for (int i = 0; i < n; i++) {
-            if (nums[i] % 2 == 0 and last_odd_index != -1) {
+            if (nums[i] % 2 == 0 && last_odd_index != -1) {
                 swap(nums[last_odd_index], nums[i]);
                 last_odd_index++;
             }
 
-            if (nums[i] % 2 != 0 and last_odd_index == -1) {
+            if (nums[i] % 2 != 0 && last_odd_index == -1) {
                 last_odd_index = i;
             }
         }

@@ -86,7 +86,7 @@ class Solution {
         for (const string &x : arr) {
             int mask = 0;
             for (char c : x) mask |= 1 << (c - 'a');
-            if (__builtin_popcount(mask) != x.length()) continue;
+            if ((mask) != x.length()) continue;
             a.push_back(mask);
         }
 
@@ -99,7 +99,7 @@ class Solution {
                 if (dp[j] & a[i]) continue;
                 int t = dp[j] | a[i];
                 dp.push_back(t);
-                ans = max(ans, __builtin_popcount(t));
+                ans = max(ans, (t));
             }
         }
 

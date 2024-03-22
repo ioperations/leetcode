@@ -47,7 +47,7 @@ class Solution {
     }
 
    private:
-    int __attribute__((unused)) carrier = 0;
+    int carrier = 0;
     string ret = "";
 };
 
