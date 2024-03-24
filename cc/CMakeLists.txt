@@ -51,9 +51,12 @@ foreach (CXX_SRC ${source_list})
         target_compile_options(${T} PRIVATE "-stdlib=libc++")
     endif()
     target_link_libraries(${T} Catch2::Catch2WithMain) 
-    target_link_libraries(${T} pthread) 
-    target_compile_options(${T} PRIVATE "-fsanitize=address")
-    target_link_options(${T} PUBLIC "-fsanitize=address")
-    
+
+    if(UNIX)
+        target_link_libraries(${T} pthread) 
+        target_compile_options(${T} PRIVATE "-fsanitize=address")
+        target_link_options(${T} PUBLIC "-fsanitize=address")
+    endif()
+
     add_test(NAME ${T} COMMAND ${T} WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
 endforeach ()
