@@ -17,6 +17,9 @@ else()
         -Wno-old-style-cast
         -Wno-sign-compare
         -Wpointer-arith
+        -fno-omit-frame-pointer
+        -z noexecstack
+        -fno-plt
         # -Wshadow
         # -Wwrite-strings
         -Wall
