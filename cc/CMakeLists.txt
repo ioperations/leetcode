@@ -13,7 +13,9 @@ else()
         -Wextra
         #-Wconversion
         -Wno-unused-parameter
+        -Wno-unused-function
         -Wno-old-style-cast
+        -Wno-sign-compare
         -Wpointer-arith
         # -Wshadow
         # -Wwrite-strings
@@ -51,6 +53,7 @@ foreach (CXX_SRC ${source_list})
         target_compile_options(${T} PRIVATE "-stdlib=libc++")
     endif()
     target_link_libraries(${T} Catch2::Catch2WithMain) 
+    target_compile_options(${T} PRIVATE ${CXX_FLAGS}) 
 
     if(UNIX)
         target_link_libraries(${T} pthread) 
