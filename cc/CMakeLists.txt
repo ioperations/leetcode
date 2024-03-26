@@ -18,14 +18,12 @@ else()
         -Wno-sign-compare
         -Wpointer-arith
         -fno-omit-frame-pointer
-        -z noexecstack
         -fno-plt
         # -Wshadow
         # -Wwrite-strings
         -Wall
         -Wpedantic
         -march=native
-        -fuse-ld=lld
         -ggdb
         -O3
     )
@@ -62,6 +60,8 @@ foreach (CXX_SRC ${source_list})
         target_link_libraries(${T} pthread) 
         target_compile_options(${T} PRIVATE "-fsanitize=address")
         target_link_options(${T} PUBLIC "-fsanitize=address")
+        target_link_options(${T} PRIVATE "-fuse-ld=lld")
+        
     endif()
 
     add_test(NAME ${T} COMMAND ${T} WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
