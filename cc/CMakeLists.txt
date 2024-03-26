@@ -60,7 +60,6 @@ foreach (CXX_SRC ${source_list})
         target_link_libraries(${T} pthread) 
         target_compile_options(${T} PRIVATE "-fsanitize=address")
         target_link_options(${T} PUBLIC "-fsanitize=address")
-        target_link_options(${T} PRIVATE "-fuse-ld=lld")
         
     endif()
 
