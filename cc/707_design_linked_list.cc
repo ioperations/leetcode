@@ -28,7 +28,7 @@ list, if the index is valid.*/
 #define concat2(a, b) a##b
 #define symbol(a) symbol2(a)
 #define symbol2(a) #a
-#define TEST(a, b) TEST_CASE(symbol(concat(concat(a, b),__LINE__)), #b)
+#define TEST(a, b) TEST_CASE(symbol(concat(concat(a, b), __LINE__)), #b)
 #define EXPECT_EQ(a, b) REQUIRE(a == b)
 #define EXPECT_TRUE(a) REQUIRE(a)
 #define EXPECT_FALSE(a) REQUIRE(!a)
@@ -96,16 +96,15 @@ class MyLinkedList {
 };
 
 TEST(design_linked_list, t1) {
-    MyLinkedList *my_linked_list = new MyLinkedList();
-    my_linked_list->AddAtHead(1);
-    my_linked_list->AddAtTail(3);
-    my_linked_list->AddAtIndex(1, 2);  // linked list becomes 1->2->3
-    int ret = my_linked_list->Get(1);  // return 2
+    MyLinkedList my_linked_list;
+    my_linked_list.AddAtHead(1);
+    my_linked_list.AddAtTail(3);
+    my_linked_list.AddAtIndex(1, 2);  // linked list becomes 1.2.3
+    int ret = my_linked_list.Get(1);  // return 2
     EXPECT_EQ(ret, 2);
-    my_linked_list->DeleteAtIndex(1);  // now the linked list is 1->3
-    ret = my_linked_list->Get(1);      // return 3
+    my_linked_list.DeleteAtIndex(1);  // now the linked list is 1.3
+    ret = my_linked_list.Get(1);      // return 3
     EXPECT_EQ(ret, 3);
-    delete my_linked_list;
 }
 
 }  // namespace
