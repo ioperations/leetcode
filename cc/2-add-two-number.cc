@@ -76,16 +76,6 @@ class Solution {
     */
 };
 
-void PrintNode(ListNode *n) {
-    std::cout << std::endl;
-
-    for (; n;) {
-        std::cout << n->val << " -> ";
-        n = n->next;
-    }
-    std::cout << std::endl;
-}
-
 TEST(add_two_number, t1) {
     auto *l1 = List::ConstructList(std::vector<int>{1, 2, 3});
     auto *l2 = List::ConstructList(std::vector<int>{4, 5, 6});

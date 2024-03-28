@@ -100,18 +100,6 @@ class Solution {
     }
 };
 
-void ExpectEqList(ListNode *const head, const std::vector<int> &elements) {
-    int i = 0;
-    ListNode *m_head = head;
-
-    while (m_head != nullptr) {
-        EXPECT_EQ(m_head->val, elements[i]);
-        m_head = m_head->next;
-        i++;
-    }
-    EXPECT_EQ(i, elements.size());
-}
-
 TEST(intersection_of_two_linked_lists, t1) {
     // intersectVal = 8, listA = [4,1,8,4,5], listB = [5,6,1,8,4,5], skipA = 2,
     // skipB = 3

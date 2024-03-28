@@ -11,8 +11,9 @@ if(MSVC)
 else()
     set(CXX_FLAGS
         -Wextra
-        #-Wconversion
+        -Wno-conversion
         -Wno-unused-parameter
+        -Wno-shorten-64-to-32
         -Wno-unused-function
         -Wno-old-style-cast
         -Wno-sign-compare

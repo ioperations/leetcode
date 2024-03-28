@@ -55,17 +55,6 @@ class Solution {
     }
 };
 
-void ExpectEqList(ListNode *const head, const std::vector<int> &elements) {
-    int i = 0;
-    ListNode *m_head = head;
-
-    while (m_head != nullptr) {
-        EXPECT_EQ(m_head->val, elements[i]);
-        m_head = m_head->next;
-        i++;
-    }
-    EXPECT_EQ(i, elements.size());
-}
 TEST(memleak, t1) {
     ListNode *head = ConstructList(std::vector<int>{3, 2, 0, -4});
 
