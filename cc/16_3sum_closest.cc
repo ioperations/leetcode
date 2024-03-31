@@ -24,8 +24,8 @@
 namespace {
 class Solution {
    public:
-    Solution(){};
-    virtual ~Solution(){};
+    Solution() {};
+    virtual ~Solution() {};
     ///* 将输入的数据得到他的全排列，
     ///* 在每一次排列当中，得到前3个数字，
     ///* 将这三个数字加和，更最后的要求做比较
@@ -51,7 +51,7 @@ class Solution {
         sort(nums.begin(), nums.end());
         const int n = nums.size();
         int diff = std::numeric_limits<int>::max();
-        int sum;
+        int sum = 0;
         for (i = 0; i < n; i++) {
             j = i + 1;
             k = n - 1;
