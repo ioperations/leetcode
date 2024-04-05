@@ -76,14 +76,4 @@ class Solution {
     }
 };
 
-void PrintNode(ListNode *n) {
-    std::cout << std::endl;
-
-    for (; n;) {
-        std::cout << n->val << " -> ";
-        n = n->next;
-    }
-    std::cout << std::endl;
-}
-
 }  // namespace

@@ -6,7 +6,6 @@
 
 #include <algorithm>
 #include <queue>
-#include <string>
 #include <vector>
 
 #include "gtest/gtest.h"
@@ -105,33 +104,6 @@ TreeNode *InsertLevelOrder(vector<int> &arr, int i) {
 
 // Function to print tree nodes in
 // InOrder fashion
-void InOrder(TreeNode *root, std::vector<string> &vec) {
-    if (root != nullptr) {
-        InOrder(root->left, vec);
-        vec.push_back(std::to_string(root->val) +
-                      (root->deleted ? "deleted" : "not deleted"));
-        InOrder(root->right, vec);
-    }
-}
-
-void BfsSearch(TreeNode *root, std::vector<std::string> &vec) {
-    queue<TreeNode *> q;
-    q.push(root);
-
-    while (q.size()) {
-        TreeNode *tmp = q.front();
-
-        q.pop();
-
-        if (tmp != nullptr) {
-            q.push(tmp->left);
-            q.push(tmp->right);
-            vec.push_back(std::to_string(tmp->val) +
-                          (tmp->deleted ? "deleted" : "not deleted"));
-        }
-    }
-}
-
 void FreeTreeNode(TreeNode *root) {
     if (root == nullptr) return;
 

@@ -105,18 +105,6 @@ class Solution {
     }
 };
 
-void ExpectEqList(ListNode *const head, const std::vector<int> &elements) {
-    int i = 0;
-    ListNode *m_head = head;
-
-    while (m_head != nullptr) {
-        EXPECT_EQ(m_head->val, elements[i]);
-        m_head = m_head->next;
-        i++;
-    }
-    EXPECT_EQ(i, elements.size());
-}
-
 TEST(palindrome_linked_list, t1) {
     ListNode *head = List::ConstructList(std::vector<int>{1, 2, 2, 1});
 

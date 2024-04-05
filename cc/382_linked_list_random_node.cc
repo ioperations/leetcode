@@ -32,18 +32,6 @@ class Solution {
     }
 };
 
-void ExpectEqList(ListNode *const head, const std::vector<int> &elements) {
-    int i = 0;
-    ListNode *m_head = head;
-
-    while (m_head != nullptr) {
-        EXPECT_EQ(m_head->val, elements[i]);
-        m_head = m_head->next;
-        i++;
-    }
-    EXPECT_EQ(i, elements.size());
-}
-
 TEST(linked_list_random_node, t1) {
     std::vector<int> rt{1, 2, 3};
     ListNode *head = List::ConstructList(rt);

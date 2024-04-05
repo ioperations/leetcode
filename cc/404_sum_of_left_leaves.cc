@@ -60,13 +60,6 @@ TreeNode *AddToRoot(TreeNode *root, int val) {
     return root;
 }
 
-TreeNode *AddToRoot(TreeNode *root, const std::vector<int> &elements) {
-    for (auto &ptr : elements) {
-        root = AddToRoot(root, ptr);
-    }
-    return root;
-}
-
 TreeNode *ConstructTree(const std::vector<int> &elements) {
     if (!elements.size()) {
         return nullptr;
