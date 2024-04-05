@@ -11,18 +11,9 @@ Given an integer array nums,
         Notice that the solution set must not contain duplicate triplets.
 */
 
-#include <algorithm>
-#include <catch2/catch_test_macros.hpp>
 #include <vector>
 
-#define concat(a, b) concat2(a, b)
-#define concat2(a, b) a##b
-#define symbol(a) symbol2(a)
-#define symbol2(a) #a
-#define TEST(a, b) TEST_CASE(symbol(concat(concat(a, b), __LINE__)), #b)
-#define EXPECT_EQ(a, b) REQUIRE(a == b)
-#define EXPECT_TRUE(a) REQUIRE(a)
-#define EXPECT_FALSE(a) REQUIRE(!a)
+#include "gtest/gtest.h"
 
 using namespace std;
 
@@ -47,7 +38,7 @@ class Solution {
     }
 
     vector<vector<int>> ThreeSumV2(vector<int> &nums) {
-        int n = static_cast<int>(nums.size());
+        int n = nums.size();
         vector<vector<int>> res;
         sort(nums.begin(), nums.end());
 
@@ -112,7 +103,7 @@ class Solution {
         return false;
     }
 
-    std::vector<int> TwoSum(vector<int> &nums, std::size_t left, std::size_t target) {
+    std::vector<int> TwoSum(vector<int> &nums, int left, int target) {
         std::vector<int> ret;
         for (size_t i = left; i < nums.size(); ++i) {
             for (size_t j = i + 1; j < nums.size(); j++) {
@@ -125,6 +116,7 @@ class Solution {
         return ret;
     }
 };
+
 
 TEST(sum, t1) {
     std::vector<int> nums = {-1, 0, 1, 2, -1, -4};
@@ -151,4 +143,4 @@ TEST(sum, t3) {
     EXPECT_EQ(ret, expected);
 }
 
-}  // namespace
+} // namespace

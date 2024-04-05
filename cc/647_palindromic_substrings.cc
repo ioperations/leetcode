@@ -7,20 +7,13 @@ A string is a palindrome when it reads the same backward as forward.
 
 A substring is a contiguous sequence of characters within the string.*/
 
-#include <catch2/benchmark/catch_benchmark.hpp>
-#include <catch2/catch_test_macros.hpp>
+#include <benchmark/benchmark.h>
 #include <string>
 
-#define concat(a, b) concat2(a, b)
-#define concat2(a, b) a##b
-#define symbol(a) symbol2(a)
-#define symbol2(a) #a
-#define TEST(a, b) TEST_CASE(symbol(concat(concat(a, b), __LINE__)), #b)
-#define EXPECT_EQ(a, b) REQUIRE(a == b)
-#define EXPECT_TRUE(a) REQUIRE(a)
-#define EXPECT_FALSE(a) REQUIRE(!a)
+#include "gtest/gtest.h"
 
 using namespace std;
+
 
 namespace {
 class Solution {
@@ -71,6 +64,7 @@ class Solution {
     }
 };
 
+
 TEST(palindromic_substrings, t1) {
     string s = "abc";
     int output = 3;
@@ -111,31 +105,32 @@ TEST(palindromic_substrings_v2, t2) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(CountSubstringsV1, t1) {
-    string s = "aaa";
-    int output = 6;
-    // Explanation: Six palindromic strings: "a", "a", "a", "aa", "aa",
-    // "aaa".
+static void BenchMarkV1(benchmark::State &state) {
+    for (auto _ : state) {
+        string s = "aaa";
+        int output = 6;
+        // Explanation: Six palindromic strings: "a", "a", "a", "aa", "aa",
+        // "aaa".
 
-    Solution sl;
-
-    BENCHMARK("BenchMarkV1") {
+        Solution sl;
         int ret = sl.CountSubstringsV1(s);
         EXPECT_EQ(ret, output);
-    };
+    }
 }
+BENCHMARK(BenchMarkV1);
 
-TEST(CountSubstrings, t2) {
-    string s = "aaa";
-    int output = 6;
-    // Explanation: Six palindromic strings: "a", "a", "a", "aa", "aa",
-    // "aaa".
+static void BenchMarkV0(benchmark::State &state) {
+    for (auto _ : state) {
+        string s = "aaa";
+        int output = 6;
+        // Explanation: Six palindromic strings: "a", "a", "a", "aa", "aa",
+        // "aaa".
 
-    Solution sl;
-    BENCHMARK("BenchMarkV2") {
+        Solution sl;
         int ret = sl.CountSubstrings(s);
         EXPECT_EQ(ret, output);
-    };
+    }
 }
+BENCHMARK(BenchMarkV0);
 
 }  // namespace

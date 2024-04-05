@@ -21,16 +21,7 @@ empty array.*/
 #include <string>
 #include <vector>
 
-#include <catch2/catch_test_macros.hpp>
-
-#define concat(a, b) concat2(a, b)
-#define concat2(a, b) a##b
-#define symbol(a) symbol2(a)
-#define symbol2(a) #a
-#define TEST(a, b) TEST_CASE(symbol(concat(concat(a, b),__LINE__)), #b)
-#define EXPECT_EQ(a, b) REQUIRE(a == b)
-#define EXPECT_TRUE(a) REQUIRE(a)
-#define EXPECT_FALSE(a) REQUIRE(!a)
+#include "gtest/gtest.h"
 
 using namespace std;
 namespace {
@@ -39,7 +30,7 @@ class Solution {
     bool CanReplace(string &stamp, string &target, int pos) {
         int m = stamp.size();
         for (int i = 0; i < m; i++) {
-            if (target[i + pos] != '?' && target[i + pos] != stamp[i])
+            if (target[i + pos] != '?' and target[i + pos] != stamp[i])
                 return false;
         }
         return true;
@@ -69,7 +60,7 @@ class Solution {
         while (count != n) {
             bool flag = false;
             for (int i = 0; i <= n - m; i++) {
-                if (!vis[i] && CanReplace(stamp, target, i)) {
+                if (!vis[i] and CanReplace(stamp, target, i)) {
                     vis[i] = 1;
                     count += Replace(stamp, target, i);
                     flag = true;

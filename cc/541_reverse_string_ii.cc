@@ -10,20 +10,13 @@ less than 2k but greater than or equal to k characters, then reverse the first k
 characters and leave the other as original.
 */
 
+#include <benchmark/benchmark.h>
+
 #include <algorithm>
-#include <catch2/benchmark/catch_benchmark.hpp>
-#include <catch2/catch_test_macros.hpp>
 #include <stack>
 #include <string>
 
-#define concat(a, b) concat2(a, b)
-#define concat2(a, b) a##b
-#define symbol(a) symbol2(a)
-#define symbol2(a) #a
-#define TEST(a, b) TEST_CASE(symbol(concat(concat(a, b), __LINE__)), #b)
-#define EXPECT_EQ(a, b) REQUIRE(a == b)
-#define EXPECT_TRUE(a) REQUIRE(a)
-#define EXPECT_FALSE(a) REQUIRE(!a)
+#include "gtest/gtest.h"
 
 using namespace std;
 
@@ -112,27 +105,29 @@ TEST(reverse_string_ii_v2, t2) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(ReverseStr, t1) {
+static void BenchV1(benchmark::State &state) {
     std::string s = "abcd";
     int k = 2;
     std::string output = "bacd";
     Solution sl;
 
-    BENCHMARK("BenchV1") {
+    for (auto _ : state) {
         auto ret = sl.ReverseStr(s, k);
         EXPECT_EQ(ret, output);
-    };
+    }
 }
-
-TEST(REVERSEStrV2, v2) {
+BENCHMARK(BenchV1);
+static void BenchV2(benchmark::State &state) {
     std::string s = "abcd";
     int k = 2;
     std::string output = "bacd";
     Solution sl;
-    BENCHMARK("BenchV2") {
+
+    for (auto _ : state) {
         auto ret = sl.ReverseStrV2(s, k);
         EXPECT_EQ(ret, output);
-    };
+    }
 }
+BENCHMARK(BenchV2);
 
 }  // namespace

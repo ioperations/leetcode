@@ -12,19 +12,8 @@ Note that you are not allowed to change any of the two trees or the target node
 and the answer must be a reference to a node in the cloned tree.*/
 
 //* Definition for a binary tree node.
-#include <catch2/catch_test_macros.hpp>
-#include <optional>
-
 #include "datastruct_base.hh"
-
-#define concat(a, b) concat2(a, b)
-#define concat2(a, b) a##b
-#define symbol(a) symbol2(a)
-#define symbol2(a) #a
-#define TEST(a, b) TEST_CASE(symbol(concat(concat(a, b), __LINE__)), #b)
-#define EXPECT_EQ(a, b) REQUIRE(a == b)
-#define EXPECT_TRUE(a) REQUIRE(a)
-#define EXPECT_FALSE(a) REQUIRE(!a)
+#include "gtest/gtest.h"
 
 using namespace Tree;
 
@@ -110,9 +99,11 @@ class Solution {
     }
 };
 
+using namespace std;
+
 #define null optional<int>()
 
-TEST(memleak, find_a_corres_1379) {
+TEST(memleak, t1) {
     std::vector<int> v{7, 4, 3, 6, 19};
 
     auto *head = ConstructRight(v);

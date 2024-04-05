@@ -1,21 +1,13 @@
 // This is a personal academic project. Dear PVS-Studio, please check it.
 // PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
 // https://pvs-studio.com
+#include <benchmark/benchmark.h>
 #include <stddef.h>
 
 #include <algorithm>
-#include <catch2/benchmark/catch_benchmark.hpp>
-#include <catch2/catch_test_macros.hpp>
 #include <vector>
 
-#define concat(a, b) concat2(a, b)
-#define concat2(a, b) a##b
-#define symbol(a) symbol2(a)
-#define symbol2(a) #a
-#define TEST(a, b) TEST_CASE(symbol(concat(concat(a, b), __LINE__)), #b)
-#define EXPECT_EQ(a, b) REQUIRE(a == b)
-#define EXPECT_TRUE(a) REQUIRE(a)
-#define EXPECT_FALSE(a) REQUIRE(!a)
+#include "gtest/gtest.h"
 
 using namespace std;
 
@@ -85,27 +77,30 @@ TEST(testName, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(BenchMarkMyImpl, t1) {
-    std::vector<int> nums = {2, 3, 1, 1, 4};
-    bool output = true;
+static void BenchMarkMyImpl(benchmark::State &state) {
+    for (auto _ : state) {
+        std::vector<int> nums = {2, 3, 1, 1, 4};
+        bool output = true;
 
-    Solution sl;
-    BENCHMARK("BenchMarkMyImpl") {
+        Solution sl;
         bool ret = sl.CanJump(nums);
 
         EXPECT_EQ(ret, output);
-    };
+    }
 }
+BENCHMARK(BenchMarkMyImpl);
 
-TEST(BenchMarkDp, t2) {
-    std::vector<int> nums = {2, 3, 1, 1, 4};
-    bool output = true;
-    BENCHMARK("BenchMarkDp") {
+static void BenchMarkDp(benchmark::State &state) {
+    for (auto _ : state) {
+        std::vector<int> nums = {2, 3, 1, 1, 4};
+        bool output = true;
+
         Solution sl;
         bool ret = sl.CanJumpV2(nums);
 
         EXPECT_EQ(ret, output);
-    };
+    }
 }
+BENCHMARK(BenchMarkDp);
 
 }  // namespace

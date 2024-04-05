@@ -13,23 +13,16 @@ Replace a character
 */
 // #pragma GCC optimize("O2")
 
+#include <benchmark/benchmark.h>
+
 #include <algorithm>
-#include <catch2/benchmark/catch_benchmark.hpp>
-#include <catch2/catch_test_macros.hpp>
 #include <functional>
 #include <map>
 #include <string>
 #include <utility>
 #include <vector>
 
-#define concat(a, b) concat2(a, b)
-#define concat2(a, b) a##b
-#define symbol(a) symbol2(a)
-#define symbol2(a) #a
-#define TEST(a, b) TEST_CASE(symbol(concat(concat(a, b), __LINE__)), #b)
-#define EXPECT_EQ(a, b) REQUIRE(a == b)
-#define EXPECT_TRUE(a) REQUIRE(a)
-#define EXPECT_FALSE(a) REQUIRE(!a)
+#include "gtest/gtest.h"
 
 using namespace std;
 
@@ -181,40 +174,43 @@ TEST(edit_distance_v4, t4) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(MinDistance, t1) {
-    std::string word1 = "horse", word2 = "ros";
+static void BenchMarkFirst(benchmark::State &state) {
+    for (auto _ : state) {
+        std::string word1 = "horse", word2 = "ros";
 
-    int output = 3;
-    Solution s;
+        int output = 3;
+        Solution s;
 
-    BENCHMARK("BenchMarkFirst") {
-        const int ret = s.MinDistance(word1, word2);
+        int ret = s.MinDistance(word1, word2);
         EXPECT_EQ(ret, output);
-    };
+    }
 }
+BENCHMARK(BenchMarkFirst);
 
-TEST(MinDistanceV2, t1) {
-    std::string word1 = "horse", word2 = "ros";
+static void BenchMarkSecond(benchmark::State &state) {
+    for (auto _ : state) {
+        std::string word1 = "horse", word2 = "ros";
 
-    int output = 3;
-    Solution s;
+        int output = 3;
+        Solution s;
 
-    BENCHMARK("BenchMarkSecond") {
         int ret = s.MinDistanceV2(word1, word2);
         EXPECT_EQ(ret, output);
-    };
+    }
 }
+BENCHMARK(BenchMarkSecond);
 
-TEST(MinDistanceV3, t1) {
-    std::string word1 = "horse", word2 = "ros";
+static void BenchMarkThird(benchmark::State &state) {
+    for (auto _ : state) {
+        std::string word1 = "horse", word2 = "ros";
 
-    int output = 3;
-    Solution s;
+        int output = 3;
+        Solution s;
 
-    BENCHMARK("BenchMarkThird") {
         int ret = s.MinDistanceV3(word1, word2);
         EXPECT_EQ(ret, output);
-    };
+    }
 }
+BENCHMARK(BenchMarkThird);
 
 }  // namespace

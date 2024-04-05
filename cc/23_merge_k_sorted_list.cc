@@ -2,22 +2,13 @@
 // PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
 // https://pvs-studio.com
 
-#include <catch2/catch_test_macros.hpp>
 #include <cmath>
 #include <limits>
 #include <queue>
 #include <utility>
 
 #include "datastruct_base.hh"
-
-#define concat(a, b) concat2(a, b)
-#define concat2(a, b) a##b
-#define symbol(a) symbol2(a)
-#define symbol2(a) #a
-#define TEST(a, b) TEST_CASE(symbol(concat(concat(a, b),__LINE__)), #b)
-#define EXPECT_EQ(a, b) REQUIRE(a == b)
-#define EXPECT_TRUE(a) REQUIRE(a)
-#define EXPECT_FALSE(a) REQUIRE(!a)
+#include "gtest/gtest.h"
 
 using namespace List;
 using namespace std;
@@ -38,7 +29,7 @@ class LoserTree {
     vector<int> *base;  // 数组副本(叶节点数据)
    public:
     LoserTree(vector<int> &nums) {
-        const std::size_t nums_size = nums.size();
+        const int nums_size = nums.size();
         if (nums_size == 0) return;
         const int power_num = ceil(log2(nums_size));
         const int leaves_num = 1 << power_num;
@@ -208,7 +199,7 @@ class Solution {
     }
 };
 
-TEST(memleak, merge_k_sorted_list_23) {
+TEST(memleak, t1) {
     MyListNode *n1 = new MyListNode(1);
     MyListNode *n2 = new MyListNode(3);
     MyListNode *n3 = new MyListNode(4);

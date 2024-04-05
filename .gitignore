@@ -14,5 +14,3 @@
 
 Cargo.lock
 .DS_Store
-/.vs
-/lcov.info

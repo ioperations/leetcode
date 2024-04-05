@@ -13,23 +13,15 @@ You may assume that you have an infinite number of each kind of coin.
 
 */
 
+#include <benchmark/benchmark.h>
 #include <limits.h>
 
 #include <algorithm>
-#include <catch2/benchmark/catch_benchmark.hpp>
-#include <catch2/catch_test_macros.hpp>
 #include <functional>
 #include <map>
 #include <vector>
 
-#define concat(a, b) concat2(a, b)
-#define concat2(a, b) a##b
-#define symbol(a) symbol2(a)
-#define symbol2(a) #a
-#define TEST(a, b) TEST_CASE(symbol(concat(concat(a, b), __LINE__)), #b)
-#define EXPECT_EQ(a, b) REQUIRE(a == b)
-#define EXPECT_TRUE(a) REQUIRE(a)
-#define EXPECT_FALSE(a) REQUIRE(!a)
+#include "gtest/gtest.h"
 
 using namespace std;
 
@@ -107,7 +99,7 @@ class Solution {
             }
         }
 
-        if (dp[n][sum] == INT_MAX || dp[n][sum] == INT_MAX - 1) {
+        if (dp[n][sum] == INT_MAX or dp[n][sum] == INT_MAX - 1) {
             return -1;
         }
 
@@ -145,43 +137,43 @@ TEST(coin_change, t3) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(CoinChange, t1) {
-    std::vector<int> coins = {1, 2, 5};
-    int amount = 11;
-    int output = 3;
-    // Explanation: 11 = 5 + 5 + 1
-    Solution sl;
-
-    BENCHMARK("BenchMarkV0") {
-        const int ret = sl.CoinChange(coins, amount);
+static void BenchMarkV0(benchmark::State &state) {
+    for (auto _ : state) {
+        std::vector<int> coins = {1, 2, 5};
+        int amount = 11;
+        int output = 3;
+        // Explanation: 11 = 5 + 5 + 1
+        Solution sl;
+        int ret = sl.CoinChange(coins, amount);
         EXPECT_EQ(ret, output);
-    };
+    }
 }
+BENCHMARK(BenchMarkV0);
 
-TEST(CoinChangeV1, t1) {
-    std::vector<int> coins = {1, 2, 5};
-    int amount = 11;
-    int output = 3;
-    // Explanation: 11 = 5 + 5 + 1
-    Solution sl;
-
-    BENCHMARK("BenchMarkV1") {
-        const int ret = sl.CoinChangeV1(coins, amount);
+static void BenchMarkV1(benchmark::State &state) {
+    for (auto _ : state) {
+        std::vector<int> coins = {1, 2, 5};
+        int amount = 11;
+        int output = 3;
+        // Explanation: 11 = 5 + 5 + 1
+        Solution sl;
+        int ret = sl.CoinChangeV1(coins, amount);
         EXPECT_EQ(ret, output);
-    };
+    }
 }
+BENCHMARK(BenchMarkV1);
 
-TEST(CoinChangeV2, t1) {
-    std::vector<int> coins = {1, 2, 5};
-    int amount = 11;
-    int output = 3;
-    // Explanation: 11 = 5 + 5 + 1
-    Solution sl;
-
-    BENCHMARK("BenchMarkV2") {
-        const int ret = sl.CoinChangeV2(coins, amount);
+static void BenchMarkV2(benchmark::State &state) {
+    for (auto _ : state) {
+        std::vector<int> coins = {1, 2, 5};
+        int amount = 11;
+        int output = 3;
+        // Explanation: 11 = 5 + 5 + 1
+        Solution sl;
+        int ret = sl.CoinChangeV2(coins, amount);
         EXPECT_EQ(ret, output);
-    };
+    }
 }
+BENCHMARK(BenchMarkV2);
 
 }  // namespace

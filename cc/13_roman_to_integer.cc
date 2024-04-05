@@ -1,26 +1,17 @@
 // This is a personal academic project. Dear PVS-Studio, please check it.
 // PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
 // https://pvs-studio.com
-#include <catch2/catch_test_macros.hpp>
-#include <map>
 #include <string>
 
-#define concat(a, b) concat2(a, b)
-#define concat2(a, b) a##b
-#define symbol(a) symbol2(a)
-#define symbol2(a) #a
-#define TEST(a, b) TEST_CASE(symbol(concat(concat(a, b), __LINE__)), #b)
-#define EXPECT_EQ(a, b) REQUIRE(a == b)
-#define EXPECT_TRUE(a) REQUIRE(a)
-#define EXPECT_FALSE(a) REQUIRE(!a)
+#include "gtest/gtest.h"
 
 namespace {
 class Solution {
    public:
     int RomanToInt(std::string s) {
-        std::size_t i = 0;
-        std::size_t sum = 0;
-        const std::size_t len = s.length();
+        int i = 0;
+        int sum = 0;
+        const int len = s.length();
         int current, next;
 
         for (i = 0; i < len; i++) {
@@ -43,17 +34,36 @@ class Solution {
                 i++;
             }
         }
-        return static_cast<int>(sum);
+        return sum;
     }
 
     int Basic(char c) {
-        const static std::map<char, int> v{{'I', 1},   {'V', 5},   {'X', 10},
-                                           {'L', 50},  {'C', 100}, {'D', 500},
-                                           {'M', 1000}};
-        if (v.find(c) != v.end()) {
-            return v.at(c);
+        switch (c) {
+            case 'I':
+                return 1;
+                break;
+            case 'V':
+                return 5;
+                break;
+            case 'X':
+                return 10;
+                break;
+            case 'L':
+                return 50;
+                break;
+            case 'C':
+                return 100;
+                break;
+            case 'D':
+                return 500;
+                break;
+            case 'M':
+                return 1000;
+                break;
+            default:
+                return 0;
+                break;
         }
-        return 0;
     }
 };
 

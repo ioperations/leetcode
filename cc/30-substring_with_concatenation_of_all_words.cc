@@ -8,20 +8,11 @@
 ["dhvf","sind","ffsl","yekr","zwzq","kpeo","cila","tfty","modg","ztjg","ybty","heqg","cpwo","gdcj","lnle","sefg","vimw","bxcb"]
 
 */
-#include <algorithm>
-#include <catch2/catch_test_macros.hpp>
 #include <set>
 #include <string>
 #include <vector>
 
-#define concat(a, b) concat2(a, b)
-#define concat2(a, b) a##b
-#define symbol(a) symbol2(a)
-#define symbol2(a) #a
-#define TEST(a, b) TEST_CASE(symbol(concat(concat(a, b), __LINE__)), #b)
-#define EXPECT_EQ(a, b) REQUIRE(a == b)
-#define EXPECT_TRUE(a) REQUIRE(a)
-#define EXPECT_FALSE(a) REQUIRE(!a)
+#include "gtest/gtest.h"
 
 namespace {
 class Solution {
@@ -73,6 +64,8 @@ class Solution {
         return std::set<int>{};
     }
 };
+
+
 
 TEST(_substringwith_concatenation_of_all_words, t1) {
     Solution *s = new Solution();
@@ -131,4 +124,4 @@ TEST(_substringwith_concatenation_of_all_words, t5) {
     EXPECT_EQ(retset, expect);
 }
 
-}  // namespace
+} // namespace

@@ -6,18 +6,11 @@ sum(nums[0]…nums[i]).
 
 Return the running sum of nums.*/
 
-#include <catch2/benchmark/catch_benchmark.hpp>
-#include <catch2/catch_test_macros.hpp>
+#include <benchmark/benchmark.h>
+
 #include <vector>
 
-#define concat(a, b) concat2(a, b)
-#define concat2(a, b) a##b
-#define symbol(a) symbol2(a)
-#define symbol2(a) #a
-#define TEST(a, b) TEST_CASE(symbol(concat(concat(a, b), __LINE__)), #b)
-#define EXPECT_EQ(a, b) REQUIRE(a == b)
-#define EXPECT_TRUE(a) REQUIRE(a)
-#define EXPECT_FALSE(a) REQUIRE(!a)
+#include "gtest/gtest.h"
 
 using namespace std;
 
@@ -68,27 +61,28 @@ TEST(running_sum_of_1d_array, t3) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(RunningSum, t1) {
-    std::vector<int> output{3, 4, 6, 16, 17};
-
-    Solution sl;
-    BENCHMARK("BenchV1") {
+static void BenchV1(benchmark::State &state) {
+    for (auto _ : state) {
         std::vector<int> p{3, 1, 2, 10, 1};
+        std::vector<int> output{3, 4, 6, 16, 17};
+
+        Solution sl;
         auto ret = sl.RunningSum(p);
         EXPECT_EQ(ret, output);
-    };
+    }
 }
+BENCHMARK(BenchV1);
 
-TEST(BenchV2, v2) {
-    std::vector<int> output{3, 4, 6, 16, 17};
-
-    Solution sl;
-
-    BENCHMARK("BenchV2") {
+static void BenchV2(benchmark::State &state) {
+    for (auto _ : state) {
         std::vector<int> p{3, 1, 2, 10, 1};
+        std::vector<int> output{3, 4, 6, 16, 17};
+
+        Solution sl;
         auto ret = sl.RunningSumV1(p);
         EXPECT_EQ(ret, output);
-    };
+    }
 }
+BENCHMARK(BenchV2);
 
 }  // namespace

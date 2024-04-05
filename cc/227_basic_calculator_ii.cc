@@ -16,16 +16,7 @@ as mathematical expressions, such as eval().*/
 using namespace std;
 #include <stack>
 
-#include <catch2/catch_test_macros.hpp>
-
-#define concat(a, b) concat2(a, b)
-#define concat2(a, b) a##b
-#define symbol(a) symbol2(a)
-#define symbol2(a) #a
-#define TEST(a, b) TEST_CASE(symbol(concat(concat(a, b),__LINE__)), #b)
-#define EXPECT_EQ(a, b) REQUIRE(a == b)
-#define EXPECT_TRUE(a) REQUIRE(a)
-#define EXPECT_FALSE(a) REQUIRE(!a)
+#include "gtest/gtest.h"
 
 namespace {
 class Solution {
@@ -43,14 +34,14 @@ class Solution {
         stack<char> op;
         for (int j = 0; j < i; j++) {
             char ch = s[j];
-            if (ch == '+' || ch == '-') {
+            if (ch == '+' or ch == '-') {
                 op.push(ch);
-            } else if (ch == '/' || ch == '*') {
+            } else if (ch == '/' or ch == '*') {
                 int lastval = values.top();
                 values.pop();
                 int nextval = 0;
                 j++;
-                while (s[j] <= '9' && s[j] >= '0') {
+                while (s[j] <= '9' and s[j] >= '0') {
                     nextval *= 10;
                     nextval += (int)(s[j] - '0');
                     j++;
@@ -64,7 +55,7 @@ class Solution {
 
             } else {
                 int val = 0;
-                while (s[j] <= '9' && s[j] >= '0') {
+                while (s[j] <= '9' and s[j] >= '0') {
                     val *= 10;
                     val += (int)(s[j] - '0');
                     j++;

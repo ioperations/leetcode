@@ -9,10 +9,11 @@ Two binary trees are considered the same if they are structurally identical, and
 the nodes have the same value.
 */
 
-#include <catch2/catch_test_macros.hpp>
 #include <vector>
 
+// * Definition for a binary tree node.
 #include "datastruct_base.hh"
+#include "gtest/gtest.h"
 
 using namespace Tree;
 namespace {
@@ -39,7 +40,7 @@ class Solution {
     }
 };
 
-TEST_CASE("memleak", "t0") {
+TEST(memleak, t0) {
     std::vector<int> p = {1, 2, 3}, q = {1, 2, 3};
 
     auto *root = ConstructTree(p);
@@ -49,7 +50,7 @@ TEST_CASE("memleak", "t0") {
     FreeRoot(root2);
 }
 
-TEST_CASE("same_tree_t1", "t1") {
+TEST(same_tree, t1) {
     std::vector<int> p = {1, 2, 3}, q = {1, 2, 3};
 
     auto *root1 = ConstructTree(p);
@@ -58,13 +59,13 @@ TEST_CASE("same_tree_t1", "t1") {
 
     Solution s;
     auto ret = s.IsSameTree(root1, root2);
-    REQUIRE(ret == expected);
+    EXPECT_EQ(ret, expected);
 
     FreeRoot(root1);
     FreeRoot(root2);
 }
 
-TEST_CASE("same_tree_t2", "t2") {
+TEST(same_tree, t2) {
     std::vector<int> p = {1, 2}, q = {1, 2};
     auto *root1 = ConstructTree(p);
     auto *root2 = ConstructTree(q);
@@ -72,13 +73,13 @@ TEST_CASE("same_tree_t2", "t2") {
 
     Solution s;
     auto ret = s.IsSameTree(root1, root2);
-    REQUIRE(ret == expected);
+    EXPECT_EQ(ret, expected);
 
     FreeRoot(root1);
     FreeRoot(root2);
 }
 
-TEST_CASE("same_tree_t3", "t3") {
+TEST(same_tree, t3) {
     std::vector<int> p = {1, 2, 1}, q = {1, 1, 2};
 
     auto *root1 = ConstructTree(p);
@@ -87,13 +88,13 @@ TEST_CASE("same_tree_t3", "t3") {
 
     Solution s;
     auto ret = s.IsSameTree(root1, root2);
-    REQUIRE(ret == expected);
+    EXPECT_EQ(ret, expected);
 
     FreeRoot(root1);
     FreeRoot(root2);
 }
 
-TEST_CASE("same_tree_t4", "t4") {
+TEST(same_tree, t4) {
     std::vector<int> p = {1, 2, 1}, q = {};
 
     auto *root1 = ConstructTree(p);
@@ -102,13 +103,13 @@ TEST_CASE("same_tree_t4", "t4") {
 
     Solution s;
     auto ret = s.IsSameTree(root1, root2);
-    REQUIRE(ret == expected);
+    EXPECT_EQ(ret, expected);
 
     FreeRoot(root1);
     FreeRoot(root2);
 }
 
-TEST_CASE("same_tree_t5", "t5") {
+TEST(same_tree, t5) {
     std::vector<int> p = {}, q = {1, 2, 1};
 
     auto *root1 = ConstructTree(p);
@@ -117,7 +118,7 @@ TEST_CASE("same_tree_t5", "t5") {
 
     Solution s;
     auto ret = s.IsSameTree(root1, root2);
-    REQUIRE(ret == expected);
+    EXPECT_EQ(ret, expected);
 
     FreeRoot(root1);
     FreeRoot(root2);

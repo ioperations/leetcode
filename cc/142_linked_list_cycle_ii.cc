@@ -12,19 +12,10 @@ Note that pos is not passed as a parameter.
 
 Return true if there is a cycle in the linked list. Otherwise, return false
 */
-#include <catch2/catch_test_macros.hpp>
 #include <vector>
 
 #include "datastruct_base.hh"
-
-#define concat(a, b) concat2(a, b)
-#define concat2(a, b) a##b
-#define symbol(a) symbol2(a)
-#define symbol2(a) #a
-#define TEST(a, b) TEST_CASE(symbol(concat(concat(a, b),__LINE__)), #b)
-#define EXPECT_EQ(a, b) REQUIRE(a == b)
-#define EXPECT_TRUE(a) REQUIRE(a)
-#define EXPECT_FALSE(a) REQUIRE(!a)
+#include "gtest/gtest.h"
 
 //* Definition for singly-linked list.
 using ListNode = List::ListNode<int>;
@@ -36,7 +27,7 @@ class Solution {
         bool cycle_present = false;
         ListNode *fast = head;
         ListNode *slow = head;
-        while (fast != nullptr && fast->next != nullptr) {
+        while (fast != nullptr and fast->next != nullptr) {
             fast = fast->next->next;
             slow = slow->next;
             if (fast == slow) {
@@ -56,7 +47,7 @@ class Solution {
     }
 };
 
-TEST(memleak, linked_list_cycle_ii_2) {
+TEST(memleak, t1) {
     ListNode *head = List::ConstructList(std::vector<int>{3, 2, 0, -4});
 
     FreeList(head);

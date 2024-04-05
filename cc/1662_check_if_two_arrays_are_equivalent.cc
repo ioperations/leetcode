@@ -13,16 +13,7 @@ forms the string.
 #include <string>
 #include <vector>
 
-#include <catch2/catch_test_macros.hpp>
-
-#define concat(a, b) concat2(a, b)
-#define concat2(a, b) a##b
-#define symbol(a) symbol2(a)
-#define symbol2(a) #a
-#define TEST(a, b) TEST_CASE(symbol(concat(concat(a, b),__LINE__)), #b)
-#define EXPECT_EQ(a, b) REQUIRE(a == b)
-#define EXPECT_TRUE(a) REQUIRE(a)
-#define EXPECT_FALSE(a) REQUIRE(!a)
+#include "gtest/gtest.h"
 
 using namespace std;
 
@@ -33,7 +24,7 @@ class Solution {
         int i = 0, j = 0;  // word pointers
         int m = 0, n = 0;  // char pointers
 
-        while (i < (int)word1.size() && j < (int)word2.size()) {
+        while (i < (int)word1.size() and j < (int)word2.size()) {
             if (word1[i][m++] != word2[j][n++]) return false;
 
             if (m >= (int)word1[i].size()) i++, m = 0;
@@ -41,7 +32,7 @@ class Solution {
             if (n >= (int)word2[j].size()) j++, n = 0;
         }
 
-        return i == (int)word1.size() && j == (int)word2.size();
+        return i == (int)word1.size() and j == (int)word2.size();
     }
 };
 

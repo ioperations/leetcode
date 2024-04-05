@@ -15,21 +15,12 @@ in any order.
 
 /// Definition for a binary tree node.
 #include <array>
-#include <catch2/catch_test_macros.hpp>
 #include <iostream>
 #include <unordered_set>
 #include <vector>
 
 #include "datastruct_base.hh"
-
-#define concat(a, b) concat2(a, b)
-#define concat2(a, b) a##b
-#define symbol(a) symbol2(a)
-#define symbol2(a) #a
-#define TEST(a, b) TEST_CASE(symbol(concat(concat(a, b),__LINE__)), #b)
-#define EXPECT_EQ(a, b) REQUIRE(a == b)
-#define EXPECT_TRUE(a) REQUIRE(a)
-#define EXPECT_FALSE(a) REQUIRE(!a)
+#include "gtest/gtest.h"
 
 using TreeNode = Tree::TreeNode<int>;
 using namespace std;
@@ -68,7 +59,7 @@ void InOrderTranverse(TreeNode *root, std::vector<int> &vec) {
     InOrderTranverse(root->right, vec);
 }
 
-TEST(delete_ndoes_and_return_forest, t1) {
+TEST(t, t1) {
     TreeNode nl(1);
     TreeNode nl2(2);
     TreeNode nl3(3);

@@ -10,7 +10,6 @@ adjacent cells are horizontally or vertically neighboring. The same letter cell
 may not be used more than once.
 */
 
-#include <catch2/catch_test_macros.hpp>
 #include <map>
 #include <set>
 #include <stack>
@@ -18,21 +17,14 @@ may not be used more than once.
 #include <utility>
 #include <vector>
 
-#define concat(a, b) concat2(a, b)
-#define concat2(a, b) a##b
-#define symbol(a) symbol2(a)
-#define symbol2(a) #a
-#define TEST(a, b) TEST_CASE(symbol(concat(concat(a, b), __LINE__)), #b)
-#define EXPECT_EQ(a, b) REQUIRE(a == b)
-#define EXPECT_TRUE(a) REQUIRE(a)
-#define EXPECT_FALSE(a) REQUIRE(!a)
+#include "gtest/gtest.h"
 
 using namespace std;
 
 namespace {
 class Solution {
    public:
-    bool ExistV(vector<vector<char>> &board, const string &word) {
+    bool ExistV(vector<vector<char>> &board, const string& word) {
         /*
             m == board.length
             n = board[i].length
@@ -49,7 +41,7 @@ class Solution {
         return false;
     }
 
-    bool ExistV(vector<vector<char>> &board, int x, int y, const string &word) {
+    bool ExistV(vector<vector<char>> &board, int x, int y, const string& word) {
         std::stack<std::pair<int, int>> stack;
         // std::set<std::pair<int, int>> seen;
 
@@ -151,8 +143,7 @@ class Solution {
         return (i >= 0 && j >= 0 && i < row && j < col) ? true : false;
     }
 
-    void Backtrack(int i, int j, vector<vector<char>> &board,
-                   const string &word) {
+    void Backtrack(int i, int j, vector<vector<char>> &board, const string &word) {
         if (index >= (int)word.size()) return;   // base-case
         if (word[index] != board[i][j]) return;  // search pruning
 
@@ -171,7 +162,7 @@ class Solution {
         index--;
     }
 
-    bool Exist(vector<vector<char>> &board, const string &word) {
+    bool Exist(vector<vector<char>> &board, const string& word) {
         // apply dfs from all starting characters in board
         row = board.size(), col = board[0].size();
         for (int i = 0; i < row; i++)
@@ -359,27 +350,34 @@ TEST(word_search_v2, t3) {
     EXPECT_EQ(ret, false);
 }
 
-// TEST(word_search, t4) {
-//     std::vector<vector<char>> board =
-//
-//         {{'A', 'A', 'A', 'A', 'A', 'A'}, {'A', 'A', 'A', 'A', 'A', 'A'},
-//          {'A', 'A', 'A', 'A', 'A', 'A'}, {'A', 'A', 'A', 'A', 'A', 'A'},
-//          {'A', 'A', 'A', 'A', 'A', 'A'}, {'A', 'A', 'A', 'A', 'A', 'A'}};
-//     const std::string word = "AAAAAAAAAAAAAAB";
-//     Solution s;
-//     const bool ret = s.Exist(board, word);
-//     EXPECT_EQ(ret, false);
-// }
-// TEST(word_search_v2, t4) {
-//     std::vector<vector<char>> board =
-//
-//         {{'A', 'A', 'A', 'A', 'A', 'A'}, {'A', 'A', 'A', 'A', 'A', 'A'},
-//          {'A', 'A', 'A', 'A', 'A', 'A'}, {'A', 'A', 'A', 'A', 'A', 'A'},
-//          {'A', 'A', 'A', 'A', 'A', 'A'}, {'A', 'A', 'A', 'A', 'A', 'A'}};
-//     const std::string word = "AAAAAAAAAAAAAAB";
-//     SolutionV2 s;
-//     const bool ret = s.Exist(board, word);
-//     EXPECT_EQ(ret, false);
-// }
-//
+TEST(word_search, t4) {
+    std::vector<vector<char>> board =
+
+        {{'A', 'A', 'A', 'A', 'A', 'A'}, {'A', 'A', 'A', 'A', 'A', 'A'},
+         {'A', 'A', 'A', 'A', 'A', 'A'}, {'A', 'A', 'A', 'A', 'A', 'A'},
+         {'A', 'A', 'A', 'A', 'A', 'A'}, {'A', 'A', 'A', 'A', 'A', 'A'}};
+    const std::string word = "AAAAAAAAAAAAAAB";
+    Solution s;
+    const bool ret = s.Exist(board, word);
+    EXPECT_EQ(ret, false);
+}
+TEST(word_search_v2, t4) {
+    std::vector<vector<char>> board =
+
+        {{'A', 'A', 'A', 'A', 'A', 'A'}, {'A', 'A', 'A', 'A', 'A', 'A'},
+         {'A', 'A', 'A', 'A', 'A', 'A'}, {'A', 'A', 'A', 'A', 'A', 'A'},
+         {'A', 'A', 'A', 'A', 'A', 'A'}, {'A', 'A', 'A', 'A', 'A', 'A'}};
+    const std::string word = "AAAAAAAAAAAAAAB";
+    SolutionV2 s;
+    const bool ret = s.Exist(board, word);
+    EXPECT_EQ(ret, false);
+}
+
 }  // namespace
+
+#ifdef TEST_ADQ
+int main(int argc, char *argv[]) {
+    testing::InitGoogleTest(&argc, argv);
+    return RUN_ALL_TESTS();
+}
+#endif

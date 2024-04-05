@@ -19,19 +19,10 @@ the index of the node (range from 0 to n-1) that the random pointer points to,
 or null if it does not point to any node. Your code will only be given the head
 of the original linked list.*/
 
-#include <catch2/catch_test_macros.hpp>
-#include <optional>
 #include <unordered_map>
 #include <vector>
 
-#define concat(a, b) concat2(a, b)
-#define concat2(a, b) a##b
-#define symbol(a) symbol2(a)
-#define symbol2(a) #a
-#define TEST(a, b) TEST_CASE(symbol(concat(concat(a, b), __LINE__)), #b)
-#define EXPECT_EQ(a, b) REQUIRE(a == b)
-#define EXPECT_TRUE(a) REQUIRE(a)
-#define EXPECT_FALSE(a) REQUIRE(!a)
+#include "gtest/gtest.h"
 
 namespace {
 class Node {
@@ -83,6 +74,8 @@ class Solution {
         return dummy_new.next;
     }
 };
+
+#include <optional>
 
 #define null std::optional<int>()
 

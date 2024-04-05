@@ -10,16 +10,7 @@
 #include <vector>
 
 #include "datastruct_base.hh"
-#include <catch2/catch_test_macros.hpp>
-
-#define concat(a, b) concat2(a, b)
-#define concat2(a, b) a##b
-#define symbol(a) symbol2(a)
-#define symbol2(a) #a
-#define TEST(a, b) TEST_CASE(symbol(concat(concat(a, b),__LINE__)), #b)
-#define EXPECT_EQ(a, b) REQUIRE(a == b)
-#define EXPECT_TRUE(a) REQUIRE(a)
-#define EXPECT_FALSE(a) REQUIRE(!a)
+#include "gtest/gtest.h"
 
 using namespace Tree;
 using namespace std;
@@ -28,8 +19,8 @@ class Solution {
    public:
     template <typename T>
     TreeNode<T> *Build(vector<T> &preorder, int p_start, int p_end,
-                       unordered_map<int, int> &inorder_map, std::size_t i_start,
-                       std::size_t i_end) {
+                       unordered_map<int, int> &inorder_map, int i_start,
+                       int i_end) {
         if (p_start > p_end || i_start > i_end) return nullptr;
 
         auto *root = new TreeNode(preorder[p_start]);

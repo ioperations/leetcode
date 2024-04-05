@@ -4,19 +4,10 @@
 #include <limits.h>
 #include <time.h>
 
-#include <catch2/catch_approx.hpp>
-#include <catch2/catch_test_macros.hpp>
 #include <iostream>
 #include <vector>
 
-#define concat(a, b) concat2(a, b)
-#define concat2(a, b) a##b
-#define symbol(a) symbol2(a)
-#define symbol2(a) #a
-#define TEST(a, b) TEST_CASE(symbol(concat(concat(a, b),__LINE__)), #b)
-#define EXPECT_EQ(a, b) REQUIRE(a == b)
-#define EXPECT_TRUE(a) REQUIRE(a)
-#define EXPECT_FALSE(a) REQUIRE(!a)
+#include "gtest/gtest.h"
 using namespace std;
 
 /// 寻找两个已经排好序的数组的中位数
@@ -81,8 +72,8 @@ class Solution {
         if (nums1.size() > nums2.size()) {
             return FindMedianSortedArrays(nums2, nums1);
         }
-        int x = static_cast<int>(nums1.size());
-        int y = static_cast<int>(nums2.size());
+        int x = nums1.size();
+        int y = nums2.size();
 
         int high = x;
         int low = 0;
@@ -114,7 +105,7 @@ class Solution {
     }
 
     double ImplV3(vector<int> &nums1, vector<int> &nums2) {
-        const int m = static_cast<int>(nums1.size()), n = static_cast<int>(nums2.size());
+        int m = nums1.size(), n = nums2.size();
 
         if (!m)
             return n & 1 ? nums2[n / 2]
@@ -166,12 +157,10 @@ TEST(_median_of_two_sorted_arrayv2, t2) {
 
     vector<int> n3{};
     vector<int> n4{1};
-    double ret = n.FindMedianSortedArrays(n1, n2);
-    REQUIRE(ret == Catch::Approx(3.0));
-    ret = n.FindMedianSortedArrays(n1, n3);
-    REQUIRE(ret == Catch::Approx(3.0));
-    ret = n.FindMedianSortedArrays(n3, n4);
-    REQUIRE(ret == Catch::Approx(1.0));
+
+    EXPECT_DOUBLE_EQ(3.0, n.FindMedianSortedArrays(n1, n2));
+    EXPECT_DOUBLE_EQ(3.0, n.FindMedianSortedArrays(n1, n3));
+    EXPECT_DOUBLE_EQ(1.0, n.FindMedianSortedArrays(n3, n4));
 }
 
 }  // namespace

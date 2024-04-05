@@ -27,22 +27,13 @@ order.
 */
 
 #include <algorithm>
-#include <catch2/catch_approx.hpp>
-#include <catch2/catch_test_macros.hpp>
 #include <map>
 #include <string>
 #include <unordered_map>
 #include <utility>
 #include <vector>
 
-#define concat(a, b) concat2(a, b)
-#define concat2(a, b) a##b
-#define symbol(a) symbol2(a)
-#define symbol2(a) #a
-#define TEST(a, b) TEST_CASE(symbol(concat(concat(a, b),__LINE__)), #b)
-#define EXPECT_EQ(a, b) REQUIRE(a == b)
-#define EXPECT_TRUE(a) REQUIRE(a)
-#define EXPECT_FALSE(a) REQUIRE(!a)
+#include "gtest/gtest.h"
 
 using namespace std;
 
@@ -236,7 +227,7 @@ TEST(design_underground_system, t2) {
     // Customer 2 "Leyton" -> "Paradise" in 30-21 = 9
     ret = rgs->GetAverageTime("Leyton", "Paradise");
     // return 6.66667, (5 + 6 + 9) / 3 = 6.66667
-    REQUIRE(ret == Catch::Approx(6.66667));
+    EXPECT_NEAR(ret, 6.66667, 0.0001);
 
     delete rgs;
 }

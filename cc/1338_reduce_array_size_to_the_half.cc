@@ -11,16 +11,7 @@ array are removed.*/
 #include <unordered_map>
 #include <vector>
 
-#include <catch2/catch_test_macros.hpp>
-
-#define concat(a, b) concat2(a, b)
-#define concat2(a, b) a##b
-#define symbol(a) symbol2(a)
-#define symbol2(a) #a
-#define TEST(a, b) TEST_CASE(symbol(concat(concat(a, b),__LINE__)), #b)
-#define EXPECT_EQ(a, b) REQUIRE(a == b)
-#define EXPECT_TRUE(a) REQUIRE(a)
-#define EXPECT_FALSE(a) REQUIRE(!a)
+#include "gtest/gtest.h"
 
 using namespace std;
 
@@ -37,7 +28,7 @@ class Solution {
         for (auto &[val, cnt] : mp) pq.push(cnt);
 
         int val = 0, sum = 0;
-        while (!pq.empty() && sum < n / 2) {
+        while (!pq.empty() and sum < n / 2) {
             sum += pq.top();
             pq.pop();
             val++;

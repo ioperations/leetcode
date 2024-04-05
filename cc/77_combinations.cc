@@ -8,18 +8,9 @@ You may return the answer in any order.
 
 */
 
-#include <catch2/catch_test_macros.hpp>
-#include <set>
 #include <vector>
 
-#define concat(a, b) concat2(a, b)
-#define concat2(a, b) a##b
-#define symbol(a) symbol2(a)
-#define symbol2(a) #a
-#define TEST(a, b) TEST_CASE(symbol(concat(concat(a, b),__LINE__)), #b)
-#define EXPECT_EQ(a, b) REQUIRE(a == b)
-#define EXPECT_TRUE(a) REQUIRE(a)
-#define EXPECT_FALSE(a) REQUIRE(!a)
+#include "gtest/gtest.h"
 
 using namespace std;
 namespace {
@@ -51,6 +42,8 @@ class Solution {
         return ans;
     }
 };
+
+#include <set>
 
 TEST(combinations, t1) {
     int n = 4;

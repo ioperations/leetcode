@@ -19,25 +19,16 @@ be proven that the answer is unique.
 using namespace std;
 #include <stack>
 
-#include <catch2/catch_test_macros.hpp>
-
-#define concat(a, b) concat2(a, b)
-#define concat2(a, b) a##b
-#define symbol(a) symbol2(a)
-#define symbol2(a) #a
-#define TEST(a, b) TEST_CASE(symbol(concat(concat(a, b),__LINE__)), #b)
-#define EXPECT_EQ(a, b) REQUIRE(a == b)
-#define EXPECT_TRUE(a) REQUIRE(a)
-#define EXPECT_FALSE(a) REQUIRE(!a)
+#include "gtest/gtest.h"
 namespace {
 class Solution {
    public:
     string RemoveDuplicates(const string &s, int k = 2) {
-        std::size_t n = s.size();
+        int n = s.size();
         if (n < k) return s;
 
         stack<pair<char, int>> stk;
-        for (std::size_t i = 0; i < n; ++i) {
+        for (int i = 0; i < (int)n; ++i) {
             if (stk.empty() || stk.top().first != s[i])
                 stk.push({s[i], 1});
             else {

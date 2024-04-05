@@ -13,21 +13,13 @@ some or no elements without changing the order of the remaining elements.
 */
 
 #include <algorithm>
-#include <catch2/benchmark/catch_benchmark.hpp>
-#include <catch2/catch_test_macros.hpp>
 #include <functional>
 #include <map>
 #include <string>
 #include <vector>
 
-#define concat(a, b) concat2(a, b)
-#define concat2(a, b) a##b
-#define symbol(a) symbol2(a)
-#define symbol2(a) #a
-#define TEST(a, b) TEST_CASE(symbol(concat(concat(a, b), __LINE__)), #b)
-#define EXPECT_EQ(a, b) REQUIRE(a == b)
-#define EXPECT_TRUE(a) REQUIRE(a)
-#define EXPECT_FALSE(a) REQUIRE(!a)
+#include "benchmark/benchmark.h"
+#include "gtest/gtest.h"
 
 using namespace std;
 
@@ -80,21 +72,13 @@ class Solution {
         return fun(cur, 0, 0);
     }
 
-    int popcount(unsigned u) {
-        u = (u & 0x55555555) + ((u >> 1) & 0x55555555);
-        u = (u & 0x33333333) + ((u >> 2) & 0x33333333);
-        u = (u & 0x0F0F0F0F) + ((u >> 4) & 0x0F0F0F0F);
-        u = (u & 0x00FF00FF) + ((u >> 8) & 0x00FF00FF);
-        u = (u & 0x0000FFFF) + ((u >> 16) & 0x0000FFFF);
-        return u;
-    }
     int MaxLengthV2(vector<string> &arr) {
         vector<int> a;
 
         for (const string &x : arr) {
             int mask = 0;
             for (char c : x) mask |= 1 << (c - 'a');
-            if (popcount(mask) != x.length()) continue;
+            if (__builtin_popcount(mask) != x.length()) continue;
             a.push_back(mask);
         }
 
@@ -107,7 +91,7 @@ class Solution {
                 if (dp[j] & a[i]) continue;
                 int t = dp[j] | a[i];
                 dp.push_back(t);
-                ans = max(ans, popcount(t));
+                ans = max(ans, __builtin_popcount(t));
             }
         }
 
@@ -191,27 +175,28 @@ TEST(Maximum_Length_of_a_Concatenated_String_with_Unique_Characters_v2, t3) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(MaxLength, t1) {
+static void BenchMarkV1(benchmark::State &state) {
     vector<string> arr = {"un", "iq", "ue"};
-    int output = 4;
+    for (auto _ : state) {
+        int output = 4;
 
-    Solution sl;
-    BENCHMARK("BenchMarkV1") {
+        Solution sl;
         int ret = sl.MaxLength(arr);
         EXPECT_EQ(ret, output);
-    };
+    }
 }
+BENCHMARK(BenchMarkV1);
 
-TEST(MaxLengthV2, t1) {
+static void BenchMarkV2(benchmark::State &state) {
     vector<string> arr = {"un", "iq", "ue"};
-    int output = 4;
+    for (auto _ : state) {
+        int output = 4;
 
-    Solution sl;
-
-    BENCHMARK("BenchMarkV2") {
-        const int ret = sl.MaxLengthV2(arr);
+        Solution sl;
+        int ret = sl.MaxLengthV2(arr);
         EXPECT_EQ(ret, output);
-    };
+    }
 }
+BENCHMARK(BenchMarkV2);
 
 }  // namespace

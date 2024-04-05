@@ -5,17 +5,9 @@
  * @brief 最长回文子串
  */
 
-#include <catch2/catch_test_macros.hpp>
 #include <string>
 
-#define concat(a, b) concat2(a, b)
-#define concat2(a, b) a##b
-#define symbol(a) symbol2(a)
-#define symbol2(a) #a
-#define TEST(a, b) TEST_CASE(symbol(concat(concat(a, b),__LINE__)), #b)
-#define EXPECT_EQ(a, b) REQUIRE(a == b)
-#define EXPECT_TRUE(a) REQUIRE(a)
-#define EXPECT_FALSE(a) REQUIRE(!a)
+#include "gtest/gtest.h"
 
 namespace {
 class Solution {
@@ -59,11 +51,7 @@ TEST(longest_palindromic_substring, t1) {
 
     auto ret = sl->LongestPalindrome(s);
 
-    if (ret == "bab" || ret == "aba") {
-        REQUIRE(true);
-    } else {
-        REQUIRE(false);
-    }
+    EXPECT_TRUE(ret == "bab" || ret == "aba");
     delete sl;
 }
 
@@ -81,11 +69,7 @@ TEST(longest_palindromic_substring, t3) {
 
     auto ret = sl->LongestPalindrome(s);
     delete sl;
-    if (ret == "a" || ret == "c") {
-        REQUIRE(true);
-    } else {
-        REQUIRE(false);
-    }
+    EXPECT_TRUE(ret == "a" || ret == "c");
 }
 
 }  // namespace

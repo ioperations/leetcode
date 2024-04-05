@@ -7,20 +7,11 @@
 
 //* Definition for a binary tree node.
 #include <algorithm>
-#include <catch2/catch_test_macros.hpp>
 #include <optional>
 #include <vector>
 
 #include "datastruct_base.hh"
-
-#define concat(a, b) concat2(a, b)
-#define concat2(a, b) a##b
-#define symbol(a) symbol2(a)
-#define symbol2(a) #a
-#define TEST(a, b) TEST_CASE(symbol(concat(concat(a, b),__LINE__)), #b)
-#define EXPECT_EQ(a, b) REQUIRE(a == b)
-#define EXPECT_TRUE(a) REQUIRE(a)
-#define EXPECT_FALSE(a) REQUIRE(!a)
+#include "gtest/gtest.h"
 
 using namespace std;
 using TreeNode = Tree::TreeNode<int>;
@@ -50,7 +41,7 @@ class Solution {
     }
 };
 
-TEST(memleak, trandom) {
+TEST(memleak, t0) {
     vector<optional<int>> elements{3,  9, 20, optional<int>(), optional<int>(),
                                    15, 7};
     auto *binary_tree = Tree::ConstructBinaryTree(elements);

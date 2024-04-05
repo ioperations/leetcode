@@ -16,16 +16,7 @@ The length of a clear path is the number of visited cells of this path.*/
 #include <utility>
 #include <vector>
 
-#include <catch2/catch_test_macros.hpp>
-
-#define concat(a, b) concat2(a, b)
-#define concat2(a, b) a##b
-#define symbol(a) symbol2(a)
-#define symbol2(a) #a
-#define TEST(a, b) TEST_CASE(symbol(concat(concat(a, b),__LINE__)), #b)
-#define EXPECT_EQ(a, b) REQUIRE(a == b)
-#define EXPECT_TRUE(a) REQUIRE(a)
-#define EXPECT_FALSE(a) REQUIRE(!a)
+#include "gtest/gtest.h"
 
 using namespace std;
 
@@ -51,8 +42,8 @@ class Solution {
         while (!fill_values.empty()) {
             steps++;
 
-            std::size_t size = fill_values.size();
-            for (std::size_t i = 0; i < size; i++) {
+            int size = fill_values.size();
+            for (int i = 0; i < size; i++) {
                 pair<int, int> coord = fill_values.front();
                 fill_values.pop();
 

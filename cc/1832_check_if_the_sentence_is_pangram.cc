@@ -9,19 +9,11 @@ if sentence is a pangram, or false otherwise.
 
 */
 
-#include <catch2/benchmark/catch_benchmark.hpp>
-#include <catch2/catch_test_macros.hpp>
+#include <benchmark/benchmark.h>
 #include <set>
 #include <string>
 
-#define concat(a, b) concat2(a, b)
-#define concat2(a, b) a##b
-#define symbol(a) symbol2(a)
-#define symbol2(a) #a
-#define TEST(a, b) TEST_CASE(symbol(concat(concat(a, b), __LINE__)), #b)
-#define EXPECT_EQ(a, b) REQUIRE(a == b)
-#define EXPECT_TRUE(a) REQUIRE(a)
-#define EXPECT_FALSE(a) REQUIRE(!a)
+#include "gtest/gtest.h"
 
 using namespace std;
 
@@ -46,6 +38,8 @@ class Solution {
         return false;
     }
 };
+
+
 
 TEST(check_if_the_sentence_is_pangram, t1) {
     string sentence = "thequickbrownfoxjumpsoverthelazydog";
@@ -83,30 +77,30 @@ TEST(check_if_the_sentence_is_pangram_v2, t2) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(CheckIfPangram, t1) {
+static void BenchMarkV1(benchmark::State &state) {
     string sentence = "thequickbrownfoxjumpsoverthelazydog";
-    bool const output = true;
-    // Explanation: sentence contains at least one of every letter of the
-    // English alphabet.
-    Solution sl;
-
-    BENCHMARK("BenchMarkV1") {
+    for (auto _ : state) {
+        bool const output = true;
+        // Explanation: sentence contains at least one of every letter of the
+        // English alphabet.
+        Solution sl;
         bool ret = sl.CheckIfPangram(sentence);
         EXPECT_EQ(ret, output);
-    };
+    }
 }
+BENCHMARK(BenchMarkV1);
 
-TEST(CheckIfPangramV2, t1) {
+static void BenchMarkV2(benchmark::State &state) {
     string sentence = "thequickbrownfoxjumpsoverthelazydog";
-    bool const output = true;
-    // Explanation: sentence contains at least one of every letter of the
-    // English alphabet.
-    Solution sl;
-
-    BENCHMARK("BenchMarkV2") {
+    for (auto _ : state) {
+        bool const output = true;
+        // Explanation: sentence contains at least one of every letter of the
+        // English alphabet.
+        Solution sl;
         bool ret = sl.CheckIfPangramV2(sentence);
         EXPECT_EQ(ret, output);
-    };
+    }
 }
+BENCHMARK(BenchMarkV2);
 
 }  // namespace

@@ -3,19 +3,9 @@
 // https://pvs-studio.com
 /* * Definition for singly-linked list. */
 
-#include <catch2/catch_test_macros.hpp>
 #include <iostream>
 
 #include "datastruct_base.hh"
-
-#define concat(a, b) concat2(a, b)
-#define concat2(a, b) a##b
-#define symbol(a) symbol2(a)
-#define symbol2(a) #a
-#define TEST(a, b) TEST_CASE(symbol(concat(concat(a, b), __LINE__)), #b)
-#define EXPECT_EQ(a, b) REQUIRE(a == b)
-#define EXPECT_TRUE(a) REQUIRE(a)
-#define EXPECT_FALSE(a) REQUIRE(!a)
 
 using ListNode = List::ListNode<int>;
 
@@ -74,17 +64,26 @@ class Solution {
                 * first free list n3 ; then free n2
 
     */
+   public:
+    void FreeListNode(ListNode *n) {
+        if (!n) {
+            return;
+        }
+
+        FreeListNode(n->next);
+        std::cout << " free: " << n->val;
+        delete n;
+    }
 };
 
-TEST(add_two_number, t1) {
-    auto *l1 = List::ConstructList(std::vector<int>{1, 2, 3});
-    auto *l2 = List::ConstructList(std::vector<int>{4, 5, 6});
+void PrintNode(ListNode *n) {
+    std::cout << std::endl;
 
-    Solution sl;
-    auto *ret = sl.AddTwoNumbers(l1, l2);
-    List::FreeList(ret);
-    List::FreeList(l1);
-    List::FreeList(l2);
+    for (; n;) {
+        std::cout << n->val << " -> ";
+        n = n->next;
+    }
+    std::cout << std::endl;
 }
 
 }  // namespace

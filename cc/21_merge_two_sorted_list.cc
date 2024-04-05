@@ -6,22 +6,13 @@
  */
 
 #include <assert.h>
+#include <benchmark/benchmark.h>
 
 #include <algorithm>
-#include <catch2/benchmark/catch_benchmark.hpp>
-#include <catch2/catch_test_macros.hpp>
 #include <vector>
 
 #include "datastruct_base.hh"
-
-#define concat(a, b) concat2(a, b)
-#define concat2(a, b) a##b
-#define symbol(a) symbol2(a)
-#define symbol2(a) #a
-#define TEST(a, b) TEST_CASE(symbol(concat(concat(a, b), __LINE__)), #b)
-#define EXPECT_EQ(a, b) REQUIRE(a == b)
-#define EXPECT_TRUE(a) REQUIRE(a)
-#define EXPECT_FALSE(a) REQUIRE(!a)
+#include "gtest/gtest.h"
 
 /**
  *  @brief 单链表节点
@@ -150,25 +141,24 @@ TEST(merge_two_sorted_list, t2) {
     }
 }
 
-TEST(merge_two_sorted_list, v1) {
+void Benchmakrv1(benchmark::State &state) {
     std::vector<int> t{1,  2,  3,  4,  5,  6,  7,  8, 9,
                        10, 11, 12, 13, 14, 15, 16, 17};
 
     std::vector<int> expected;
-    const std::size_t size = t.size();
+    const int size = t.size();
     expected.reserve(size * 2);
     for (int i = 0; i < size; i++) {
         expected.push_back(t[i]);
         expected.push_back(t[i]);
     }
 
-    Solution solution;
-
-    BENCHMARK("Benchmakrv1") {
+    for (auto _ : state) {
         ListNode *s1 = List::ConstructList(t);
 
         ListNode *l1 = List::ConstructList(t);
 
+        Solution solution;
         auto *it = solution.MergeTwoLists(s1, l1);
         auto *it2 = it;
 
@@ -178,15 +168,16 @@ TEST(merge_two_sorted_list, v1) {
         }
 
         List::FreeList(it2);
-    };
+    }
 }
+BENCHMARK(Benchmakrv1);
 
-TEST(mergeTwoListsV2, v2) {
+void Benchmakrv2(benchmark::State &state) {
     std::vector<int> t{1,  2,  3,  4,  5,  6,  7,  8, 9,
                        10, 11, 12, 13, 14, 15, 16, 17};
 
     std::vector<int> expected;
-    const std::size_t size = t.size();
+    const int size = t.size();
     expected.reserve(size * 2);
     for (int i = 0; i < size; i++) {
         expected.push_back(t[i]);
@@ -194,22 +185,24 @@ TEST(mergeTwoListsV2, v2) {
     }
     sort(expected.begin(), expected.end());
 
-    Solution solution;
-
-    BENCHMARK("Benchmakrv2") {
+    for (auto _ : state) {
         ListNode *s1 = List::ConstructList(t);
 
         ListNode *l1 = List::ConstructList(t);
 
+        Solution solution;
         auto *it = solution.MergeTwoListsV2(s1, l1);
+
         auto *it2 = it;
 
         for (auto &ptr : expected) {
             EXPECT_EQ(ptr, it->val);
             it = it->next;
         }
+
         List::FreeList(it2);
-    };
+    }
 }
+BENCHMARK(Benchmakrv2);
 
 }  // namespace
