@@ -28,13 +28,13 @@ impl Solution {
                         .min() // the smallest absolute difference between current
                         // house and each heater will be the closest heater to
                         // that house
-                        .unwrap_or(std::i32::MIN)
+                        .unwrap_or(i32::MIN)
                 }, // if heaters is empty return the smallest possible value
             )
             .max() // to cover all the houses the radius must be the largest minimal
             // distance between any house and its closest heater
-            .unwrap_or(std::i32::MAX) // if houses is empty return the largest
-                                      // possible value    }
+            .unwrap_or(i32::MAX) // if houses is empty return the largest
+                                 // possible value    }
     }
 }
 

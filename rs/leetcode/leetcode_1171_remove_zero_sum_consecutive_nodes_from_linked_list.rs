@@ -31,8 +31,8 @@ impl Solution {
 
         for (&key, &val) in &map {
             if val > 1 {
-                let mut lo = std::i32::MIN;
-                let mut hi = std::i32::MAX;
+                let mut lo = i32::MIN;
+                let mut hi = i32::MAX;
                 for (i, &v) in partial_sum.iter().enumerate() {
                     if v == key {
                         lo = i as i32;
@@ -46,9 +46,9 @@ impl Solution {
                     }
                 }
                 // println!("sum = {}, lo = {}, hi = {}", key, lo, hi);
-                if lo > std::i32::MIN && hi < std::i32::MAX && hi > lo {
+                if lo > i32::MIN && hi < i32::MAX && hi > lo {
                     for j in lo + 1..=hi {
-                        partial_sum[j as usize] = std::i32::MAX;
+                        partial_sum[j as usize] = i32::MAX;
                     }
                 }
             }
@@ -56,7 +56,7 @@ impl Solution {
         //        println!("{:?}", partial_sum);
         let mut ans = vec![];
         for i in 1..partial_sum.len() {
-            if partial_sum[i] != std::i32::MAX {
+            if partial_sum[i] != i32::MAX {
                 ans.push(v[i - 1]);
             }
         }

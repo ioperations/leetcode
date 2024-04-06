@@ -28,7 +28,7 @@ impl Solution {
             }
             let mut hs = HashSet::new();
             hs.insert(s[0]);
-            let mut ret = std::i32::MAX;
+            let mut ret = i32::MAX;
 
             for (index, &value) in s.iter().enumerate().skip(1) {
                 if hs.contains(&value) {
@@ -43,7 +43,7 @@ impl Solution {
                 // ret = ret.min(z2);
             }
             cache.insert(s.into(), ret);
-            if ret == std::i32::MAX {
+            if ret == i32::MAX {
                 return 1;
             }
             ret

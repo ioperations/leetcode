@@ -34,7 +34,7 @@ impl Solution {
                 return v;
             }
 
-            let mut res = std::i32::MAX;
+            let mut res = i32::MAX;
             if (current_index + 1) < len
                 && steps.get(&(current_index + 1)).is_none()
             {

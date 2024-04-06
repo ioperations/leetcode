@@ -46,7 +46,7 @@ impl Solution {
         let mut seen = HashSet::new();
         this.push_back(1);
 
-        let mut ret = std::i32::MAX;
+        let mut ret = i32::MAX;
         while !this.is_empty() {
             let cur = this.pop_front().unwrap();
             for &(i, value) in &matrix[cur] {

@@ -5,7 +5,7 @@ impl Solution {
     #[allow(unused)]
     fn num_squares(n: i32) -> i32 {
         let mut dp = vec![];
-        dp.resize((n + 1) as usize, std::i32::MAX);
+        dp.resize((n + 1) as usize, i32::MAX);
         dp[0] = 0;
         let mut count = 1;
         while count * count <= n {
