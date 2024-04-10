@@ -12,7 +12,7 @@ namespace {
 class Solution {
    public:
     string AddBinary(const string &a, const string &b) {
-        const char map[] = {'0', '1', '0', '1'};
+        const std::array<char, 4> map = {'0', '1', '0', '1'};
         for (auto a_it = a.rbegin(), b_it = b.rbegin();
 
              a_it != a.rend() || b_it != b.rend() || carrier;) {
@@ -32,7 +32,9 @@ class Solution {
                 this_bit = carrier;
             }
             carrier = this_bit >= 2 ? 1 : 0;
-            ret = map[this_bit] + ret;
+            if (this_bit >= 0 && this_bit < 4) {
+                ret = map[this_bit] + ret;
+            }
         }
         return ret;
     }

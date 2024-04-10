@@ -10,8 +10,6 @@
 namespace {
 class Solution {
    public:
-    Solution(){};
-    virtual ~Solution(){};
     /**
      * @brief 反转数字
      * @param @x 数字

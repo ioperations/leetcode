@@ -12,9 +12,6 @@
 namespace {
 class Solution {
    public:
-    Solution(){};
-    virtual ~Solution(){};
-
     std::string LongestPalindrome(std::string s) {
         /**
          *  中心扩展算法
@@ -47,28 +44,25 @@ class Solution {
 
 TEST(longest_palindromic_substring, t1) {
     std::string s("babad");
-    Solution *sl = new Solution();
+    Solution sl;
 
-    auto ret = sl->LongestPalindrome(s);
+    auto ret = sl.LongestPalindrome(s);
 
     EXPECT_TRUE(ret == "bab" || ret == "aba");
-    delete sl;
 }
 
 TEST(longest_palindromic_substring, t2) {
     std::string s("cbbd");
-    Solution *sl = new Solution();
+    Solution sl;
 
-    auto ret = sl->LongestPalindrome(s);
-    delete sl;
+    auto ret = sl.LongestPalindrome(s);
     EXPECT_EQ(ret, "bb");
 }
 TEST(longest_palindromic_substring, t3) {
     std::string s("ac");
-    Solution *sl = new Solution();
+    Solution sl;
 
-    auto ret = sl->LongestPalindrome(s);
-    delete sl;
+    auto ret = sl.LongestPalindrome(s);
     EXPECT_TRUE(ret == "a" || ret == "c");
 }
 

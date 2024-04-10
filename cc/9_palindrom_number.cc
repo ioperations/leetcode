@@ -9,8 +9,6 @@
 namespace {
 class Solution {
    public:
-    Solution(){};
-    virtual ~Solution(){};
     bool IsPalindrome(int x) {
         return std::to_string(x) == Reverse(std::to_string(x));
     }
