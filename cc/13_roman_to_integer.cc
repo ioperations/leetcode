@@ -12,7 +12,7 @@ class Solution {
         int i = 0;
         int sum = 0;
         const int len = s.length();
-        int current, next;
+        int current = 0, next = 0;
 
         for (i = 0; i < len; i++) {
             current = Basic(s[i]);
