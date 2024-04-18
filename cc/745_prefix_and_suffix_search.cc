@@ -194,15 +194,11 @@ class WordFilterMy {
     }
 };
 
-
-
 TEST(prefix_and_suffix_search, t1) {
     std::vector<string> words{"apple"};
-    WordFilter *obj = new WordFilter(words);
-    int ret;
-    ret = obj->F("a", "e");
+    WordFilter obj(words);
+    int ret = obj.F("a", "e");
     EXPECT_EQ(ret, 0);
-    delete obj;
 }
 
 TEST(prefix_and_suffix_search, t2) {
@@ -210,30 +206,29 @@ TEST(prefix_and_suffix_search, t2) {
         "cabaabaaaa", "ccbcababac", "bacaabccba", "bcbbcbacaa", "abcaccbcaa",
         "accabaccaa", "cabcbbbcca", "ababccabcb", "caccbbcbab", "bccbacbcba"};
     // ["WordFilter","f","f","f","f","f","f","f","f","f","f"]
-    WordFilter *obj = new WordFilter(words);
-    int ret;
-    ret = obj->F("bccbacbcba", "a");
+    WordFilter obj(words);
+
+    int ret = obj.F("bccbacbcba", "a");
     EXPECT_EQ(ret, 9);
 
-    ret = obj->F("ab", "abcaccbcaa");
+    ret = obj.F("ab", "abcaccbcaa");
     EXPECT_EQ(ret, 4);
-    ret = obj->F("a", "aa");
+    ret = obj.F("a", "aa");
     EXPECT_EQ(ret, 5);
-    ret = obj->F("cabaaba", "abaaaa");
+    ret = obj.F("cabaaba", "abaaaa");
     EXPECT_EQ(ret, 0);
-    ret = obj->F("cacc", "accbbcbab");
+    ret = obj.F("cacc", "accbbcbab");
     EXPECT_EQ(ret, 8);
-    ret = obj->F("ccbcab", "bac");
+    ret = obj.F("ccbcab", "bac");
     EXPECT_EQ(ret, 1);
-    ret = obj->F("bac", "cba");
+    ret = obj.F("bac", "cba");
     EXPECT_EQ(ret, 2);
-    ret = obj->F("ac", "accabaccaa");
+    ret = obj.F("ac", "accabaccaa");
     EXPECT_EQ(ret, 5);
-    ret = obj->F("bcbb", "aa");
+    ret = obj.F("bcbb", "aa");
     EXPECT_EQ(ret, 3);
-    ret = obj->F("ccbca", "cbcababac");
+    ret = obj.F("ccbca", "cbcababac");
     EXPECT_EQ(ret, 1);
-    delete obj;
 }
 
 }  // namespace
