@@ -44,7 +44,7 @@ class LRUCache {
         map.clear();
     }
 
-    int Get(int key) {
+    [[nodiscard]] int Get(int key) {
         if (map.find(key) != map.end()) {
             CacheNode *p = map[key];
             DetachNode(p);
