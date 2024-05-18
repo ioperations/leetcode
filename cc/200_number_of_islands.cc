@@ -109,7 +109,7 @@ class Solution {
     void DfsUsingStack(const vector<vector<char>> &grid,
                        vector<vector<bool>> &visit, int i, int j) {
         stack<pair<int, int>> stack;
-        stack.push(make_pair(i, j));
+        stack.emplace(i, j);
         while (stack.size()) {
             auto [i, j] = stack.top();
             stack.pop();
@@ -121,17 +121,17 @@ class Solution {
                 continue;
             }
             visit[i][j] = true;
-            stack.push(make_pair(i + 1, j));
-            stack.push(make_pair(i - 1, j));
-            stack.push(make_pair(i, j + 1));
-            stack.push(make_pair(i, j - 1));
+            stack.emplace(i + 1, j);
+            stack.emplace(i - 1, j);
+            stack.emplace(i, j + 1);
+            stack.emplace(i, j - 1);
         }
     }
 
     void BfsUsingQueue(const vector<vector<char>> &grid,
                        vector<vector<bool>> &visit, int i, int j) {
         queue<pair<int, int>> queue;
-        queue.push(make_pair(i, j));
+        queue.emplace(i, j);
         while (queue.size()) {
             auto [i, j] = queue.front();
             queue.pop();
@@ -143,10 +143,10 @@ class Solution {
                 continue;
             }
             visit[i][j] = true;
-            queue.push(make_pair(i + 1, j));
-            queue.push(make_pair(i - 1, j));
-            queue.push(make_pair(i, j + 1));
-            queue.push(make_pair(i, j - 1));
+            queue.emplace(i + 1, j);
+            queue.emplace(i - 1, j);
+            queue.emplace(i, j + 1);
+            queue.emplace(i, j - 1);
         }
     }
 };
