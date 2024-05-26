@@ -5,6 +5,26 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "(gdb) Attach",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceRoot}/cmake_build/${relativeFileDirname}/${fileBasenameNoExtension}",
+            "MIMode": "gdb",
+            "cwd": "${workspaceRoot}",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "Set Disassembly Flavor to Intel",
+                    "text": "-gdb-set disassembly-flavor intel",
+                    "ignoreFailures": true
+                }
+            ]
+        },
+        {
             "name": "(lldb) Launch",
             "type": "cppdbg",
             "request": "launch",
@@ -15,30 +35,6 @@
             "environment": [],
             "externalConsole": false,
             "MIMode": "lldb"
-        },
-        {
-            "name": "(gdb) launch",
-            "type": "cppdbg",
-            "request": "attach",
-            "program": "${fileDirname}/${fileBasenameNoExtension}",
-            "MIMode": "gdb",
-            "setupCommands": [
-                {
-                    "description": "Enable pretty-printing for gdb",
-                    "text": "-enable-pretty-printing",
-                    "ignoreFailures": true
-                },
-                {
-                    "description]": "in this mode gdb will be attach to child fprocesss after a call to fork()",
-                    "text": "-gdb-set detach-on-fork off",
-                    "ignoreFailures": true
-                },
-                {
-                    "description": "The new process is debugged after a fork. The parent process runs unimpeded.",
-                    "text": "-gdb-set follow-fork-mode child",
-                    "ignoreFailures": true
-                }
-            ]
         }
     ]
 }
