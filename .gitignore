@@ -4,7 +4,6 @@
 /.ccls-cache
 /.mypy_cache
 /compile_commands.json
-/.vscode
 /cmake-build-debug*
 /cmake_build*
 /target 
