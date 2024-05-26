@@ -39,15 +39,15 @@ class Solution {
     }
 
     vector<vector<int>> ThreeSumV2(vector<int> &nums) {
-        int n = nums.size();
+        size_t n = nums.size();
         vector<vector<int>> res;
         sort(nums.begin(), nums.end());
 
-        for (int i = 0; i < n; i++) {
-            int target = 0 - nums[i];
+        for (size_t i = 0; i < n; i++) {
+            size_t target = 0 - nums[i];
 
-            int front = i + 1;
-            int back = n - 1;
+            size_t front = i + 1;
+            size_t back = n - 1;
 
             while (front < back) {
                 int sum = nums[front] + nums[back];
@@ -104,7 +104,7 @@ class Solution {
         return false;
     }
 
-    std::vector<int> TwoSum(vector<int> &nums, int left, int target) {
+    std::vector<int> TwoSum(vector<int> &nums, size_t left, int target) {
         std::vector<int> ret;
         for (size_t i = left; i < nums.size(); ++i) {
             for (size_t j = i + 1; j < nums.size(); j++) {
