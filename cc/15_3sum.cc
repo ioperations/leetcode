@@ -11,6 +11,7 @@ Given an integer array nums,
         Notice that the solution set must not contain duplicate triplets.
 */
 
+#include <algorithm>
 #include <vector>
 
 #include "gtest/gtest.h"
