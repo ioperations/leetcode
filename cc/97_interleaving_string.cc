@@ -25,7 +25,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    bool Helper(string &s1, string &s2, string &s3) {
+    bool Helper(const string &s1, const string &s2, const string &s3) {
         int l1 = s1.length(), l2 = s2.length();
         vector<int> q1, q2;  // queue;
         vector<vector<int>> table(s1.length() + 1,
@@ -72,7 +72,7 @@ class Solution {
         return false;
     }
 
-    bool IsInterleave(string s1, string s2, string s3) {
+    bool IsInterleave(const string &s1, const string &s2, const string &s3) {
         if (s1.length() + s2.length() != s3.length()) return false;
         if (s1.length() == 0) return true;
         return Helper(s1, s2, s3);
