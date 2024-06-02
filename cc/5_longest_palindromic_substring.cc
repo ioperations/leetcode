@@ -12,7 +12,7 @@
 namespace {
 class Solution {
    public:
-    std::string LongestPalindrome(std::string s) {
+    std::string LongestPalindrome(const std::string& s) {
         /**
          *  中心扩展算法
          */
