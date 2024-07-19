@@ -6,6 +6,7 @@ Given the root of a binary tree, check whether it is a mirror of itself (i.e.,
 symmetric around its center).
 */
 
+#include <functional>
 #include <vector>
 
 #include "datastruct_base.hh"
@@ -24,8 +25,10 @@ class Solution {
         std::vector<int> p;
         std::vector<int> q;
 
-        InorderLeft(root->left, p);
-        InorderRight(root->right, q);
+        Inorder<true>(root->left,
+                      [&p](const TreeNode *n) { p.push_back(n->val); });
+        Inorder<false>(root->right,
+                       [&q](const TreeNode *n) { q.push_back(n->val); });
 
         if (p.size() != q.size()) {
             return false;
@@ -40,23 +43,21 @@ class Solution {
         return true;
     }
 
-    void InorderLeft(TreeNode *root, std::vector<int> &vec) {
+    template <bool from_left_to_right>
+    void Inorder(TreeNode *root, std::function<void(const TreeNode *)> fun) {
         if (root == nullptr) {
             return;
         }
 
-        InorderLeft(root->left, vec);
-        vec.push_back(root->val);
-        InorderLeft(root->right, vec);
-    }
-    void InorderRight(TreeNode *root, std::vector<int> &vec) {
-        if (root == nullptr) {
-            return;
+        if constexpr (from_left_to_right) {
+            Inorder<from_left_to_right>(root->left, fun);
+            fun(root);
+            Inorder<from_left_to_right>(root->right, fun);
+        } else {
+            Inorder<from_left_to_right>(root->right, fun);
+            fun(root);
+            Inorder<from_left_to_right>(root->left, fun);
         }
-
-        InorderRight(root->right, vec);
-        vec.push_back(root->val);
-        InorderRight(root->left, vec);
     }
 };
 
