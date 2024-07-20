@@ -7,6 +7,7 @@ symmetric around its center).
 */
 
 #include <functional>
+#include <optional>
 #include <vector>
 
 #include "datastruct_base.hh"
@@ -75,24 +76,12 @@ TEST(symmetric_tree, t1) {
              |___|   |___| | |___|   |___|
     */
 
-    TreeNode n(1);
-    TreeNode n1(2);
-    TreeNode n2(2);
-    TreeNode n3(3);
-    TreeNode n4(4);
-    TreeNode n5(3);
-    TreeNode n6(4);
-
-    n.left = &n1;
-    n.right = &n2;
-    n1.left = &n3;
-    n1.right = &n4;
-    n2.left = &n6;
-    n2.right = &n5;
-
+    std::vector<std::optional<int>> data{1, 2, 2, 3, 4, 4, 3};
+    TreeNode *root = Tree::ConstructBinaryTree(data);
     Solution sl;
-    bool ret = sl.IsSymmetric(&n);
+    bool ret = sl.IsSymmetric(root);
     EXPECT_EQ(ret, true);
+    Tree::FreeTreeNode(root);
 }
 
 TEST(symmetric_tree, t2) {
@@ -108,21 +97,13 @@ TEST(symmetric_tree, t2) {
              |___|   |___|   |___|    |___|
     */
 
-    TreeNode n(1);
-    TreeNode n1(2);
-    TreeNode n2(2);
-    TreeNode n3(3);
-    TreeNode n5(3);
-
-    n.left = &n1;
-    n.right = &n2;
-    n1.right = &n3;
-
-    n2.right = &n5;
-
+#define null std::optional<int>()
+    std::vector<std::optional<int>> data{1, 2, 2, null, 3, null, 3};
+    TreeNode *root = Tree::ConstructBinaryTree(data);
     Solution sl;
-    bool ret = sl.IsSymmetric(&n);
+    bool ret = sl.IsSymmetric(root);
     EXPECT_EQ(ret, false);
+    Tree::FreeTreeNode(root);
 }
 
 }  // namespace
