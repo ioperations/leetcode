@@ -22,7 +22,6 @@ else()
         -fno-plt
         -Wall
         -Wpedantic
-        -march=native
         -ggdb
         -O3
         )
