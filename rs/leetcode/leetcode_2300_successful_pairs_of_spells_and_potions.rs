@@ -69,6 +69,8 @@ mod test {
         assert_eq!(ret, output);
     }
 
+    // https://github.com/rust-lang/rust  9bad7ba324099d124c
+    #[ignore]
     #[test]
     fn case2_test() {
         let spells = [3, 1, 2];
