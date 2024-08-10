@@ -26,7 +26,7 @@ class Solution {
     int count = 0;
     template <typename T>
     void Dfs(TreeNode<T> *root, vector<T> mpp) {
-        if (root->left == NULL && root->right == NULL) {
+        if (root->left == nullptr && root->right == nullptr) {
             mpp[root->val]++;
             int count_odd = 0;
             for (auto i : mpp) {
@@ -40,10 +40,10 @@ class Solution {
             return;
         }
         mpp[root->val]++;
-        if (root->left != NULL) {
+        if (root->left != nullptr) {
             Dfs(root->left, mpp);
         }
-        if (root->right != NULL) {
+        if (root->right != nullptr) {
             Dfs(root->right, mpp);
         }
         mpp[root->val] -= mpp[root->val];

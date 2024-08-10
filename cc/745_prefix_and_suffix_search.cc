@@ -33,7 +33,7 @@ class Trie {
         int end_idx;
 
        public:
-        bool Contains(char &ch) { return (child[ch - 'a'] != NULL); }
+        bool Contains(char &ch) { return (child[ch - 'a'] != nullptr); }
 
         void PutNode(char &ch, Node *new_node) { child[ch - 'a'] = new_node; }
 

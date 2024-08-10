@@ -34,7 +34,7 @@ class Trie {
         vector<TrieNode *> child;
         bool is_end;
         TrieNode() {
-            child.resize(26, NULL);
+            child.resize(26, nullptr);
             is_end = false;
         }
         ~TrieNode() { child.clear(); }
@@ -57,7 +57,7 @@ class Trie {
     void Insert(string word) {
         TrieNode *c = root;
         for (auto x : word) {
-            if (c->child[x - 'a'] == NULL) {
+            if (c->child[x - 'a'] == nullptr) {
                 c->child[x - 'a'] = new TrieNode();
             }
             c = c->child[x - 'a'];
@@ -68,7 +68,7 @@ class Trie {
     bool Search(string word) {
         TrieNode *c = root;
         for (auto x : word) {
-            if (c->child[x - 'a'] == NULL) {
+            if (c->child[x - 'a'] == nullptr) {
                 return false;
             }
             c = c->child[x - 'a'];
@@ -79,7 +79,7 @@ class Trie {
     bool StartsWith(string prefix) {
         TrieNode *c = root;
         for (auto x : prefix) {
-            if (c->child[x - 'a'] == NULL) {
+            if (c->child[x - 'a'] == nullptr) {
                 return false;
             }
             c = c->child[x - 'a'];

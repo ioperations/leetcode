@@ -32,7 +32,7 @@ class Solution {
     vector<TreeNode *> SubTrees(int start, int end) {
         vector<TreeNode *> res;
         if (start > end) {
-            res.push_back(NULL);
+            res.push_back(nullptr);
             return res;
         }
         for (int i = start; i <= end; i++) {

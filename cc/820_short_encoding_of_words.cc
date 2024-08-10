@@ -36,8 +36,8 @@ class Solution {
         // index is 0-25 representing characters of alphabets
         TrieNode *new_node = new TrieNode;
         new_node->ends_here = 0;
-        // initialize every child node ptr to NULL
-        for (int i = 0; i < 26; i++) new_node->child[i] = NULL;
+        // initialize every child node ptr to nullptr
+        for (int i = 0; i < 26; i++) new_node->child[i] = nullptr;
         return new_node;
     }
 
@@ -76,7 +76,7 @@ class Solution {
         bool flag = true;
         for (int i = len - 1; i >= 0; i--) {
             int ind = word[i] - 'a';
-            if (curr->child[ind] == NULL) {
+            if (curr->child[ind] == nullptr) {
                 flag = false;
                 // if no word has created yet
                 curr->child[ind] = GetNode();

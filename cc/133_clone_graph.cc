@@ -56,8 +56,8 @@ class Solution {
     unordered_map<int, Node *> track;
 
     Node *CloneGraph(Node *node) {
-        // node is NULL then graph is empty
-        if (node == NULL) return NULL;
+        // node is nullptr then graph is empty
+        if (node == nullptr) return nullptr;
 
         // return node object from track if already created
         if (track.count(node->val)) return track[node->val];

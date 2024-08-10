@@ -40,13 +40,13 @@ class Codec {
         while (!q.empty()) {
             TreeNode<T> *cur = q.front();
             q.pop();
-            if (cur == NULL)
+            if (cur == nullptr)
                 s.append("#,");
             else {
                 s.append(to_string(cur->val) + ',');
             }
 
-            if (cur != NULL) {
+            if (cur != nullptr) {
                 q.push(cur->left);
                 q.push(cur->right);
             }
@@ -57,7 +57,7 @@ class Codec {
 
     // Decodes your encoded data to tree.
     TreeNode<int> *Deserialize(string data) {
-        if (data.size() == 0) return NULL;
+        if (data.size() == 0) return nullptr;
 
         stringstream s(data);
         string str;
@@ -73,7 +73,7 @@ class Codec {
 
             getline(s, str, ',');
             if (str == "#") {
-                cur->left = NULL;
+                cur->left = nullptr;
             } else {
                 x = stoi(str);
                 auto *left_n = new TreeNode(x);
@@ -83,7 +83,7 @@ class Codec {
 
             getline(s, str, ',');
             if (str == "#") {
-                cur->right = NULL;
+                cur->right = nullptr;
             } else {
                 x = stoi(str);
                 auto *right_n = new TreeNode(x);

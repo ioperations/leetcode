@@ -17,7 +17,7 @@ class Solution {
    private:
     template <typename T>
     void Invert(TreeNode<T> *root) {
-        if (root == NULL) return;
+        if (root == nullptr) return;
         std::swap(root->left, root->right);
         Invert(root->left);
         Invert(root->right);
@@ -26,7 +26,7 @@ class Solution {
    public:
     template <typename T>
     TreeNode<T> *InvertTree(TreeNode<T> *root) {
-        if (root == NULL) return NULL;
+        if (root == nullptr) return nullptr;
         Invert(root);
         return root;
     }

@@ -51,7 +51,7 @@ class Solution {
 
         // Force it all the way left before you can RETURN and then go right for
         // each subtree.
-        if (current->left && found == false)  // If the left node is non-NULL
+        if (current->left && found == false)  // If the left node is non-nullptr
                                               // and a target hasn't been found.
         {
             path.push_back(true);
