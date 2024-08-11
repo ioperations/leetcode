@@ -1,0 +1,56 @@
+@startuml nn
+package "serve layer" {
+  left to right direction
+  [node balancer]
+  [access in 0]
+  [access in 1]
+  [access in 2]
+
+  [node balancer] -right-> [access in 0]
+  [node balancer] -right-> [access in 1]
+  [node balancer] -right-> [access in 2]
+}
+
+skinparam package{
+    FontSize 13
+    BorderColor blue
+}
+
+node "RPC layer" {
+  [local queue]
+  [local queue] --> [client network queue]
+}
+
+node "client tcp transport layer" {
+  [client tcp] --> [client network card]
+}
+
+cloud {
+  [Example 1]
+}
+
+skinparam component {
+  FontSize 13
+  BorderColor black
+}
+
+database "MySql" {
+  folder "This is my folder" {
+    [Folder 3]
+  }
+  frame "Foo" {
+    [Frame 4]
+  }
+}
+
+node "server tcp transport layer" {
+  [server network card] -right-|> [server tcp] 
+}
+
+[access in 0] --> [local queue]
+[client network queue] -up-> [client tcp]
+[client network card] -right-|> [server network card] 
+[Example 1] --> [Folder 3]
+[Folder 3] --> [Frame 4]
+
+@enduml
