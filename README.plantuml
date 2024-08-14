@@ -1,5 +1,4 @@
 @startuml RPC 
-left to right direction
 
 package "serve layer" {
   [node balancer]
