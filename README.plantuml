@@ -1,14 +1,15 @@
-@startuml nn
+@startuml RPC 
+left to right direction
+
 package "serve layer" {
-  left to right direction
   [node balancer]
   [access in 0]
   [access in 1]
   [access in 2]
 
-  [node balancer] -right-> [access in 0]
-  [node balancer] -right-> [access in 1]
-  [node balancer] -right-> [access in 2]
+  [node balancer] --> [access in 0]
+  [node balancer] --> [access in 1]
+  [node balancer] --> [access in 2]
 }
 
 skinparam package{
@@ -16,41 +17,44 @@ skinparam package{
     BorderColor blue
 }
 
-node "RPC layer" {
-  [local queue]
-  [local queue] --> [client network queue]
+package "service" {
+  [service handler]
+  [router] 
 }
 
-node "client tcp transport layer" {
-  [client tcp] --> [client network card]
+package "local queue " #skyblue {
+  [client local queue] 
+  [client network queue]
 }
 
-cloud {
-  [Example 1]
+package "tcp queue" #skyblue {
+  [server network queue] 
+  [server local queue]
 }
 
-skinparam component {
-  FontSize 13
-  BorderColor black
+package "network card layer"{
+[client network card]
+[server network card]
 }
 
-database "MySql" {
-  folder "This is my folder" {
-    [Folder 3]
-  }
-  frame "Foo" {
-    [Frame 4]
-  }
+package "tcp transport layer" {
+  [client tcp]
+  [server tcp]
 }
 
-node "server tcp transport layer" {
-  [server network card] -right-|> [server tcp] 
-}
+[router] --> [client local queue]
+[client local queue] --> [client network queue] 
+[client network queue] --> [client tcp]
+[client tcp] --> [client network card] 
+[client network card] .up.|> [server network card] 
 
-[access in 0] --> [local queue]
-[client network queue] -up-> [client tcp]
-[client network card] -right-|> [server network card] 
-[Example 1] --> [Folder 3]
-[Folder 3] --> [Frame 4]
+
+[server network card] -left-> [server tcp]
+[server tcp] -left-> [server network queue]
+[server network queue] -left-> [server local queue]
+[server local queue] --> [service handler]
+
+[access in 0] --> [router]
+
 
 @enduml
