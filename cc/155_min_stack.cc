@@ -23,31 +23,20 @@ class MinStack {
             p.first = val;
             p.second = val;
             v.push_back(p);
-        }
-
-        else {
+        } else {
             // check min element of last pair
             pair<int, int> prev = v.back();
 
             int mini = min(val, prev.second);
-            pair<int, int> p;
-            p.first = val;
-            p.second = mini;
-            v.push_back(p);
+            v.emplace_back(val, mini);
         }
     }
 
     void Pop() { v.pop_back(); }
 
-    int Top() {
-        pair<int, int> p = v.back();
-        return p.first;
-    }
+    int Top() { return v.back().first; }
 
-    int GetMin() {
-        pair<int, int> p = v.back();
-        return p.second;
-    }
+    int GetMin() { return v.back().second; }
 };
 
 TEST(min_stack, t1) {
