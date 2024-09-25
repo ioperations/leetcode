@@ -121,7 +121,7 @@ class Solution {
                 route[x][y] = true;
                 word_it--;
             } else {
-                next[make_pair(x, y)].emplace(make_pair(readllyx, readllyy));
+                next[make_pair(x, y)].emplace(readllyx, readllyy);
                 // route[readllyx][readllyy] = true;
                 word_it++;
             }
