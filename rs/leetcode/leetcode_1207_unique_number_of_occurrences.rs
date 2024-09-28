@@ -9,7 +9,7 @@ struct Solution;
 impl Solution {
     #[allow(unused)]
     pub fn unique_occurrences(arr: Vec<i32>) -> bool {
-        pub fn _contains_duplicate(vec: &[usize]) -> bool {
+        pub fn contains_duplicate(vec: &[usize]) -> bool {
             let mut map = HashMap::<usize, usize>::new();
             for (i, num) in vec.iter().enumerate() {
                 if map.contains_key(num) {
@@ -26,7 +26,7 @@ impl Solution {
 
         let v = hasmap.values().copied().collect::<Vec<usize>>();
 
-        !_contains_duplicate(&v)
+        !contains_duplicate(&v)
     }
 }
 

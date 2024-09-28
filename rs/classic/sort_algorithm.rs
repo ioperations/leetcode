@@ -20,11 +20,11 @@ fn quick_sort<T>(arr: &mut [T])
 where
     T: Ord + Copy,
 {
-    fn _quick_sort<T: Ord>(arr: &mut [T], low: isize, high: isize) {
+    fn quick_sort_impl<T: Ord>(arr: &mut [T], low: isize, high: isize) {
         if low < high {
             let p = partition(arr, low, high);
-            _quick_sort(arr, low, p - 1);
-            _quick_sort(arr, p + 1, high);
+            quick_sort_impl(arr, low, p - 1);
+            quick_sort_impl(arr, p + 1, high);
         }
     }
 
@@ -52,7 +52,7 @@ where
     }
 
     let len = arr.len();
-    _quick_sort(arr, 0, (len - 1) as isize);
+    quick_sort_impl(arr, 0, (len - 1) as isize);
 }
 
 #[allow(unused)]
