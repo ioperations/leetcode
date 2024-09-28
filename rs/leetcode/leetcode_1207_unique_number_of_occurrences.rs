@@ -9,7 +9,7 @@ struct Solution;
 impl Solution {
     #[allow(unused)]
     pub fn unique_occurrences(arr: Vec<i32>) -> bool {
-        pub fn contains_duplicate(vec: &[usize]) -> bool {
+        let contains_duplicate = |vec: &[usize]| {
             let mut map = HashMap::<usize, usize>::new();
             for (i, num) in vec.iter().enumerate() {
                 if map.contains_key(num) {
@@ -18,7 +18,7 @@ impl Solution {
                 map.insert(*num, i);
             }
             false
-        }
+        };
         let mut hasmap: HashMap<i32, usize> = HashMap::new();
         for i in arr {
             hasmap.entry(i).and_modify(|e| *e += 1).or_insert(0);
