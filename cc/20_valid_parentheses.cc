@@ -92,4 +92,18 @@ TEST(valid_parentheses, t3) {
     EXPECT_EQ(ret, output);
 }
 
+TEST(valid_parentheses, t4) {
+    string s = "([)]";
+    Solution sl;
+    bool ret = sl.IsValid(s);
+    EXPECT_EQ(ret, false);
+}
+
+TEST(valid_parentheses, t5) {
+    string s = "{[]}";
+    Solution sl;
+    bool ret = sl.IsValid(s);
+    EXPECT_EQ(ret, true);
+}
+
 } // namespace
