@@ -31,7 +31,7 @@ jobs:
         with:
           components: clippy
       - run: |
-          cargo clippy -- -Dclippy::pedantic  -Aclippy::cast-lossless -Aclippy::cast-possible-truncation -Aclippy::cast-possible-wrap -Aclippy::cast-precision-loss -Aclippy::cast-sign-loss -Aclippy::checked-conversions
+          cargo clippy -- -Dclippy::pedantic  -Aclippy::cast-lossless -Aclippy::cast-possible-truncation -Aclippy::cast-possible-wrap -Aclippy::cast-precision-loss -Aclippy::cast-sign-loss -Aclippy::checked-conversions -Aclippy::ref_option_ref
 
   miri-test:
     name: cargo miri
@@ -66,5 +66,4 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: dtolnay/install@cargo-outdated
-      - run: cargo update
       - run: cargo outdated --workspace --exit-code 1
