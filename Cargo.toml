@@ -21,12 +21,12 @@ rand = "0.8.5"
 actix = "0.13"
 futures = "0.3"
 rayon = "1.8"
-hashbrown = "0.14"
+hashbrown = "0.15"
 tracing = "0.1"
 tracing-subscriber = { version = "0.3"}
 ctor = "0.2"
 # Implements the types defined in the Otel spec
-opentelemetry = "0.25"
+opentelemetry = "0.26"
 # Integration between the tracing crate and the opentelemetry crate
 tracing-opentelemetry = "0.26" 
 # Allows you to export data to Jaeger
