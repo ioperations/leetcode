@@ -19,10 +19,7 @@ class MinStack {
     void Push(int val) {
         // 1st element
         if (v.size() == 0) {
-            pair<int, int> p;
-            p.first = val;
-            p.second = val;
-            v.push_back(p);
+            v.push_back(std::make_pair(val, val));
         } else {
             // check min element of last pair
             pair<int, int> prev = v.back();
