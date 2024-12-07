@@ -27,7 +27,7 @@ integers less than -231 should be clamped to -231, and integers greater than 231
 namespace {
 class Solution {
    public:
-    int MyAtoi(std::string s) {
+    int MyAtoi(const std::string& s) {
         const bool fill = false;
         int ret = 0;
 
