@@ -19,7 +19,6 @@ namespace {
 class Solution {
    public:
     Solution(){};
-    virtual ~Solution(){};
     std::vector<int> FindSubString(std::string s,
                                    std::vector<std::string> &words) {
         std::sort(
