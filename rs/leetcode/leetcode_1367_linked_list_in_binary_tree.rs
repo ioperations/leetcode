@@ -26,7 +26,7 @@ impl Solution {
         root: Option<&RefCell<TreeNode<i32>>>,
     ) -> bool {
         Self::check_path(head, root)
-            || root.map(std::cell::RefCell::borrow).map_or(false, |root| {
+            || root.map(std::cell::RefCell::borrow).is_some_and(|root| {
                 Self::try_check_path(head, root.left.as_deref())
                     || Self::try_check_path(head, root.right.as_deref())
             })
@@ -37,8 +37,8 @@ impl Solution {
         head: Option<&ListNode<i32>>,
         root: Option<&RefCell<TreeNode<i32>>>,
     ) -> bool {
-        head.map_or(true, |head| {
-            root.map(std::cell::RefCell::borrow).map_or(false, |root| {
+        head.is_none_or(|head| {
+            root.map(std::cell::RefCell::borrow).is_some_and(|root| {
                 root.val == head.val
                     && (Self::check_path(
                         head.next.as_deref(),
