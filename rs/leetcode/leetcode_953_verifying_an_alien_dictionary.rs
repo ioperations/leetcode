@@ -39,9 +39,7 @@ impl Solution {
                         return true;
                     }
 
-                    std::cmp::Ordering::Equal => {
-                        continue;
-                    }
+                    std::cmp::Ordering::Equal => {}
                     std::cmp::Ordering::Greater => {
                         return false;
                     }
