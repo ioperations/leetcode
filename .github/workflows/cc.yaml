@@ -11,13 +11,13 @@ env:
 
 jobs:
   cc-test:
-    name: cc test case
+    name: cc unit test
     runs-on: ubuntu-latest
     container: ${{ matrix.container }}
     timeout-minutes: 45
     steps:
       - uses: actions/checkout@v4
-      - run: sudo apt update && sudo apt install cmake build-essential clang-12 -y
+      - run: sudo apt update && sudo apt install cmake build-essential clang -y
       - name: ccache
         uses: hendrikmuhs/ccache-action@v1.2
       - name: PATH
