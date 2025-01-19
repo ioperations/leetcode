@@ -2,7 +2,6 @@
 
 #include <cstring>
 #include <optional>
-#include <stack>
 #include <string>
 enum EType { INT, STRING, NULL_ };
 
@@ -27,7 +26,7 @@ struct stack_growth {
         memcpy(p + size, q, len);
         size = size + len;
 
-        p[size + 1] = '\0';
+        p[size] = '\0';
         type = STRING;
     }
 
