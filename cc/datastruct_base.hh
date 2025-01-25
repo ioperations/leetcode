@@ -65,21 +65,20 @@ TreeNode<T> *ConstructTree(const std::vector<T> &elements) {
 
 template <typename T>
 TreeNode<T> *ConstructBinaryTree(std::vector<std::optional<T>> &data) {
-    data.resize(data.size() * 2 + 31);
-    if (data.size() == 0) return nullptr;
+    if (data.empty()) return nullptr;
+    if (!data[0]) return nullptr;
 
-    if (!data[0].has_value()) return nullptr;
-    TreeNode<T> *root = new TreeNode(data[0].value());
+    TreeNode<T> *root = new TreeNode(*data[0]);
     std::queue<TreeNode<T> *> q;
     q.push(root);
 
     int i = 1;
+    const int datasize = (int)data.size();
 
-    while (!q.empty()) {
+    while (!q.empty() && i < datasize) {
         TreeNode<T> *cur = q.front();
         q.pop();
-
-        if (!data[i].has_value()) {
+        if (!data[i]) {
             cur->left = NULL;
         } else {
             TreeNode<T> *left_n = new TreeNode(data[i].value());
@@ -88,7 +87,8 @@ TreeNode<T> *ConstructBinaryTree(std::vector<std::optional<T>> &data) {
         }
         i++;
 
-        if (!data[i].has_value()) {
+        if ( i >= datasize) break;
+        if (!data[i]) {
             cur->right = NULL;
         } else {
             TreeNode<T> *right_n = new TreeNode(data[i].value());
