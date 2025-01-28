@@ -1,11 +1,11 @@
 #pragma once
 #include <iostream>
-#include <queue>
 #include <optional>
+#include <queue>
 
 namespace Tree {
 
-template<typename T>
+template <typename T>
 struct TreeNode {
     T val;
     TreeNode *left;
@@ -87,7 +87,7 @@ TreeNode<T> *ConstructBinaryTree(std::vector<std::optional<T>> &data) {
         }
         i++;
 
-        if ( i >= datasize) break;
+        if (i >= datasize) break;
         if (!data[i]) {
             cur->right = NULL;
         } else {
@@ -101,24 +101,18 @@ TreeNode<T> *ConstructBinaryTree(std::vector<std::optional<T>> &data) {
 }
 
 template <typename T>
-void FreeRoot(TreeNode<T> *root) {
-    if (root == nullptr) {
-        return;
-    }
-
-    FreeRoot(root->left);
-    FreeRoot(root->right);
-    delete root;
-}
-
-template <typename T>
-void FreeTreeNode(TreeNode<T> *root) {
+inline void FreeTreeNode(TreeNode<T> *root) {
     if (root == nullptr) return;
 
     FreeTreeNode(root->left);
     FreeTreeNode(root->right);
 
     delete root;
+}
+
+template <typename T>
+void FreeRoot(TreeNode<T> *root) {
+    FreeTreeNode(root);
 }
 
 template <typename T>
@@ -211,11 +205,11 @@ TreeNode<T> *ConstructRight(const std::vector<T> &arr) {
 
     return node.right;
 }
-} // namespace Tree
+}  // namespace Tree
 
 namespace List {
 
-template<typename T>
+template <typename T>
 struct ListNode {
     T val;
     ListNode *next;
@@ -256,4 +250,15 @@ void FreeList(ListNode<T> *list) {
     delete list;
     list = nullptr;
 }
-} // namespace List
+
+}  // namespace List
+
+template <typename Func>
+class ScopeGuard {
+   public:
+    ScopeGuard(Func f) : f(f) {}
+    ~ScopeGuard() { f(); }
+
+   private:
+    Func f;
+};

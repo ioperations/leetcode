@@ -35,19 +35,34 @@ class Solution {
         root->left = Solve(root->left);
         root->right = Solve(root->right);
         if (us.find(root->val) != us.end()) {
-            if (root->left) ans.push_back(root->left);
-            if (root->right) ans.push_back(root->right);
+            if (root->left) {
+                ans.push_back(root->left);
+            }
+            if (root->right) {
+                ans.push_back(root->right);
+            }
             return nullptr;
         }
         return root;
     }
-    vector<TreeNode *> DelNodes(TreeNode *root, vector<int> &targets) {
-        for (int &target : targets) us.insert(target);
+    vector<TreeNode *> DelNodes(TreeNode *root, const vector<int> &targets) {
+        for (const int &target : targets) us.insert(target);
         if (us.find(root->val) == us.end()) ans.push_back(root);
         Solve(root);
         return ans;
     }
 };
+
+template <typename T>
+void InOrderTranverse(TreeNode *root, std::vector<T> &vec) {
+    if (root == nullptr) {
+        return;
+    }
+
+    InOrderTranverse(root->left, vec);
+    vec.push_back(root);
+    InOrderTranverse(root->right, vec);
+}
 
 void InOrderTranverse(TreeNode *root, std::vector<int> &vec) {
     if (root == nullptr) {
@@ -62,8 +77,14 @@ void InOrderTranverse(TreeNode *root, std::vector<int> &vec) {
 TEST(t, t1) {
     std::vector<std::optional<int>> data{1, 2, 3, 4, 5, 6, 7};
     auto *binaryTree = Tree::ConstructBinaryTree(data);
+    vector<TreeNode *> toFree;
+    InOrderTranverse(binaryTree, toFree);
+    ScopeGuard freeMem([&toFree]() {
+        for (auto &node : toFree) {
+            delete node;
+        }
+    });
 
-    std::vector<int> to_delete = {3, 5};
     TreeNode n(1);
     TreeNode n_number_one(2);
     TreeNode n2(4);
@@ -73,19 +94,17 @@ TEST(t, t1) {
     TreeNode l2(7);
     std::array<TreeNode *, 3> expected = {&n, &l1, &l2};
     Solution sl;
-    auto ret = sl.DelNodes(binaryTree, to_delete);
+    auto ret = sl.DelNodes(binaryTree, {3, 5});
 
     int i = 0;
-    for (auto &ptr : expected) {
+    for (auto &node : expected) {
         std::vector<int> ret_p;
         InOrderTranverse(ret[i], ret_p);
         std::vector<int> ptr_p;
-        InOrderTranverse(ptr, ptr_p);
+        InOrderTranverse(node, ptr_p);
         EXPECT_EQ(ret_p, ptr_p);
         i++;
     }
-
-    Tree::FreeTreeNode(binaryTree);
 }
 
 }  // namespace
