@@ -13,15 +13,15 @@ in any order.
 
 */
 
-/// Definition for a binary tree node.
 #include <array>
-#include <iostream>
+#include <optional>
 #include <unordered_set>
 #include <vector>
 
 #include "datastruct_base.hh"
 #include "gtest/gtest.h"
 
+/// Definition for a binary tree node.
 using TreeNode = Tree::TreeNode<int>;
 using namespace std;
 
@@ -60,20 +60,8 @@ void InOrderTranverse(TreeNode *root, std::vector<int> &vec) {
 }
 
 TEST(t, t1) {
-    TreeNode nl(1);
-    TreeNode nl2(2);
-    TreeNode nl3(3);
-    TreeNode nl4(4);
-    TreeNode nl5(5);
-    TreeNode nl6(6);
-    TreeNode nl7(7);
-
-    nl.left = &nl2;
-    nl.right = &nl3;
-    nl2.left = &nl4;
-    nl2.right = &nl5;
-    nl3.left = &nl6;
-    nl3.right = &nl7;
+    std::vector<std::optional<int>> data{1, 2, 3, 4, 5, 6, 7};
+    auto *binaryTree = Tree::ConstructBinaryTree(data);
 
     std::vector<int> to_delete = {3, 5};
     TreeNode n(1);
@@ -85,11 +73,10 @@ TEST(t, t1) {
     TreeNode l2(7);
     std::array<TreeNode *, 3> expected = {&n, &l1, &l2};
     Solution sl;
-    auto ret = sl.DelNodes(&nl, to_delete);
+    auto ret = sl.DelNodes(binaryTree, to_delete);
 
     int i = 0;
     for (auto &ptr : expected) {
-        std::cout << &ptr << std::endl;
         std::vector<int> ret_p;
         InOrderTranverse(ret[i], ret_p);
         std::vector<int> ptr_p;
@@ -97,6 +84,8 @@ TEST(t, t1) {
         EXPECT_EQ(ret_p, ptr_p);
         i++;
     }
+
+    Tree::FreeTreeNode(binaryTree);
 }
 
 }  // namespace
