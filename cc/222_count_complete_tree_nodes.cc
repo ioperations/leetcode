@@ -27,7 +27,7 @@ class Solution {
         if (root == nullptr) return 0;
         q.emplace(root);
         int count = 0;
-        while (q.size()) {
+        while (!q.empty()) {
             auto *n = q.front();
             if (n->left) q.emplace(n->left);
             if (n->right) q.emplace(n->right);
