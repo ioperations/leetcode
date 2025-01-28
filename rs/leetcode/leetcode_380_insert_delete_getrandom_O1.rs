@@ -10,7 +10,7 @@
 // called). Each element must have the same probability of being returned.
 // You must implement the functions of the class such that each function works
 // in average O(1) time complexity.
-use rand::{thread_rng, Rng};
+use rand::{rng, Rng};
 
 use std::cell::RefCell;
 use std::collections::HashMap;
@@ -58,10 +58,10 @@ impl RandomizedSet {
 
     #[allow(unused)]
     fn get_random(&self) -> i32 {
-        let mut rng = thread_rng();
+        let mut rng = rng();
         let hi = self.vec.borrow().len();
 
-        self.vec.borrow()[rng.gen_range(0..hi)]
+        self.vec.borrow()[rng.random_range(0..hi)]
     }
 }
 
