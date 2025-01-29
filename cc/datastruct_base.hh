@@ -64,7 +64,7 @@ TreeNode<T> *ConstructTree(const std::vector<T> &elements) {
 }
 
 template <typename T>
-TreeNode<T> *ConstructBinaryTree(std::vector<std::optional<T>> &data) {
+TreeNode<T> *ConstructBinaryTree(const std::vector<std::optional<T>> &data) {
     if (data.empty()) return nullptr;
     if (!data[0]) return nullptr;
 

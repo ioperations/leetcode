@@ -53,55 +53,44 @@ class Solution {
     }
 };
 
-template <typename T>
-void InOrderTranverse(TreeNode *root, std::vector<T> &vec) {
+void InOrderTranverse(TreeNode *root, function<void(TreeNode *)> func) {
     if (root == nullptr) {
         return;
     }
 
-    InOrderTranverse(root->left, vec);
-    vec.push_back(root);
-    InOrderTranverse(root->right, vec);
-}
-
-void InOrderTranverse(TreeNode *root, std::vector<int> &vec) {
-    if (root == nullptr) {
-        return;
-    }
-
-    InOrderTranverse(root->left, vec);
-    vec.push_back(root->val);
-    InOrderTranverse(root->right, vec);
+    InOrderTranverse(root->left, func);
+    func(root);
+    InOrderTranverse(root->right, func);
 }
 
 TEST(t, t1) {
-    std::vector<std::optional<int>> data{1, 2, 3, 4, 5, 6, 7};
-    auto *binaryTree = Tree::ConstructBinaryTree(data);
+    auto *binaryTree = Tree::ConstructBinaryTree(
+        std::vector<std::optional<int>>{1, 2, 3, 4, 5, 6, 7});
     vector<TreeNode *> toFree;
-    InOrderTranverse(binaryTree, toFree);
-    ScopeGuard freeMem([&toFree]() {
+    InOrderTranverse(binaryTree,
+                     [&toFree](TreeNode *node) { toFree.push_back(node); });
+
+    auto *n = Tree::ConstructBinaryTree(
+        std::vector<std::optional<int>>{1, 2, std::optional<int>(), 4});
+    ScopeGuard freeMem([&toFree, &n]() {
         for (auto &node : toFree) {
             delete node;
         }
+        Tree::FreeTreeNode(n);
     });
 
-    TreeNode n(1);
-    TreeNode n_number_one(2);
-    TreeNode n2(4);
-    n.left = &n_number_one;
-    n_number_one.left = &n2;
-    TreeNode l1(6);
-    TreeNode l2(7);
-    std::array<TreeNode *, 3> expected = {&n, &l1, &l2};
+    std::array<TreeNode, 3> expected = {*n, TreeNode{6}, TreeNode{7}};
     Solution sl;
     auto ret = sl.DelNodes(binaryTree, {3, 5});
 
     int i = 0;
     for (auto &node : expected) {
         std::vector<int> ret_p;
-        InOrderTranverse(ret[i], ret_p);
+        InOrderTranverse(ret[i],
+                         [&](TreeNode *root) { ret_p.push_back(root->val); });
         std::vector<int> ptr_p;
-        InOrderTranverse(node, ptr_p);
+        InOrderTranverse(&node,
+                         [&](TreeNode *node) { ptr_p.push_back(node->val); });
         EXPECT_EQ(ret_p, ptr_p);
         i++;
     }
