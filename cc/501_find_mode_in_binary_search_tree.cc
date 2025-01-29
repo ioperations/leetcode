@@ -78,7 +78,7 @@ TEST(find_mode_in_binary_search_tree, t1) {
 
     EXPECT_EQ(ret, output);
 
-    Tree::FreeRoot(node);
+    Tree::FreeTreeNode(node);
 }
 
 TEST(find_mode_in_binary_search_tree, t2) {
@@ -92,6 +92,6 @@ TEST(find_mode_in_binary_search_tree, t2) {
 
     EXPECT_EQ(ret, output);
 
-    Tree::FreeRoot(node);
+    Tree::FreeTreeNode(node);
 }
 }  // namespace

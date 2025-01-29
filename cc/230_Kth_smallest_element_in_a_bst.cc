@@ -49,7 +49,7 @@ TEST(Kth_smallest_element_in_a_bst, t1) {
     Solution s;
     int ret = s.KthSmallest(head, k);
     EXPECT_EQ(ret, 1);
-    Tree::FreeRoot(head);
+    Tree::FreeTreeNode(head);
 }
 
 TEST(Kth_smallest_element_in_a_bst, t2) {
@@ -60,7 +60,7 @@ TEST(Kth_smallest_element_in_a_bst, t2) {
     Solution s;
     int ret = s.KthSmallest(head, k);
     EXPECT_EQ(ret, 3);
-    Tree::FreeRoot(head);
+    Tree::FreeTreeNode(head);
 }
 
 }  // namespace

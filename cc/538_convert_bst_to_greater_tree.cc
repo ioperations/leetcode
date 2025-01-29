@@ -110,7 +110,7 @@ TEST(memleak, t1) {
         root = AddToRoot(root, i);
     }
 
-    Tree::FreeRoot(root);
+    Tree::FreeTreeNode(root);
 }
 
 TEST(convert_bst_to_greater_tree, t1) {
@@ -134,7 +134,7 @@ TEST(convert_bst_to_greater_tree, t1) {
         EXPECT_EQ(ret, (std::vector<int>{30, 36, 21, 36, 35, 26, 15, 33, 8}));
     }
 
-    Tree::FreeRoot(root);
+    Tree::FreeTreeNode(root);
 }
 
 TEST(convert_bst_to_greater_tree, t2) {
@@ -157,7 +157,7 @@ TEST(convert_bst_to_greater_tree, t2) {
         EXPECT_EQ(ret, (std::vector<int>{1, 1}));
     }
 
-    Tree::FreeRoot(root);
+    Tree::FreeTreeNode(root);
 }
 
 }  // namespace

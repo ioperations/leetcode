@@ -39,7 +39,7 @@ TEST(binary_tree_postorder_traversal, t1) {
 
     EXPECT_EQ(ret, (std::vector<int>{3, 2, 1}));
 
-    FreeRoot(root);
+    FreeTreeNode(root);
 }
 TEST(binary_tree_postorder_traversal, t2) {
     TreeNode<int> *root = ConstructTree(std::vector<int>{});
@@ -48,7 +48,7 @@ TEST(binary_tree_postorder_traversal, t2) {
 
     EXPECT_EQ(ret, std::vector<int>{});
 
-    FreeRoot(root);
+    FreeTreeNode(root);
 }
 TEST(binary_tree_postorder_traversal, t3) {
     TreeNode<int> *root = ConstructTree(std::vector<int>{1});
@@ -56,7 +56,7 @@ TEST(binary_tree_postorder_traversal, t3) {
     std::vector<int> ret = s.PostorderTraversal(root);
 
     EXPECT_EQ(ret, std::vector<int>{1});
-    FreeRoot(root);
+    FreeTreeNode(root);
 }
 
 }  // namespace

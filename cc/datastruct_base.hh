@@ -111,11 +111,6 @@ inline void FreeTreeNode(TreeNode<T> *root) {
 }
 
 template <typename T>
-void FreeRoot(TreeNode<T> *root) {
-    FreeTreeNode(root);
-}
-
-template <typename T>
 void BfsSearch(TreeNode<T> *root, std::vector<T> &vec) {
     std::queue<TreeNode<T> *> queue;
     queue.push(root);

@@ -45,7 +45,7 @@ TEST(search_in_a_binary_search_tree, t1) {
     auto *out = sl.SearchBst(node, val);
 
     (void)out;
-    FreeRoot(node);
+    FreeTreeNode(node);
 }
 
 TEST(search_in_a_binary_search_tree, t2) {
@@ -58,7 +58,7 @@ TEST(search_in_a_binary_search_tree, t2) {
     auto *out = sl.SearchBst(node, val);
     EXPECT_EQ(out, nullptr);
 
-    FreeRoot(node);
+    FreeTreeNode(node);
 }
 
 }  // namespace

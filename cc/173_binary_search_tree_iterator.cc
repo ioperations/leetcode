@@ -78,7 +78,7 @@ TEST(binary_search_tree_iterator, t1) {
 
     delete it;
 
-    FreeRoot(root);
+    FreeTreeNode(root);
 }
 
 TEST(binary_search_tree_iterator, t2) {
@@ -97,6 +97,6 @@ TEST(binary_search_tree_iterator, t2) {
 
     delete it;
 
-    FreeRoot(root);
+    FreeTreeNode(root);
 }
 }  // namespace

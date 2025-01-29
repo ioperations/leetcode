@@ -46,8 +46,8 @@ TEST(memleak, t0) {
     auto *root = ConstructTree(p);
 
     auto *root2 = ConstructTree(q);
-    FreeRoot(root);
-    FreeRoot(root2);
+    FreeTreeNode(root);
+    FreeTreeNode(root2);
 }
 
 TEST(same_tree, t1) {
@@ -61,8 +61,8 @@ TEST(same_tree, t1) {
     auto ret = s.IsSameTree(root1, root2);
     EXPECT_EQ(ret, expected);
 
-    FreeRoot(root1);
-    FreeRoot(root2);
+    FreeTreeNode(root1);
+    FreeTreeNode(root2);
 }
 
 TEST(same_tree, t2) {
@@ -75,8 +75,8 @@ TEST(same_tree, t2) {
     auto ret = s.IsSameTree(root1, root2);
     EXPECT_EQ(ret, expected);
 
-    FreeRoot(root1);
-    FreeRoot(root2);
+    FreeTreeNode(root1);
+    FreeTreeNode(root2);
 }
 
 TEST(same_tree, t3) {
@@ -90,8 +90,8 @@ TEST(same_tree, t3) {
     auto ret = s.IsSameTree(root1, root2);
     EXPECT_EQ(ret, expected);
 
-    FreeRoot(root1);
-    FreeRoot(root2);
+    FreeTreeNode(root1);
+    FreeTreeNode(root2);
 }
 
 TEST(same_tree, t4) {
@@ -105,8 +105,8 @@ TEST(same_tree, t4) {
     auto ret = s.IsSameTree(root1, root2);
     EXPECT_EQ(ret, expected);
 
-    FreeRoot(root1);
-    FreeRoot(root2);
+    FreeTreeNode(root1);
+    FreeTreeNode(root2);
 }
 
 TEST(same_tree, t5) {
@@ -120,8 +120,8 @@ TEST(same_tree, t5) {
     auto ret = s.IsSameTree(root1, root2);
     EXPECT_EQ(ret, expected);
 
-    FreeRoot(root1);
-    FreeRoot(root2);
+    FreeTreeNode(root1);
+    FreeTreeNode(root2);
 }
 
 }  // namespace

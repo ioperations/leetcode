@@ -104,7 +104,7 @@ TEST(memleak, t1) {
         root = AddToRoot(root, i);
     }
 
-    Tree::FreeRoot(root);
+    Tree::FreeTreeNode(root);
 }
 TEST(increasing_order_search_tree, t1) {
     TreeNode *root = new TreeNode(5);
@@ -115,7 +115,7 @@ TEST(increasing_order_search_tree, t1) {
     auto ret = BFS(root);
     EXPECT_EQ(ret, (std::vector<int>{1, 2, 3, 4, 5, 6, 7, 8, 9}));
 
-    Tree::FreeRoot(root);
+    Tree::FreeTreeNode(root);
 }
 
 TEST(increasing_order_search_tree, t2) {
@@ -127,7 +127,7 @@ TEST(increasing_order_search_tree, t2) {
     auto ret = BFS(root);
     EXPECT_EQ(ret, (std::vector<int>{1, 5, 7}));
 
-    Tree::FreeRoot(root);
+    Tree::FreeTreeNode(root);
 }
 
 }  // namespace
