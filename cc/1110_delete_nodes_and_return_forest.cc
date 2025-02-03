@@ -27,9 +27,11 @@ using namespace std;
 
 namespace {
 class Solution {
-   public:
+   private:
     vector<TreeNode *> ans;
     unordered_set<int> us;
+
+   public:
     TreeNode *Solve(TreeNode *root) {
         if (!root) return nullptr;
         root->left = Solve(root->left);
@@ -53,22 +55,22 @@ class Solution {
     }
 };
 
-void InOrderTranverse(TreeNode *root, function<void(TreeNode *)> func) {
-    if (root == nullptr) {
+void InOrderTraverse(TreeNode *node, function<void(TreeNode *)> func) {
+    if (node == nullptr) {
         return;
     }
 
-    InOrderTranverse(root->left, func);
-    func(root);
-    InOrderTranverse(root->right, func);
+    InOrderTraverse(node->left, func);
+    func(node);
+    InOrderTraverse(node->right, func);
 }
 
 TEST(t, t1) {
     auto *binaryTree = Tree::ConstructBinaryTree(
         std::vector<std::optional<int>>{1, 2, 3, 4, 5, 6, 7});
     vector<TreeNode *> toFree;
-    InOrderTranverse(binaryTree,
-                     [&toFree](TreeNode *node) { toFree.push_back(node); });
+    InOrderTraverse(binaryTree,
+                    [&toFree](TreeNode *node) { toFree.push_back(node); });
 
     auto *n = Tree::ConstructBinaryTree(
         std::vector<std::optional<int>>{1, 2, std::optional<int>(), 4});
@@ -86,11 +88,11 @@ TEST(t, t1) {
     int i = 0;
     for (auto &node : expected) {
         std::vector<int> ret_p;
-        InOrderTranverse(ret[i],
-                         [&](TreeNode *root) { ret_p.push_back(root->val); });
+        InOrderTraverse(ret[i],
+                        [&](TreeNode *root) { ret_p.push_back(root->val); });
         std::vector<int> ptr_p;
-        InOrderTranverse(&node,
-                         [&](TreeNode *node) { ptr_p.push_back(node->val); });
+        InOrderTraverse(&node,
+                        [&](TreeNode *node) { ptr_p.push_back(node->val); });
         EXPECT_EQ(ret_p, ptr_p);
         i++;
     }

@@ -79,7 +79,7 @@ TreeNode<T> *ConstructBinaryTree(const std::vector<std::optional<T>> &data) {
         TreeNode<T> *cur = q.front();
         q.pop();
         if (!data[i]) {
-            cur->left = NULL;
+            cur->left = nullptr;
         } else {
             TreeNode<T> *left_n = new TreeNode(data[i].value());
             cur->left = left_n;
@@ -89,7 +89,7 @@ TreeNode<T> *ConstructBinaryTree(const std::vector<std::optional<T>> &data) {
 
         if (i >= datasize) break;
         if (!data[i]) {
-            cur->right = NULL;
+            cur->right = nullptr;
         } else {
             TreeNode<T> *right_n = new TreeNode(data[i].value());
             cur->right = right_n;
