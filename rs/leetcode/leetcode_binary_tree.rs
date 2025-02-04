@@ -141,7 +141,7 @@ pub fn expect_binary_tree<T: std::cmp::PartialEq + std::fmt::Debug + Copy>(
         i += 1;
         if let Some(v) = &n1.as_ref().borrow().left {
             q.push_back(v.clone());
-        };
+        }
         if let Some(v) = &n1.as_ref().borrow().right {
             q.push_back(v.clone());
         };

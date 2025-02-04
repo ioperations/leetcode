@@ -15,7 +15,7 @@ impl Solution {
             let val = n.as_ref().borrow().val;
             Self::fun(Some(n), val, &mut count);
             return count;
-        };
+        }
         0
     }
 

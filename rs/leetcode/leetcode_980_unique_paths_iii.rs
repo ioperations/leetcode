@@ -60,7 +60,7 @@ impl Solution {
         let mut try_dfs = |pos: (usize, usize)| {
             if grid[i][j] == -1 || route.contains(&pos) {
                 return 0;
-            };
+            }
             Self::dfs(grid, bounds, pos, target, route)
         };
         let mut res = 0;

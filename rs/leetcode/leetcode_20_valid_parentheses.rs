@@ -39,7 +39,7 @@ impl Solution {
                         }
                     }
                     _ => return false,
-                };
+                }
             }
         }
         stack.is_empty()

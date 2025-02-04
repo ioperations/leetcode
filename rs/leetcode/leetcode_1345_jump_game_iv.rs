@@ -121,7 +121,7 @@ impl Solution {
                                 queue.push_back(nxt);
                             }
                         }
-                    };
+                    }
                 }
             }
             steps += 1;

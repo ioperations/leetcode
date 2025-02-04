@@ -83,10 +83,10 @@ impl Solution {
                     } else {
                         if let Some(t) = n.as_ref().borrow_mut().left.take() {
                             vecdeque.push_back(t);
-                        };
+                        }
                         if let Some(t) = n.as_ref().borrow_mut().right.take() {
                             vecdeque.push_back(t);
-                        };
+                        }
                     }
                 }
             }

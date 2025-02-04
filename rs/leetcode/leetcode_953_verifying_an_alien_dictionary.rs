@@ -43,7 +43,7 @@ impl Solution {
                     std::cmp::Ordering::Greater => {
                         return false;
                     }
-                };
+                }
             }
             true
         };

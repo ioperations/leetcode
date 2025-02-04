@@ -30,7 +30,7 @@ impl Solution {
                 }
                 if let Some(n) = z.0.as_ref().borrow_mut().left.take() {
                     qu.push_back((n, cur_level + 1));
-                };
+                }
                 if let Some(n) = z.0.as_ref().borrow_mut().right.take() {
                     qu.push_back((n, cur_level + 1));
                 };
