@@ -11,6 +11,7 @@
             "program": "${workspaceRoot}/cmake_build/${relativeFileDirname}/${fileBasenameNoExtension}",
             "MIMode": "gdb",
             "cwd": "${workspaceRoot}",
+            "preLaunchTask": "CMake: build",
             "setupCommands": [
                 {
                     "description": "Enable pretty-printing for gdb",
@@ -24,17 +25,15 @@
                 }
             ]
         },
+
         {
             "name": "(lldb) Launch",
-            "type": "cppdbg",
+            "type": "lldb",
             "request": "launch",
             "program": "${workspaceRoot}/cmake_build/${relativeFileDirname}/${fileBasenameNoExtension}",
             "args": [],
-            "stopAtEntry": false,
             "cwd": "${fileDirname}",
-            "environment": [],
-            "externalConsole": false,
-            "MIMode": "lldb"
+            "preLaunchTask": "CMake: build",
         }
     ]
 }
