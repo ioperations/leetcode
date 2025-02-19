@@ -2,6 +2,15 @@
   "version": "2.0.0",
   "tasks": [
     {
+      "type": "shell",
+      "label": "createDir",
+      "command": "mkdir",
+      "args": [
+        "-p",
+        "${workspaceFolder}/cmake_build"
+      ]
+    },
+    {
       "type": "cmake",
       "label": "CMake: configure",
       "command": "configure",
@@ -11,13 +20,18 @@
         "buildDirectory": "${workspaceFolder}/cmake_build",
         "sourceDirectory": "${workspaceFolder}"
       },
+      "dependsOn": [
+        "createDir"
+      ],
       "detail": "CMake template configure task"
     },
     {
       "type": "cmake",
       "label": "CMake: build",
       "command": "build",
-      "targets": ["all"],
+      "targets": [
+        "all"
+      ],
       "group": "build",
       "problemMatcher": [],
       "options": {
@@ -25,7 +39,9 @@
         "generator": "Ninja",
         "buildDirectory": "${workspaceFolder}/cmake_build"
       },
-      "dependsOn": ["CMake: configure"],
+      "dependsOn": [
+        "CMake: configure"
+      ],
       "detail": "CMake template build task"
     }
   ]
