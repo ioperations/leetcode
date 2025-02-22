@@ -47,21 +47,18 @@ class Solution {
             return nullptr;
         }
 
-        auto &now = stringInfo[index];
+        const auto &now = stringInfo[index];
         if (currentIndex != now.depth) {
             return nullptr;
         }
 
-        TreeNode *n = nullptr;
-        if (currentIndex == now.depth) {
-            n = new TreeNode(now.value);
+        TreeNode *n = new TreeNode(now.value);
 
-            index++;
-            auto *z = Build(currentIndex + 1);
-            n->left = z;
-            auto *q = Build(currentIndex + 1);
-            n->right = q;
-        }
+        index++;
+        auto *z = Build(currentIndex + 1);
+        n->left = z;
+        auto *q = Build(currentIndex + 1);
+        n->right = q;
 
         return n;
     }
@@ -83,7 +80,7 @@ class Solution {
             }
             i = i + k - 1;
 
-            stringInfo.push_back(info{dash, atoi(v.c_str())});
+            stringInfo.emplace_back(dash, atoi(v.c_str()));
             dash = 0;
         }
     }
@@ -91,6 +88,7 @@ class Solution {
     struct info {
         int depth;
         int value;
+        info(int d, int v) : depth(d), value(v) {}
     };
     vector<info> stringInfo;
     int index = 0;
