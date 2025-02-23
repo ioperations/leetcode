@@ -42,9 +42,7 @@ class Solution {
     }
 };
 
-using namespace std;
 #define null optional<int>()
-
 using namespace std;
 
 TEST(binary_tree_cameras, t1) {

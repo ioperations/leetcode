@@ -81,8 +81,6 @@ class Solution {
     }
 };
 
-
-
 TEST(satisfiablility_of_equality_equations, t1) {
     vector<string> equations = {"a==b", "b!=a"};
     bool const output = false;
