@@ -10,6 +10,7 @@
 */build/
 *.dSYM
 /trace*
+/coverage
 
 Cargo.lock
 .DS_Store
