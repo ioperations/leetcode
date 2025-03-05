@@ -19,7 +19,7 @@ impl Solution {
         let mut h: usize = nums.len();
         let n = nums.len();
         while (l < h) {
-            let i = (l + h) / 2;
+            let i = usize::midpoint(l, h);
             if (nums[i] > nums[0]) {
                 l = i + 1;
             } else {

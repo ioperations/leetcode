@@ -23,7 +23,7 @@ impl Solution {
             std::collections::HashSet::new();
         let mut v: Vec<i32> = vec![];
         for &i in nums1 {
-            if nums2.iter().any(|x| *x == i) {
+            if nums2.contains(&i) {
                 h.insert(i);
             }
         }

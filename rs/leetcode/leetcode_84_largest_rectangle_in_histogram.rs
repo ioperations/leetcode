@@ -26,7 +26,7 @@ impl Solution {
         let i = 0;
         let j = n - 1;
         let pivot = {
-            let mut res = (i + j) / 2;
+            let mut res = usize::midpoint(i, j);
             for i in 0..n {
                 if heights[i] < heights[res] {
                     res = i;

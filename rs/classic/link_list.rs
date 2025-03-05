@@ -559,7 +559,7 @@ impl<T> CursorMut<'_, T> {
         } else {
             // We're at the ghost, just replace our list with an empty one.
             // No other state needs to be changed.
-            std::mem::replace(self.list, LinkedList::new())
+            std::mem::take(self.list)
         }
     }
 
@@ -621,7 +621,7 @@ impl<T> CursorMut<'_, T> {
         } else {
             // We're at the ghost, just replace our list with an empty one.
             // No other state needs to be changed.
-            std::mem::replace(self.list, LinkedList::new())
+            std::mem::take(self.list)
         }
     }
 
