@@ -8,7 +8,7 @@
 namespace {
 class Solution {
    public:
-    int RomanToInt(std::string s) {
+    int RomanToInt(const std::string& s) {
         int i = 0;
         int sum = 0;
         const int len = s.length();

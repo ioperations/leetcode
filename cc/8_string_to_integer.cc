@@ -33,7 +33,7 @@ class Solution {
 
         bool negative = false;
 
-        for (const auto &char_ref : s) {
+        for (const auto& char_ref : s) {
             if ('0' <= char_ref && char_ref <= '9') {
                 // if (fill) {
                 ret = ret * 10 + char_ref - '0';

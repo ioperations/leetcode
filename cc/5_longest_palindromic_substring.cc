@@ -5,6 +5,7 @@
  * @brief 最长回文子串
  */
 
+#include <cstddef>
 #include <string>
 
 #include "gtest/gtest.h"
@@ -21,18 +22,19 @@ class Solution {
             return s;
         }
 
-        std::string res = "";
+        std::string_view res = "";
+        auto const sv = std::string_view(s.c_str(), s.length());
         for (size_t i = 0; i < s.length() - 1; i++) {
-            std::string s1 = Palindrome(s, i, i);
-            std::string s2 = Palindrome(s, i, i + 1);
+            auto s1 = Palindrome(sv, i, i);
+            auto s2 = Palindrome(sv, i, i + 1);
             res = res.length() > s1.length() ? res : s1;
             res = res.length() > s2.length() ? res : s2;
         }
-        return res;
+        return {res.data(), res.length()};
     }
 
    private:
-    std::string Palindrome(const std::string &s, int l, size_t r) {
+    std::string_view Palindrome(const std::string_view& s, size_t l, size_t r) {
         while (l >= 0 && r < s.length() && s[l] == s[r]) {
             l--;
             r++;
@@ -43,7 +45,7 @@ class Solution {
 };
 
 TEST(longest_palindromic_substring, t1) {
-    std::string s("babad");
+    std::string const s("babad");
     Solution sl;
 
     auto ret = sl.LongestPalindrome(s);
@@ -58,12 +60,20 @@ TEST(longest_palindromic_substring, t2) {
     auto ret = sl.LongestPalindrome(s);
     EXPECT_EQ(ret, "bb");
 }
+
 TEST(longest_palindromic_substring, t3) {
-    std::string s("ac");
+    std::string const s("ac");
     Solution sl;
 
     auto ret = sl.LongestPalindrome(s);
     EXPECT_TRUE(ret == "a" || ret == "c");
 }
 
+TEST(longest_palindromic_substring, t4) {
+    std::string const s("cbbd");
+    Solution sl;
+
+    auto ret = sl.LongestPalindrome(s);
+    EXPECT_EQ(ret, "bb");
+}
 }  // namespace

@@ -19,13 +19,13 @@
 using namespace std;
 class Solution {
    public:
-    vector<int> queryResults(int limit, vector<vector<int>> &queries) {
+    vector<int> QueryResults(int limit, vector<vector<int>> &queries) {
         /*
-         1 <= limit <= 109
-         1 <= n == queries.length <= 105
-         queries[i].length == 2
-         0 <= queries[i][0] <= limit
-         1 <= queries[i][1] <= 109
+          1 <= limit <= 109
+          1 <= n == queries.length <= 105
+          queries[i].length == 2
+          0 <= queries[i][0] <= limit
+          1 <= queries[i][1] <= 109
          */
         auto size = queries.size();
         vector<int> ret(size, 0);
@@ -50,7 +50,7 @@ class Solution {
         return ret;
     }
 
-    vector<int> queryResultsV0(int limit, vector<vector<int>> &queries) {
+    vector<int> QueryResultsV0(int limit, vector<vector<int>> &queries) {
         // FIXME: memory limit exceeded
         /*
          1 <= limit <= 109
@@ -86,38 +86,35 @@ class Solution {
 #include <gtest/gtest.h>
 
 TEST(t0, t1) {
-    int limit = 4;
+    int const limit = 4;
     vector<vector<int>> queries = {{1, 4}, {2, 5}, {1, 3}, {3, 4}};
 
-    vector<int> output = {1, 2, 2, 3};
+    vector<int> const output = {1, 2, 2, 3};
     Solution sl;
-    auto ret = sl.queryResults(limit, queries);
+    auto ret = sl.QueryResults(limit, queries);
     EXPECT_EQ(ret, output);
-    ret = sl.queryResultsV0(limit, queries);
+    ret = sl.QueryResultsV0(limit, queries);
     EXPECT_EQ(ret, output);
 
     /*
       Explanation:
-
-
-
-      After query 0, ball 1 has color 4.
-      After query 1, ball 1 has color 4, and ball 2 has color 5.
-      After query 2, ball 1 has color 3, and ball 2 has color 5.
-      After query 3, ball 1 has color 3, ball 2 has color 5, and ball 3 has
-      color 4.
+          After query 0, ball 1 has color 4.
+          After query 1, ball 1 has color 4, and ball 2 has color 5.
+          After query 2, ball 1 has color 3, and ball 2 has color 5.
+          After query 3, ball 1 has color 3, ball 2 has color 5, and ball 3 has
+          color 4.
       */
 }
 
 TEST(t0, t2) {
-    int limit = 5;
+    int const limit = 5;
     vector<vector<int>> queries = {{0, 1}, {1, 2}, {2, 2}, {3, 4}, {4, 5}};
 
-    vector<int> output = {1, 2, 2, 3, 4};
+    vector<int> const output = {1, 2, 2, 3, 4};
     Solution sl;
-    auto ret = sl.queryResults(limit, queries);
+    auto ret = sl.QueryResults(limit, queries);
     EXPECT_EQ(ret, output);
-    ret = sl.queryResultsV0(limit, queries);
+    ret = sl.QueryResultsV0(limit, queries);
     EXPECT_EQ(ret, output);
 
     /*

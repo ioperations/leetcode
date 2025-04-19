@@ -19,6 +19,7 @@
 */
 #include <limits.h>
 #include <stdlib.h>
+#include <istream>
 
 #include "gtest/gtest.h"
 

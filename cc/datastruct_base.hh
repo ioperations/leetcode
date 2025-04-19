@@ -8,22 +8,22 @@ namespace Tree {
 template <typename T>
 struct TreeNode {
     T val;
-    TreeNode *left;
-    TreeNode *right;
+    TreeNode* left;
+    TreeNode* right;
     TreeNode() : val(T()), left(nullptr), right(nullptr) {}
     TreeNode(T x) : val(x), left(nullptr), right(nullptr) {}
-    TreeNode(T x, TreeNode *left, TreeNode *right)
+    TreeNode(T x, TreeNode* left, TreeNode* right)
         : val(x), left(left), right(right) {}
 };
 
 template <typename T>
-TreeNode<T> *AddToRoot(TreeNode<T> *root, int val) {
+TreeNode<T>* AddToRoot(TreeNode<T>* root, int val) {
     if (root == nullptr) {
         return nullptr;
     }
     if (val < root->val) {
         if (root->left) {
-            TreeNode<T> *head = AddToRoot(root->left, val);
+            TreeNode<T>* head = AddToRoot(root->left, val);
             root->left = head;
             return root;
         }
@@ -31,7 +31,7 @@ TreeNode<T> *AddToRoot(TreeNode<T> *root, int val) {
 
     } else {
         if (root->right) {
-            TreeNode<T> *head = AddToRoot(root->right, val);
+            TreeNode<T>* head = AddToRoot(root->right, val);
             root->right = head;
             return root;
         }
@@ -41,20 +41,20 @@ TreeNode<T> *AddToRoot(TreeNode<T> *root, int val) {
 }
 
 template <typename T>
-TreeNode<T> *AddToRoot(TreeNode<T> *root, const std::vector<T> &elements) {
-    for (auto &ptr : elements) {
+TreeNode<T>* AddToRoot(TreeNode<T>* root, const std::vector<T>& elements) {
+    for (auto& ptr : elements) {
         root = AddToRoot(root, ptr);
     }
     return root;
 }
 
 template <typename T>
-TreeNode<T> *ConstructTree(const std::vector<T> &elements) {
+TreeNode<T>* ConstructTree(const std::vector<T>& elements) {
     if (!elements.size()) {
         return nullptr;
     }
 
-    TreeNode<T> *root = new TreeNode<T>(elements[0]);
+    TreeNode<T>* root = new TreeNode<T>(elements[0]);
 
     for (int i = 1; i < (int)elements.size(); i++) {
         root = AddToRoot(root, elements[i]);
@@ -64,24 +64,24 @@ TreeNode<T> *ConstructTree(const std::vector<T> &elements) {
 }
 
 template <typename T>
-TreeNode<T> *ConstructBinaryTree(const std::vector<std::optional<T>> &data) {
+TreeNode<T>* ConstructBinaryTree(const std::vector<std::optional<T>>& data) {
     if (data.empty()) return nullptr;
     if (!data[0]) return nullptr;
 
-    TreeNode<T> *root = new TreeNode(*data[0]);
-    std::queue<TreeNode<T> *> q;
+    TreeNode<T>* root = new TreeNode(*data[0]);
+    std::queue<TreeNode<T>*> q;
     q.push(root);
 
     int i = 1;
     const int datasize = (int)data.size();
 
     while (!q.empty() && i < datasize) {
-        TreeNode<T> *cur = q.front();
+        TreeNode<T>* cur = q.front();
         q.pop();
         if (!data[i]) {
             cur->left = nullptr;
         } else {
-            TreeNode<T> *left_n = new TreeNode(data[i].value());
+            TreeNode<T>* left_n = new TreeNode(data[i].value());
             cur->left = left_n;
             q.push(left_n);
         }
@@ -91,7 +91,7 @@ TreeNode<T> *ConstructBinaryTree(const std::vector<std::optional<T>> &data) {
         if (!data[i]) {
             cur->right = nullptr;
         } else {
-            TreeNode<T> *right_n = new TreeNode(data[i].value());
+            TreeNode<T>* right_n = new TreeNode(data[i].value());
             cur->right = right_n;
             q.push(right_n);
         }
@@ -101,7 +101,7 @@ TreeNode<T> *ConstructBinaryTree(const std::vector<std::optional<T>> &data) {
 }
 
 template <typename T>
-inline void FreeTreeNode(TreeNode<T> *root) {
+inline void FreeTreeNode(TreeNode<T>* root) {
     if (root == nullptr) return;
 
     FreeTreeNode(root->left);
@@ -111,12 +111,12 @@ inline void FreeTreeNode(TreeNode<T> *root) {
 }
 
 template <typename T>
-void BfsSearch(TreeNode<T> *root, std::vector<T> &vec) {
-    std::queue<TreeNode<T> *> queue;
+void BfsSearch(TreeNode<T>* root, std::vector<T>& vec) {
+    std::queue<TreeNode<T>*> queue;
     queue.push(root);
 
     while (queue.size()) {
-        TreeNode<T> *tmp = queue.front();
+        TreeNode<T>* tmp = queue.front();
 
         queue.pop();
 
@@ -129,12 +129,12 @@ void BfsSearch(TreeNode<T> *root, std::vector<T> &vec) {
 }
 
 template <typename T>
-void BfsSearchV1(TreeNode<T> *root, std::vector<std::optional<int>> &vec) {
-    std::queue<TreeNode<T> *> q;
+void BfsSearchV1(TreeNode<T>* root, std::vector<std::optional<int>>& vec) {
+    std::queue<TreeNode<T>*> q;
     q.push(root);
 
     while (q.size()) {
-        auto *tmp = q.front();
+        auto* tmp = q.front();
 
         q.pop();
 
@@ -157,7 +157,7 @@ void BfsSearchV1(TreeNode<T> *root, std::vector<std::optional<int>> &vec) {
 }
 
 template <typename T>
-void PrintBt(const std::string &prefix, const TreeNode<T> *node, bool is_left) {
+void PrintBt(const std::string& prefix, const TreeNode<T>* node, bool is_left) {
     if (node != nullptr) {
         std::cout << prefix;
 
@@ -173,27 +173,27 @@ void PrintBt(const std::string &prefix, const TreeNode<T> *node, bool is_left) {
 }
 
 template <typename T>
-void PrintBt(const TreeNode<T> *node) {
+void PrintBt(const TreeNode<T>* node) {
     PrintBt("", node, false);
 }
 
 template <typename T>
-TreeNode<T> *FindInTree(TreeNode<T> *n, int v) {
+TreeNode<T>* FindInTree(TreeNode<T>* n, int v) {
     if (n == nullptr) return nullptr;
 
     if (n->val == v) return n;
 
-    auto *le = FindInTree(n->left, v);
+    auto* le = FindInTree(n->left, v);
     if (le == nullptr) return FindInTree(n->right, v);
     return le;
 }
 
 template <typename T>
-TreeNode<T> *ConstructRight(const std::vector<T> &arr) {
+TreeNode<T>* ConstructRight(const std::vector<T>& arr) {
     TreeNode node(0);
-    auto *z = &node;
+    auto* z = &node;
 
-    for (auto &ptr : arr) {
+    for (auto& ptr : arr) {
         z->right = new TreeNode(ptr);
         z = z->right;
     }
@@ -207,10 +207,10 @@ namespace List {
 template <typename T>
 struct ListNode {
     T val;
-    ListNode *next;
+    ListNode* next;
     ListNode() : val(T()), next(nullptr) {}
     ListNode(T x) : val(x), next(nullptr) {}
-    ListNode(T x, ListNode *next) : val(x), next(next) {}
+    ListNode(T x, ListNode* next) : val(x), next(next) {}
 };
 
 /**
@@ -219,11 +219,11 @@ struct ListNode {
  * @return  链表的头，用户需要free掉
  */
 template <typename T>
-ListNode<T> *ConstructList(const std::vector<T> &elements) {
+ListNode<T>* ConstructList(const std::vector<T>& elements) {
     ListNode<T> head;
-    ListNode<T> *tail = &head;
+    ListNode<T>* tail = &head;
 
-    for (auto &ptr : elements) {
+    for (auto& ptr : elements) {
         tail->next = new ListNode<T>(ptr);
         tail = tail->next;
     }
@@ -237,7 +237,7 @@ ListNode<T> *ConstructList(const std::vector<T> &elements) {
  * @return nil
  */
 template <typename T>
-void FreeList(ListNode<T> *list) {
+void FreeList(ListNode<T>* list) {
     if (list == nullptr) {
         return;
     }

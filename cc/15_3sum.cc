@@ -109,7 +109,7 @@ class Solution {
         for (size_t i = left; i < nums.size(); ++i) {
             for (size_t j = i + 1; j < nums.size(); j++) {
                 if (nums[i] + nums[j] == target) {
-                    return std::vector<int>{nums[i], nums[j]};
+                    return {nums[i], nums[j]};
                 }
             }
         }
