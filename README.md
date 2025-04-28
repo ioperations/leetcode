@@ -14,4 +14,4 @@
 ![img](./flamegraph.svg)
 
 - recent learning
-![sequence diagram](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/ioperations/leetcode/refs/heads/master/LEARN.iuml)
+- ![sequence diagram](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/ioperations/leetcode/refs/heads/master/LEARN.iuml)
