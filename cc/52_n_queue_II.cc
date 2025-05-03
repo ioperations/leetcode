@@ -43,20 +43,20 @@ class Solution {
 };
 
 TEST(n_queue_II, t1) {
-    int n = 4;
-    int ret = 2;
-    Solution sl;
-    int out = sl.TotalNQueens(n);
-    // here are two distinct solutions to the 4-queens puzzle as shown.
-    EXPECT_EQ(ret, out);
+  int const n = 4;
+  int const ret = 2;
+  Solution sl;
+  int const out = sl.TotalNQueens(n);
+  // here are two distinct solutions to the 4-queens puzzle as shown.
+  EXPECT_EQ(ret, out);
 }
 
 TEST(n_queue_II, t2) {
-    int n = 1;
-    int ret = 1;
-    Solution sl;
-    int out = sl.TotalNQueens(n);
-    EXPECT_EQ(ret, out);
+  int const n = 1;
+  int const ret = 1;
+  Solution sl;
+  int const out = sl.TotalNQueens(n);
+  EXPECT_EQ(ret, out);
 }
 
 }  // namespace

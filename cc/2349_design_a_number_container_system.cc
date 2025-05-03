@@ -15,6 +15,7 @@
 
 #include <algorithm>
 #include <climits>
+#include <functional>
 #include <limits>
 #include <queue>
 #include <unordered_map>
@@ -26,66 +27,67 @@ class NumberContainers {
      * At most 105 calls will be made in total to change and find.
      */
    public:
-    NumberContainers() {}
+    NumberContainers() = default;
 
-    void change(int index, int number) {
-        if (table.count(index) != 0) {
-            auto n = table[index];
-            auto& z = hm[n];
-            z.erase(std::remove_if(z.begin(), z.end(),
-                                   [&](auto i) { return (i == index); }),
-                    z.end());
-            if (z.empty()) {
-                hm.erase(n);
-            }
+    void Change(int index, int number) {
+      if (m_table.count(index) != 0) {
+        auto n = m_table[index];
+        auto& z = m_hm[n];
+        z.erase(std::remove_if(z.begin(), z.end(),
+                               [&](auto i) { return (i == index); }),
+                z.end());
+        if (z.empty()) {
+          m_hm.erase(n);
         }
-        table[index] = number;
-        hm[number].push_back(index);
+      }
+      m_table[index] = number;
+      m_hm[number].push_back(index);
     }
 
-    int find(int number) {
-        auto it = hm.find(number);
-        if (it != hm.end()) {
-            int idx = std::numeric_limits<int>::max();
-            auto& all = it->second;
-            for (auto& ptr : all) {
-                if (ptr < idx) {
-                    idx = ptr;
-                }
-            }
-            return idx;
+    int Find(int number) {
+      auto it = m_hm.find(number);
+      if (it != m_hm.end()) {
+        int idx = std::numeric_limits<int>::max();
+        auto& all = it->second;
+        for (auto& ptr : all) {
+          if (ptr < idx) {
+            idx = ptr;
+          }
         }
-        return -1;
+        return idx;
+      }
+      return -1;
     }
 
    private:
-    std::unordered_map<int, std::vector<int>> hm;
-    std::unordered_map<int, int> table;
+    std::unordered_map<int, std::vector<int>> m_hm;
+    std::unordered_map<int, int> m_table;
 };
 
 using namespace std;
 
 class NumberContainersV2 {
-    unordered_map<int, priority_queue<int, vector<int>, greater<int>>> res;
-    unordered_map<int, int> index_val;
+  unordered_map<int, priority_queue<int, vector<int>, greater<>>> m_res;
+  unordered_map<int, int> m_index_val;
 
-   public:
-    void change(int index, int number) {
-        if (index_val.count(index)) {
-            int prevNum = index_val[index];
-            if (prevNum == number) return;
-            res[prevNum].push(INT_MAX);  // Lazy deletion
-        }
-        res[number].push(index);
-        index_val[index] = number;
+ public:
+  void Change(int index, int number) {
+    if (m_index_val.count(index)) {
+      int const prev_num = m_index_val[index];
+      if (prev_num == number) return;
+      m_res[prev_num].push(INT_MAX);  // Lazy deletion
     }
+    m_res[number].push(index);
+    m_index_val[index] = number;
+  }
 
-    int find(int number) {
-        while (!res[number].empty() && index_val[res[number].top()] != number) {
-            res[number].pop();
-        }
-        return res[number].empty() ? -1 : res[number].top();
+  int Find(int number) {
+    while (!m_res[number].empty() &&
+           m_index_val[m_res[number].top()] != number) {
+      m_res[number].pop();
     }
+    return m_res[number].empty() ? -1 : m_res[number].top();
+  }
 };
 
 /**
@@ -102,18 +104,18 @@ TEST(t0, t1) {
     // "find", "change", "find"]
     // [[], [10], [2, 10], [1, 10], [3, 10], [5, 10], [10], [1, 20], [10]]
     NumberContainers sl;
-    auto ret = sl.find(10);
+    auto ret = sl.Find(10);
     EXPECT_EQ(ret, -1);
 
-    sl.change(2, 10);
-    sl.change(1, 10);
-    sl.change(3, 10);
-    sl.change(5, 10);
-    ret = sl.find(10);
+    sl.Change(2, 10);
+    sl.Change(1, 10);
+    sl.Change(3, 10);
+    sl.Change(5, 10);
+    ret = sl.Find(10);
     EXPECT_EQ(ret, 1);
 
-    sl.change(1, 20);
-    ret = sl.find(10);
+    sl.Change(1, 20);
+    ret = sl.Find(10);
     EXPECT_EQ(ret, 2);
     // Output
     // [null, -1, null, null, null, null, 1, null, 2]
@@ -151,18 +153,18 @@ TEST(t1, t1) {
     // "find", "change", "find"]
     // [[], [10], [2, 10], [1, 10], [3, 10], [5, 10], [10], [1, 20], [10]]
     NumberContainersV2 sl;
-    auto ret = sl.find(10);
+    auto ret = sl.Find(10);
     EXPECT_EQ(ret, -1);
 
-    sl.change(2, 10);
-    sl.change(1, 10);
-    sl.change(3, 10);
-    sl.change(5, 10);
-    ret = sl.find(10);
+    sl.Change(2, 10);
+    sl.Change(1, 10);
+    sl.Change(3, 10);
+    sl.Change(5, 10);
+    ret = sl.Find(10);
     EXPECT_EQ(ret, 1);
 
-    sl.change(1, 20);
-    ret = sl.find(10);
+    sl.Change(1, 20);
+    ret = sl.Find(10);
     EXPECT_EQ(ret, 2);
     // Output
     // [null, -1, null, null, null, null, 1, null, 2]

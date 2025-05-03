@@ -39,21 +39,21 @@ class Solution {
 
 TEST(mirror_reflection, t1) {
     int p = 2, q = 1;
-    int output = 2;
+    int const output = 2;
     // Explanation: The ray meets receptor 2 the first time it gets reflected
     // back to the left wall
     Solution sl;
 
-    int ret = sl.MirrorReflection(p, q);
+    int const ret = sl.MirrorReflection(p, q);
     EXPECT_EQ(ret, output);
 }
 
 TEST(mirror_reflection, t2) {
     int p = 3, q = 1;
-    int output = 1;
+    int const output = 1;
     Solution sl;
 
-    int ret = sl.MirrorReflection(p, q);
+    int const ret = sl.MirrorReflection(p, q);
     EXPECT_EQ(ret, output);
 }
 

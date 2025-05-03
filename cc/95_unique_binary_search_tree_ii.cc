@@ -7,8 +7,8 @@
 
  */
 
-#include <stddef.h>
-
+#include <cstddef>
+#include <functional>
 #include <map>
 #include <optional>
 #include <queue>
@@ -36,51 +36,51 @@ class Solution {
             return res;
         }
         for (int i = start; i <= end; i++) {
-            vector<TreeNode*> left = SubTrees(start, i - 1);
-            vector<TreeNode*> right = SubTrees(i + 1, end);
-            for (TreeNode* l : left) {
-                for (TreeNode* r : right) {
-                    TreeNode* root = new TreeNode(i);
-                    root->left = l;
-                    root->right = r;
-                    res.push_back(root);
-                }
+          vector<TreeNode*> const left = SubTrees(start, i - 1);
+          vector<TreeNode*> const right = SubTrees(i + 1, end);
+          for (TreeNode* l : left) {
+            for (TreeNode* r : right) {
+              auto* root = new TreeNode(i);
+              root->left = l;
+              root->right = r;
+              res.push_back(root);
+            }
             }
         }
         return res;
     }
     vector<TreeNode*> GenerateTreesV2(int n) {
         vector<TreeNode*> ret;
-        map<int, int> cache;
-        function<vector<TreeNode*>(int, vector<int>&)> fun =
+        map<int, int> const cache;
+        function<vector<TreeNode*>(int, vector<int>&)> const fun =
             [&](int j, vector<int>& ele) -> vector<TreeNode*> {
-            vector<TreeNode*> ret;
-            if (j == 0) {
-                ret.push_back(nullptr);
-                return ret;
-            }
-            if (j == 1) {
-                ret.push_back(new TreeNode(ele[0]));
-                return ret;
-            }
-            if (j == 2) {
-                TreeNode* n1 = new TreeNode(ele[0]);
-                n1->right = new TreeNode(ele[1]);
-
-                ret.push_back(n1);
-
-                n1 = new TreeNode(ele[1]);
-                n1->left = new TreeNode(ele[0]);
-                ret.push_back(n1);
-
-                return ret;
-            }
-
-            for (int i = 0; i < j; i++) {
-                // fun(j - i - 1);
-                // fun(i);
-            }
+          vector<TreeNode*> ret;
+          if (j == 0) {
+            ret.push_back(nullptr);
             return ret;
+          }
+          if (j == 1) {
+            ret.push_back(new TreeNode(ele[0]));
+            return ret;
+          }
+          if (j == 2) {
+            auto* n1 = new TreeNode(ele[0]);
+            n1->right = new TreeNode(ele[1]);
+
+            ret.push_back(n1);
+
+            n1 = new TreeNode(ele[1]);
+            n1->left = new TreeNode(ele[0]);
+            ret.push_back(n1);
+
+            return ret;
+          }
+
+          for (int i = 0; i < j; i++) {
+            // fun(j - i - 1);
+            // fun(i);
+          }
+          return ret;
         };
         // fun(n);
 
@@ -102,11 +102,11 @@ std::vector<vector<optional<int>>> Flattern(vector<TreeNode*>& vec) {
         while (q.size()) {
             TreeNode* tmp = q.front();
             if (tmp) {
-                ret.push_back(tmp->val);
-                q.push(tmp->left);
-                q.push(tmp->right);
+              ret.emplace_back(tmp->val);
+              q.push(tmp->left);
+              q.push(tmp->right);
             } else {
-                ret.push_back(optional<int>());
+              ret.emplace_back();
             }
             q.pop();
         }
@@ -128,7 +128,7 @@ std::vector<vector<optional<int>>> Flattern(vector<TreeNode*>& vec) {
 }
 
 TEST(unique_binary_search_tree_ii, t1) {
-    int n = 3;
+  int const n = 3;
 #define null optional<int>()
     vector<vector<optional<int>>> output = {{1, null, 2, null, 3},
                                             {1, null, 3, 2},
@@ -138,8 +138,10 @@ TEST(unique_binary_search_tree_ii, t1) {
     Solution sl;
     auto ret = sl.GenerateTrees(n);
     auto flatted = Flattern(ret);
-    std::set<vector<optional<int>>> flatted_set(flatted.begin(), flatted.end());
-    std::set<vector<optional<int>>> output_set(output.begin(), output.end());
+    std::set<vector<optional<int>>> const flatted_set(flatted.begin(),
+                                                      flatted.end());
+    std::set<vector<optional<int>>> const output_set(output.begin(),
+                                                     output.end());
     EXPECT_EQ(flatted_set, output_set);
 
     for (auto& ptr : ret) {
@@ -148,14 +150,16 @@ TEST(unique_binary_search_tree_ii, t1) {
 }
 
 TEST(unique_binary_search_tree_ii, t2) {
-    int n = 1;
+  int const n = 1;
 #define null optional<int>()
     vector<vector<optional<int>>> output = {{1}};
     Solution sl;
     auto ret = sl.GenerateTrees(n);
     auto flatted = Flattern(ret);
-    std::set<vector<optional<int>>> flatted_set(flatted.begin(), flatted.end());
-    std::set<vector<optional<int>>> output_set(output.begin(), output.end());
+    std::set<vector<optional<int>>> const flatted_set(flatted.begin(),
+                                                      flatted.end());
+    std::set<vector<optional<int>>> const output_set(output.begin(),
+                                                     output.end());
     EXPECT_EQ(flatted_set, output_set);
     for (auto& ptr : ret) {
         Tree::FreeTreeNode(ptr);

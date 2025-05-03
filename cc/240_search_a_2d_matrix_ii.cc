@@ -20,12 +20,12 @@ class Solution {
     bool Binarys(vector<int>& row, int target) {
         int l = 0, r = row.size();
         while (l < r) {
-            int mid = l + (r - l) / 2;
-            if (row[mid] == target) return true;
-            if (row[mid] > target)
-                r = mid;
-            else
-                l = mid + 1;
+          int const mid = l + (r - l) / 2;
+          if (row[mid] == target) return true;
+          if (row[mid] > target)
+            r = mid;
+          else
+            l = mid + 1;
         }
         return false;
     }
@@ -61,11 +61,11 @@ TEST(search_a_2d_matrix_ii, t1) {
                                   {3, 6, 9, 16, 22},
                                   {10, 13, 14, 17, 24},
                                   {18, 21, 23, 26, 30}};
-    int target = 5;
-    bool output = true;
+    int const target = 5;
+    bool const output = true;
 
     Solution sl;
-    bool ret = sl.SearchMatrix(matrix, target);
+    bool const ret = sl.SearchMatrix(matrix, target);
     EXPECT_EQ(ret, output);
 }
 
@@ -75,11 +75,11 @@ TEST(search_a_2d_matrix_ii, t2) {
                                   {3, 6, 9, 16, 22},
                                   {10, 13, 14, 17, 24},
                                   {18, 21, 23, 26, 30}};
-    int target = 20;
-    bool output = false;
+    int const target = 20;
+    bool const output = false;
 
     Solution sl;
-    bool ret = sl.SearchMatrix(matrix, target);
+    bool const ret = sl.SearchMatrix(matrix, target);
     EXPECT_EQ(ret, output);
 }
 }  // namespace

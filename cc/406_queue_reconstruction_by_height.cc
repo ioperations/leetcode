@@ -30,8 +30,7 @@ class Solution {
         vector<vector<int>> ans;
         map<int, vector<int>> heights;
 
-        for (int i = 0; i < (int)people.size(); i++)
-            heights[people[i][0]].push_back(people[i][1]);
+        for (auto& i : people) heights[i[0]].push_back(i[1]);
 
         for (auto rit = heights.rbegin(); rit != heights.rend(); ++rit) {
             sort(rit->second.begin(), rit->second.end());
@@ -46,8 +45,8 @@ class Solution {
 TEST(queue_reconstruction_by_height, t1) {
     std::vector<vector<int>> people{{7, 0}, {4, 4}, {7, 1},
                                     {5, 0}, {6, 1}, {5, 2}};
-    std::vector<vector<int>> output = {{5, 0}, {7, 0}, {5, 2},
-                                       {6, 1}, {4, 4}, {7, 1}};
+    std::vector<vector<int>> const output = {{5, 0}, {7, 0}, {5, 2},
+                                             {6, 1}, {4, 4}, {7, 1}};
     Solution sl;
     auto ert = sl.ReconstructQueue(people);
     /*Explanation:
@@ -66,8 +65,8 @@ TEST(queue_reconstruction_by_height, t1) {
 TEST(queue_reconstruction_by_height, t2) {
     std::vector<vector<int>> people{{6, 0}, {5, 0}, {4, 0},
                                     {3, 2}, {2, 2}, {1, 4}};
-    std::vector<vector<int>> output = {{4, 0}, {5, 0}, {2, 2},
-                                       {3, 2}, {1, 4}, {6, 0}};
+    std::vector<vector<int>> const output = {{4, 0}, {5, 0}, {2, 2},
+                                             {3, 2}, {1, 4}, {6, 0}};
     Solution sl;
     auto ert = sl.ReconstructQueue(people);
     EXPECT_EQ(ert, output);

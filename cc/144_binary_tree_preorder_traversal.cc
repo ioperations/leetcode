@@ -38,35 +38,35 @@ class Solution {
 using namespace std;
 
 TEST(binary_tree_preorder_traversal, t1) {
-    std::vector<optional<int>> vec{1, 2, 3};
-    TreeNode<int>* root = ConstructBinaryTree(vec);
-    Solution s;
-    std::vector<int> ret = s.PreorderTraversal(root);
+  std::vector<optional<int>> const vec{1, 2, 3};
+  TreeNode<int>* root = ConstructBinaryTree(vec);
+  Solution s;
+  std::vector<int> const ret = s.PreorderTraversal(root);
 
-    EXPECT_EQ(ret, (std::vector<int>{1, 2, 3}));
+  EXPECT_EQ(ret, (std::vector<int>{1, 2, 3}));
 
-    FreeTreeNode(root);
+  FreeTreeNode(root);
 }
 
 TEST(binary_tree_preorder_traversal, t2) {
-    std::vector<optional<int>> vec{};
-    TreeNode<int>* root = ConstructBinaryTree(vec);
-    Solution s;
-    std::vector<int> ret = s.PreorderTraversal(root);
+  std::vector<optional<int>> const vec{};
+  TreeNode<int>* root = ConstructBinaryTree(vec);
+  Solution s;
+  std::vector<int> const ret = s.PreorderTraversal(root);
 
-    EXPECT_EQ(ret, std::vector<int>{});
+  EXPECT_EQ(ret, std::vector<int>{});
 
-    FreeTreeNode(root);
+  FreeTreeNode(root);
 }
 
 TEST(binary_tree_preorder_traversal, t3) {
-    std::vector<optional<int>> vec{1};
-    TreeNode<int>* root = ConstructBinaryTree(vec);
-    Solution s;
-    std::vector<int> ret = s.PreorderTraversal(root);
+  std::vector<optional<int>> const vec{1};
+  TreeNode<int>* root = ConstructBinaryTree(vec);
+  Solution s;
+  std::vector<int> const ret = s.PreorderTraversal(root);
 
-    EXPECT_EQ(ret, std::vector<int>{1});
-    FreeTreeNode(root);
+  EXPECT_EQ(ret, std::vector<int>{1});
+  FreeTreeNode(root);
 }
 
 }  // namespace

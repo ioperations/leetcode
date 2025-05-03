@@ -21,59 +21,59 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    int n, m;
-    int dp[201][201];
-    vector<vector<int>> a;
+    int m_n{}, m_m{};
+    int m_dp[201][201]{};
+    vector<vector<int>> m_a;
     int Recur(int i, int j) {
-        if (dp[i][j] != -1) return dp[i][j];
-        int val = 0;
-        if (i - 1 != -1 && a[i - 1][j] > a[i][j]) {
-            val = max(val, Recur(i - 1, j) + 1);
-        }
-        if (j - 1 != -1 && a[i][j - 1] > a[i][j]) {
-            val = max(val, Recur(i, j - 1) + 1);
-        }
-        if (i + 1 != n && a[i + 1][j] > a[i][j]) {
-            val = max(val, Recur(i + 1, j) + 1);
-        }
-        if (j + 1 != m && a[i][j + 1] > a[i][j]) {
-            val = max(val, Recur(i, j + 1) + 1);
-        }
-        return dp[i][j] = val;
+      if (m_dp[i][j] != -1) return m_dp[i][j];
+      int val = 0;
+      if (i - 1 != -1 && m_a[i - 1][j] > m_a[i][j]) {
+        val = max(val, Recur(i - 1, j) + 1);
+      }
+      if (j - 1 != -1 && m_a[i][j - 1] > m_a[i][j]) {
+        val = max(val, Recur(i, j - 1) + 1);
+      }
+      if (i + 1 != m_n && m_a[i + 1][j] > m_a[i][j]) {
+        val = max(val, Recur(i + 1, j) + 1);
+      }
+      if (j + 1 != m_m && m_a[i][j + 1] > m_a[i][j]) {
+        val = max(val, Recur(i, j + 1) + 1);
+      }
+      return m_dp[i][j] = val;
     }
     int LongestIncreasingPath(vector<vector<int>>& matrix) {
-        this->a = matrix;
-        n = matrix.size();
-        m = matrix[0].size();
-        int ans = 0;
-        memset(dp, -1, sizeof(dp));
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < m; j++) {
-                ans = max(ans, Recur(i, j));
-            }
+      this->m_a = matrix;
+      m_n = matrix.size();
+      m_m = matrix[0].size();
+      int ans = 0;
+      memset(m_dp, -1, sizeof(m_dp));
+      for (int i = 0; i < m_n; i++) {
+        for (int j = 0; j < m_m; j++) {
+          ans = max(ans, Recur(i, j));
         }
+      }
         return ans + 1;
     }
 };
 
 TEST(longest_increasing_path_in_a_matrix, t1) {
     vector<vector<int>> matrix = {{9, 9, 4}, {6, 6, 8}, {2, 1, 1}};
-    int output = 4;
+    int const output = 4;
 
     Solution sl;
-    int ret = sl.LongestIncreasingPath(matrix);
+    int const ret = sl.LongestIncreasingPath(matrix);
     EXPECT_EQ(ret, output);
     // Explanation: The longest increasing path is [1, 2, 6, 9].
 }
 TEST(longest_increasing_path_in_a_matrix, t2) {
     vector<vector<int>> matrix = {{3, 4, 5}, {3, 2, 6}, {2, 2, 1}};
-    int output = 4;
+    int const output = 4;
 
     // Explanation: The longest increasing path is [3, 4, 5, 6]. Moving
     // diagonally is not allowed.
 
     Solution sl;
-    int ret = sl.LongestIncreasingPath(matrix);
+    int const ret = sl.LongestIncreasingPath(matrix);
     EXPECT_EQ(ret, output);
     // Explanation: The longest increasing path is [1, 2, 6, 9].
 }

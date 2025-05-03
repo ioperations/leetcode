@@ -69,63 +69,63 @@ class Solution {
 };
 
 TEST(reverse_string_ii, t1) {
-    std::string s = "abcdefg";
-    int k = 2;
-    std::string output = "bacdfeg";
-    Solution sl;
-    auto ret = sl.ReverseStr(s, k);
-    EXPECT_EQ(ret, output);
+  std::string const s = "abcdefg";
+  int const k = 2;
+  std::string const output = "bacdfeg";
+  Solution sl;
+  auto ret = sl.ReverseStr(s, k);
+  EXPECT_EQ(ret, output);
 }
 
 TEST(reverse_string_ii_v2, t1) {
-    std::string s = "abcdefg";
-    int k = 2;
-    std::string output = "bacdfeg";
-    Solution sl;
-    auto ret = sl.ReverseStrV2(s, k);
-    EXPECT_EQ(ret, output);
+  std::string const s = "abcdefg";
+  int const k = 2;
+  std::string const output = "bacdfeg";
+  Solution sl;
+  auto ret = sl.ReverseStrV2(s, k);
+  EXPECT_EQ(ret, output);
 }
 
 TEST(reverse_string_ii, t2) {
-    std::string s = "abcd";
-    int k = 2;
-    std::string output = "bacd";
-    Solution sl;
-    auto ret = sl.ReverseStr(s, k);
+  std::string const s = "abcd";
+  int const k = 2;
+  std::string const output = "bacd";
+  Solution sl;
+  auto ret = sl.ReverseStr(s, k);
 
-    EXPECT_EQ(ret, output);
+  EXPECT_EQ(ret, output);
 }
 TEST(reverse_string_ii_v2, t2) {
-    std::string s = "abcd";
-    int k = 2;
-    std::string output = "bacd";
-    Solution sl;
-    auto ret = sl.ReverseStrV2(s, k);
+  std::string const s = "abcd";
+  int const k = 2;
+  std::string const output = "bacd";
+  Solution sl;
+  auto ret = sl.ReverseStrV2(s, k);
 
-    EXPECT_EQ(ret, output);
+  EXPECT_EQ(ret, output);
 }
 
 static void BenchV1(benchmark::State& state) {
-    std::string s = "abcd";
-    int k = 2;
-    std::string output = "bacd";
-    Solution sl;
+  std::string const s = "abcd";
+  int const k = 2;
+  std::string const output = "bacd";
+  Solution sl;
 
-    for (auto _ : state) {
-        auto ret = sl.ReverseStr(s, k);
-        EXPECT_EQ(ret, output);
+  for (auto _ : state) {
+    auto ret = sl.ReverseStr(s, k);
+    EXPECT_EQ(ret, output);
     }
 }
 BENCHMARK(BenchV1);
 static void BenchV2(benchmark::State& state) {
-    std::string s = "abcd";
-    int k = 2;
-    std::string output = "bacd";
-    Solution sl;
+  std::string const s = "abcd";
+  int const k = 2;
+  std::string const output = "bacd";
+  Solution sl;
 
-    for (auto _ : state) {
-        auto ret = sl.ReverseStrV2(s, k);
-        EXPECT_EQ(ret, output);
+  for (auto _ : state) {
+    auto ret = sl.ReverseStrV2(s, k);
+    EXPECT_EQ(ret, output);
     }
 }
 BENCHMARK(BenchV2);

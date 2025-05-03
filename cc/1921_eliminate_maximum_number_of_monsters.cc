@@ -37,7 +37,7 @@ class Solution {
         //     1 <= dist[i], speed[i] <= 105
 
         const int len = dist.size();
-        priority_queue<int, vector<int>, std::greater<int> > queue;
+        priority_queue<int, vector<int>, std::greater<> > queue;
         for (int i = 0; i < len; i++) {
             queue.emplace((dist[i] % speed[i] == 0) ? dist[i] / speed[i]
                                                     : dist[i] / speed[i] + 1);
@@ -46,10 +46,10 @@ class Solution {
         int ret = 0;
         int i = 0;
         while (queue.size()) {
-            int val = queue.top();
-            queue.pop();
-            if (i < val) {
-                ret++;
+          int const val = queue.top();
+          queue.pop();
+          if (i < val) {
+            ret++;
             } else {
                 break;
             }
@@ -61,7 +61,7 @@ class Solution {
 
 TEST(eliminate_maximum_number_of_monsters, t1) {
     vector<int> dist = {1, 3, 4}, speed = {1, 1, 1};
-    int output = 3;
+    int const output = 3;
     // Explanation:
     // In the beginning, the distances of the monsters are [1,3,4]. You
     // eliminate the first monster. After a minute, the distances of the
@@ -69,33 +69,33 @@ TEST(eliminate_maximum_number_of_monsters, t1) {
     // minute, the distances of the monsters are [X,X,2]. You eliminate the
     // thrid monster. All 3 monsters can be eliminated.
     Solution sl;
-    int ret = sl.EliminateMaximum(dist, speed);
+    int const ret = sl.EliminateMaximum(dist, speed);
     EXPECT_EQ(output, ret);
 }
 
 TEST(eliminate_maximum_number_of_monsters, t2) {
     vector<int> dist = {1, 1, 2, 3}, speed = {1, 1, 1, 1};
-    int output = 1;
+    int const output = 1;
     // Explanation:
     // In the beginning, the distances of the monsters are [1,1,2,3]. You
     // eliminate the first monster.
     // After a minute, the distances of the monsters are [X,0,1,2], so you
     // lose. You can only eliminate 1 monster
     Solution sl;
-    int ret = sl.EliminateMaximum(dist, speed);
+    int const ret = sl.EliminateMaximum(dist, speed);
     EXPECT_EQ(output, ret);
 }
 
 TEST(eliminate_maximum_number_of_monsters, t3) {
     vector<int> dist = {3, 2, 4}, speed = {5, 3, 2};
-    int output = 1;
+    int const output = 1;
     // Explanation:
     // In the beginning, the distances of the monsters are [3,2,4]. You
     // eliminate the first monster.
     // After a minute, the distances of the monsters are[X, 0, 2],
     // so you lose.You can only eliminate 1 monster.
     Solution sl;
-    int ret = sl.EliminateMaximum(dist, speed);
+    int const ret = sl.EliminateMaximum(dist, speed);
     EXPECT_EQ(output, ret);
 }
 

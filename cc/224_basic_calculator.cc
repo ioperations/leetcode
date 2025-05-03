@@ -12,10 +12,12 @@ as mathematical expressions, such as eval().
 */
 
 #include <benchmark/benchmark.h>
-#include <stddef.h>
 
+#include <cctype>
+#include <cstddef>
 #include <stack>
 #include <string>
+#include <utility>
 
 #include "gtest/gtest.h"
 
@@ -71,68 +73,65 @@ class Solution {
             EOL,
         };
 
-        Token(std::string s) : s(s) {
-            index = -1;
-            next();
-        }
+        Token(std::string s) : m_s(std::move(s)), index(-1) { next(); }
         void next() {
             index++;
-            val = 0;
+            m_val = 0;
             bool val_set = false;
-            if (index >= s.size()) {
-                cur_token = EOL;
-                return;
+            if (index >= m_s.size()) {
+              m_cur_token = EOL;
+              return;
             }
-            while (index < s.size()) {
-                if (' ' == s[index]) {
+            while (index < m_s.size()) {
+              if (' ' == m_s[index]) {
+                index++;
+                continue;
+              }
+              if ('0' <= m_s[index] && m_s[index] <= '9') {
+                val_set = true;
+                m_cur_token = NUMBER;
+                m_val = m_val * 10 + m_s[index] - '0';
+              }
+
+              if (val_set) {
+                if ((index + 1) < m_s.size()) {
+                  if ('0' <= m_s[index + 1] && m_s[index + 1] <= '9') {
                     index++;
                     continue;
+                  }
+                  break;
                 }
-                if ('0' <= s[index] && s[index] <= '9') {
-                    val_set = true;
-                    cur_token = NUMBER;
-                    val = val * 10 + s[index] - '0';
-                }
-
-                if (val_set) {
-                    if ((index + 1) < s.size()) {
-                        if ('0' <= s[index + 1] && s[index + 1] <= '9') {
-                            index++;
-                            continue;
-                        }
-                        break;
-                    }
-                    break;
-                }
-                if ('+' == s[index]) {
-                    cur_token = PLUS;
-                    break;
-                }
-                if ('-' == s[index]) {
-                    cur_token = MINUS;
-                    break;
-                }
-                if ('(' == s[index]) {
-                    cur_token = LEFT_PARAM;
-                    break;
-                }
-                if (')' == s[index]) {
-                    cur_token = RIGHT_PARAM;
-                    break;
-                }
-                cur_token = EOL;
                 break;
+              }
+              if ('+' == m_s[index]) {
+                m_cur_token = PLUS;
+                break;
+              }
+              if ('-' == m_s[index]) {
+                m_cur_token = MINUS;
+                break;
+              }
+              if ('(' == m_s[index]) {
+                m_cur_token = LEFT_PARAM;
+                break;
+              }
+              if (')' == m_s[index]) {
+                m_cur_token = RIGHT_PARAM;
+                break;
+              }
+              m_cur_token = EOL;
+              break;
             }
         }
-        token_type CurToken() { return cur_token; }
+        token_type CurToken() { return m_cur_token; }
 
-        int GetVal() { return val; }
+        int GetVal() { return m_val; }
 
        private:
-        std::string s;
-        int val;
+        std::string m_s;
+        int m_val{};
         size_t index;
-        token_type cur_token;
+        token_type m_cur_token;
     };
 };
 

@@ -43,28 +43,32 @@ int MaxSubStringLengthOfTwoString(const char* s1, int s1_len, const char* s2,
 TEST(t1j, t2) {
     const char* s1 = "hello";
     const char* s2 = "hell";
-    int ret = MaxSubStringLengthOfTwoString(s1, strlen(s1), s2, strlen(s2));
+    int const ret =
+        MaxSubStringLengthOfTwoString(s1, strlen(s1), s2, strlen(s2));
     EXPECT_EQ(ret, 4);
 }
 
 TEST(t1j, t3) {
     const char* s1 = "hllo";
     const char* s2 = "hell";
-    int ret = MaxSubStringLengthOfTwoString(s1, strlen(s1), s2, strlen(s2));
+    int const ret =
+        MaxSubStringLengthOfTwoString(s1, strlen(s1), s2, strlen(s2));
     EXPECT_EQ(ret, 3);
 }
 
 TEST(t1j, t4) {
     const char* s1 = "abcd";
     const char* s2 = "defg";
-    int ret = MaxSubStringLengthOfTwoString(s1, strlen(s1), s2, strlen(s2));
+    int const ret =
+        MaxSubStringLengthOfTwoString(s1, strlen(s1), s2, strlen(s2));
     EXPECT_EQ(ret, 1);
 }
 
 TEST(t1j, t5) {
     const char* s1 = "abch";
     const char* s2 = "defg";
-    int ret = MaxSubStringLengthOfTwoString(s1, strlen(s1), s2, strlen(s2));
+    int const ret =
+        MaxSubStringLengthOfTwoString(s1, strlen(s1), s2, strlen(s2));
     EXPECT_EQ(ret, 0);
 }
 

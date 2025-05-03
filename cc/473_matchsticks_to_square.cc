@@ -21,15 +21,16 @@ class Solution {
    public:
     bool Makesquare(vector<int>& matchsticks) {
         std::sort(matchsticks.begin(), matchsticks.end());
-        int sum = std::accumulate(matchsticks.begin(), matchsticks.end(), 0);
-        int n = matchsticks.size();
+        int const sum =
+            std::accumulate(matchsticks.begin(), matchsticks.end(), 0);
+        int const n = matchsticks.size();
 
         if (n == 0) return false;
         if (sum % 4 != 0) return false;
 
         // 在matchsticks当中找到能够组合成4个target的情况
 
-        int maxlen = sum / 4;
+        int const maxlen = sum / 4;
         vector<int> sums(4);
         return Check(matchsticks, n, sums, maxlen);
     }
@@ -50,13 +51,13 @@ class Solution {
 
     bool MakesquareV2(vector<int>& matchsticks) {
         sort(matchsticks.begin(), matchsticks.end());
-        int n = matchsticks.size();
+        int const n = matchsticks.size();
         int sum = 0;
         for (int i = 0; i < n; i++) sum += matchsticks[i];
 
         if (sum % 4 != 0) return false;
 
-        int maxlen = sum / 4;
+        int const maxlen = sum / 4;
         vector<int> sums(4);
         return Check(matchsticks, n, sums, maxlen);
     }
@@ -64,20 +65,20 @@ class Solution {
 
 TEST(matchsticks_to_square, t1) {
     vector<int> matchsticks = {1, 1, 2, 2, 2};
-    bool output = true;
+    bool const output = true;
     // Explanation: You can form a square with length 2, one side of the square
     // came two sticks with length 1.
     Solution sl;
-    bool ret = sl.Makesquare(matchsticks);
+    bool const ret = sl.Makesquare(matchsticks);
     EXPECT_EQ(ret, output);
 }
 
 TEST(matchsticks_to_square, t2) {
     vector<int> matchsticks = {3, 3, 3, 3, 4};
-    bool output = false;
+    bool const output = false;
     // You cannot find a way to form a square with all the matchsticks.
     Solution sl;
-    bool ret = sl.Makesquare(matchsticks);
+    bool const ret = sl.Makesquare(matchsticks);
     EXPECT_EQ(ret, output);
 }
 

@@ -21,7 +21,7 @@ class Solution {
         // pass
         int ret = 0;
 
-        int size = words.size();
+        int const size = words.size();
         for (int i = 0; i < size; i++) {
             for (int j = i + 1; j < size; j++) {
                 if (!ShareSameChar(words[i], words[j])) {
@@ -37,7 +37,7 @@ class Solution {
         // pass
         sort(a.begin(), a.end());
         sort(b.begin(), b.end());
-        int c_b = b.size();
+        int const c_b = b.size();
         int i = 0;
         for (auto& ptr_a : a) {
             while (i < c_b && b[i] <= ptr_a) {
@@ -69,8 +69,8 @@ class Solution {
                     }
                 }
                 if (common) {
-                    int cur = words[i].size() * words[j].size();
-                    ans = max(ans, cur);
+                  int const cur = words[i].size() * words[j].size();
+                  ans = max(ans, cur);
                 }
             }
         }
@@ -81,28 +81,28 @@ class Solution {
 
 TEST(maximium_product_of_word_lengths, t1) {
     std::vector<string> words = {"abcw", "baz", "foo", "bar", "xtfn", "abcdef"};
-    int output = 16;
+    int const output = 16;
     // Explanation: The two words can be "abcw", "xtfn".
     Solution sl;
-    int ret = sl.MaxProduct(words);
+    int const ret = sl.MaxProduct(words);
     EXPECT_EQ(ret, output);
 }
 
 TEST(maximium_product_of_word_lengths, t2) {
     std::vector<string> words = {"a", "ab", "abc", "d", "cd", "bcd", "abcd"};
-    int output = 4;
+    int const output = 4;
     // The two words can be "ab", "cd".
     Solution sl;
-    int ret = sl.MaxProduct(words);
+    int const ret = sl.MaxProduct(words);
     EXPECT_EQ(ret, output);
 }
 
 TEST(maximium_product_of_word_lengths, t3) {
     std::vector<string> words = {"a", "aa", "aaa", "aaaa"};
-    int output = 0;
+    int const output = 0;
     // No such pair of words.
     Solution sl;
-    int ret = sl.MaxProduct(words);
+    int const ret = sl.MaxProduct(words);
     EXPECT_EQ(ret, output);
 }
 

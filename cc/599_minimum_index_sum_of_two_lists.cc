@@ -27,20 +27,20 @@ class Solution {
         vector<string> ans;
         int min_sum = INT_MAX;
         for (int i = 0; i < (int)list1.size(); i++) {
-            string key = list1[i];
-            pos[key] = i + 1;
+          string const key = list1[i];
+          pos[key] = i + 1;
         }
         for (int i = 0; i < (int)list2.size(); i++) {
-            string st = list2[i];
-            if (pos[st] > 0) {
-                int sum = i + 1 + pos[st];
-                if (sum < min_sum) {
-                    min_sum = sum;
-                    ans.clear();
-                    ans.push_back(st);
-                } else if (sum == min_sum) {
-                    ans.push_back(st);
-                }
+          string const st = list2[i];
+          if (pos[st] > 0) {
+            int const sum = i + 1 + pos[st];
+            if (sum < min_sum) {
+              min_sum = sum;
+              ans.clear();
+              ans.push_back(st);
+            } else if (sum == min_sum) {
+              ans.push_back(st);
+            }
             }
         }
         return ans;
@@ -51,7 +51,7 @@ TEST(minimum_index_sum_of_two_lists, t1) {
     vector<string> list1 = {"Shogun", "Tapioca Express", "Burger King", "KFC"};
     vector<string> list2 = {"Piatti", "The Grill at Torrey Pines",
                             "Hungry Hunter Steakhouse", "Shogun"};
-    vector<string> output = {"Shogun"};
+    vector<string> const output = {"Shogun"};
     // Explanation: The only restaurant they both like is "Shogun".
     Solution sl;
     auto ret = sl.FindRestaurant(list1, list2);
@@ -61,7 +61,7 @@ TEST(minimum_index_sum_of_two_lists, t1) {
 TEST(minimum_index_sum_of_two_lists, t2) {
     vector<string> list1 = {"Shogun", "Tapioca Express", "Burger King", "KFC"};
     vector<string> list2 = {"KFC", "Shogun", "Burger King"};
-    vector<string> output = {"Shogun"};
+    vector<string> const output = {"Shogun"};
     // The restaurant they both like and have the least index sum is "Shogun"
     // with index sum 1 (0+1).
     Solution sl;

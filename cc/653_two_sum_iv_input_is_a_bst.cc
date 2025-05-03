@@ -21,13 +21,13 @@ using namespace Tree;
 namespace {
 class Solution {
    public:
-    std::unordered_map<int, bool> m;
+    std::unordered_map<int, bool> m_m;
     template <typename T>
     bool FindTarget(TreeNode<T>* root, int k) {
         if (root == nullptr) return false;
 
-        if (m.find(k - root->val) != m.end()) return true;
-        m[root->val] = 1;
+        if (m_m.find(k - root->val) != m_m.end()) return true;
+        m_m[root->val] = 1;
 
         return FindTarget(root->left, k) || FindTarget(root->right, k);
     }
@@ -49,12 +49,12 @@ class Solution {
 
         set<int> st;
 
-        for (int i = 0; i < (int)in.size(); i++) {
-            int const target = k - in[i];
-            if (st.find(target) != st.end()) {
-                return true;
-            }
-            st.insert(in[i]);
+        for (int i : in) {
+          int const target = k - i;
+          if (st.find(target) != st.end()) {
+            return true;
+          }
+          st.insert(i);
         }
 
         return false;
@@ -66,25 +66,25 @@ using namespace std;
 #define null optional<int>()
 
 TEST(two_sum_iv_input_is_a_bst, t1) {
-    vector<optional<int>> root = {5, 3, 6, 2, 4, null, 7};
-    int const k = 9;
-    bool const output = true;
-    auto* node = ConstructBinaryTree(root);
-    Solution sl;
-    bool const ret = sl.FindTarget(node, k);
-    EXPECT_EQ(ret, output);
-    FreeTreeNode(node);
+  vector<optional<int>> const root = {5, 3, 6, 2, 4, null, 7};
+  int const k = 9;
+  bool const output = true;
+  auto* node = ConstructBinaryTree(root);
+  Solution sl;
+  bool const ret = sl.FindTarget(node, k);
+  EXPECT_EQ(ret, output);
+  FreeTreeNode(node);
 }
 
 TEST(two_sum_iv_input_is_a_bst, t2) {
-    vector<optional<int>> root = {5, 3, 6, 2, 4, null, 7};
-    int const k = 28;
-    bool const output = false;
-    auto* node = ConstructBinaryTree(root);
-    Solution sl;
-    bool const ret = sl.FindTarget(node, k);
-    EXPECT_EQ(ret, output);
-    FreeTreeNode(node);
+  vector<optional<int>> const root = {5, 3, 6, 2, 4, null, 7};
+  int const k = 28;
+  bool const output = false;
+  auto* node = ConstructBinaryTree(root);
+  Solution sl;
+  bool const ret = sl.FindTarget(node, k);
+  EXPECT_EQ(ret, output);
+  FreeTreeNode(node);
 }
 
 }  // namespace

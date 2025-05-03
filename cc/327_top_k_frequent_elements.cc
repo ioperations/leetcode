@@ -37,7 +37,7 @@ class Solution {
 
         std::priority_queue<pair<int, int>, vector<pair<int, int>>, Cmp> q;
         for (auto& ptr : map) {
-            q.push(ptr);
+          q.emplace(ptr);
         }
 
         for (int i = 0; i < k; i++) {
@@ -50,11 +50,11 @@ class Solution {
         unordered_map<int, int> mp;
         priority_queue<pair<int, int>> pq;
         vector<int> ans;
-        for (int i : nums) {
-            ++mp[i];
+        for (int const i : nums) {
+          ++mp[i];
         }
         for (auto it : mp) {
-            pq.push({it.second, it.first});
+          pq.emplace(it.second, it.first);
         }
 
         while (k--) {
@@ -70,8 +70,8 @@ class Solution {
 
 TEST(top_k_frequent_elements, t1) {
     std::vector<int> nums = {1, 1, 1, 2, 2, 3};
-    int k = 2;
-    std::vector<int> output = {1, 2};
+    int const k = 2;
+    std::vector<int> const output = {1, 2};
 
     Solution sl;
     auto ret = sl.TopKFrequent(nums, k);
@@ -81,8 +81,8 @@ TEST(top_k_frequent_elements, t1) {
 
 TEST(top_k_frequent_elements_v2, t1) {
     std::vector<int> nums = {1, 1, 1, 2, 2, 3};
-    int k = 2;
-    std::vector<int> output = {1, 2};
+    int const k = 2;
+    std::vector<int> const output = {1, 2};
 
     Solution sl;
     auto ret = sl.TopKFrequentV1(nums, k);
@@ -92,8 +92,8 @@ TEST(top_k_frequent_elements_v2, t1) {
 
 TEST(top_k_frequent_elements, t2) {
     std::vector<int> nums = {1};
-    int k = 1;
-    std::vector<int> output = {1};
+    int const k = 1;
+    std::vector<int> const output = {1};
 
     Solution sl;
     auto ret = sl.TopKFrequent(nums, k);
@@ -103,8 +103,8 @@ TEST(top_k_frequent_elements, t2) {
 
 TEST(top_k_frequent_elements_v2, t2) {
     std::vector<int> nums = {1};
-    int k = 1;
-    std::vector<int> output = {1};
+    int const k = 1;
+    std::vector<int> const output = {1};
 
     Solution sl;
     auto ret = sl.TopKFrequentV1(nums, k);
@@ -125,8 +125,8 @@ static void BenchMarkV0(benchmark::State& state) {
             89,  90,  91,  92,  93,  94,  95,  96,  97,  98,  99,  100, 101,
             102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114,
             115, 116, 117, 118, 119, 120, 121, 122, 123};
-        int k = 2;
-        std::vector<int> output = {1, 2};
+        int const k = 2;
+        std::vector<int> const output = {1, 2};
 
         Solution sl;
         auto ret = sl.TopKFrequent(nums, k);
@@ -149,8 +149,8 @@ static void BenchMarkV1(benchmark::State& state) {
             89,  90,  91,  92,  93,  94,  95,  96,  97,  98,  99,  100, 101,
             102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114,
             115, 116, 117, 118, 119, 120, 121, 122, 123};
-        int k = 2;
-        std::vector<int> output = {1, 2};
+        int const k = 2;
+        std::vector<int> const output = {1, 2};
 
         Solution sl;
         auto ret = sl.TopKFrequentV1(nums, k);

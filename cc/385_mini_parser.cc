@@ -12,9 +12,10 @@ or other lists.
 // // This is the interface that allows for creating nested lists.
 // You should not implement it, or speculate about its implementation
 #include <benchmark/benchmark.h>
-#include <stddef.h>
 
 #include <algorithm>
+#include <cctype>
+#include <cstddef>
 #include <functional>
 #include <stack>
 #include <string>
@@ -27,46 +28,43 @@ using namespace std;
 namespace {
 class NestedInteger {
     bool is_integer = true;
-    int val;
-    vector<NestedInteger> vec;
+    int val{};
+    vector<NestedInteger> m_vec;
 
    public:
     // Constructor initializes an empty nested list.
-    NestedInteger() {}
+    NestedInteger() = default;
 
     // Constructor initializes a single integer.
-    NestedInteger(int value) {
-        is_integer = true;
-        val = value;
-    }
+    NestedInteger(int value) : is_integer(true), val(value) {}
 
     // Return true if this NestedInteger holds a single integer, rather than a
     // nested list.
-    bool IsInteger() const { return is_integer; }
+    [[nodiscard]] bool IsInteger() const { return is_integer; }
 
     // Return the single integer that this NestedInteger holds, if it holds a
     // single integer The result is undefined if this NestedInteger holds a
     // nested list
-    int GetInteger() const { return val; }
+    [[nodiscard]] int GetInteger() const { return val; }
 
     // Set this NestedInteger to hold a single integer.
     void SetInteger(int value) {
-        vec.clear();
-        val = value;
-        is_integer = true;
+      m_vec.clear();
+      val = value;
+      is_integer = true;
     }
 
     // Set this NestedInteger to hold a nested list and adds a nested integer to
     // it.
     void Add(const NestedInteger& ni) {
-        vec.push_back(ni);
-        is_integer = false;
+      m_vec.push_back(ni);
+      is_integer = false;
     }
 
     // Return the nested list that this NestedInteger holds, if it holds a
     // nested list The result is undefined if this NestedInteger holds a single
     // integer
-    const vector<NestedInteger>& GetList() const { return vec; }
+    [[nodiscard]] const vector<NestedInteger>& GetList() const { return m_vec; }
 };
 class Solution {
    public:
@@ -76,7 +74,7 @@ class Solution {
         };
 
         stack<NestedInteger> stk;
-        stk.push(NestedInteger());
+        stk.emplace();
 
         for (auto it = s.begin(); it != s.end();) {
             const char& c = (*it);
@@ -87,7 +85,7 @@ class Solution {
                 it = it2;
             } else {
                 if (c == '[') {
-                    stk.push(NestedInteger());
+                  stk.emplace();
                 } else if (c == ']') {
                     const NestedInteger ni = stk.top();
                     stk.pop();
@@ -105,7 +103,7 @@ class Solution {
         stack<NestedInteger> stk({NestedInteger()});
         for (size_t i = 0; i < s.size(); ++i) {
             if (s[i] == '[') {
-                stk.push(NestedInteger());
+              stk.emplace();
             } else if (s[i] == ']') {
                 const NestedInteger ni = stk.top();
                 stk.pop();

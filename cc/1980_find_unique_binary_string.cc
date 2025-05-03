@@ -13,24 +13,24 @@ using namespace std;
 
 class Solution {
    public:
-    string findDifferentBinaryString(vector<string>& nums) {
-        /* n == nums.length
-         1 <= n <= 16
-         nums[i].length == n
-         nums[i] is either '0' or '1'.
-         All the strings of nums are unique.
-        */
+    string FindDifferentBinaryString(vector<string>& nums) {
+      /* n == nums.length
+       1 <= n <= 16
+       nums[i].length == n
+       nums[i] is either '0' or '1'.
+       All the strings of nums are unique.
+      */
 
-        auto n = nums.size();
+      auto n = nums.size();
 
-        set<long long> s;
-        get(nums, s);
+      set<long long> s;
+      Get(nums, s);
 
-        long long v = 0;
+      long long v = 0;
 
-        string str(n, '0');
-        Gen(str, v, 0, n, s);
-        return str;
+      string str(n, '0');
+      Gen(str, v, 0, n, s);
+      return str;
     }
 
     bool Gen(string& str, long long& v, int index, int n,
@@ -54,18 +54,18 @@ class Solution {
         return false;
     }
 
-    void get(vector<string>& ori, set<long long>& s) {
-        for (const auto& value : ori) {
-            s.emplace(getInt(value));
-        }
+    void Get(vector<string>& ori, set<long long>& s) {
+      for (const auto& value : ori) {
+        s.emplace(GetInt(value));
+      }
     }
 
-    long long getInt(const std::string& v) {
-        long long ret = 0;
-        for (auto chars : v) {
-            ret = ret * 10 + (chars - '0');
-        }
-        return ret;
+    long long GetInt(const std::string& v) {
+      long long ret = 0;
+      for (auto chars : v) {
+        ret = ret * 10 + (chars - '0');
+      }
+      return ret;
     }
 };
 
@@ -73,32 +73,32 @@ class Solution {
 
 TEST(t0, t1) {
     vector<string> nums = {"01", "10"};
-    set<string> set = {"11", "00"};
+    set<string> const set = {"11", "00"};
     // Explanation: "11" does not appear in nums. "00" would also be correct.
     Solution sl;
-    auto ret = sl.findDifferentBinaryString(nums);
+    auto ret = sl.FindDifferentBinaryString(nums);
     EXPECT_TRUE(set.count(ret) > 0);
 }
 
 TEST(t0, t2) {
     vector<string> nums = {"00", "01"};
-    set<string> set = {"11", "10"};
+    set<string> const set = {"11", "10"};
     // Explanation: "11" does not appear in nums. "00" would also be correct.
     // "11" does not appear in nums. "10" would also be correct.
 
     Solution sl;
-    auto ret = sl.findDifferentBinaryString(nums);
+    auto ret = sl.FindDifferentBinaryString(nums);
     EXPECT_TRUE(set.count(ret) > 0);
 }
 
 TEST(t0, t3) {
     vector<string> nums = {"111", "011", "001"};
-    set<string> set = {"101", "000", "010", "100", "110"};
+    set<string> const set = {"101", "000", "010", "100", "110"};
     // Explanation: "101" does not appear in nums. "000", "010", "100", and
     // "110" would also be correct.
 
     Solution sl;
-    auto ret = sl.findDifferentBinaryString(nums);
+    auto ret = sl.FindDifferentBinaryString(nums);
     EXPECT_TRUE(set.count(ret) > 0);
 }
 

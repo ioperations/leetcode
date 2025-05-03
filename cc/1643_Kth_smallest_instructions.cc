@@ -34,48 +34,48 @@ const int mxn = 15 + 2;
 namespace {
 class Solution {
    public:
-    int n, m;
+    int m_n{}, m_m{};
 
-    int dp[mxn][mxn];
+    int m_dp[mxn][mxn]{};
 
     int Go(int x, int y) {
-        if (x == n && y == m) return 1;
-        if (x < 0 || x > n || y < 0 || y > m) return 0;
-        int& ans = dp[x][y];
-        if (ans != -1) return ans;
-        ans = Go(x + 1, y) + Go(x, y + 1);
-        return ans;
+      if (x == m_n && y == m_m) return 1;
+      if (x < 0 || x > m_n || y < 0 || y > m_m) return 0;
+      int& ans = m_dp[x][y];
+      if (ans != -1) return ans;
+      ans = Go(x + 1, y) + Go(x, y + 1);
+      return ans;
     }
 
-    string way;
+    string m_way;
     void Build(int x, int y, int k) {
-        if (x == n && y == m) return;
-        if (x < 0 || x > n || y < 0 || y > m) return;
-        if (k <= Go(x, y + 1)) {
-            way.push_back('H');
-            Build(x, y + 1, k);
+      if (x == m_n && y == m_m) return;
+      if (x < 0 || x > m_n || y < 0 || y > m_m) return;
+      if (k <= Go(x, y + 1)) {
+        m_way.push_back('H');
+        Build(x, y + 1, k);
         } else {
             k -= Go(x, y + 1);
-            way.push_back('V');
+            m_way.push_back('V');
             Build(x + 1, y, k);
         }
     }
 
    public:
     string KthSmallestPath(vector<int>& destination, int k) {
-        n = destination[0];
-        m = destination[1];
-        memset(dp, -1LL, sizeof(dp));
-        Go(0, 0);
-        Build(0, 0, k);
-        return way;
+      m_n = destination[0];
+      m_m = destination[1];
+      memset(m_dp, -1LL, sizeof(m_dp));
+      Go(0, 0);
+      Build(0, 0, k);
+      return m_way;
     }
 };
 
 TEST(Kth_smallest_instructions, t1) {
     std::vector<int> destination = {2, 3};
-    int k = 1;
-    string output = "HHHVV";
+    int const k = 1;
+    string const output = "HHHVV";
     // Explanation: All the instructions that reach (2, 3) in lexicographic
     // order are as follows:
     // ["HHHVV", "HHVHV", "HHVVH", "HVHHV", "HVHVH", "HVVHH", "VHHHV", "VHHVH",
@@ -88,8 +88,8 @@ TEST(Kth_smallest_instructions, t1) {
 
 TEST(Kth_smallest_instructions, t2) {
     std::vector<int> destination = {2, 3};
-    int k = 2;
-    string output = "HHVHV";
+    int const k = 2;
+    string const output = "HHVHV";
 
     Solution sl;
     auto ret = sl.KthSmallestPath(destination, k);
@@ -98,8 +98,8 @@ TEST(Kth_smallest_instructions, t2) {
 
 TEST(Kth_smallest_instructions, t3) {
     std::vector<int> destination = {2, 3};
-    int k = 3;
-    string output = "HHVVH";
+    int const k = 3;
+    string const output = "HHVVH";
 
     Solution sl;
     auto ret = sl.KthSmallestPath(destination, k);

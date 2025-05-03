@@ -24,12 +24,12 @@ namespace {
 class Solution {
    public:
     vector<int> FindErrorNums(vector<int>& nums) {
-        int n = nums.size();
-        vector<int> arr(n + 1, 0);
-        vector<int> vec;
+      int const n = nums.size();
+      vector<int> arr(n + 1, 0);
+      vector<int> vec;
 
-        for (auto i : nums) {
-            arr[i]++;
+      for (auto i : nums) {
+        arr[i]++;
         }
 
         for (int i = 1; i < n + 1; i++) {
@@ -44,7 +44,7 @@ class Solution {
 
 TEST(set_mismatch, t1) {
     vector<int> nums = {1, 2, 2, 4};
-    vector<int> output = {2, 3};
+    vector<int> const output = {2, 3};
 
     Solution sl;
     auto ret = sl.FindErrorNums(nums);

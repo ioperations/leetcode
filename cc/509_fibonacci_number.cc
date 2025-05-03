@@ -16,44 +16,44 @@ Given n, calculate F(n).*/
 
 namespace {
 class Solution {
-    std::map<int, int> cache;
+  std::map<int, int> m_cache;
 
-   public:
-    int Fib(int n) {
-        // pass
-        if (n == 0) return 0;
-        if (n == 1) return 1;
-        if (cache.count(n)) {
-            return cache[n];
-        }
-        int ret = Fib(n - 1) + Fib(n - 2);
-        cache[n] = ret;
-        return ret;
+ public:
+  int Fib(int n) {
+    // pass
+    if (n == 0) return 0;
+    if (n == 1) return 1;
+    if (m_cache.count(n)) {
+      return m_cache[n];
+    }
+    int const ret = Fib(n - 1) + Fib(n - 2);
+    m_cache[n] = ret;
+    return ret;
     }
 };
 
 TEST(fibonacci_number, t1) {
-    int n = 2;
-    int out = 1;
-    Solution sl;
-    int ret = sl.Fib(n);
-    EXPECT_EQ(ret, out);
+  int const n = 2;
+  int const out = 1;
+  Solution sl;
+  int const ret = sl.Fib(n);
+  EXPECT_EQ(ret, out);
 }
 
 TEST(fibonacci_number, t2) {
-    int n = 3;
-    int out = 2;
-    Solution sl;
-    int ret = sl.Fib(n);
-    EXPECT_EQ(ret, out);
+  int const n = 3;
+  int const out = 2;
+  Solution sl;
+  int const ret = sl.Fib(n);
+  EXPECT_EQ(ret, out);
 }
 
 TEST(fibonacci_number, t3) {
-    int n = 4;
-    int out = 3;
-    Solution sl;
-    int ret = sl.Fib(n);
-    EXPECT_EQ(ret, out);
+  int const n = 4;
+  int const out = 3;
+  Solution sl;
+  int const ret = sl.Fib(n);
+  EXPECT_EQ(ret, out);
 }
 
 }  // namespace

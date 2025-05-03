@@ -36,7 +36,6 @@ Output
 [null, true, true, true, false, 3, true, true, true, 4]
 */
 
-#include <string>
 #include <vector>
 
 #include "gtest/gtest.h"
@@ -44,32 +43,32 @@ Output
 namespace {
 class MyCircularQueue {
    private:
-    std::vector<int> v;
-    int start = 0, len = 0;
+    std::vector<int> m_v;
+    int m_start = 0, m_len = 0;
 
    public:
-    MyCircularQueue(int k) : v(k) {}
+    MyCircularQueue(int k) : m_v(k) {}
     bool EnQueue(int value) {
         if (IsFull()) return false;
-        v[(start + len++) % v.size()] = value;
+        m_v[(m_start + m_len++) % m_v.size()] = value;
         return true;
     }
     bool DeQueue() {
         if (IsEmpty()) return false;
-        start = (start + 1) % v.size();
-        --len;
+        m_start = (m_start + 1) % m_v.size();
+        --m_len;
         return true;
     }
     int Front() {
         if (IsEmpty()) return -1;
-        return v[start];
+        return m_v[m_start];
     }
     int Rear() {
         if (IsEmpty()) return -1;
-        return v[(start + len - 1) % v.size()];
+        return m_v[(m_start + m_len - 1) % m_v.size()];
     }
-    bool IsEmpty() { return !len; }
-    bool IsFull() { return len == (int)v.size(); }
+    bool IsEmpty() { return !m_len; }
+    bool IsFull() { return m_len == (int)m_v.size(); }
 };
 
 TEST(design_circular_queue, t1) {

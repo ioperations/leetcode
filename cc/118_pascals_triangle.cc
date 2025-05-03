@@ -42,28 +42,28 @@ class Solution {
 };
 
 TEST(pascals_triangle, t1) {
-    int num_rows = 5;
-    std::vector<std::vector<int>> output = {
-        {1}, {1, 1}, {1, 2, 1}, {1, 3, 3, 1}, {1, 4, 6, 4, 1}};
+  int const num_rows = 5;
+  std::vector<std::vector<int>> output = {
+      {1}, {1, 1}, {1, 2, 1}, {1, 3, 3, 1}, {1, 4, 6, 4, 1}};
 
-    std::set<vector<int>> output_set(output.begin(), output.end());
-    Solution sl;
-    auto ret = sl.Generate(num_rows);
-    std::set<vector<int>> ret_set(ret.begin(), ret.end());
+  std::set<vector<int>> const output_set(output.begin(), output.end());
+  Solution sl;
+  auto ret = sl.Generate(num_rows);
+  std::set<vector<int>> const ret_set(ret.begin(), ret.end());
 
-    EXPECT_EQ(ret_set, output_set);
+  EXPECT_EQ(ret_set, output_set);
 }
 
 TEST(pascals_triangle, t2) {
-    int num_rows = 1;
-    std::vector<std::vector<int>> output = {{1}};
+  int const num_rows = 1;
+  std::vector<std::vector<int>> output = {{1}};
 
-    std::set<vector<int>> output_set(output.begin(), output.end());
-    Solution sl;
-    auto ret = sl.Generate(num_rows);
-    std::set<vector<int>> ret_set(ret.begin(), ret.end());
+  std::set<vector<int>> const output_set(output.begin(), output.end());
+  Solution sl;
+  auto ret = sl.Generate(num_rows);
+  std::set<vector<int>> const ret_set(ret.begin(), ret.end());
 
-    EXPECT_EQ(ret_set, output_set);
+  EXPECT_EQ(ret_set, output_set);
 }
 
 }  // namespace

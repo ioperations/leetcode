@@ -38,19 +38,19 @@ class Solution {
 };
 
 TEST(unique_binary_search_tree, t1) {
-    int n = 3;
-    int out = 5;
-    Solution sl;
-    int ret = sl.NumTrees(n);
-    EXPECT_EQ(ret, out);
+  int const n = 3;
+  int const out = 5;
+  Solution sl;
+  int const ret = sl.NumTrees(n);
+  EXPECT_EQ(ret, out);
 }
 
 TEST(unique_binary_search_tree, t2) {
-    int n = 1;
-    int out = 1;
-    Solution sl;
-    int ret = sl.NumTrees(n);
-    EXPECT_EQ(ret, out);
+  int const n = 1;
+  int const out = 1;
+  Solution sl;
+  int const ret = sl.NumTrees(n);
+  EXPECT_EQ(ret, out);
 }
 
 TEST(unique_binary_search_tree, t3) {
@@ -59,10 +59,10 @@ TEST(unique_binary_search_tree, t3) {
                           16796,   58786,    208012,    742900,    2674440,
                           9694845, 35357670, 129644790, 477638700, 1767263190};
     Solution sl;
-    int size = test_case.size();
+    int const size = test_case.size();
     for (int i = 1; i < size; i++) {
-        int ret = sl.NumTrees(i);
-        EXPECT_EQ(ret, test_case[i]);
+      int const ret = sl.NumTrees(i);
+      EXPECT_EQ(ret, test_case[i]);
     }
 }
 

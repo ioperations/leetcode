@@ -43,7 +43,7 @@ class Solution {
 
     int CountSubstringsV1(string s) {
         int count = 0;
-        int n = s.size();
+        int const n = s.size();
         if (n == 1) return 1;
         bool dp[1001][1001] = {{false}};
         for (int i = 0; i < n; ++i) {
@@ -65,69 +65,69 @@ class Solution {
 };
 
 TEST(palindromic_substrings, t1) {
-    string s = "abc";
-    int output = 3;
-    // Explanation: Three palindromic strings: "a", "b", "c".
+  string const s = "abc";
+  int const output = 3;
+  // Explanation: Three palindromic strings: "a", "b", "c".
 
-    Solution sl;
-    int ret = sl.CountSubstrings(s);
-    EXPECT_EQ(ret, output);
+  Solution sl;
+  int const ret = sl.CountSubstrings(s);
+  EXPECT_EQ(ret, output);
 }
 
 TEST(palindromic_substrings, t2) {
-    string s = "aaa";
-    int output = 6;
-    // Explanation: Six palindromic strings: "a", "a", "a", "aa", "aa", "aaa".
+  string const s = "aaa";
+  int const output = 6;
+  // Explanation: Six palindromic strings: "a", "a", "a", "aa", "aa", "aaa".
 
-    Solution sl;
-    int ret = sl.CountSubstrings(s);
-    EXPECT_EQ(ret, output);
+  Solution sl;
+  int const ret = sl.CountSubstrings(s);
+  EXPECT_EQ(ret, output);
 }
 
 TEST(palindromic_substrings_v2, t1) {
-    string s = "abc";
-    int output = 3;
-    // Explanation: Three palindromic strings: "a", "b", "c".
+  string const s = "abc";
+  int const output = 3;
+  // Explanation: Three palindromic strings: "a", "b", "c".
 
-    Solution sl;
-    int ret = sl.CountSubstringsV1(s);
-    EXPECT_EQ(ret, output);
+  Solution sl;
+  int const ret = sl.CountSubstringsV1(s);
+  EXPECT_EQ(ret, output);
 }
 
 TEST(palindromic_substrings_v2, t2) {
-    string s = "aaa";
-    int output = 6;
-    // Explanation: Six palindromic strings: "a", "a", "a", "aa", "aa", "aaa".
+  string const s = "aaa";
+  int const output = 6;
+  // Explanation: Six palindromic strings: "a", "a", "a", "aa", "aa", "aaa".
 
-    Solution sl;
-    int ret = sl.CountSubstringsV1(s);
-    EXPECT_EQ(ret, output);
+  Solution sl;
+  int const ret = sl.CountSubstringsV1(s);
+  EXPECT_EQ(ret, output);
 }
 
 static void BenchMarkV1(benchmark::State& state) {
     for (auto _ : state) {
-        string s = "aaa";
-        int output = 6;
-        // Explanation: Six palindromic strings: "a", "a", "a", "aa", "aa",
-        // "aaa".
+      string const s = "aaa";
+      int const output = 6;
+      // Explanation: Six palindromic strings: "a", "a", "a", "aa", "aa",
+      // "aaa".
 
-        Solution sl;
-        int ret = sl.CountSubstringsV1(s);
-        EXPECT_EQ(ret, output);
+      Solution sl;
+      int const ret = sl.CountSubstringsV1(s);
+      EXPECT_EQ(ret, output);
     }
 }
 BENCHMARK(BenchMarkV1);
 
 static void BenchMarkV0(benchmark::State& state) {
     for (auto _ : state) {
-        string s = "aaa";
-        int output = 6;
-        // Explanation: Six palindromic strings: "a", "a", "a", "aa", "aa",
-        // "aaa".
+      string const s = "aaa";
+      int const output = 6;
+      // Explanation: Six palindromic strings: "a", "a", "a", "aa", "aa",
+      // "aaa".
 
-        Solution sl;
-        int ret = sl.CountSubstrings(s);
-        EXPECT_EQ(ret, output);
+      Solution sl;
+      int const ret = sl.CountSubstrings(s);
+      EXPECT_EQ(ret, output);
     }
 }
 BENCHMARK(BenchMarkV0);

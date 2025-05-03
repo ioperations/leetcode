@@ -15,8 +15,7 @@ Clarification: The input/output format is the same as how LeetCode serializes a
 binary tree. You do not necessarily need to follow this format, so please be
 creative and come up with different approaches yourself.*/
 
-#include <stddef.h>
-
+#include <cstddef>
 #include <queue>
 #include <sstream>
 #include <string>
@@ -105,72 +104,72 @@ class Codec {
 using namespace std;
 
 TEST(construtTest, t1) {
-    std::vector<std::optional<int>> input{
-        1, 2, 3, optional<int>(), optional<int>(), 4, 5};
+  std::vector<std::optional<int>> const input{
+      1, 2, 3, optional<int>(), optional<int>(), 4, 5};
 
-    std::vector<int> output = {1, 2, 3, 4, 5};
-    auto* ret = ConstructBinaryTree(input);
+  std::vector<int> const output = {1, 2, 3, 4, 5};
+  auto* ret = ConstructBinaryTree(input);
 
-    PrintBt(ret);
-    std::vector<int> vec;
-    BfsSearch(ret, vec);
+  PrintBt(ret);
+  std::vector<int> vec;
+  BfsSearch(ret, vec);
 
-    EXPECT_EQ(vec, output);
-    FreeTreeNode(ret);
+  EXPECT_EQ(vec, output);
+  FreeTreeNode(ret);
 }
 
 TEST(memleak, t0) {
-    std::vector<optional<int>> input{};
-    std::vector<int> output = {};
+  std::vector<optional<int>> const input{};
+  std::vector<int> const output = {};
 
-    auto* head = ConstructBinaryTree(input);
+  auto* head = ConstructBinaryTree(input);
 
-    FreeTreeNode(head);
+  FreeTreeNode(head);
 }
 
 TEST(serialize_and_deserialize_binary_tree, t1) {
 #define null optional<int>()
-    std::vector<optional<int>> input{1, 2, 3, null, null, 4, 5};
-    std::vector<int> output = {1, 2, 3, 4, 5};
+  std::vector<optional<int>> const input{1, 2, 3, null, null, 4, 5};
+  std::vector<int> const output = {1, 2, 3, 4, 5};
 
-    auto* head = ConstructBinaryTree(input);
+  auto* head = ConstructBinaryTree(input);
 
-    PrintBt(head);
+  PrintBt(head);
 
-    Codec cl;
-    std::string data = cl.Serialize(head);
+  Codec cl;
+  std::string const data = cl.Serialize(head);
 
-    EXPECT_EQ(data, "1,2,3,#,#,4,5,#,#,#,#,");
-    auto* ret = cl.Deserialize(data);
+  EXPECT_EQ(data, "1,2,3,#,#,4,5,#,#,#,#,");
+  auto* ret = cl.Deserialize(data);
 
-    std::vector<int> vec;
-    BfsSearch(ret, vec);
+  std::vector<int> vec;
+  BfsSearch(ret, vec);
 
-    EXPECT_EQ(vec, output);
-    FreeTreeNode(head);
+  EXPECT_EQ(vec, output);
+  FreeTreeNode(head);
 
-    FreeTreeNode(ret);
+  FreeTreeNode(ret);
 }
 
 TEST(serialize_and_deserialize_binary_tree, t2) {
-    std::vector<optional<int>> input(10, optional<int>());
-    std::vector<int> output = {};
+  std::vector<optional<int>> const input(10, optional<int>());
+  std::vector<int> const output = {};
 
-    auto* head = ConstructBinaryTree(input);
+  auto* head = ConstructBinaryTree(input);
 
-    Codec cl;
-    string data = cl.Serialize(head);
-    EXPECT_EQ(data, "");
-    auto* ret = cl.Deserialize(data);
+  Codec cl;
+  string const data = cl.Serialize(head);
+  EXPECT_EQ(data, "");
+  auto* ret = cl.Deserialize(data);
 
-    std::vector<int> vec;
-    BfsSearch(ret, vec);
+  std::vector<int> vec;
+  BfsSearch(ret, vec);
 
-    EXPECT_EQ(vec, output);
+  EXPECT_EQ(vec, output);
 
-    FreeTreeNode(head);
+  FreeTreeNode(head);
 
-    FreeTreeNode(ret);
+  FreeTreeNode(ret);
 }
 
 }  // namespace

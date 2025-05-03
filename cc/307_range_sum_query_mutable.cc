@@ -32,7 +32,7 @@ class NumArray {
     // range that falls under subtree of node v
     // tl and tr are basically array ranges
 
-    vll segarr;
+    vll m_segarr;
     ll n;
 
     ll Combine(ll a, ll b) {
@@ -42,23 +42,23 @@ class NumArray {
 
     void Build(ll v, ll tl, ll tr) {
         if (tl == tr) {
-            segarr[v] = vp[tl];
-            return;
+          m_segarr[v] = vp[tl];
+          return;
         }
 
-        ll tm = (tl + tr) / 2;
+        ll const tm = (tl + tr) / 2;
         // building tree in 2 seperate parts
         Build(2 * v, tl, tm);
         Build(2 * v + 1, tm + 1, tr);
 
-        segarr[v] = Combine(segarr[2 * v], segarr[2 * v + 1]);
+        m_segarr[v] = Combine(m_segarr[2 * v], m_segarr[2 * v + 1]);
     }
 
     void Upd(ll v, ll tl, ll tr, ll ind, ll val) {
         // that update point itself
         if (tl == ind && tr == ind) {
-            segarr[v] = val;
-            return;
+          m_segarr[v] = val;
+          return;
         }
 
         // we are in wrong region we dont need to update anthing here
@@ -67,14 +67,14 @@ class NumArray {
             return;
         }
 
-        ll tm = (tl + tr) / 2;
+        ll const tm = (tl + tr) / 2;
         // now we will update both regions and after updating them we will
         // combine them
 
         Upd(2 * v, tl, tm, ind, val);
         Upd(2 * v + 1, tm + 1, tr, ind, val);
 
-        segarr[v] = Combine(segarr[2 * v], segarr[2 * v + 1]);
+        m_segarr[v] = Combine(m_segarr[2 * v], m_segarr[2 * v + 1]);
     }
 
     void Update(int index, int val) { Upd(1, 0, n - 1, index, val); }
@@ -89,15 +89,15 @@ class NumArray {
 
         // fully within
         if (l <= tl && r >= tr) {
-            return segarr[v];
+          return m_segarr[v];
         }
 
         // partial overlap
-        ll tm = (tl + tr) / 2;
+        ll const tm = (tl + tr) / 2;
 
         // perform 2 queries and combine both ans
-        ll val1 = Query(2 * v, l, r, tl, tm);
-        ll val2 = Query(2 * v + 1, l, r, tm + 1, tr);
+        ll const val1 = Query(2 * v, l, r, tl, tm);
+        ll const val2 = Query(2 * v + 1, l, r, tm + 1, tr);
 
         return Combine(val1, val2);
     }
@@ -107,12 +107,11 @@ class NumArray {
     }
 
     // 0 based indexing segment tree ..value of v always starts from 1
-    NumArray(vector<int>& a) {
-        n = a.size();
-        vp.resize(n);
-        vp = a;
-        segarr.resize(4 * n);
-        Build(1, 0, n - 1);
+    NumArray(vector<int>& a) : n(a.size()), vp(a) {
+      vp.resize(n);
+
+      m_segarr.resize(4 * n);
+      Build(1, 0, n - 1);
     }
 };
 

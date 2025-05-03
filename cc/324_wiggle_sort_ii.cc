@@ -16,20 +16,20 @@ namespace {
 class Solution {
    public:
     void WiggleSort(vector<int>& nums) {
-        int n = nums.size();
-        sort(nums.begin(), nums.end());
+      int const n = nums.size();
+      sort(nums.begin(), nums.end());
 
-        vector<int> sorted(n);
+      vector<int> sorted(n);
 
-        int end = n - 1;
-        int start = end / 2;
+      int end = n - 1;
+      int start = end / 2;
 
-        int i = 0;
-        while (i < n) {
-            sorted[i++] = nums[start--];
-            if (i < n) {
-                sorted[i++] = nums[end--];
-            }
+      int i = 0;
+      while (i < n) {
+        sorted[i++] = nums[start--];
+        if (i < n) {
+          sorted[i++] = nums[end--];
+        }
         }
 
         nums = sorted;
@@ -38,8 +38,8 @@ class Solution {
 
 TEST(wiggle_sort_ii, t1) {
     std::vector<int> nums = {1, 5, 1, 1, 6, 4};
-    std::vector<int> output = {1, 6, 1, 5, 1, 4};
-    std::vector<int> output1 = {1, 4, 1, 5, 1, 6};
+    std::vector<int> const output = {1, 6, 1, 5, 1, 4};
+    std::vector<int> const output1 = {1, 4, 1, 5, 1, 6};
 
     Solution sl;
     sl.WiggleSort(nums);
@@ -48,7 +48,7 @@ TEST(wiggle_sort_ii, t1) {
 }
 TEST(wiggle_sort_ii, t2) {
     std::vector<int> nums = {1, 3, 2, 2, 3, 1};
-    std::vector<int> output = {2, 3, 1, 3, 1, 2};
+    std::vector<int> const output = {2, 3, 1, 3, 1, 2};
 
     Solution sl;
     sl.WiggleSort(nums);

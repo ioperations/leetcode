@@ -24,8 +24,8 @@ class Solution {
         if (p_start > p_end || i_start > i_end) return nullptr;
 
         auto* root = new TreeNode(preorder[p_start]);
-        int i_root = inorder_map[root->val];
-        int nums_left = i_root - i_start;
+        int const i_root = inorder_map[root->val];
+        int const nums_left = i_root - i_start;
 
         root->left = Build(preorder, p_start + 1, p_start + nums_left,
                            inorder_map, i_start, i_root - 1);
@@ -55,7 +55,7 @@ TEST(construct_binary_tree_from_preorder_and_inorder_tranversal, t1) {
     BfsSearch(node, ret);
 
     FreeTreeNode(node);
-    vector<int> output = {3, 9, 20, 15, 7};
+    vector<int> const output = {3, 9, 20, 15, 7};
     EXPECT_EQ(ret, output);
 }
 
@@ -67,7 +67,7 @@ TEST(construct_binary_tree_from_preorder_and_inorder_tranversal, t2) {
     BfsSearch(node, ret);
 
     FreeTreeNode(node);
-    vector<int> output = {-1};
+    vector<int> const output = {-1};
     EXPECT_EQ(ret, output);
 }
 

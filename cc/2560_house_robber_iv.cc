@@ -18,78 +18,79 @@
 
 #include <algorithm>
 #include <climits>
+#include <cstddef>
 #include <vector>
 
 using namespace std;
 
 class Solution {
    public:
-    Solution() {}
-    ~Solution() {}
+    Solution() = default;
+    ~Solution() = default;
 
    public:
-    int minCapability(vector<int>& nums, int k) {
+    int MinCapability(vector<int>& nums, int k) {
         /*
          * 1 <= nums.length <= 105
          * 1 <= nums[i] <= 109
          * 1 <= k <= (nums.length + 1)/2
          */
-        this->k = k;
-        this->nums = nums;
-        this->size = nums.size();
+        this->m_k = k;
+        this->m_nums = nums;
+        this->m_size = nums.size();
 
         int min = INT_MAX;
         int max = INT_MIN;
-        for (int i = 0; i < size; i++) {
+        for (int i = 0; i < m_size; i++) {
             Q(min, max, 0, i);
         }
         return min;
     }
 
    private:
-    bool Q(int& min, int& Max, int got = 0, int i = 0) {
-        if (got == k) {
+    bool Q(int& min, int& max, int got = 0, int i = 0) {
+        if (got == m_k) {
             return true;
         }
 
-        if (i >= size) {
+        if (i >= m_size) {
             return false;
         }
 
         bool ok = false;
-        int m = max(Max, nums[i]);
+        int m = std::max(max, m_nums[i]);
         int q = INT_MAX;
         if (Q(min, m, got + 1, i + 2)) {
             min = std::min(min, m);
-            q = std::max(Max, m);
+            q = std::max(max, m);
             ok = true;
         }
 
         int n = INT_MAX;
-        if (Q(min, Max, got, i + 1)) {
+        if (Q(min, max, got, i + 1)) {
             min = std::min(min, m);
-            n = Max;
+            n = max;
             ok = true;
         }
 
-        Max = std::max(Max, std::min(q, n));
+        max = std::max(max, std::min(q, n));
         return ok;
     }
 
    private:
-    int k = 0;
-    vector<int> nums;
-    size_t size = 0;
+    int m_k = 0;
+    vector<int> m_nums;
+    size_t m_size = 0;
 };
 
 #include <gtest/gtest.h>
 
 TEST(t0, t1) {
     vector<int> nums{2, 3, 5, 9};
-    int k = 2;
-    int output = 5;
+    int const k = 2;
+    int const output = 5;
     Solution sl;
-    int ret = sl.minCapability(nums, k);
+    int const ret = sl.MinCapability(nums, k);
     EXPECT_EQ(ret, output);
     /*
      * There are three ways to rob at least 2 houses:
@@ -104,10 +105,10 @@ TEST(t0, t1) {
 
 TEST(t0, t2) {
     vector<int> nums{2, 7, 9, 3, 1};
-    int k = 2;
-    int output = 2;
+    int const k = 2;
+    int const output = 2;
     Solution sl;
-    int ret = sl.minCapability(nums, k);
+    int const ret = sl.MinCapability(nums, k);
     EXPECT_EQ(ret, output);
     /*
      * There are 7 ways to rob the houses. The way which leads to minimum

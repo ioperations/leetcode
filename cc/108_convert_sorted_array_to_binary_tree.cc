@@ -9,6 +9,7 @@ A height-balanced binary tree is a binary tree in which the depth of the two
 subtrees of every node never differs by more than one.
 */
 
+#include <set>
 #include <vector>
 
 #include "datastruct_base.hh"
@@ -26,8 +27,8 @@ class Solution {
 
     TreeNode* Helper(vector<int>& nums, int start, int end) {
         if (start > end) return nullptr;
-        int mid = start + (end - start) / 2;
-        TreeNode* bs_ttree = new TreeNode(nums[mid]);
+        int const mid = start + (end - start) / 2;
+        auto* bs_ttree = new TreeNode(nums[mid]);
         bs_ttree->left = Helper(nums, start, mid - 1);
         bs_ttree->right = Helper(nums, mid + 1, end);
         return bs_ttree;
@@ -45,19 +46,20 @@ void InorderLeft(TreeNode* root, std::vector<int>& vec) {
 }
 
 TEST(convert_sorted_array_to_binary_tree, t1) {
-    std::set<std::vector<int>> expected{{-10, -3, 0, 5, 9}, {0, -10, 5, -3, 9}};
-    // Explanation: [0,-10,5,null,-3,null,9] is also accepted:
+  std::set<std::vector<int>> const expected{{-10, -3, 0, 5, 9},
+                                            {0, -10, 5, -3, 9}};
+  // Explanation: [0,-10,5,null,-3,null,9] is also accepted:
 
-    Solution sl;
-    std::vector<int> v{-10, -3, 0, 5, 9};
-    TreeNode* root = sl.SortedArrayToBst(v);
+  Solution sl;
+  std::vector<int> v{-10, -3, 0, 5, 9};
+  TreeNode* root = sl.SortedArrayToBst(v);
 
-    std::vector<int> visit;
+  std::vector<int> visit;
 
-    InorderLeft(root, visit);
-    EXPECT_TRUE(expected.count(visit) != 0);
+  InorderLeft(root, visit);
+  EXPECT_TRUE(expected.count(visit) != 0);
 
-    Tree::FreeTreeNode(root);
+  Tree::FreeTreeNode(root);
 }
 
 }  // namespace

@@ -34,22 +34,22 @@ class Solution {
         return 0;
     }
     int FirstMissingPositiveV2(std::vector<int>& nums) {
-        int n = nums.size();
-        // making all negative to zero as they are useless
-        for (int i = 0; i < n; i++) {
-            if (nums[i] < 0) nums[i] = 0;
+      int const n = nums.size();
+      // making all negative to zero as they are useless
+      for (int i = 0; i < n; i++) {
+        if (nums[i] < 0) nums[i] = 0;
         }
 
         // maarking -ve for present
         for (int i = 0; i < n; i++) {
-            int val = abs(nums[i]);
-            if (val >= 1 && val <= n) {
-                int idx = val - 1;
-                if (nums[idx] == 0) {
-                    nums[idx] = -(n + 1);
-                } else if (nums[idx] > 0) {
-                    nums[idx] *= -1;
-                }
+          int const val = abs(nums[i]);
+          if (val >= 1 && val <= n) {
+            int const idx = val - 1;
+            if (nums[idx] == 0) {
+              nums[idx] = -(n + 1);
+            } else if (nums[idx] > 0) {
+              nums[idx] *= -1;
+            }
             }
         }
 
@@ -65,21 +65,21 @@ class Solution {
 TEST(first_missing_positive, t1) {
     std::vector<int> nums = {1, 2, 0};
     Solution s;
-    int ret = s.FirstMissingPositive(nums);
+    int const ret = s.FirstMissingPositive(nums);
     EXPECT_EQ(ret, 3);
 }
 
 TEST(first_missing_positive, t2) {
     std::vector<int> nums = {3, 4, -1, 1};
     Solution s;
-    int ret = s.FirstMissingPositive(nums);
+    int const ret = s.FirstMissingPositive(nums);
     EXPECT_EQ(ret, 2);
 }
 
 TEST(first_missing_positive, t3) {
     std::vector<int> nums = {7, 8, 9, 11, 12};
     Solution s;
-    int ret = s.FirstMissingPositive(nums);
+    int const ret = s.FirstMissingPositive(nums);
     EXPECT_EQ(ret, 1);
 }
 

@@ -13,41 +13,41 @@ Given n, return the value of Tn.*/
 
 namespace {
 class Solution {
-    std::map<int, int> cache;
+  std::map<int, int> m_cache;
 
-   public:
-    int Tribonacci(int n) {
-        if (n == 0) return 0;
-        if (n == 1) return 1;
-        if (n == 2) return 1;
-        if (cache.count(n)) {
-            return cache[n];
-        }
-        int ret = Tribonacci(n - 3) + Tribonacci(n - 2) + Tribonacci(n - 1);
-        cache[n] = ret;
+ public:
+  int Tribonacci(int n) {
+    if (n == 0) return 0;
+    if (n == 1) return 1;
+    if (n == 2) return 1;
+    if (m_cache.count(n)) {
+      return m_cache[n];
+    }
+    int const ret = Tribonacci(n - 3) + Tribonacci(n - 2) + Tribonacci(n - 1);
+    m_cache[n] = ret;
 
-        return ret;
+    return ret;
     }
 };
 
 TEST(n_th_tribonacci_number, t1) {
-    int n = 4;
-    int out = 4;
-    Solution sl;
-    int ret = sl.Tribonacci(n);
-    /*
-        T_3 = 0 + 1 + 1 = 2
-        T_4 = 1 + 1 + 2 = 4
-    */
-    EXPECT_EQ(ret, out);
+  int const n = 4;
+  int const out = 4;
+  Solution sl;
+  int const ret = sl.Tribonacci(n);
+  /*
+      T_3 = 0 + 1 + 1 = 2
+      T_4 = 1 + 1 + 2 = 4
+  */
+  EXPECT_EQ(ret, out);
 }
 
 TEST(n_th_tribonacci_number, t2) {
-    int n = 25;
-    int out = 1389537;
-    Solution sl;
-    int ret = sl.Tribonacci(n);
-    EXPECT_EQ(ret, out);
+  int const n = 25;
+  int const out = 1389537;
+  Solution sl;
+  int const ret = sl.Tribonacci(n);
+  EXPECT_EQ(ret, out);
 }
 
 }  // namespace

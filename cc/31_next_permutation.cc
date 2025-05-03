@@ -57,7 +57,7 @@ class Solution {
 
 TEST(next_permutation, t1) {
     vector<int> nums = {1, 2, 3};
-    vector<int> output = {1, 3, 2};
+    vector<int> const output = {1, 3, 2};
     Solution sl;
     sl.NextPermutation(nums);
     EXPECT_EQ(nums, output);
@@ -65,7 +65,7 @@ TEST(next_permutation, t1) {
 
 TEST(next_permutation, t2) {
     vector<int> nums = {3, 2, 1};
-    vector<int> output = {1, 2, 3};
+    vector<int> const output = {1, 2, 3};
     Solution sl;
     sl.NextPermutation(nums);
     EXPECT_EQ(nums, output);
@@ -73,7 +73,7 @@ TEST(next_permutation, t2) {
 
 TEST(next_permutation, t3) {
     vector<int> nums = {1, 1, 5};
-    vector<int> output = {1, 5, 1};
+    vector<int> const output = {1, 5, 1};
     Solution sl;
     sl.NextPermutation(nums);
     EXPECT_EQ(nums, output);

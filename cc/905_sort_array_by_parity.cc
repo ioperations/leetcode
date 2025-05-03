@@ -62,7 +62,7 @@ class SolutionV2 {
    public:
     vector<int> SortArrayByParity(vector<int>& nums) {
         // pass
-        int n = nums.size();
+        int const n = nums.size();
 
         int last_odd_index = -1;
 
@@ -83,7 +83,7 @@ class SolutionV2 {
 
 TEST(sort_array_by_parity, t1) {
     std::vector<int> nums = {3, 1, 2, 4};
-    std::set<std::vector<int>> output = {
+    std::set<std::vector<int>> const output = {
         {4, 2, 3, 1}, {2, 4, 1, 3}, {4, 2, 1, 3}, {2, 4, 3, 1}};
     Solution sl;
     auto ret = sl.SortArrayByParity(nums);
@@ -93,7 +93,7 @@ TEST(sort_array_by_parity, t1) {
 
 TEST(sort_array_by_parity_v2, t1) {
     std::vector<int> nums = {3, 1, 2, 4};
-    std::set<std::vector<int>> output = {
+    std::set<std::vector<int>> const output = {
         {4, 2, 3, 1}, {2, 4, 1, 3}, {4, 2, 1, 3}, {2, 4, 3, 1}};
     SolutionV2 sl;
     auto ret = sl.SortArrayByParity(nums);
@@ -103,7 +103,7 @@ TEST(sort_array_by_parity_v2, t1) {
 
 TEST(sort_array_by_parity, t2) {
     std::vector<int> nums = {0};
-    std::vector<int> output = {0};
+    std::vector<int> const output = {0};
     Solution sl;
     auto ret = sl.SortArrayByParity(nums);
 
@@ -112,7 +112,7 @@ TEST(sort_array_by_parity, t2) {
 
 TEST(sort_array_by_parity_v2, t2) {
     std::vector<int> nums = {0};
-    std::vector<int> output = {0};
+    std::vector<int> const output = {0};
     SolutionV2 sl;
     auto ret = sl.SortArrayByParity(nums);
 

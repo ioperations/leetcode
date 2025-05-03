@@ -46,15 +46,15 @@ class Solution {
                 if ((current_size + 1) == k) {
                     z = sum * std::min(min, nums2[current_index]);
                 }
-                int choose_this_index =
+                int const choose_this_index =
                     dfs(sum, std::min(min, nums2[current_index]),
                         current_size + 1, current_index + 1);
                 sum -= nums1[current_index];
-                int do_not_choose_this_index =
+                int const do_not_choose_this_index =
                     dfs(sum, min, current_size, current_index + 1);
 
                 return std::max(
-                    z, max(choose_this_index, do_not_choose_this_index));
+                    {z, choose_this_index, do_not_choose_this_index});
             };
 
         return dfs(0, 100000, 0, 0);
@@ -64,10 +64,10 @@ class Solution {
 TEST(maximum_subsequence_score, t1) {
     vector<int> nums1 = {1, 3, 3, 2};
     vector<int> nums2 = {2, 1, 3, 4};
-    int k = 3;
-    int output = 12;
+    int const k = 3;
+    int const output = 12;
     Solution sl;
-    int ret = sl.MaxScore(nums1, nums2, k);
+    int const ret = sl.MaxScore(nums1, nums2, k);
     EXPECT_EQ(ret, output);
     // Explanation:
     // The four possible subsequence scores are:
@@ -84,10 +84,10 @@ TEST(maximum_subsequence_score, t1) {
 TEST(maximum_subsequence_score, t2) {
     vector<int> nums1 = {4, 2, 3, 1, 1};
     vector<int> nums2 = {7, 5, 10, 9, 6};
-    int k = 1;
-    int output = 30;
+    int const k = 1;
+    int const output = 30;
     Solution sl;
-    int ret = sl.MaxScore(nums1, nums2, k);
+    int const ret = sl.MaxScore(nums1, nums2, k);
     EXPECT_EQ(ret, output);
     // Explanation:
     // Choosing index 2 is optimal: nums1[2] * nums2[2] = 3 * 10 = 30 is the

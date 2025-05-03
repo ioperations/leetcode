@@ -29,14 +29,14 @@ namespace {
 class Solution {
    public:
     bool IsPossible(vector<int>& nums) {
-        priority_queue<int, vector<int>, greater<int>> pq;
-        unordered_map<int, int> um;
-        for (int& num : nums) {
-            pq.push(num);
-            um[num]++;
-        }
+      priority_queue<int, vector<int>, greater<>> pq;
+      unordered_map<int, int> um;
+      for (int const& num : nums) {
+        pq.push(num);
+        um[num]++;
+      }
         queue<int> q;
-        int count = 0, prev;
+        int count = 0, prev = 0;
         while (!pq.empty()) {
             if (count == 0) {
                 prev = pq.top();
@@ -85,9 +85,9 @@ class Solution {
 
 TEST(split_array_into_consecutive_subsequence, t1) {
     vector<int> nums = {1, 2, 3, 3, 4, 5};
-    bool output = true;
+    bool const output = true;
     Solution sl;
-    bool ret = sl.IsPossible(nums);
+    bool const ret = sl.IsPossible(nums);
     /*nums can be split into the following subsequences:
     [1,2,3,3,4,5] --> 1, 2, 3
     [1,2,3,3,4,5] --> 3, 4, 5*/
@@ -96,9 +96,9 @@ TEST(split_array_into_consecutive_subsequence, t1) {
 
 TEST(split_array_into_consecutive_subsequence, t2) {
     vector<int> nums = {1, 2, 3, 3, 4, 4, 5, 5};
-    bool output = true;
+    bool const output = true;
     Solution sl;
-    bool ret = sl.IsPossible(nums);
+    bool const ret = sl.IsPossible(nums);
     /* nums can be split into the following subsequences:
     [1,2,3,3,4,4,5,5] --> 1, 2, 3, 4, 5
     [1,2,3,3,4,4,5,5] --> 3, 4, 5*/
@@ -106,9 +106,9 @@ TEST(split_array_into_consecutive_subsequence, t2) {
 }
 TEST(split_array_into_consecutive_subsequence, t3) {
     vector<int> nums = {1, 2, 3, 4, 4, 5};
-    bool output = false;
+    bool const output = false;
     Solution sl;
-    bool ret = sl.IsPossible(nums);
+    bool const ret = sl.IsPossible(nums);
     /*It is impossible to split nums into consecutive increasing subsequences of
      * length 3 or more.*/
     EXPECT_EQ(ret, output);

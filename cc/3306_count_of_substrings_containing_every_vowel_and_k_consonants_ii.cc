@@ -19,84 +19,85 @@ class Solution {
      * word consists only of lowercase English letters.
      * 0 <= k <= word.length - 5
      */
-    int n;
-    char vow[26] = {0};  //  vowels & consonants mapped to 0~5
-    void set_type() {
-        // Initialize all characters as consonants 5
-        memset(vow, 5, sizeof(vow));
-        vow[0] = 0, vow['e' - 'a'] = 1, vow['i' - 'a'] = 2, vow['o' - 'a'] = 3,
-        vow['u' - 'a'] = 4;  // type for vowels
+    int m_n{};
+    char m_vow[26] = {0};  //  vowels & consonants mapped to 0~5
+    void SetType() {
+      // Initialize all characters as consonants 5
+      memset(m_vow, 5, sizeof(m_vow));
+      m_vow[0] = 0, m_vow['e' - 'a'] = 1, m_vow['i' - 'a'] = 2,
+      m_vow['o' - 'a'] = 3,
+      m_vow['u' - 'a'] = 4;  // type for vowels
     }
 
     // Function computes the number at most k consonants
-    inline long long lessEq(string& word, int k) {
-        int lastPos[5] = {-1};  // last position of each vowel
-        int freq[6] = {0};      // 0-4 for vowl 5 for consonants)
-        long long ans = 0;      // count of valid substrings
+    inline long long LessEq(string& word, int k) {
+      int last_pos[5] = {-1};  // last position of each vowel
+      int freq[6] = {0};       // 0-4 for vowl 5 for consonants)
+      long long ans = 0;       // count of valid substrings
 
-        int cntVow = 0;  // count different vowels in the current window
-        for (int l = 0, r = 0; r < n; r++) {
-            int type = vow[word[r] - 'a'];  // Get the type
+      int cnt_vow = 0;  // count different vowels in the current window
+      for (int l = 0, r = 0; r < m_n; r++) {
+        int type = m_vow[word[r] - 'a'];  // Get the type
 
-            if (type < 5) {
-                lastPos[type] = r;  // last position of the vowel
-                if (freq[type] == 0) cntVow++;
-            }
-
-            freq[type]++;  // Increase the freq
-
-            // Shrink the window if the number of consonants exceeds k
-            while (freq[5] > k) {  // freq[5] tracks consonants
-                type = vow[word[l] - 'a'];
-                freq[type]--;
-                if (type < 5 && freq[type] == 0) cntVow--;
-                l++;  // Move left pointer
-            }
-            int minPos = *min_element(lastPos, lastPos + 5);
-            //    cout << freq[5] << endl;
-            // count the number of valid substrings
-            if (cntVow == 5)
-                ans += (minPos - l + 1);  // valid substrings ending at r
+        if (type < 5) {
+          last_pos[type] = r;  // last position of the vowel
+          if (freq[type] == 0) cnt_vow++;
         }
-        return ans;
+
+        freq[type]++;  // Increase the freq
+
+        // Shrink the window if the number of consonants exceeds k
+        while (freq[5] > k) {  // freq[5] tracks consonants
+          type = m_vow[word[l] - 'a'];
+          freq[type]--;
+          if (type < 5 && freq[type] == 0) cnt_vow--;
+          l++;  // Move left pointer
+        }
+        int const min_pos = *min_element(last_pos, last_pos + 5);
+        //    cout << freq[5] << endl;
+        // count the number of valid substrings
+        if (cnt_vow == 5)
+          ans += (min_pos - l + 1);  // valid substrings ending at r
+      }
+      return ans;
     }
 
     // Main function to count the substrings based on the given k value
-    long long countOfSubstrings(string& word, int k) {
-        set_type();
+    long long CountOfSubstrings(string& word, int k) {
+      SetType();
 
-        n = word.size();  // Store the length of the word
+      m_n = word.size();  // Store the length of the word
 
-        // Return the number of substrings with at most k consonants minus
-        // those with at most k-1 consonants
-        return k == 0 ? lessEq(word, 0) : lessEq(word, k) - lessEq(word, k - 1);
+      // Return the number of substrings with at most k consonants minus
+      // those with at most k-1 consonants
+      return k == 0 ? LessEq(word, 0) : LessEq(word, k) - LessEq(word, k - 1);
     }
 };
 
-auto init = []() {
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
-    cout.tie(nullptr);
-    return 'c';
+static auto init = []() {
+  ios::sync_with_stdio(false);
+  cin.tie(nullptr);
+  cout.tie(nullptr);
+  return 'c';
 }();
 
 #include <gtest/gtest.h>
 
 TEST(t0, t1) {
     string word = "aeioqq";
-    int k = 1;
-    int output = 0;
+    int const k = 1;
+    int const output = 0;
     Solution sl;
-    int ret = sl.countOfSubstrings(word, k);
+    int const ret = sl.CountOfSubstrings(word, k);
     EXPECT_EQ(ret, output);
 }
 
 TEST(t0, t2) {
     string word = "aeiou";
-    int k = 0;
-    int output = 1;
+    int const k = 0;
+    int const output = 1;
     Solution sl;
-    int ret = sl.countOfSubstrings(word, k);
+    int const ret = sl.CountOfSubstrings(word, k);
     EXPECT_EQ(ret, output);
     // The only substring with every vowel and zero consonants is
     // word[0..4], which is "aeiou".
@@ -104,8 +105,8 @@ TEST(t0, t2) {
 
 TEST(t0, t3) {
     string word = "ieaouqqieaouqq";
-    int k = 1;
-    int output = 3;
+    int const k = 1;
+    int const output = 3;
     // Explanation :
     //
     // The substrings with every vowel and one consonant are :
@@ -115,7 +116,7 @@ TEST(t0, t3) {
     // which is "qieaou".word[7..12],
     // which is "ieaouq".int output = 1;
     Solution sl;
-    int ret = sl.countOfSubstrings(word, k);
+    int const ret = sl.CountOfSubstrings(word, k);
     EXPECT_EQ(ret, output);
 }
 

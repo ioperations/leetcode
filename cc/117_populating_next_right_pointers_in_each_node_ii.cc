@@ -21,17 +21,18 @@ Initially, all next pointers are set to nullptr.*/
 namespace {
 class Node {
    public:
-    int val;
-    Node* left;
-    Node* right;
-    Node* next;
+    int m_val;
+    Node* m_left;
+    Node* m_right;
+    Node* m_next;
 
-    Node() : val(0), left(nullptr), right(nullptr), next(nullptr) {}
+    Node() : m_val(0), m_left(nullptr), m_right(nullptr), m_next(nullptr) {}
 
-    Node(int val) : val(val), left(nullptr), right(nullptr), next(nullptr) {}
+    Node(int val)
+        : m_val(val), m_left(nullptr), m_right(nullptr), m_next(nullptr) {}
 
     Node(int val, Node* left, Node* right, Node* next)
-        : val(val), left(left), right(right), next(next) {}
+        : m_val(val), m_left(left), m_right(right), m_next(next) {}
 };
 
 class Solution {
@@ -44,18 +45,18 @@ class Solution {
 
         while (node != nullptr) {
             while (node != nullptr) {  // Connect node child
-                if (node->left != nullptr) {
-                    node_child->next = node->left;
-                    node_child = node_child->next;
-                }
-                if (node->right != nullptr) {
-                    node_child->next = node->right;
-                    node_child = node_child->next;
-                }
-                node = node->next;
+              if (node->m_left != nullptr) {
+                node_child->m_next = node->m_left;
+                node_child = node_child->m_next;
+              }
+              if (node->m_right != nullptr) {
+                node_child->m_next = node->m_right;
+                node_child = node_child->m_next;
+              }
+              node = node->m_next;
             }
-            node = start->next;
-            start->next = nullptr;
+            node = start->m_next;
+            start->m_next = nullptr;
             node_child = start;
         }
         return root;

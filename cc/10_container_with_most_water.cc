@@ -1,6 +1,7 @@
 // This is a personal academic project. Dear PVS-Studio, please check it.
 // PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
 // https://pvs-studio.com
+#include <algorithm>
 #include <vector>
 
 #include "gtest/gtest.h"
@@ -14,10 +15,10 @@ class Solution {
         int i = 0;
         int j = height.size() - 1;
         for (; j > i;) {
-            int het = std::min(height[i], height[j]);
-            ret = std::max(ret, het * (j - i));
-            if (height[i] < height[j]) {
-                i++;
+          int const het = std::min(height[i], height[j]);
+          ret = std::max(ret, het * (j - i));
+          if (height[i] < height[j]) {
+            i++;
             } else {
                 j--;
             }
@@ -31,11 +32,11 @@ class Solution {
         int h = height.size() - 1;
         int max_area = 0;
         while (l < h) {
-            int lh = height[l];
-            int hh = height[h];
-            max_area = std::max(max_area, (h - l) * std::min(lh, hh));
-            if (lh < hh) {
-                l++;
+          int const lh = height[l];
+          int const hh = height[h];
+          max_area = std::max(max_area, (h - l) * std::min(lh, hh));
+          if (lh < hh) {
+            l++;
             } else {
                 h--;
             }
@@ -47,7 +48,7 @@ class Solution {
 TEST(container_with_most_water, t1) {
     Solution s;
     std::vector<int> height{1, 1};
-    int ret = s.MaxAreaV2(height);
+    int const ret = s.MaxAreaV2(height);
     EXPECT_EQ(ret, 1);
 }
 

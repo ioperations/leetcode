@@ -14,9 +14,8 @@ nums[i] - nums[j] == k
 Notice that |val| denotes the absolute value of val
 */
 
-#include <limits.h>
-
 #include <algorithm>
+#include <climits>
 #include <vector>
 
 #include "gtest/gtest.h"
@@ -58,8 +57,8 @@ class Solution {
 
 TEST(k_diff_pairs_in_an_array, t1) {
     vector<int> nums = {3, 1, 4, 1, 5};
-    int k = 2;
-    int output = 2;
+    int const k = 2;
+    int const output = 2;
     // Explanation: There are two 2-diff pairs in the array, (1, 3) and (3, 5).
     // Although we have two 1s in the input, we should only return the number of
     // unique pairs.
@@ -74,8 +73,8 @@ TEST(k_diff_pairs_in_an_array, t1) {
 
 TEST(k_diff_pairs_in_an_array, t2) {
     vector<int> nums = {1, 2, 3, 4, 5};
-    int k = 1;
-    int output = 4;
+    int const k = 1;
+    int const output = 4;
     // There are four 1-diff pairs in the array, (1, 2), (2, 3), (3, 4) and (4,
     // 5).
 
@@ -90,8 +89,8 @@ TEST(k_diff_pairs_in_an_array, t2) {
 
 TEST(k_diff_pairs_in_an_array, t3) {
     vector<int> nums = {1, 3, 1, 5, 4};
-    int k = 0;
-    int output = 1;
+    int const k = 0;
+    int const output = 1;
     // There is one 0-diff pair in the array, (1, 1).
 
     Solution sl;

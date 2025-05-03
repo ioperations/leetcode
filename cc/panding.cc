@@ -3,61 +3,61 @@
 #include <cstring>
 #include <optional>
 #include <string>
-enum EType { INT, STRING, NULL_ };
+enum e_type { INT, STRING, NULL_ };
 
-struct stack_growth {
-    int a;
-    char padding[4096];
-    union {
-        int i;
-        char* p;
-    };
-    EType type{NULL_};
-    int size = 0;
+struct StackGrowth {
+  int m_a{};
+  char m_padding[4096]{};
+  union {
+    int m_i;
+    char* m_p;
+  };
+  e_type m_type{NULL_};
+  int m_size = 0;
 
-    stack_growth() {
-        // padding
-        p = padding;
+  StackGrowth() {
+    // padding
+    m_p = m_padding;
+  }
+
+ public:
+  void append(const char* q) {
+    auto len = strlen(q);
+    memcpy(m_p + m_size, q, len);
+    m_size = m_size + len;
+
+    m_p[m_size] = '\0';
+    m_type = STRING;
+  }
+
+  void SetInt(int q) {
+    m_i = q;
+    m_type = INT;
+  }
+
+  [[nodiscard]] std::optional<std::string> GetString() const {
+    if (m_type != STRING) {
+      return {};
     }
+    return m_p;
+  }
 
-   public:
-    void append(const char* q) {
-        auto len = strlen(q);
-        memcpy(p + size, q, len);
-        size = size + len;
-
-        p[size] = '\0';
-        type = STRING;
+  [[nodiscard]] std::optional<int> GetInt() const {
+    if (m_type != INT) {
+      return {};
     }
-
-    void SetInt(int q) {
-        i = q;
-        type = INT;
-    }
-
-    std::optional<std::string> getString() const {
-        if (type != STRING) {
-            return std::optional<std::string>();
-        }
-        return p;
-    }
-
-    std::optional<int> getInt() const {
-        if (type != INT) {
-            return std::optional<int>();
-        }
-        return i;
-    }
+    return m_i;
+  }
 };
 
 TEST(t0, t1) {
-    stack_growth stack_growth;
+  StackGrowth stack_growth;
 
-    stack_growth.append("TEST");
-    EXPECT_EQ("TEST", *stack_growth.getString());
+  stack_growth.append("TEST");
+  EXPECT_EQ("TEST", *stack_growth.GetString());
 
-    stack_growth.append("Hello");
-    EXPECT_EQ("TESTHello", *stack_growth.getString());
+  stack_growth.append("Hello");
+  EXPECT_EQ("TESTHello", *stack_growth.GetString());
 }
 
 int main(int argc, char* argv[]) {

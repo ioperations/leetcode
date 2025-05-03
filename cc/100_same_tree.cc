@@ -55,7 +55,7 @@ TEST(same_tree, t1) {
 
     auto* root1 = ConstructTree(p);
     auto* root2 = ConstructTree(q);
-    bool expected = true;
+    bool const expected = true;
 
     Solution s;
     auto ret = s.IsSameTree(root1, root2);
@@ -69,7 +69,7 @@ TEST(same_tree, t2) {
     std::vector<int> p = {1, 2}, q = {1, 2};
     auto* root1 = ConstructTree(p);
     auto* root2 = ConstructTree(q);
-    bool expected = true;
+    bool const expected = true;
 
     Solution s;
     auto ret = s.IsSameTree(root1, root2);
@@ -84,7 +84,7 @@ TEST(same_tree, t3) {
 
     auto* root1 = ConstructTree(p);
     auto* root2 = ConstructTree(q);
-    bool expected = false;
+    bool const expected = false;
 
     Solution s;
     auto ret = s.IsSameTree(root1, root2);
@@ -99,7 +99,7 @@ TEST(same_tree, t4) {
 
     auto* root1 = ConstructTree(p);
     auto* root2 = ConstructTree(q);
-    bool expected = false;
+    bool const expected = false;
 
     Solution s;
     auto ret = s.IsSameTree(root1, root2);
@@ -114,7 +114,7 @@ TEST(same_tree, t5) {
 
     auto* root1 = ConstructTree(p);
     auto* root2 = ConstructTree(q);
-    bool expected = false;
+    bool const expected = false;
 
     Solution s;
     auto ret = s.IsSameTree(root1, root2);

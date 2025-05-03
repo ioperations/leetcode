@@ -20,33 +20,33 @@ using namespace std;
 
 namespace {
 class KthLargest {
-    priority_queue<int, vector<int>, greater<int>> q;
-    int k;
+  priority_queue<int, vector<int>, greater<>> m_q;
+  int m_k;
 
-   public:
-    KthLargest(int k, vector<int>& nums) : k(k) {
-        int size = nums.size();
-        for (int i = 0; i < size; i++) {
-            q.push(nums[i]);
-            if ((int)q.size() > k) q.pop();
-        }
+ public:
+  KthLargest(int k, vector<int>& nums) : m_k(k) {
+    int const size = nums.size();
+    for (int i = 0; i < size; i++) {
+      m_q.push(nums[i]);
+      if ((int)m_q.size() > k) m_q.pop();
     }
+  }
 
     int Add(int val) {
-        q.push(val);
-        if ((int)q.size() > k) {
-            q.pop();
-        }
+      m_q.push(val);
+      if ((int)m_q.size() > m_k) {
+        m_q.pop();
+      }
 
-        return q.top();
+      return m_q.top();
     }
 };
 
 TEST(kth_largest_element_in_a_stream, t1) {
     // * Your KthLargest object will be instantiated and called as such:
-    int k = 3;
+    int const k = 3;
     std::vector<int> nums{4, 5, 8, 2};
-    KthLargest* obj = new KthLargest(k, nums);
+    auto* obj = new KthLargest(k, nums);
     int ret = 0;
     ret = obj->Add(3);  // return 4
     EXPECT_EQ(ret, 4);

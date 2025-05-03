@@ -12,8 +12,7 @@ Return the maximum profit you can achieve from this transaction. If you cannot
 achieve any profit, return 0.
 */
 
-#include <stddef.h>
-
+#include <cstddef>
 #include <vector>
 
 #include "gtest/gtest.h"
@@ -40,7 +39,7 @@ class Solution {
         int max_profit = 0;
         for (int i = prices.size() - 1; i >= 0; i--) {
             if (prices[i] > max_price) max_price = prices[i];
-            int profit = max_price - prices[i];
+            int const profit = max_price - prices[i];
             if (profit > max_profit) max_profit = profit;
         }
         return max_profit;
@@ -49,23 +48,23 @@ class Solution {
 
 TEST(best_time_to_buy_and_sell_stock, t1) {
     std::vector<int> prices = {7, 1, 5, 3, 6, 4};
-    int expected = 5;
+    int const expected = 5;
     // Explanation: Buy on day 2 (price = 1) and sell on day 5 (price = 6),
     // profit = 6-1 = 5. Note that buying on day 2 and selling on day 1 is not
     // allowed because you must buy before you sell.
 
     Solution s;
-    int ret = s.MaxProfit(prices);
+    int const ret = s.MaxProfit(prices);
 
     EXPECT_EQ(ret, expected);
 }
 
 TEST(best_time_to_buy_and_sell_stock, t2) {
     std::vector<int> prices = {7, 6, 4, 3, 1};
-    int expected = 0;
+    int const expected = 0;
     // In this case, no transactions are done and the max profit = 0.
     Solution s;
-    int ret = s.MaxProfit(prices);
+    int const ret = s.MaxProfit(prices);
 
     EXPECT_EQ(ret, expected);
 }

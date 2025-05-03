@@ -32,11 +32,11 @@ class Trie {
     class TrieNode {
        public:
         vector<TrieNode*> m_child;
-        bool is_end;
-        TrieNode() : is_end(false) { m_child.resize(26, nullptr); }
+        bool is_end{false};
+        TrieNode() { m_child.resize(26, nullptr); }
         ~TrieNode() { m_child.clear(); }
     };
-    TrieNode* root;
+    TrieNode* m_root;
 
     void DeleteTrieNode(TrieNode* root) {
         if (root != nullptr) {
@@ -48,38 +48,38 @@ class Trie {
     }
 
    public:
-    Trie() : root(new TrieNode()) {}
-    ~Trie() { DeleteTrieNode(root); }
+    Trie() : m_root(new TrieNode()) {}
+    ~Trie() { DeleteTrieNode(m_root); }
 
     void Insert(string word) {
-        TrieNode* c = root;
-        for (auto x : word) {
-          if (c->m_child[x - 'a'] == nullptr) {
-            c->m_child[x - 'a'] = new TrieNode();
-          }
-          c = c->m_child[x - 'a'];
+      TrieNode* c = m_root;
+      for (auto x : word) {
+        if (c->m_child[x - 'a'] == nullptr) {
+          c->m_child[x - 'a'] = new TrieNode();
+        }
+        c = c->m_child[x - 'a'];
         }
         c->is_end = true;
     }
 
     bool Search(string word) {
-        TrieNode* c = root;
-        for (auto x : word) {
-          if (c->m_child[x - 'a'] == nullptr) {
-            return false;
-          }
-          c = c->m_child[x - 'a'];
+      TrieNode* c = m_root;
+      for (auto x : word) {
+        if (c->m_child[x - 'a'] == nullptr) {
+          return false;
+        }
+        c = c->m_child[x - 'a'];
         }
         return c->is_end;
     }
 
     bool StartsWith(string prefix) {
-        TrieNode* c = root;
-        for (auto x : prefix) {
-          if (c->m_child[x - 'a'] == nullptr) {
-            return false;
-          }
-          c = c->m_child[x - 'a'];
+      TrieNode* c = m_root;
+      for (auto x : prefix) {
+        if (c->m_child[x - 'a'] == nullptr) {
+          return false;
+        }
+        c = c->m_child[x - 'a'];
         }
 
         return true;
@@ -106,7 +106,7 @@ class TrieV1 {
     void Insert(string word) {
         // pass
         Tree* z = &m_root;
-        for (char i : word) {
+        for (char const i : word) {
           auto& t = z->m_map[i];
           z = &t;
         }
@@ -115,7 +115,7 @@ class TrieV1 {
 
     bool Search(string word) {
       Tree* z = &m_root;
-      for (char i : word) {
+      for (char const i : word) {
         auto t = z->m_map.find(i);
         if (t != z->m_map.end()) {
           auto& t = z->m_map[i];
@@ -129,7 +129,7 @@ class TrieV1 {
 
     bool StartsWith(string prefix) {
       Tree* z = &m_root;
-      for (char i : prefix) {
+      for (char const i : prefix) {
         auto t = z->m_map.find(i);
         if (t != z->m_map.end()) {
           auto& t = z->m_map[i];

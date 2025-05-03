@@ -13,8 +13,7 @@ node's key. Both the left and right subtrees must also be binary search trees.
 */
 
 //* Definition for a binary tree node.
-#include <limits.h>
-
+#include <climits>
 #include <functional>
 #include <limits>
 #include <vector>
@@ -52,11 +51,11 @@ class Solution {
         // check for left side
         // left side value can be within -ve infinity value to less than root
         // value
-        bool is_left_part_bst = IsBst(root->left, min, root->val);
+        bool const is_left_part_bst = IsBst(root->left, min, root->val);
         // check for right side
         // right side value can be within greater than root value to +ve
         // infinity
-        bool is_right_part_bst = IsBst(root->right, root->val, max);
+        bool const is_right_part_bst = IsBst(root->right, root->val, max);
 
         // tree is a BST if both sides are BST
         return is_left_part_bst && is_right_part_bst;
@@ -136,7 +135,7 @@ TreeNode* ConstructTree(const std::vector<int>& elements) {
         return nullptr;
     }
 
-    TreeNode* root = new TreeNode(elements[0]);
+    auto* root = new TreeNode(elements[0]);
 
     for (int i = 1; i < (int)elements.size(); i++) {
         root = AddToRoot(root, elements[i]);
@@ -156,14 +155,14 @@ void FreeRoot(TreeNode* root) {
 }
 
 TEST(validate_binary_search_tree, t1) {
-    std::vector<int> root = {2, 1, 3};
-    bool output = true;
-    TreeNode* head = ConstructTree(root);
+  std::vector<int> const root = {2, 1, 3};
+  bool const output = true;
+  TreeNode* head = ConstructTree(root);
 
-    Solution sl;
-    bool ret = sl.IsValidBst(head);
-    EXPECT_EQ(ret, output);
-    FreeRoot(head);
+  Solution sl;
+  bool const ret = sl.IsValidBst(head);
+  EXPECT_EQ(ret, output);
+  FreeRoot(head);
 }
 
 TEST(validate_binary_search_tree, t2) {
@@ -181,7 +180,7 @@ TEST(validate_binary_search_tree, t2) {
     n2.right = &n4;
 
     Solution sl;
-    bool ret = sl.IsValidBst(&head);
+    bool const ret = sl.IsValidBst(&head);
     EXPECT_EQ(ret, false);
 
     // Explanation: The root node's value is 5 but its right child's value is 4.
@@ -202,7 +201,7 @@ TEST(validate_binary_search_tree, t3) {
     n2.right = &n4;
 
     Solution sl;
-    bool ret = sl.IsValidBst(&head);
+    bool const ret = sl.IsValidBst(&head);
     EXPECT_EQ(ret, false);
 
     // Explanation: The root node's value is 5 but its right child's value is 4.

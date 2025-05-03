@@ -60,7 +60,7 @@ class Solution {
         if (low >= high) {
             return;
         }
-        int mid = low + (high - low) / 2;
+        int const mid = low + (high - low) / 2;
         MergeSort(nums, low, mid);
         MergeSort(nums, mid + 1, high);
         Merge(nums, low, mid, high);

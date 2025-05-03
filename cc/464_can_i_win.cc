@@ -24,31 +24,31 @@ using namespace std;
 namespace {
 class Solution {
    private:
-    vector<vector<int>> dp;
+    vector<vector<int>> m_dp;
     bool Backtrack(int curr, int& max_int, int& desire, int mask, int player) {
-        if (dp[player][mask] != -1) {
-            return dp[player][mask];
-        }
+      if (m_dp[player][mask] != -1) {
+        return m_dp[player][mask];
+      }
         for (int i = 1; i <= max_int; i++) {
-            int nmask = (1 << (i - 1));
-            if ((mask & nmask) == 0) {
-                if (curr + i >= desire or
-                    !Backtrack(curr + i, max_int, desire, mask + nmask,
-                               (player + 1) % 2)) {
-                    return (dp[player][mask] = true);
-                }
+          int const nmask = (1 << (i - 1));
+          if ((mask & nmask) == 0) {
+            if (curr + i >= desire or
+                !Backtrack(curr + i, max_int, desire, mask + nmask,
+                           (player + 1) % 2)) {
+              return (m_dp[player][mask] = true);
+            }
             }
         }
-        return (dp[player][mask] = false);
+        return (m_dp[player][mask] = false);
     }
 
    public:
     bool CanIWin(int max_choosable_integer, int desired_total) {
-        dp =
-            vector<vector<int>>(2, vector<int>(1 << max_choosable_integer, -1));
-        if (max_choosable_integer * (max_choosable_integer + 1) / 2 <
-            desired_total) {
-            return false;
+      m_dp =
+          vector<vector<int>>(2, vector<int>(1 << max_choosable_integer, -1));
+      if (max_choosable_integer * (max_choosable_integer + 1) / 2 <
+          desired_total) {
+        return false;
         }
         int curr = 0, mask = 0;
         return Backtrack(curr, max_choosable_integer, desired_total, mask, 0);
@@ -57,7 +57,7 @@ class Solution {
 
 TEST(can_i_win, t1) {
     int max_choosable_integerer = 10, desired_total = 11;
-    bool expected = false;
+    bool const expected = false;
     // Explanation:
     // No matter which integer the first player choose, the first player will
     // lose. The first player can choose an integer from 1 up to 10. If the
@@ -67,25 +67,25 @@ TEST(can_i_win, t1) {
     // player, the second player will always win.
 
     Solution s;
-    bool ret = s.CanIWin(max_choosable_integerer, desired_total);
+    bool const ret = s.CanIWin(max_choosable_integerer, desired_total);
     EXPECT_EQ(ret, expected);
 }
 
 TEST(can_i_win, t2) {
     int max_choosable_integer = 10, desired_total = 0;
-    bool expected = true;
+    bool const expected = true;
 
     Solution s;
-    bool ret = s.CanIWin(max_choosable_integer, desired_total);
+    bool const ret = s.CanIWin(max_choosable_integer, desired_total);
     EXPECT_EQ(ret, expected);
 }
 
 TEST(can_i_win, t3) {
     int max_choosable_integer = 10, desired_total = 1;
-    bool expected = true;
+    bool const expected = true;
 
     Solution s;
-    bool ret = s.CanIWin(max_choosable_integer, desired_total);
+    bool const ret = s.CanIWin(max_choosable_integer, desired_total);
     EXPECT_EQ(ret, expected);
 }
 

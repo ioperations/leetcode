@@ -14,14 +14,14 @@ using namespace std;
 
 //* Definition for a binary tree node.
 struct TreeNode {
-    int val;
-    TreeNode* left;
-    TreeNode* right;
-    bool deleted = false;
-    TreeNode() : val(0), left(nullptr), right(nullptr) {}
-    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
-    TreeNode(int x, TreeNode* left, TreeNode* right)
-        : val(x), left(left), right(right) {}
+  int m_val;
+  TreeNode* m_left;
+  TreeNode* m_right;
+  bool m_deleted = false;
+  TreeNode() : m_val(0), m_left(nullptr), m_right(nullptr) {}
+  TreeNode(int x) : m_val(x), m_left(nullptr), m_right(nullptr) {}
+  TreeNode(int x, TreeNode* left, TreeNode* right)
+      : m_val(x), m_left(left), m_right(right) {}
 };
 
 namespace {
@@ -29,15 +29,15 @@ class Solution {
    public:
     int Height(TreeNode* root) {
         if (!root) return 0;
-        return std::max(Height(root->left), Height(root->right)) + 1;
+        return std::max(Height(root->m_left), Height(root->m_right)) + 1;
     }
-    int sum = 0;
+    int m_sum = 0;
     int SumAtK(TreeNode* root, int k) {
-        if (!root) return sum;
-        if (k == 0 && root->val != -1) sum = sum + root->val;
-        SumAtK(root->left, k - 1);
-        SumAtK(root->right, k - 1);
-        return sum;
+      if (!root) return m_sum;
+      if (k == 0 && root->m_val != -1) m_sum = m_sum + root->m_val;
+      SumAtK(root->m_left, k - 1);
+      SumAtK(root->m_right, k - 1);
+      return m_sum;
     }
 
     int DeepestLeavesSum(TreeNode* root) {
@@ -63,9 +63,9 @@ class SolutionV2 {
                 sum = 0;
                 continue;
             }
-            sum += curr->val;
-            if (curr->left) q.push(curr->left);
-            if (curr->right) q.push(curr->right);
+            sum += curr->m_val;
+            if (curr->m_left) q.push(curr->m_left);
+            if (curr->m_right) q.push(curr->m_right);
         }
         return sum;
     }
@@ -74,10 +74,10 @@ class SolutionV2 {
 #define null -1
 
 TreeNode* NewNode(int data) {
-    TreeNode* node = new TreeNode;
-    node->val = data;
-    node->left = node->right = nullptr;
-    return node;
+  auto* node = new TreeNode;
+  node->m_val = data;
+  node->m_left = node->m_right = nullptr;
+  return node;
 }
 
 // Function to insert nodes in level order
@@ -89,13 +89,13 @@ TreeNode* InsertLevelOrder(vector<int>& arr, int i) {
         TreeNode* root = temp;
 
         // insert left child
-        root->left = InsertLevelOrder(arr, 2 * i + 1);
+        root->m_left = InsertLevelOrder(arr, 2 * i + 1);
 
         // insert right child
-        root->right = InsertLevelOrder(arr, 2 * i + 2);
+        root->m_right = InsertLevelOrder(arr, 2 * i + 2);
 
         if (arr[i] == -1) {
-            root->deleted = true;
+          root->m_deleted = true;
         }
         return root;
     }
@@ -107,8 +107,8 @@ TreeNode* InsertLevelOrder(vector<int>& arr, int i) {
 void FreeTreeNode(TreeNode* root) {
     if (root == nullptr) return;
 
-    FreeTreeNode(root->left);
-    FreeTreeNode(root->right);
+    FreeTreeNode(root->m_left);
+    FreeTreeNode(root->m_right);
 
     delete root;
 }

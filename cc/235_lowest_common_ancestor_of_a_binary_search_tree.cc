@@ -67,7 +67,7 @@ TreeNode* ConstructTree(const std::vector<int>& elements) {
         return nullptr;
     }
 
-    TreeNode* root = new TreeNode(elements[0]);
+    auto* root = new TreeNode(elements[0]);
 
     for (int i = 1; i < (int)elements.size(); i++) {
         root = AddToRoot(root, elements[i]);
@@ -119,9 +119,9 @@ TEST(lowest_common_ancestor_of_a_binary_search_tree, t1) {
        |___|    |___|
 
     */
-    std::vector<int> list = {3, 5, 1, 6, 2, 0, 8, 7, 4};
+    std::vector<int> const list = {3, 5, 1, 6, 2, 0, 8, 7, 4};
     int p = 5, q = 1;
-    int expeced = 3;
+    int const expeced = 3;
 
     TreeNode* root = ConstructTree(list);
     Solution s;
@@ -154,9 +154,9 @@ TEST(lowest_common_ancestor_of_a_binary_search_tree, t2) {
 
     */
 
-    std::vector<int> list = {3, 5, 1, 6, 2, 0, 8, 7, 4};
+    std::vector<int> const list = {3, 5, 1, 6, 2, 0, 8, 7, 4};
     int p = 5, q = 4;
-    int expeced = 5;
+    int const expeced = 5;
 
     TreeNode* root = ConstructTree(list);
     Solution s;
@@ -181,10 +181,10 @@ TEST(lowest_common_ancestor_of_a_binary_search_tree, t3) {
 
     */
 
-    std::vector<int> list = {1, 2};
+    std::vector<int> const list = {1, 2};
 
     int p = 1, q = 2;
-    int expeced = 1;
+    int const expeced = 1;
 
     TreeNode* root = ConstructTree(list);
     Solution s;

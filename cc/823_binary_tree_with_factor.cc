@@ -23,38 +23,37 @@ using namespace std;
 
 namespace {
 class Solution {
-    std::map<int, int> cache;
+  std::map<int, int> m_cache;
 
-   public:
-    int NumFactoredBinaryTrees(vector<int>& arr) {
-        // pass
-        sort(arr.begin(), arr.end());
-        std::set<int> set(arr.begin(), arr.end());
+ public:
+  int NumFactoredBinaryTrees(vector<int>& arr) {
+    // pass
+    sort(arr.begin(), arr.end());
+    std::set<int> set(arr.begin(), arr.end());
 
-        // 表示从index对应的arr的值作为顶开始，向左走，能有多少组合
-        function<int(int)> fun = [&](int index) -> int {
-            // pass
-            if (cache.count(index)) return cache[index];
-            int num = 1;
-            for (int i = 0; i < index; i++) {
-                if ((arr[index] % arr[i]) == 0 &&
-                    set.count(arr[index] / arr[i])) {
-                    num += fun(i) * fun(arr[index] / arr[i]);
-                }
-            }
-            return cache[index] = num;
-        };
-
-        int ret = 0;
-        for (int i = 0; i < (int)arr.size(); i++) {
-            ret += fun(i);
+    // 表示从index对应的arr的值作为顶开始，向左走，能有多少组合
+    function<int(int)> fun = [&](int index) -> int {
+      // pass
+      if (m_cache.count(index)) return m_cache[index];
+      int num = 1;
+      for (int i = 0; i < index; i++) {
+        if ((arr[index] % arr[i]) == 0 && set.count(arr[index] / arr[i])) {
+          num += fun(i) * fun(arr[index] / arr[i]);
         }
-        return ret;
+      }
+      return m_cache[index] = num;
+    };
+
+    int ret = 0;
+    for (int i = 0; i < (int)arr.size(); i++) {
+      ret += fun(i);
     }
-    const int mod = 1e9 + 7;
+    return ret;
+    }
+    const int m_mod = 1e9 + 7;
     int V2(vector<int>& arr) {
         sort(arr.begin(), arr.end());
-        int n = arr.size();
+        int const n = arr.size();
 
         vector<int> dp(n, 1);
 
@@ -63,11 +62,11 @@ class Solution {
             while (l <= r) {
                 if (arr[l] * 1LL * arr[r] == arr[i] * 1LL) {
                     if (l != r)
-                        dp[i] =
-                            (dp[i] + (dp[l] * 1LL * dp[r] % mod * 2LL % mod)) %
-                            mod;
+                      dp[i] = (dp[i] +
+                               (dp[l] * 1LL * dp[r] % m_mod * 2LL % m_mod)) %
+                              m_mod;
                     else
-                        dp[i] = (dp[i] + (dp[l] * 1LL * dp[r] % mod)) % mod;
+                      dp[i] = (dp[i] + (dp[l] * 1LL * dp[r] % m_mod)) % m_mod;
                     l++, r--;
                 } else if (arr[l] * 1LL * arr[r] > arr[i] * 1LL)
                     r--;
@@ -77,27 +76,27 @@ class Solution {
         }
 
         int ans = 0;
-        for (auto i : dp) ans = (ans + i) % mod;
+        for (auto i : dp) ans = (ans + i) % m_mod;
         return ans;
     }
 };
 
 TEST(binary_tree_with_factor, t1) {
     vector<int> arr = {2, 4};
-    int output = 3;
+    int const output = 3;
     Solution sl;
-    int ret = sl.V2(arr);
+    int const ret = sl.V2(arr);
     // We can make these trees: [2], [4], [4, 2, 2]
     EXPECT_EQ(ret, output);
 }
 
 TEST(binary_tree_with_factor, t2) {
     vector<int> arr = {2, 4, 5, 10};
-    int output = 7;
+    int const output = 7;
     // We can make these trees: [2], [4], [5], [10], [4, 2, 2], [10, 2, 5], [10,
     // 5, 2].
     Solution sl;
-    int ret = sl.V2(arr);
+    int const ret = sl.V2(arr);
     EXPECT_EQ(ret, output);
 }
 

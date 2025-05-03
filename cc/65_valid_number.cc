@@ -26,6 +26,7 @@ the following are not valid numbers: ["abc", "1a", "1e", "e3", "99e2.5", "--6",
 Given a string s, return true if s is a valid number.
 */
 
+#include <cctype>
 #include <string>
 #include <utility>
 #include <vector>
@@ -34,7 +35,7 @@ Given a string s, return true if s is a valid number.
 
 using namespace std;
 
-#include <stddef.h>
+#include <cstddef>
 
 namespace {
 class Solution {
@@ -153,8 +154,8 @@ class Solution {
 
     class Tokener {
        public:
-        Tokener(std::string s) : s(s), cursor(0) {};
-        virtual ~Tokener() {};
+        Tokener(std::string s) : m_s(std::move(s)) {};
+        virtual ~Tokener() = default;
 
         enum token_type {
             PLUS_OR_MINUS,
@@ -199,54 +200,53 @@ class Solution {
         }
 
         std::pair<token_type, std::string> Next(int& cursor) {
-            if (cursor >= (int)s.size()) {
-                return make_pair(token_type::END, " ");
-            }
-            char tmp_char = s[cursor];
+          if (cursor >= (int)m_s.size()) {
+            return make_pair(token_type::END, " ");
+          }
+          char const tmp_char = m_s[cursor];
 
-            if ('0' <= tmp_char && tmp_char <= '9') {
-                std::string tmp = std::to_string(tmp_char);
+          if ('0' <= tmp_char && tmp_char <= '9') {
+            std::string tmp = std::to_string(tmp_char);
+            cursor++;
+            for (size_t i = 0; i < m_s.size(); i++) {
+              if ('0' <= m_s[cursor] && m_s[cursor] <= '9') {
+                tmp += m_s[cursor];
                 cursor++;
-                for (size_t i = 0; i < s.size(); i++) {
-                    if ('0' <= s[cursor] && s[cursor] <= '9') {
-                        tmp += s[cursor];
-                        cursor++;
-                    }
-                }
-                return make_pair(token_type::NUMBER_SEQUENCE, tmp);
+              }
+            }
+            return make_pair(token_type::NUMBER_SEQUENCE, tmp);
             }
             if ('+' == tmp_char || '-' == tmp_char) {
-                char tmp = tmp_char;
-                cursor++;
-                return make_pair(token_type::PLUS_OR_MINUS,
-                                 std::to_string(tmp));
+              char const tmp = tmp_char;
+              cursor++;
+              return make_pair(token_type::PLUS_OR_MINUS, std::to_string(tmp));
             }
             if ('e' == tmp_char || 'E' == tmp_char) {
                 cursor++;
                 return make_pair(token_type::E, std::to_string(tmp_char));
             }
             if ('.' == tmp_char) {
-                char tmp = tmp_char;
-                cursor++;
-                return make_pair(token_type::DOT, std::to_string(tmp));
+              char const tmp = tmp_char;
+              cursor++;
+              return make_pair(token_type::DOT, std::to_string(tmp));
             }
             return make_pair(token_type::ERROR, " ");
         }
 
        private:
-        std::string s;
+        std::string m_s;
         int cursor = 0;
     };
 };
 
 class Solution2 {
     string m_s;
-    string::iterator it;
+    string::iterator m_it;
 
    public:
     bool IsNumber(string s) {
         m_s = s;
-        it = m_s.begin();
+        m_it = m_s.begin();
         return ParseUntrimmedSignedScientificNum();
     }
 
@@ -342,98 +342,98 @@ class Solution2 {
 
     bool Match(char c) {
         if (IsEnd()) return false;
-        return *it == c;
+        return *m_it == c;
     }
 
     bool Match(char c, char d) {
         if (IsEnd()) return false;
-        return *it >= c && *it <= d;
+        return *m_it >= c && *m_it <= d;
     }
 
     char Take() {
         if (IsEnd()) return 10;
-        return *it++;
+        return *m_it++;
     }
 
-    bool IsEnd() { return it == m_s.end(); }
+    bool IsEnd() { return m_it == m_s.end(); }
 };
 
 TEST(valid_number, t1) {
-    std::string s = "0";
-    bool expected = true;
+  std::string const s = "0";
+  bool const expected = true;
 
-    Solution sl;
-    bool ret = sl.IsNumber(s);
-    EXPECT_EQ(ret, expected);
+  Solution sl;
+  bool const ret = sl.IsNumber(s);
+  EXPECT_EQ(ret, expected);
 }
 
 TEST(valid_number_v2, t1) {
-    std::string s = "0";
-    bool expected = true;
+  std::string const s = "0";
+  bool const expected = true;
 
-    Solution2 sl;
-    bool ret = sl.IsNumber(s);
-    EXPECT_EQ(ret, expected);
+  Solution2 sl;
+  bool const ret = sl.IsNumber(s);
+  EXPECT_EQ(ret, expected);
 }
 
 TEST(valid_number, t2) {
-    std::string s = "e";
-    bool expected = false;
+  std::string const s = "e";
+  bool const expected = false;
 
-    Solution sl;
-    bool ret = sl.IsNumber(s);
-    EXPECT_EQ(ret, expected);
+  Solution sl;
+  bool const ret = sl.IsNumber(s);
+  EXPECT_EQ(ret, expected);
 }
 
 TEST(valid_number_v2, t2) {
-    std::string s = "e";
-    bool expected = false;
+  std::string const s = "e";
+  bool const expected = false;
 
-    Solution2 sl;
-    bool ret = sl.IsNumber(s);
-    EXPECT_EQ(ret, expected);
+  Solution2 sl;
+  bool const ret = sl.IsNumber(s);
+  EXPECT_EQ(ret, expected);
 }
 
 TEST(valid_number, t4) {
-    std::string s = ".";
-    bool expected = false;
+  std::string const s = ".";
+  bool const expected = false;
 
-    Solution sl;
-    bool ret = sl.IsNumber(s);
-    EXPECT_EQ(ret, expected);
+  Solution sl;
+  bool const ret = sl.IsNumber(s);
+  EXPECT_EQ(ret, expected);
 }
 
 TEST(valid_number_v2, t4) {
-    std::string s = ".";
-    bool expected = false;
+  std::string const s = ".";
+  bool const expected = false;
 
-    Solution2 sl;
-    bool ret = sl.IsNumber(s);
-    EXPECT_EQ(ret, expected);
+  Solution2 sl;
+  bool const ret = sl.IsNumber(s);
+  EXPECT_EQ(ret, expected);
 }
 
 TEST(valid_number_v2, t5) {
-    std::vector<std::string> s = {"2",    "0089",  "-0.1",    "+3.14",
-                                  "4.",   "-.9",   "2e10",    "-90E3",
-                                  "3e+7", "+6e-1", "53.5e93", "-123.456e789"};
-    bool expected = true;
+  std::vector<std::string> const s = {
+      "2",    "0089",  "-0.1", "+3.14", "4.",      "-.9",
+      "2e10", "-90E3", "3e+7", "+6e-1", "53.5e93", "-123.456e789"};
+  bool const expected = true;
 
-    Solution2 sl;
-    for (auto& ptr : s) {
-        bool ret = sl.IsNumber(ptr);
-        EXPECT_EQ(ret, expected);
+  Solution2 sl;
+  for (auto& ptr : s) {
+    bool const ret = sl.IsNumber(ptr);
+    EXPECT_EQ(ret, expected);
     }
 }
 
 TEST(valid_number_v2, t6) {
-    std::vector<std::string> s = {"abc",    "1a",  "1e",  "e3",
-                                  "99e2.5", "--6", "-+3", "95a54e53"};
-    bool expected = false;
+  std::vector<std::string> const s = {"abc",    "1a",  "1e",  "e3",
+                                      "99e2.5", "--6", "-+3", "95a54e53"};
+  bool const expected = false;
 
-    Solution2 sl;
-    for (auto& ptr : s) {
-        bool ret = sl.IsNumber(ptr);
-        EXPECT_EQ(ret, expected);
+  Solution2 sl;
+  for (auto& ptr : s) {
+    bool const ret = sl.IsNumber(ptr);
+    EXPECT_EQ(ret, expected);
     }
 }
 

@@ -1,6 +1,5 @@
 
-#include <string.h>
-
+#include <cstring>
 #include <utility>
 
 #include "gtest/gtest.h"
@@ -8,15 +7,15 @@
 namespace {
 class QuickSort {
     int Partition(int arr[], int start, int end) {
-        int pivot = arr[start];
+      int const pivot = arr[start];
 
-        int count = 0;
-        for (int i = start + 1; i <= end; i++) {
-            if (arr[i] <= pivot) count++;
+      int count = 0;
+      for (int i = start + 1; i <= end; i++) {
+        if (arr[i] <= pivot) count++;
         }
 
         // Giving pivot element its correct position
-        int pivot_index = start + count;
+        int const pivot_index = start + count;
         std::swap(arr[pivot_index], arr[start]);
 
         // Sorting left and right parts of the pivot element
@@ -48,7 +47,7 @@ class QuickSort {
         if (start >= end) return;
 
         // partitioning the array
-        int p = Partition(arr, start, end);
+        int const p = Partition(arr, start, end);
 
         // Sorting the left part
         Sort(arr, start, p - 1);

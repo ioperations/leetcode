@@ -28,24 +28,24 @@ class Solution {
     int NetworkDelayTime(vector<vector<int>>& times, int n, int k) {
         vector<vector<pair<int, int>>> adj(n + 1);
         for (auto& it : times) {
-            adj[it[0]].push_back({it[1], it[2]});
+          adj[it[0]].emplace_back(it[1], it[2]);
         }
 
         vector<int> dist(n + 1, 1e9);
         dist[0] = dist[k] = 0;
 
         queue<pair<int, int>> q;
-        q.push({k, 0});
+        q.emplace(k, 0);
         while (q.size()) {
             int sz = q.size();
             while (sz--) {
                 auto [node, prev] = q.front();
                 q.pop();
                 for (auto& it : adj[node]) {
-                    int curr_time = prev + it.second;
-                    if (dist[it.first] > curr_time) {
-                        dist[it.first] = curr_time;
-                        q.push({it.first, curr_time});
+                  int const curr_time = prev + it.second;
+                  if (dist[it.first] > curr_time) {
+                    dist[it.first] = curr_time;
+                    q.emplace(it.first, curr_time);
                     }
                 }
             }
@@ -60,22 +60,22 @@ class Solution {
     }
 
    public:
-    const int max_time = 1e8;
+    const int m_max_time = 1e8;
     using pa = pair<int, int>;
 
     int NetworkDelayTimeV1(vector<vector<int>>& times, int n, int k) {
         vector<vector<pa>> graph(n + 1);
         vector<int> visited(n + 1);
-        vector<int> dist(n + 1, max_time);
+        vector<int> dist(n + 1, m_max_time);
         dist[k] = 0;
 
         for (auto& edge : times) {
             int u = edge[0], v = edge[1], time = edge[2];
-            graph[u].push_back({time, v});
+            graph[u].emplace_back(time, v);
         }
 
-        priority_queue<pa, vector<pa>, greater<pa>> pq;
-        pq.push({0, k});
+        priority_queue<pa, vector<pa>, greater<>> pq;
+        pq.emplace(0, k);
         while (!pq.empty()) {
             auto [current_time, current_node] = pq.top();
             pq.pop();
@@ -85,7 +85,7 @@ class Solution {
             for (auto& [time, adj_current_node] : graph[current_node]) {
                 if (current_time + time < dist[adj_current_node]) {
                     dist[adj_current_node] = current_time + time;
-                    pq.push({dist[adj_current_node], adj_current_node});
+                    pq.emplace(dist[adj_current_node], adj_current_node);
                 }
             }
 
@@ -94,8 +94,8 @@ class Solution {
 
         int ans = 0;
         for (int node = 1; node <= n; node++) {
-            if (dist[node] == max_time) return -1;
-            ans = max(ans, dist[node]);
+          if (dist[node] == m_max_time) return -1;
+          ans = max(ans, dist[node]);
         }
 
         return ans;
@@ -105,7 +105,7 @@ class Solution {
 TEST(network_delay_time, t1) {
     vector<vector<int>> times = {{2, 1, 1}, {2, 3, 1}, {3, 4, 1}};
     int n = 4, k = 2;
-    int output = 2;
+    int const output = 2;
 
     Solution sl;
     int ret = sl.NetworkDelayTime(times, n, k);
@@ -118,7 +118,7 @@ TEST(network_delay_time, t1) {
 TEST(network_delay_time, t2) {
     vector<vector<int>> times = {{1, 2, 1}};
     int n = 2, k = 1;
-    int output = 1;
+    int const output = 1;
 
     Solution sl;
     int ret = sl.NetworkDelayTime(times, n, k);
@@ -130,7 +130,7 @@ TEST(network_delay_time, t2) {
 TEST(network_delay_time, t3) {
     vector<vector<int>> times = {{1, 2, 1}};
     int n = 2, k = 2;
-    int output = -1;
+    int const output = -1;
 
     Solution sl;
     int ret = sl.NetworkDelayTime(times, n, k);

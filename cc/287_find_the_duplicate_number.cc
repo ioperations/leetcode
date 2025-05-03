@@ -23,14 +23,14 @@ class Solution {
         // pass
         // 1 <= n <= 105
         // nums.length == n + 1
-        int n = nums.size();
+        int const n = nums.size();
         int min = 1, max = n - 1;
         while (min != max) {
-            int mid = (min + max) / 2;
-            int count = 0;
+          int const mid = (min + max) / 2;
+          int count = 0;
 
-            for (auto k : nums) {
-                if (k <= mid) count++;
+          for (auto k : nums) {
+            if (k <= mid) count++;
             }
 
             if (count <= mid)
@@ -58,45 +58,45 @@ class Solution {
 TEST(find_the_duplicate_number, t1) {
     std::vector<int> v{1, 3, 4, 2, 2};
 
-    int i = 2;
+    int const i = 2;
     Solution sll;
-    int ret = sll.FindDuplicate(v);
+    int const ret = sll.FindDuplicate(v);
     EXPECT_EQ(ret, i);
 }
 
 TEST(find_the_duplicate_number, t2) {
     std::vector<int> v{3, 1, 3, 4, 2};
 
-    int i = 3;
+    int const i = 3;
     Solution sll;
-    int ret = sll.FindDuplicate(v);
+    int const ret = sll.FindDuplicate(v);
     EXPECT_EQ(ret, i);
 }
 
 TEST(find_the_duplicate_number_v2, t1) {
     std::vector<int> v{1, 3, 4, 2, 2};
 
-    int i = 2;
+    int const i = 2;
     Solution sll;
-    int ret = sll.FindDuplicateV1(v);
+    int const ret = sll.FindDuplicateV1(v);
     EXPECT_EQ(ret, i);
 }
 
 TEST(find_the_duplicate_number_v2, t2) {
     std::vector<int> v{3, 1, 3, 4, 2};
 
-    int i = 3;
+    int const i = 3;
     Solution sll;
-    int ret = sll.FindDuplicateV1(v);
+    int const ret = sll.FindDuplicateV1(v);
     EXPECT_EQ(ret, i);
 }
 static void BenchMarkV0(benchmark::State& state) {
     for (auto _ : state) {
         std::vector<int> v{3, 1, 3, 4, 2};
 
-        int i = 3;
+        int const i = 3;
         Solution sll;
-        int ret = sll.FindDuplicate(v);
+        int const ret = sll.FindDuplicate(v);
         EXPECT_EQ(ret, i);
     }
 }
@@ -106,9 +106,9 @@ static void BenchMarkV1(benchmark::State& state) {
     for (auto _ : state) {
         std::vector<int> v{3, 1, 3, 4, 2};
 
-        int i = 3;
+        int const i = 3;
         Solution sll;
-        int ret = sll.FindDuplicateV1(v);
+        int const ret = sll.FindDuplicateV1(v);
         EXPECT_EQ(ret, i);
     }
 }

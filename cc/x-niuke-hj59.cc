@@ -21,17 +21,17 @@ void Process(std::string str) {
 }
 
 TEST(ta, t2) {
-    std::string ss("aabb");
-    testing::internal::CaptureStdout();
-    Process(ss);
-    std::string out = testing::internal::GetCapturedStdout();
-    EXPECT_EQ(out, std::string("-1\n"));
+  std::string const ss("aabb");
+  testing::internal::CaptureStdout();
+  Process(ss);
+  std::string const out = testing::internal::GetCapturedStdout();
+  EXPECT_EQ(out, std::string("-1\n"));
 }
 TEST(x_niuke_hjv2, t2) {
-    std::string ss("asdfasdfo");
-    testing::internal::CaptureStdout();
-    Process(ss);
-    std::string out = testing::internal::GetCapturedStdout();
-    EXPECT_EQ(out, std::string("o\n"));
+  std::string const ss("asdfasdfo");
+  testing::internal::CaptureStdout();
+  Process(ss);
+  std::string const out = testing::internal::GetCapturedStdout();
+  EXPECT_EQ(out, std::string("o\n"));
 }
 }  // namespace

@@ -47,15 +47,15 @@ class Solution {
 
 TEST(unique_paths, t1) {
     int m = 3, n = 7;
-    int output = 28;
+    int const output = 28;
     Solution sl;
-    int ret = sl.UniquePaths(m, n);
+    int const ret = sl.UniquePaths(m, n);
     EXPECT_EQ(ret, output);
 }
 
 TEST(unique_paths, t2) {
     int m = 3, n = 2;
-    int output = 3;
+    int const output = 3;
     Solution sl;
     /*
         From the top-left corner, there are a total of 3 ways to reach the
@@ -64,7 +64,7 @@ TEST(unique_paths, t2) {
         2. Down -> Down -> Right
         3. Down -> Right -> Down
     */
-    int ret = sl.UniquePaths(m, n);
+    int const ret = sl.UniquePaths(m, n);
     EXPECT_EQ(ret, output);
 }
 

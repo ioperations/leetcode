@@ -55,56 +55,56 @@ class Solution {
 using namespace std;
 
 TEST(invert_binary_tree, t1) {
-    std::vector<optional<int>> root = {4, 2, 7, 1, 3, 6, 9};
-    std::vector<int> output = {4, 7, 2, 9, 6, 3, 1};
+  std::vector<optional<int>> const root = {4, 2, 7, 1, 3, 6, 9};
+  std::vector<int> const output = {4, 7, 2, 9, 6, 3, 1};
 
-    auto* head = ConstructBinaryTree(root);
+  auto* head = ConstructBinaryTree(root);
 
-    PrintBt(head);
+  PrintBt(head);
 
-    Solution sl;
-    head = sl.InvertTree(head);
+  Solution sl;
+  head = sl.InvertTree(head);
 
-    std::vector<int> vec1;
-    BfsSearch(head, vec1);
-    EXPECT_EQ(vec1, output);
-    FreeTreeNode(head);
+  std::vector<int> vec1;
+  BfsSearch(head, vec1);
+  EXPECT_EQ(vec1, output);
+  FreeTreeNode(head);
 };
 
 TEST(invert_binary_tree, t2) {
-    std::vector<optional<int>> root = {1,  2,  3,  4,  5,  6,  7,  8,  9,  10,
-                                       11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
-                                       21, 22, 23, 24, 25, 26, 27, 28, 29};
-    std::vector<int> output = {1,  3,  2,  7,  6,  5,  4,  15, 14, 13,
-                               12, 11, 10, 9,  8,  29, 28, 27, 26, 25,
-                               24, 23, 22, 21, 20, 19, 18, 17, 16};
+  std::vector<optional<int>> const root = {
+      1,  2,  3,  4,  5,  6,  7,  8,  9,  10, 11, 12, 13, 14, 15,
+      16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29};
+  std::vector<int> const output = {1,  3,  2,  7,  6,  5,  4,  15, 14, 13,
+                                   12, 11, 10, 9,  8,  29, 28, 27, 26, 25,
+                                   24, 23, 22, 21, 20, 19, 18, 17, 16};
 
-    auto* head = ConstructBinaryTree(root);
+  auto* head = ConstructBinaryTree(root);
 
-    PrintBt(head);
+  PrintBt(head);
 
-    Solution sl;
-    head = sl.InvertTree(head);
+  Solution sl;
+  head = sl.InvertTree(head);
 
-    std::vector<int> vec1;
-    BfsSearch(head, vec1);
-    EXPECT_EQ(vec1, output);
-    FreeTreeNode(head);
+  std::vector<int> vec1;
+  BfsSearch(head, vec1);
+  EXPECT_EQ(vec1, output);
+  FreeTreeNode(head);
 };
 
 TEST(invert_binary_tree, t3) {
-    std::vector<optional<int>> root = {2, 1, 3};
-    std::vector<int> output = {2, 3, 1};
+  std::vector<optional<int>> const root = {2, 1, 3};
+  std::vector<int> const output = {2, 3, 1};
 
-    auto* head = ConstructBinaryTree(root);
+  auto* head = ConstructBinaryTree(root);
 
-    Solution sl;
-    head = sl.InvertTree(head);
+  Solution sl;
+  head = sl.InvertTree(head);
 
-    std::vector<int> vec1;
-    BfsSearch(head, vec1);
-    EXPECT_EQ(vec1, output);
-    FreeTreeNode(head);
+  std::vector<int> vec1;
+  BfsSearch(head, vec1);
+  EXPECT_EQ(vec1, output);
+  FreeTreeNode(head);
 };
 
 }  // namespace

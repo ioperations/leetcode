@@ -52,25 +52,25 @@ class Solution {
 };
 
 TEST(count_and_say, t1) {
-    int n = 4;
-    std::string output = "1211";
-    Solution s;
-    auto ret = s.CountAndSay(n);
+  int const n = 4;
+  std::string const output = "1211";
+  Solution s;
+  auto ret = s.CountAndSay(n);
 
-    EXPECT_EQ(ret, output);
-    // countAndSay(1) = "1"
-    // countAndSay(2) = say "1" = one 1 = "11"
-    // countAndSay(3) = say "11" = two 1's = "21"
-    // countAndSay(4) = say "21" = one 2 + one 1 = "12" + "11" = "1211"
+  EXPECT_EQ(ret, output);
+  // countAndSay(1) = "1"
+  // countAndSay(2) = say "1" = one 1 = "11"
+  // countAndSay(3) = say "11" = two 1's = "21"
+  // countAndSay(4) = say "21" = one 2 + one 1 = "12" + "11" = "1211"
 }
 
 TEST(count_and_say, t2) {
-    int n = 1;
-    std::string output = "1";
-    Solution s;
-    auto ret = s.CountAndSay(n);
+  int const n = 1;
+  std::string const output = "1";
+  Solution s;
+  auto ret = s.CountAndSay(n);
 
-    EXPECT_EQ(ret, output);
-    // Explanation : This is the base case.
+  EXPECT_EQ(ret, output);
+  // Explanation : This is the base case.
 }
 }  // namespace

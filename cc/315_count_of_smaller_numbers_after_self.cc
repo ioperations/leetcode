@@ -19,14 +19,14 @@ namespace {
 class Solution {
    public:
     vector<int> CountSmaller(vector<int>& nums) {
-        int size = nums.size();
-        vector<int> ret(size, 0);
-        for (int i = 0; i < size; i++) {
-            for (int j = i + 1; j < size; j++) {
-                if (nums[j] < nums[i]) {
-                    ret[i]++;
-                }
-            }
+      int const size = nums.size();
+      vector<int> ret(size, 0);
+      for (int i = 0; i < size; i++) {
+        for (int j = i + 1; j < size; j++) {
+          if (nums[j] < nums[i]) {
+            ret[i]++;
+          }
+        }
         }
         return ret;
     }
@@ -71,28 +71,28 @@ class Solution {
                    int end) {
         if (start >= end) return;
 
-        int mid = start + (end - start) / 2;
+        int const mid = start + (end - start) / 2;
         MergeSort(count, arr, start, mid);
         MergeSort(count, arr, mid + 1, end);
         Merge(count, arr, start, mid, end);
     }
 
     vector<int> CountSmallerV1(vector<int>& nums) {
-        int n = nums.size();
+      int const n = nums.size();
 
-        vector<pair<int, int>> arr(n);
-        for (int i = 0; i < n; i++) arr[i] = make_pair(nums[i], i);
+      vector<pair<int, int>> arr(n);
+      for (int i = 0; i < n; i++) arr[i] = make_pair(nums[i], i);
 
-        vector<int> count(n, 0);
-        MergeSort(count, arr, 0, n - 1);
+      vector<int> count(n, 0);
+      MergeSort(count, arr, 0, n - 1);
 
-        return count;
+      return count;
     }
 };
 
 TEST(count_of_smaller_numbers_after_self, t1) {
     vector<int> nums{5, 2, 6, 1};
-    vector<int> output{2, 1, 1, 0};
+    vector<int> const output{2, 1, 1, 0};
     Solution sl;
     auto ret = sl.CountSmaller(nums);
     /*To the right of 5 there are 2 smaller elements (2 and 1).
@@ -105,7 +105,7 @@ TEST(count_of_smaller_numbers_after_self, t1) {
 
 TEST(count_of_smaller_numbers_after_self, t2) {
     vector<int> nums{-1};
-    vector<int> output{0};
+    vector<int> const output{0};
     Solution sl;
     auto ret = sl.CountSmaller(nums);
     EXPECT_EQ(ret, output);
@@ -113,7 +113,7 @@ TEST(count_of_smaller_numbers_after_self, t2) {
 
 TEST(count_of_smaller_numbers_after_self, t3) {
     vector<int> nums{-1, -1};
-    vector<int> output{0, 0};
+    vector<int> const output{0, 0};
     Solution sl;
     auto ret = sl.CountSmaller(nums);
     EXPECT_EQ(ret, output);

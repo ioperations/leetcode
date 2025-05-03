@@ -28,25 +28,25 @@ using namespace std;
 namespace {
 class MyCalendar {
    public:
-    MyCalendar() {}
+    MyCalendar() = default;
 
     bool Book(int start, int end) {
         auto slice = make_pair(start, end);
         auto cmp = [](const pair<int, int>& a, const pair<int, int>& b) {
             return a.second <= b.first;
         };
-        auto bound = equal_range(slices.begin(), slices.end(), slice, cmp);
+        auto bound = equal_range(m_slices.begin(), m_slices.end(), slice, cmp);
         auto it1 = bound.first;
         auto it2 = bound.second;
         if (it1 == it2) {
-            slices.insert(it1, slice);
-            return true;
+          m_slices.insert(it1, slice);
+          return true;
         }
         return false;
     }
 
    private:
-    vector<pair<int, int>> slices;
+    vector<pair<int, int>> m_slices;
 };
 
 TEST(my_calender_i, t1) {

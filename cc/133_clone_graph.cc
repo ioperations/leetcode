@@ -24,6 +24,7 @@ copy of the given node as a reference to the cloned graph.
 #include <memory>
 #include <queue>
 #include <unordered_map>
+#include <utility>
 #include <vector>
 
 #include "gtest/gtest.h"
@@ -36,12 +37,12 @@ using namespace std;
 namespace {
 class Node {
    public:
-    int val;
-    vector<Node*> neighbors;
-    Node() : val(0) { neighbors = vector<Node*>(); }
-    Node(int my_val) : val(my_val) { neighbors = vector<Node*>(); }
+    int m_val;
+    vector<Node*> m_neighbors;
+    Node() : m_val(0) { m_neighbors = vector<Node*>(); }
+    Node(int my_val) : m_val(my_val) { m_neighbors = vector<Node*>(); }
     Node(int my_val, vector<Node*> my_neighbors)
-        : val(my_val), neighbors(my_neighbors) {}
+        : m_val(my_val), m_neighbors(std::move(my_neighbors)) {}
 };
 
 class Solution {
@@ -53,18 +54,18 @@ class Solution {
         if (node == nullptr) return nullptr;
 
         // return node object from track if already created
-        if (m_track.count(node->val)) return m_track[node->val];
+        if (m_track.count(node->m_val)) return m_track[node->m_val];
 
         // create new node from node value
-        Node* n_node = new Node(node->val);
+        Node* n_node = new Node(node->m_val);
 
         // store new node object in track
-        m_track[node->val] = n_node;
+        m_track[node->m_val] = n_node;
 
         // add neighbor node objects of current node in to new node's neighbor
         // from DFS call
-        for (auto& neighbor : node->neighbors) {
-          n_node->neighbors.push_back(CloneGraph(neighbor));
+        for (auto& neighbor : node->m_neighbors) {
+          n_node->m_neighbors.push_back(CloneGraph(neighbor));
         }
 
         // return new node object
@@ -81,18 +82,18 @@ class Solution {
         m_visited.clear();
         queue<Node*> q;
         q.push(node);
-        m_visited[node] = make_shared<Node>(node->val);
+        m_visited[node] = make_shared<Node>(node->m_val);
 
         while (!q.empty()) {
             auto* current = q.front();
             q.pop();
 
-            for (auto* v : current->neighbors) {
+            for (auto* v : current->m_neighbors) {
               if (m_visited.find(v) == m_visited.end()) {
-                m_visited[v] = make_shared<Node>(v->val);
+                m_visited[v] = make_shared<Node>(v->m_val);
                 q.push(v);
               }
-              m_visited[current]->neighbors.push_back(m_visited[v].get());
+              m_visited[current]->m_neighbors.push_back(m_visited[v].get());
             }
         }
 
@@ -115,7 +116,7 @@ Node* BuildNode(vector<std::vector<int>>& adj_list) {
         for (auto& z : ptr) {
             Node* to_insert = GetOrInsert(node, z);
             Node* to_be_insert = GetOrInsert(node, count);
-            to_be_insert->neighbors.push_back(to_insert);
+            to_be_insert->m_neighbors.push_back(to_insert);
         }
         count++;
     }
@@ -132,14 +133,14 @@ auto FreeGraph(Node* node) -> void {
 
     std::function<void(Node*, std::map<int, Node*>&)> impl =
         [&](Node* node, std::map<int, Node*>& waiting) {
-            if (waiting.find(node->val) != waiting.end()) {
-                return;
-            }
-            waiting[node->val] = node;
+          if (waiting.find(node->m_val) != waiting.end()) {
+            return;
+          }
+          waiting[node->m_val] = node;
 
-            for (auto& ptr : node->neighbors) {
-                impl(ptr, waiting);
-            }
+          for (auto& ptr : node->m_neighbors) {
+            impl(ptr, waiting);
+          }
         };
 
     std::map<int, Node*> map;

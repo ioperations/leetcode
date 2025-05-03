@@ -50,25 +50,26 @@ class Solution {
         return fun(0, (int)(card_points.size() - 1), k);
     }
     int MaxScoreV2(vector<int>& card_points, int k) {
-        long long sum = accumulate(card_points.begin(), card_points.end(), 0LL);
+      long long const sum =
+          accumulate(card_points.begin(), card_points.end(), 0LL);
 
-        int ans = 0;
-        int n = card_points.size();
-        int window_size = n - k;
-        int l = 0;
-        int r = 0;
-        long long window_sum = 0;
+      int ans = 0;
+      int const n = card_points.size();
+      int const window_size = n - k;
+      int l = 0;
+      int r = 0;
+      long long window_sum = 0;
 
-        while (r < n) {
-            int right = card_points[r++];
-            window_sum += right;
-            while (r - l > window_size) {
-                int left = card_points[l++];
-                window_sum -= left;
-            }
-            if (r - l == window_size) {
-                ans = max(ans, (int)(sum - window_sum));
-            }
+      while (r < n) {
+        int const right = card_points[r++];
+        window_sum += right;
+        while (r - l > window_size) {
+          int const left = card_points[l++];
+          window_sum -= left;
+        }
+        if (r - l == window_size) {
+          ans = max(ans, (int)(sum - window_sum));
+        }
         }
         return ans;
     }
@@ -76,10 +77,10 @@ class Solution {
 
 TEST(maximum_points_you_can_obtain_from_cards, t1) {
     vector<int> card_points = {1, 2, 3, 4, 5, 6, 1};
-    int k = 3;
-    int output = 12;
+    int const k = 3;
+    int const output = 12;
     Solution sl;
-    int ret = sl.MaxScore(card_points, k);
+    int const ret = sl.MaxScore(card_points, k);
     EXPECT_EQ(ret, output);
     // Explanation: After the first step, your score will always be 1. However,
     // choosing the rightmost card first will maximize your total score. The
@@ -89,20 +90,20 @@ TEST(maximum_points_you_can_obtain_from_cards, t1) {
 
 TEST(maximum_points_you_can_obtain_from_cards, t2) {
     vector<int> card_points = {2, 2, 2};
-    int k = 2;
-    int output = 4;
+    int const k = 2;
+    int const output = 4;
     Solution sl;
-    int ret = sl.MaxScore(card_points, k);
+    int const ret = sl.MaxScore(card_points, k);
     EXPECT_EQ(ret, output);
     // Regardless of which two cards you take, your score will always be 4.
 }
 
 TEST(maximum_points_you_can_obtain_from_cards, t3) {
     vector<int> card_points = {9, 7, 7, 9, 7, 7, 9};
-    int k = 7;
-    int output = 55;
+    int const k = 7;
+    int const output = 55;
     Solution sl;
-    int ret = sl.MaxScore(card_points, k);
+    int const ret = sl.MaxScore(card_points, k);
     EXPECT_EQ(ret, output);
     // You have to take all the cards. Your score is the sum of points of all
     // cards.
@@ -110,10 +111,10 @@ TEST(maximum_points_you_can_obtain_from_cards, t3) {
 
 TEST(maximum_points_you_can_obtain_from_cards_v2, t1) {
     vector<int> card_points = {1, 2, 3, 4, 5, 6, 1};
-    int k = 3;
-    int output = 12;
+    int const k = 3;
+    int const output = 12;
     Solution sl;
-    int ret = sl.MaxScoreV2(card_points, k);
+    int const ret = sl.MaxScoreV2(card_points, k);
     EXPECT_EQ(ret, output);
     // Explanation: After the first step, your score will always be 1. However,
     // choosing the rightmost card first will maximize your total score. The
@@ -123,20 +124,20 @@ TEST(maximum_points_you_can_obtain_from_cards_v2, t1) {
 
 TEST(maximum_points_you_can_obtain_from_cards_v2, t2) {
     vector<int> card_points = {2, 2, 2};
-    int k = 2;
-    int output = 4;
+    int const k = 2;
+    int const output = 4;
     Solution sl;
-    int ret = sl.MaxScoreV2(card_points, k);
+    int const ret = sl.MaxScoreV2(card_points, k);
     EXPECT_EQ(ret, output);
     // Regardless of which two cards you take, your score will always be 4.
 }
 
 TEST(maximum_points_you_can_obtain_from_cards_v2, t3) {
     vector<int> card_points = {9, 7, 7, 9, 7, 7, 9};
-    int k = 7;
-    int output = 55;
+    int const k = 7;
+    int const output = 55;
     Solution sl;
-    int ret = sl.MaxScoreV2(card_points, k);
+    int const ret = sl.MaxScoreV2(card_points, k);
     EXPECT_EQ(ret, output);
     // You have to take all the cards. Your score is the sum of points of all
     // cards.

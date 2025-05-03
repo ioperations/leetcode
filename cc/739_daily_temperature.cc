@@ -18,18 +18,17 @@ namespace {
 class Solution {
    public:
     vector<int> DailyTemperatures(vector<int>& temperatures) {
-        int size = temperatures.size();
+      int const size = temperatures.size();
 
-        vector<int> ret(size, 0);
-        stack<int> stack;
+      vector<int> ret(size, 0);
+      stack<int> stack;
 
-        for (int i = 0; i < size; i++) {
-            while (stack.size() &&
-                   temperatures[stack.top()] < temperatures[i]) {
-                ret[stack.top()] = i - stack.top();
-                stack.pop();
-            }
-            stack.push(i);
+      for (int i = 0; i < size; i++) {
+        while (stack.size() && temperatures[stack.top()] < temperatures[i]) {
+          ret[stack.top()] = i - stack.top();
+          stack.pop();
+        }
+        stack.push(i);
         }
 
         return ret;
@@ -38,7 +37,7 @@ class Solution {
 
 TEST(daily_temperature, t1) {
     std::vector<int> temperatures{73, 74, 75, 71, 69, 72, 76, 73};
-    vector<int> output{1, 1, 4, 2, 1, 1, 0, 0};
+    vector<int> const output{1, 1, 4, 2, 1, 1, 0, 0};
     Solution sl;
     auto ret = sl.DailyTemperatures(temperatures);
     EXPECT_EQ(ret, output);
@@ -46,7 +45,7 @@ TEST(daily_temperature, t1) {
 
 TEST(daily_temperature, t2) {
     std::vector<int> temperatures{30, 40, 50, 60};
-    vector<int> output{1, 1, 1, 0};
+    vector<int> const output{1, 1, 1, 0};
     Solution sl;
     auto ret = sl.DailyTemperatures(temperatures);
     EXPECT_EQ(ret, output);
@@ -54,7 +53,7 @@ TEST(daily_temperature, t2) {
 
 TEST(daily_temperature, t3) {
     std::vector<int> temperatures{30, 60, 90};
-    vector<int> output{1, 1, 0};
+    vector<int> const output{1, 1, 0};
     Solution sl;
     auto ret = sl.DailyTemperatures(temperatures);
     EXPECT_EQ(ret, output);

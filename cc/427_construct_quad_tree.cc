@@ -46,37 +46,37 @@ val] and if the value of isLeaf or val is False we represent it as 0.
 namespace {
 class Node {
    public:
-    bool val;
-    bool is_leaf;
-    Node* top_left;
-    Node* top_right;
-    Node* bottom_left;
-    Node* bottom_right;
+    bool m_val;
+    bool m_is_leaf;
+    Node* m_top_left;
+    Node* m_top_right;
+    Node* m_bottom_left;
+    Node* m_bottom_right;
 
     Node()
-        : val(false),
-          is_leaf(false),
-          top_left(nullptr),
-          top_right(nullptr),
-          bottom_left(nullptr),
-          bottom_right(nullptr) {}
+        : m_val(false),
+          m_is_leaf(false),
+          m_top_left(nullptr),
+          m_top_right(nullptr),
+          m_bottom_left(nullptr),
+          m_bottom_right(nullptr) {}
 
     Node(bool n_val, bool n_is_leaf)
-        : val(n_val),
-          is_leaf(n_is_leaf),
-          top_left(nullptr),
-          top_right(nullptr),
-          bottom_left(nullptr),
-          bottom_right(nullptr) {}
+        : m_val(n_val),
+          m_is_leaf(n_is_leaf),
+          m_top_left(nullptr),
+          m_top_right(nullptr),
+          m_bottom_left(nullptr),
+          m_bottom_right(nullptr) {}
 
     Node(bool n_val, bool n_is_leaf, Node* n_top_left, Node* n_top_rightt,
          Node* n_bottom_left, Node* n_bottom_rightt)
-        : val(n_val),
-          is_leaf(n_is_leaf),
-          top_left(n_top_left),
-          top_right(n_top_rightt),
-          bottom_left(n_bottom_left),
-          bottom_right(n_bottom_rightt) {}
+        : m_val(n_val),
+          m_is_leaf(n_is_leaf),
+          m_top_left(n_top_left),
+          m_top_right(n_top_rightt),
+          m_bottom_left(n_bottom_left),
+          m_bottom_right(n_bottom_rightt) {}
 };
 #include <vector>
 
@@ -95,18 +95,18 @@ class Solution {
             auto* top_right = fun(i, j + size, size);
             auto* bottom_left = fun(i + size, j, size);
             auto* bottom_right = fun(i + size, j + size, size);
-            if (top_left->is_leaf && top_right->is_leaf &&
-                bottom_left->is_leaf && bottom_right->is_leaf) {
-                if ((top_left->val == top_right->val) &&
-                    (top_left->val == bottom_left->val) &&
-                    (bottom_right->val == top_left->val)) {
-                  int const val = top_left->val;
-                  delete top_left;
-                  delete top_right;
-                  delete bottom_right;
-                  delete bottom_left;
-                  return new Node(val, true);
-                }
+            if (top_left->m_is_leaf && top_right->m_is_leaf &&
+                bottom_left->m_is_leaf && bottom_right->m_is_leaf) {
+              if ((top_left->m_val == top_right->m_val) &&
+                  (top_left->m_val == bottom_left->m_val) &&
+                  (bottom_right->m_val == top_left->m_val)) {
+                int const val = top_left->m_val;
+                delete top_left;
+                delete top_right;
+                delete bottom_right;
+                delete bottom_left;
+                return new Node(val, true);
+              }
             }
             return new Node(true, false, top_left, top_right, bottom_left,
                             bottom_right);
@@ -131,15 +131,15 @@ vector<optional<vector<int>>> FlattenQuadTree(Node* n) {
             ret.push_back(null);
             ret.push_back(null);
         } else {
-            if (n->is_leaf) {
-              ret.emplace_back(vector<int>{n->is_leaf, n->val});
-            } else {
-              ret.emplace_back(vector<int>{n->is_leaf, n->val});
-              q.push(n->top_left);
-              q.push(n->top_right);
-              q.push(n->bottom_left);
-              q.push(n->bottom_right);
-            }
+          if (n->m_is_leaf) {
+            ret.emplace_back(vector<int>{n->m_is_leaf, n->m_val});
+          } else {
+            ret.emplace_back(vector<int>{n->m_is_leaf, n->m_val});
+            q.push(n->m_top_left);
+            q.push(n->m_top_right);
+            q.push(n->m_bottom_left);
+            q.push(n->m_bottom_right);
+          }
             delete n;
         }
         q.pop();

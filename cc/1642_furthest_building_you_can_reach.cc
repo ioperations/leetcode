@@ -32,7 +32,7 @@ class Solution {
         // pass
         int size = heights.size();
 
-        map<tuple<int, int, int>, int> cache;
+        map<tuple<int, int, int>, int> const cache;
 
         // 在当前的位置上，根据自身条件，最多能向前走几步
         function<int(int, int, int)> fun = [&](int i, int bricks,
@@ -47,7 +47,7 @@ class Solution {
             if (ladders > 0) {
                 candidates = 1 + fun(i + 1, bricks, ladders - 1);
             }
-            int minus = heights[i + 1] - heights[i];
+            int const minus = heights[i + 1] - heights[i];
             if (minus <= bricks) {
                 candidates2 = 1 + fun(i + 1, bricks - minus, ladders);
             }
@@ -65,7 +65,7 @@ class Solution {
             if (heights[i] >= heights[i + 1]) {
                 continue;
             }  // Difference between both heights
-            int diff = heights[i + 1] - heights[i];
+            int const diff = heights[i + 1] - heights[i];
 
             // Total count of bricks needed
             total_count += diff;
@@ -101,7 +101,7 @@ TEST(furthest_building_you_can_reach, t1) {
     int bricks = 5, ladders = 1;
 
     Solution sl;
-    int ret = sl.FurthestBuilding2(heights, bricks, ladders);
+    int const ret = sl.FurthestBuilding2(heights, bricks, ladders);
     /*
         Starting at building 0, you can follow these steps:
         - Go to building 1 without using ladders nor bricks since 4 >= 2.
@@ -120,7 +120,7 @@ TEST(furthest_building_you_can_reach, t2) {
     int bricks = 10, ladders = 2;
 
     Solution sl;
-    int ret = sl.FurthestBuilding2(heights, bricks, ladders);
+    int const ret = sl.FurthestBuilding2(heights, bricks, ladders);
     EXPECT_EQ(ret, 7);
 }
 
@@ -129,7 +129,7 @@ TEST(furthest_building_you_can_reach, t3) {
     int bricks = 17, ladders = 0;
 
     Solution sl;
-    int ret = sl.FurthestBuilding2(heights, bricks, ladders);
+    int const ret = sl.FurthestBuilding2(heights, bricks, ladders);
     EXPECT_EQ(ret, 3);
 }
 

@@ -19,26 +19,26 @@ using namespace std;
 
 class Solution {
    public:
-    string smallestNumber(string pattern) {
-        // 1 <= pattern.length <= 8
-        // pattern consists of only the letters 'I' and 'D'.
-        string ret;
+    string SmallestNumber(string pattern) {
+      // 1 <= pattern.length <= 8
+      // pattern consists of only the letters 'I' and 'D'.
+      string ret;
 
-        this->pattern = pattern;
-        auto size = pattern.size();
+      this->m_pattern = pattern;
+      auto size = pattern.size();
 
-        ret.resize(size + 1);
+      ret.resize(size + 1);
 
-        vector<bool> visiable(9, true);
-        Gen(ret, 0, size + 1, visiable);
-        return ret;
+      vector<bool> visiable(9, true);
+      Gen(ret, 0, size + 1, visiable);
+      return ret;
     }
 
     bool Gen(string& ret, int index, int size, vector<bool>& visiable) {
         if (index == size) {
-            if (checkFunc(ret)) {
-                return true;
-            }
+          if (CheckFunc(ret)) {
+            return true;
+          }
             return false;
         }
 
@@ -55,53 +55,53 @@ class Solution {
         return false;
     }
 
-    bool checkFunc(const string& str) {
-        for (int i = 0; i < pattern.size(); i++) {
-            if (pattern[i] == 'I') {
-                if (str[i] >= str[i + 1]) {
-                    return false;
-                }
-            } else {
-                if (str[i] <= str[i + 1]) {
-                    return false;
-                }
-            }
+    bool CheckFunc(const string& str) {
+      for (int i = 0; i < m_pattern.size(); i++) {
+        if (m_pattern[i] == 'I') {
+          if (str[i] >= str[i + 1]) {
+            return false;
+          }
+        } else {
+          if (str[i] <= str[i + 1]) {
+            return false;
+          }
         }
+      }
 
-        return true;
+      return true;
     }
 
-    string pattern;
+    string m_pattern;
 };
 
 #include <gtest/gtest.h>
 
 TEST(t0, t1) {
-    string pattern = "IIIDIDDD";
+  string const pattern = "IIIDIDDD";
 
-    string output = "123549876";
-    Solution sl;
-    auto ret = sl.smallestNumber(pattern);
-    EXPECT_EQ(output, ret);
-    // Explanation:
-    // At indices 0, 1, 2, and 4 we must have that num[i] < num[i+1].
-    // At indices 3, 5, 6, and 7 we must have that num[i] > num[i+1].
-    // Some possible values of num are "245639871", "135749862", and
-    // "123849765". It can be proven that "123549876" is the smallest possible
-    // num that meets the conditions. Note that "123414321" is not possible
-    // because the digit '1' is used more than once.
+  string const output = "123549876";
+  Solution sl;
+  auto ret = sl.SmallestNumber(pattern);
+  EXPECT_EQ(output, ret);
+  // Explanation:
+  // At indices 0, 1, 2, and 4 we must have that num[i] < num[i+1].
+  // At indices 3, 5, 6, and 7 we must have that num[i] > num[i+1].
+  // Some possible values of num are "245639871", "135749862", and
+  // "123849765". It can be proven that "123549876" is the smallest possible
+  // num that meets the conditions. Note that "123414321" is not possible
+  // because the digit '1' is used more than once.
 }
 
 TEST(t0, t2) {
-    string pattern = "DDD";
+  string const pattern = "DDD";
 
-    string output = "4321";
-    Solution sl;
-    auto ret = sl.smallestNumber(pattern);
-    EXPECT_EQ(output, ret);
-    // Some possible values of num are "9876", "7321", and "8742".
-    // It can be proven that "4321" is the smallest possible num that meets the
-    // conditions.
+  string const output = "4321";
+  Solution sl;
+  auto ret = sl.SmallestNumber(pattern);
+  EXPECT_EQ(output, ret);
+  // Some possible values of num are "9876", "7321", and "8742".
+  // It can be proven that "4321" is the smallest possible num that meets the
+  // conditions.
 }
 int main(int argc, char* argv[]) {
     testing::InitGoogleTest(&argc, argv);

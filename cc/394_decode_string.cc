@@ -33,7 +33,7 @@ class Solution {
         stack<string> st;
         string curr = "";
         string num = "";
-        for (char i : encoded_string) {
+        for (char const i : encoded_string) {
           if (isalpha(i)) curr += i;
           if (isdigit(i)) num += i;
           if (i == '[') {

@@ -20,8 +20,8 @@ class Solution {
    public:
     int Rob(vector<int>& nums) {
         // pass
-        int v1 = Rob(nums, true, 1, false) + nums[0];
-        int v2 = Rob(nums, false, 1, true);
+        int const v1 = Rob(nums, true, 1, false) + nums[0];
+        int const v2 = Rob(nums, false, 1, true);
         return max(v1, v2);
     }
 
@@ -37,43 +37,43 @@ class Solution {
         auto tuple =
             make_tuple(previous_robd, current_index, last_can_be_robbed);
         if (previous_robd) {
-            cache[tuple] =
-                Rob(nums, false, current_index + 1, last_can_be_robbed);
-            return cache[tuple];
+          m_cache[tuple] =
+              Rob(nums, false, current_index + 1, last_can_be_robbed);
+          return m_cache[tuple];
         }
 
         // 偷这个
-        int v1 = Rob(nums, true, current_index + 1, last_can_be_robbed) +
-                 nums[current_index];
+        int const v1 = Rob(nums, true, current_index + 1, last_can_be_robbed) +
+                       nums[current_index];
         // 不偷这个家
-        int v2 = Rob(nums, false, current_index + 1, last_can_be_robbed);
+        int const v2 = Rob(nums, false, current_index + 1, last_can_be_robbed);
 
-        cache[tuple] = max(v1, v2);
-        return cache[tuple];
+        m_cache[tuple] = max(v1, v2);
+        return m_cache[tuple];
     }
 
-    map<tuple<int, int, int>, int> cache;
+    map<tuple<int, int, int>, int> m_cache;
 };
 
 TEST(hourse_robber_ii, t1) {
     vector<int> nums = {2, 3, 2};
-    int output = 3;
+    int const output = 3;
     // Explanation : You cannot rob house 1(money = 2) and
     //      then rob house 3(money = 2),
     // because they are adjacent houses.
     Solution sl;
-    int ret = sl.Rob(nums);
+    int const ret = sl.Rob(nums);
     EXPECT_EQ(output, ret);
 }
 
 TEST(hourse_robber_ii, t2) {
     vector<int> nums = {1, 2, 3, 1};
-    int output = 4;
+    int const output = 4;
     // Rob house 1 (money = 1) and then rob house 3 (money = 3).
     // Total amount you can rob = 1 + 3 = 4.
 
     Solution sl;
-    int ret = sl.Rob(nums);
+    int const ret = sl.Rob(nums);
     EXPECT_EQ(output, ret);
 }
 
@@ -83,12 +83,12 @@ TEST(hourse_robber_ii, t3) {
         2,
         3,
     };
-    int output = 3;
+    int const output = 3;
     // Rob house 1 (money = 1) and then rob house 3 (money = 3).
     // Total amount you can rob = 1 + 3 = 4.
 
     Solution sl;
-    int ret = sl.Rob(nums);
+    int const ret = sl.Rob(nums);
     EXPECT_EQ(output, ret);
 }
 

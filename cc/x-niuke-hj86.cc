@@ -19,7 +19,7 @@ int Func(int number) {
 
     // bool last_bit_is_one = false;
     int already_lian_xu_one_length = 0;
-    for (int i : z) {
+    for (int const i : z) {
       bool const this_bit_is_one = (number & i) != 0;
       // last_bit_is_one = this_bit_is_one;
       if (this_bit_is_one) {

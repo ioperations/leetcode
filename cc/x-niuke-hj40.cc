@@ -32,7 +32,7 @@ void Func(const char* s, int len) {
         }
     }
 
-    for (int i : classfy) {
+    for (int const i : classfy) {
       std::cout << i << std::endl;
     }
 }

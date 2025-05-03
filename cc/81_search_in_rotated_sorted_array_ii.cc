@@ -28,11 +28,11 @@ class Solution {
     bool Search(vector<int>& nums, int target) {
         int left = 0, right = nums.size() - 1;
         while (left <= right) {
-            int mid = (left + right) / 2;
-            if (target == nums[mid]) return true;
-            if (nums[left] == nums[mid] && nums[mid] == nums[right]) {
-                left++;
-                right--;
+          int const mid = (left + right) / 2;
+          if (target == nums[mid]) return true;
+          if (nums[left] == nums[mid] && nums[mid] == nums[right]) {
+            left++;
+            right--;
             } else if (nums[left] <= nums[mid]) {
                 if (target >= nums[left] && target < nums[mid])
                     right = mid - 1;
@@ -51,19 +51,19 @@ class Solution {
 
 TEST(search_in_rotated_sorted_array_ii, t1) {
     vector<int> nums = {2, 5, 6, 0, 0, 1, 2};
-    int target = 0;
-    bool output = true;
+    int const target = 0;
+    bool const output = true;
     Solution sl;
-    bool ret = sl.Search(nums, target);
+    bool const ret = sl.Search(nums, target);
     EXPECT_EQ(ret, output);
 }
 
 TEST(search_in_rotated_sorted_array_ii, t2) {
     vector<int> nums = {2, 5, 6, 0, 0, 1, 2};
-    int target = 3;
-    bool output = false;
+    int const target = 3;
+    bool const output = false;
     Solution sl;
-    bool ret = sl.Search(nums, target);
+    bool const ret = sl.Search(nums, target);
     EXPECT_EQ(ret, output);
 }
 

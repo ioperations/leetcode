@@ -8,7 +8,7 @@ node values in the path is a palindrome.
 Return the number of pseudo-palindromic paths going from the root node to leaf
 nodes.*/
 
-#include <stddef.h>
+#include <cstddef>
 // Definition for a binary tree node.
 #include <algorithm>
 #include <stack>
@@ -23,7 +23,7 @@ using namespace Tree;
 namespace {
 class Solution {
    public:
-    int count = 0;
+    int m_count = 0;
     template <typename T>
     void Dfs(TreeNode<T>* root, vector<T> mpp) {
         if (root->left == nullptr && root->right == nullptr) {
@@ -35,7 +35,7 @@ class Solution {
                 }
             }
             if (count_odd <= 1) {
-                count++;
+              m_count++;
             }
             return;
         }
@@ -50,9 +50,9 @@ class Solution {
     }
     template <typename T>
     int PseudoPalindromicPaths(TreeNode<T>* root) {
-        vector<int> mpp(10, 0);
-        Dfs(root, mpp);
-        return count;
+      vector<int> const mpp(10, 0);
+      Dfs(root, mpp);
+      return m_count;
     }
     template <typename T>
     bool IsPalindromic(std::vector<TreeNode<T>*> n) {
@@ -66,7 +66,7 @@ class Solution {
 
         int count = 1;
 
-        int size = n.size();
+        int const size = n.size();
         bool allow = true;
 
         for (int j = 1; j < size; j++) {
@@ -136,8 +136,8 @@ TEST(pseudo_palindromic_paths_in_a_binary_tree, t1) {
 
 
     */
-    std::vector<optional<int>> root = {2, 3, 1, 3, 1, null, 1};
-    int output = 2;
+    std::vector<optional<int>> const root = {2, 3, 1, 3, 1, null, 1};
+    int const output = 2;
     auto* node = ConstructBinaryTree(root);
 
     // Explanation: The figure above represents the given binary tree. There are
@@ -147,58 +147,58 @@ TEST(pseudo_palindromic_paths_in_a_binary_tree, t1) {
     // [2,3,3] can be rearranged in [3,2,3] (palindrome) and the green path
     // [2,1,1] can be rearranged in [1,2,1] (palindrome).
     Solution sl;
-    int ret = sl.PseudoPalindromicPaths(node);
+    int const ret = sl.PseudoPalindromicPaths(node);
     EXPECT_EQ(ret, output);
     FreeTreeNode(node);
 }
 
 TEST(pseudo_palindromic_paths_in_a_binary_tree, t2) {
-    std::vector<optional<int>> root = {2,    1,    1,    1,    3, null,
-                                       null, null, null, null, 1};
-    /*
-                             _______
-                             |     |
-                             |  2  |
-                             |_____|
-                      _______         _______
-                      |     |         |     |
-                      |  1  |         |  1  |
-                      |_____|         |_____|
-             _______    _______    _______   _______
-             |     |    |     |    |     |   |     |
-             |  1  |    |  3  |    |     |   |     |
-             |_____|    |_____|    |_____|   |_____|
+  std::vector<optional<int>> const root = {2,    1,    1,    1,    3, null,
+                                           null, null, null, null, 1};
+  /*
+                           _______
+                           |     |
+                           |  2  |
+                           |_____|
+                    _______         _______
+                    |     |         |     |
+                    |  1  |         |  1  |
+                    |_____|         |_____|
+           _______    _______    _______   _______
+           |     |    |     |    |     |   |     |
+           |  1  |    |  3  |    |     |   |     |
+           |_____|    |_____|    |_____|   |_____|
 
-       _______ ____   _____   ____
-       |     | |  |   |   |  |   |
-       |     | |  |   |   |  | 1 |
-       |_____| |__|   |___|  |___|
+     _______ ____   _____   ____
+     |     | |  |   |   |  |   |
+     |     | |  |   |   |  | 1 |
+     |_____| |__|   |___|  |___|
 
-    */
+  */
 
-    int output = 1;
-    auto* node = ConstructBinaryTree(root);
-    // The figure above represents the given binary tree. There are three paths
-    // going from the root node to leaf nodes: the green path [2,1,1], the path
-    // [2,1,3,1], and the path [2,1]. Among these paths only the green path is
-    // pseudo-palindromic since [2,1,1] can be rearranged in [1,2,1]
-    // (palindrome).
+  int const output = 1;
+  auto* node = ConstructBinaryTree(root);
+  // The figure above represents the given binary tree. There are three paths
+  // going from the root node to leaf nodes: the green path [2,1,1], the path
+  // [2,1,3,1], and the path [2,1]. Among these paths only the green path is
+  // pseudo-palindromic since [2,1,1] can be rearranged in [1,2,1]
+  // (palindrome).
 
-    Solution sl;
-    int ret = sl.PseudoPalindromicPaths(node);
-    EXPECT_EQ(ret, output);
-    FreeTreeNode(node);
+  Solution sl;
+  int const ret = sl.PseudoPalindromicPaths(node);
+  EXPECT_EQ(ret, output);
+  FreeTreeNode(node);
 }
 
 TEST(pseudo_palindromic_paths_in_a_binary_tree, t3) {
-    std::vector<optional<int>> root = {9};
-    int output = 1;
-    auto* node = ConstructBinaryTree(root);
+  std::vector<optional<int>> const root = {9};
+  int const output = 1;
+  auto* node = ConstructBinaryTree(root);
 
-    Solution sl;
-    int ret = sl.PseudoPalindromicPaths(node);
-    EXPECT_EQ(ret, output);
-    FreeTreeNode(node);
+  Solution sl;
+  int const ret = sl.PseudoPalindromicPaths(node);
+  EXPECT_EQ(ret, output);
+  FreeTreeNode(node);
 }
 
 TEST(pseudo_palindromic_paths_in_a_binary_tree_v2, t1) {
@@ -218,8 +218,8 @@ TEST(pseudo_palindromic_paths_in_a_binary_tree_v2, t1) {
 
 
     */
-    std::vector<optional<int>> root = {2, 3, 1, 3, 1, null, 1};
-    int output = 2;
+    std::vector<optional<int>> const root = {2, 3, 1, 3, 1, null, 1};
+    int const output = 2;
     auto* node = ConstructBinaryTree(root);
 
     // Explanation: The figure above represents the given binary tree. There are
@@ -229,58 +229,58 @@ TEST(pseudo_palindromic_paths_in_a_binary_tree_v2, t1) {
     // [2,3,3] can be rearranged in [3,2,3] (palindrome) and the green path
     // [2,1,1] can be rearranged in [1,2,1] (palindrome).
     Solution sl;
-    int ret = sl.PseudoPalindromicPathsV1(node);
+    int const ret = sl.PseudoPalindromicPathsV1(node);
     EXPECT_EQ(ret, output);
     FreeTreeNode(node);
 }
 
 TEST(pseudo_palindromic_paths_in_a_binary_tree_v2, t2) {
-    std::vector<optional<int>> root = {2,    1,    1,    1,    3, null,
-                                       null, null, null, null, 1};
-    /*
-                             _______
-                             |     |
-                             |  2  |
-                             |_____|
-                      _______         _______
-                      |     |         |     |
-                      |  1  |         |  1  |
-                      |_____|         |_____|
-             _______    _______    _______   _______
-             |     |    |     |    |     |   |     |
-             |  1  |    |  3  |    |     |   |     |
-             |_____|    |_____|    |_____|   |_____|
+  std::vector<optional<int>> const root = {2,    1,    1,    1,    3, null,
+                                           null, null, null, null, 1};
+  /*
+                           _______
+                           |     |
+                           |  2  |
+                           |_____|
+                    _______         _______
+                    |     |         |     |
+                    |  1  |         |  1  |
+                    |_____|         |_____|
+           _______    _______    _______   _______
+           |     |    |     |    |     |   |     |
+           |  1  |    |  3  |    |     |   |     |
+           |_____|    |_____|    |_____|   |_____|
 
-       _______ ____   _____   ____
-       |     | |  |   |   |  |   |
-       |     | |  |   |   |  | 1 |
-       |_____| |__|   |___|  |___|
+     _______ ____   _____   ____
+     |     | |  |   |   |  |   |
+     |     | |  |   |   |  | 1 |
+     |_____| |__|   |___|  |___|
 
-    */
+  */
 
-    int output = 1;
-    auto* node = ConstructBinaryTree(root);
-    // The figure above represents the given binary tree. There are three paths
-    // going from the root node to leaf nodes: the green path [2,1,1], the path
-    // [2,1,3,1], and the path [2,1]. Among these paths only the green path is
-    // pseudo-palindromic since [2,1,1] can be rearranged in [1,2,1]
-    // (palindrome).
+  int const output = 1;
+  auto* node = ConstructBinaryTree(root);
+  // The figure above represents the given binary tree. There are three paths
+  // going from the root node to leaf nodes: the green path [2,1,1], the path
+  // [2,1,3,1], and the path [2,1]. Among these paths only the green path is
+  // pseudo-palindromic since [2,1,1] can be rearranged in [1,2,1]
+  // (palindrome).
 
-    Solution sl;
-    int ret = sl.PseudoPalindromicPathsV1(node);
-    EXPECT_EQ(ret, output);
-    FreeTreeNode(node);
+  Solution sl;
+  int const ret = sl.PseudoPalindromicPathsV1(node);
+  EXPECT_EQ(ret, output);
+  FreeTreeNode(node);
 }
 
 TEST(pseudo_palindromic_paths_in_a_binary_tree_v2, t3) {
-    std::vector<optional<int>> root = {9};
-    int output = 1;
-    auto* node = ConstructBinaryTree(root);
+  std::vector<optional<int>> const root = {9};
+  int const output = 1;
+  auto* node = ConstructBinaryTree(root);
 
-    Solution sl;
-    int ret = sl.PseudoPalindromicPathsV1(node);
-    EXPECT_EQ(ret, output);
-    FreeTreeNode(node);
+  Solution sl;
+  int const ret = sl.PseudoPalindromicPathsV1(node);
+  EXPECT_EQ(ret, output);
+  FreeTreeNode(node);
 }
 
 }  // namespace

@@ -7,6 +7,7 @@ Nary-Tree input serialization is represented in their level order traversal,
 each group of children is separated by the null value (See examples).*/
 
 #include <queue>
+#include <utility>
 #include <vector>
 
 #include "gtest/gtest.h"
@@ -23,7 +24,8 @@ class Node {
 
     Node(int val) : m_val(val) {}
 
-    Node(int val, vector<Node*> children) : m_val(val), m_children(children) {}
+    Node(int val, vector<Node*> children)
+        : m_val(val), m_children(std::move(children)) {}
 };
 
 class Solution {

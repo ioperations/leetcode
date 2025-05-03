@@ -30,25 +30,24 @@ using namespace std;
 #include <gtest/gtest.h>
 namespace {
 class Solution {
-    unordered_map<string, unordered_map<string, double>> unmp;
-    unordered_set<string> visited;
+  unordered_map<string, unordered_map<string, double>> m_unmp;
+  unordered_set<string> m_visited;
 
-   public:
-    double Dfs(string src, string dest) {
-        visited.insert(src);
-        if (src == dest && unmp.find(src) != unmp.end())
-            return 1;  // if we reached destionation and  destionation string
-                       // actually present in the graph
-        for (auto it : unmp[src]) {
-            if (visited.find(it.first) != visited.end()) continue;
-            double d = Dfs(it.first, dest);
-            if (d > 0)
-                return d *
-                       it.second;  // when returned value is > 0 means we are
-                                   // coming here after visiting destination
-        }
-        return -1;  // when destionation cannot be reached with from this
-                    // recursive call return -1
+ public:
+  double Dfs(string src, string dest) {
+    m_visited.insert(src);
+    if (src == dest && m_unmp.find(src) != m_unmp.end())
+      return 1;  // if we reached destionation and  destionation string
+                 // actually present in the graph
+    for (auto it : m_unmp[src]) {
+      if (m_visited.find(it.first) != m_visited.end()) continue;
+      double const d = Dfs(it.first, dest);
+      if (d > 0)
+        return d * it.second;  // when returned value is > 0 means we are
+                               // coming here after visiting destination
+    }
+    return -1;  // when destionation cannot be reached with from this
+                // recursive call return -1
     }
     vector<double> CalcEquation(vector<vector<string>>& eq,
                                 vector<double>& values,
@@ -56,14 +55,14 @@ class Solution {
         for (int i = 0; i < (int)values.size();
              i++)  // this loop is for creating graph
         {
-            unmp[eq[i][0]].insert({eq[i][1], values[i]});
-            unmp[eq[i][1]].insert({eq[i][0], 1 / values[i]});
+          m_unmp[eq[i][0]].insert({eq[i][1], values[i]});
+          m_unmp[eq[i][1]].insert({eq[i][0], 1 / values[i]});
         }
         vector<double> ans;
         for (auto it : queries) {
-            visited.clear();  // we clear visited array for each dfs
-            ans.push_back(Dfs(
-                it[0], it[1]));  // pushing answer of each query returned by dfs
+          m_visited.clear();  // we clear visited array for each dfs
+          ans.push_back(Dfs(
+              it[0], it[1]));  // pushing answer of each query returned by dfs
         }
         return ans;
     }
@@ -74,7 +73,7 @@ TEST(evaluate_division, t1) {
     vector<double> values{2.0, 3.0};
     vector<vector<string>> queries{
         {"a", "c"}, {"b", "a"}, {"a", "e"}, {"a", "a"}, {"x", "x"}};
-    vector<double> output{6.00000, 0.50000, -1.00000, 1.00000, -1.00000};
+    vector<double> const output{6.00000, 0.50000, -1.00000, 1.00000, -1.00000};
     Solution sl;
     /*
         Given: a / b = 2.0, b / c = 3.0
@@ -90,7 +89,7 @@ TEST(evaluate_division, t2) {
     vector<double> values{1.5, 2.5, 5.0};
     vector<vector<string>> queries{
         {"a", "c"}, {"c", "b"}, {"bc", "cd"}, {"cd", "bc"}};
-    vector<double> output{3.75000, 0.40000, 5.00000, 0.20000};
+    vector<double> const output{3.75000, 0.40000, 5.00000, 0.20000};
     Solution sl;
     auto ret = sl.CalcEquation(equations, values, queries);
     EXPECT_EQ(ret, output);
@@ -101,7 +100,7 @@ TEST(evaluate_division, t3) {
     vector<double> values{0.5};
     vector<vector<string>> queries{
         {"a", "b"}, {"b", "a"}, {"a", "c"}, {"x", "y"}};
-    vector<double> output{0.50000, 2.00000, -1.00000, -1.00000};
+    vector<double> const output{0.50000, 2.00000, -1.00000, -1.00000};
     Solution sl;
     auto ret = sl.CalcEquation(equations, values, queries);
     EXPECT_EQ(ret, output);

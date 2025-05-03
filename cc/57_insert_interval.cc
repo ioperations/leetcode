@@ -62,19 +62,19 @@ class Solution {
 
         int start = new_interval[0], end = new_interval[1];
 
-        for (int i = 0; i < (int)intervals.size(); i++) {
-            if (intervals[i][1] < start || end < intervals[i][0]) {
-                if (intervals[i][1] < start) {  // push element before overlap
-                    ans.push_back(intervals[i]);
-                } else {  // push element after overlap
-                    ans.push_back({start, end});
-                    start = intervals[i][0];
-                    end = intervals[i][1];
-                }
-            } else {  // merge overlap
-                start = min(start, intervals[i][0]);
-                end = max(end, intervals[i][1]);
+        for (auto& interval : intervals) {
+          if (interval[1] < start || end < interval[0]) {
+            if (interval[1] < start) {  // push element before overlap
+              ans.push_back(interval);
+            } else {  // push element after overlap
+              ans.push_back({start, end});
+              start = interval[0];
+              end = interval[1];
             }
+          } else {  // merge overlap
+            start = min(start, interval[0]);
+            end = max(end, interval[1]);
+          }
         }
 
         ans.push_back({start, end});
@@ -86,7 +86,7 @@ class Solution {
 TEST(insert_interval, t1) {
     vector<vector<int>> intervals = {{1, 3}, {6, 9}};
     vector<int> new_interval = {2, 5};
-    vector<vector<int>> output = {{1, 5}, {6, 9}};
+    vector<vector<int>> const output = {{1, 5}, {6, 9}};
 
     Solution sl;
     auto ret = sl.Insert(intervals, new_interval);
@@ -96,7 +96,7 @@ TEST(insert_interval, t1) {
 TEST(insert_interval, t2) {
     vector<vector<int>> intervals = {{1, 2}, {3, 5}, {6, 7}, {8, 10}, {12, 16}};
     vector<int> new_interval = {4, 8};
-    vector<vector<int>> output = {{1, 2}, {3, 10}, {12, 16}};
+    vector<vector<int>> const output = {{1, 2}, {3, 10}, {12, 16}};
 
     // Because the new interval [4,8] overlaps with [3,5],[6,7],[8,10].
     Solution sl;

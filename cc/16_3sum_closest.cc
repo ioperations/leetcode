@@ -3,9 +3,9 @@
 // https://pvs-studio.com
 
 #include <benchmark/benchmark.h>
-#include <stdlib.h>
 
 #include <algorithm>
+#include <cstdlib>
 #include <limits>
 #include <vector>
 
@@ -16,8 +16,8 @@
 namespace {
 class Solution {
    public:
-    Solution() {};
-    virtual ~Solution() {};
+    Solution() = default;
+    virtual ~Solution() = default;
     ///* 将输入的数据得到他的全排列，
     ///* 在每一次排列当中，得到前3个数字，
     ///* 将这三个数字加和，更最后的要求做比较
@@ -39,26 +39,26 @@ class Solution {
 
     // 第二种解法，效率更高，我的第一种解法直接在数据量大的时候超时，两个指针
     int ThreeSum2(std::vector<int>& nums, int target) {
-        int i, j, k;
-        sort(nums.begin(), nums.end());
-        const int n = nums.size();
-        int diff = std::numeric_limits<int>::max();
-        int sum = 0;
-        for (i = 0; i < n; i++) {
-            j = i + 1;
-            k = n - 1;
-            while (j < k) {
-                const int d = abs(target - (nums[i] + nums[j] + nums[k]));
-                if (diff >= d) {
-                    diff = d;
-                    sum = nums[i] + nums[j] + nums[k];
-                }
-                if ((nums[i] + nums[j] + nums[k]) <= target) {
-                    j = j + 1;
-                } else {
-                    k = k - 1;
-                }
-            }
+      int i = 0, j = 0, k = 0;
+      sort(nums.begin(), nums.end());
+      const int n = nums.size();
+      int diff = std::numeric_limits<int>::max();
+      int sum = 0;
+      for (i = 0; i < n; i++) {
+        j = i + 1;
+        k = n - 1;
+        while (j < k) {
+          const int d = abs(target - (nums[i] + nums[j] + nums[k]));
+          if (diff >= d) {
+            diff = d;
+            sum = nums[i] + nums[j] + nums[k];
+          }
+          if ((nums[i] + nums[j] + nums[k]) <= target) {
+            j = j + 1;
+          } else {
+            k = k - 1;
+          }
+        }
         }
         return sum;
     }

@@ -7,6 +7,8 @@
  */
 
 #include <algorithm>
+#include <iostream>
+#include <ostream>
 #include <vector>
 
 #include "gtest/gtest.h"
@@ -44,7 +46,7 @@ class Solution {
 TEST(merge_intervals, t1) {
     std::vector<std::vector<int>> intervals = {
         {1, 3}, {2, 6}, {8, 10}, {15, 18}};
-    std::vector<std::vector<int>> output = {{1, 6}, {8, 10}, {15, 18}};
+    std::vector<std::vector<int>> const output = {{1, 6}, {8, 10}, {15, 18}};
 
     Solution sl;
     auto ret = sl.Merge(intervals);
@@ -67,7 +69,7 @@ TEST(merge_intervals, t2) {
     std::vector<std::vector<int>> intervals = {{1, 4}, {4, 5}};
 
     // Explanation: Intervals [1,4] and [4,5] are considered overlapping.
-    std::vector<std::vector<int>> output = {{1, 5}};
+    std::vector<std::vector<int>> const output = {{1, 5}};
 
     Solution sl;
     auto ret = sl.Merge(intervals);
@@ -86,7 +88,7 @@ TEST(merge_intervals, t3) {
     std::vector<std::vector<int>> intervals = {{1, 4}, {2, 3}};
 
     // Explanation: Intervals [1,4] and [4,5] are considered overlapping.
-    std::vector<std::vector<int>> output = {{1, 4}};
+    std::vector<std::vector<int>> const output = {{1, 4}};
 
     Solution sl;
     auto ret = sl.Merge(intervals);

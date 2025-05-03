@@ -36,17 +36,17 @@ class Solution {
     }
     // clang-format off
     vector<string> LetterCombinations(string digits) {
-        string s;
+        string const s;
         // clang-format off
         vector<vector<char> > v{{}, {}, {'a', 'b', 'c'}, {'d', 'e', 'f'},
                                 {'g', 'h', 'i'}, {'j', 'k', 'l'},
                                 {'m', 'n', 'o'}, {'p', 'q', 'r', 's'},
                                 {'t', 'u', 'v'}, {'w', 'x', 'y', 'z'}
                                 };
-        // clang-format on
-        vector<string> ans;
-        Solve(v, ans, digits, 0, "");
-        return ans;
+      // clang-format on
+      vector<string> ans;
+      Solve(v, ans, digits, 0, "");
+      return ans;
     }
     // clang-format on
 };
@@ -55,39 +55,39 @@ TEST(letter_conbinations_of_a_phone_number, t1) {
     vector<string> expected = {"ad", "ae", "af", "bd", "be",
                                "bf", "cd", "ce", "cf"};
 
-    string digits = "23";
+    string const digits = "23";
 
-    set<string> expected_set(expected.begin(), expected.end());
+    set<string> const expected_set(expected.begin(), expected.end());
 
     Solution sl;
     auto ret = sl.LetterCombinations(digits);
-    set<string> ret_set(ret.begin(), ret.end());
+    set<string> const ret_set(ret.begin(), ret.end());
     EXPECT_EQ(ret_set, expected_set);
 }
 
 TEST(letter_conbinations_of_a_phone_number, t2) {
     vector<string> expected = {};
 
-    string digits = "";
+    string const digits = "";
 
-    set<string> expected_set(expected.begin(), expected.end());
+    set<string> const expected_set(expected.begin(), expected.end());
 
     Solution sl;
     auto ret = sl.LetterCombinations(digits);
-    set<string> ret_set(ret.begin(), ret.end());
+    set<string> const ret_set(ret.begin(), ret.end());
     EXPECT_EQ(ret_set, expected_set);
 }
 
 TEST(letter_conbinations_of_a_phone_number, t3) {
     vector<string> expected = {"a", "b", "c"};
 
-    string digits = "2";
+    string const digits = "2";
 
-    set<string> expected_set(expected.begin(), expected.end());
+    set<string> const expected_set(expected.begin(), expected.end());
 
     Solution sl;
     auto ret = sl.LetterCombinations(digits);
-    set<string> ret_set(ret.begin(), ret.end());
+    set<string> const ret_set(ret.begin(), ret.end());
     EXPECT_EQ(ret_set, expected_set);
 }
 

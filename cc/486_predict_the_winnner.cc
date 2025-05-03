@@ -48,7 +48,7 @@ class Solution {
         return Ok(nums, 0, nums.size() - 1, 0, true);
     }
 
-    int dp[21][21][2];
+    int m_dp[21][21][2];
 
     int Ok(vector<int>& nums, int i, int j, bool chance) {
         // Base case
@@ -56,9 +56,9 @@ class Solution {
             return 0;
         }
 
-        if (dp[i][j][chance] != -1) return dp[i][j][chance];
+        if (m_dp[i][j][chance] != -1) return m_dp[i][j][chance];
 
-        int ans;
+        int ans = 0;
         if (chance) {
             ans = max(Ok(nums, i + 1, j, 1 - chance) + nums[i],
                       Ok(nums, i, j - 1, 1 - chance) + nums[j]);
@@ -67,20 +67,20 @@ class Solution {
                       Ok(nums, i, j - 1, 1 - chance) - nums[j]);
         }
 
-        return dp[i][j][chance] = ans;
+        return m_dp[i][j][chance] = ans;
     }
 
     bool PredictTheWinnerV2(vector<int>& nums) {
-        memset(dp, -1, sizeof dp);
-        int res = Ok(nums, 0, nums.size() - 1, true);
+      memset(m_dp, -1, sizeof m_dp);
+      int const res = Ok(nums, 0, nums.size() - 1, true);
 
-        return res >= 0;
+      return res >= 0;
     }
 };
 
 TEST(predict_the_winnner, t1) {
     std::vector<int> nums = {1, 5, 2};
-    bool expected = false;
+    bool const expected = false;
     /* Explanation: Initially, player 1 can choose between 1 and 2.
         If he chooses 2 (or 1), then player 2 can choose from 1 (or 2) and 5.
         If player 2 chooses 5, then player 1 will be left with 1 (or 2).
@@ -89,7 +89,7 @@ TEST(predict_the_winnner, t1) {
         never be the winner and you need to return false.
     */
 
-    Solution sl;
+    Solution sl{};
     bool ret = sl.PredictTheWinner(nums);
     EXPECT_EQ(ret, expected);
 
@@ -99,7 +99,7 @@ TEST(predict_the_winnner, t1) {
 
 TEST(predict_the_winnner, t2) {
     std::vector<int> nums = {1, 5, 233, 7};
-    bool expected = true;
+    bool const expected = true;
     /*  Player 1 first chooses 1.
         Then player 2 has to choose between 5 and 7.
         No matter which number player 2 choose,
@@ -109,7 +109,7 @@ TEST(predict_the_winnner, t2) {
         representing player1 can win.
     */
 
-    Solution sl;
+    Solution sl{};
     bool ret = sl.PredictTheWinner(nums);
     EXPECT_EQ(ret, expected);
 

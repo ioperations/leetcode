@@ -44,33 +44,33 @@ class Solution {
 using namespace std;
 
 TEST(count_complete_tree_nodes, t1) {
-    vector<optional<int>> root = {1, 2, 3, 4, 5, 6};
-    int output = 6;
-    auto* const node = ConstructBinaryTree(root);
-    Solution sl;
-    int const ret = sl.CountNodes(node);
-    EXPECT_EQ(ret, output);
-    FreeTreeNode(node);
+  vector<optional<int>> const root = {1, 2, 3, 4, 5, 6};
+  int const output = 6;
+  auto* const node = ConstructBinaryTree(root);
+  Solution sl;
+  int const ret = sl.CountNodes(node);
+  EXPECT_EQ(ret, output);
+  FreeTreeNode(node);
 }
 
 TEST(count_complete_tree_nodes, t2) {
-    vector<optional<int>> root = {};
-    int output = 0;
-    auto* const node = ConstructBinaryTree(root);
-    Solution sl;
-    int const ret = sl.CountNodes(node);
-    EXPECT_EQ(ret, output);
-    FreeTreeNode(node);
+  vector<optional<int>> const root = {};
+  int const output = 0;
+  auto* const node = ConstructBinaryTree(root);
+  Solution sl;
+  int const ret = sl.CountNodes(node);
+  EXPECT_EQ(ret, output);
+  FreeTreeNode(node);
 }
 
 TEST(count_complete_tree_nodes, t3) {
-    vector<optional<int>> root = {1};
-    int output = 1;
-    auto* const node = ConstructBinaryTree(root);
-    Solution sl;
-    int const ret = sl.CountNodes(node);
-    EXPECT_EQ(ret, output);
-    FreeTreeNode(node);
+  vector<optional<int>> const root = {1};
+  int const output = 1;
+  auto* const node = ConstructBinaryTree(root);
+  Solution sl;
+  int const ret = sl.CountNodes(node);
+  EXPECT_EQ(ret, output);
+  FreeTreeNode(node);
 }
 
 }  // namespace

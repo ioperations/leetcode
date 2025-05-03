@@ -13,18 +13,18 @@ using namespace std;
 
 class Solution {
    public:
-    bool divideArray(vector<int>& nums) {
-        /* nums.length == 2 * n
-         * 1 <= n <= 500
-         * 1 <= nums[i] <= 500
-         */
-        unordered_map<int, int> v;
-        for (auto& p : nums) {
-            v[p]++;
-        }
+    bool DivideArray(vector<int>& nums) {
+      /* nums.length == 2 * n
+       * 1 <= n <= 500
+       * 1 <= nums[i] <= 500
+       */
+      unordered_map<int, int> v;
+      for (auto& p : nums) {
+        v[p]++;
+      }
 
-        return !any_of(v.begin(), v.end(),
-                       [](auto& v) { return v.second % 2 == 1; });
+      return !any_of(v.begin(), v.end(),
+                     [](auto& v) { return v.second % 2 == 1; });
     }
 };
 
@@ -32,10 +32,10 @@ class Solution {
 
 TEST(t0, t1) {
     vector<int> nums = {3, 2, 3, 2, 2, 2};
-    bool Output = true;
+    bool const output = true;
     Solution sl;
-    int ret = sl.divideArray(nums);
-    EXPECT_EQ(ret, Output);
+    int const ret = sl.DivideArray(nums);
+    EXPECT_EQ(ret, output);
     // Explanation:
     // There are 6 elements in nums, so they should be divided into 6 / 2 = 3
     // pairs. If nums is divided into the pairs (2, 2), (3, 3), and (2, 2), it
@@ -44,10 +44,10 @@ TEST(t0, t1) {
 
 TEST(t0, t2) {
     vector<int> nums = {1, 2, 3, 4};
-    bool Output = false;
+    bool const output = false;
     Solution sl;
-    int ret = sl.divideArray(nums);
-    EXPECT_EQ(ret, Output);
+    int const ret = sl.DivideArray(nums);
+    EXPECT_EQ(ret, output);
     // Explanation:
     // There is no way to divide nums into 4 / 2 = 2 pairs such that the pairs
     // satisfy every condition.

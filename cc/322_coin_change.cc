@@ -67,7 +67,7 @@ class Solution {
         vector<int> h((amount + 1), INT_MAX - 1);
         h[0] = 0;
         for (int i = 0; i < (int)h.size(); i++) {
-          for (int coin : coins) {
+          for (int const coin : coins) {
             if (i >= coin) h[i] = min(h[i], 1 + h[i - coin]);
           }
         }

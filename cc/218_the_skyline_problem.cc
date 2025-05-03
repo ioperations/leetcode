@@ -45,9 +45,9 @@ class Solution {
         std::vector<std::pair<int, int>> coords;
         for (const auto& b : buildings) {
             // Building end is processed first if two x-coordinates are a tie.
-            coords.push_back({b[0], -b[2]});
+            coords.emplace_back(b[0], -b[2]);
             // And add building start.
-            coords.push_back({b[1], b[2]});
+            coords.emplace_back(b[1], b[2]);
         }
 
         // Sort coordinates so buildings ending are processed before buildings

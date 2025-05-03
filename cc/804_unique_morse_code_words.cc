@@ -26,10 +26,10 @@ have.*/
 
 using namespace std;
 
-const char* table[] = {".-",   "-...", "-.-.", "-..",  ".",    "..-.", "--.",
-                       "....", "..",   ".---", "-.-",  ".-..", "--",   "-.",
-                       "---",  ".--.", "--.-", ".-.",  "...",  "-",    "..-",
-                       "...-", ".--",  "-..-", "-.--", "--.."};
+const static char* table[] = {
+    ".-",   "-...", "-.-.", "-..",  ".",   "..-.", "--.",  "....", "..",
+    ".---", "-.-",  ".-..", "--",   "-.",  "---",  ".--.", "--.-", ".-.",
+    "...",  "-",    "..-",  "...-", ".--", "-..-", "-.--", "--.."};
 namespace {
 class Solution {
     std::string Convert(std::string& s) {
@@ -55,7 +55,7 @@ class Solution {
 
 TEST(unique_morse_code_words, t1) {
     vector<string> words = {"gin", "zen", "gig", "msg"};
-    int output = 2;
+    int const output = 2;
     /*
     Explanation: The transformation of each word is:
     "gin" -> "--...-."
@@ -66,16 +66,16 @@ TEST(unique_morse_code_words, t1) {
     */
     Solution sl;
 
-    int ret = sl.UniqueMorseRepresentations(words);
+    int const ret = sl.UniqueMorseRepresentations(words);
     EXPECT_EQ(ret, output);
 }
 
 TEST(unique_morse_code_words, t2) {
     vector<string> words = {"a"};
-    int output = 1;
+    int const output = 1;
     Solution sl;
 
-    int ret = sl.UniqueMorseRepresentations(words);
+    int const ret = sl.UniqueMorseRepresentations(words);
     EXPECT_EQ(ret, output);
 }
 }  // namespace

@@ -33,7 +33,7 @@ class Solution {
             vector<double> next(i + 2, 0);
             for (int j = 0; j <= i; j++) {
                 if (row[j] <= 1) continue;
-                double excess = (row[j] - 1) / 2.0;
+                double const excess = (row[j] - 1) / 2.0;
                 next[j] += excess;
                 next[j + 1] += excess;
             }
@@ -45,9 +45,9 @@ class Solution {
 
 TEST(champagne_tower, t1) {
     int poured = 1, query_row = 1, query_glass = 1;
-    double output = 0.00000;
+    double const output = 0.00000;
     Solution sl;
-    double ret = sl.ChampagneTower(poured, query_row, query_glass);
+    double const ret = sl.ChampagneTower(poured, query_row, query_glass);
     EXPECT_DOUBLE_EQ(output, ret);
     // Explanation: We poured 1 cup of champange to the top glass of the tower
     // (which is indexed as (0, 0)). There will be no excess liquid so all the
@@ -56,9 +56,9 @@ TEST(champagne_tower, t1) {
 
 TEST(champagne_tower, t2) {
     int poured = 2, query_row = 1, query_glass = 1;
-    double output = 0.50000;
+    double const output = 0.50000;
     Solution sl;
-    double ret = sl.ChampagneTower(poured, query_row, query_glass);
+    double const ret = sl.ChampagneTower(poured, query_row, query_glass);
     EXPECT_DOUBLE_EQ(output, ret);
     // ќ Explanation: We poured 1 cup of champange to the top glass of the tower
     // We poured 2 cups of champange to the top glass of the tower (which is
@@ -69,9 +69,9 @@ TEST(champagne_tower, t2) {
 
 TEST(champagne_tower, t3) {
     int poured = 100000009, query_row = 33, query_glass = 17;
-    double output = 1.00000;
+    double const output = 1.00000;
     Solution sl;
-    double ret = sl.ChampagneTower(poured, query_row, query_glass);
+    double const ret = sl.ChampagneTower(poured, query_row, query_glass);
     EXPECT_DOUBLE_EQ(output, ret);
 }
 

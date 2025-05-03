@@ -23,48 +23,48 @@ class Solution {
     int MaxDepth(TreeNode<T>* root) {
         Z(root, 1);
 
-        return ret;
+        return m_ret;
     }
 
     template <typename T>
     void Z(TreeNode<T>* root, int n) {
         if (root == nullptr) return;
-        if (n > ret) ret = n;
+        if (n > m_ret) m_ret = n;
         Z(root->left, n + 1);
         Z(root->right, n + 1);
     }
 
    private:
-    int ret = 0;
+    int m_ret = 0;
 };
 #include <optional>
 
 using namespace std;
 
 TEST(memleak, t0) {
-    vector<optional<int>> elements{3,  9, 20, optional<int>(), optional<int>(),
-                                   15, 7};
-    auto* binary_tree = ConstructBinaryTree(elements);
-    FreeTreeNode(binary_tree);
+  vector<optional<int>> const elements{
+      3, 9, 20, optional<int>(), optional<int>(), 15, 7};
+  auto* binary_tree = ConstructBinaryTree(elements);
+  FreeTreeNode(binary_tree);
 }
 
 TEST(maximum_depth_of_binary_tree, t1) {
-    vector<optional<int>> elements{3,  9, 20, optional<int>(), optional<int>(),
-                                   15, 7};
-    auto* binary_tree = ConstructBinaryTree(elements);
-    Solution sl;
-    int ret = sl.MaxDepth(binary_tree);
-    EXPECT_EQ(ret, 3);
-    FreeTreeNode(binary_tree);
+  vector<optional<int>> const elements{
+      3, 9, 20, optional<int>(), optional<int>(), 15, 7};
+  auto* binary_tree = ConstructBinaryTree(elements);
+  Solution sl;
+  int const ret = sl.MaxDepth(binary_tree);
+  EXPECT_EQ(ret, 3);
+  FreeTreeNode(binary_tree);
 }
 
 TEST(maximum_depth_of_binary_tree, t2) {
-    vector<optional<int>> elements{1, optional<int>(), 2};
-    auto* binary_tree = ConstructBinaryTree(elements);
-    Solution sl;
-    int ret = sl.MaxDepth(binary_tree);
-    EXPECT_EQ(ret, 2);
-    FreeTreeNode(binary_tree);
+  vector<optional<int>> const elements{1, optional<int>(), 2};
+  auto* binary_tree = ConstructBinaryTree(elements);
+  Solution sl;
+  int const ret = sl.MaxDepth(binary_tree);
+  EXPECT_EQ(ret, 2);
+  FreeTreeNode(binary_tree);
 }
 
 }  // namespace

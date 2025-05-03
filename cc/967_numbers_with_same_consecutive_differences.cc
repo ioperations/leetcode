@@ -23,7 +23,7 @@ class Solution {
    public:
     vector<int> NumsSameConsecDiff(int n, int k) {
         std::set<int> ret;
-        if (n <= 1) return vector<int>(ret.begin(), ret.end());
+        if (n <= 1) return {ret.begin(), ret.end()};
 
         // @tmp 当前已经构造的数值
         std::function<void(std::string, int)> fun = [&](std::string tmp,
@@ -46,7 +46,7 @@ class Solution {
         for (int i = 1; i < 10; i++) {
             fun(std::to_string(i), 1);
         }
-        return std::vector<int>(ret.begin(), ret.end());
+        return {ret.begin(), ret.end()};
     }
 };
 
@@ -55,10 +55,10 @@ TEST(numbers_with_same_consecutive_differences, t1) {
     vector<int> output = {181, 292, 707, 818, 929};
     // Explanation: Note that 070 is not a valid number, because it has leading
     // zeroes.
-    set<int> out_set(output.begin(), output.end());
+    set<int> const out_set(output.begin(), output.end());
     Solution sl;
     auto ret = sl.NumsSameConsecDiff(n, k);
-    std::set<int> ret_set(ret.begin(), ret.end());
+    std::set<int> const ret_set(ret.begin(), ret.end());
     EXPECT_EQ(ret_set, out_set);
 }
 
@@ -66,20 +66,20 @@ TEST(numbers_with_same_consecutive_differences, t2) {
     int n = 2, k = 1;
     vector<int> output = {10, 12, 21, 23, 32, 34, 43, 45, 54,
                           56, 65, 67, 76, 78, 87, 89, 98};
-    set<int> out_set(output.begin(), output.end());
+    set<int> const out_set(output.begin(), output.end());
     Solution sl;
     auto ret = sl.NumsSameConsecDiff(n, k);
-    std::set<int> ret_set(ret.begin(), ret.end());
+    std::set<int> const ret_set(ret.begin(), ret.end());
     EXPECT_EQ(ret_set, out_set);
 }
 
 TEST(numbers_with_same_consecutive_differences, t3) {
     int n = 2, k = 0;
     vector<int> output = {11, 22, 33, 44, 55, 66, 77, 88, 99};
-    set<int> out_set(output.begin(), output.end());
+    set<int> const out_set(output.begin(), output.end());
     Solution sl;
     auto ret = sl.NumsSameConsecDiff(n, k);
-    std::set<int> ret_set(ret.begin(), ret.end());
+    std::set<int> const ret_set(ret.begin(), ret.end());
     EXPECT_EQ(ret_set, out_set);
 }
 }  // namespace

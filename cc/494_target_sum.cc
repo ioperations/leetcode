@@ -53,7 +53,7 @@ class Solution {
 
 TEST(target_sum, t1) {
     std::vector<int> nums = {1, 1, 1, 1, 1};
-    int target = 3;
+    int const target = 3;
 
     Solution sl;
     /*
@@ -64,16 +64,16 @@ TEST(target_sum, t1) {
         +1 + 1 + 1 - 1 + 1 = 3
         +1 + 1 + 1 + 1 - 1 = 3
     */
-    int ret = sl.FindTargetSumWays(nums, target);
+    int const ret = sl.FindTargetSumWays(nums, target);
     EXPECT_EQ(ret, 5);
 }
 
 TEST(target_sum, t2) {
     std::vector<int> nums = {1};
-    int target = 1;
+    int const target = 1;
 
     Solution sl;
-    int ret = sl.FindTargetSumWays(nums, target);
+    int const ret = sl.FindTargetSumWays(nums, target);
     EXPECT_EQ(ret, 1);
 }
 

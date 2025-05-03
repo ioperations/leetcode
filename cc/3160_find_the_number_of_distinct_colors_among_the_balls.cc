@@ -13,6 +13,7 @@
  *
  */
 
+#include <cstddef>
 #include <unordered_map>
 #include <vector>
 
@@ -34,15 +35,15 @@ class Solution {
 
         for (size_t i = 0; i < size; i++) {
             auto& curr = queries[i];
-            int index = curr[0];
+            int const index = curr[0];
             if (!(table.count(index) == 0 or table[index] == 0)) {
-                int c = table[index];
-                hm[c]--;
-                if (hm[c] == 0) {
-                    hm.erase(c);
+              int const c = table[index];
+              hm[c]--;
+              if (hm[c] == 0) {
+                hm.erase(c);
                 }
             }
-            int color = curr[1];
+            int const color = curr[1];
             hm[color]++;
             table[index] = color;
             ret[i] = hm.size();
@@ -66,15 +67,15 @@ class Solution {
 
         for (size_t i = 0; i < size; i++) {
             auto& curr = queries[i];
-            int index = curr[0];
+            int const index = curr[0];
             if (!(table[index] == 0)) {
-                int c = table[index];
-                hm[c]--;
-                if (hm[c] == 0) {
-                    hm.erase(c);
+              int const c = table[index];
+              hm[c]--;
+              if (hm[c] == 0) {
+                hm.erase(c);
                 }
             }
-            int color = curr[1];
+            int const color = curr[1];
             hm[color]++;
             table[index] = color;
             ret[i] = hm.size();

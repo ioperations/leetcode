@@ -22,9 +22,8 @@ using namespace std;
 namespace {
 class NumMatrix {
    public:
-    NumMatrix(vector<vector<int>>& matrix) {
-        // pass
-        m_matrix = matrix;
+    NumMatrix(vector<vector<int>>& matrix) : m_matrix(matrix) {
+      // pass
     }
 
     int SumRegion(int row1, int col1, int row2, int col2) {
@@ -44,20 +43,20 @@ class NumMatrix {
     vector<vector<int>> m_matrix;
 };
 class NumMatrixV1 {
-    vector<vector<int>> sum;
+  vector<vector<int>> m_sum;
 
-   public:
-    NumMatrixV1(vector<vector<int>>& matrix) {
-        int m = matrix.size(), n = matrix[0].size();
-        sum = vector<vector<int>>(
-            m + 1, vector<int>(n + 1));  // sum[i][j] is sum of all elements
-                                         // inside the rectangle [0,0,i,j]
-        for (int i = 1; i <= m; i++) {
-            for (int j = 1; j <= n; j++) {
-                sum[i][j] = sum[i - 1][j] + sum[i][j - 1] - sum[i - 1][j - 1] +
-                            matrix[i - 1][j - 1];
-            }
-        }
+ public:
+  NumMatrixV1(vector<vector<int>>& matrix) {
+    int m = matrix.size(), n = matrix[0].size();
+    m_sum = vector<vector<int>>(
+        m + 1, vector<int>(n + 1));  // sum[i][j] is sum of all elements
+                                     // inside the rectangle [0,0,i,j]
+    for (int i = 1; i <= m; i++) {
+      for (int j = 1; j <= n; j++) {
+        m_sum[i][j] = m_sum[i - 1][j] + m_sum[i][j - 1] - m_sum[i - 1][j - 1] +
+                      matrix[i - 1][j - 1];
+      }
+    }
     }
     int SumRegion(int r1, int c1, int r2, int c2) {
         // Since our `sum` starts by 1 so we need to increase r1, c1, r2, c2 by
@@ -66,8 +65,8 @@ class NumMatrixV1 {
         c1++;
         r2++;
         c2++;
-        return sum[r2][c2] - sum[r2][c1 - 1] - sum[r1 - 1][c2] +
-               sum[r1 - 1][c1 - 1];
+        return m_sum[r2][c2] - m_sum[r2][c1 - 1] - m_sum[r1 - 1][c2] +
+               m_sum[r1 - 1][c1 - 1];
     }
 };
 
@@ -84,7 +83,7 @@ TEST(range_sum_query_2d_immutable, t1) {
                                  {1, 2, 0, 1, 5},
                                  {4, 1, 0, 1, 7},
                                  {1, 0, 3, 0, 5}};
-    NumMatrix* obj = new NumMatrix(input);
+    auto* obj = new NumMatrix(input);
 
     int ret = obj->SumRegion(2, 1, 4, 3);
     EXPECT_EQ(ret, 8);
@@ -112,7 +111,7 @@ TEST(range_sum_query_2d_immutable, t2) {
                                  {1, 2, 0, 1, 5},
                                  {4, 1, 0, 1, 7},
                                  {1, 0, 3, 0, 5}};
-    NumMatrixV1* obj = new NumMatrixV1(input);
+    auto* obj = new NumMatrixV1(input);
 
     int ret = obj->SumRegion(2, 1, 4, 3);
     EXPECT_EQ(ret, 8);

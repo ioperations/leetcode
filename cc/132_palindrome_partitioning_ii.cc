@@ -7,9 +7,8 @@
     Return the minimum cuts needed for a palindrome partitioning of s.
 */
 
-#include <limits.h>
-
 #include <algorithm>
+#include <climits>
 #include <string>
 #include <unordered_map>
 
@@ -49,29 +48,29 @@ class Solution {
 };
 
 TEST(palindrome_partitioning_ii, t1) {
-    std::string s = "aab";
+  std::string const s = "aab";
 
-    int i = 1;
-    Solution sl;
-    int ret = sl.MinCut(s);
-    EXPECT_EQ(ret, i);
+  int const i = 1;
+  Solution sl;
+  int const ret = sl.MinCut(s);
+  EXPECT_EQ(ret, i);
 }
 
 TEST(palindrome_partitioning_ii, t2) {
-    std::string s = "a";
+  std::string const s = "a";
 
-    int i = 0;
-    Solution sl;
-    int ret = sl.MinCut(s);
-    EXPECT_EQ(ret, i);
+  int const i = 0;
+  Solution sl;
+  int const ret = sl.MinCut(s);
+  EXPECT_EQ(ret, i);
 }
 
 TEST(palindrome_partitioning_ii, t3) {
-    std::string s = "ab";
+  std::string const s = "ab";
 
-    int i = 1;
-    Solution sl;
-    int ret = sl.MinCut(s);
-    EXPECT_EQ(ret, i);
+  int const i = 1;
+  Solution sl;
+  int const ret = sl.MinCut(s);
+  EXPECT_EQ(ret, i);
 }
 }  // namespace

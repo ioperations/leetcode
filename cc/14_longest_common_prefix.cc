@@ -10,6 +10,7 @@ If there is no common prefix, return an empty string "".
 
     */
 
+#include <cstddef>
 #include <string>
 #include <vector>
 

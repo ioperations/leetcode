@@ -29,39 +29,37 @@ class Solution {
         unsigned long n_digits = 1;
         while (n--) n_digits *= 10;
         unsigned long candidate = 0, max_offset = 0;
-        long i, j;
+        long i = 0, j = 0;
         for (i = 1; i < (int)n_digits; i += 2) {
             // int cnt = 0;
             if (!((n_digits - i) % 11)) {
-                unsigned long start;
-                for (j = 1, start = (n_digits - i) * (n_digits - j); j <= i;
-                     j += 2) {
-                    // cnt++;
-                    const unsigned long val =
-                        start;  //(n_digits-i)*(n_digits-j);
-                    if (IsPalindrome(val)) {
-                        candidate = val;
-                        max_offset = n_digits - val / (n_digits - 1);
-                        break;
-                    }
-                    start -= ((n_digits - i) << 1);
+              unsigned long start = 0;
+              for (j = 1, start = (n_digits - i) * (n_digits - j); j <= i;
+                   j += 2) {
+                // cnt++;
+                const unsigned long val = start;  //(n_digits-i)*(n_digits-j);
+                if (IsPalindrome(val)) {
+                  candidate = val;
+                  max_offset = n_digits - val / (n_digits - 1);
+                  break;
+                }
+                start -= ((n_digits - i) << 1);
                 }
             } else {
-                unsigned long start;
-                j = n_digits - n_digits / 11 * 11;
-                if (!(j & 1)) j += 11;
-                start = (n_digits - i) * (n_digits - j);
-                const int step = (n_digits - i) * 22;
-                for (; j <= i + 11; j += 22) {
-                    // cnt++;
-                    const unsigned long val =
-                        start;  //(n_digits-i)*(n_digits-j);
-                    start -= step;
-                    if (IsPalindrome(val)) {
-                        candidate = val;
-                        max_offset = n_digits - val / (n_digits - 1);
-                        break;
-                    }
+              unsigned long start = 0;
+              j = n_digits - n_digits / 11 * 11;
+              if (!(j & 1)) j += 11;
+              start = (n_digits - i) * (n_digits - j);
+              const int step = (n_digits - i) * 22;
+              for (; j <= i + 11; j += 22) {
+                // cnt++;
+                const unsigned long val = start;  //(n_digits-i)*(n_digits-j);
+                start -= step;
+                if (IsPalindrome(val)) {
+                  candidate = val;
+                  max_offset = n_digits - val / (n_digits - 1);
+                  break;
+                }
                 }
             }
 

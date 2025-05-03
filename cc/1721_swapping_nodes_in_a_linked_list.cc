@@ -26,7 +26,7 @@ class Solution {
             return nullptr;
         }
 
-        ListNode* node1;
+        ListNode* node1 = nullptr;
         ListNode* my_head = head;
         for (int i = 1; i < k && my_head != nullptr; i++) {
             my_head = my_head->next;
@@ -63,51 +63,51 @@ TEST(memleak, t1) {
 }
 
 TEST(swapping_nodes_in_a_linked_list, t1) {
-    std::vector<int> v{1, 2, 3, 4, 5};
-    int k = 2;
+  std::vector<int> const v{1, 2, 3, 4, 5};
+  int const k = 2;
 
-    ListNode* head = List::ConstructList(v);
-    Solution sl;
-    head = sl.SwapNodes(head, k);
+  ListNode* head = List::ConstructList(v);
+  Solution sl;
+  head = sl.SwapNodes(head, k);
 
-    ExpectEqList(head, std::vector<int>{1, 4, 3, 2, 5});
-    List::FreeList(head);
+  ExpectEqList(head, std::vector<int>{1, 4, 3, 2, 5});
+  List::FreeList(head);
 }
 
 TEST(swapping_nodes_in_a_linked_list, t2) {
-    std::vector<int> v{7, 9, 6, 6, 7, 8, 3, 0, 9, 5};
-    int k = 5;
+  std::vector<int> const v{7, 9, 6, 6, 7, 8, 3, 0, 9, 5};
+  int const k = 5;
 
-    ListNode* head = List::ConstructList(v);
-    Solution sl;
-    head = sl.SwapNodes(head, k);
+  ListNode* head = List::ConstructList(v);
+  Solution sl;
+  head = sl.SwapNodes(head, k);
 
-    ExpectEqList(head, std::vector<int>{7, 9, 6, 6, 8, 7, 3, 0, 9, 5});
-    List::FreeList(head);
+  ExpectEqList(head, std::vector<int>{7, 9, 6, 6, 8, 7, 3, 0, 9, 5});
+  List::FreeList(head);
 }
 
 TEST(swapping_nodes_in_a_linked_list, t3) {
-    std::vector<int> v{1, 2};
-    int k = 1;
+  std::vector<int> const v{1, 2};
+  int const k = 1;
 
-    ListNode* head = List::ConstructList(v);
-    Solution sl;
-    head = sl.SwapNodes(head, k);
+  ListNode* head = List::ConstructList(v);
+  Solution sl;
+  head = sl.SwapNodes(head, k);
 
-    ExpectEqList(head, std::vector<int>{2, 1});
-    List::FreeList(head);
+  ExpectEqList(head, std::vector<int>{2, 1});
+  List::FreeList(head);
 }
 
 TEST(swapping_nodes_in_a_linked_list, t4) {
-    std::vector<int> v{1, 2};
-    int k = 2;
+  std::vector<int> const v{1, 2};
+  int const k = 2;
 
-    ListNode* head = List::ConstructList(v);
-    Solution sl;
-    head = sl.SwapNodes(head, k);
+  ListNode* head = List::ConstructList(v);
+  Solution sl;
+  head = sl.SwapNodes(head, k);
 
-    ExpectEqList(head, std::vector<int>{2, 1});
-    List::FreeList(head);
+  ExpectEqList(head, std::vector<int>{2, 1});
+  List::FreeList(head);
 }
 
 }  // namespace

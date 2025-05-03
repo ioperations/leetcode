@@ -37,29 +37,29 @@ class Solution {
         function<int(int)> fun = [&](int index) -> int {
             if (index == size - 1) return nums[index];
             if (cache.count(index)) return cache[index];
-            int m1 = fun(index + 1);
+            int const m1 = fun(index + 1);
             if (index + 2 < size) {
-                int m2 = nums[index] + fun(index + 2);
-                int tmp = max(m1, m2);
+              int const m2 = nums[index] + fun(index + 2);
+              int const tmp = max(m1, m2);
 
-                cache[index] = tmp;
-                return tmp;
+              cache[index] = tmp;
+              return tmp;
             }
-            int tmp = std::max(m1, nums[index]);
+            int const tmp = std::max(m1, nums[index]);
             cache[index] = tmp;
             return tmp;
         };
-        int t1 = fun(0);
-        int t2 = fun(1);
+        int const t1 = fun(0);
+        int const t2 = fun(1);
         return max(t1, t2);
     }
 };
 
 TEST(house_robber, t1) {
     std::vector<int> nums{1, 2, 3, 1};
-    int output = 4;
+    int const output = 4;
     Solution sl;
-    int ret = sl.Rob(nums);
+    int const ret = sl.Rob(nums);
     /*Rob house 1 (money = 1) and then rob house 3 (money = 3).
     Total amount you can rob = 1 + 3 = 4.
     */
@@ -68,9 +68,9 @@ TEST(house_robber, t1) {
 
 TEST(house_robber, t2) {
     std::vector<int> nums{2, 7, 9, 3, 1};
-    int output = 12;
+    int const output = 12;
     Solution sl;
-    int ret = sl.Rob(nums);
+    int const ret = sl.Rob(nums);
     /*Rob house 1 (money = 2), rob house 3 (money = 9) and rob house 5 (money =
     1). Total amount you can rob = 2 + 9 + 1 = 12.*/
     EXPECT_EQ(ret, output);
@@ -78,9 +78,9 @@ TEST(house_robber, t2) {
 
 TEST(house_robber, t3) {
     std::vector<int> nums{1, 1, 1};
-    int output = 2;
+    int const output = 2;
     Solution sl;
-    int ret = sl.Rob(nums);
+    int const ret = sl.Rob(nums);
     EXPECT_EQ(ret, output);
 }
 

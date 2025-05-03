@@ -30,7 +30,7 @@ class Solution {
         vector<int> q1, q2;  // queue;
         vector<vector<int>> table(s1.length() + 1,
                                   vector<int>(s2.length() + 1, false));
-        char c1, c2, c3;
+        char c1 = 0, c2 = 0, c3 = 0;
 
         q1.push_back(0);
         q2.push_back(0);
@@ -105,7 +105,7 @@ class Solution {
 
 TEST(interleaving_string, t1) {
     string string1 = "aabcc", s2 = "dbbca", s3 = "aadbbcbcac";
-    bool output = true;
+    bool const output = true;
 
     Solution sl;
     bool ret = sl.IsInterleave(string1, s2, s3);
@@ -117,7 +117,7 @@ TEST(interleaving_string, t1) {
 
 TEST(interleaving_string, t2) {
     string string1 = "", s2 = "", s3 = "";
-    bool output = true;
+    bool const output = true;
 
     Solution sl;
     bool ret = sl.IsInterleave(string1, s2, s3);

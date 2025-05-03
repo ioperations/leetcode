@@ -92,56 +92,56 @@ void ExpectEqList(ListNode* const head, const std::vector<int>& elements) {
 }
 
 TEST(memleak, t0) {
-    std::vector<int> head = {1, 2, 3, 4, 5};
-    ListNode* root = List::ConstructList(head);
+  std::vector<int> const head = {1, 2, 3, 4, 5};
+  ListNode* root = List::ConstructList(head);
 
-    std::vector<int> expect = {1, 2, 3, 4, 5};
+  std::vector<int> const expect = {1, 2, 3, 4, 5};
 
-    ExpectEqList(root, expect);
-    List::FreeList(root);
+  ExpectEqList(root, expect);
+  List::FreeList(root);
 }
 
 TEST(reverse_nodes_in_k_group, t0) {
-    std::vector<int> head = {1, 2, 3, 4, 5};
-    int k = 2;
-    ListNode* root = List::ConstructList(head);
+  std::vector<int> const head = {1, 2, 3, 4, 5};
+  int const k = 2;
+  ListNode* root = List::ConstructList(head);
 
-    Solution s;
-    root = s.ReverseKGroup(root, k);
+  Solution s;
+  root = s.ReverseKGroup(root, k);
 
-    std::vector<int> expect = {2, 1, 4, 3, 5};
+  std::vector<int> const expect = {2, 1, 4, 3, 5};
 
-    ExpectEqList(root, expect);
-    List::FreeList(root);
+  ExpectEqList(root, expect);
+  List::FreeList(root);
 }
 
 TEST(reverse_nodes_in_k_group, t1) {
-    std::vector<int> head = {1, 2, 3, 4, 5};
-    int k = 3;
-    std::vector<int> expect = {3, 2, 1, 4, 5};
-    ListNode* root = List::ConstructList(head);
+  std::vector<int> const head = {1, 2, 3, 4, 5};
+  int const k = 3;
+  std::vector<int> const expect = {3, 2, 1, 4, 5};
+  ListNode* root = List::ConstructList(head);
 
-    Solution s;
-    root = s.ReverseKGroup(root, k);
+  Solution s;
+  root = s.ReverseKGroup(root, k);
 
-    ExpectEqList(root, expect);
+  ExpectEqList(root, expect);
 
-    // Output: [2,1,4,3,5]
-    List::FreeList(root);
+  // Output: [2,1,4,3,5]
+  List::FreeList(root);
 }
 
 TEST(reverse_nodes_in_k_group, t2) {
-    std::vector<int> head = {1, 2, 3, 4, 5};
-    int k = 1;
-    std::vector<int> expect = {1, 2, 3, 4, 5};
-    ListNode* root = List::ConstructList(head);
+  std::vector<int> const head = {1, 2, 3, 4, 5};
+  int const k = 1;
+  std::vector<int> const expect = {1, 2, 3, 4, 5};
+  ListNode* root = List::ConstructList(head);
 
-    Solution s;
-    root = s.ReverseKGroup(root, k);
+  Solution s;
+  root = s.ReverseKGroup(root, k);
 
-    ExpectEqList(root, expect);
+  ExpectEqList(root, expect);
 
-    // Output: [2,1,4,3,5]
-    List::FreeList(root);
+  // Output: [2,1,4,3,5]
+  List::FreeList(root);
 }
 }  // namespace

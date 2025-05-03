@@ -36,33 +36,32 @@ class Solution {
                                     {-1, -1}, {-1, 1}, {1, -1}, {1, 1}};
 
         queue<pair<int, int>> fill_values;
-        fill_values.push({0, 0});
+        fill_values.emplace(0, 0);
 
         int steps = 0;
         while (!fill_values.empty()) {
             steps++;
 
-            int size = fill_values.size();
+            int const size = fill_values.size();
             for (int i = 0; i < size; i++) {
-                pair<int, int> coord = fill_values.front();
-                fill_values.pop();
+              pair<int, int> const coord = fill_values.front();
+              fill_values.pop();
 
-                int x = coord.first, y = coord.second;
+              int x = coord.first, y = coord.second;
 
-                if (x == (int)grid.size() - 1 &&
-                    y == (int)grid.at(x).size() - 1)
-                    return steps;
+              if (x == (int)grid.size() - 1 && y == (int)grid.at(x).size() - 1)
+                return steps;
 
-                for (vector<int>& dir : dirs) {
-                    int new_x = x + dir.at(0), new_y = y + dir.at(1);
+              for (vector<int>& dir : dirs) {
+                int new_x = x + dir.at(0), new_y = y + dir.at(1);
 
-                    if (!InBoundsAndClear(grid, new_x, new_y)) continue;
+                if (!InBoundsAndClear(grid, new_x, new_y)) continue;
 
-                    // mark as visited
-                    grid.at(new_x).at(new_y) = -1;
+                // mark as visited
+                grid.at(new_x).at(new_y) = -1;
 
-                    // push coordinates of clear cell to explore other paths
-                    fill_values.push({new_x, new_y});
+                // push coordinates of clear cell to explore other paths
+                fill_values.emplace(new_x, new_y);
                 }
             }
         }
@@ -73,27 +72,27 @@ class Solution {
 
 TEST(shortest_path_in_binary_matrix, t1) {
     std::vector<vector<int>> v{{0, 1}, {1, 0}};
-    int expected = 2;
+    int const expected = 2;
 
     Solution sl;
-    int ret = sl.ShortestPathBinaryMatrix(v);
+    int const ret = sl.ShortestPathBinaryMatrix(v);
     EXPECT_EQ(ret, expected);
 }
 
 TEST(shortest_path_in_binary_matrix, t2) {
     std::vector<vector<int>> v{{0, 0, 0}, {1, 1, 0}, {1, 1, 0}};
-    int expected = 4;
+    int const expected = 4;
 
     Solution sl;
-    int ret = sl.ShortestPathBinaryMatrix(v);
+    int const ret = sl.ShortestPathBinaryMatrix(v);
     EXPECT_EQ(ret, expected);
 }
 TEST(shortest_path_in_binary_matrix, t3) {
     std::vector<vector<int>> v{{1, 0, 0}, {1, 1, 0}, {1, 1, 0}};
-    int expected = -1;
+    int const expected = -1;
 
     Solution sl;
-    int ret = sl.ShortestPathBinaryMatrix(v);
+    int const ret = sl.ShortestPathBinaryMatrix(v);
     EXPECT_EQ(ret, expected);
 }
 

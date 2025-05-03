@@ -8,9 +8,8 @@
     Test cases are designed so that the answer will fit in a 32-bit integer.
 */
 
-#include <stdlib.h>
-
 #include <algorithm>
+#include <cstdlib>
 #include <vector>
 
 #include "gtest/gtest.h"
@@ -21,7 +20,7 @@ class Solution {
    public:
     int MinMoves2(vector<int>& nums) {
         // pass
-        int n = nums.size();
+        int const n = nums.size();
         sort(nums.begin(), nums.end());
         int mid = 0;
         if (n % 2 != 0) {
@@ -31,8 +30,8 @@ class Solution {
         }
 
         int move = 0;
-        for (int x : nums) {
-            move += abs(x - mid);
+        for (int const x : nums) {
+          move += abs(x - mid);
         }
         return move;
     }
@@ -40,9 +39,9 @@ class Solution {
 
 TEST(minimum_moves_to_equal_array_elements_ii, t1) {
     vector<int> nums{1, 2, 3};
-    int output = 2;
+    int const output = 2;
     Solution sl;
-    int ret = sl.MinMoves2(nums);
+    int const ret = sl.MinMoves2(nums);
     // Only two moves are needed (remember each move increments or decrements
     // one element): [1,2,3]  =>  [2,2,3]  =>  [2,2,2]
     EXPECT_EQ(ret, output);
@@ -50,9 +49,9 @@ TEST(minimum_moves_to_equal_array_elements_ii, t1) {
 
 TEST(minimum_moves_to_equal_array_elements_ii, t2) {
     vector<int> nums{1, 10, 2, 9};
-    int output = 16;
+    int const output = 16;
     Solution sl;
-    int ret = sl.MinMoves2(nums);
+    int const ret = sl.MinMoves2(nums);
     EXPECT_EQ(ret, output);
 }
 }  // namespace

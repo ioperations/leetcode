@@ -35,7 +35,7 @@ class Solution {
 TEST(binary_tree_postorder_traversal, t1) {
     TreeNode<int>* root = ConstructTree(std::vector{1, 2, 3});
     Solution s;
-    std::vector<int> ret = s.PostorderTraversal(root);
+    std::vector<int> const ret = s.PostorderTraversal(root);
 
     EXPECT_EQ(ret, (std::vector{3, 2, 1}));
 
@@ -44,7 +44,7 @@ TEST(binary_tree_postorder_traversal, t1) {
 TEST(binary_tree_postorder_traversal, t2) {
     TreeNode<int>* root = ConstructTree(std::vector<int>{});
     Solution s;
-    std::vector<int> ret = s.PostorderTraversal(root);
+    std::vector<int> const ret = s.PostorderTraversal(root);
 
     EXPECT_EQ(ret, std::vector<int>{});
 
@@ -53,7 +53,7 @@ TEST(binary_tree_postorder_traversal, t2) {
 TEST(binary_tree_postorder_traversal, t3) {
     TreeNode<int>* root = ConstructTree(std::vector{1});
     Solution s;
-    std::vector<int> ret = s.PostorderTraversal(root);
+    std::vector<int> const ret = s.PostorderTraversal(root);
 
     EXPECT_EQ(ret, std::vector{1});
     FreeTreeNode(root);

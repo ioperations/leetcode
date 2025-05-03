@@ -47,23 +47,23 @@ class Solution {
 
 TEST(combination_sum_ii, t1) {
     std::vector<int> candidates{10, 1, 2, 7, 6, 1, 5};
-    int target = 8;
+    int const target = 8;
     Solution sl;
     std::vector<vector<int>> output{{1, 1, 6}, {1, 2, 5}, {1, 7}, {2, 6}};
-    set<vector<int>> out_set(output.begin(), output.end());
+    set<vector<int>> const out_set(output.begin(), output.end());
     auto ret = sl.CombinationSum2(candidates, target);
-    set<vector<int>> ret_set(ret.begin(), ret.end());
+    set<vector<int>> const ret_set(ret.begin(), ret.end());
     EXPECT_EQ(ret_set, out_set);
 }
 
 TEST(combination_sum_ii, t2) {
     std::vector<int> candidates{2, 5, 2, 1, 2};
-    int target = 5;
+    int const target = 5;
     Solution sl;
     std::vector<vector<int>> output{{1, 2, 2}, {5}};
-    set<vector<int>> out_set(output.begin(), output.end());
+    set<vector<int>> const out_set(output.begin(), output.end());
     auto ret = sl.CombinationSum2(candidates, target);
-    set<vector<int>> ret_set(ret.begin(), ret.end());
+    set<vector<int>> const ret_set(ret.begin(), ret.end());
     EXPECT_EQ(ret_set, out_set);
 }
 

@@ -7,6 +7,7 @@
 
 #include <cstddef>
 #include <string>
+#include <string_view>
 
 #include "gtest/gtest.h"
 
@@ -54,11 +55,11 @@ TEST(longest_palindromic_substring, t1) {
 }
 
 TEST(longest_palindromic_substring, t2) {
-    std::string s("cbbd");
-    Solution sl;
+  std::string const s("cbbd");
+  Solution sl;
 
-    auto ret = sl.LongestPalindrome(s);
-    EXPECT_EQ(ret, "bb");
+  auto ret = sl.LongestPalindrome(s);
+  EXPECT_EQ(ret, "bb");
 }
 
 TEST(longest_palindromic_substring, t3) {

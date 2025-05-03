@@ -17,10 +17,8 @@
    1, and if the quotient is strictly less than -231, then return -231.
 
 */
-#include <limits.h>
-#include <stdlib.h>
-
-#include <istream>
+#include <climits>
+#include <cstdlib>
 
 #include "gtest/gtest.h"
 
@@ -32,7 +30,7 @@ class Solution {
     int Divide(int d1, int b1) {
         // -2^31 <= dividend, divisor <= 2^31 - 1
         // divisor != 0
-        long long ans = 0, h, d, b;
+        long long ans = 0, h = 0, d = 0, b = 0;
         d = d1;
         b = b1;
         int f = 0;
@@ -88,19 +86,19 @@ class Solution {
 
 TEST(divide_two_integers, t1) {
     int dividend = 10, divisor = 3;
-    int output = 3;
+    int const output = 3;
     // Explanation: 10/3 = 3.33333.. which is truncated to 3.
     Solution sls;
-    int ret = sls.Divide(dividend, divisor);
+    int const ret = sls.Divide(dividend, divisor);
     EXPECT_EQ(ret, output);
 }
 
 TEST(divide_two_integers, t2) {
     int dividend = 7, divisor = -3;
-    int output = -2;
+    int const output = -2;
     // Explanation: 7/-3 = -2.33333.. which is truncated to -2.
     Solution sls;
-    int ret = sls.Divide(dividend, divisor);
+    int const ret = sls.Divide(dividend, divisor);
     EXPECT_EQ(ret, output);
 }
 

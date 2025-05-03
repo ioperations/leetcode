@@ -24,7 +24,7 @@ class Solution {
    public:
     vector<int> NextGreaterElements(vector<int>& nums) {
         // pass
-        int size = nums.size();
+        int const size = nums.size();
         vector<int> ret(size, -1);
         vector<int> copy(nums.begin(), nums.end());
 
@@ -44,7 +44,7 @@ class Solution {
 
 TEST(next_greater_element_ii, t1) {
     vector<int> nums = {1, 2, 1};
-    vector<int> output = {2, -1, 2};
+    vector<int> const output = {2, -1, 2};
     Solution sl;
     auto ret = sl.NextGreaterElements(nums);
     EXPECT_EQ(ret, output);
@@ -56,7 +56,7 @@ TEST(next_greater_element_ii, t1) {
 
 TEST(next_greater_element_ii, t2) {
     vector<int> nums = {1, 2, 3, 4, 3};
-    vector<int> output = {2, 3, 4, -1, 4};
+    vector<int> const output = {2, 3, 4, -1, 4};
     Solution sl;
     auto ret = sl.NextGreaterElements(nums);
     EXPECT_EQ(ret, output);

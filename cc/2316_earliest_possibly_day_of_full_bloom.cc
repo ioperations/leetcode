@@ -93,7 +93,7 @@ class Solution {
 
 TEST(earliest_possibly_day_of_full_bloom, t1) {
     vector<int> plant_time = {1, 4, 3}, grow_time = {2, 3, 1};
-    int output = 9;
+    int const output = 9;
     /*
     Explanation: The grayed out pots represent planting days, colored pots
     represent growing days, and the flower represents the day it blooms. One
@@ -106,13 +106,13 @@ TEST(earliest_possibly_day_of_full_bloom, t1) {
 
     Solution sl;
 
-    int ret = sl.EarliestFullBloom(plant_time, grow_time);
+    int const ret = sl.EarliestFullBloom(plant_time, grow_time);
     EXPECT_EQ(ret, output);
 }
 
 TEST(earliest_possibly_day_of_full_bloom, t2) {
     vector<int> plant_time = {1, 2, 3, 2}, grow_time = {2, 1, 2, 1};
-    int output = 9;
+    int const output = 9;
     /*
     Explanation: The grayed out pots represent planting days, colored pots
     represent growing days, and the flower represents the day it blooms. One
@@ -126,20 +126,20 @@ TEST(earliest_possibly_day_of_full_bloom, t2) {
 
     Solution sl;
 
-    int ret = sl.EarliestFullBloom(plant_time, grow_time);
+    int const ret = sl.EarliestFullBloom(plant_time, grow_time);
     EXPECT_EQ(ret, output);
 }
 
 TEST(earliest_possibly_day_of_full_bloom, t3) {
     vector<int> plant_time = {1}, grow_time = {1};
-    int output = 2;
+    int const output = 2;
     /*
     Explanation: On day 0, plant the 0th seed. The seed grows for 1 full day
     and blooms on day 2. Thus, on day 2, all the seeds are blooming
     */
     Solution sl;
 
-    int ret = sl.EarliestFullBloom(plant_time, grow_time);
+    int const ret = sl.EarliestFullBloom(plant_time, grow_time);
     EXPECT_EQ(ret, output);
 }
 }  // namespace

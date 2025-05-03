@@ -49,16 +49,16 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    int mod = 1e9 + 7;
+    int m_mod = 1e9 + 7;
     int SumDyp(int n, int k, vector<vector<int>>& dp,
                vector<vector<int>>& sum_dp) {
         if (n < 2) return 0;
 
         if (sum_dp[n][k] != -1) return sum_dp[n][k];
 
-        sum_dp[n][k] = ((SumDyp(n - 1, k, dp, sum_dp) % mod) +
-                        (Dyp(n, k, dp, sum_dp) % mod)) %
-                       mod;
+        sum_dp[n][k] = ((SumDyp(n - 1, k, dp, sum_dp) % m_mod) +
+                        (Dyp(n, k, dp, sum_dp) % m_mod)) %
+                       m_mod;
         return sum_dp[n][k];
     }
 
@@ -69,14 +69,14 @@ class Solution {
         if (dp[n][k] != -1) return dp[n][k];
 
         if (k == 1) {
-            dp[n][k] = ((((n - 1) % mod) * (n % mod)) % mod) / 2;
-            return dp[n][k];
+          dp[n][k] = ((((n - 1) % m_mod) * (n % m_mod)) % m_mod) / 2;
+          return dp[n][k];
         }
 
-        int ans1 = Dyp(n - 1, k, dp, sum_dp);
-        int ans2 = SumDyp(n - 1, k - 1, dp, sum_dp);
+        int const ans1 = Dyp(n - 1, k, dp, sum_dp);
+        int const ans2 = SumDyp(n - 1, k - 1, dp, sum_dp);
 
-        int ans = ((ans1 % mod) + (ans2 % mod)) % mod;
+        int const ans = ((ans1 % m_mod) + (ans2 % m_mod)) % m_mod;
         dp[n][k] = ans;
         return ans;
     }
@@ -90,35 +90,35 @@ class Solution {
 
 TEST(number_of_sets_of_k_non_overlapping_line_segments, t1) {
     int n = 4, k = 2;
-    int output = 5;
+    int const output = 5;
     // Explanation: The two line segments are shown in red and blue.
     // The image above shows the 5 different ways {(0,2),(2,3)}, {(0,1),(1,3)},
     // {(0,1),(2,3)}, {(1,2),(2,3)}, {(0,1),(1,2)}.
 
     Solution sl;
-    int ret = sl.NumberOfSets(n, k);
+    int const ret = sl.NumberOfSets(n, k);
     EXPECT_EQ(ret, output);
 }
 
 TEST(number_of_sets_of_k_non_overlapping_line_segments, t2) {
     int n = 3, k = 1;
-    int output = 3;
+    int const output = 3;
     // Explanation: The 3 ways are {(0,1)}, {(0,2)}, {(1,2)}.
     // int output = 5;
 
     Solution sl;
-    int ret = sl.NumberOfSets(n, k);
+    int const ret = sl.NumberOfSets(n, k);
     EXPECT_EQ(ret, output);
 }
 
 TEST(number_of_sets_of_k_non_overlapping_line_segments, t3) {
     int n = 30, k = 7;
-    int output = 796297179;
+    int const output = 796297179;
     // Explanation: The total number of possible ways to draw 7 line segments is
     // 3796297200. Taking this number modulo 109 + 7 gives us 796297179.
 
     Solution sl;
-    int ret = sl.NumberOfSets(n, k);
+    int const ret = sl.NumberOfSets(n, k);
     EXPECT_EQ(ret, output);
 }
 

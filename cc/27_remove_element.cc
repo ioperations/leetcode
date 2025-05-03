@@ -42,7 +42,7 @@ class Solution {
    public:
     int RemoveElement(vector<int>& nums, int val) {
         // pass
-        int n = nums.size();
+        int const n = nums.size();
 
         int i = 0, j = 0;
 
@@ -59,14 +59,14 @@ class Solution {
 
 TEST(remove_element, t1) {
     std::vector<int> v{3, 2, 2, 3};
-    int val = 3;
-    int output = 2;
+    int const val = 3;
+    int const output = 2;
     std::vector<int> nums_expected = {2, 2};
     // Explanation: Your function should return k = 2, with the first two
     // elements of nums being 2. It does not matter what you leave beyond the
     // returned k (hence they are underscores).
     Solution sl;
-    int ret = sl.RemoveElement(v, val);
+    int const ret = sl.RemoveElement(v, val);
     EXPECT_EQ(ret, output);
     for (int i = 0; i < output; i++) {
         EXPECT_EQ(v[i], nums_expected[i]);
@@ -75,15 +75,15 @@ TEST(remove_element, t1) {
 
 TEST(remove_element, t2) {
     std::vector<int> v{0, 1, 2, 2, 3, 0, 4, 2};
-    int val = 2;
-    int output = 5;
+    int const val = 2;
+    int const output = 5;
     std::vector<int> nums_expected = {0, 1, 3, 0, 4};
     // Your function should return k = 5, with the first five elements of nums
     // containing 0, 0, 1, 3, and 4. Note that the five elements can be returned
     // in any order. It does not matter what you leave beyond the returned k
     // (hence they are underscores).   Solution sl;
     Solution sl;
-    int ret = sl.RemoveElement(v, val);
+    int const ret = sl.RemoveElement(v, val);
     EXPECT_EQ(ret, output);
     for (int i = 0; i < output; i++) {
         EXPECT_EQ(v[i], nums_expected[i]);

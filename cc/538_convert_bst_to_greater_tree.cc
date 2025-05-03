@@ -29,10 +29,10 @@ class Solution {
     int Dfs(TreeNode* root, int above_sum) {
         if (!root) return 0;
 
-        int right = Dfs(root->right, above_sum);
-        int left = Dfs(root->left, right + root->val + above_sum);
+        int const right = Dfs(root->right, above_sum);
+        int const left = Dfs(root->left, right + root->val + above_sum);
 
-        int sum_below = root->val + left + right;
+        int const sum_below = root->val + left + right;
 
         root->val += above_sum + right;
 
@@ -104,10 +104,10 @@ std::vector<int> BFS(TreeNode* root) {
 }
 
 TEST(memleak, t1) {
-    TreeNode* root = new TreeNode(-1);
+  auto* root = new TreeNode(-1);
 
-    for (int i = 0; i < 100; i++) {
-        root = AddToRoot(root, i);
+  for (int i = 0; i < 100; i++) {
+    root = AddToRoot(root, i);
     }
 
     Tree::FreeTreeNode(root);
@@ -116,7 +116,7 @@ TEST(memleak, t1) {
 TEST(convert_bst_to_greater_tree, t1) {
     // root = [4,1,6,0,2,5,7,null,null,null,3,null,null,null,8]
     // Output: [4,1,6,0,2,5,7,null,null,null,3,null,null,null,8]
-    TreeNode* root = new TreeNode(4);
+    auto* root = new TreeNode(4);
     root = AddToRoot(root, std::vector<int>{1, 6, 0, 2, 5, 7, 3, 8});
 
     {
@@ -141,7 +141,7 @@ TEST(convert_bst_to_greater_tree, t2) {
     // Input: root = [0,null,1]
     // Output: [1,null,1]
 
-    TreeNode* root = new TreeNode(0);
+    auto* root = new TreeNode(0);
     root = AddToRoot(root, std::vector<int>{1});
 
     {

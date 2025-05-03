@@ -13,8 +13,7 @@
 // If x != y, the stone of weight x is destroyed, and the stone of weight y has
 // new weight y - x. At the end of the game, there is at most one stone left.
 
-#include <stdlib.h>
-
+#include <cstdlib>
 #include <queue>
 #include <vector>
 
@@ -31,12 +30,12 @@ class Solution {
         }
 
         while (!(q.size() == 1 || q.size() == 0)) {
-            int v1 = q.top();
-            q.pop();
-            int v2 = q.top();
-            q.pop();
-            if (v1 == v2) {
-                continue;
+          int const v1 = q.top();
+          q.pop();
+          int const v2 = q.top();
+          q.pop();
+          if (v1 == v2) {
+            continue;
             }
             q.push(abs(v2 - v1));
         }
@@ -59,14 +58,14 @@ TEST(last_stone_weight, t1) {
 
     std::vector<int> stones{2, 7, 4, 1, 8, 1};
     Solution s;
-    int ret = s.LastStoneWeight(stones);
+    int const ret = s.LastStoneWeight(stones);
     EXPECT_EQ(ret, 1);
 }
 
 TEST(last_stone_weight, t2) {
     std::vector<int> stones{1};
     Solution s;
-    int ret = s.LastStoneWeight(stones);
+    int const ret = s.LastStoneWeight(stones);
     EXPECT_EQ(ret, 1);
 }
 }  // namespace

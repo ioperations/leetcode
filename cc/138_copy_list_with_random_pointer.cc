@@ -31,11 +31,7 @@ class Node {
     Node* next;
     Node* random;
 
-    Node(int my_val) {
-        val = my_val;
-        next = nullptr;
-        random = nullptr;
-    }
+    Node(int my_val) : val(my_val), next(nullptr), random(nullptr) {}
 };
 
 class Solution {
@@ -144,7 +140,7 @@ TEST(base, t1) {
     std::vector<std::vector<std::optional<int>>> head =
         std::vector<std::vector<std::optional<int>>>{
             {7, null}, {13, 0}, {11, 4}, {10, 2}, {1, 0}};
-    std::vector<std::vector<std::optional<int>>> output =
+    std::vector<std::vector<std::optional<int>>> const output =
         std::vector<std::vector<std::optional<int>>>{
             {7, null}, {13, 0}, {11, 4}, {10, 2}, {1, 0}};
     Node* node = ConstructNode(head);
@@ -156,7 +152,7 @@ TEST(copy_list_with_random_pointer, t1) {
     std::vector<std::vector<std::optional<int>>> head =
         std::vector<std::vector<std::optional<int>>>{
             {7, null}, {13, 0}, {11, 4}, {10, 2}, {1, 0}};
-    std::vector<std::vector<std::optional<int>>> output =
+    std::vector<std::vector<std::optional<int>>> const output =
         std::vector<std::vector<std::optional<int>>>{
             {7, null}, {13, 0}, {11, 4}, {10, 2}, {1, 0}};
     Node* node = ConstructNode(head);
@@ -170,7 +166,7 @@ TEST(copy_list_with_random_pointer, t1) {
 TEST(copy_list_with_random_pointer, t2) {
     std::vector<std::vector<std::optional<int>>> head =
         std::vector<std::vector<std::optional<int>>>{{1, 1}, {2, 1}};
-    std::vector<std::vector<std::optional<int>>> output =
+    std::vector<std::vector<std::optional<int>>> const output =
         std::vector<std::vector<std::optional<int>>>{{1, 1}, {2, 1}};
     Node* node = ConstructNode(head);
     Solution sl;
@@ -184,7 +180,7 @@ TEST(copy_list_with_random_pointer, t3) {
     std::vector<std::vector<std::optional<int>>> head =
         std::vector<std::vector<std::optional<int>>>{
             {3, null}, {3, 0}, {3, null}};
-    std::vector<std::vector<std::optional<int>>> output =
+    std::vector<std::vector<std::optional<int>>> const output =
         std::vector<std::vector<std::optional<int>>>{
             {3, null}, {3, 0}, {3, null}};
     Node* node = ConstructNode(head);

@@ -15,7 +15,7 @@ class Solution {
         std::set<char> visited{};
         int max = 0;
         int continued = 0;
-        int j;
+        int j = 0;
         for (int i = 0; i < (int)s.size(); ++i) {
             j = i;
             auto z = visited.find(s[j]);
@@ -35,34 +35,34 @@ class Solution {
 };
 
 TEST(r1, t2) {
-    std::string in("abcabcbb");
-    Solution slu;
-    int ret = slu.LengthOfLongestSubstring(in);
-    EXPECT_EQ(ret, 3);
+  std::string const in("abcabcbb");
+  Solution slu;
+  int const ret = slu.LengthOfLongestSubstring(in);
+  EXPECT_EQ(ret, 3);
 }
 TEST(r1, t3) {
-    std::string in("bbbbbb");
-    Solution slu;
-    int ret = slu.LengthOfLongestSubstring(in);
-    EXPECT_EQ(ret, 1);
+  std::string const in("bbbbbb");
+  Solution slu;
+  int const ret = slu.LengthOfLongestSubstring(in);
+  EXPECT_EQ(ret, 1);
 }
 TEST(r1, t4) {
-    std::string in("pwwwkew");
-    Solution slu;
-    int ret = slu.LengthOfLongestSubstring(in);
-    EXPECT_EQ(ret, 3);
+  std::string const in("pwwwkew");
+  Solution slu;
+  int const ret = slu.LengthOfLongestSubstring(in);
+  EXPECT_EQ(ret, 3);
 }
 TEST(r1, t5) {
-    std::string in("");
-    Solution slu;
-    int ret = slu.LengthOfLongestSubstring(in);
-    EXPECT_EQ(ret, 0);
+  std::string const in("");
+  Solution slu;
+  int const ret = slu.LengthOfLongestSubstring(in);
+  EXPECT_EQ(ret, 0);
 }
 TEST(r2, t2) {
-    std::string in("aab");
-    Solution slu;
-    int ret = slu.LengthOfLongestSubstring(in);
-    EXPECT_EQ(ret, 2);
+  std::string const in("aab");
+  Solution slu;
+  int const ret = slu.LengthOfLongestSubstring(in);
+  EXPECT_EQ(ret, 2);
 }
 
 }  // namespace

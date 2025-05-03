@@ -23,8 +23,8 @@ class Solution {
         // 0 <= s.length, p.length <= 2000
         // s contains only lowercase English letters.
         // p contains only lowercase English letters, '?' or '*'.
-        int m = p.length();
-        int n = s.length();
+        int const m = p.length();
+        int const n = s.length();
 
         vector<vector<bool>> dp(m + 1, vector<bool>(n + 1, false));
         dp[0][0] = true;
@@ -56,21 +56,21 @@ class Solution {
 TEST(wildcard_matching, t1) {
     std::string s = "aa", p = "a";
     Solution sl;
-    bool ret = sl.IsMatch(s, p);
+    bool const ret = sl.IsMatch(s, p);
     EXPECT_EQ(ret, false);
 }
 
 TEST(wildcard_matching, t2) {
     std::string s = "aa", p = "*";
     Solution sl;
-    bool ret = sl.IsMatch(s, p);
+    bool const ret = sl.IsMatch(s, p);
     EXPECT_EQ(ret, true);
 }
 
 TEST(wildcard_matching, t3) {
     std::string s = "cb", p = "?a";
     Solution sl;
-    bool ret = sl.IsMatch(s, p);
+    bool const ret = sl.IsMatch(s, p);
     EXPECT_EQ(ret, false);
 }
 

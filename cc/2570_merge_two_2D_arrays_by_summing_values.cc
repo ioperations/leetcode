@@ -41,11 +41,10 @@ class Solution {
             ret.push_back(nums1[i]);
             i++;
             continue;
-          } else {
-            ret.push_back(nums2[j]);
-            j++;
-            continue;
           }
+          ret.push_back(nums2[j]);
+          j++;
+          continue;
         }
 
         if (i < n1) {

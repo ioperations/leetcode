@@ -40,29 +40,29 @@ class Solution {
 };
 
 TEST(partitioning_into_minimum_number_of_deci_binary_numbers, t1) {
-    string n = "32";
-    int output = 3;
-    Solution sl;
-    int ret = sl.MinPartitions(n);
-    EXPECT_EQ(ret, output);
-    // Explanation: 10 + 11 + 11 = 32;
+  string const n = "32";
+  int const output = 3;
+  Solution sl;
+  int const ret = sl.MinPartitions(n);
+  EXPECT_EQ(ret, output);
+  // Explanation: 10 + 11 + 11 = 32;
 }
 
 TEST(partitioning_into_minimum_number_of_deci_binary_numbers, t2) {
-    string n = "38273";
-    int output = 8;
-    Solution sl;
-    int ret = sl.MinPartitions(n);
-    EXPECT_EQ(ret, output);
-    // Explanation: 10 + 11 + 11 = 32;
+  string const n = "38273";
+  int const output = 8;
+  Solution sl;
+  int const ret = sl.MinPartitions(n);
+  EXPECT_EQ(ret, output);
+  // Explanation: 10 + 11 + 11 = 32;
 }
 
 TEST(partitioning_into_minimum_number_of_deci_binary_numbers, t3) {
-    string n = "27346209830709182346";
-    int output = 9;
-    Solution sl;
-    int ret = sl.MinPartitions(n);
-    EXPECT_EQ(ret, output);
-    // Explanation: 10 + 11 + 11 = 32;
+  string const n = "27346209830709182346";
+  int const output = 9;
+  Solution sl;
+  int const ret = sl.MinPartitions(n);
+  EXPECT_EQ(ret, output);
+  // Explanation: 10 + 11 + 11 = 32;
 }
 }  // namespace

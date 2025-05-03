@@ -42,12 +42,13 @@ class Solution {
         vector<int> ans;
         ans.push_back(nums[0]);
         for (int i = 1; i < (int)nums.size(); i++) {
-            int ele = nums[i];
-            if (ele > ans.back()) {
-                ans.push_back(ele);
-                continue;
+          int const ele = nums[i];
+          if (ele > ans.back()) {
+            ans.push_back(ele);
+            continue;
             }
-            int idx = lower_bound(ans.begin(), ans.end(), ele) - ans.begin();
+            int const idx =
+                lower_bound(ans.begin(), ans.end(), ele) - ans.begin();
             if (idx == (int)ans.size()) continue;
             ans[idx] = ele;
         }
@@ -57,26 +58,26 @@ class Solution {
 
 TEST(longest_increasing_subsequence, t1) {
     vector<int> nums{10, 9, 2, 5, 3, 7, 101, 18};
-    int output = 4;
+    int const output = 4;
     Solution sl;
-    int ret = sl.LengthOfLis(nums);
+    int const ret = sl.LengthOfLis(nums);
     // The longest increasing subsequence is [2,3,7,101], therefore the length
     // is 4.
     EXPECT_EQ(ret, output);
 }
 TEST(longest_increasing_subsequence, t2) {
     vector<int> nums{0, 1, 0, 3, 2, 3};
-    int output = 4;
+    int const output = 4;
     Solution sl;
-    int ret = sl.LengthOfLis(nums);
+    int const ret = sl.LengthOfLis(nums);
     EXPECT_EQ(ret, output);
 }
 
 TEST(longest_increasing_subsequence, t3) {
     vector<int> nums{7, 7, 7, 7, 7, 7, 7};
-    int output = 1;
+    int const output = 1;
     Solution sl;
-    int ret = sl.LengthOfLis(nums);
+    int const ret = sl.LengthOfLis(nums);
     EXPECT_EQ(ret, output);
 }
 }  // namespace

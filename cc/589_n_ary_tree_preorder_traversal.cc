@@ -10,7 +10,6 @@ Each group of children is separated by the null value (See examples)*/
 #include <optional>
 #include <queue>
 #include <stack>
-#include <string>
 #include <vector>
 
 #include "gtest/gtest.h"
@@ -20,17 +19,14 @@ using namespace std;
 namespace {
 class Node {
    public:
-    int m_val;
+    int m_val{};
     vector<Node*> m_children;
 
-    Node() {}
+    Node() = default;
 
-    Node(int val) { m_val = val; }
+    Node(int val) : m_val(val) {}
 
-    Node(int val, vector<Node*> children) {
-        m_val = val;
-        m_children = children;
-    }
+    Node(int val, vector<Node*> children) : m_val(val), m_children(children) {}
 };
 class Solution {
    public:

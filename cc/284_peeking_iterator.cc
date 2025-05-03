@@ -29,43 +29,42 @@ using namespace std;
 
 namespace {
 class Iterator {
-    const std::vector<int>& nums;
-    int size;
-    int i;
+  const std::vector<int>& m_nums;
+  int size;
+  int i;
 
-   public:
-    Iterator(const vector<int>& nums) : nums(nums) {
-        size = nums.size();
-        i = -1;
+ public:
+  Iterator(const vector<int>& nums) : m_nums(nums), size(nums.size()), i(-1) {}
+
+  Iterator(const Iterator& iter)
+      : m_nums(iter.m_nums), size(iter.size), i(iter.i) {
+
+        };
+
+  // Returns the next element in the iteration.
+  int next() {
+    if (!hasNext()) {
+      return -1;
     }
-
-    Iterator(const Iterator& iter) : nums(iter.nums) {
-        size = iter.size;
-        i = iter.i;
-    };
-
-    // Returns the next element in the iteration.
-    int next() {
-        if (!hasNext()) {
-            return -1;
-        }
-        i++;
-        return nums[i];
+    i++;
+    return m_nums[i];
     };
 
     // Returns true if the iteration has more elements.
-    bool hasNext() const { return 0 <= (i + 1) && (i + 1) < size; };
+    [[nodiscard]] bool hasNext() const {
+      return 0 <= (i + 1) && (i + 1) < size;
+    };
 };
 
 class PeekingIterator : public Iterator {
     int next_val;
 
    public:
-    PeekingIterator(const vector<int>& nums) : Iterator(nums) {
-        next_val = Iterator::next();
-        // Initialize any member here.
-        // **DO NOT** save a copy of nums and manipulate it directly.
-        // You should only use the Iterator interface methods.
+    PeekingIterator(const vector<int>& nums)
+        : Iterator(nums), next_val(Iterator::next()) {
+      // Initialize any member here.
+      // **DO NOT** save a copy of nums and manipulate it directly.
+      // You should only use the Iterator interface methods.
     }
 
     // Returns the next element in the iteration without advancing the iterator.
@@ -74,15 +73,15 @@ class PeekingIterator : public Iterator {
     // hasNext() and next() should behave the same as in the Iterator interface.
     // Override them if needed.
     int next() {
-        int temp = next_val;
-        if (Iterator::hasNext())
-            next_val = Iterator::next();
-        else
-            next_val = 0;
-        return temp;
+      int const temp = next_val;
+      if (Iterator::hasNext())
+        next_val = Iterator::next();
+      else
+        next_val = 0;
+      return temp;
     }
 
-    bool hasNext() const { return (next_val != 0); }
+    [[nodiscard]] bool hasNext() const { return (next_val != 0); }
 };
 
 TEST(peeking_iterator, t1) {
@@ -91,8 +90,8 @@ TEST(peeking_iterator, t1) {
     // Output [null, 1, 2, 2, 3, false]
 
     // Explanation
-    std::vector<int> z{1, 2, 3};
-    Iterator* peeking_iterator = new Iterator(z);
+    std::vector<int> const z{1, 2, 3};
+    auto* peeking_iterator = new Iterator(z);
     // [1,2,3]
 
     // return 1, the pointer moves to the next element [1,2,3].
@@ -107,7 +106,7 @@ TEST(peeking_iterator, t1) {
     ret = peeking_iterator->next();
     EXPECT_EQ(ret, 3);
 
-    bool ret2 = peeking_iterator->hasNext();  // return False}
+    bool const ret2 = peeking_iterator->hasNext();  // return False}
     EXPECT_EQ(ret2, false);
 
     delete peeking_iterator;
@@ -119,8 +118,8 @@ TEST(peeking_iterator, t2) {
     // Output [null, 1, 2, 2, 3, false]
 
     // Explanation
-    std::vector<int> z{1, 2, 3};
-    PeekingIterator* peeking_iterator = new PeekingIterator(z);
+    std::vector<int> const z{1, 2, 3};
+    auto* peeking_iterator = new PeekingIterator(z);
     // [1,2,3]
 
     // return 1, the pointer moves to the next element [1,2,3].
@@ -139,7 +138,7 @@ TEST(peeking_iterator, t2) {
     ret = peeking_iterator->next();
     EXPECT_EQ(ret, 3);
 
-    bool ret2 = peeking_iterator->hasNext();  // return False}
+    bool const ret2 = peeking_iterator->hasNext();  // return False}
     EXPECT_EQ(ret2, false);
 
     delete peeking_iterator;

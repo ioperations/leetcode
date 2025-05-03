@@ -23,26 +23,26 @@ using namespace std;
 
 class Solution {
    public:
-    int numberOfArrays(vector<int>& differences, int lower, int upper) {
-        // n == differences.length
-        // 1 <= n <= 105
-        // -105 <= differences[i] <= 105
-        // -105 <= lower <= upper <= 105
-        int start = lower;
+    int NumberOfArrays(vector<int>& differences, int lower, int upper) {
+      // n == differences.length
+      // 1 <= n <= 105
+      // -105 <= differences[i] <= 105
+      // -105 <= lower <= upper <= 105
+      int start = lower;
 
-        int lowerlst = lower;
-        int upperlst = lower;
+      int lowerlst = lower;
+      int upperlst = lower;
 
-        for (auto& diff : differences) {
-            start = start + diff;
-            lowerlst = std::min(lowerlst, start);
-            upperlst = std::max(upperlst, start);
-            if (upper - (upperlst + (lower - lowerlst)) < 0) {
-                return 0;
-            }
+      for (auto& diff : differences) {
+        start = start + diff;
+        lowerlst = std::min(lowerlst, start);
+        upperlst = std::max(upperlst, start);
+        if (upper - (upperlst + (lower - lowerlst)) < 0) {
+          return 0;
         }
+      }
 
-        return std::max(0, upper - (upperlst + (lower - lowerlst)) + 1);
+      return std::max(0, upper - (upperlst + (lower - lowerlst)) + 1);
     }
 };
 
@@ -51,10 +51,10 @@ class Solution {
 TEST(t0, t1) {
     vector<int> differences = {1, -3, 4};
     int lower = 1, upper = 6;
-    int Output = 2;
+    int const output = 2;
     Solution sl;
-    int ret = sl.numberOfArrays(differences, lower, upper);
-    EXPECT_EQ(ret, Output);
+    int const ret = sl.NumberOfArrays(differences, lower, upper);
+    EXPECT_EQ(ret, output);
     // Explanation: The possible hidden sequences are:
     // - [3, 4, 1, 5]
     // - [4, 5, 2, 6]
@@ -64,10 +64,10 @@ TEST(t0, t1) {
 TEST(t0, t2) {
     vector<int> differences = {3, -4, 5, 1, -2};
     int lower = -4, upper = 5;
-    int Output = 4;
+    int const output = 4;
     Solution sl;
-    int ret = sl.numberOfArrays(differences, lower, upper);
-    EXPECT_EQ(ret, Output);
+    int const ret = sl.NumberOfArrays(differences, lower, upper);
+    EXPECT_EQ(ret, output);
     // Explanation: The possible hidden sequences are:
     // [-3, 0, -4, 1, 2, 0]
     // - [-2, 1, -3, 2, 3, 1]
@@ -79,20 +79,20 @@ TEST(t0, t2) {
 TEST(t0, t3) {
     vector<int> differences = {4, -7, 2};
     int lower = 3, upper = 6;
-    int Output = 0;
+    int const output = 0;
     Solution sl;
-    int ret = sl.numberOfArrays(differences, lower, upper);
-    EXPECT_EQ(ret, Output);
+    int const ret = sl.NumberOfArrays(differences, lower, upper);
+    EXPECT_EQ(ret, output);
     // There are no possible hidden sequences. Thus, we return 0.
 }
 
 TEST(t0, t4) {
     vector<int> differences = {83702, -5216};
     int lower = -82788, upper = 14602;
-    int Output = 13689;
+    int const output = 13689;
     Solution sl;
-    int ret = sl.numberOfArrays(differences, lower, upper);
-    EXPECT_EQ(ret, Output);
+    int const ret = sl.NumberOfArrays(differences, lower, upper);
+    EXPECT_EQ(ret, output);
     // There are no possible hidden sequences. Thus, we return 0.
 }
 

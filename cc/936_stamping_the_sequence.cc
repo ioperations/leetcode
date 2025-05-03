@@ -28,17 +28,17 @@ namespace {
 class Solution {
    public:
     bool CanReplace(string& stamp, string& target, int pos) {
-        int m = stamp.size();
-        for (int i = 0; i < m; i++) {
-            if (target[i + pos] != '?' and target[i + pos] != stamp[i])
-                return false;
+      int const m = stamp.size();
+      for (int i = 0; i < m; i++) {
+        if (target[i + pos] != '?' and target[i + pos] != stamp[i])
+          return false;
         }
         return true;
     }
 
     int Replace(string& stamp, string& target, int pos) {
         int cnt = 0;
-        int m = stamp.size();
+        int const m = stamp.size();
         for (int i = 0; i < m; i++) {
             if (target[i + pos] != '?') {
                 cnt++;
@@ -77,7 +77,7 @@ class Solution {
 
 TEST(stamping_the_sequence, t1) {
     string stamp = "abc", target = "ababc";
-    vector<int> output = {0, 2};
+    vector<int> const output = {0, 2};
     /*Explanation: Initially s = "?????".
     - Place stamp at index 0 to get "abc??".
     - Place stamp at index 2 to get "ababc".
@@ -90,7 +90,7 @@ TEST(stamping_the_sequence, t1) {
 
 TEST(stamping_the_sequence, t2) {
     string stamp = "abca", target = "aabcaca";
-    vector<int> output = {0, 3, 1};
+    vector<int> const output = {0, 3, 1};
     /*Explanation: Initially s = "???????".
     - Place stamp at index 3 to get "???abca".
     - Place stamp at index 0 to get "abcabca".

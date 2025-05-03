@@ -83,7 +83,7 @@ class Solution {
 
 TEST(combination_sum, t1) {
     std::vector<int> candidates = {2, 3, 6, 7};
-    int target = 7;
+    int const target = 7;
 
     Solution s;
     auto ret = s.CombinationSum(candidates, target);
@@ -93,7 +93,7 @@ TEST(combination_sum, t1) {
 
 TEST(combination_sum, t2) {
     std::vector<int> candidates = {2, 3, 5};
-    int target = 8;
+    int const target = 8;
 
     Solution s;
     auto ret = s.CombinationSum(candidates, target);
@@ -106,7 +106,7 @@ TEST(combination_sum, t2) {
 TEST(combination_sum, t3) {
     std::vector<int> candidates = {2};
 
-    int target = 1;
+    int const target = 1;
 
     Solution s;
     auto ret = s.CombinationSum(candidates, target);

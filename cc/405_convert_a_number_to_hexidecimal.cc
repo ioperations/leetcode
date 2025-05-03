@@ -30,7 +30,7 @@ class Solution {
         unsigned n = num;
         while (n) {
             auto rem = n % 16;
-            char value = rem >= 10 ? (rem - 10) + 'a' : rem + '0';
+            char const value = rem >= 10 ? (rem - 10) + 'a' : rem + '0';
             result.push_back(value);
             n /= 16;
         }
@@ -40,20 +40,20 @@ class Solution {
 };
 
 TEST(convert_a_number_to_hexidecimal, t1) {
-    int num = 26;
-    std::string output = "1a";
+  int const num = 26;
+  std::string const output = "1a";
 
-    Solution s;
-    auto ret = s.ToHex(num);
-    EXPECT_EQ(ret, output);
+  Solution s;
+  auto ret = s.ToHex(num);
+  EXPECT_EQ(ret, output);
 }
 TEST(convert_a_number_to_hexidecimal, t2) {
-    int num = -1;
+  int const num = -1;
 
-    std::string output = "ffffffff";
+  std::string const output = "ffffffff";
 
-    Solution s;
-    auto ret = s.ToHex(num);
-    EXPECT_EQ(ret, output);
+  Solution s;
+  auto ret = s.ToHex(num);
+  EXPECT_EQ(ret, output);
 }
 }  // namespace

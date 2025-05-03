@@ -22,7 +22,7 @@ class Solution {
     bool IncreasingTriplet(vector<int>& nums) {
         int const n = nums.size();
         if (n < 3) {
-            return 0;
+          return false;
         }
         stack<int> st;
         st.push(nums[n - 1]);

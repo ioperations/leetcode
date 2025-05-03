@@ -1,8 +1,7 @@
 // This is a personal academic project. Dear PVS-Studio, please check it.
 // PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
 // https://pvs-studio.com
-#include <time.h>
-
+#include <ctime>
 #include <iostream>
 #include <vector>
 
@@ -17,14 +16,14 @@ namespace {
 class Solution {
    public:
     vector<vector<int>> AllPathsSourceTarget(vector<vector<int>>& graph) {
-        clock_t start, end;
-        start = clock();
+      clock_t start = 0, end = 0;
+      start = clock();
 
-        auto tmp = ImplV1(graph);
-        end = clock();
-        std::cout << "impl_v1 cost time " << end - start << std::endl;
+      auto tmp = ImplV1(graph);
+      end = clock();
+      std::cout << "impl_v1 cost time " << end - start << std::endl;
 
-        return tmp;
+      return tmp;
     }
 
    private:
@@ -36,10 +35,10 @@ class Solution {
 };
 
 TEST(_all_path_from_src_to_dstv2, t2) {
-    Solution n;
+  Solution const n;
 
-    (void)n;
-    EXPECT_EQ(0, 0 + 0);
+  (void)n;
+  EXPECT_EQ(0, 0 + 0);
 }
 
 }  // namespace

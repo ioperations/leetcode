@@ -22,24 +22,24 @@ class Solution {
    public:
     void Solve(vector<vector<int>>& ans, vector<int> temp, int ind,
                vector<int>& nums) {
-        int n = nums.size();
+      int const n = nums.size();
 
-        if (ind >= n) {
-            ans.push_back(temp);
-            return;
+      if (ind >= n) {
+        ans.push_back(temp);
+        return;
         }
 
         // not pick
         Solve(ans, temp, ind + 1, nums);
         // pick
-        int ele = nums[ind];
+        int const ele = nums[ind];
         temp.push_back(ele);
         Solve(ans, temp, ind + 1, nums);
         temp.pop_back();  // backtracking to reverse in original manner
     }
     vector<vector<int>> Subsets(vector<int>& nums) {
         vector<vector<int>> ans;
-        vector<int> temp;
+        vector<int> const temp;
         Solve(ans, temp, 0, nums);
         return ans;
     }
@@ -49,23 +49,23 @@ class SolutionV1 {
    public:
     void Solve(vector<vector<int>>& ans, vector<int> temp, int ind,
                vector<int>& nums) {
-        int n = nums.size();
+      int const n = nums.size();
 
-        if (ind >= n) {
-            ans.push_back(temp);
-            return;
+      if (ind >= n) {
+        ans.push_back(temp);
+        return;
         }
 
         // not pick
         Solve(ans, temp, ind + 1, nums);
         // pick
-        int ele = nums[ind];
+        int const ele = nums[ind];
         temp.push_back(ele);
         Solve(ans, temp, ind + 1, nums);
     }
     vector<vector<int>> Subsets(vector<int>& nums) {
         vector<vector<int>> ans;
-        vector<int> temp;
+        vector<int> const temp;
         Solve(ans, temp, 0, nums);
         return ans;
     }
@@ -78,8 +78,8 @@ TEST(subsets, t1) {
 
     Solution sl;
     auto ret = sl.Subsets(input);
-    set<vector<int>> out_set(out.begin(), out.end());
-    set<vector<int>> ret_set(ret.begin(), ret.end());
+    set<vector<int>> const out_set(out.begin(), out.end());
+    set<vector<int>> const ret_set(ret.begin(), ret.end());
     EXPECT_EQ(out_set, ret_set);
 }
 
@@ -89,8 +89,8 @@ TEST(subsets, t2) {
 
     Solution sl;
     auto ret = sl.Subsets(input);
-    set<vector<int>> out_set(out.begin(), out.end());
-    set<vector<int>> ret_set(ret.begin(), ret.end());
+    set<vector<int>> const out_set(out.begin(), out.end());
+    set<vector<int>> const ret_set(ret.begin(), ret.end());
     EXPECT_EQ(out_set, ret_set);
 }
 

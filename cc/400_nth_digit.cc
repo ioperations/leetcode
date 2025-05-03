@@ -23,8 +23,8 @@ class Solution {
             base *= 10;
             d++;
         }
-        int index = n % d == 0 ? d : n % d;
-        long num = pow(10, d - 1) + (index == d ? n / d - 1 : n / d);
+        int const index = n % d == 0 ? d : n % d;
+        long const num = pow(10, d - 1) + (index == d ? n / d - 1 : n / d);
         return to_string(num)[index - 1] - '0';
     }
 };
@@ -38,46 +38,46 @@ _________________________________________________________________
 */
 
 TEST(nth_digit, t1) {
-    int n = 3;
+  int const n = 3;
 
-    int output = 3;
-    Solution sl;
-    int ret = sl.FindNthDigit(n);
-    EXPECT_EQ(ret, output);
+  int const output = 3;
+  Solution sl;
+  int const ret = sl.FindNthDigit(n);
+  EXPECT_EQ(ret, output);
 }
 
 TEST(nth_digit, t2) {
-    int n = 11;
-    int output = 0;
-    // Explanation: The 11th digit of the sequence 1, 2, 3, 4, 5, 6, 7, 8, 9,
-    // 10, 11, ... is a 0, which is part of the number 10.
-    Solution sl;
-    int ret = sl.FindNthDigit(n);
-    EXPECT_EQ(ret, output);
+  int const n = 11;
+  int const output = 0;
+  // Explanation: The 11th digit of the sequence 1, 2, 3, 4, 5, 6, 7, 8, 9,
+  // 10, 11, ... is a 0, which is part of the number 10.
+  Solution sl;
+  int const ret = sl.FindNthDigit(n);
+  EXPECT_EQ(ret, output);
 }
 
 TEST(nth_digit, t3) {
-    int n = 99;
-    int output = 4;
-    Solution sl;
-    int ret = sl.FindNthDigit(n);
-    EXPECT_EQ(ret, output);
+  int const n = 99;
+  int const output = 4;
+  Solution sl;
+  int const ret = sl.FindNthDigit(n);
+  EXPECT_EQ(ret, output);
 }
 
 TEST(nth_digit, t4) {
-    int n = 100;
-    int output = 5;
-    Solution sl;
-    int ret = sl.FindNthDigit(n);
-    EXPECT_EQ(ret, output);
+  int const n = 100;
+  int const output = 5;
+  Solution sl;
+  int const ret = sl.FindNthDigit(n);
+  EXPECT_EQ(ret, output);
 }
 
 TEST(nth_digit, t5) {
-    int n = 1000;
-    int output = 3;
-    Solution sl;
-    int ret = sl.FindNthDigit(n);
-    EXPECT_EQ(ret, output);
+  int const n = 1000;
+  int const output = 3;
+  Solution sl;
+  int const ret = sl.FindNthDigit(n);
+  EXPECT_EQ(ret, output);
 }
 
 }  // namespace

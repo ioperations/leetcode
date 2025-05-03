@@ -76,7 +76,7 @@ TEST(linked_list_cycle, t1) {
     it2->next = it;
 
     Solution s;
-    bool ret = s.HasCycle(head);
+    bool const ret = s.HasCycle(head);
     EXPECT_EQ(ret, true);
 
     it2->next = nullptr;
@@ -106,7 +106,7 @@ TEST(linked_list_cycle, t2) {
     it2->next = it;
 
     Solution s;
-    bool ret = s.HasCycle(head);
+    bool const ret = s.HasCycle(head);
     EXPECT_EQ(ret, true);
 
     it2->next = nullptr;
@@ -125,7 +125,7 @@ TEST(linked_list_cycle, t3) {
     ListNode* head = ConstructList(std::vector<int>{1});
 
     Solution s;
-    bool ret = s.HasCycle(head);
+    bool const ret = s.HasCycle(head);
     EXPECT_EQ(ret, false);
 
     FreeList(head);
@@ -135,7 +135,7 @@ TEST(linked_list_cycle, t4) {
     ListNode* head = ConstructList(std::vector<int>{});
 
     Solution s;
-    bool ret = s.HasCycle(head);
+    bool const ret = s.HasCycle(head);
     EXPECT_EQ(ret, false);
 
     FreeList(head);

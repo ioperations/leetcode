@@ -26,7 +26,7 @@ class Solution {
 TEST(palindrom_number, t1) {
     Solution s;
 
-    bool ret = s.IsPalindrome(121);
+    bool const ret = s.IsPalindrome(121);
     EXPECT_EQ(ret, true);
 }
 

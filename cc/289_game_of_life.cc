@@ -44,8 +44,8 @@ class Solution {
    public:
     void GameOfLife(vector<vector<int>>& board) {
         auto z = board;
-        int m = board.size();
-        int n = board[0].size();
+        int const m = board.size();
+        int const n = board[0].size();
 
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
@@ -83,7 +83,7 @@ class Solution {
             }
         }
 
-        int live_next[] = {0, 0, 1, 1, 0, 0, 0, 0, 0};
+        int const live_next[] = {0, 0, 1, 1, 0, 0, 0, 0, 0};
 
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
@@ -98,7 +98,7 @@ TEST(game_of_life, t1) {
     // pass
     std::vector<std::vector<int>> board = {
         {0, 1, 0}, {0, 0, 1}, {1, 1, 1}, {0, 0, 0}};
-    std::vector<std::vector<int>> expected = {
+    std::vector<std::vector<int>> const expected = {
         {0, 0, 0}, {1, 0, 1}, {0, 1, 1}, {0, 1, 0}};
 
     Solution s;
@@ -109,7 +109,7 @@ TEST(game_of_life, t1) {
 TEST(game_of_life, t2) {
     // pass
     std::vector<std::vector<int>> board = {{1, 1}, {1, 0}};
-    std::vector<std::vector<int>> expected = {{1, 1}, {1, 1}};
+    std::vector<std::vector<int>> const expected = {{1, 1}, {1, 1}};
 
     Solution s;
     s.GameOfLife(board);

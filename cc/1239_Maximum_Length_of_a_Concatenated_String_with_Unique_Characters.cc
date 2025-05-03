@@ -47,7 +47,7 @@ class Solution {
             if (existed(visisted, arr[i])) {
                 return std::max(fun(pre, i + 1, result), result);
             }
-            int next;
+            int next = 0;
 
             {
                 /// take current element as the last pre output
@@ -64,7 +64,7 @@ class Solution {
                 }
             }
             /// do not take current element as the last pre output
-            int next_2 = fun(pre, i + 1, result);
+            int const next_2 = fun(pre, i + 1, result);
             return std::max(next, next_2);
         };
 
@@ -77,7 +77,7 @@ class Solution {
 
         for (const string& x : arr) {
             int mask = 0;
-            for (char c : x) mask |= 1 << (c - 'a');
+            for (char const c : x) mask |= 1 << (c - 'a');
             if (__builtin_popcount(mask) != x.length()) continue;
             a.push_back(mask);
         }
@@ -85,14 +85,14 @@ class Solution {
         int ans = 0;
 
         vector<int> dp{0};
-        for (int i = 0; i < (int)a.size(); ++i) {
-            int size = dp.size();
-            for (int j = 0; j < size; ++j) {
-                if (dp[j] & a[i]) continue;
-                int t = dp[j] | a[i];
-                dp.push_back(t);
-                ans = max(ans, __builtin_popcount(t));
-            }
+        for (int i : a) {
+          int const size = dp.size();
+          for (int j = 0; j < size; ++j) {
+            if (dp[j] & i) continue;
+            int const t = dp[j] | i;
+            dp.push_back(t);
+            ans = max(ans, __builtin_popcount(t));
+          }
         }
 
         return ans;
@@ -101,7 +101,7 @@ class Solution {
 
 TEST(Maximum_Length_of_a_Concatenated_String_with_Unique_Characters, t1) {
     vector<string> arr = {"un", "iq", "ue"};
-    int output = 4;
+    int const output = 4;
     /*Explanation: All the valid concatenations are:
     - ""
     - "un"
@@ -112,34 +112,34 @@ TEST(Maximum_Length_of_a_Concatenated_String_with_Unique_Characters, t1) {
     Maximum length is 4.
     */
     Solution sl;
-    int ret = sl.MaxLength(arr);
+    int const ret = sl.MaxLength(arr);
     EXPECT_EQ(ret, output);
 }
 
 TEST(Maximum_Length_of_a_Concatenated_String_with_Unique_Characters, t2) {
     vector<string> arr = {"cha", "r", "act", "ers"};
-    int output = 6;
+    int const output = 6;
     /*
      Possible longest valid concatenations are "chaers" ("cha" + "ers") and
      "acters" ("act" + "ers").
     */
     Solution sl;
-    int ret = sl.MaxLength(arr);
+    int const ret = sl.MaxLength(arr);
     EXPECT_EQ(ret, output);
 }
 
 TEST(Maximum_Length_of_a_Concatenated_String_with_Unique_Characters, t3) {
     vector<string> arr = {"abcdefghijklmnopqrstuvwxyz"};
-    int output = 26;
+    int const output = 26;
     // Explanation: The only string in arr has all 26 characters.};
     Solution sl;
-    int ret = sl.MaxLength(arr);
+    int const ret = sl.MaxLength(arr);
     EXPECT_EQ(ret, output);
 }
 
 TEST(Maximum_Length_of_a_Concatenated_String_with_Unique_Characters_v2, t1) {
     vector<string> arr = {"un", "iq", "ue"};
-    int output = 4;
+    int const output = 4;
     /*Explanation: All the valid concatenations are:
     - ""
     - "un"
@@ -150,39 +150,39 @@ TEST(Maximum_Length_of_a_Concatenated_String_with_Unique_Characters_v2, t1) {
     Maximum length is 4.
     */
     Solution sl;
-    int ret = sl.MaxLengthV2(arr);
+    int const ret = sl.MaxLengthV2(arr);
     EXPECT_EQ(ret, output);
 }
 
 TEST(Maximum_Length_of_a_Concatenated_String_with_Unique_Characters_v2, t2) {
     vector<string> arr = {"cha", "r", "act", "ers"};
-    int output = 6;
+    int const output = 6;
     /*
      Possible longest valid concatenations are "chaers" ("cha" + "ers") and
      "acters" ("act" + "ers").
     */
     Solution sl;
-    int ret = sl.MaxLengthV2(arr);
+    int const ret = sl.MaxLengthV2(arr);
     EXPECT_EQ(ret, output);
 }
 
 TEST(Maximum_Length_of_a_Concatenated_String_with_Unique_Characters_v2, t3) {
     vector<string> arr = {"abcdefghijklmnopqrstuvwxyz"};
-    int output = 26;
+    int const output = 26;
     // Explanation: The only string in arr has all 26 characters.};
     Solution sl;
-    int ret = sl.MaxLengthV2(arr);
+    int const ret = sl.MaxLengthV2(arr);
     EXPECT_EQ(ret, output);
 }
 
 static void BenchMarkV1(benchmark::State& state) {
     vector<string> arr = {"un", "iq", "ue"};
     for (auto _ : state) {
-        int output = 4;
+      int const output = 4;
 
-        Solution sl;
-        int ret = sl.MaxLength(arr);
-        EXPECT_EQ(ret, output);
+      Solution sl;
+      int const ret = sl.MaxLength(arr);
+      EXPECT_EQ(ret, output);
     }
 }
 BENCHMARK(BenchMarkV1);
@@ -190,11 +190,11 @@ BENCHMARK(BenchMarkV1);
 static void BenchMarkV2(benchmark::State& state) {
     vector<string> arr = {"un", "iq", "ue"};
     for (auto _ : state) {
-        int output = 4;
+      int const output = 4;
 
-        Solution sl;
-        int ret = sl.MaxLengthV2(arr);
-        EXPECT_EQ(ret, output);
+      Solution sl;
+      int const ret = sl.MaxLengthV2(arr);
+      EXPECT_EQ(ret, output);
     }
 }
 BENCHMARK(BenchMarkV2);

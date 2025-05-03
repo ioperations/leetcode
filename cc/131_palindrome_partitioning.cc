@@ -58,21 +58,21 @@ class Solution {
 };
 
 TEST(palindrome_partitioning, t1) {
-    string s = "aab";
-    vector<vector<string>> output = {{"a", "a", "b"}, {"aa", "b"}};
+  string const s = "aab";
+  vector<vector<string>> const output = {{"a", "a", "b"}, {"aa", "b"}};
 
-    Solution sl;
-    auto ret = sl.Partition(s);
-    EXPECT_EQ(ret, output);
+  Solution sl;
+  auto ret = sl.Partition(s);
+  EXPECT_EQ(ret, output);
 }
 
 TEST(palindrome_partitioning, t2) {
-    string s = "a";
-    vector<vector<string>> output = {{"a"}};
+  string const s = "a";
+  vector<vector<string>> const output = {{"a"}};
 
-    Solution sl;
-    auto ret = sl.Partition(s);
-    EXPECT_EQ(ret, output);
+  Solution sl;
+  auto ret = sl.Partition(s);
+  EXPECT_EQ(ret, output);
 }
 
 }  // namespace

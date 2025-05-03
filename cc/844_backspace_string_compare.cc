@@ -49,29 +49,29 @@ class Solution {
 
 TEST(backspace_string_compare, t1) {
     std::string s = "ab#c", t = "ad#c";
-    bool expected = true;
+    bool const expected = true;
 
     Solution sl;
-    bool ret = sl.BackspaceCompare(s, t);
+    bool const ret = sl.BackspaceCompare(s, t);
     EXPECT_EQ(ret, expected);
     // Explanation: Both s and t become "ac".
 }
 TEST(backspace_string_compare, t2) {
     std::string s = "ab##", t = "c#d#";
-    bool expected = true;
+    bool const expected = true;
 
     Solution sl;
-    bool ret = sl.BackspaceCompare(s, t);
+    bool const ret = sl.BackspaceCompare(s, t);
     EXPECT_EQ(ret, expected);
     // Explanation: Both s and t become "ac".
 }
 
 TEST(backspace_string_compare, t3) {
     std::string s = "a#c", t = "b";
-    bool expected = false;
+    bool const expected = false;
 
     Solution sl;
-    bool ret = sl.BackspaceCompare(s, t);
+    bool const ret = sl.BackspaceCompare(s, t);
     EXPECT_EQ(ret, expected);
     // Explanation: Both s and t become "ac".
 }

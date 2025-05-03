@@ -84,19 +84,19 @@ class Solution {
 
 TEST(utf8_validation, t1) {
     vector<int> data = {197, 130, 1};
-    bool output = true;
+    bool const output = true;
     // Explanation: data represents the octet sequence: 11000101 10000010
     // 00000001. It is a valid utf-8 encoding for a 2-bytes character followed
     // by a 1-byte character.
 
     Solution sl;
-    bool ret = sl.ValidUtf8(data);
+    bool const ret = sl.ValidUtf8(data);
     EXPECT_EQ(ret, output);
 }
 
 TEST(utf8_validation, t2) {
     vector<int> data = {235, 140, 4};
-    bool output = false;
+    bool const output = false;
     // data represented the octet sequence: 11101011 10001100 00000100.
     // The first 3 bits are all one's and the 4th bit is 0 means it is a 3-bytes
     // character. The next byte is a continuation byte which starts with 10 and
@@ -104,7 +104,7 @@ TEST(utf8_validation, t2) {
     // But the second continuation byte does not start with 10, so it is
     // invalid.
     Solution sl;
-    bool ret = sl.ValidUtf8(data);
+    bool const ret = sl.ValidUtf8(data);
     EXPECT_EQ(ret, output);
 }
 

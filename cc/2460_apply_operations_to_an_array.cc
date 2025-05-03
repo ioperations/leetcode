@@ -22,23 +22,23 @@
 using namespace std;
 class Solution {
    public:
-    vector<int> applyOperations(vector<int>& nums) {
-        auto n = nums.size();
+    vector<int> ApplyOperations(vector<int>& nums) {
+      auto n = nums.size();
 
-        for (int i = 0; i < n - 1; i++) {
-            if (nums[i] == nums[i + 1]) {
-                nums[i] = nums[i] * 2;
-                nums[i + 1] = 0;
-            }
+      for (int i = 0; i < n - 1; i++) {
+        if (nums[i] == nums[i + 1]) {
+          nums[i] = nums[i] * 2;
+          nums[i + 1] = 0;
         }
+      }
 
-        int j = 0;
-        for (int i = 0; i < n; i++) {
-            if (nums[i] > 0) nums[j++] = nums[i];
-        }
-        fill(nums.begin() + j, nums.end(), 0);
+      int j = 0;
+      for (int i = 0; i < n; i++) {
+        if (nums[i] > 0) nums[j++] = nums[i];
+      }
+      fill(nums.begin() + j, nums.end(), 0);
 
-        return nums;
+      return nums;
     }
 };
 
@@ -46,30 +46,30 @@ class Solution {
 
 TEST(t0, t1) {
     vector<int> nums{1, 2, 2, 1, 1, 0};
-    vector<int> output{1, 4, 2, 0, 0, 0};
+    vector<int> const output{1, 4, 2, 0, 0, 0};
 
     Solution sl;
-    auto ret = sl.applyOperations(nums);
+    auto ret = sl.ApplyOperations(nums);
     EXPECT_EQ(ret, output);
 }
 
 TEST(t0, t2) {
     vector<int> nums{0, 1};
-    vector<int> output{1, 0};
+    vector<int> const output{1, 0};
 
     Solution sl;
-    auto ret = sl.applyOperations(nums);
+    auto ret = sl.ApplyOperations(nums);
     EXPECT_EQ(ret, output);
 }
 
 TEST(t0, t3) {
     vector<int> nums{328, 0, 0, 0, 93,  43, 802, 802, 0,
                      580, 0, 0, 0, 973, 0,  0,   774};
-    vector<int> output{328, 93, 43, 1604, 580, 973, 774, 0, 0,
-                       0,   0,  0,  0,    0,   0,   0,   0};
+    vector<int> const output{328, 93, 43, 1604, 580, 973, 774, 0, 0,
+                             0,   0,  0,  0,    0,   0,   0,   0};
 
     Solution sl;
-    auto ret = sl.applyOperations(nums);
+    auto ret = sl.ApplyOperations(nums);
     EXPECT_EQ(ret, output);
 }
 

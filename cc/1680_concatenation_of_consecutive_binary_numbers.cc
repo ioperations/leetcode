@@ -25,8 +25,8 @@ class Solution {
     }
 
     inline void AppendToStringv1(int i, std::string& str) {
-        std::string ret = DemicalToBinary(i);
-        str += ret;
+      std::string const ret = DemicalToBinary(i);
+      str += ret;
     }
     void AppendToString(int n, std::string& str) {
         for (int i = 1; i < (n + 1); ++i) {
@@ -63,7 +63,7 @@ TEST(concatenation_of_consecutive_binary_numbers, t1) {
     int const output = 1;
     Solution sl;
     int const ret = sl.ConcatenatedBinary(n);
-    std::string expected_str = "1";
+    std::string const expected_str = "1";
     // "1" in binary corresponds to the decimal value 1.
     std::string str;
     sl.AppendToString(n, str);
@@ -76,7 +76,7 @@ TEST(concatenation_of_consecutive_binary_numbers, t2) {
     int const output = 27;
     Solution sl;
     int const ret = sl.ConcatenatedBinary(n);
-    std::string expected_str = "11011";
+    std::string const expected_str = "11011";
     /*
         In binary, 1, 2, and 3 corresponds to "1", "10", and "11".
         After concatenating them, we have "11011", which corresponds to the
@@ -92,7 +92,7 @@ TEST(concatenation_of_consecutive_binary_numbers, t2) {
 TEST(concatenation_of_consecutive_binary_numbers, t3) {
     int const n = 12;
     int const output = 505379714;
-    std::string expected_str = "1101110010111011110001001101010111100";
+    std::string const expected_str = "1101110010111011110001001101010111100";
     /*
         Explanation: The concatenation results in
         "1101110010111011110001001101010111100". The decimal value of that is

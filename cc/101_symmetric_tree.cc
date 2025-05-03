@@ -76,10 +76,10 @@ TEST(symmetric_tree, t1) {
              |___|   |___| | |___|   |___|
     */
 
-    std::vector<std::optional<int>> data{1, 2, 2, 3, 4, 4, 3};
+    std::vector<std::optional<int>> const data{1, 2, 2, 3, 4, 4, 3};
     TreeNode* root = Tree::ConstructBinaryTree(data);
     Solution sl;
-    bool ret = sl.IsSymmetric(root);
+    bool const ret = sl.IsSymmetric(root);
     EXPECT_EQ(ret, true);
     Tree::FreeTreeNode(root);
 }
@@ -98,10 +98,10 @@ TEST(symmetric_tree, t2) {
     */
 
 #define null std::optional<int>()
-    std::vector<std::optional<int>> data{1, 2, 2, null, 3, null, 3};
+    std::vector<std::optional<int>> const data{1, 2, 2, null, 3, null, 3};
     TreeNode* root = Tree::ConstructBinaryTree(data);
     Solution sl;
-    bool ret = sl.IsSymmetric(root);
+    bool const ret = sl.IsSymmetric(root);
     EXPECT_EQ(ret, false);
     Tree::FreeTreeNode(root);
 }

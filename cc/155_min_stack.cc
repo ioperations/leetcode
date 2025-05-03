@@ -11,29 +11,29 @@ using namespace std;
 namespace {
 class MinStack {
    public:
-    vector<pair<int, int>> v;
+    vector<pair<int, int>> m_v;
     MinStack() {
         // do nothing
     }
 
     void Push(int val) {
         // 1st element
-        if (v.size() == 0) {
-            v.push_back(std::make_pair(val, val));
+        if (m_v.size() == 0) {
+          m_v.emplace_back(val, val);
         } else {
-            // check min element of last pair
-            pair<int, int> prev = v.back();
+          // check min element of last pair
+          pair<int, int> const prev = m_v.back();
 
-            int mini = min(val, prev.second);
-            v.emplace_back(val, mini);
+          int const mini = min(val, prev.second);
+          m_v.emplace_back(val, mini);
         }
     }
 
-    void Pop() { v.pop_back(); }
+    void Pop() { m_v.pop_back(); }
 
-    int Top() { return v.back().first; }
+    int Top() { return m_v.back().first; }
 
-    int GetMin() { return v.back().second; }
+    int GetMin() { return m_v.back().second; }
 };
 
 TEST(min_stack, t1) {

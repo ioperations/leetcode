@@ -18,7 +18,7 @@
 #include <vector>
 class ProductOfNumbers {
    public:
-    ProductOfNumbers() {}
+    ProductOfNumbers() = default;
     /*
      * 0 <= num <= 100
       1 <= k <= 4 * 104
@@ -27,21 +27,21 @@ class ProductOfNumbers {
       integer.
      */
 
-    void add(int num) {
-        for (auto& ptr : d) {
-            ptr = ptr * num;
-        }
+    void Add(int num) {
+      for (auto& ptr : m_d) {
+        ptr = ptr * num;
+      }
 
-        d.push_back(num);
+      m_d.push_back(num);
     }
 
-    int getProduct(int k) {
-        auto size = d.size();
-        return d[size - k];
+    int GetProduct(int k) {
+      auto size = m_d.size();
+      return m_d[size - k];
     }
 
    private:
-    std::vector<int> d;
+    std::vector<int> m_d;
 };
 
 /**
@@ -61,23 +61,23 @@ TEST(t0, t1) {
     // [null,null,null,null,null,null,20,40,0,null,32]
 
     // Explanation
-    ProductOfNumbers productOfNumbers;
-    productOfNumbers.add(3);  // [3]
-    productOfNumbers.add(0);  // [3,0]
-    productOfNumbers.add(2);  // [3,0,2]
-    productOfNumbers.add(5);  // [3,0,2,5]
-    productOfNumbers.add(4);  // [3,0,2,5,4]
-    int ret = productOfNumbers.getProduct(2);
+    ProductOfNumbers product_of_numbers;
+    product_of_numbers.Add(3);  // [3]
+    product_of_numbers.Add(0);  // [3,0]
+    product_of_numbers.Add(2);  // [3,0,2]
+    product_of_numbers.Add(5);  // [3,0,2,5]
+    product_of_numbers.Add(4);  // [3,0,2,5,4]
+    int ret = product_of_numbers.GetProduct(2);
     // return 20. The product of the last 2 numbers is 5 * 4 = 20;
     EXPECT_EQ(ret, 20);
-    ret = productOfNumbers.getProduct(3);
+    ret = product_of_numbers.GetProduct(3);
     // return 40. The product of the last 3 numbers is 2 * 5 * 4 = 40
     EXPECT_EQ(ret, 40);
-    ret = productOfNumbers.getProduct(4);
+    ret = product_of_numbers.GetProduct(4);
     // return 0. The product of the last 4 numbers is 0 * 2 * 5 * 4 = 0
     EXPECT_EQ(ret, 0);
-    productOfNumbers.add(8);  // [3,0,2,5,4,8]
-    ret = productOfNumbers.getProduct(2);
+    product_of_numbers.Add(8);  // [3,0,2,5,4,8]
+    ret = product_of_numbers.GetProduct(2);
     EXPECT_EQ(ret, 32);
     //  The product of the last 2 numbers is 4 * 8 = 32
 }

@@ -20,21 +20,21 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    unordered_map<string, int> mp;
+    unordered_map<string, int> m_mp;
 
     void Helper(string s, int minrem, vector<string>& st) {
-        if (mp[s] != 0) return;
-        mp[s]++;
-        if (minrem < 0) return;
-        if (minrem == 0) {
-            int x = RemovalsV2(s);
-            if (x == 0) st.push_back(s);
-            return;
+      if (m_mp[s] != 0) return;
+      m_mp[s]++;
+      if (minrem < 0) return;
+      if (minrem == 0) {
+        int const x = RemovalsV2(s);
+        if (x == 0) st.push_back(s);
+        return;
         }
         for (int i = 0; i < (int)s.length(); i++) {
-            string left = s.substr(0, i);
-            string right = s.substr(i + 1);
-            Helper(left + right, minrem - 1, st);
+          string const left = s.substr(0, i);
+          string const right = s.substr(i + 1);
+          Helper(left + right, minrem - 1, st);
         }
     }
 
@@ -70,44 +70,44 @@ class Solution {
     }
 
     vector<string> RemoveInvalidParentheses(string s) {
-        int minrems = RemovalsV2(s);
-        vector<string> ans;
-        Helper(s, minrems, ans);
-        return ans;
+      int const minrems = RemovalsV2(s);
+      vector<string> ans;
+      Helper(s, minrems, ans);
+      return ans;
     }
 };
 
 TEST(remove_invalid_parentheses, t1) {
-    string s = "()())()";
-    vector<string> output = {"(())()", "()()()"};
+  string const s = "()())()";
+  vector<string> output = {"(())()", "()()()"};
 
-    Solution sl;
-    auto ret = sl.RemoveInvalidParentheses(s);
-    set<string> ret_set(ret.begin(), ret.end());
-    set<string> output_set(output.begin(), output.end());
-    EXPECT_EQ(ret_set, output_set);
+  Solution sl;
+  auto ret = sl.RemoveInvalidParentheses(s);
+  set<string> const ret_set(ret.begin(), ret.end());
+  set<string> const output_set(output.begin(), output.end());
+  EXPECT_EQ(ret_set, output_set);
 }
 
 TEST(remove_invalid_parentheses, t2) {
-    string s = "(a)())()";
-    vector<string> output = {"(a())()", "(a)()()"};
+  string const s = "(a)())()";
+  vector<string> output = {"(a())()", "(a)()()"};
 
-    Solution sl;
-    auto ret = sl.RemoveInvalidParentheses(s);
-    set<string> ret_set(ret.begin(), ret.end());
-    set<string> output_set(output.begin(), output.end());
-    EXPECT_EQ(ret_set, output_set);
+  Solution sl;
+  auto ret = sl.RemoveInvalidParentheses(s);
+  set<string> const ret_set(ret.begin(), ret.end());
+  set<string> const output_set(output.begin(), output.end());
+  EXPECT_EQ(ret_set, output_set);
 }
 
 TEST(remove_invalid_parentheses, t3) {
-    string s = ")(";
-    vector<string> output = {""};
+  string const s = ")(";
+  vector<string> output = {""};
 
-    Solution sl;
-    auto ret = sl.RemoveInvalidParentheses(s);
-    set<string> ret_set(ret.begin(), ret.end());
-    set<string> output_set(output.begin(), output.end());
-    EXPECT_EQ(ret_set, output_set);
+  Solution sl;
+  auto ret = sl.RemoveInvalidParentheses(s);
+  set<string> const ret_set(ret.begin(), ret.end());
+  set<string> const output_set(output.begin(), output.end());
+  EXPECT_EQ(ret_set, output_set);
 }
 
 }  // namespace

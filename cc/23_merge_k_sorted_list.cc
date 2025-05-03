@@ -3,9 +3,11 @@
 // https://pvs-studio.com
 
 #include <cmath>
+#include <cstddef>
 #include <limits>
 #include <queue>
 #include <utility>
+#include <vector>
 
 #include "datastruct_base.hh"
 #include "gtest/gtest.h"
@@ -15,62 +17,62 @@ using namespace std;
 
 using MyListNode = List::ListNode<int>;
 
-#define inf 0x7fffffff
+enum { inf = 0x7fffffff };
 
 namespace {
 class LoserTree {
    private:
     // 以下存ls的下标
-    int leaves_ls_st;
+    int m_leaves_ls_st;
     //  int leaves_ls_ed;
     // 败者树根节点为ls[1]
-    vector<int> ls;
+    vector<int> m_ls;
 
-    vector<int>* base;  // 数组副本(叶节点数据)
+    vector<int>* m_base;  // 数组副本(叶节点数据)
    public:
     LoserTree(vector<int>& nums) {
         const int nums_size = nums.size();
         if (nums_size == 0) return;
         const int power_num = ceil(log2(nums_size));
         const int leaves_num = 1 << power_num;
-        this->base = &nums;
-        this->leaves_ls_st = leaves_num;
-        this->ls.resize(leaves_num << 1, -1);
-        (*this->base).resize(leaves_num, inf);
+        this->m_base = &nums;
+        this->m_leaves_ls_st = leaves_num;
+        this->m_ls.resize(leaves_num << 1, -1);
+        (*this->m_base).resize(leaves_num, inf);
         // 左闭右开
         for (int i = 0; i < leaves_num; i++) {
-            this->ls[this->leaves_ls_st + i] = i;
+          this->m_ls[this->m_leaves_ls_st + i] = i;
         }
-        this->ls[0] = this->Build(1);
+        this->m_ls[0] = this->Build(1);
     }
 
     // node_idx为ls中的下标
     //  返回:winner_id为base中的下标
     int Build(int node_idx) {
-        if (node_idx >= this->leaves_ls_st) {
-            return this->ls[node_idx];
-        }
+      if (node_idx >= this->m_leaves_ls_st) {
+        return this->m_ls[node_idx];
+      }
         const int lwinner_idx = Build(node_idx << 1);
         const int rwinner_idx = Build(node_idx << 1 | 1);
         int winner_idx = -1;
         // 父节点存loser
-        if ((*this->base)[lwinner_idx] < (*this->base)[rwinner_idx]) {
-            this->ls[node_idx] = rwinner_idx;
-            winner_idx = lwinner_idx;
+        if ((*this->m_base)[lwinner_idx] < (*this->m_base)[rwinner_idx]) {
+          this->m_ls[node_idx] = rwinner_idx;
+          winner_idx = lwinner_idx;
         } else {
-            this->ls[node_idx] = lwinner_idx;
-            winner_idx = rwinner_idx;
+          this->m_ls[node_idx] = lwinner_idx;
+          winner_idx = rwinner_idx;
         }
         return winner_idx;
     }
 
     int GetMin() {
-        const int ans = (*this->base)[ls[0]];
-        // modify_fa_idx为ls的下标
-        const int leaves_idx = this->leaves_ls_st + ls[0];
-        (*this->base)[this->ls[leaves_idx]] = inf;
-        this->Sort(leaves_idx >> 1, this->ls[0]);
-        return ans;
+      const int ans = (*this->m_base)[m_ls[0]];
+      // modify_fa_idx为ls的下标
+      const int leaves_idx = this->m_leaves_ls_st + m_ls[0];
+      (*this->m_base)[this->m_ls[leaves_idx]] = inf;
+      this->Sort(leaves_idx >> 1, this->m_ls[0]);
+      return ans;
     }
 
     // node_idx:ls的index
@@ -78,12 +80,13 @@ class LoserTree {
     // 自底上更新败者树
     void Sort(int node_idx, int winner_idx) {
         while (node_idx) {
-            if ((*this->base)[winner_idx] > (*this->base)[this->ls[node_idx]]) {
-                swap(this->ls[node_idx], winner_idx);
-            }
+          if ((*this->m_base)[winner_idx] >
+              (*this->m_base)[this->m_ls[node_idx]]) {
+            swap(this->m_ls[node_idx], winner_idx);
+          }
             node_idx >>= 1;
         }
-        this->ls[0] = winner_idx;
+        this->m_ls[0] = winner_idx;
     }
 };
 
@@ -91,7 +94,7 @@ class Solution {
    public:
     std::vector<int> GetLeastNumbers(std::vector<int>& arr, int k) {
         std::vector<int> ans;
-        LoserTree* lstree = new LoserTree(arr);
+        auto* lstree = new LoserTree(arr);
         for (int i = 0; i < k; i++) {
             const int min = lstree->GetMin();
             ans.push_back(min);
@@ -119,32 +122,32 @@ class Solution {
 
     MyListNode* MergeKListsv1(vector<MyListNode*>& lists) {
         MyListNode* ans = nullptr;
-        for (size_t i = 0; i < lists.size(); ++i) {
-            ans = MergeTwoLists(ans, lists[i]);
+        for (auto& list : lists) {
+          ans = MergeTwoLists(ans, list);
         }
         return ans;
     }
 
     struct Status {
-        int val;
-        MyListNode* ptr;
-        bool operator<(const Status& rhs) const { return val > rhs.val; }
+      int m_val;
+      MyListNode* m_ptr;
+      bool operator<(const Status& rhs) const { return m_val > rhs.m_val; }
     };
 
-    std::priority_queue<Status> q;
+    std::priority_queue<Status> m_q;
 
     //  最小堆实现k路归并排序
     MyListNode* MergeKListsPriorityQueue(std::vector<MyListNode*>& lists) {
         for (auto* node : lists) {
-            if (node) q.push({node->val, node});
+          if (node) m_q.push({node->val, node});
         }
         MyListNode head, *tail = &head;
-        while (!q.empty()) {
-            auto f = q.top();
-            q.pop();
-            tail->next = f.ptr;
-            tail = tail->next;
-            if (f.ptr->next) q.push({f.ptr->next->val, f.ptr->next});
+        while (!m_q.empty()) {
+          auto f = m_q.top();
+          m_q.pop();
+          tail->next = f.m_ptr;
+          tail = tail->next;
+          if (f.m_ptr->next) m_q.push({f.m_ptr->next->val, f.m_ptr->next});
         }
         return head.next;
     }
@@ -161,7 +164,7 @@ class Solution {
         // nullptr)，并将这一路的游标向右移动一格
 
         MyListNode* head = nullptr;
-        MyListNode* pre;
+        MyListNode* pre = nullptr;
 
         int first = true;
 
@@ -200,35 +203,35 @@ class Solution {
 };
 
 TEST(memleak, t1) {
-    MyListNode* n1 = new MyListNode(1);
-    MyListNode* n2 = new MyListNode(3);
-    MyListNode* n3 = new MyListNode(4);
-    n1->next = n2;
-    n2->next = n3;
+  auto* n1 = new MyListNode(1);
+  auto* n2 = new MyListNode(3);
+  auto* n3 = new MyListNode(4);
+  n1->next = n2;
+  n2->next = n3;
 
-    FreeList(n1);
+  FreeList(n1);
 }
 
 TEST(memleak, t2) {
-    std::vector<int> list1{1, 4, 5};
+  std::vector<int> const list1{1, 4, 5};
 
-    MyListNode* n1 = ConstructList(list1);
-    FreeList(n1);
+  MyListNode* n1 = ConstructList(list1);
+  FreeList(n1);
 }
 
 TEST(memleak, t3) {
-    std::vector<int> list1{1, 4, 5};
+  std::vector<int> const list1{1, 4, 5};
 
-    MyListNode* n1 = ConstructList<int>(list1);
-    FreeList(n1);
+  MyListNode* n1 = ConstructList<int>(list1);
+  FreeList(n1);
 }
 
 TEST(merge_k_sorted_list_v2, t1_1) {
     /// Input: lists = [[1,4,5],[1,3,4],[2,6]]
     /// Output: [1,1,2,3,4,4,5,6]
-    std::vector<int> list1{1, 4, 5};
-    std::vector<int> list2{1, 3, 4};
-    std::vector<int> list3{2, 6};
+    std::vector<int> const list1{1, 4, 5};
+    std::vector<int> const list2{1, 3, 4};
+    std::vector<int> const list3{2, 6};
 
     MyListNode* n1 = ConstructList(list1);
     MyListNode* n2 = ConstructList(list2);
@@ -256,9 +259,9 @@ void ExpectEqList(MyListNode* list, const std::vector<int>& elemets) {
 TEST(merge_k_sorted_list_v2, priority_queue) {
     /// Input: lists = [[1,4,5],[1,3,4],[2,6]]
     /// Output: [1,1,2,3,4,4,5,6]
-    std::vector<int> list1{1, 4, 5};
-    std::vector<int> list2{1, 3, 4};
-    std::vector<int> list3{2, 6};
+    std::vector<int> const list1{1, 4, 5};
+    std::vector<int> const list2{1, 3, 4};
+    std::vector<int> const list3{2, 6};
 
     MyListNode* n1 = ConstructList(list1);
     MyListNode* n2 = ConstructList(list2);
@@ -270,7 +273,7 @@ TEST(merge_k_sorted_list_v2, priority_queue) {
     // 1->1->2->3->4->4->5->6
     auto* ret = s.MergeKListsPriorityQueue(merge_list);
 
-    std::vector<int> expected{1, 1, 2, 3, 4, 4, 5, 6};
+    std::vector<int> const expected{1, 1, 2, 3, 4, 4, 5, 6};
     ExpectEqList(ret, expected);
     FreeList(ret);
 }
@@ -291,7 +294,7 @@ TEST(merge_k_sorted_list_v2, null) {
 TEST(merge_k_sorted_list_v2, null2) {
     /// Input: lists = [[1,4,5],[1,3,4],[2,6]]
     /// Output: [1,1,2,3,4,4,5,6]
-    std::vector<int> list1{};
+    std::vector<int> const list1{};
 
     MyListNode* n1 = ConstructList(list1);
     std::vector<MyListNode*> merge_list{n1};

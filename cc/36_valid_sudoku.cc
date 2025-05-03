@@ -70,7 +70,7 @@ TEST(valid_sudoku, t1) {
         {'.', '.', '.', '4', '1', '9', '.', '.', '5'},
         {'.', '.', '.', '.', '8', '.', '.', '7', '9'}};
 
-    bool output = true;
+    bool const output = true;
     Solution sl;
     bool const ret = sl.IsValidSudoku(board);
     EXPECT_EQ(ret, output);
@@ -88,7 +88,7 @@ TEST(valid_sudoku, t2) {
         {'.', '.', '.', '4', '1', '9', '.', '.', '5'},
         {'.', '.', '.', '.', '8', '.', '.', '7', '9'}};
 
-    bool output = false;
+    bool const output = false;
     Solution sl;
     bool const ret = sl.IsValidSudoku(board);
     EXPECT_EQ(ret, output);

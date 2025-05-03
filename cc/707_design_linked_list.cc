@@ -29,10 +29,7 @@ class Node {
    public:
     int val;
     Node* next;
-    Node(int val) {
-        this->val = val;
-        next = nullptr;
-    }
+    Node(int val) : val(val), next(nullptr) {}
 };
 class MyLinkedList {
     void FreeNode(Node* r) {
@@ -42,61 +39,61 @@ class MyLinkedList {
     }
 
    public:
-    int size = 0;
-    Node* head = new Node(0);
-    MyLinkedList() {}
+    int m_size = 0;
+    Node* m_head = new Node(0);
+    MyLinkedList() = default;
 
-    ~MyLinkedList() { FreeNode(head); }
+    ~MyLinkedList() { FreeNode(m_head); }
     int Get(int index) {
-        if (index < 0 || index >= size) return -1;
-        Node* temp = head->next;
-        for (int i = 0; i < index; i++) temp = temp->next;
-        return temp->val;
+      if (index < 0 || index >= m_size) return -1;
+      Node* temp = m_head->next;
+      for (int i = 0; i < index; i++) temp = temp->next;
+      return temp->val;
     }
     void AddAtHead(int val) {
-        Node* temp = head->next;
-        head->next = new Node(val);
-        head->next->next = temp;
-        size++;
+      Node* temp = m_head->next;
+      m_head->next = new Node(val);
+      m_head->next->next = temp;
+      m_size++;
     }
     void AddAtTail(int val) {
-        Node* temp = head;
-        while (temp->next != 0) temp = temp->next;
-        temp->next = new Node(val);
-        size++;
+      Node* temp = m_head;
+      while (temp->next != nullptr) temp = temp->next;
+      temp->next = new Node(val);
+      m_size++;
     }
     void AddAtIndex(int index, int val) {
-        if (index > size) return;
-        Node* temp = head;
-        for (int i = 0; i < index; i++) temp = temp->next;
-        Node* temp1 = temp->next;
-        temp->next = new Node(val);
-        temp->next->next = temp1;
-        size++;
+      if (index > m_size) return;
+      Node* temp = m_head;
+      for (int i = 0; i < index; i++) temp = temp->next;
+      Node* temp1 = temp->next;
+      temp->next = new Node(val);
+      temp->next->next = temp1;
+      m_size++;
     }
     void DeleteAtIndex(int index) {
-        if (index < 0 || index >= size) return;
-        Node* temp = head;
-        for (int i = 0; i < index; i++) temp = temp->next;
-        Node* temp1 = temp->next;
-        temp->next = temp1->next;
-        temp1->next = nullptr;
-        size--;
-        delete temp1;
+      if (index < 0 || index >= m_size) return;
+      Node* temp = m_head;
+      for (int i = 0; i < index; i++) temp = temp->next;
+      Node* temp1 = temp->next;
+      temp->next = temp1->next;
+      temp1->next = nullptr;
+      m_size--;
+      delete temp1;
     }
 };
 
 TEST(design_linked_list, t1) {
-    MyLinkedList* my_linked_list = new MyLinkedList();
-    my_linked_list->AddAtHead(1);
-    my_linked_list->AddAtTail(3);
-    my_linked_list->AddAtIndex(1, 2);  // linked list becomes 1->2->3
-    int ret = my_linked_list->Get(1);  // return 2
-    EXPECT_EQ(ret, 2);
-    my_linked_list->DeleteAtIndex(1);  // now the linked list is 1->3
-    ret = my_linked_list->Get(1);      // return 3
-    EXPECT_EQ(ret, 3);
-    delete my_linked_list;
+  auto* my_linked_list = new MyLinkedList();
+  my_linked_list->AddAtHead(1);
+  my_linked_list->AddAtTail(3);
+  my_linked_list->AddAtIndex(1, 2);  // linked list becomes 1->2->3
+  int ret = my_linked_list->Get(1);  // return 2
+  EXPECT_EQ(ret, 2);
+  my_linked_list->DeleteAtIndex(1);  // now the linked list is 1->3
+  ret = my_linked_list->Get(1);      // return 3
+  EXPECT_EQ(ret, 3);
+  delete my_linked_list;
 }
 
 }  // namespace

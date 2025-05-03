@@ -5,6 +5,7 @@
  *
  */
 
+#include <cstddef>
 #include <set>
 #include <string>
 #include <vector>
@@ -13,74 +14,74 @@ using namespace std;
 
 class Solution {
    public:
-    int numTilePossibilities(string tiles) {
-        // 1 <= tiles.length <= 7
-        // tiles consists of uppercase English letters.
+    int NumTilePossibilities(string tiles) {
+      // 1 <= tiles.length <= 7
+      // tiles consists of uppercase English letters.
 
-        s = tiles;
-        size = tiles.size();
-        for (int i = 0; i < size; i++) {
-            visiable.push_back(true);
-        }
+      m_s = tiles;
+      m_size = tiles.size();
+      for (int i = 0; i < m_size; i++) {
+        m_visiable.push_back(true);
+      }
 
-        int ret = 0;
-        string s;
-        Gen(s, ret);
+      int ret = 0;
+      string s;
+      Gen(s, ret);
 
-        return ret;
+      return ret;
     }
 
-    void Gen(string& str, int& num, bool allowEnd = false) {
-        if (allowEnd && cache.count(str) == 0) {
-            num += 1;
-            cache.emplace(str);
+    void Gen(string& str, int& num, bool allow_end = false) {
+      if (allow_end && m_cache.count(str) == 0) {
+        num += 1;
+        m_cache.emplace(str);
+      }
+
+      for (int i = 0; i < m_size; i++) {
+        if (!m_visiable[i]) {
+          continue;
         }
 
-        for (int i = 0; i < size; i++) {
-            if (!visiable[i]) {
-                continue;
-            }
+        m_visiable[i] = false;
+        str += m_s[i];
 
-            visiable[i] = false;
-            str += s[i];
+        Gen(str, num, true);
 
-            Gen(str, num, true);
-
-            str.erase(str.end() - 1);
-            visiable[i] = true;
-        }
+        str.erase(str.end() - 1);
+        m_visiable[i] = true;
+      }
     }
 
-    std::set<string> cache;
-    std::size_t size = 0;
-    string s;
-    vector<bool> visiable;
+    std::set<string> m_cache;
+    std::size_t m_size = 0;
+    string m_s;
+    vector<bool> m_visiable;
 };
 
 #include <gtest/gtest.h>
 
 TEST(t0, t1) {
-    string tiles = "AAB";
-    int output = 8;
-    Solution sl;
-    int ret = sl.numTilePossibilities(tiles);
-    EXPECT_EQ(ret, output);
+  string const tiles = "AAB";
+  int const output = 8;
+  Solution sl;
+  int const ret = sl.NumTilePossibilities(tiles);
+  EXPECT_EQ(ret, output);
 }
 
 TEST(t0, t2) {
-    string tiles = "AAABBC";
-    int output = 188;
-    Solution sl;
-    int ret = sl.numTilePossibilities(tiles);
-    EXPECT_EQ(ret, output);
+  string const tiles = "AAABBC";
+  int const output = 188;
+  Solution sl;
+  int const ret = sl.NumTilePossibilities(tiles);
+  EXPECT_EQ(ret, output);
 }
 
 TEST(t0, t3) {
-    string tiles = "V";
-    int output = 1;
-    Solution sl;
-    int ret = sl.numTilePossibilities(tiles);
-    EXPECT_EQ(ret, output);
+  string const tiles = "V";
+  int const output = 1;
+  Solution sl;
+  int const ret = sl.NumTilePossibilities(tiles);
+  EXPECT_EQ(ret, output);
 }
 
 int main(int argc, char* argv[]) {

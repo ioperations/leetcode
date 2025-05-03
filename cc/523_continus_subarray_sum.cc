@@ -103,33 +103,33 @@ class Solution {
 
 TEST(continus_subarray_sum, t1) {
     vector<int> nums = {23, 2, 4, 6, 7};
-    int k = 6;
-    bool output = true;
+    int const k = 6;
+    bool const output = true;
     // Explanation: [2, 4] is a continuous subarray of size 2 whose elements sum
     // up to 6.
     Solution sl;
-    bool ret = sl.CheckSubarraySum(nums, k);
+    bool const ret = sl.CheckSubarraySum(nums, k);
     EXPECT_EQ(ret, output);
 }
 
 TEST(continus_subarray_sum, t2) {
     vector<int> nums = {23, 2, 6, 4, 7};
-    int k = 6;
-    bool output = true;
+    int const k = 6;
+    bool const output = true;
     // Explanation: [23, 2, 6, 4, 7] is an continuous subarray of size 5 whose
     // elements sum up to 42. 42 is a multiple of 6 because 42 = 7 * 6 and 7 is
     // an integer.
     Solution sl;
-    bool ret = sl.CheckSubarraySum(nums, k);
+    bool const ret = sl.CheckSubarraySum(nums, k);
     EXPECT_EQ(ret, output);
 }
 
 TEST(continus_subarray_sum, t3) {
     vector<int> nums = {23, 2, 6, 4, 7};
-    int k = 13;
-    bool output = false;
+    int const k = 13;
+    bool const output = false;
     Solution sl;
-    bool ret = sl.CheckSubarraySum(nums, k);
+    bool const ret = sl.CheckSubarraySum(nums, k);
     EXPECT_EQ(ret, output);
 }
 

@@ -44,13 +44,13 @@ class Solution {
         int size = 0;
         for (const auto& ptr : words) {
         retry:
-            int remain_size = max_width - size -
-                              (q.size() ? (q.size() - 1) : 0) -
-                              ((size) ? 1 : 0);
+          int const remain_size = max_width - size -
+                                  (q.size() ? (q.size() - 1) : 0) -
+                                  ((size) ? 1 : 0);
 
-            if (remain_size >= (int)ptr.size()) {
-                q.push(ptr);
-                size += ptr.size();
+          if (remain_size >= (int)ptr.size()) {
+            q.push(ptr);
+            size += ptr.size();
             } else {
                 std::string str = BuildMaxLeft(q, max_width - size);
                 if ((int)str.size() < max_width) {
@@ -84,13 +84,13 @@ class Solution {
 
         int i = 0;
         while (q.size()) {
-            std::string str = q.front();
-            ret += str;
-            q.pop();
-            if (q.size()) {
-                for (int j = 0; j < z[i]; j++) {
-                    ret += ' ';
-                }
+          std::string const str = q.front();
+          ret += str;
+          q.pop();
+          if (q.size()) {
+            for (int j = 0; j < z[i]; j++) {
+              ret += ' ';
+            }
             }
             i++;
         }
@@ -143,9 +143,9 @@ TEST(test, t0) {
 TEST(test, t1) {
     Solution s;
     std::queue<std::string> q;
-    q.push("hello");
-    q.push("world");
-    q.push("i");
+    q.emplace("hello");
+    q.emplace("world");
+    q.emplace("i");
     auto ret = s.BuildAliagnToLeft(q);
 
     EXPECT_EQ(ret, "hello world i");
@@ -154,9 +154,9 @@ TEST(test, t1) {
 TEST(test, t2) {
     Solution s;
     std::queue<std::string> q;
-    q.push("hello");
-    q.push("world");
-    q.push("i");
+    q.emplace("hello");
+    q.emplace("world");
+    q.emplace("i");
     auto ret = s.BuildMaxLeft(q, 5);
 
     EXPECT_EQ(ret, "hello   world  i");
@@ -164,9 +164,9 @@ TEST(test, t2) {
 TEST(text_justification, t1) {
     vector<string> words = {
         "This", "is", "an", "example", "of", "text", "justification."};
-    int max_width = 16;
-    vector<string> expected{"This    is    an", "example  of text",
-                            "justification.  "};
+    int const max_width = 16;
+    vector<string> const expected{"This    is    an", "example  of text",
+                                  "justification.  "};
 
     Solution s;
     auto ret = s.FullJustify(words, max_width);
@@ -176,9 +176,9 @@ TEST(text_justification, t1) {
 TEST(text_justification, t2) {
     vector<string> words = {"What",           "must",  "be",
                             "acknowledgment", "shall", "be"};
-    vector<string> expected = {"What   must   be", "acknowledgment  ",
-                               "shall be        "};
-    int max_width = 16;
+    vector<string> const expected = {"What   must   be", "acknowledgment  ",
+                                     "shall be        "};
+    int const max_width = 16;
 
     Solution s;
     auto ret = s.FullJustify(words, max_width);
@@ -192,10 +192,10 @@ TEST(text_justification, t3) {
          "enough",  "to", "explain",    "to",   "a",          "computer.",
          "Art",     "is", "everything", "else", "we",         "do"};
 
-    vector<string> expected = {"Science  is  what we", "understand      well",
-                               "enough to explain to", "a  computer.  Art is",
-                               "everything  else  we", "do                  "};
-    int max_width = 20;
+    vector<string> const expected = {
+        "Science  is  what we", "understand      well", "enough to explain to",
+        "a  computer.  Art is", "everything  else  we", "do                  "};
+    int const max_width = 20;
 
     Solution s;
     auto ret = s.FullJustify(words, max_width);
@@ -206,9 +206,9 @@ TEST(text_justification, t4) {
     vector<string> words = {"Listen", "to", "many,", "speak",
                             "to",     "a",  "few."};
 
-    vector<string> expected = {"Listen", "to    ", "many, ",
-                               "speak ", "to   a", "few.  "};
-    int max_width = 6;
+    vector<string> const expected = {"Listen", "to    ", "many, ",
+                                     "speak ", "to   a", "few.  "};
+    int const max_width = 6;
 
     Solution s;
     auto ret = s.FullJustify(words, max_width);

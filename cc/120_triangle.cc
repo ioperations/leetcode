@@ -23,8 +23,9 @@ class Solution {
                 vector<vector<int>>& mem) {
         if (i == n - 1) return triangle[i][j];
         if (mem[i][j] != -1) return mem[i][j];
-        int left = triangle[i][j] + FindMin(i + 1, j, n, triangle, mem);
-        int right = triangle[i][j] + FindMin(i + 1, j + 1, n, triangle, mem);
+        int const left = triangle[i][j] + FindMin(i + 1, j, n, triangle, mem);
+        int const right =
+            triangle[i][j] + FindMin(i + 1, j + 1, n, triangle, mem);
         return mem[i][j] = min(left, right);
     }
 
@@ -37,9 +38,9 @@ class Solution {
 
 TEST(triangle, t1) {
     std::vector<vector<int>> v{{2}, {3, 4}, {6, 5, 7}, {4, 1, 8, 3}};
-    int out = 11;
+    int const out = 11;
     Solution sl;
-    int ret = sl.MinimumTotal(v);
+    int const ret = sl.MinimumTotal(v);
     /*
     The triangle looks like:
        2
@@ -55,9 +56,9 @@ TEST(triangle, t1) {
 
 TEST(triangle, t2) {
     std::vector<vector<int>> v{{-10}};
-    int out = -10;
+    int const out = -10;
     Solution sl;
-    int ret = sl.MinimumTotal(v);
+    int const ret = sl.MinimumTotal(v);
     EXPECT_EQ(ret, out);
 }
 }  // namespace

@@ -21,7 +21,7 @@ class Solution {
    public:
     int FindKthLargest(vector<int>& nums, int k) {
         // pass
-        priority_queue<int, vector<int>, greater<int>> q;
+        priority_queue<int, vector<int>, greater<>> q;
 
         for (auto& ptr : nums) {
             if (k > (int)q.size()) {
@@ -35,12 +35,12 @@ class Solution {
     }
     int FindKthLargestV2(vector<int>& nums, int k) {
         // pass
-        priority_queue<int, vector<int>, greater<int>> q;
+        priority_queue<int, vector<int>, greater<>> q;
         for (int i = 0; i < k; i++) {
             q.push(nums[i]);
         }
 
-        int size = nums.size();
+        int const size = nums.size();
         for (int i = k; i < size; i++) {
             if (q.top() < nums[i]) {
                 q.pop();
@@ -54,8 +54,8 @@ class Solution {
 
 TEST(k_th_largest_element_in_an_array, t1) {
     vector<int> nums = {3, 2, 1, 5, 6, 4};
-    int k = 2;
-    int out = 5;
+    int const k = 2;
+    int const out = 5;
     Solution sl;
     int ret = sl.FindKthLargest(nums, k);
     EXPECT_EQ(ret, out);
@@ -66,8 +66,8 @@ TEST(k_th_largest_element_in_an_array, t1) {
 
 TEST(k_th_largest_element_in_an_array, t2) {
     vector<int> nums = {3, 2, 3, 1, 2, 4, 5, 5, 6};
-    int k = 4;
-    int out = 4;
+    int const k = 4;
+    int const out = 4;
     Solution sl;
     int ret = sl.FindKthLargest(nums, k);
     EXPECT_EQ(ret, out);

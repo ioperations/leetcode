@@ -42,17 +42,17 @@ class Solution {
         parent[sr] = {-1};
         dist[sr] = 0;
         while (!q.empty()) {
-            int x = q.front();
-            q.pop();
-            for (int u : g[x]) {
-                if (dist[u] > dist[x] + 1) {
-                    dist[u] = dist[x] + 1;
-                    q.push(u);
-                    parent[u].clear();
-                    parent[u].push_back(x);
-                } else if (dist[u] == dist[x] + 1)
-                    parent[u].push_back(x);
-            }
+          int const x = q.front();
+          q.pop();
+          for (int const u : g[x]) {
+            if (dist[u] > dist[x] + 1) {
+              dist[u] = dist[x] + 1;
+              q.push(u);
+              parent[u].clear();
+              parent[u].push_back(x);
+            } else if (dist[u] == dist[x] + 1)
+              parent[u].push_back(x);
+          }
         }
     }
     void ShortestPaths(vector<vector<int>>& paths, vector<int>& path,
@@ -110,20 +110,20 @@ TEST(word_ladder_ii, t1) {
     vector<string> word_list = {"hot", "dot", "dog", "lot", "log", "cog"};
     vector<vector<string>> output = {{"hit", "hot", "dot", "dog", "cog"},
                                      {"hit", "hot", "lot", "log", "cog"}};
-    set<vector<string>> output_set(output.begin(), output.end());
+    set<vector<string>> const output_set(output.begin(), output.end());
     // Explanation: There are 2 shortest transformation sequences:
     // "hit" -> "hot" -> "dot" -> "dog" -> "cog"
     // "hit" -> "hot" -> "lot" -> "log" -> "cog"
     Solution sl;
     auto ret = sl.FindLadders(begin_word, end_word, word_list);
-    set<vector<string>> set(ret.begin(), ret.end());
+    set<vector<string>> const set(ret.begin(), ret.end());
     EXPECT_EQ(set, output_set);
 }
 
 TEST(word_ladder_ii, t2) {
     string begin_word = "hit", end_word = "cog";
     vector<string> word_list = {"hot", "dot", "dog", "lot", "log"};
-    vector<vector<string>> output = {};
+    vector<vector<string>> const output = {};
     // Explanation: The endWord "cog" is not in wordList, therefore there is no
     // valid transformation sequence.
     Solution sl;
@@ -197,7 +197,7 @@ TEST(word_ladder_ii, t3) {
         "wwwww", "wwvww", "wvvww", "vvvww", "vvvwz", "avvwz", "aavwz", "aaawz",
         "aaaaz"};
 
-    vector<vector<string>> output = {
+    vector<vector<string>> const output = {
         {"aaaaa", "aaaaz", "aaawz", "aavwz", "avvwz", "vvvwz", "vvvww",
          "wvvww", "wwvww", "wwwww", "ywwww", "yywww", "yyyww", "yyyyw",
          "yyyyy", "xyyyy", "xxyyy", "xxxyy", "xxxxy", "xxxxx", "gxxxx",

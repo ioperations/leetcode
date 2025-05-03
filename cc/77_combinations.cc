@@ -46,28 +46,28 @@ class Solution {
 #include <set>
 
 TEST(combinations, t1) {
-    int n = 4;
-    int k = 2;
-    vector<vector<int>> o{
-        {2, 4}, {3, 4}, {2, 3}, {1, 2}, {1, 3}, {1, 4},
-    };
-    std::set<vector<int>> o_set(o.begin(), o.end());
-    Solution sl;
-    auto ret = sl.Combine(n, k);
+  int const n = 4;
+  int const k = 2;
+  vector<vector<int>> o{
+      {2, 4}, {3, 4}, {2, 3}, {1, 2}, {1, 3}, {1, 4},
+  };
+  std::set<vector<int>> const o_set(o.begin(), o.end());
+  Solution sl;
+  auto ret = sl.Combine(n, k);
 
-    set<vector<int>> ret_set(ret.begin(), ret.end());
-    EXPECT_EQ(ret_set, o_set);
+  set<vector<int>> const ret_set(ret.begin(), ret.end());
+  EXPECT_EQ(ret_set, o_set);
 }
 TEST(combinations, t2) {
-    int n = 1;
-    int k = 1;
-    vector<vector<int>> o{{1}};
-    std::set<vector<int>> o_set(o.begin(), o.end());
-    Solution sl;
-    auto ret = sl.Combine(n, k);
+  int const n = 1;
+  int const k = 1;
+  vector<vector<int>> o{{1}};
+  std::set<vector<int>> const o_set(o.begin(), o.end());
+  Solution sl;
+  auto ret = sl.Combine(n, k);
 
-    set<vector<int>> ret_set(ret.begin(), ret.end());
-    EXPECT_EQ(ret_set, o_set);
+  set<vector<int>> const ret_set(ret.begin(), ret.end());
+  EXPECT_EQ(ret_set, o_set);
 }
 
 }  // namespace

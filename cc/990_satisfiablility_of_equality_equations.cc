@@ -19,21 +19,21 @@ using namespace std;
 namespace {
 class DSU {
    public:
-    int rank[26], parent[26];
+    int m_rank[26]{}, m_parent[26]{};
     DSU() { MakeSet(); }
 
     void MakeSet() {
         for (int i = 0; i < 26; i++) {
-            parent[i] = i;
-            rank[i] = 0;
+          m_parent[i] = i;
+          m_rank[i] = 0;
         }
     }
 
     int FindParent(int x) {
-        if (parent[x] != x) {
-            parent[x] = FindParent(parent[x]);
-        }
-        return parent[x];
+      if (m_parent[x] != x) {
+        m_parent[x] = FindParent(m_parent[x]);
+      }
+      return m_parent[x];
     }
 
     void Unionn(int x, int y) {
@@ -42,13 +42,13 @@ class DSU {
         if (u == v) {
             return;
         }
-        if (rank[u] < rank[v]) {
-            parent[u] = v;
-        } else if (rank[u] > rank[v]) {
-            parent[v] = u;
+        if (m_rank[u] < m_rank[v]) {
+          m_parent[u] = v;
+        } else if (m_rank[u] > m_rank[v]) {
+          m_parent[v] = u;
         } else {
-            parent[u] = v;
-            rank[u] = rank[v] + 1;
+          m_parent[u] = v;
+          m_rank[u] = m_rank[v] + 1;
         }
     }
     ~DSU() = default;

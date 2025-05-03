@@ -70,8 +70,8 @@ class Solution {
         unordered_map<int, int> uniquefreq;
         int count = 0;
 
-        for (int i = 0; i < (int)s.size(); i++) {
-            charcnt[s[i] - 'a']++;
+        for (char i : s) {
+          charcnt[i - 'a']++;
         }
 
         for (auto& it : charcnt) {
@@ -92,35 +92,35 @@ class Solution {
 };
 
 TEST(minimum_deletions_to_make_Character_frequencies_unique, t1) {
-    string s = "aab";
-    int out = 0;
-    Solution sl;
-    int ret = sl.MinDeletions(s);
-    //  s is already good.
-    EXPECT_EQ(ret, out);
+  string const s = "aab";
+  int const out = 0;
+  Solution sl;
+  int const ret = sl.MinDeletions(s);
+  //  s is already good.
+  EXPECT_EQ(ret, out);
 }
 
 TEST(minimum_deletions_to_make_Character_frequencies_unique, t2) {
-    string s = "aaabbbcc";
-    int out = 2;
-    Solution sl;
-    int ret = sl.MinDeletions(s);
-    /*You can delete two 'b's resulting in the good string "aaabcc".
-    Another way it to delete one 'b' and one 'c' resulting in the good string
-    "aaabbc".*/
-    EXPECT_EQ(ret, out);
+  string const s = "aaabbbcc";
+  int const out = 2;
+  Solution sl;
+  int const ret = sl.MinDeletions(s);
+  /*You can delete two 'b's resulting in the good string "aaabcc".
+  Another way it to delete one 'b' and one 'c' resulting in the good string
+  "aaabbc".*/
+  EXPECT_EQ(ret, out);
 }
 
 TEST(minimum_deletions_to_make_Character_frequencies_unique, t3) {
-    string s = "ceabaacb";
-    int out = 2;
-    Solution sl;
-    int ret = sl.MinDeletions(s);
-    /*You can delete both 'c's resulting in the good string "eabaab".
-    Note that we only care about characters that are still in the string at the
-    end (i.e. frequency of 0 is ignored).
-    */
-    EXPECT_EQ(ret, out);
+  string const s = "ceabaacb";
+  int const out = 2;
+  Solution sl;
+  int const ret = sl.MinDeletions(s);
+  /*You can delete both 'c's resulting in the good string "eabaab".
+  Note that we only care about characters that are still in the string at the
+  end (i.e. frequency of 0 is ignored).
+  */
+  EXPECT_EQ(ret, out);
 }
 
 }  // namespace

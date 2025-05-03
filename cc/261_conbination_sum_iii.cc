@@ -43,7 +43,7 @@ class Solution {
 
 TEST(conbination_sum_iii, t1) {
     int k = 3, n = 7;
-    std::vector<vector<int>> output = {{1, 2, 4}};
+    std::vector<vector<int>> const output = {{1, 2, 4}};
 
     Solution sl;
     auto ret = sl.CombinationSum3(k, n);
@@ -55,7 +55,7 @@ TEST(conbination_sum_iii, t1) {
 }
 TEST(conbination_sum_iii, t2) {
     int k = 3, n = 9;
-    std::vector<vector<int>> output = {{1, 2, 6}, {1, 3, 5}, {2, 3, 4}};
+    std::vector<vector<int>> const output = {{1, 2, 6}, {1, 3, 5}, {2, 3, 4}};
     Solution sl;
     auto ret = sl.CombinationSum3(k, n);
     EXPECT_EQ(ret, output);
@@ -69,7 +69,7 @@ TEST(conbination_sum_iii, t2) {
 
 TEST(conbination_sum_iii, t3) {
     int k = 4, n = 1;
-    std::vector<vector<int>> output = {};
+    std::vector<vector<int>> const output = {};
     Solution sl;
     auto ret = sl.CombinationSum3(k, n);
 

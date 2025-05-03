@@ -56,7 +56,7 @@ class Solution {
 TEST(min_cost_climbing_stairs, t1) {
     std::vector<int> v{10, 15, 20};
 
-    int expected = 15;
+    int const expected = 15;
     /*
         You will start at index 1.
         - Pay 15 and climb two steps to reach the top.
@@ -64,14 +64,14 @@ TEST(min_cost_climbing_stairs, t1) {
     */
 
     Solution sl;
-    int ret = sl.MinCostClimbingStairs(v);
+    int const ret = sl.MinCostClimbingStairs(v);
     EXPECT_EQ(ret, expected);
 }
 
 TEST(min_cost_climbing_stairs, t2) {
     std::vector<int> v{1, 100, 1, 1, 1, 100, 1, 1, 100, 1};
 
-    int expected = 6;
+    int const expected = 6;
     /*
         You will start at index 0.
         - Pay 1 and climb two steps to reach index 2.
@@ -82,7 +82,7 @@ TEST(min_cost_climbing_stairs, t2) {
         - Pay 1 and climb one step to reach the top .
     */
     Solution sl;
-    int ret = sl.MinCostClimbingStairs(v);
+    int const ret = sl.MinCostClimbingStairs(v);
     EXPECT_EQ(ret, expected);
 }
 

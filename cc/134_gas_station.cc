@@ -30,7 +30,7 @@ class Solution {
             1 <= n <= 105
             0 <= gas[i], cost[i] <= 104
         */
-        int n = gas.size();
+        int const n = gas.size();
         for (int i = 0; i < n; ++i) {
             int cur_gas = gas[i];
             for (int j = 0; j < n; ++j) {
@@ -73,7 +73,7 @@ class SolutionV {
 
 TEST(gas_station, t1) {
     std::vector<int> gas = {1, 2, 3, 4, 5}, cost = {3, 4, 5, 1, 2};
-    int expected = 3;
+    int const expected = 3;
     // Start at station 3 (index 3) and fill up with 4 unit of gas. Your tank =
     // 0 + 4 = 4 Travel to station 4. Your tank = 4 - 1 + 5 = 8 Travel to
     // station 0. Your tank = 8 - 2 + 1 = 7 Travel to station 1. Your tank = 7 -
@@ -81,14 +81,14 @@ TEST(gas_station, t1) {
     // station 3. The cost is 5. Your gas is just enough to travel back to
     // station 3. Therefore, return 3 as the starting index.
     Solution s;
-    int ret = s.CanCompleteCircuit(gas, cost);
+    int const ret = s.CanCompleteCircuit(gas, cost);
 
     EXPECT_EQ(ret, expected);
 }
 
 TEST(gas_station, t2) {
     std::vector<int> gas = {2, 3, 4}, cost = {3, 4, 3};
-    int expected = -1;
+    int const expected = -1;
     // Start at station 3 (index 3) and fill up with 4 unit of gas. Your tank =
     // 0 + 4 = 4 Travel to station 4. Your tank = 4 - 1 + 5 = 8 Travel to
     // station 0. Your tank = 8 - 2 + 1 = 7 Travel to station 1. Your tank = 7 -
@@ -96,7 +96,7 @@ TEST(gas_station, t2) {
     // station 3. The cost is 5. Your gas is just enough to travel back to
     // station 3. Therefore, return 3 as the starting index.
     Solution s;
-    int ret = s.CanCompleteCircuit(gas, cost);
+    int const ret = s.CanCompleteCircuit(gas, cost);
     EXPECT_EQ(ret, expected);
 }
 

@@ -20,11 +20,11 @@ namespace {
 class Solution {
    public:
     bool Find132pattern(vector<int>& nums) {
-        int n = nums.size();
-        vector<int> minval(n);
-        minval[0] = nums[0];
-        for (int i = 1; i < n; i++) {
-            minval[i] = min(nums[i], minval[i - 1]);
+      int const n = nums.size();
+      vector<int> minval(n);
+      minval[0] = nums[0];
+      for (int i = 1; i < n; i++) {
+        minval[i] = min(nums[i], minval[i - 1]);
         }
         stack<int> st;
         for (int j = n - 1; j >= 0; j--) {
@@ -40,25 +40,25 @@ class Solution {
 
 TEST(pattern, t1) {
     std::vector<int> v{1, 2, 3, 4};
-    bool expected = false;
+    bool const expected = false;
     Solution sl;
-    bool ret = sl.Find132pattern(v);
+    bool const ret = sl.Find132pattern(v);
     EXPECT_EQ(ret, expected);
 }
 
 TEST(pattern, t2) {
     std::vector<int> v{3, 1, 4, 2};
-    bool expected = true;
+    bool const expected = true;
     Solution sl;
-    bool ret = sl.Find132pattern(v);
+    bool const ret = sl.Find132pattern(v);
     EXPECT_EQ(ret, expected);
 }
 
 TEST(pattern, t3) {
     std::vector<int> v{-1, 3, 2, 0};
-    bool expected = true;
+    bool const expected = true;
     Solution sl;
-    bool ret = sl.Find132pattern(v);
+    bool const ret = sl.Find132pattern(v);
     EXPECT_EQ(ret, expected);
 }
 

@@ -77,9 +77,9 @@ class Solution {
     }
 
     bool IsPalindrome(std::vector<ListNode*>& vec) {
-        std::size_t size = vec.size();
-        if (vec.size() == 1 || vec.size() == 0) {
-            return true;
+      std::size_t const size = vec.size();
+      if (vec.size() == 1 || vec.size() == 0) {
+        return true;
         }
 
         int left = 0;
@@ -109,7 +109,7 @@ TEST(palindrome_linked_list, t1) {
     ListNode* head = List::ConstructList(std::vector<int>{1, 2, 2, 1});
 
     Solution s;
-    bool ret = s.IsPalindrome(head);
+    bool const ret = s.IsPalindrome(head);
     EXPECT_EQ(ret, true);
 
     List::FreeList(head);
@@ -125,7 +125,7 @@ TEST(palindrome_linked_list_v2, t1) {
     head3.next = &head4;
 
     Solution2 s;
-    bool ret = s.IsPalindrome(&head);
+    bool const ret = s.IsPalindrome(&head);
     EXPECT_EQ(ret, true);
 }
 
@@ -133,7 +133,7 @@ TEST(palindrome_linked_list, t2) {
     ListNode* head = List::ConstructList(std::vector<int>{1, 2});
 
     Solution s;
-    bool ret = s.IsPalindrome(head);
+    bool const ret = s.IsPalindrome(head);
     EXPECT_EQ(ret, false);
 
     List::FreeList(head);
@@ -145,7 +145,7 @@ TEST(palindrome_linked_list_v2, t2) {
     head.next = &head2;
 
     Solution2 s;
-    bool ret = s.IsPalindrome(&head);
+    bool const ret = s.IsPalindrome(&head);
     EXPECT_EQ(ret, false);
 }
 
@@ -175,7 +175,7 @@ static void BenchFastSlow(benchmark::State& state) {
         head9.next = &head10;
         head10.next = &head11;
 
-        bool ret = s.IsPalindrome(&head);
+        bool const ret = s.IsPalindrome(&head);
         EXPECT_EQ(ret, true);
     }
 }
@@ -206,7 +206,7 @@ static void BenchMyVec(benchmark::State& state) {
         head9.next = &head10;
         head10.next = &head11;
 
-        bool ret = s.IsPalindrome(&head);
+        bool const ret = s.IsPalindrome(&head);
         EXPECT_EQ(ret, true);
     }
 }

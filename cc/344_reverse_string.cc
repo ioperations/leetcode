@@ -40,7 +40,7 @@ class Solution {
 
 TEST(reverse_string, t1) {
     std::vector<char> s = {'h', 'e', 'l', 'l', 'o'};
-    std::vector<char> output = {'o', 'l', 'l', 'e', 'h'
+    std::vector<char> const output = {'o', 'l', 'l', 'e', 'h'
 
     };
     Solution sl;
@@ -55,7 +55,7 @@ TEST(reverse_string, t1) {
 }
 TEST(reverse_string, t2) {
     std::vector<char> s = {'H', 'a', 'n', 'n', 'a', 'h'};
-    std::vector<char> output = {'h', 'a', 'n', 'n', 'a', 'H'};
+    std::vector<char> const output = {'h', 'a', 'n', 'n', 'a', 'H'};
     Solution sl;
     sl.ReverseString(s);
 

@@ -13,7 +13,6 @@ Each group of children is separated by the null value (See examples)
 
 #include <optional>
 #include <queue>
-#include <string>
 #include <vector>
 
 #include "gtest/gtest.h"
@@ -23,17 +22,15 @@ using namespace std;
 namespace {
 class Node {
    public:
-    int val;
+    int val{};
     vector<Node*> children;
 
-    Node() {}
+    Node() = default;
 
-    Node(int i_val) { val = i_val; }
+    Node(int i_val) : val(i_val) {}
 
-    Node(int i_val, vector<Node*> i_children) {
-        val = i_val;
-        children = i_children;
-    }
+    Node(int i_val, vector<Node*> i_children)
+        : val(i_val), children(i_children) {}
 };
 
 class Solution {

@@ -61,39 +61,39 @@ void ExpectEqList(ListNode* const head, const std::vector<int>& elements) {
 }
 
 TEST(patition_list, t1) {
-    std::vector<int> vec = {1, 4, 3, 2, 5, 2};
-    int x = 3;
+  std::vector<int> const vec = {1, 4, 3, 2, 5, 2};
+  int const x = 3;
 
-    ListNode* head = List::ConstructList(vec);
-    Solution s;
-    head = s.Partition(head, x);
+  ListNode* head = List::ConstructList(vec);
+  Solution s;
+  head = s.Partition(head, x);
 
-    ExpectEqList(head, std::vector<int>{1, 2, 2, 4, 3, 5});
-    List::FreeList(head);
+  ExpectEqList(head, std::vector<int>{1, 2, 2, 4, 3, 5});
+  List::FreeList(head);
 }
 
 TEST(patition_list, t2) {
-    std::vector<int> vec = {2, 1};
-    int x = 2;
+  std::vector<int> const vec = {2, 1};
+  int const x = 2;
 
-    ListNode* head = List::ConstructList(vec);
-    Solution s;
-    head = s.Partition(head, x);
+  ListNode* head = List::ConstructList(vec);
+  Solution s;
+  head = s.Partition(head, x);
 
-    ExpectEqList(head, std::vector<int>{1, 2});
-    List::FreeList(head);
+  ExpectEqList(head, std::vector<int>{1, 2});
+  List::FreeList(head);
 }
 
 TEST(patition_list, t3) {
-    std::vector<int> vec = {2, 1};
-    int x = 0;
+  std::vector<int> const vec = {2, 1};
+  int const x = 0;
 
-    ListNode* head = List::ConstructList(vec);
-    Solution s;
-    head = s.Partition(head, x);
+  ListNode* head = List::ConstructList(vec);
+  Solution s;
+  head = s.Partition(head, x);
 
-    ExpectEqList(head, std::vector<int>{2, 1});
-    List::FreeList(head);
+  ExpectEqList(head, std::vector<int>{2, 1});
+  List::FreeList(head);
 }
 
 }  // namespace

@@ -44,8 +44,9 @@ class Solution {
 
 TEST(increasing_subsequences, t1) {
     vector<int> nums = {4, 6, 7, 7};
-    vector<vector<int>> output = {{4, 6},    {4, 6, 7}, {4, 6, 7, 7}, {4, 7},
-                                  {4, 7, 7}, {6, 7},    {6, 7, 7},    {7, 7}};
+    vector<vector<int>> const output = {{4, 6},    {4, 6, 7}, {4, 6, 7, 7},
+                                        {4, 7},    {4, 7, 7}, {6, 7},
+                                        {6, 7, 7}, {7, 7}};
     Solution sl;
     auto ret = sl.FindSubsequences(nums);
     EXPECT_EQ(ret, output);
@@ -53,7 +54,7 @@ TEST(increasing_subsequences, t1) {
 
 TEST(increasing_subsequences, t2) {
     vector<int> nums = {4, 4, 3, 2, 1};
-    vector<vector<int>> output = {{4, 4}};
+    vector<vector<int>> const output = {{4, 4}};
 
     Solution sl;
     auto ret = sl.FindSubsequences(nums);

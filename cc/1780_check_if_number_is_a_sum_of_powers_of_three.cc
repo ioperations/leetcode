@@ -27,7 +27,7 @@ class Solution {
       // The number can not be represented as a sum of powers
       // of 3 if it's ternary presentation has a 2 in it
 
-      for (int i : arr) {
+      for (int const i : arr) {
         int const v = n / i;
         n = n % i;
 

@@ -12,109 +12,108 @@ namespace {
 template <typename T>
 class Optional {
    public:
-    Optional() : has_value(false), value() {}
-    [[maybe_unused]] Optional(T v) : value(v) { has_value = true; }
+    Optional() : m_value() {}
+    [[maybe_unused]] Optional(T v) : has_value(true), m_value(v) {}
     operator bool() { return has_value; }
     operator T() {
         if (!has_value) {
             throw std::exception();
         }
-        return value;
+        return m_value;
     }
     bool operator==(const int v) const {
         if (has_value) {
-            return value == v;
+          return m_value == v;
         }
         return false;
     }
 
    private:
     bool has_value = false;
-    T value;
+    T m_value;
 };
 
 template <typename K, typename V>
 class LRUCache final {
    public:
-    LRUCache(int capability) : capability(capability) {
-        head = new Node();
-        tail = new Node();
-        head->next = tail;
-        tail->pre = head;
-        head->pre = nullptr;
-        tail->next = nullptr;
+    LRUCache(int capability)
+        : head(new Node()), tail(new Node()), m_capability(capability) {
+      head->m_next = tail;
+      tail->m_pre = head;
+      head->m_pre = nullptr;
+      tail->m_next = nullptr;
     }
 
     ~LRUCache() {
         Node* p = head;
         while (p) {
             Node* q = p;
-            p = p->next;
+            p = p->m_next;
             delete q;
         }
     }
 
     Optional<V> Get(const K& key) {
-        if (map.find(key) != map.end()) {
-            DelNode(map[key]);
-            AddToFirstNode(map[key]);
-            return map[key]->value;
-        }
+      if (m_map.find(key) != m_map.end()) {
+        DelNode(m_map[key]);
+        AddToFirstNode(m_map[key]);
+        return m_map[key]->m_value;
+      }
         return Optional<V>();
     }
 
     void Set(const K& key, const V& value) {
-        if (map.find(key) != map.end()) {
-            map[key]->value = value;
-            DelNode(map[key]);
-            AddToFirstNode((map[key]));
-        } else {
-            Node* p = new Node();
-            p->key = key;
-            p->value = value;
+      if (m_map.find(key) != m_map.end()) {
+        m_map[key]->m_value = value;
+        DelNode(m_map[key]);
+        AddToFirstNode((m_map[key]));
+      } else {
+        Node* p = new Node();
+        p->m_key = key;
+        p->m_value = value;
 
-            map[key] = p;
-            AddToFirstNode(p);
-            if (map.size() > capability) {
-                DelLastNode();
-            }
+        m_map[key] = p;
+        AddToFirstNode(p);
+        if (m_map.size() > m_capability) {
+          DelLastNode();
         }
+      }
     }
 
    private:
     struct Node {
-        K key;
-        V value;
-        Node* pre;
-        Node* next;
+      K m_key;
+      V m_value;
+      Node* m_pre;
+      Node* m_next;
     };
 
     void AddToFirstNode(Node* node) {
-        head->next->pre = node;
-        node->pre = head;
-        node->next = head->next;
-        head->next = node;
+      head->m_next->m_pre = node;
+      node->m_pre = head;
+      node->m_next = head->m_next;
+      head->m_next = node;
     }
 
     void DelNode(Node* node) {
-        node->pre->next = node->next;
-        node->next->pre = node->pre;
+      node->m_pre->m_next = node->m_next;
+      node->m_next->m_pre = node->m_pre;
     }
 
     void DelLastNode() {
-        Node* p = tail->pre;
+      Node* p = tail->m_pre;
 
-        tail->pre = p->pre;
-        p->pre->next = tail;
+      tail->m_pre = p->m_pre;
+      p->m_pre->m_next = tail;
 
-        map.erase(p->key);
-        delete p;
+      m_map.erase(p->m_key);
+      delete p;
     }
 
     Node* head;
     Node* tail;
-    std::map<K, Node*> map;
-    int capability;
+    std::map<K, Node*> m_map;
+    int m_capability;
 };
 
 TEST(lru, t1) {

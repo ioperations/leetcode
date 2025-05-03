@@ -27,7 +27,7 @@ class Solution {
    private:
     struct TrieNode {
       int m_ends_here;
-      TrieNode* child[26];
+      TrieNode* m_child[26];
     };
 
     // creates a node with character and returns it
@@ -36,23 +36,23 @@ class Solution {
         auto* new_node = new TrieNode;
         new_node->m_ends_here = 0;
         // initialize every child node ptr to nullptr
-        for (auto& i : new_node->child) i = nullptr;
+        for (auto& i : new_node->m_child) i = nullptr;
         return new_node;
     }
 
     void DeleteNode(TrieNode* root) {
         if (root == nullptr) return;
-        for (auto& i : root->child) {
+        for (auto& i : root->m_child) {
           DeleteNode(i);
         }
         delete root;
     }
 
    public:
-    TrieNode* root;
+    TrieNode* m_root;
 
-    Solution() : root(GetNode()) {}
-    ~Solution() { DeleteNode(root); }
+    Solution() : m_root(GetNode()) {}
+    ~Solution() { DeleteNode(m_root); }
 
     int MinimumLengthEncoding(vector<string>& words) {
         // use set to avoid repetetion for duplicate words
@@ -70,24 +70,24 @@ class Solution {
     }
 
     void Insert(string word, int& count, int& res) {
-        TrieNode* curr = root;
-        int const len = word.length();
-        bool flag = true;
-        for (int i = len - 1; i >= 0; i--) {
-          int const ind = word[i] - 'a';
-          if (curr->child[ind] == nullptr) {
-            flag = false;
-            // if no word has created yet
-            curr->child[ind] = GetNode();
-            }
-            // a word ends here previously
-            // so donot consider it in the result
-            if (curr->m_ends_here) {
-              curr->m_ends_here = 0;
-              count--;
-              res -= (len - i - 1);
-            }
-            curr = curr->child[ind];
+      TrieNode* curr = m_root;
+      int const len = word.length();
+      bool flag = true;
+      for (int i = len - 1; i >= 0; i--) {
+        int const ind = word[i] - 'a';
+        if (curr->m_child[ind] == nullptr) {
+          flag = false;
+          // if no word has created yet
+          curr->m_child[ind] = GetNode();
+        }
+        // a word ends here previously
+        // so donot consider it in the result
+        if (curr->m_ends_here) {
+          curr->m_ends_here = 0;
+          count--;
+          res -= (len - i - 1);
+        }
+        curr = curr->m_child[ind];
         }
         // flag will be true if some word previously has created all the
         // nodes ex- ["time","me"] for "me" the flag will be true so we dont

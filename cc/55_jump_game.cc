@@ -2,9 +2,9 @@
 // PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
 // https://pvs-studio.com
 #include <benchmark/benchmark.h>
-#include <stddef.h>
 
 #include <algorithm>
+#include <cstddef>
 #include <vector>
 
 #include "gtest/gtest.h"
@@ -59,20 +59,20 @@ class Solution {
 
 TEST(testName, testNum) {
     std::vector<int> nums = {2, 3, 1, 1, 4};
-    bool output = true;
+    bool const output = true;
 
     Solution sl;
-    bool ret = sl.CanJumpV2(nums);
+    bool const ret = sl.CanJumpV2(nums);
 
     EXPECT_EQ(ret, output);
 }
 
 TEST(testName, t1) {
     std::vector<int> nums = {3, 2, 1, 0, 4};
-    bool output = false;
+    bool const output = false;
 
     Solution sl;
-    bool ret = sl.CanJumpV2(nums);
+    bool const ret = sl.CanJumpV2(nums);
 
     EXPECT_EQ(ret, output);
 }
@@ -80,10 +80,10 @@ TEST(testName, t1) {
 static void BenchMarkMyImpl(benchmark::State& state) {
     for (auto _ : state) {
         std::vector<int> nums = {2, 3, 1, 1, 4};
-        bool output = true;
+        bool const output = true;
 
         Solution sl;
-        bool ret = sl.CanJump(nums);
+        bool const ret = sl.CanJump(nums);
 
         EXPECT_EQ(ret, output);
     }
@@ -93,10 +93,10 @@ BENCHMARK(BenchMarkMyImpl);
 static void BenchMarkDp(benchmark::State& state) {
     for (auto _ : state) {
         std::vector<int> nums = {2, 3, 1, 1, 4};
-        bool output = true;
+        bool const output = true;
 
         Solution sl;
-        bool ret = sl.CanJumpV2(nums);
+        bool const ret = sl.CanJumpV2(nums);
 
         EXPECT_EQ(ret, output);
     }

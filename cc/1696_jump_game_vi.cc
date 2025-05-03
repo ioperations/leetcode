@@ -12,8 +12,7 @@ You want to reach the last index of the array (index n - 1). Your score is the
 sum of all nums[j] for each index j you visited in the array.
 
 Return the maximum score you can get.*/
-#include <limits.h>
-
+#include <climits>
 #include <queue>
 #include <utility>
 #include <vector>
@@ -26,23 +25,23 @@ namespace {
 class Solution {
    public:
     int MaxResult(vector<int>& nums, int k) {
-        int n = nums.size();
-        vector<int> mem(n, INT_MIN);
-        priority_queue<pair<int, int>> pq;
-        mem[n - 1] = nums[n - 1];
-        pq.push(make_pair(mem[n - 1], n - 1));
-        for (int i = n - 2; i >= 0; i--) {
-            while (!pq.empty()) {
-                pair<int, int> curr = pq.top();
-                int prev_max_score = curr.first;
-                int index = curr.second;
-                if (index - i <= k) {
-                    mem[i] = nums[i] + prev_max_score;
-                    pq.push(make_pair(mem[i], i));
-                    break;
-                }
-                pq.pop();
-            }
+      int const n = nums.size();
+      vector<int> mem(n, INT_MIN);
+      priority_queue<pair<int, int>> pq;
+      mem[n - 1] = nums[n - 1];
+      pq.emplace(mem[n - 1], n - 1);
+      for (int i = n - 2; i >= 0; i--) {
+        while (!pq.empty()) {
+          pair<int, int> const curr = pq.top();
+          int const prev_max_score = curr.first;
+          int const index = curr.second;
+          if (index - i <= k) {
+            mem[i] = nums[i] + prev_max_score;
+            pq.emplace(mem[i], i);
+            break;
+          }
+          pq.pop();
+        }
         }
         return mem[0];
     }
@@ -50,10 +49,10 @@ class Solution {
 
 TEST(jump_game_vi, t1) {
     std::vector<int> nums{1, -1, -2, 4, -7, 3};
-    int k = 2;
-    int out = 7;
+    int const k = 2;
+    int const out = 7;
     Solution sl;
-    int ret = sl.MaxResult(nums, k);
+    int const ret = sl.MaxResult(nums, k);
     // You can choose your jumps forming the subsequence [1,-1,4,3] (underlined
     // above). The sum is 7.
     EXPECT_EQ(ret, out);
@@ -61,10 +60,10 @@ TEST(jump_game_vi, t1) {
 
 TEST(jump_game_vi, t2) {
     std::vector<int> nums{10, -5, -2, 4, 0, 3};
-    int k = 3;
-    int out = 17;
+    int const k = 3;
+    int const out = 17;
     Solution sl;
-    int ret = sl.MaxResult(nums, k);
+    int const ret = sl.MaxResult(nums, k);
     // You can choose your jumps forming the subsequence [10,4,3] (underlined
     // above). The sum is 17.
 
@@ -73,10 +72,10 @@ TEST(jump_game_vi, t2) {
 
 TEST(jump_game_vi, t3) {
     std::vector<int> nums{1, -5, -20, 4, -1, 3, -6, -3};
-    int k = 2;
-    int out = 0;
+    int const k = 2;
+    int const out = 0;
     Solution sl;
-    int ret = sl.MaxResult(nums, k);
+    int const ret = sl.MaxResult(nums, k);
 
     EXPECT_EQ(ret, out);
 }
@@ -177,10 +176,10 @@ TEST(jump_game_vi, t4) {
         3485,  2883,  -9261, -7221, 654,   2001,  -926,  7840,  -5568, 2715,
         -7053, -2082, -2005, 7607,  -9511, 7545,  7564,  2380,  -7257, 1449,
         -3918, -3240, -1928, -6555, -4784, 1550,  2745,  -5316};
-    int k = 56;
-    int out = 2354241;
+    int const k = 56;
+    int const out = 2354241;
     Solution sl;
-    int ret = sl.MaxResult(nums, k);
+    int const ret = sl.MaxResult(nums, k);
 
     EXPECT_EQ(ret, out);
 }

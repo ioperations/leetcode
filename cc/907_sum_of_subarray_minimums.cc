@@ -16,19 +16,19 @@ namespace {
 class Solution {
    public:
     int SumSubarrayMins(vector<int>& arr) {
-        int size = arr.size();
-        vector<int> nextsmaller(size, size);
-        vector<int> prevsmaller(size, -1);
+      int const size = arr.size();
+      vector<int> nextsmaller(size, size);
+      vector<int> prevsmaller(size, -1);
 
-        stack<int> stack;
+      stack<int> stack;
 
-        // calculating the nextsmaller index
-        for (int i = 0; i < size; i++) {
-            while (stack.size() && arr[stack.top()] > arr[i]) {
-                nextsmaller[stack.top()] = i;
-                stack.pop();
-            }
-            stack.push(i);
+      // calculating the nextsmaller index
+      for (int i = 0; i < size; i++) {
+        while (stack.size() && arr[stack.top()] > arr[i]) {
+          nextsmaller[stack.top()] = i;
+          stack.pop();
+        }
+        stack.push(i);
         }
 
         // clear the stack;
@@ -43,7 +43,7 @@ class Solution {
             stack.push(i);
         }
         int ret = 0;
-        long long mod = 1e9 + 7;
+        long long const mod = 1e9 + 7;
 
         for (int i = 0; i < size; i++) {
             ret += (int)(arr[i] * (i - prevsmaller[i]) % mod) *
@@ -56,9 +56,9 @@ class Solution {
 
 TEST(sum_of_subarray_minimums, t1) {
     std::vector<int> arr{3, 1, 2, 4};
-    int output = 17;
+    int const output = 17;
     Solution sl;
-    int ret = sl.SumSubarrayMins(arr);
+    int const ret = sl.SumSubarrayMins(arr);
     /*Subarrays are [3], [1], [2], [4], [3,1], [1,2], [2,4], [3,1,2], [1,2,4],
     [3,1,2,4]. Minimums are 3, 1, 2, 4, 1, 1, 2, 1, 1, 1. Sum is 17.*/
     EXPECT_EQ(ret, output);
@@ -66,9 +66,9 @@ TEST(sum_of_subarray_minimums, t1) {
 
 TEST(sum_of_subarray_minimums, t2) {
     std::vector<int> arr{11, 81, 94, 43, 3};
-    int output = 444;
+    int const output = 444;
     Solution sl;
-    int ret = sl.SumSubarrayMins(arr);
+    int const ret = sl.SumSubarrayMins(arr);
     EXPECT_EQ(ret, output);
 }
 
@@ -174,9 +174,9 @@ TEST(sum_of_subarray_minimums, t3) {
         27848, 27967, 28051, 28108, 28176, 28264, 28302, 28332, 28380, 28525,
         28591, 28617, 28681, 28727, 28744, 28874, 28994, 29047, 29123, 29221,
         29239, 29274, 29347, 29493, 29596, 29668, 29694, 29717, 29847, 29871};
-    int output = 508796209;
+    int const output = 508796209;
     Solution sl;
-    int ret = sl.SumSubarrayMins(arr);
+    int const ret = sl.SumSubarrayMins(arr);
     EXPECT_EQ(ret, output);
 }
 }  // namespace

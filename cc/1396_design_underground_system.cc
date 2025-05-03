@@ -40,7 +40,7 @@ using namespace std;
 namespace {
 class UndergroundSystem {
    public:
-    UndergroundSystem() {}
+    UndergroundSystem() = default;
 
     void CheckIn(int id, string station_name, int t) {
         // auto it = find_if( m_wait.begin(), m_wait.end(), [&](const
@@ -48,8 +48,8 @@ class UndergroundSystem {
         // m_wait.end()) return;
 
         Node tmp;
-        tmp.station = station_name;
-        tmp.time = t;
+        tmp.m_station = station_name;
+        tmp.m_time = t;
         m_wait[id] = tmp;
     }
 
@@ -58,23 +58,25 @@ class UndergroundSystem {
             m_wait.begin(), m_wait.end(),
             [&](const std::pair<int, Node>& n) { return id == n.first; });
         if (it == m_wait.end()) return;
-        Node n = it->second;
-        std::string s = n.station >= station_name ? n.station : station_name;
-        std::string d = n.station < station_name ? n.station : station_name;
+        Node const n = it->second;
+        std::string const s =
+            n.m_station >= station_name ? n.m_station : station_name;
+        std::string const d =
+            n.m_station < station_name ? n.m_station : station_name;
 
-        m_already[make_pair(s, d)].push_back(t - n.time);
+        m_already[make_pair(s, d)].push_back(t - n.m_time);
     }
 
     double GetAverageTime(string start_station, string end_station) {
-        std::string s =
-            start_station >= end_station ? start_station : end_station;
-        std::string d =
-            start_station < end_station ? start_station : end_station;
-        double sum = 0;
-        auto& z = m_already[make_pair(s, d)];
-        for_each(z.begin(), z.end(), [&](int n) { sum += n; });
+      std::string const s =
+          start_station >= end_station ? start_station : end_station;
+      std::string const d =
+          start_station < end_station ? start_station : end_station;
+      double sum = 0;
+      auto& z = m_already[make_pair(s, d)];
+      for_each(z.begin(), z.end(), [&](int n) { sum += n; });
 
-        return z.size() ? sum / z.size() : 0;
+      return z.size() ? sum / z.size() : 0;
     }
     ~UndergroundSystem() {
         m_wait.clear();
@@ -83,8 +85,8 @@ class UndergroundSystem {
 
    private:
     struct Node {
-        std::string station;
-        int time;
+      std::string m_station;
+      int m_time{};
     };
     std::map<int, Node> m_wait;
 
@@ -94,41 +96,41 @@ class UndergroundSystem {
 class Solution2 {
    public:
     // startStation:endStation -> {totalTime, numberOfTrips}
-    unordered_map<string, pair<long long, int>> station_times;
+    unordered_map<string, pair<long long, int>> m_station_times;
     // customerId -> startStation
-    unordered_map<int, pair<string, int>> in_transit;
+    unordered_map<int, pair<string, int>> m_in_transit;
     Solution2() {
-        station_times.clear();
-        in_transit.clear();
+      m_station_times.clear();
+      m_in_transit.clear();
     }
 
     void CheckIn(int id, string station_name, int t) {
-        if (in_transit.find(id) != in_transit.end()) return;
-        in_transit[id] = {station_name, t};
+      if (m_in_transit.find(id) != m_in_transit.end()) return;
+      m_in_transit[id] = {station_name, t};
     }
 
     void CheckOut(int id, string station_name, int t) {
-        auto& info = in_transit[id];
-        string start_station = info.first;
-        int start_time = info.second;
-        string key = start_station + ":" + station_name;
-        int time = t - start_time;
+      auto& info = m_in_transit[id];
+      string const start_station = info.first;
+      int const start_time = info.second;
+      string const key = start_station + ":" + station_name;
+      int const time = t - start_time;
 
-        if (station_times.find(key) != station_times.end()) {
-            auto& old_times = station_times[key];
-            old_times.first += time;
-            old_times.second++;
-        } else {
-            station_times[key] = {time, 1};
-        }
-        in_transit.erase(id);
+      if (m_station_times.find(key) != m_station_times.end()) {
+        auto& old_times = m_station_times[key];
+        old_times.first += time;
+        old_times.second++;
+      } else {
+        m_station_times[key] = {time, 1};
+      }
+      m_in_transit.erase(id);
     }
 
     double GetAverageTime(string start_station, string end_station) {
-        string key = start_station + ":" + end_station;
-        auto& info = station_times[key];
-        double avg = (double)info.first / (double)info.second;
-        return avg;
+      string const key = start_station + ":" + end_station;
+      auto& info = m_station_times[key];
+      double const avg = (double)info.first / (double)info.second;
+      return avg;
     }
 };
 
@@ -179,7 +181,7 @@ undergroundSystem.checkOut(10, "Waterloo", 38);  // Customer 10 "Leyton" ->
 undergroundSystem.getAverageTime("Leyton", "Waterloo");
 // return 12.00000. Three trips "Leyton" -> "Waterloo", (10 + 12 + 14) / 3 = 12
     */
-    Solution2* rgs = new Solution2();
+    auto* rgs = new Solution2();
 
     rgs->CheckIn(45, "Leyton", 3);
     rgs->CheckIn(32, "Paradise", 8);
@@ -206,65 +208,65 @@ undergroundSystem.getAverageTime("Leyton", "Waterloo");
 }
 
 TEST(design_underground_system, t2) {
-    Solution2* rgs = new Solution2();
+  auto* rgs = new Solution2();
 
-    rgs->CheckIn(10, "Leyton", 3);
-    rgs->CheckOut(10, "Paradise", 8);
-    // Customer 10 "Leyton" -> "Paradise" in 8-3 = 5
+  rgs->CheckIn(10, "Leyton", 3);
+  rgs->CheckOut(10, "Paradise", 8);
+  // Customer 10 "Leyton" -> "Paradise" in 8-3 = 5
 
-    double ret = rgs->GetAverageTime("Leyton", "Paradise");
-    // return 5.00000, (5) / 1 = 5
-    EXPECT_EQ(ret, 5.0);
-    rgs->CheckIn(5, "Leyton", 10);
-    // Customer 5 "Leyton" -> "Paradise" in 16-10 = 6
-    rgs->CheckOut(5, "Paradise", 16);
-    ret = rgs->GetAverageTime("Leyton", "Paradise");
-    // return 5.50000, (5 + 6) / 2 = 5.5
-    EXPECT_EQ(ret, 5.5);
+  double ret = rgs->GetAverageTime("Leyton", "Paradise");
+  // return 5.00000, (5) / 1 = 5
+  EXPECT_EQ(ret, 5.0);
+  rgs->CheckIn(5, "Leyton", 10);
+  // Customer 5 "Leyton" -> "Paradise" in 16-10 = 6
+  rgs->CheckOut(5, "Paradise", 16);
+  ret = rgs->GetAverageTime("Leyton", "Paradise");
+  // return 5.50000, (5 + 6) / 2 = 5.5
+  EXPECT_EQ(ret, 5.5);
 
-    rgs->CheckIn(2, "Leyton", 21);
-    rgs->CheckOut(2, "Paradise", 30);
-    // Customer 2 "Leyton" -> "Paradise" in 30-21 = 9
-    ret = rgs->GetAverageTime("Leyton", "Paradise");
-    // return 6.66667, (5 + 6 + 9) / 3 = 6.66667
-    EXPECT_NEAR(ret, 6.66667, 0.0001);
+  rgs->CheckIn(2, "Leyton", 21);
+  rgs->CheckOut(2, "Paradise", 30);
+  // Customer 2 "Leyton" -> "Paradise" in 30-21 = 9
+  ret = rgs->GetAverageTime("Leyton", "Paradise");
+  // return 6.66667, (5 + 6 + 9) / 3 = 6.66667
+  EXPECT_NEAR(ret, 6.66667, 0.0001);
 
-    delete rgs;
+  delete rgs;
 }
 
 TEST(design_underground_system, t3) {
-    Solution2* rgs = new Solution2();
+  auto* rgs = new Solution2();
 
-    rgs->CheckIn(1, "Leeds", 3);
+  rgs->CheckIn(1, "Leeds", 3);
 
-    rgs->CheckIn(2, "York", 8);
-    rgs->CheckOut(1, "York", 10);
-    rgs->CheckOut(2, "Leeds", 15);
-    rgs->CheckIn(1, "York", 20);
-    rgs->CheckIn(2, "Leeds", 22);
-    double ret = rgs->GetAverageTime("Leeds", "York");
-    EXPECT_EQ(ret, 7);
+  rgs->CheckIn(2, "York", 8);
+  rgs->CheckOut(1, "York", 10);
+  rgs->CheckOut(2, "Leeds", 15);
+  rgs->CheckIn(1, "York", 20);
+  rgs->CheckIn(2, "Leeds", 22);
+  double ret = rgs->GetAverageTime("Leeds", "York");
+  EXPECT_EQ(ret, 7);
 
-    ret = rgs->GetAverageTime("York", "Leeds");
-    EXPECT_EQ(ret, 7);
+  ret = rgs->GetAverageTime("York", "Leeds");
+  EXPECT_EQ(ret, 7);
 
-    rgs->CheckOut(1, "Leeds", 24);
+  rgs->CheckOut(1, "Leeds", 24);
 
-    ret = rgs->GetAverageTime("York", "Leeds");
-    EXPECT_EQ(ret, 5.5);
+  ret = rgs->GetAverageTime("York", "Leeds");
+  EXPECT_EQ(ret, 5.5);
 
-    rgs->CheckOut(2, "York", 38);
-    ret = rgs->GetAverageTime("Leeds", "York");
-    EXPECT_EQ(ret, 11.5);
+  rgs->CheckOut(2, "York", 38);
+  ret = rgs->GetAverageTime("Leeds", "York");
+  EXPECT_EQ(ret, 11.5);
 
-    // ["UndergroundSystem","checkIn","checkIn","checkOut","checkOut",
-    // "checkIn","checkIn","getAverageTime","getAverageTime",
-    // "checkOut","getAverageTime","checkOut","getAverageTime"]
+  // ["UndergroundSystem","checkIn","checkIn","checkOut","checkOut",
+  // "checkIn","checkIn","getAverageTime","getAverageTime",
+  // "checkOut","getAverageTime","checkOut","getAverageTime"]
 
-    // [[],[1,"Leeds",3],[2,"York",8],[1,"York",10],[2,"Leeds",15],
-    // [1,"York",20],[2,"Leeds",22],["Leeds","York"],["York","Leeds"],
-    // [1,"Leeds",24],["York","Leeds"],[2,"York",38],["Leeds","York"]]
+  // [[],[1,"Leeds",3],[2,"York",8],[1,"York",10],[2,"Leeds",15],
+  // [1,"York",20],[2,"Leeds",22],["Leeds","York"],["York","Leeds"],
+  // [1,"Leeds",24],["York","Leeds"],[2,"York",38],["Leeds","York"]]
 
-    delete rgs;
+  delete rgs;
 }
 }  // namespace

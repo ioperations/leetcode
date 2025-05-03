@@ -35,121 +35,121 @@ using namespace std;
  */
 class Solution {
    public:
-    TreeNode* recoverFromPreorder(string traversal) {
-        // The number of nodes in the original tree is in the range [1, 1000].
-        // 1 <= Node.val <= 109
-        tranverse(traversal);
-        return Build();
+    TreeNode* RecoverFromPreorder(string traversal) {
+      // The number of nodes in the original tree is in the range [1, 1000].
+      // 1 <= Node.val <= 109
+      Tranverse(traversal);
+      return Build();
     }
 
-    TreeNode* Build(int currentIndex = 0) {
-        if (index >= stringInfo.size()) {
-            return nullptr;
-        }
+    TreeNode* Build(int current_index = 0) {
+      if (m_index >= m_string_info.size()) {
+        return nullptr;
+      }
 
-        const auto& now = stringInfo[index];
-        if (currentIndex != now.depth) {
-            return nullptr;
-        }
+      const auto& now = m_string_info[m_index];
+      if (current_index != now.m_depth) {
+        return nullptr;
+      }
 
-        TreeNode* n = new TreeNode(now.value);
+      auto* n = new TreeNode(now.m_value);
 
-        index++;
-        auto* z = Build(currentIndex + 1);
-        n->left = z;
-        auto* q = Build(currentIndex + 1);
-        n->right = q;
+      m_index++;
+      auto* z = Build(current_index + 1);
+      n->left = z;
+      auto* q = Build(current_index + 1);
+      n->right = q;
 
-        return n;
+      return n;
     }
 
    private:
-    void tranverse(const std::string& value) {
-        int dash = 0;
-        for (int i = 0; i < value.size(); i++) {
-            if (value[i] == '-') {
-                dash++;
-                continue;
-            }
-
-            string v;
-            int k = 0;
-            for (int j = i; j < value.size() && value[j] != '-'; j++) {
-                v += value[j];
-                k++;
-            }
-            i = i + k - 1;
-
-            stringInfo.emplace_back(dash, atoi(v.c_str()));
-            dash = 0;
+    void Tranverse(const std::string& value) {
+      int dash = 0;
+      for (int i = 0; i < value.size(); i++) {
+        if (value[i] == '-') {
+          dash++;
+          continue;
         }
+
+        string v;
+        int k = 0;
+        for (int j = i; j < value.size() && value[j] != '-'; j++) {
+          v += value[j];
+          k++;
+        }
+        i = i + k - 1;
+
+        m_string_info.emplace_back(dash, atoi(v.c_str()));
+        dash = 0;
+      }
     }
 
-    struct info {
-        int depth;
-        int value;
-        info(int d, int v) : depth(d), value(v) {}
+    struct Info {
+      int m_depth;
+      int m_value;
+      Info(int d, int v) : m_depth(d), m_value(v) {}
     };
-    vector<info> stringInfo;
-    int index = 0;
+    vector<Info> m_string_info;
+    int m_index = 0;
 };
 
 #include <gtest/gtest.h>
 
-void PreOrder(TreeNode* node, string& out, int depth = 0) {
-    if (depth == 0) {
-        out.clear();
-    }
-    if (node == nullptr) {
-        return;
-    }
-    for (int i = 0; i < depth; i++) {
-        out += '-';
-    }
-    out += to_string(node->val);
-    PreOrder(node->left, out, depth + 1);
-    PreOrder(node->right, out, depth + 1);
+static void PreOrder(TreeNode* node, string& out, int depth = 0) {
+  if (depth == 0) {
+    out.clear();
+  }
+  if (node == nullptr) {
+    return;
+  }
+  for (int i = 0; i < depth; i++) {
+    out += '-';
+  }
+  out += to_string(node->val);
+  PreOrder(node->left, out, depth + 1);
+  PreOrder(node->right, out, depth + 1);
 }
 
 #define null std::optional<int>()
 
 TEST(t0, t0) {
-    auto root = Tree::ConstructBinaryTree(
-        std::vector<std::optional<int>>{1, 2, 5, 3, 4, 6, 7});
+  auto* root = Tree::ConstructBinaryTree(
+      std::vector<std::optional<int>>{1, 2, 5, 3, 4, 6, 7});
 
-    string out;
-    PreOrder(root, out);
-    string output = "1-2--3--4-5--6--7";
-    EXPECT_EQ(out, output);
+  string out;
+  PreOrder(root, out);
+  string const output = "1-2--3--4-5--6--7";
+  EXPECT_EQ(out, output);
 
-    Solution sl;
-    auto r2 = sl.recoverFromPreorder(output);
-    PreOrder(r2, out);
-    EXPECT_EQ(out, output);
-    Tree::FreeTreeNode(r2);
+  Solution sl;
+  auto* r2 = sl.RecoverFromPreorder(output);
+  PreOrder(r2, out);
+  EXPECT_EQ(out, output);
+  Tree::FreeTreeNode(r2);
 
-    Tree::FreeTreeNode(root);
+  Tree::FreeTreeNode(root);
 }
 
 TEST(t1, t1) {
-    auto root = new TreeNode(1);
-    {
-        auto left = Tree::ConstructBinaryTree(
-            std::vector<std::optional<int>>{2, 3, null, 4});
-        root->left = left;
+  auto* root = new TreeNode(1);
+  {
+    auto* left = Tree::ConstructBinaryTree(
+        std::vector<std::optional<int>>{2, 3, null, 4});
+    root->left = left;
 
-        auto right = Tree::ConstructBinaryTree(
-            std::vector<std::optional<int>>{5, 6, null, 7});
-        root->right = right;
+    auto* right = Tree::ConstructBinaryTree(
+        std::vector<std::optional<int>>{5, 6, null, 7});
+    root->right = right;
     }
 
     string out;
     PreOrder(root, out);
-    string output = "1-2--3---4-5--6---7";
+    string const output = "1-2--3---4-5--6---7";
     EXPECT_EQ(out, output);
 
     Solution sl;
-    auto r2 = sl.recoverFromPreorder(output);
+    auto* r2 = sl.RecoverFromPreorder(output);
     PreOrder(r2, out);
     EXPECT_EQ(out, output);
     Tree::FreeTreeNode(r2);
@@ -158,20 +158,20 @@ TEST(t1, t1) {
 }
 
 TEST(t2, t2) {
-    auto root = new TreeNode(1);
-    {
-        auto sub = Tree::ConstructBinaryTree(
-            std::vector<std::optional<int>>{401, 349, 88, 90});
-        root->left = sub;
+  auto* root = new TreeNode(1);
+  {
+    auto* sub = Tree::ConstructBinaryTree(
+        std::vector<std::optional<int>>{401, 349, 88, 90});
+    root->left = sub;
     }
 
     string out;
     PreOrder(root, out);
-    string output = "1-401--349---90--88";
+    string const output = "1-401--349---90--88";
     EXPECT_EQ(out, output);
 
     Solution sl;
-    auto r2 = sl.recoverFromPreorder(output);
+    auto* r2 = sl.RecoverFromPreorder(output);
     PreOrder(r2, out);
     EXPECT_EQ(out, output);
     Tree::FreeTreeNode(r2);

@@ -30,18 +30,18 @@ class Solution {
     }
 
     int MaxEnvelopes(vector<vector<int>>& env) {
-        int n = env.size();
-        vector<pair<int, int>> vec;
-        for (int i = 0; i < n; i++) vec.push_back({env[i][0], env[i][1]});
-        sort(vec.begin(), vec.end(), Comp);
-        vector<int> t;
+      int const n = env.size();
+      vector<pair<int, int>> vec;
+      for (int i = 0; i < n; i++) vec.emplace_back(env[i][0], env[i][1]);
+      sort(vec.begin(), vec.end(), Comp);
+      vector<int> t;
 
-        for (int i = 0; i < n; i++) {
-            auto it = lower_bound(t.begin(), t.end(), vec[i].second);
-            if (it == t.end())
-                t.push_back(vec[i].second);
-            else
-                *it = vec[i].second;
+      for (int i = 0; i < n; i++) {
+        auto it = lower_bound(t.begin(), t.end(), vec[i].second);
+        if (it == t.end())
+          t.push_back(vec[i].second);
+        else
+          *it = vec[i].second;
         }
 
         return t.size();
@@ -50,20 +50,20 @@ class Solution {
 
 TEST(russian_doll_envelopes, t1) {
     std::vector<vector<int>> envelopes = {{5, 4}, {6, 4}, {6, 7}, {2, 3}};
-    int output = 3;
+    int const output = 3;
 
     Solution sl;
     // The maximum number of envelopes you can Russian doll is 3 ([2,3] => [5,4]
     // => [6,7]).
-    int ret = sl.MaxEnvelopes(envelopes);
+    int const ret = sl.MaxEnvelopes(envelopes);
     EXPECT_EQ(ret, output);
 }
 TEST(russian_doll_envelopes, t2) {
     std::vector<vector<int>> envelopes = {{1, 1}, {1, 1}, {1, 1}};
-    int output = 1;
+    int const output = 1;
 
     Solution sl;
-    int ret = sl.MaxEnvelopes(envelopes);
+    int const ret = sl.MaxEnvelopes(envelopes);
     EXPECT_EQ(ret, output);
 }
 

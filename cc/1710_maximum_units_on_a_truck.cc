@@ -48,10 +48,10 @@ class Solution {
 
 TEST(maximum_units_on_a_truck, t1) {
     vector<vector<int>> box_types = {{1, 3}, {2, 2}, {3, 1}};
-    int truck_size = 4;
-    int output = 8;
+    int const truck_size = 4;
+    int const output = 8;
     Solution sl;
-    int ret = sl.MaximumUnits(box_types, truck_size);
+    int const ret = sl.MaximumUnits(box_types, truck_size);
     EXPECT_EQ(ret, output);
     // Explanation: There are:
     // - 1 box of the first type that contains 3 units.
@@ -64,10 +64,10 @@ TEST(maximum_units_on_a_truck, t1) {
 
 TEST(maximum_units_on_a_truck, t2) {
     vector<vector<int>> box_types = {{5, 10}, {2, 5}, {4, 7}, {3, 9}};
-    int truck_size = 10;
-    int output = 91;
+    int const truck_size = 10;
+    int const output = 91;
     Solution sl;
-    int ret = sl.MaximumUnits(box_types, truck_size);
+    int const ret = sl.MaximumUnits(box_types, truck_size);
     EXPECT_EQ(ret, output);
 }
 

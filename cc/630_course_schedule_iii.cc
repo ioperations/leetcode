@@ -61,9 +61,9 @@ class Solution {
 TEST(course_schedule_iii, t1) {
     std::vector<vector<int>> courses = {
         {100, 200}, {200, 1300}, {1000, 1250}, {2000, 3200}};
-    int output = 3;
+    int const output = 3;
     Solution sl;
-    int ret = sl.ScheduleCourse(courses);
+    int const ret = sl.ScheduleCourse(courses);
     EXPECT_EQ(ret, output);
     // There are totally 4 courses, but you can take 3 courses at most:
     // First, take the 1st course, it costs 100 days so you will finish it on
@@ -77,17 +77,17 @@ TEST(course_schedule_iii, t1) {
 
 TEST(course_schedule_iii, t2) {
     std::vector<vector<int>> courses = {{1, 2}};
-    int output = 1;
+    int const output = 1;
     Solution sl;
-    int ret = sl.ScheduleCourse(courses);
+    int const ret = sl.ScheduleCourse(courses);
     EXPECT_EQ(ret, output);
 }
 
 TEST(course_schedule_iii, t3) {
     std::vector<vector<int>> courses = {{3, 2}, {4, 3}};
-    int output = 0;
+    int const output = 0;
     Solution sl;
-    int ret = sl.ScheduleCourse(courses);
+    int const ret = sl.ScheduleCourse(courses);
     EXPECT_EQ(ret, output);
 }
 }  // namespace

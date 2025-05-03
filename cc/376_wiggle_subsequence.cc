@@ -31,14 +31,14 @@ namespace {
 class Solution {
    public:
     int WiggleMaxLength(vector<int>& nums) {
-        int n = nums.size();
-        int peak = 1, valley = 1;
+      int const n = nums.size();
+      int peak = 1, valley = 1;
 
-        for (int i = 1; i < n; i++) {
-            if (nums[i] > nums[i - 1])
-                peak = valley + 1;
-            else if (nums[i] < nums[i - 1])
-                valley = peak + 1;
+      for (int i = 1; i < n; i++) {
+        if (nums[i] > nums[i - 1])
+          peak = valley + 1;
+        else if (nums[i] < nums[i - 1])
+          valley = peak + 1;
         }
         return max(peak, valley);
     }
@@ -47,32 +47,32 @@ class Solution {
 TEST(wiggle_subsequence, t1) {
     // pass
     vector<int> nums = {1, 7, 4, 9, 2, 5};
-    int output = 6;
+    int const output = 6;
     // Explanation: The entire sequence is a wiggle sequence with differences(6,
     // -3, 5, -7, 3)
     Solution sl;
-    int ret = sl.WiggleMaxLength(nums);
+    int const ret = sl.WiggleMaxLength(nums);
     EXPECT_EQ(ret, output);
 }
 
 TEST(wiggle_subsequence, t2) {
     // pass
     vector<int> nums = {1, 17, 5, 10, 13, 15, 10, 5, 16, 8};
-    int output = 7;
+    int const output = 7;
     // There are several subsequences that achieve this length.
     // One is [1, 17, 10, 13, 10, 16, 8] with differences (16, -7, 3, -3, 6,
     // -8).
     Solution sl;
-    int ret = sl.WiggleMaxLength(nums);
+    int const ret = sl.WiggleMaxLength(nums);
     EXPECT_EQ(ret, output);
 }
 
 TEST(wiggle_subsequence, t3) {
     // pass
     vector<int> nums = {1, 2, 3, 4, 5, 6, 7, 8, 9};
-    int output = 2;
+    int const output = 2;
     Solution sl;
-    int ret = sl.WiggleMaxLength(nums);
+    int const ret = sl.WiggleMaxLength(nums);
     EXPECT_EQ(ret, output);
 }
 

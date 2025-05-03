@@ -52,9 +52,9 @@ class Solution {
 TEST(maximium_erasure_value, t1) {
     vector<int> nums = {4, 2, 4, 5, 6};
 
-    int out = 17;
+    int const out = 17;
     Solution sl;
-    int ret = sl.MaximumUniqueSubarray(nums);
+    int const ret = sl.MaximumUniqueSubarray(nums);
     // The optimal subarray here is [2,4,5,6].
     EXPECT_EQ(ret, out);
 }
@@ -62,9 +62,9 @@ TEST(maximium_erasure_value, t1) {
 TEST(maximium_erasure_value, t2) {
     vector<int> nums = {5, 2, 1, 2, 5, 2, 1, 2, 5};
 
-    int out = 8;
+    int const out = 8;
     Solution sl;
-    int ret = sl.MaximumUniqueSubarray(nums);
+    int const ret = sl.MaximumUniqueSubarray(nums);
     // The optimal subarray here is [5,2,1] or [1,2,5].
     EXPECT_EQ(ret, out);
 }

@@ -83,60 +83,60 @@ void ExpectEqList(ListNode* const head, const std::vector<int>& elements) {
 }
 
 TEST(test, t1) {
-    std::vector<int> head{1, 2, 3, 4, 5};
-    std::vector<int> output{2, 3, 4, 5};
-    ListNode* root = List::ConstructList(head);
+  std::vector<int> const head{1, 2, 3, 4, 5};
+  std::vector<int> const output{2, 3, 4, 5};
+  ListNode* root = List::ConstructList(head);
 
-    Solution sl;
-    root = sl.RemoveNodeByValue(root, 1);
+  Solution sl;
+  root = sl.RemoveNodeByValue(root, 1);
 
-    ExpectEqList(root, output);
-    List::FreeList(root);
+  ExpectEqList(root, output);
+  List::FreeList(root);
 }
 
 TEST(remove_duplicates_from_sorted_list_ii, t1) {
-    std::vector<int> head{1, 2, 3, 3, 4, 4, 5};
+  std::vector<int> const head{1, 2, 3, 3, 4, 4, 5};
 
-    /*
-     ___     ___     ___     ___     ___     ___     ___
-    | 1 |-->| 2 |-->| 3 |-->| 3 |-->| 4 |-->| 4 |-->| 5 |
-    |___|   |___|   |___|   |___|   |___|   |___|   |___|
+  /*
+   ___     ___     ___     ___     ___     ___     ___
+  | 1 |-->| 2 |-->| 3 |-->| 3 |-->| 4 |-->| 4 |-->| 5 |
+  |___|   |___|   |___|   |___|   |___|   |___|   |___|
 
-              ___     ___     ___
-             | 1 |-->| 2 |-->| 5 |
-             |___|   |___|   |___|
-    */
-    std::vector<int> output{1, 2, 5};
-    ListNode* root = List::ConstructList(head);
+            ___     ___     ___
+           | 1 |-->| 2 |-->| 5 |
+           |___|   |___|   |___|
+  */
+  std::vector<int> const output{1, 2, 5};
+  ListNode* root = List::ConstructList(head);
 
-    Solution sl;
-    root = sl.DeleteDuplicates(root);
+  Solution sl;
+  root = sl.DeleteDuplicates(root);
 
-    ExpectEqList(root, output);
-    List::FreeList(root);
+  ExpectEqList(root, output);
+  List::FreeList(root);
 }
 
 TEST(remove_duplicates_from_sorted_list_ii, t2) {
-    std::vector<int> head{1, 1, 1, 2, 3};
+  std::vector<int> const head{1, 1, 1, 2, 3};
 
-    /*
-     ___     ___     ___     ___     ___
-    | 1 |-->| 1 |-->| 1 |-->| 2 |-->| 3 |
-    |___|   |___|   |___|   |___|   |___|
+  /*
+   ___     ___     ___     ___     ___
+  | 1 |-->| 1 |-->| 1 |-->| 2 |-->| 3 |
+  |___|   |___|   |___|   |___|   |___|
 
-              ___     ___
-             | 2 |-->| 3 |
-             |___|   |___|
-    */
+            ___     ___
+           | 2 |-->| 3 |
+           |___|   |___|
+  */
 
-    std::vector<int> output{2, 3};
-    ListNode* root = List::ConstructList(head);
+  std::vector<int> const output{2, 3};
+  ListNode* root = List::ConstructList(head);
 
-    Solution sl;
-    root = sl.DeleteDuplicates(root);
+  Solution sl;
+  root = sl.DeleteDuplicates(root);
 
-    ExpectEqList(root, output);
-    List::FreeList(root);
+  ExpectEqList(root, output);
+  List::FreeList(root);
 }
 
 }  // namespace

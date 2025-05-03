@@ -28,17 +28,17 @@ class Solution {
 
 TEST(valid_anangram, t1) {
     string s = "anagram", t = "nagaram";
-    bool output = true;
+    bool const output = true;
     Solution sl;
-    bool ret = sl.IsAnagram(s, t);
+    bool const ret = sl.IsAnagram(s, t);
     EXPECT_EQ(ret, output);
 }
 
 TEST(valid_anangram, t2) {
     string s = "rat", t = "car";
-    bool output = false;
+    bool const output = false;
     Solution sl;
-    bool ret = sl.IsAnagram(s, t);
+    bool const ret = sl.IsAnagram(s, t);
     EXPECT_EQ(ret, output);
 }
 

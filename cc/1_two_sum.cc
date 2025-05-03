@@ -1,8 +1,7 @@
 // This is a personal academic project. Dear PVS-Studio, please check it.
 // PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
 // https://pvs-studio.com
-#include <stddef.h>
-
+#include <cstddef>
 #include <vector>
 
 #include "gtest/gtest.h"
@@ -29,7 +28,7 @@ class Solution {
 TEST(two_sum_v2, t1) {
     Solution s;
     std::vector<int> nums{2, 7, 11, 15};
-    int target = 9;
+    int const target = 9;
     auto ret = s.TwoSum(nums, target);
     EXPECT_EQ(ret, (std::vector<int>{0, 1}));
 }
@@ -37,7 +36,7 @@ TEST(two_sum_v2, t1) {
 TEST(two_sum_v2, t2) {
     Solution s;
     std::vector<int> nums{3, 2, 4};
-    int target = 6;
+    int const target = 6;
     auto ret = s.TwoSum(nums, target);
     EXPECT_EQ(ret, (std::vector<int>{1, 2}));
 }
@@ -45,7 +44,7 @@ TEST(two_sum_v2, t2) {
 TEST(two_sum_v2, t3) {
     Solution s;
     std::vector<int> nums{3, 3};
-    int target = 6;
+    int const target = 6;
     auto ret = s.TwoSum(nums, target);
     EXPECT_EQ(ret, (std::vector<int>{0, 1}));
 }

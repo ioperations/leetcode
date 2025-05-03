@@ -65,31 +65,31 @@ class Solution {
 
 TEST(longest_string_chain, t1) {
     vector<string> words = {"a", "b", "ba", "bca", "bda", "bdca"};
-    int output = 4;
+    int const output = 4;
     // Explanation: One of the longest word chains is ["a","ba","bda","bdca"].
     Solution sl;
-    int ret = sl.LongestStrChain(words);
+    int const ret = sl.LongestStrChain(words);
     EXPECT_EQ(ret, output);
 }
 
 TEST(longest_string_chain, t2) {
     vector<string> words = {"xbc", "pcxbcf", "xb", "cxbc", "pcxbc"};
-    int output = 5;
+    int const output = 5;
     // All the words can be put in a word chain ["xb", "xbc", "cxbc", "pcxbc",
     // "pcxbcf"].
     Solution sl;
-    int ret = sl.LongestStrChain(words);
+    int const ret = sl.LongestStrChain(words);
     EXPECT_EQ(ret, output);
 }
 
 TEST(longest_string_chain, t3) {
     vector<string> words = {"abcd", "dbqca"};
-    int output = 1;
+    int const output = 1;
     // The trivial word chain ["abcd"] is one of the longest word chains.
     // ["abcd","dbqca"] is not a valid word chain because the ordering of the
     // letters is changed.
     Solution sl;
-    int ret = sl.LongestStrChain(words);
+    int const ret = sl.LongestStrChain(words);
     EXPECT_EQ(ret, output);
 }
 }  // namespace

@@ -43,47 +43,47 @@ using namespace std;
 
 TEST(lowest_common_ancestor_of_a_binary_tree, t1) {
 #define null optional<int>()
-    vector<optional<int>> root = {3, 5, 1, 6, 2, 0, 8, null, null, 7, 4};
-    int p = 5, q = 1;
-    int output = 3;
-    auto* node = ConstructBinaryTree(root);
-    // Explanation: The LCA of nodes 5 and 1 is 3.
-    Solution sl;
-    auto* pn = FindInTree(node, p);
-    auto* qn = FindInTree(node, q);
-    auto* ret = sl.LowestCommonAncestor(node, pn, qn);
-    EXPECT_EQ(ret->val, output);
-    FreeTreeNode(node);
+  vector<optional<int>> const root = {3, 5, 1, 6, 2, 0, 8, null, null, 7, 4};
+  int p = 5, q = 1;
+  int const output = 3;
+  auto* node = ConstructBinaryTree(root);
+  // Explanation: The LCA of nodes 5 and 1 is 3.
+  Solution sl;
+  auto* pn = FindInTree(node, p);
+  auto* qn = FindInTree(node, q);
+  auto* ret = sl.LowestCommonAncestor(node, pn, qn);
+  EXPECT_EQ(ret->val, output);
+  FreeTreeNode(node);
 }
 
 TEST(lowest_common_ancestor_of_a_binary_tree, t2) {
 #define null optional<int>()
-    vector<optional<int>> root = {3, 5, 1, 6, 2, 0, 8, null, null, 7, 4};
-    int p = 5, q = 4;
-    int output = 5;
-    auto* node = ConstructBinaryTree(root);
-    // Explanation: The LCA of nodes 5 and 1 is 3.
-    Solution sl;
-    auto* pn = FindInTree(node, p);
-    auto* qn = FindInTree(node, q);
-    auto* ret = sl.LowestCommonAncestor(node, pn, qn);
-    EXPECT_EQ(ret->val, output);
-    FreeTreeNode(node);
+  vector<optional<int>> const root = {3, 5, 1, 6, 2, 0, 8, null, null, 7, 4};
+  int p = 5, q = 4;
+  int const output = 5;
+  auto* node = ConstructBinaryTree(root);
+  // Explanation: The LCA of nodes 5 and 1 is 3.
+  Solution sl;
+  auto* pn = FindInTree(node, p);
+  auto* qn = FindInTree(node, q);
+  auto* ret = sl.LowestCommonAncestor(node, pn, qn);
+  EXPECT_EQ(ret->val, output);
+  FreeTreeNode(node);
 }
 
 TEST(lowest_common_ancestor_of_a_binary_tree, t3) {
 #define null optional<int>()
-    vector<optional<int>> root = {1, 2};
-    int p = 1, q = 2;
-    int output = 1;
-    auto* node = ConstructBinaryTree(root);
-    // Explanation: The LCA of nodes 5 and 1 is 3.
-    Solution sl;
-    auto* pn = FindInTree(node, p);
-    auto* qn = FindInTree(node, q);
-    auto* ret = sl.LowestCommonAncestor(node, pn, qn);
-    EXPECT_EQ(ret->val, output);
-    FreeTreeNode(node);
+  vector<optional<int>> const root = {1, 2};
+  int p = 1, q = 2;
+  int const output = 1;
+  auto* node = ConstructBinaryTree(root);
+  // Explanation: The LCA of nodes 5 and 1 is 3.
+  Solution sl;
+  auto* pn = FindInTree(node, p);
+  auto* qn = FindInTree(node, q);
+  auto* ret = sl.LowestCommonAncestor(node, pn, qn);
+  EXPECT_EQ(ret->val, output);
+  FreeTreeNode(node);
 }
 
 }  // namespace

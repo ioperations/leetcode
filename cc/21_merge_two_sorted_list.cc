@@ -5,10 +5,10 @@
  * Definition for singly-linked list.
  */
 
-#include <assert.h>
 #include <benchmark/benchmark.h>
 
 #include <algorithm>
+#include <cassert>
 #include <vector>
 
 #include "datastruct_base.hh"

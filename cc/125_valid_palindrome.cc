@@ -25,14 +25,14 @@ class Solution {
 
     string RemoveAllUNreleated(std::string& ss) {
         std::string ret;
-        for (int i = 0; i < (int)ss.size(); i++) {
-            if ('A' <= ss[i] && ss[i] <= 'Z') {
-                ret += ss[i] - 'A' + 'a';
-            } else if ('a' <= ss[i] && ss[i] <= 'z') {
-                ret += ss[i];
-            } else if ('0' <= ss[i] && ss[i] <= '9') {
-                ret += ss[i];
-            }
+        for (char s : ss) {
+          if ('A' <= s && s <= 'Z') {
+            ret += s - 'A' + 'a';
+          } else if ('a' <= s && s <= 'z') {
+            ret += s;
+          } else if ('0' <= s && s <= '9') {
+            ret += s;
+          }
         }
         return ret;
     }
@@ -51,43 +51,43 @@ class Solution {
 };
 
 TEST(valid_palindrome, t1) {
-    string s = "A man, a plan, a canal: Panama";
-    bool output = true;
-    // Explanation: "amanaplanacanalpanama" is a palindrome.
+  string const s = "A man, a plan, a canal: Panama";
+  bool const output = true;
+  // Explanation: "amanaplanacanalpanama" is a palindrome.
 
-    Solution sl;
-    bool ret = sl.IsPalindrome(s);
-    EXPECT_EQ(ret, output);
+  Solution sl;
+  bool const ret = sl.IsPalindrome(s);
+  EXPECT_EQ(ret, output);
 }
 TEST(valid_palindrome, t2) {
-    string s = "race a car";
-    bool output = false;
-    //  "raceacar" is not a palindrome.
+  string const s = "race a car";
+  bool const output = false;
+  //  "raceacar" is not a palindrome.
 
-    Solution sl;
-    bool ret = sl.IsPalindrome(s);
-    EXPECT_EQ(ret, output);
+  Solution sl;
+  bool const ret = sl.IsPalindrome(s);
+  EXPECT_EQ(ret, output);
 }
 
 TEST(valid_palindrome, t3) {
-    string s = " ";
-    bool output = true;
-    // Explanation: s is an empty string "" after removing non-alphanumeric
-    // characters. Since an empty string reads the same forward and backward, it
-    // is a palindrome. bool output = false;
-    //  Explanation: "amanaplanacanalpanama" is a palindrome.
+  string const s = " ";
+  bool const output = true;
+  // Explanation: s is an empty string "" after removing non-alphanumeric
+  // characters. Since an empty string reads the same forward and backward, it
+  // is a palindrome. bool output = false;
+  //  Explanation: "amanaplanacanalpanama" is a palindrome.
 
-    Solution sl;
-    bool ret = sl.IsPalindrome(s);
-    EXPECT_EQ(ret, output);
+  Solution sl;
+  bool const ret = sl.IsPalindrome(s);
+  EXPECT_EQ(ret, output);
 }
 
 TEST(valid_palindrome, t4) {
-    string s = "0P";
-    bool output = false;
+  string const s = "0P";
+  bool const output = false;
 
-    Solution sl;
-    bool ret = sl.IsPalindrome(s);
-    EXPECT_EQ(ret, output);
+  Solution sl;
+  bool const ret = sl.IsPalindrome(s);
+  EXPECT_EQ(ret, output);
 }
 }  // namespace

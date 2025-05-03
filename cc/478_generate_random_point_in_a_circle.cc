@@ -14,6 +14,8 @@ circumference of the circle is considered to be in the circle. The answer is
 returned as an array [x, y].
 */
 
+#include <math.h>
+
 #include <cmath>
 #include <cstdlib>
 #include <vector>
@@ -29,20 +31,17 @@ class Solution {
     double radius;
 
    public:
-    Solution(double rad, double cx_center, double cy_center) {
-        radius = rad;
-        x_center = cx_center;
-        y_center = cy_center;
-    }
+    Solution(double rad, double cx_center, double cy_center)
+        : radius(rad), x_center(cx_center), y_center(cy_center) {}
 
     double Random() { return 1.0 * rand() / RAND_MAX; }
 
     vector<double> RandPoint() {
-        double length = sqrt(Random()) * radius;
-        double angle = Random() * 2 * M_PI;
-        double x_rand = x_center + length * cos(angle),
-               y_rand = y_center + length * sin(angle);
-        return {x_rand, y_rand};
+      double const length = sqrt(Random()) * radius;
+      double const angle = Random() * 2 * M_PI;
+      double x_rand = x_center + length * cos(angle),
+             y_rand = y_center + length * sin(angle);
+      return {x_rand, y_rand};
     }
 };
 

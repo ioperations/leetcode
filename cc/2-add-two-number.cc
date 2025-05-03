@@ -13,48 +13,48 @@ namespace {
 class Solution {
    public:
     ListNode* AddTwoNumbers(ListNode* l1, ListNode* l2) {
-        for (int i = 0; l1 || l2 || carrier; i++) {
-            int va = 0;
-            if (l1 && l2) {
-                va = l1->val + carrier + l2->val;
-            } else if (l1) {
-                va = l1->val + carrier;
-            } else if (l2) {
-                va = l2->val + carrier;
-            } else if (carrier) {
-                va = carrier;
-            }
-            carrier = va >= 10 ? 1 : 0;
-            va = va % 10;
-            ListNode* n = new ListNode(va);
-            // 保存 head
-            if (i == 0) {
-                head = n;
-            }
-
-            // 链接节点
-            if (i != 0) {
-                pre->next = n;
-            }
-
-            // 前一个节点
-            pre = n;
-
-            if (l1) {
-                l1 = l1->next;
-            }
-            if (l2) {
-                l2 = l2->next;
-            }
+      for (int i = 0; l1 || l2 || m_carrier; i++) {
+        int va = 0;
+        if (l1 && l2) {
+          va = l1->val + m_carrier + l2->val;
+        } else if (l1) {
+          va = l1->val + m_carrier;
+        } else if (l2) {
+          va = l2->val + m_carrier;
+        } else if (m_carrier) {
+          va = m_carrier;
+        }
+        m_carrier = va >= 10 ? 1 : 0;
+        va = va % 10;
+        auto* n = new ListNode(va);
+        // 保存 head
+        if (i == 0) {
+          m_head = n;
         }
 
-        return head;
+        // 链接节点
+        if (i != 0) {
+          m_pre->next = n;
+        }
+
+        // 前一个节点
+        m_pre = n;
+
+        if (l1) {
+          l1 = l1->next;
+        }
+        if (l2) {
+          l2 = l2->next;
+        }
+      }
+
+      return m_head;
     }
 
    private:
-    mutable int carrier = 0;
-    ListNode* head = nullptr;
-    ListNode* pre = nullptr;
+    mutable int m_carrier = 0;
+    ListNode* m_head = nullptr;
+    ListNode* m_pre = nullptr;
     /*
 
       n -> n1 -> n2 -> n3

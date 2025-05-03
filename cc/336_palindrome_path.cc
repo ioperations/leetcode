@@ -59,25 +59,25 @@ class Solution {
     }
 
    private:
-    vector<vector<int>> res;
+    vector<vector<int>> m_res;
     struct TrieNode {
-        TrieNode() : word_index(-1), children(26, nullptr) {}
-        int word_index;
-        vector<TrieNode*> children;
-        ~TrieNode() {
-            for (auto& ptr : children) {
-                delete ptr;
-            }
+      TrieNode() : m_children(26, nullptr) {}
+      int word_index{-1};
+      vector<TrieNode*> m_children;
+      ~TrieNode() {
+        for (auto& ptr : m_children) {
+          delete ptr;
+        }
         }
     };
 
     void Insert(TrieNode* root, string& word, int word_index) {
         for (auto c : word) {
             const int index = c - 'a';
-            if (root->children[index] == nullptr) {
-                root->children[index] = new TrieNode();
+            if (root->m_children[index] == nullptr) {
+              root->m_children[index] = new TrieNode();
             }
-            root = root->children[index];
+            root = root->m_children[index];
         }
 
         root->word_index = word_index;
@@ -110,7 +110,7 @@ class Solution {
 
         for (int i = 0; i < 26; ++i) {
             str.push_back('a' + i);
-            Dfs(root->children[i], long_word_indices, str);
+            Dfs(root->m_children[i], long_word_indices, str);
             str.pop_back();
         }
     }
@@ -119,12 +119,12 @@ class Solution {
         // word is longer than its corresponding word.
         int index = 0;
         while (index < (int)word.length() && root != nullptr) {
-            root = root->children[word[index++] - 'a'];
-            if (root != nullptr && root->word_index != -1) {
-                if (root->word_index != word_index &&
-                    IsPalindrome(word.substr(index))) {
-                    res.push_back({word_index, root->word_index});
-                }
+          root = root->m_children[word[index++] - 'a'];
+          if (root != nullptr && root->word_index != -1) {
+            if (root->word_index != word_index &&
+                IsPalindrome(word.substr(index))) {
+              m_res.push_back({word_index, root->word_index});
+            }
             }
         }
 
@@ -134,33 +134,33 @@ class Solution {
             vector<int> long_word_indices;
             Dfs(root, long_word_indices, str);
             for (const int i : long_word_indices) {
-                res.push_back({word_index, i});
+              m_res.push_back({word_index, i});
             }
         }
     }
 
    public:
     vector<vector<int>> PalindromePairsV1(vector<string>& words) {
-        TrieNode* root = new TrieNode();
+      auto* root = new TrieNode();
 
-        // Create Trie with reversed words
-        for (int i = 0; i < (int)words.size(); ++i) {
-            string reversed_word = words[i];
-            reverse(reversed_word.begin(), reversed_word.end());
-            Insert(root, reversed_word, i);
+      // Create Trie with reversed words
+      for (int i = 0; i < (int)words.size(); ++i) {
+        string reversed_word = words[i];
+        reverse(reversed_word.begin(), reversed_word.end());
+        Insert(root, reversed_word, i);
         }
 
         for (int i = 0; i < (int)words.size(); ++i) {
             string& word = words[i];
             // word is palindrome
             if (root->word_index != -1 && !word.empty() && IsPalindrome(word)) {
-                res.push_back({i, root->word_index});
+              m_res.push_back({i, root->word_index});
             }
             Find(root, word, i);
         }
 
         delete root;
-        return res;
+        return m_res;
     }
 
    private:
