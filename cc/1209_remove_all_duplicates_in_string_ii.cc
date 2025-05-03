@@ -25,7 +25,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    string RemoveDuplicates(const string &s, int k) {
+    string RemoveDuplicates(const string& s, int k) {
         /*
             1 <= s.length <= 105
             2 <= k <= 104
@@ -33,7 +33,7 @@ class Solution {
         std::stack<char> stack;
 
         vector<char> v;
-        for (auto &ptr : s) {
+        for (auto& ptr : s) {
             stack.push(ptr);
 
             if ((int)stack.size() >= k) {
@@ -65,11 +65,11 @@ class Solution {
     }
 
     template <typename T>
-    bool AllEuqual(const std::vector<T> &vec) {
+    bool AllEuqual(const std::vector<T>& vec) {
         if (vec.size() == 0) {
             return true;
         }
-        const T &first = vec[0];
+        const T& first = vec[0];
 
         for (int i = 1; i < (int)vec.size(); i++) {
             if (vec[i] != first) {
@@ -87,7 +87,7 @@ class SolutionV2 {
         int cnt;  // count
     };
 
-    string RemoveDuplicatesV2(const string &s, int k) {
+    string RemoveDuplicatesV2(const string& s, int k) {
         stack<Node> st;  // stack to save character and count
         for (int i = 0; i < (int)s.length(); i++) {
             if (st.empty())
@@ -114,7 +114,7 @@ class SolutionV2 {
         return ans;
     }
 
-    string RemoveDuplicates(const string &s, int k) {
+    string RemoveDuplicates(const string& s, int k) {
         int n = s.size();
         if (n < k) return s;
 

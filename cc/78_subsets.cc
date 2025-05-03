@@ -20,8 +20,8 @@ namespace {
 
 class Solution {
    public:
-    void Solve(vector<vector<int>> &ans, vector<int> temp, int ind,
-               vector<int> &nums) {
+    void Solve(vector<vector<int>>& ans, vector<int> temp, int ind,
+               vector<int>& nums) {
         int n = nums.size();
 
         if (ind >= n) {
@@ -37,7 +37,7 @@ class Solution {
         Solve(ans, temp, ind + 1, nums);
         temp.pop_back();  // backtracking to reverse in original manner
     }
-    vector<vector<int>> Subsets(vector<int> &nums) {
+    vector<vector<int>> Subsets(vector<int>& nums) {
         vector<vector<int>> ans;
         vector<int> temp;
         Solve(ans, temp, 0, nums);
@@ -47,8 +47,8 @@ class Solution {
 
 class SolutionV1 {
    public:
-    void Solve(vector<vector<int>> &ans, vector<int> temp, int ind,
-               vector<int> &nums) {
+    void Solve(vector<vector<int>>& ans, vector<int> temp, int ind,
+               vector<int>& nums) {
         int n = nums.size();
 
         if (ind >= n) {
@@ -63,7 +63,7 @@ class SolutionV1 {
         temp.push_back(ele);
         Solve(ans, temp, ind + 1, nums);
     }
-    vector<vector<int>> Subsets(vector<int> &nums) {
+    vector<vector<int>> Subsets(vector<int>& nums) {
         vector<vector<int>> ans;
         vector<int> temp;
         Solve(ans, temp, 0, nums);

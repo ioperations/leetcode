@@ -28,7 +28,7 @@ class ProductOfNumbers {
      */
 
     void add(int num) {
-        for (auto &ptr : d) {
+        for (auto& ptr : d) {
             ptr = ptr * num;
         }
 
@@ -82,7 +82,7 @@ TEST(t0, t1) {
     //  The product of the last 2 numbers is 4 * 8 = 32
 }
 
-int main(int argc, char *argv[]) {
+int main(int argc, char* argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

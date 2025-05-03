@@ -28,7 +28,7 @@ class Solution {
     ~Solution() {}
 
    public:
-    int minCapability(vector<int> &nums, int k) {
+    int minCapability(vector<int>& nums, int k) {
         /*
          * 1 <= nums.length <= 105
          * 1 <= nums[i] <= 109
@@ -47,7 +47,7 @@ class Solution {
     }
 
    private:
-    bool Q(int &min, int &Max, int got = 0, int i = 0) {
+    bool Q(int& min, int& Max, int got = 0, int i = 0) {
         if (got == k) {
             return true;
         }
@@ -138,7 +138,7 @@ TEST(t0, t2) {
 //      */
 // }
 
-int main(int argc, char *argv[]) {
+int main(int argc, char* argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

@@ -20,7 +20,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    string LongestCommonPrefix(vector<string> &strs) {
+    string LongestCommonPrefix(vector<string>& strs) {
         std::string ret = "";
 
         size_t i = 0;
@@ -28,7 +28,7 @@ class Solution {
         while (continue_run) {
             char this_bit = ' ';
             bool set = false;
-            for (auto &ptr : strs) {
+            for (auto& ptr : strs) {
                 if (i < ptr.size()) {
                     if (set) {
                         if (this_bit == ptr[i]) {

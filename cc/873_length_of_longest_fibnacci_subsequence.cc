@@ -26,11 +26,11 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    int LenLongestFibSubseq(vector<int> &arr) {
+    int LenLongestFibSubseq(vector<int>& arr) {
         // pass
         int size = arr.size();
-        function<int(vector<int> &, int)> fun = [&](vector<int> &mem,
-                                                    int index) -> int {
+        function<int(vector<int>&, int)> fun = [&](vector<int>& mem,
+                                                   int index) -> int {
             // pass
             if (index >= size) return mem.size();
             if (mem.size() <= 1) {
@@ -60,7 +60,7 @@ class Solution {
     int ans = 0;
     int dp[1005][1005];
 
-    int Func(int i, int j, vector<int> &v) {
+    int Func(int i, int j, vector<int>& v) {
         if (mp.find(v[i] + v[j]) == mp.end()) {
             return 0;
         }
@@ -72,7 +72,7 @@ class Solution {
         return dp[i][j] = 1 + Func(j, mp[v[i] + v[j]], v);
     }
 
-    int LenLongestFibSubseqV2(vector<int> &v) {
+    int LenLongestFibSubseqV2(vector<int>& v) {
         int i, j;
         memset(dp, -1, sizeof(dp));
         int n = v.size();

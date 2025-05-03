@@ -41,13 +41,13 @@ class Solution {
         return CountNumber(magic_string, n);
     }
 
-    void BuildCountBuild(std::string &s, char charac, int num) {
+    void BuildCountBuild(std::string& s, char charac, int num) {
         for (int i = 0; i < num; i++) {
             s += charac;
         }
     }
 
-    int CountNumber(const std::string &s, int n) {
+    int CountNumber(const std::string& s, int n) {
         int count = 0;
         for (int i = 0; i < n && i < (int)s.size(); i++) {
             if (s[i] == '1') {
@@ -57,8 +57,6 @@ class Solution {
         return count;
     }
 };
-
-
 
 TEST(magical_string, t1) {
     int n = 6;
@@ -123,4 +121,4 @@ TEST(magical_string, t6) {
     EXPECT_EQ(ret, expected);
 }
 
-} // namespace
+}  // namespace

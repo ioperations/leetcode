@@ -28,10 +28,10 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    bool IsPossible(vector<int> &nums) {
+    bool IsPossible(vector<int>& nums) {
         priority_queue<int, vector<int>, greater<int>> pq;
         unordered_map<int, int> um;
-        for (int &num : nums) {
+        for (int& num : nums) {
             pq.push(num);
             um[num]++;
         }

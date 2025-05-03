@@ -19,7 +19,7 @@ namespace {
 class Solution {
    public:
     template <typename T>
-    TreeNode<T> *SearchBst(TreeNode<T> *root, T val) {
+    TreeNode<T>* SearchBst(TreeNode<T>* root, T val) {
         if (root == nullptr) return nullptr;
 
         if (val < root->val) {
@@ -40,9 +40,9 @@ TEST(search_in_a_binary_search_tree, t1) {
     int val = 2;
     std::vector<int> expected{2, 1, 3};
 
-    TreeNode<int> *node = ConstructTree(v);
+    TreeNode<int>* node = ConstructTree(v);
     Solution sl;
-    auto *out = sl.SearchBst(node, val);
+    auto* out = sl.SearchBst(node, val);
 
     (void)out;
     FreeTreeNode(node);
@@ -53,9 +53,9 @@ TEST(search_in_a_binary_search_tree, t2) {
     int val = 5;
     std::vector<int> expected{};
 
-    TreeNode<int> *node = ConstructTree(v);
+    TreeNode<int>* node = ConstructTree(v);
     Solution sl;
-    auto *out = sl.SearchBst(node, val);
+    auto* out = sl.SearchBst(node, val);
     EXPECT_EQ(out, nullptr);
 
     FreeTreeNode(node);

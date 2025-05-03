@@ -19,7 +19,7 @@ using TreeNode = Tree::TreeNode<int>;
 namespace {
 class Solution {
    public:
-    vector<vector<int>> ZigzagLevelOrder(TreeNode *root) {
+    vector<vector<int>> ZigzagLevelOrder(TreeNode* root) {
         vector<vector<int>> ret;
         if (root == nullptr) return ret;
 
@@ -30,7 +30,7 @@ class Solution {
         return ret;
     }
 
-    void AddToRet(TreeNode *root, vector<vector<int>> &ret, int n = 0) {
+    void AddToRet(TreeNode* root, vector<vector<int>>& ret, int n = 0) {
         if (root) {
             if ((int)ret.size() <= n) ret.resize(n + 1);
             ret[n].push_back(root->val);
@@ -44,14 +44,14 @@ class Solution {
 TEST(memleak, t0) {
     vector<optional<int>> elements{3,  9, 20, optional<int>(), optional<int>(),
                                    15, 7};
-    auto *binary_tree = Tree::ConstructBinaryTree(elements);
+    auto* binary_tree = Tree::ConstructBinaryTree(elements);
     Tree::FreeTreeNode(binary_tree);
 }
 
 TEST(binary_tree_zigzag_level_order_traversal, t1) {
     vector<optional<int>> elements{3,  9, 20, optional<int>(), optional<int>(),
                                    15, 7};
-    auto *binary_tree = Tree::ConstructBinaryTree(elements);
+    auto* binary_tree = Tree::ConstructBinaryTree(elements);
 
     Solution sl;
     auto ret = sl.ZigzagLevelOrder(binary_tree);
@@ -62,7 +62,7 @@ TEST(binary_tree_zigzag_level_order_traversal, t1) {
 
 TEST(binary_tree_zigzag_level_order_traversal, t2) {
     vector<optional<int>> elements{1};
-    auto *binary_tree = Tree::ConstructBinaryTree(elements);
+    auto* binary_tree = Tree::ConstructBinaryTree(elements);
 
     Solution sl;
     auto ret = sl.ZigzagLevelOrder(binary_tree);
@@ -73,7 +73,7 @@ TEST(binary_tree_zigzag_level_order_traversal, t2) {
 
 TEST(binary_tree_zigzag_level_order_traversal, t3) {
     vector<optional<int>> elements{};
-    auto *binary_tree = Tree::ConstructBinaryTree(elements);
+    auto* binary_tree = Tree::ConstructBinaryTree(elements);
 
     Solution sl;
     auto ret = sl.ZigzagLevelOrder(binary_tree);

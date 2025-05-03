@@ -26,8 +26,8 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    void Sum(vector<int> &candidates, int target, vector<vector<int>> &res,
-             vector<int> &r, int i) {
+    void Sum(vector<int>& candidates, int target, vector<vector<int>>& res,
+             vector<int>& r, int i) {
         if (target == 0) {
             // if we get exact answer
             res.push_back(r);
@@ -48,7 +48,7 @@ class Solution {
         }
     }
 
-    vector<vector<int>> CombinationSum(vector<int> &candidates, int target) {
+    vector<vector<int>> CombinationSum(vector<int>& candidates, int target) {
         /*
             1. Sort the vector(non-decreasing).
             2. First remove all the duplicates from vector.

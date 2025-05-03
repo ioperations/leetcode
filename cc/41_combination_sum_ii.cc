@@ -21,7 +21,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    void Find(int i, vector<vector<int>> &ans, vector<int> &v, vector<int> &arr,
+    void Find(int i, vector<vector<int>>& ans, vector<int>& v, vector<int>& arr,
               int target) {
         if (target == 0) {
             ans.push_back(v);
@@ -36,7 +36,7 @@ class Solution {
             v.pop_back();
         }
     }
-    vector<vector<int>> CombinationSum2(vector<int> &candidates, int target) {
+    vector<vector<int>> CombinationSum2(vector<int>& candidates, int target) {
         vector<vector<int>> ans;
         sort(candidates.begin(), candidates.end());
         vector<int> v;

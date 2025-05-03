@@ -20,12 +20,12 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    int MaxOperations(vector<int> &nums, int sum) {
+    int MaxOperations(vector<int>& nums, int sum) {
         // pass
         unordered_map<int, int> freq;
         for (int e : nums) freq[e]++;
         int ans = 0;
-        for (auto &[k, v] : freq) {
+        for (auto& [k, v] : freq) {
             if (2 * k == sum)
                 ans += v / 2, v -= v / 2 * 2;
             else if (v > 0 && freq.count(sum - k) && freq[sum - k] > 0) {
@@ -38,7 +38,7 @@ class Solution {
         return ans;
     }
 
-    int MaxOperationsV2(vector<int> &nums, int k) {
+    int MaxOperationsV2(vector<int>& nums, int k) {
         unordered_map<int, int> freq;
         int ans = 0;
         for (auto cur : nums) {
@@ -52,7 +52,7 @@ class Solution {
         return ans;
     }
 
-    int MaxOperationsV3(vector<int> &nums, int k) {
+    int MaxOperationsV3(vector<int>& nums, int k) {
         unordered_map<int, int> freq;
         int ans = 0;
         for (auto cur : nums) {

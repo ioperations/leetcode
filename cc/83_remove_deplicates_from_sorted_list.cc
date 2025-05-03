@@ -16,7 +16,7 @@ using ListNode = List::ListNode<int>;
 namespace {
 class Solution {
    public:
-    ListNode *DeleteDuplicates(ListNode *head) {
+    ListNode* DeleteDuplicates(ListNode* head) {
         if (head == nullptr || head->next == nullptr) {
             return head;
         }
@@ -25,7 +25,7 @@ class Solution {
         while (fast != nullptr) {
             if (fast->val == slow->val) {
                 // remove current fast
-                ListNode *tmp = fast;
+                ListNode* tmp = fast;
                 fast = fast->next;
                 slow->next = fast;
                 delete tmp;
@@ -42,9 +42,9 @@ class Solution {
 
 #include <vector>
 
-void ExpectEqList(ListNode *const head, const std::vector<int> &elements) {
+void ExpectEqList(ListNode* const head, const std::vector<int>& elements) {
     int i = 0;
-    ListNode *m_head = head;
+    ListNode* m_head = head;
 
     while (m_head != nullptr) {
         EXPECT_EQ(m_head->val, elements[i]);
@@ -58,10 +58,10 @@ TEST(remove_deplicates_from_sorted_list, t1) {
     std::vector<int> head{1, 1, 2};
     std::vector<int> output{1, 2};
 
-    ListNode *root = List::ConstructList(head);
+    ListNode* root = List::ConstructList(head);
 
     Solution sl;
-    auto *ret = sl.DeleteDuplicates(root);
+    auto* ret = sl.DeleteDuplicates(root);
     ExpectEqList(ret, output);
     List::FreeList(root);
 }
@@ -69,10 +69,10 @@ TEST(remove_deplicates_from_sorted_list, t2) {
     std::vector<int> head{1, 1, 2, 3, 3};
     std::vector<int> output{1, 2, 3};
 
-    ListNode *root = List::ConstructList(head);
+    ListNode* root = List::ConstructList(head);
 
     Solution sl;
-    auto *ret = sl.DeleteDuplicates(root);
+    auto* ret = sl.DeleteDuplicates(root);
     ExpectEqList(ret, output);
     List::FreeList(root);
 }

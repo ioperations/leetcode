@@ -15,7 +15,7 @@
 // 每一个步骤  只有删除 添加 改变
 namespace {
 
-int FindMinPath(const char *s1, const int s1_length, const char *s2,
+int FindMinPath(const char* s1, const int s1_length, const char* s2,
                 const int s2_length) {
     /// 从右向左走
 
@@ -60,14 +60,14 @@ int FindMinPath(const char *s1, const int s1_length, const char *s2,
 TEST(x_dp_tutorial_v2, r2) {
     int expected = 5;
 
-    const char *s1 = "rad";
-    const char *s2 = "apple";
+    const char* s1 = "rad";
+    const char* s2 = "apple";
     int ret = FindMinPath(s1, 3, s2, 5);
 
     EXPECT_EQ(ret, expected);
     EXPECT_EQ(FindMinPath("appled", 6, "apple", 5), 1);
-    const char *s1_1 = "appl7777777777777777777777777";
-    const char *s2_1 = "appl7777777777777777777777776";
+    const char* s1_1 = "appl7777777777777777777777777";
+    const char* s2_1 = "appl7777777777777777777777776";
     EXPECT_EQ(FindMinPath(s1_1, strlen(s1_1), s2_1, strlen(s2_1)), 1);
 }
 

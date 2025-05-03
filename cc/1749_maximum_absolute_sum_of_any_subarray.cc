@@ -17,7 +17,7 @@ using namespace std;
 class Solution {
    public:
     template <typename M>
-    int calculate(vector<int> &nums, M &&m) {
+    int calculate(vector<int>& nums, M&& m) {
         /*
          * Kadane’s algorithm is to traverse over the array from left to right
          * and for each element, find the maximum sum among all subarrays ending
@@ -39,7 +39,7 @@ class Solution {
         return res;
     }
 
-    int maxAbsoluteSum(vector<int> &nums) {
+    int maxAbsoluteSum(vector<int>& nums) {
         int ma = calculate(nums, [](int a, int b) { return std::max(a, b); });
         int mi = calculate(nums, [](int a, int b) { return std::min(a, b); });
         return max(abs(ma), abs(mi));
@@ -66,7 +66,7 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char *argv[]) {
+int main(int argc, char* argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

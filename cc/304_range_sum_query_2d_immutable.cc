@@ -22,7 +22,7 @@ using namespace std;
 namespace {
 class NumMatrix {
    public:
-    NumMatrix(vector<vector<int>> &matrix) {
+    NumMatrix(vector<vector<int>>& matrix) {
         // pass
         m_matrix = matrix;
     }
@@ -47,7 +47,7 @@ class NumMatrixV1 {
     vector<vector<int>> sum;
 
    public:
-    NumMatrixV1(vector<vector<int>> &matrix) {
+    NumMatrixV1(vector<vector<int>>& matrix) {
         int m = matrix.size(), n = matrix[0].size();
         sum = vector<vector<int>>(
             m + 1, vector<int>(n + 1));  // sum[i][j] is sum of all elements
@@ -84,7 +84,7 @@ TEST(range_sum_query_2d_immutable, t1) {
                                  {1, 2, 0, 1, 5},
                                  {4, 1, 0, 1, 7},
                                  {1, 0, 3, 0, 5}};
-    NumMatrix *obj = new NumMatrix(input);
+    NumMatrix* obj = new NumMatrix(input);
 
     int ret = obj->SumRegion(2, 1, 4, 3);
     EXPECT_EQ(ret, 8);
@@ -112,7 +112,7 @@ TEST(range_sum_query_2d_immutable, t2) {
                                  {1, 2, 0, 1, 5},
                                  {4, 1, 0, 1, 7},
                                  {1, 0, 3, 0, 5}};
-    NumMatrixV1 *obj = new NumMatrixV1(input);
+    NumMatrixV1* obj = new NumMatrixV1(input);
 
     int ret = obj->SumRegion(2, 1, 4, 3);
     EXPECT_EQ(ret, 8);

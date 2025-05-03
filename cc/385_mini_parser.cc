@@ -58,7 +58,7 @@ class NestedInteger {
 
     // Set this NestedInteger to hold a nested list and adds a nested integer to
     // it.
-    void Add(const NestedInteger &ni) {
+    void Add(const NestedInteger& ni) {
         vec.push_back(ni);
         is_integer = false;
     }
@@ -66,7 +66,7 @@ class NestedInteger {
     // Return the nested list that this NestedInteger holds, if it holds a
     // nested list The result is undefined if this NestedInteger holds a single
     // integer
-    const vector<NestedInteger> &GetList() const { return vec; }
+    const vector<NestedInteger>& GetList() const { return vec; }
 };
 class Solution {
    public:
@@ -79,7 +79,7 @@ class Solution {
         stk.push(NestedInteger());
 
         for (auto it = s.begin(); it != s.end();) {
-            const char &c = (*it);
+            const char& c = (*it);
             if (isnumber(c)) {
                 auto it2 = find_if_not(it, s.end(), isnumber);
                 const int val = stoi(string(it, it2));
@@ -134,9 +134,9 @@ class Solution {
     }
 };
 
-void Flattern(const NestedInteger &n, vector<int> &ret) {
+void Flattern(const NestedInteger& n, vector<int>& ret) {
     if (!n.IsInteger()) {
-        for (auto &ptr : n.GetList()) {
+        for (auto& ptr : n.GetList()) {
             Flattern(ptr, ret);
         }
     } else {
@@ -200,7 +200,7 @@ TEST(mini_parser, t2) {
     EXPECT_EQ(vec, (std::vector<int>{123, 456, 789}));
 }
 
-void BenchV1(benchmark::State &state) {
+void BenchV1(benchmark::State& state) {
     for (auto _ : state) {
         const string s = "[123,[456,[789]]]";
         // Output: [123,[456,[789]]]
@@ -224,7 +224,7 @@ void BenchV1(benchmark::State &state) {
 }
 BENCHMARK(BenchV1);
 
-void BenchV2(benchmark::State &state) {
+void BenchV2(benchmark::State& state) {
     for (auto _ : state) {
         const string s = "[123,[456,[789]]]";
         // Output: [123,[456,[789]]]

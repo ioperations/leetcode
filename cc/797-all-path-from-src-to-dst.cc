@@ -16,7 +16,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    vector<vector<int>> AllPathsSourceTarget(vector<vector<int>> &graph) {
+    vector<vector<int>> AllPathsSourceTarget(vector<vector<int>>& graph) {
         clock_t start, end;
         start = clock();
 
@@ -32,7 +32,7 @@ class Solution {
     /// pop出来一个 ，以当前接待你继续向前找，并用栈存储
     /// 所有的路径都找完 找到第一个
     /// 根dfs还不一样 还要找到所有的路径 ， 不能只有一个stack
-    vector<vector<int>> ImplV1(vector<vector<int>> &graph) { return {{}}; }
+    vector<vector<int>> ImplV1(vector<vector<int>>& graph) { return {{}}; }
 };
 
 TEST(_all_path_from_src_to_dstv2, t2) {

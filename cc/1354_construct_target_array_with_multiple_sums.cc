@@ -20,7 +20,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    bool IsPossible(vector<int> &targets) {
+    bool IsPossible(vector<int>& targets) {
         int n = targets.size();
         long s = 0;
         priority_queue<int, vector<int>> q;

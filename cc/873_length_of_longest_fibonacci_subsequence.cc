@@ -19,7 +19,7 @@ using namespace std;
 
 class Solution {
    public:
-    int lenLongestFibSubseq(vector<int> &arr) {
+    int lenLongestFibSubseq(vector<int>& arr) {
         /*
          * 3 <= arr.length <= 1000
          * 1 <= arr[i] < arr[i + 1] <= 109
@@ -91,7 +91,7 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, output);
     // The longest subsequence that is fibonacci-like: [1,11,12], [3,11,14] or
 }
-int main(int argc, char *argv[]) {
+int main(int argc, char* argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

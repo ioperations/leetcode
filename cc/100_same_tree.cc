@@ -20,7 +20,7 @@ namespace {
 class Solution {
    public:
     template <typename T>
-    bool IsSameTree(TreeNode<T> *p, TreeNode<T> *q) {
+    bool IsSameTree(TreeNode<T>* p, TreeNode<T>* q) {
         // pass
 
         if (p == nullptr && q == nullptr) {
@@ -43,9 +43,9 @@ class Solution {
 TEST(memleak, t0) {
     std::vector<int> p = {1, 2, 3}, q = {1, 2, 3};
 
-    auto *root = ConstructTree(p);
+    auto* root = ConstructTree(p);
 
-    auto *root2 = ConstructTree(q);
+    auto* root2 = ConstructTree(q);
     FreeTreeNode(root);
     FreeTreeNode(root2);
 }
@@ -53,8 +53,8 @@ TEST(memleak, t0) {
 TEST(same_tree, t1) {
     std::vector<int> p = {1, 2, 3}, q = {1, 2, 3};
 
-    auto *root1 = ConstructTree(p);
-    auto *root2 = ConstructTree(q);
+    auto* root1 = ConstructTree(p);
+    auto* root2 = ConstructTree(q);
     bool expected = true;
 
     Solution s;
@@ -67,8 +67,8 @@ TEST(same_tree, t1) {
 
 TEST(same_tree, t2) {
     std::vector<int> p = {1, 2}, q = {1, 2};
-    auto *root1 = ConstructTree(p);
-    auto *root2 = ConstructTree(q);
+    auto* root1 = ConstructTree(p);
+    auto* root2 = ConstructTree(q);
     bool expected = true;
 
     Solution s;
@@ -82,8 +82,8 @@ TEST(same_tree, t2) {
 TEST(same_tree, t3) {
     std::vector<int> p = {1, 2, 1}, q = {1, 1, 2};
 
-    auto *root1 = ConstructTree(p);
-    auto *root2 = ConstructTree(q);
+    auto* root1 = ConstructTree(p);
+    auto* root2 = ConstructTree(q);
     bool expected = false;
 
     Solution s;
@@ -97,8 +97,8 @@ TEST(same_tree, t3) {
 TEST(same_tree, t4) {
     std::vector<int> p = {1, 2, 1}, q = {};
 
-    auto *root1 = ConstructTree(p);
-    auto *root2 = ConstructTree(q);
+    auto* root1 = ConstructTree(p);
+    auto* root2 = ConstructTree(q);
     bool expected = false;
 
     Solution s;
@@ -112,8 +112,8 @@ TEST(same_tree, t4) {
 TEST(same_tree, t5) {
     std::vector<int> p = {}, q = {1, 2, 1};
 
-    auto *root1 = ConstructTree(p);
-    auto *root2 = ConstructTree(q);
+    auto* root1 = ConstructTree(p);
+    auto* root2 = ConstructTree(q);
     bool expected = false;
 
     Solution s;

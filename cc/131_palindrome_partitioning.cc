@@ -20,7 +20,7 @@ class Solution {
     vector<vector<string>> Partition(string s) {
         return Partition(s, 0, s.size() - 1);
     }
-    vector<vector<string>> Partition(string &s, int begin, int end) {
+    vector<vector<string>> Partition(string& s, int begin, int end) {
         vector<vector<string>> ret;
 
         for (int i = begin; i <= end; i++) {
@@ -28,10 +28,10 @@ class Solution {
                 auto ret1 = Partition(s, i + 1, end);
 
                 if (ret1.size()) {
-                    for (auto &ptr : ret1) {
+                    for (auto& ptr : ret1) {
                         ptr.insert(ptr.begin(), s.substr(begin, i - begin + 1));
                     }
-                    for (auto &ptr : ret1) {
+                    for (auto& ptr : ret1) {
                         ret.push_back(ptr);
                     }
                 } else {
@@ -44,7 +44,7 @@ class Solution {
         return ret;
     }
 
-    bool IsPalindrom(std::string &s, int left, int right) {
+    bool IsPalindrom(std::string& s, int left, int right) {
         while (left < right) {
             if (s[left] == s[right]) {
                 left++;

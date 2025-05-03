@@ -28,7 +28,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    int FurthestBuilding(vector<int> &heights, int bricks, int ladders) {
+    int FurthestBuilding(vector<int>& heights, int bricks, int ladders) {
         // pass
         int size = heights.size();
 
@@ -57,7 +57,7 @@ class Solution {
         return fun(0, bricks, ladders);
     }
 
-    int FurthestBuilding2(vector<int> &heights, int bricks, int ladders) {
+    int FurthestBuilding2(vector<int>& heights, int bricks, int ladders) {
         int total_count = 0;
         priority_queue<int> max_heap;
         for (int i = 0; i < (int)heights.size() - 1; i++) {

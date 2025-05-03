@@ -23,7 +23,7 @@ class Solution {
         } else {
             auto ret_sub = GenerateParenthesis(n - 1);
             std::set<string> t;
-            for (auto &ptr : ret_sub) {
+            for (auto& ptr : ret_sub) {
                 AddAnotherPair(ptr, t);
             }
 
@@ -39,11 +39,11 @@ class Solution {
      * @param
      * @return
      */
-    void AddAnotherPair(const std::string &s, std::set<std::string> &t) {
+    void AddAnotherPair(const std::string& s, std::set<std::string>& t) {
         // pass
     }
 
-    void Parentheses(vector<string> &pvec, string s, int l, int r) {
+    void Parentheses(vector<string>& pvec, string s, int l, int r) {
         // pvec: result
         // s: current string
         // l: left parentheses number
@@ -70,8 +70,6 @@ class Solution {
         return res;
     }
 };
-
-
 
 TEST(generate_parenheses, t1) {
     int n = 3;
@@ -100,4 +98,4 @@ TEST(generate_parenheses, t2) {
     EXPECT_EQ(ret_set, expected_set);
 }
 
-} // namespace
+}  // namespace

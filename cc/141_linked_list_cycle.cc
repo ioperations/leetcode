@@ -25,14 +25,14 @@ using List::FreeList;
 namespace {
 class Solution {
    public:
-    bool HasCycle(ListNode *head) {
+    bool HasCycle(ListNode* head) {
         // pass
         if (head == nullptr) {
             return false;
         }
 
-        ListNode *fast = head;
-        ListNode *slow = head;
+        ListNode* fast = head;
+        ListNode* slow = head;
 
         while (fast->next != nullptr && fast->next->next != nullptr) {
             fast = fast->next->next;
@@ -47,7 +47,7 @@ class Solution {
 };
 
 TEST(memleak, t1) {
-    ListNode *head = ConstructList(std::vector<int>{3, 2, 0, -4});
+    ListNode* head = ConstructList(std::vector<int>{3, 2, 0, -4});
 
     FreeList(head);
 }
@@ -62,10 +62,10 @@ TEST(linked_list_cycle, t1) {
                        |-------------------------------|
     */
 
-    ListNode *head = ConstructList(std::vector<int>{3, 2, 0, -4});
+    ListNode* head = ConstructList(std::vector<int>{3, 2, 0, -4});
 
-    ListNode *it = head;
-    ListNode *it2 = head;
+    ListNode* it = head;
+    ListNode* it2 = head;
 
     it = it->next;
 
@@ -94,10 +94,10 @@ TEST(linked_list_cycle, t2) {
          |-------------------|
     */
 
-    ListNode *head = ConstructList(std::vector<int>{1, 2});
+    ListNode* head = ConstructList(std::vector<int>{1, 2});
 
-    ListNode *it = head;
-    ListNode *it2 = head;
+    ListNode* it = head;
+    ListNode* it2 = head;
 
     while (it2->next != nullptr) {
         it2 = it2->next;
@@ -122,7 +122,7 @@ TEST(linked_list_cycle, t3) {
 
     */
 
-    ListNode *head = ConstructList(std::vector<int>{1});
+    ListNode* head = ConstructList(std::vector<int>{1});
 
     Solution s;
     bool ret = s.HasCycle(head);
@@ -132,7 +132,7 @@ TEST(linked_list_cycle, t3) {
 }
 
 TEST(linked_list_cycle, t4) {
-    ListNode *head = ConstructList(std::vector<int>{});
+    ListNode* head = ConstructList(std::vector<int>{});
 
     Solution s;
     bool ret = s.HasCycle(head);

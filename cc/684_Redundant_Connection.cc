@@ -19,7 +19,7 @@ using namespace std;
 
 class Solution {
    public:
-    vector<int> findRedundantConnection(vector<vector<int>> &edges) {
+    vector<int> findRedundantConnection(vector<vector<int>>& edges) {
         /**
         The problem asks us to find a redundant connection in a graph
                 formed by edges. A "redundant connection" is the edge that, when
@@ -94,7 +94,7 @@ class Solution {
             return false;
         };
 
-        for (const auto &edge : edges) {
+        for (const auto& edge : edges) {
             int u = edge[0], v = edge[1];
 
             if (graph.count(u) && graph.count(v) && isConnected(u, v)) {

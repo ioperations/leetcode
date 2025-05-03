@@ -19,15 +19,15 @@ namespace {
 template <typename T>
 class Solution {
    public:
-    TreeNode<T> *prev = nullptr;
-    TreeNode<T> *first = nullptr;
-    TreeNode<T> *second = nullptr;
-    void RecoverTree(TreeNode<T> *root) {
+    TreeNode<T>* prev = nullptr;
+    TreeNode<T>* first = nullptr;
+    TreeNode<T>* second = nullptr;
+    void RecoverTree(TreeNode<T>* root) {
         Inorder(root);
         std::swap(first->val, second->val);
     }
 
-    void Inorder(TreeNode<T> *root) {
+    void Inorder(TreeNode<T>* root) {
         if (root == nullptr) return;
 
         Inorder(root->left);
@@ -56,7 +56,7 @@ TEST(recover_binary_search_tree, t1) {
     // and 3 makes the BST valid.
     vector<int> in;
     {
-        auto *input = ConstructBinaryTree(root);
+        auto* input = ConstructBinaryTree(root);
         Solution<int> sl;
         sl.RecoverTree(input);
         BfsSearch(input, in);
@@ -65,7 +65,7 @@ TEST(recover_binary_search_tree, t1) {
 
     vector<int> ou;
     {
-        TreeNode<int> *out = ConstructBinaryTree(output);
+        TreeNode<int>* out = ConstructBinaryTree(output);
         BfsSearch(out, ou);
         FreeTreeNode(out);
     }
@@ -81,7 +81,7 @@ TEST(recover_binary_search_tree, t2) {
 
     vector<int> in;
     {
-        auto *input = ConstructBinaryTree(root);
+        auto* input = ConstructBinaryTree(root);
         Solution<int> sl;
         sl.RecoverTree(input);
         BfsSearch(input, in);
@@ -90,7 +90,7 @@ TEST(recover_binary_search_tree, t2) {
 
     vector<int> ou;
     {
-        auto *out = ConstructBinaryTree(output);
+        auto* out = ConstructBinaryTree(output);
         BfsSearch(out, ou);
         FreeTreeNode(out);
     }

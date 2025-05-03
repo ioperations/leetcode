@@ -13,13 +13,13 @@
 namespace {
 
 /// FIXME: output the result to stdout
-void Processing(std::vector<int> &nums) {
+void Processing(std::vector<int>& nums) {
     std::set<int> s(nums.begin(), nums.end());
     std::vector<int> ss(s.begin(), s.end());
 
     std::sort(ss.begin(), ss.end(), std::less<int>());
 
-    for (auto &s : ss) {
+    for (auto& s : ss) {
         std::cout << s << std::endl;
     }
 }

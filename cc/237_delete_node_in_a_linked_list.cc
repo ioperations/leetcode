@@ -19,7 +19,7 @@ using ListNode = List::ListNode<int>;
 namespace {
 class Solution {
    public:
-    void DeleteNode(ListNode *node) {
+    void DeleteNode(ListNode* node) {
         while (node != nullptr) {
             if (node->next != nullptr) {
                 std::swap(node->val, node->next->val);
@@ -39,8 +39,8 @@ class Solution {
 
 using namespace std;
 
-void ExpectEqList(ListNode *const head, const std::vector<int> &elements) {
-    ListNode *m_head = head;
+void ExpectEqList(ListNode* const head, const std::vector<int>& elements) {
+    ListNode* m_head = head;
 
     for (int i = 0; i < (int)elements.size(); i++) {
         EXPECT_EQ(m_head->val, elements[i]);
@@ -48,8 +48,8 @@ void ExpectEqList(ListNode *const head, const std::vector<int> &elements) {
     }
 }
 
-ListNode *FindNode(ListNode *const head, int v) {
-    ListNode *local = head;
+ListNode* FindNode(ListNode* const head, int v) {
+    ListNode* local = head;
     while (local != nullptr) {
         if (local->val == v) {
             return local;
@@ -64,8 +64,8 @@ TEST(delete_node_in_a_linked_list, t1) {
     int node = 5;
     std::vector<int> final{4, 1, 9};
     Solution sl;
-    ListNode *head = List::ConstructList(v);
-    ListNode *input = FindNode(head, node);
+    ListNode* head = List::ConstructList(v);
+    ListNode* input = FindNode(head, node);
     sl.DeleteNode(input);
 
     ExpectEqList(head, final);
@@ -78,8 +78,8 @@ TEST(delete_node_in_a_linked_list, t2) {
     int node = 1;
     std::vector<int> final{4, 5, 9};
     Solution sl;
-    ListNode *head = List::ConstructList(v);
-    ListNode *input = FindNode(head, node);
+    ListNode* head = List::ConstructList(v);
+    ListNode* input = FindNode(head, node);
     sl.DeleteNode(input);
 
     ExpectEqList(head, final);

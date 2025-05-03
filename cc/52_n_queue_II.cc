@@ -25,7 +25,7 @@ class Solution {
         return Solve(col, diag, anti_diag, 0);
     }
 
-    int Solve(vector<bool> &col, vector<bool> &diag, vector<bool> &anti_diag,
+    int Solve(vector<bool>& col, vector<bool>& diag, vector<bool>& anti_diag,
               int row) {
         int n = size(col), count = 0;
         if (row == n) return 1;

@@ -17,7 +17,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    vector<int> Intersection(vector<int> &nums1, vector<int> &nums2) {
+    vector<int> Intersection(vector<int>& nums1, vector<int>& nums2) {
         set<int> ret;
         sort(nums1.begin(), nums1.end());
         sort(nums2.begin(), nums2.end());

@@ -23,7 +23,7 @@ class Solution {
    public:
     bool IsValid(string s) {
         std::stack<char> stack;
-        for (auto &ptr : s) {
+        for (auto& ptr : s) {
             if (ptr == '(' || ptr == '[' || ptr == '{') {
                 stack.push(ptr);
             } else {
@@ -61,8 +61,6 @@ class Solution {
         return true;
     }
 };
-
-
 
 TEST(valid_parentheses, t1) {
     string s = "()";
@@ -106,4 +104,4 @@ TEST(valid_parentheses, t5) {
     EXPECT_EQ(ret, true);
 }
 
-} // namespace
+}  // namespace

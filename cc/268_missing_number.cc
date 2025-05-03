@@ -14,11 +14,11 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    int MissingNumber(vector<int> &nums) {
+    int MissingNumber(vector<int>& nums) {
         int sum = 0;
 
         int max = 0;
-        for (auto &ptr : nums) {
+        for (auto& ptr : nums) {
             sum += ptr;
             max = std::max(max, ptr);
         }

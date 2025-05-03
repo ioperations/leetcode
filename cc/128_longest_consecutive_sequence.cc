@@ -17,7 +17,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    int LongestConsecutive(vector<int> &nums) {
+    int LongestConsecutive(vector<int>& nums) {
         unordered_set<int> record(nums.begin(), nums.end());
         int ans = 0;
         for (int it : nums) {

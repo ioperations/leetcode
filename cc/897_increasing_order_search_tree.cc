@@ -14,15 +14,15 @@ namespace {
 
 class Solution {
    public:
-    TreeNode *IncreasingBst(TreeNode *root) {
+    TreeNode* IncreasingBst(TreeNode* root) {
         if (root == nullptr) {
             return nullptr;
         }
 
-        TreeNode *right = IncreasingBst(root->right);
-        TreeNode *left = IncreasingBst(root->left);
+        TreeNode* right = IncreasingBst(root->right);
+        TreeNode* left = IncreasingBst(root->left);
         if (left != nullptr) {
-            TreeNode *left_it = left;
+            TreeNode* left_it = left;
             while (left_it->right != nullptr) {
                 left_it = left_it->right;
             }
@@ -39,13 +39,13 @@ class Solution {
     }
 };
 
-TreeNode *AddToRoot(TreeNode *root, int val) {
+TreeNode* AddToRoot(TreeNode* root, int val) {
     if (root == nullptr) {
         return nullptr;
     }
     if (val < root->val) {
         if (root->left) {
-            TreeNode *head = AddToRoot(root->left, val);
+            TreeNode* head = AddToRoot(root->left, val);
             root->left = head;
             return root;
         }
@@ -53,7 +53,7 @@ TreeNode *AddToRoot(TreeNode *root, int val) {
 
     } else {
         if (root->right) {
-            TreeNode *head = AddToRoot(root->right, val);
+            TreeNode* head = AddToRoot(root->right, val);
             root->right = head;
             return root;
         }
@@ -67,22 +67,22 @@ TreeNode *AddToRoot(TreeNode *root, int val) {
  * @param @elements 节点的数组
  * @return
  */
-TreeNode *AddToRoot(TreeNode *root, const std::vector<int> &elements) {
-    for (auto &ptr : elements) {
+TreeNode* AddToRoot(TreeNode* root, const std::vector<int>& elements) {
+    for (auto& ptr : elements) {
         root = AddToRoot(root, ptr);
     }
 
     return root;
 }
 
-std::vector<int> BFS(TreeNode *root) {
+std::vector<int> BFS(TreeNode* root) {
     std::vector<int> ret;
-    std::queue<TreeNode *> q;
+    std::queue<TreeNode*> q;
 
     q.push(root);
 
     while (!q.empty()) {
-        auto *c = q.front();
+        auto* c = q.front();
         if (c != nullptr) {
             q.push(c->left);
             q.push(c->right);
@@ -98,7 +98,7 @@ std::vector<int> BFS(TreeNode *root) {
 }
 
 TEST(memleak, t1) {
-    TreeNode *root = new TreeNode(-1);
+    TreeNode* root = new TreeNode(-1);
 
     for (int i = 0; i < 100; i++) {
         root = AddToRoot(root, i);
@@ -107,7 +107,7 @@ TEST(memleak, t1) {
     Tree::FreeTreeNode(root);
 }
 TEST(increasing_order_search_tree, t1) {
-    TreeNode *root = new TreeNode(5);
+    TreeNode* root = new TreeNode(5);
 
     root = AddToRoot(root, (std::vector<int>{3, 6, 2, 4, 8, 1, 7, 9}));
     Solution s;
@@ -119,7 +119,7 @@ TEST(increasing_order_search_tree, t1) {
 }
 
 TEST(increasing_order_search_tree, t2) {
-    TreeNode *root = new TreeNode(5);
+    TreeNode* root = new TreeNode(5);
 
     root = AddToRoot(root, (std::vector<int>{1, 7}));
     Solution s;

@@ -40,12 +40,12 @@ using TreeNode = Tree::TreeNode<int>;
  */
 class FindElements {
    public:
-    FindElements(TreeNode *root) { Gen(root, 0); }
+    FindElements(TreeNode* root) { Gen(root, 0); }
 
     bool find(int target) { return s.count(target) > 0; }
 
    private:
-    void Gen(TreeNode *root, int v) {
+    void Gen(TreeNode* root, int v) {
         s.emplace(v);
 
         if (root->left) {
@@ -127,7 +127,7 @@ TEST(t0, t3) {
     Tree::FreeTreeNode(root);
 }
 
-int main(int argc, char *argv[]) {
+int main(int argc, char* argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

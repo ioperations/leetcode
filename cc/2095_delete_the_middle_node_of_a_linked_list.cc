@@ -33,10 +33,10 @@ using ListNode = List::ListNode<int>;
 */
 namespace {
 class Solution {
-    ListNode *MiddlePrev(ListNode *head) {
-        ListNode *slow = head;
-        ListNode *fast = head;
-        ListNode *prev = nullptr;
+    ListNode* MiddlePrev(ListNode* head) {
+        ListNode* slow = head;
+        ListNode* fast = head;
+        ListNode* prev = nullptr;
         while (fast != nullptr && fast->next != nullptr) {
             prev = slow;
             slow = slow->next;
@@ -46,12 +46,12 @@ class Solution {
     }
 
    public:
-    ListNode *DeleteMiddle(ListNode *head) {
+    ListNode* DeleteMiddle(ListNode* head) {
         if (head == nullptr || head->next == nullptr) {
             return nullptr;
         }
-        ListNode *curr = MiddlePrev(head);
-        /* NOTE: mem */ ListNode *de = curr->next;
+        ListNode* curr = MiddlePrev(head);
+        /* NOTE: mem */ ListNode* de = curr->next;
         curr->next = curr->next->next;
         /* NOTE: mem */ delete de;
         return head;
@@ -60,9 +60,9 @@ class Solution {
 
 #include <vector>
 
-void ExpectEqList(ListNode *const head, const std::vector<int> &elements) {
+void ExpectEqList(ListNode* const head, const std::vector<int>& elements) {
     int i = 0;
-    ListNode *m_head = head;
+    ListNode* m_head = head;
 
     while (m_head != nullptr) {
         EXPECT_EQ(m_head->val, elements[i]);
@@ -83,7 +83,7 @@ TEST(delete_the_middle_node_of_a_linked_list, t1) {
     are written below. Since n = 7, node 3 with value 7 is the middle node,
     which is marked in red. We return the new list after removing this node.
     */
-    auto *list = List::ConstructList(head);
+    auto* list = List::ConstructList(head);
 
     Solution sl;
     list = sl.DeleteMiddle(list);
@@ -99,7 +99,7 @@ TEST(delete_the_middle_node_of_a_linked_list, t2) {
     The above figure represents the given linked list.
     For n = 4, node 2 with value 3 is the middle node, which is marked in red.
     */
-    auto *list = List::ConstructList(head);
+    auto* list = List::ConstructList(head);
 
     Solution sl;
     list = sl.DeleteMiddle(list);
@@ -115,7 +115,7 @@ TEST(delete_the_middle_node_of_a_linked_list, t3) {
 For n = 2, node 1 with value 1 is the middle node, which is marked in red.
 Node 0 with value 2 is the only node remaining after removing node 1.
     */
-    auto *list = List::ConstructList(head);
+    auto* list = List::ConstructList(head);
 
     Solution sl;
     list = sl.DeleteMiddle(list);

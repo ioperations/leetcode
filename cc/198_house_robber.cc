@@ -23,7 +23,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    int Rob(vector<int> &nums) {
+    int Rob(vector<int>& nums) {
         int size = nums.size();
 
         if (size == 1) {

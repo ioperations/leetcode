@@ -26,7 +26,7 @@ class Solution {
         return ans;
     }
 
-    void Process(std::vector<std::vector<int>> &ans, std::vector<int> temp,
+    void Process(std::vector<std::vector<int>>& ans, std::vector<int> temp,
                  int sum, int index, int k, int n) {
         if (sum == n && (int)temp.size() == k) {
             ans.push_back(temp);

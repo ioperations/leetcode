@@ -14,14 +14,14 @@ namespace {
 class Solution {
    public:
     template <typename T>
-    std::vector<T> PreorderTraversal(TreeNode<T> *root) {
+    std::vector<T> PreorderTraversal(TreeNode<T>* root) {
         std::vector<T> ret;
         Tranverse(root, ret);
         return ret;
     }
 
     template <typename T>
-    void Tranverse(TreeNode<T> *root, std::vector<T> &val) {
+    void Tranverse(TreeNode<T>* root, std::vector<T>& val) {
         if (root == nullptr) {
             return;
         }
@@ -39,7 +39,7 @@ using namespace std;
 
 TEST(binary_tree_preorder_traversal, t1) {
     std::vector<optional<int>> vec{1, 2, 3};
-    TreeNode<int> *root = ConstructBinaryTree(vec);
+    TreeNode<int>* root = ConstructBinaryTree(vec);
     Solution s;
     std::vector<int> ret = s.PreorderTraversal(root);
 
@@ -50,7 +50,7 @@ TEST(binary_tree_preorder_traversal, t1) {
 
 TEST(binary_tree_preorder_traversal, t2) {
     std::vector<optional<int>> vec{};
-    TreeNode<int> *root = ConstructBinaryTree(vec);
+    TreeNode<int>* root = ConstructBinaryTree(vec);
     Solution s;
     std::vector<int> ret = s.PreorderTraversal(root);
 
@@ -61,7 +61,7 @@ TEST(binary_tree_preorder_traversal, t2) {
 
 TEST(binary_tree_preorder_traversal, t3) {
     std::vector<optional<int>> vec{1};
-    TreeNode<int> *root = ConstructBinaryTree(vec);
+    TreeNode<int>* root = ConstructBinaryTree(vec);
     Solution s;
     std::vector<int> ret = s.PreorderTraversal(root);
 

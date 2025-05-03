@@ -339,7 +339,7 @@ TEST(basic_calculator_v2, t3) {
     EXPECT_EQ(ret, 23);
 }
 
-void BenchV2(benchmark::State &state) {
+void BenchV2(benchmark::State& state) {
     for (auto _ : state) {
         const std::string s = "(1+(4+5+2)-3)+(6+8)";
 
@@ -351,7 +351,7 @@ void BenchV2(benchmark::State &state) {
 }
 BENCHMARK(BenchV2);
 
-void BenchV3(benchmark::State &state) {
+void BenchV3(benchmark::State& state) {
     for (auto _ : state) {
         const std::string s = "(1+(4+5+2)-3)+(6+8)";
 

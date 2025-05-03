@@ -19,7 +19,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    bool ContainsNearbyDuplicate(const vector<int> &nums, int k) {
+    bool ContainsNearbyDuplicate(const vector<int>& nums, int k) {
         int const size = nums.size();
         for (int i = 0; i < size; i++) {
             for (int j = i + 1; (j < size) && ((j - i) <= k); j++) {
@@ -28,7 +28,7 @@ class Solution {
         }
         return false;
     }
-    bool ContainsNearbyDuplicateV2(const vector<int> &nums, int k) {
+    bool ContainsNearbyDuplicateV2(const vector<int>& nums, int k) {
         unordered_map<int, int> map;
         int n = nums.size();
         for (int i = 0; i < n; i++) {

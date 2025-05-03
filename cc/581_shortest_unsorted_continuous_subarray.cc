@@ -20,7 +20,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    int FindUnsortedSubarray(vector<int> &nums) {
+    int FindUnsortedSubarray(vector<int>& nums) {
         priority_queue<int, vector<int>, std::less<int>> q1;
         priority_queue<int, vector<int>, std::greater<int>> q2;
         int i, n = nums.size(), j;

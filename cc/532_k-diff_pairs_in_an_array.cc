@@ -26,7 +26,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    int FindPairs(vector<int> &nums, int k) {
+    int FindPairs(vector<int>& nums, int k) {
         sort(nums.begin(), nums.end());
         int ret = 0;
         for (int i = 0; i < (int)nums.size(); i++) {
@@ -40,11 +40,11 @@ class Solution {
         return ret;
     }
 
-    int FindPairsV1(vector<int> &nums, int k) {
+    int FindPairsV1(vector<int>& nums, int k) {
         sort(nums.begin(), nums.end());
         int prev = INT_MIN, ret = 0, n = nums.size();
         for (int i = 0; i < n; ++i) {
-            auto &v = nums[i];
+            auto& v = nums[i];
             if (v != prev) {
                 if (binary_search(nums.begin() + i + 1, nums.end(), v + k)) {
                     ret++;

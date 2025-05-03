@@ -25,7 +25,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    int MaxResult(vector<int> &nums, int k) {
+    int MaxResult(vector<int>& nums, int k) {
         int n = nums.size();
         vector<int> mem(n, INT_MIN);
         priority_queue<pair<int, int>> pq;

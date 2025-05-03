@@ -22,7 +22,7 @@ class Solution {
    public:
     unordered_map<string, int> mp;
 
-    void Helper(string s, int minrem, vector<string> &st) {
+    void Helper(string s, int minrem, vector<string>& st) {
         if (mp[s] != 0) return;
         mp[s]++;
         if (minrem < 0) return;
@@ -56,7 +56,7 @@ class Solution {
     int RemovalsV2(string s) {
         stack<char> stack;
 
-        for (auto &ptr : s) {
+        for (auto& ptr : s) {
             if (ptr == '(') {
                 stack.push(ptr);
             } else if (ptr == ')') {
@@ -76,7 +76,6 @@ class Solution {
         return ans;
     }
 };
-
 
 TEST(remove_invalid_parentheses, t1) {
     string s = "()())()";
@@ -111,4 +110,4 @@ TEST(remove_invalid_parentheses, t3) {
     EXPECT_EQ(ret_set, output_set);
 }
 
-} // namespace
+}  // namespace

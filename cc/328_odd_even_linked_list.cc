@@ -23,7 +23,7 @@ using ListNode = List::ListNode<int>;
 namespace {
 class Solution {
    public:
-    ListNode *OddEvenListV1(ListNode *head) {
+    ListNode* OddEvenListV1(ListNode* head) {
         // The number of nodes in the linked list is in the range [0, 104].
         // -106 <= Node.val <= 106
         if (head == nullptr) {
@@ -31,11 +31,11 @@ class Solution {
         }
 
         ListNode node;
-        ListNode *first = &node;
+        ListNode* first = &node;
         ListNode node2;
-        ListNode *second = &node2;
+        ListNode* second = &node2;
         ;
-        ListNode *my_head = head;
+        ListNode* my_head = head;
 
         bool odd_first = head->val % 2 == 0;
 
@@ -59,7 +59,7 @@ class Solution {
         return node.next;
     }
 
-    ListNode *OddEvenList(ListNode *head) {
+    ListNode* OddEvenList(ListNode* head) {
         // The number of nodes in the linked list is in the range [0, 104].
         // -106 <= Node.val <= 106
         if (head == nullptr) {
@@ -67,11 +67,11 @@ class Solution {
         }
 
         ListNode node;
-        ListNode *first = &node;
+        ListNode* first = &node;
         ListNode node2;
-        ListNode *second = &node2;
+        ListNode* second = &node2;
         ;
-        ListNode *my_head = head;
+        ListNode* my_head = head;
 
         bool odd_first = true;
 
@@ -98,9 +98,9 @@ class Solution {
 };
 #include <vector>
 
-void ExpectEqList(ListNode *const head, const std::vector<int> &elements) {
+void ExpectEqList(ListNode* const head, const std::vector<int>& elements) {
     int i = 0;
-    ListNode *m_head = head;
+    ListNode* m_head = head;
 
     while (m_head != nullptr) {
         EXPECT_EQ(m_head->val, elements[i]);
@@ -125,7 +125,7 @@ TEST(odd_even_linked_list, t1) {
         |___|    |___|     |___|      |___|     |___|
 
     */
-    ListNode *head = List::ConstructList(v);
+    ListNode* head = List::ConstructList(v);
 
     Solution sl;
     head = sl.OddEvenListV1(head);
@@ -148,7 +148,7 @@ TEST(odd_even_linked_list, t2) {
         |___|    |___|     |___|      |___|     |___|      |___|     |___|
     */
 
-    ListNode *head = List::ConstructList(v);
+    ListNode* head = List::ConstructList(v);
 
     Solution sl;
     head = sl.OddEvenListV1(head);
@@ -172,7 +172,7 @@ TEST(odd_even_linked_list_v2, t1) {
         |___|    |___|     |___|      |___|     |___|
 
     */
-    ListNode *head = List::ConstructList(v);
+    ListNode* head = List::ConstructList(v);
 
     Solution sl;
     head = sl.OddEvenList(head);
@@ -195,7 +195,7 @@ TEST(odd_even_linked_list_v2, t2) {
         |___|    |___|     |___|      |___|     |___|      |___|     |___|
     */
 
-    ListNode *head = List::ConstructList(v);
+    ListNode* head = List::ConstructList(v);
 
     Solution sl;
     head = sl.OddEvenList(head);

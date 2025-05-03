@@ -15,7 +15,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    double FindMedianSortedArrays(vector<int> &nums1, vector<int> &nums2) {
+    double FindMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {
         clock_t start, end;
 
         start = clock();
@@ -37,7 +37,7 @@ class Solution {
 
    private:
     /// 至少可以做到O(m+n)
-    double ImplV1(vector<int> &nums1, vector<int> &nums2) {
+    double ImplV1(vector<int>& nums1, vector<int>& nums2) {
         vector<int> merged;
         size_t i = 0, j = 0;
         merged.resize(nums1.size() + nums2.size());
@@ -68,7 +68,7 @@ class Solution {
         return merged[middle];
     }
 
-    double ImplV2(vector<int> &nums1, vector<int> &nums2) {
+    double ImplV2(vector<int>& nums1, vector<int>& nums2) {
         if (nums1.size() > nums2.size()) {
             return FindMedianSortedArrays(nums2, nums1);
         }
@@ -104,7 +104,7 @@ class Solution {
         return 0;
     }
 
-    double ImplV3(vector<int> &nums1, vector<int> &nums2) {
+    double ImplV3(vector<int>& nums1, vector<int>& nums2) {
         int m = nums1.size(), n = nums2.size();
 
         if (!m)
@@ -122,7 +122,7 @@ class Solution {
                2.0;
     }
 
-    double Median(vector<int> &a, vector<int> &b, int s1, int e1, int s2,
+    double Median(vector<int>& a, vector<int>& b, int s1, int e1, int s2,
                   int e2, int tar) {
         int la, lb, ma, mb, m = max(e1 - s1 + 1, 0), n = max(e2 - s2 + 1, 0),
                             ans;

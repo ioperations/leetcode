@@ -25,7 +25,7 @@ namespace {
 class Solution {
    private:
     vector<vector<int>> dp;
-    bool Backtrack(int curr, int &max_int, int &desire, int mask, int player) {
+    bool Backtrack(int curr, int& max_int, int& desire, int mask, int player) {
         if (dp[player][mask] != -1) {
             return dp[player][mask];
         }

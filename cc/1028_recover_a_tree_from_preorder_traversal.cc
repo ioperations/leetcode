@@ -35,36 +35,36 @@ using namespace std;
  */
 class Solution {
    public:
-    TreeNode *recoverFromPreorder(string traversal) {
+    TreeNode* recoverFromPreorder(string traversal) {
         // The number of nodes in the original tree is in the range [1, 1000].
         // 1 <= Node.val <= 109
         tranverse(traversal);
         return Build();
     }
 
-    TreeNode *Build(int currentIndex = 0) {
+    TreeNode* Build(int currentIndex = 0) {
         if (index >= stringInfo.size()) {
             return nullptr;
         }
 
-        const auto &now = stringInfo[index];
+        const auto& now = stringInfo[index];
         if (currentIndex != now.depth) {
             return nullptr;
         }
 
-        TreeNode *n = new TreeNode(now.value);
+        TreeNode* n = new TreeNode(now.value);
 
         index++;
-        auto *z = Build(currentIndex + 1);
+        auto* z = Build(currentIndex + 1);
         n->left = z;
-        auto *q = Build(currentIndex + 1);
+        auto* q = Build(currentIndex + 1);
         n->right = q;
 
         return n;
     }
 
    private:
-    void tranverse(const std::string &value) {
+    void tranverse(const std::string& value) {
         int dash = 0;
         for (int i = 0; i < value.size(); i++) {
             if (value[i] == '-') {
@@ -96,7 +96,7 @@ class Solution {
 
 #include <gtest/gtest.h>
 
-void PreOrder(TreeNode *node, string &out, int depth = 0) {
+void PreOrder(TreeNode* node, string& out, int depth = 0) {
     if (depth == 0) {
         out.clear();
     }
@@ -179,7 +179,7 @@ TEST(t2, t2) {
     Tree::FreeTreeNode(root);
 }
 
-int main(int argc, char *argv[]) {
+int main(int argc, char* argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

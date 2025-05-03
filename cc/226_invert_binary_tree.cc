@@ -16,7 +16,7 @@ namespace {
 class Solution {
    private:
     template <typename T>
-    void Invert(TreeNode<T> *root) {
+    void Invert(TreeNode<T>* root) {
         if (root == nullptr) return;
         std::swap(root->left, root->right);
         Invert(root->left);
@@ -25,14 +25,14 @@ class Solution {
 
    public:
     template <typename T>
-    TreeNode<T> *InvertTree(TreeNode<T> *root) {
+    TreeNode<T>* InvertTree(TreeNode<T>* root) {
         if (root == nullptr) return nullptr;
         Invert(root);
         return root;
     }
     template <typename T>
 
-    TreeNode<T> *ZInvertTree(TreeNode<T> *root) {
+    TreeNode<T>* ZInvertTree(TreeNode<T>* root) {
         // pass
         if (root) {
             if (root->left) {
@@ -58,7 +58,7 @@ TEST(invert_binary_tree, t1) {
     std::vector<optional<int>> root = {4, 2, 7, 1, 3, 6, 9};
     std::vector<int> output = {4, 7, 2, 9, 6, 3, 1};
 
-    auto *head = ConstructBinaryTree(root);
+    auto* head = ConstructBinaryTree(root);
 
     PrintBt(head);
 
@@ -79,7 +79,7 @@ TEST(invert_binary_tree, t2) {
                                12, 11, 10, 9,  8,  29, 28, 27, 26, 25,
                                24, 23, 22, 21, 20, 19, 18, 17, 16};
 
-    auto *head = ConstructBinaryTree(root);
+    auto* head = ConstructBinaryTree(root);
 
     PrintBt(head);
 
@@ -96,7 +96,7 @@ TEST(invert_binary_tree, t3) {
     std::vector<optional<int>> root = {2, 1, 3};
     std::vector<int> output = {2, 3, 1};
 
-    auto *head = ConstructBinaryTree(root);
+    auto* head = ConstructBinaryTree(root);
 
     Solution sl;
     head = sl.InvertTree(head);

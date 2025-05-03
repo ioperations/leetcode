@@ -16,7 +16,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    vector<int> SmallerNumbersThanCurrent(vector<int> &nums) {
+    vector<int> SmallerNumbersThanCurrent(vector<int>& nums) {
         vector<int> s(101, -1);
         vector<int> f = nums;
         sort(nums.begin(), nums.end());

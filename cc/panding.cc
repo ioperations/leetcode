@@ -10,7 +10,7 @@ struct stack_growth {
     char padding[4096];
     union {
         int i;
-        char *p;
+        char* p;
     };
     EType type{NULL_};
     int size = 0;
@@ -21,7 +21,7 @@ struct stack_growth {
     }
 
    public:
-    void append(const char *q) {
+    void append(const char* q) {
         auto len = strlen(q);
         memcpy(p + size, q, len);
         size = size + len;
@@ -60,7 +60,7 @@ TEST(t0, t1) {
     EXPECT_EQ("TESTHello", *stack_growth.getString());
 }
 
-int main(int argc, char *argv[]) {
+int main(int argc, char* argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

@@ -17,7 +17,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    vector<vector<int>> PermuteUnique(vector<int> &nums) {
+    vector<vector<int>> PermuteUnique(vector<int>& nums) {
         vector<vector<int>> ret;
         sort(nums.begin(), nums.end());
 
@@ -28,7 +28,7 @@ class Solution {
     }
     vector<vector<int>> res;
 
-    vector<vector<int>> PermuteUniqueV1(vector<int> &nums) {
+    vector<vector<int>> PermuteUniqueV1(vector<int>& nums) {
         res = vector<vector<int>>();
         sort(nums.begin(), nums.end());
         vector<int> cur;
@@ -36,7 +36,7 @@ class Solution {
         return res;
     }
 
-    void Helper(const vector<int> &nums, vector<int> &perm, int v) {
+    void Helper(const vector<int>& nums, vector<int>& perm, int v) {
         if (perm.size() == nums.size()) return res.push_back(perm);
 
         int popped = INT_MIN;
@@ -104,7 +104,7 @@ TEST(permutations_ii_v2, t2) {
     EXPECT_EQ(ret_set, output_set);
 }
 
-static void BenchMarkStlFunction(benchmark::State &state) {
+static void BenchMarkStlFunction(benchmark::State& state) {
     for (auto _ : state) {
         std::vector<int> nums = {1, 2, 3};
         vector<vector<int>> output = {{1, 2, 3}, {1, 3, 2}, {2, 1, 3},
@@ -120,7 +120,7 @@ static void BenchMarkStlFunction(benchmark::State &state) {
 }
 BENCHMARK(BenchMarkStlFunction);
 
-static void BenchMarkLocalImpl(benchmark::State &state) {
+static void BenchMarkLocalImpl(benchmark::State& state) {
     for (auto _ : state) {
         std::vector<int> nums = {1, 2, 3};
         vector<vector<int>> output = {{1, 2, 3}, {1, 3, 2}, {2, 1, 3},

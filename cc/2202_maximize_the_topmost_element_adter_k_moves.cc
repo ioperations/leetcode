@@ -24,7 +24,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    int MaximumTop(vector<int> &nums, int k) {
+    int MaximumTop(vector<int>& nums, int k) {
         // sloution v1
         int z_max = -1;
         if (nums.size() == 1 && k % 2 == 1) return -1;

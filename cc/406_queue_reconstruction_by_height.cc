@@ -24,7 +24,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    vector<vector<int>> ReconstructQueue(vector<vector<int>> &people) {
+    vector<vector<int>> ReconstructQueue(vector<vector<int>>& people) {
         if (people.size() < 2) return people;
 
         vector<vector<int>> ans;

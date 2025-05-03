@@ -16,14 +16,14 @@ namespace {
 class Solution {
    public:
     template <typename T>
-    std::vector<T> InorderTraversal(TreeNode<T> *root) {
+    std::vector<T> InorderTraversal(TreeNode<T>* root) {
         std::vector<T> ret;
         InorderTraversal1(root, ret);
         return ret;
     }
 
     template <typename T>
-    void InorderTraversal1(TreeNode<T> *root, std::vector<T> &ret) {
+    void InorderTraversal1(TreeNode<T>* root, std::vector<T>& ret) {
         if (!root) {
             return;
         }
@@ -42,7 +42,7 @@ TEST(binary_tree_inorder_tranverse_v2, t0) {
     std::vector<optional<int>> vec = {1, null, 2, 3};
     // Output: [1,3,2]
 
-    TreeNode<int> *root = ConstructBinaryTree(vec);
+    TreeNode<int>* root = ConstructBinaryTree(vec);
     PrintBt(root);
 
     Solution s;

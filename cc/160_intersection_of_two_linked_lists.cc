@@ -39,13 +39,13 @@ using ListNode = List::ListNode<int>;
 namespace {
 class Solution {
    public:
-    ListNode *GetIntersectionNode(ListNode *head_a, ListNode *head_b) {
+    ListNode* GetIntersectionNode(ListNode* head_a, ListNode* head_b) {
         // pass
         if (head_a == nullptr || head_b == nullptr) {
             return nullptr;
         }
-        ListNode *a = head_a;
-        ListNode *b = head_b;
+        ListNode* a = head_a;
+        ListNode* b = head_b;
 
         while (a != b) {
             a = a == nullptr ? head_b : a->next;
@@ -54,11 +54,11 @@ class Solution {
 
         return a;
     }
-    ListNode *GetIntersectionNodeV2(ListNode *head_a, ListNode *head_b) {
+    ListNode* GetIntersectionNodeV2(ListNode* head_a, ListNode* head_b) {
         int size_a = 0;
         int size_b = 0;
 
-        ListNode *temp = head_a;
+        ListNode* temp = head_a;
         while (temp != nullptr) {
             size_a++;
             temp = temp->next;
@@ -112,14 +112,14 @@ TEST(intersection_of_two_linked_lists, t1) {
 
     */
 
-    ListNode *first = List::ConstructList(std::vector<int>{4, 1, 8, 4, 5});
-    ListNode *second = List::ConstructList(std::vector<int>{5, 6, 1});
-    ListNode *first_it = first;
+    ListNode* first = List::ConstructList(std::vector<int>{4, 1, 8, 4, 5});
+    ListNode* second = List::ConstructList(std::vector<int>{5, 6, 1});
+    ListNode* first_it = first;
     for (int i = 0; i < 2; i++) {
         first_it = first_it->next;
     }
 
-    ListNode *second_it = second;
+    ListNode* second_it = second;
 
     while (second_it->next != nullptr) {
         second_it = second_it->next;
@@ -128,7 +128,7 @@ TEST(intersection_of_two_linked_lists, t1) {
     second_it->next = first_it;
 
     Solution s;
-    auto *ret = s.GetIntersectionNodeV2(first, second);
+    auto* ret = s.GetIntersectionNodeV2(first, second);
     EXPECT_EQ(ret->val, 8);
     second_it->next = nullptr;
 
@@ -158,14 +158,14 @@ TEST(intersection_of_two_linked_lists, t2) {
 
     */
 
-    ListNode *first = List::ConstructList(std::vector<int>{1, 9, 1, 2, 4});
-    ListNode *second = List::ConstructList(std::vector<int>{3});
-    ListNode *first_it = first;
+    ListNode* first = List::ConstructList(std::vector<int>{1, 9, 1, 2, 4});
+    ListNode* second = List::ConstructList(std::vector<int>{3});
+    ListNode* first_it = first;
     for (int i = 0; i < 3; i++) {
         first_it = first_it->next;
     }
 
-    ListNode *second_it = second;
+    ListNode* second_it = second;
 
     while (second_it->next != nullptr) {
         second_it = second_it->next;
@@ -174,7 +174,7 @@ TEST(intersection_of_two_linked_lists, t2) {
     second_it->next = first_it;
 
     Solution s;
-    auto *ret = s.GetIntersectionNodeV2(first, second);
+    auto* ret = s.GetIntersectionNodeV2(first, second);
     EXPECT_EQ(ret->val, 2);
     second_it->next = nullptr;
 
@@ -201,12 +201,12 @@ TEST(intersection_of_two_linked_lists, t3) {
             |___|___|
     */
 
-    ListNode *first = List::ConstructList(std::vector<int>{2, 6, 4});
-    ListNode *second = List::ConstructList(std::vector<int>{1, 5});
+    ListNode* first = List::ConstructList(std::vector<int>{2, 6, 4});
+    ListNode* second = List::ConstructList(std::vector<int>{1, 5});
 
     Solution s;
 
-    auto *ret = s.GetIntersectionNodeV2(first, second);
+    auto* ret = s.GetIntersectionNodeV2(first, second);
     EXPECT_EQ(ret, nullptr);
 
     List::FreeList(first);

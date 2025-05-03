@@ -23,7 +23,7 @@ class Solution {
    public:
     std::unordered_map<int, bool> m;
     template <typename T>
-    bool FindTarget(TreeNode<T> *root, int k) {
+    bool FindTarget(TreeNode<T>* root, int k) {
         if (root == nullptr) return false;
 
         if (m.find(k - root->val) != m.end()) return true;
@@ -33,7 +33,7 @@ class Solution {
     }
 
     template <typename T>
-    void Inorder(TreeNode<T> *root, vector<int> &in) {
+    void Inorder(TreeNode<T>* root, vector<int>& in) {
         if (root == nullptr) {
             return;
         }
@@ -43,7 +43,7 @@ class Solution {
     }
 
     template <typename T>
-    bool FindTargetV2(TreeNode<T> *root, int k) {
+    bool FindTargetV2(TreeNode<T>* root, int k) {
         vector<int> in;
         Inorder(root, in);
 
@@ -69,7 +69,7 @@ TEST(two_sum_iv_input_is_a_bst, t1) {
     vector<optional<int>> root = {5, 3, 6, 2, 4, null, 7};
     int const k = 9;
     bool const output = true;
-    auto *node = ConstructBinaryTree(root);
+    auto* node = ConstructBinaryTree(root);
     Solution sl;
     bool const ret = sl.FindTarget(node, k);
     EXPECT_EQ(ret, output);
@@ -80,7 +80,7 @@ TEST(two_sum_iv_input_is_a_bst, t2) {
     vector<optional<int>> root = {5, 3, 6, 2, 4, null, 7};
     int const k = 28;
     bool const output = false;
-    auto *node = ConstructBinaryTree(root);
+    auto* node = ConstructBinaryTree(root);
     Solution sl;
     bool const ret = sl.FindTarget(node, k);
     EXPECT_EQ(ret, output);

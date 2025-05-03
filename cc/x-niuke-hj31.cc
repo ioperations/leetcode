@@ -9,9 +9,9 @@
 
 namespace {
 
-void ReverseOutPutAllWords(const char *s, int len) {
-    std::function<std::string(const char *, int)> recursive =
-        [&recursive](const char *str, int str_len) -> std::string {
+void ReverseOutPutAllWords(const char* s, int len) {
+    std::function<std::string(const char*, int)> recursive =
+        [&recursive](const char* str, int str_len) -> std::string {
         // base case
 
         if (str_len == 0) {
@@ -25,7 +25,7 @@ void ReverseOutPutAllWords(const char *s, int len) {
             i += 1;
         }
 
-        const char *begin = str + i;
+        const char* begin = str + i;
 
         if (i >= str_len) {
             return std::string("");

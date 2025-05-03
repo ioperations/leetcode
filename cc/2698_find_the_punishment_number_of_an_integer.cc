@@ -46,8 +46,8 @@ class Solution {
             int m = n % q;
             int t = n / q;
 
-            const auto &mRet = gen(m);
-            const auto &nRet = gen(t);
+            const auto& mRet = gen(m);
+            const auto& nRet = gen(t);
 
             for (auto mptr : mRet) {
                 for (auto nptr : nRet) {
@@ -136,7 +136,7 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, Output);
 }
 
-int main(int argc, char *argv[]) {
+int main(int argc, char* argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

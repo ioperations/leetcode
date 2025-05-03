@@ -14,7 +14,7 @@
 
 namespace {
 
-int MaxRet(const char *str, int str_len) {
+int MaxRet(const char* str, int str_len) {
     /*
     for
         对于在 0- strlen 之间的节点i ，
@@ -55,27 +55,27 @@ int MaxRet(const char *str, int str_len) {
 }
 
 TEST(x_max_len_of_parlinom_string_v2, t2) {
-    const char *s1 = "abcba";
+    const char* s1 = "abcba";
     EXPECT_EQ(MaxRet(s1, strlen(s1)), 5);
 }
 
 TEST(x_max_len_of_parlinom_string_v2, t3) {
-    const char *s1 = "bcba";
+    const char* s1 = "bcba";
     EXPECT_EQ(MaxRet(s1, strlen(s1)), 3);
 }
 
 TEST(x_max_len_of_parlinom_string_v2, t4) {
-    const char *s1 = "zabcba";
+    const char* s1 = "zabcba";
     EXPECT_EQ(MaxRet(s1, strlen(s1)), 5);
 }
 
 TEST(x_max_len_of_parlinom_string_v2, t1) {
-    const char *s1 = "00000";
+    const char* s1 = "00000";
     EXPECT_EQ(MaxRet(s1, strlen(s1)), 5);
 }
 
 TEST(x_max_len_of_parlinom_string_v2, t0) {
-    const char *s1 = "5432345";
+    const char* s1 = "5432345";
     EXPECT_EQ(MaxRet(s1, strlen(s1)), 7);
 }
 

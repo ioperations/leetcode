@@ -21,7 +21,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    void Solve(vector<vector<char> > &v, vector<string> &ans, string digits,
+    void Solve(vector<vector<char> >& v, vector<string>& ans, string digits,
                int pos, string s) {
         if (pos == (int)digits.size()) {
             if (s != "") ans.push_back(s);
@@ -50,8 +50,6 @@ class Solution {
     }
     // clang-format on
 };
-
-
 
 TEST(letter_conbinations_of_a_phone_number, t1) {
     vector<string> expected = {"ad", "ae", "af", "bd", "be",
@@ -93,4 +91,4 @@ TEST(letter_conbinations_of_a_phone_number, t3) {
     EXPECT_EQ(ret_set, expected_set);
 }
 
-} // namespace
+}  // namespace

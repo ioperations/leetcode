@@ -16,7 +16,7 @@ using namespace std;
 
 class Solution {
    public:
-    vector<int> findMissingAndRepeatedValues(vector<vector<int>> &grid) {
+    vector<int> findMissingAndRepeatedValues(vector<vector<int>>& grid) {
         auto size = grid.size();
         int all = (size * size) * (size * size + 1) / 2;
         int sum = 0;
@@ -26,8 +26,8 @@ class Solution {
         bool record = true;
         int v = 0;
 
-        for (auto &layer1 : grid) {
-            for (auto &layer2 : layer1) {
+        for (auto& layer1 : grid) {
+            for (auto& layer2 : layer1) {
                 if (set.count(layer2) > 0) {
                     v = layer2;
                     record = false;
@@ -68,7 +68,7 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char *argv[]) {
+int main(int argc, char* argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

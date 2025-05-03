@@ -22,7 +22,7 @@
 using namespace std;
 class Solution {
    public:
-    vector<int> applyOperations(vector<int> &nums) {
+    vector<int> applyOperations(vector<int>& nums) {
         auto n = nums.size();
 
         for (int i = 0; i < n - 1; i++) {
@@ -73,7 +73,7 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char *argv[]) {
+int main(int argc, char* argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

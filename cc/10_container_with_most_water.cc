@@ -9,7 +9,7 @@ namespace {
 
 class Solution {
    public:
-    int MaxArea(std::vector<int> &height) {
+    int MaxArea(std::vector<int>& height) {
         int ret = 0;
         int i = 0;
         int j = height.size() - 1;
@@ -26,7 +26,7 @@ class Solution {
         return ret;
     }
 
-    int MaxAreaV2(std::vector<int> &height) {
+    int MaxAreaV2(std::vector<int>& height) {
         int l = 0;
         int h = height.size() - 1;
         int max_area = 0;

@@ -21,7 +21,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    ll Solve(int n, int goal, int k, vector<vector<int>> &dp) {
+    ll Solve(int n, int goal, int k, vector<vector<int>>& dp) {
         if (n == 0 && goal == 0) return 1;
         if (n == 0 || goal == 0) return 0;
         if (dp[n][goal] != -1) return dp[n][goal];

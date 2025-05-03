@@ -15,7 +15,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    void WiggleSort(vector<int> &nums) {
+    void WiggleSort(vector<int>& nums) {
         int n = nums.size();
         sort(nums.begin(), nums.end());
 

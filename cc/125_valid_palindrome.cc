@@ -23,7 +23,7 @@ class Solution {
         return false;
     }
 
-    string RemoveAllUNreleated(std::string &ss) {
+    string RemoveAllUNreleated(std::string& ss) {
         std::string ret;
         for (int i = 0; i < (int)ss.size(); i++) {
             if ('A' <= ss[i] && ss[i] <= 'Z') {
@@ -37,7 +37,7 @@ class Solution {
         return ret;
     }
 
-    bool IsPalindrome(string &s, int i, int j) {
+    bool IsPalindrome(string& s, int i, int j) {
         while (i < j) {
             if (s[i] == s[j]) {
                 i++;

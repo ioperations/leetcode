@@ -19,7 +19,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    bool Makesquare(vector<int> &matchsticks) {
+    bool Makesquare(vector<int>& matchsticks) {
         std::sort(matchsticks.begin(), matchsticks.end());
         int sum = std::accumulate(matchsticks.begin(), matchsticks.end(), 0);
         int n = matchsticks.size();
@@ -34,7 +34,7 @@ class Solution {
         return Check(matchsticks, n, sums, maxlen);
     }
 
-    bool Check(vector<int> &matchsticks, int pos, vector<int> &sums, int side) {
+    bool Check(vector<int>& matchsticks, int pos, vector<int>& sums, int side) {
         if (pos == 0) return true;
 
         for (int i = 0; i < 4; i++) {
@@ -48,7 +48,7 @@ class Solution {
         return false;
     }
 
-    bool MakesquareV2(vector<int> &matchsticks) {
+    bool MakesquareV2(vector<int>& matchsticks) {
         sort(matchsticks.begin(), matchsticks.end());
         int n = matchsticks.size();
         int sum = 0;

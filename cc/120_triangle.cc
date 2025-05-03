@@ -19,8 +19,8 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    int FindMin(int i, int j, int n, vector<vector<int>> &triangle,
-                vector<vector<int>> &mem) {
+    int FindMin(int i, int j, int n, vector<vector<int>>& triangle,
+                vector<vector<int>>& mem) {
         if (i == n - 1) return triangle[i][j];
         if (mem[i][j] != -1) return mem[i][j];
         int left = triangle[i][j] + FindMin(i + 1, j, n, triangle, mem);
@@ -28,7 +28,7 @@ class Solution {
         return mem[i][j] = min(left, right);
     }
 
-    int MinimumTotal(vector<vector<int>> &triangle) {
+    int MinimumTotal(vector<vector<int>>& triangle) {
         vector<vector<int>> mem(triangle.size(),
                                 vector<int>(triangle.size(), -1));
         return FindMin(0, 0, triangle.size(), triangle, mem);

@@ -15,7 +15,7 @@ using ListNode = List::ListNode<int>;
 namespace {
 class Solution {
    public:
-    ListNode *RotateRight(ListNode *head, int k) {
+    ListNode* RotateRight(ListNode* head, int k) {
         int ret = Solve(head);
         if (ret != 0) {
             int left = k % ret - 1;
@@ -34,12 +34,12 @@ class Solution {
         }
         return head;
     }
-    ListNode *RotateRightV1(ListNode *head, int k) {
+    ListNode* RotateRightV1(ListNode* head, int k) {
         if (head == nullptr) return nullptr;
 
-        ListNode *fast = head;
-        ListNode *slow = head;
-        ListNode *prev = head;
+        ListNode* fast = head;
+        ListNode* slow = head;
+        ListNode* prev = head;
         int len = 1;
 
         while (fast->next != nullptr) {
@@ -66,17 +66,17 @@ class Solution {
         return slow;
     }
 
-    int Solve(ListNode *&head) {
+    int Solve(ListNode*& head) {
         int size = 0;
         if (head == nullptr) {
             return 0;
         }
-        ListNode *local_head = head;
+        ListNode* local_head = head;
 
         if (local_head->next != nullptr) {
             while (local_head->next != nullptr) {
                 if (local_head->next->next == nullptr) {
-                    ListNode *last = local_head->next;
+                    ListNode* last = local_head->next;
                     local_head->next = nullptr;
                     last->next = head;
                     head = last;
@@ -96,9 +96,9 @@ class Solution {
 
 #include <vector>
 
-void ExpectEqList(ListNode *const head, const std::vector<int> &elements) {
+void ExpectEqList(ListNode* const head, const std::vector<int>& elements) {
     int i = 0;
-    ListNode *m_head = head;
+    ListNode* m_head = head;
 
     while (m_head != nullptr) {
         EXPECT_EQ(m_head->val, elements[i]);
@@ -112,7 +112,7 @@ TEST(rotate_list, t1) {
     std::vector<int> v{1, 2, 3, 4, 5};
     int k = 2;
     std::vector<int> output{4, 5, 1, 2, 3};
-    ListNode *head = List::ConstructList(v);
+    ListNode* head = List::ConstructList(v);
     Solution sl;
     head = sl.RotateRight(head, k);
     ExpectEqList(head, output);
@@ -123,7 +123,7 @@ TEST(rotate_list, t2) {
     std::vector<int> v{0, 1, 2};
     int k = 4;
     std::vector<int> output{2, 0, 1};
-    ListNode *head = List::ConstructList(v);
+    ListNode* head = List::ConstructList(v);
     Solution sl;
     head = sl.RotateRight(head, k);
     ExpectEqList(head, output);
@@ -134,7 +134,7 @@ TEST(rotate_list, t3) {
     std::vector<int> v{1, 2};
     int k = 1;
     std::vector<int> output{2, 1};
-    ListNode *head = List::ConstructList(v);
+    ListNode* head = List::ConstructList(v);
     Solution sl;
     head = sl.RotateRight(head, k);
     ExpectEqList(head, output);
@@ -145,7 +145,7 @@ TEST(rotate_list, t4) {
     std::vector<int> v{1, 2};
     int k = 1;
     std::vector<int> output{2, 1};
-    ListNode *head = List::ConstructList(v);
+    ListNode* head = List::ConstructList(v);
     Solution sl;
     head = sl.RotateRightV1(head, k);
     ExpectEqList(head, output);
@@ -156,7 +156,7 @@ TEST(rotate_list, t5) {
     std::vector<int> v{};
     int k = 1;
     std::vector<int> output{};
-    ListNode *head = List::ConstructList(v);
+    ListNode* head = List::ConstructList(v);
     Solution sl;
     head = sl.RotateRight(head, k);
     ExpectEqList(head, output);
@@ -167,7 +167,7 @@ TEST(rotate_list, t6) {
     std::vector<int> v{1, 2, 3};
     int k = 2000000000;
     std::vector<int> output{2, 3, 1};
-    ListNode *head = List::ConstructList(v);
+    ListNode* head = List::ConstructList(v);
     Solution sl;
     head = sl.RotateRight(head, k);
     ExpectEqList(head, output);
@@ -178,7 +178,7 @@ TEST(rotate_list, t7) {
     std::vector<int> v{1, 2};
     int k = 2;
     std::vector<int> output{1, 2};
-    ListNode *head = List::ConstructList(v);
+    ListNode* head = List::ConstructList(v);
     Solution sl;
     head = sl.RotateRight(head, k);
     ExpectEqList(head, output);
@@ -189,7 +189,7 @@ TEST(rotate_list, t8) {
     std::vector<int> v{1, 2, 3};
     int k = 3;
     std::vector<int> output{1, 2, 3};
-    ListNode *head = List::ConstructList(v);
+    ListNode* head = List::ConstructList(v);
     Solution sl;
     head = sl.RotateRight(head, k);
     ExpectEqList(head, output);
@@ -200,7 +200,7 @@ TEST(rotate_list, t9) {
     std::vector<int> v{1, 2, 3, 4, 5};
     int k = 10;
     std::vector<int> output{1, 2, 3, 4, 5};
-    ListNode *head = List::ConstructList(v);
+    ListNode* head = List::ConstructList(v);
     Solution sl;
     head = sl.RotateRight(head, k);
     ExpectEqList(head, output);

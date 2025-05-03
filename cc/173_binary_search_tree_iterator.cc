@@ -30,10 +30,10 @@ namespace {
 template <typename T>
 class BSTIterator {
    private:
-    TreeNode<T> *pt;
-    std::stack<TreeNode<T> *> s;
+    TreeNode<T>* pt;
+    std::stack<TreeNode<T>*> s;
 
-    void PushStack(TreeNode<T> *node) {
+    void PushStack(TreeNode<T>* node) {
         while (node != nullptr) {
             s.push(node);
             node = node->left;
@@ -41,13 +41,13 @@ class BSTIterator {
     }
     // pushed the left subtree to the stack
    public:
-    BSTIterator(TreeNode<T> *root) {
+    BSTIterator(TreeNode<T>* root) {
         pt = root;
         PushStack(pt);
     }
 
     int next() {
-        TreeNode<T> *temp = s.top();
+        TreeNode<T>* temp = s.top();
         s.pop();
         PushStack(temp->right);
         return temp->val;
@@ -70,9 +70,9 @@ class BSTIterator {
 #include <vector>
 
 TEST(binary_search_tree_iterator, t1) {
-    TreeNode<int> *root = ConstructTree(std::vector<int>{1, 2, 4, 5, 6});
+    TreeNode<int>* root = ConstructTree(std::vector<int>{1, 2, 4, 5, 6});
 
-    BSTIterator<int> *it = new BSTIterator(root);
+    BSTIterator<int>* it = new BSTIterator(root);
 
     EXPECT_EQ(it->hasNext(), true);
 
@@ -82,9 +82,9 @@ TEST(binary_search_tree_iterator, t1) {
 }
 
 TEST(binary_search_tree_iterator, t2) {
-    TreeNode<int> *root = ConstructTree(std::vector<int>{7, 3, 15, 9, 20});
+    TreeNode<int>* root = ConstructTree(std::vector<int>{7, 3, 15, 9, 20});
 
-    BSTIterator<int> *it = new BSTIterator(root);
+    BSTIterator<int>* it = new BSTIterator(root);
     EXPECT_EQ(it->next(), 3);
     EXPECT_EQ(it->next(), 7);
     EXPECT_EQ(it->hasNext(), true);

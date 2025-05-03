@@ -26,7 +26,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    long long MaxScore(vector<int> &nums1, vector<int> &nums2, int k) {
+    long long MaxScore(vector<int>& nums1, vector<int>& nums2, int k) {
         /*
     n == nums1.length == nums2.length
     1 <= n <= 105

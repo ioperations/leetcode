@@ -22,7 +22,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    vector<int> NextGreaterElements(vector<int> &nums) {
+    vector<int> NextGreaterElements(vector<int>& nums) {
         // pass
         int size = nums.size();
         vector<int> ret(size, -1);

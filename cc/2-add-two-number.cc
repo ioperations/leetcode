@@ -12,7 +12,7 @@ using ListNode = List::ListNode<int>;
 namespace {
 class Solution {
    public:
-    ListNode *AddTwoNumbers(ListNode *l1, ListNode *l2) {
+    ListNode* AddTwoNumbers(ListNode* l1, ListNode* l2) {
         for (int i = 0; l1 || l2 || carrier; i++) {
             int va = 0;
             if (l1 && l2) {
@@ -26,7 +26,7 @@ class Solution {
             }
             carrier = va >= 10 ? 1 : 0;
             va = va % 10;
-            ListNode *n = new ListNode(va);
+            ListNode* n = new ListNode(va);
             // 保存 head
             if (i == 0) {
                 head = n;
@@ -53,8 +53,8 @@ class Solution {
 
    private:
     mutable int carrier = 0;
-    ListNode *head = nullptr;
-    ListNode *pre = nullptr;
+    ListNode* head = nullptr;
+    ListNode* pre = nullptr;
     /*
 
       n -> n1 -> n2 -> n3
@@ -65,7 +65,7 @@ class Solution {
 
     */
    public:
-    void FreeListNode(ListNode *n) {
+    void FreeListNode(ListNode* n) {
         if (!n) {
             return;
         }

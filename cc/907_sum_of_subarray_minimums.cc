@@ -15,7 +15,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    int SumSubarrayMins(vector<int> &arr) {
+    int SumSubarrayMins(vector<int>& arr) {
         int size = arr.size();
         vector<int> nextsmaller(size, size);
         vector<int> prevsmaller(size, -1);

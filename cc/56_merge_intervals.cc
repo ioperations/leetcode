@@ -16,10 +16,10 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    vector<vector<int>> Merge(vector<vector<int>> &intervals) {
+    vector<vector<int>> Merge(vector<vector<int>>& intervals) {
         std::vector<std::vector<int>> ret = intervals;
         sort(ret.begin(), ret.end(),
-             [](const std::vector<int> &a, const std::vector<int> &b) {
+             [](const std::vector<int>& a, const std::vector<int>& b) {
                  return a[0] < b[0];
              });
         for (int i = 0; i < (int)ret.size() - 1; i++) {
@@ -33,7 +33,7 @@ class Solution {
         }
         ret.erase(
             std::remove_if(ret.begin(), ret.end(),
-                           [](const std::vector<int> &v) { return v.empty(); }),
+                           [](const std::vector<int>& v) { return v.empty(); }),
             ret.end());
         ret.shrink_to_fit();
 
@@ -49,8 +49,8 @@ TEST(merge_intervals, t1) {
     Solution sl;
     auto ret = sl.Merge(intervals);
 
-    for (auto &ptr : ret) {
-        for (auto &ptr2 : ptr) {
+    for (auto& ptr : ret) {
+        for (auto& ptr2 : ptr) {
             std::cout << ptr2 << " ";
         }
 
@@ -72,8 +72,8 @@ TEST(merge_intervals, t2) {
     Solution sl;
     auto ret = sl.Merge(intervals);
 
-    for (auto &ptr : ret) {
-        for (auto &ptr2 : ptr) {
+    for (auto& ptr : ret) {
+        for (auto& ptr2 : ptr) {
             std::cout << ptr2 << std::endl;
         }
     }
@@ -91,8 +91,8 @@ TEST(merge_intervals, t3) {
     Solution sl;
     auto ret = sl.Merge(intervals);
 
-    for (auto &ptr : ret) {
-        for (auto &ptr2 : ptr) {
+    for (auto& ptr : ret) {
+        for (auto& ptr2 : ptr) {
             std::cout << ptr2 << std::endl;
         }
     }

@@ -29,8 +29,6 @@ class Solution {
     }
 };
 
-
-
 TEST(base_7, t1) {
     int num = 100;
     string output = "202";
@@ -47,4 +45,4 @@ TEST(base_7, t2) {
     EXPECT_EQ(ret, output);
 }
 
-} // namespace
+}  // namespace

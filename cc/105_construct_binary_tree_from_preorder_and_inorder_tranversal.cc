@@ -18,12 +18,12 @@ namespace {
 class Solution {
    public:
     template <typename T>
-    TreeNode<T> *Build(vector<T> &preorder, int p_start, int p_end,
-                       unordered_map<int, int> &inorder_map, int i_start,
+    TreeNode<T>* Build(vector<T>& preorder, int p_start, int p_end,
+                       unordered_map<int, int>& inorder_map, int i_start,
                        int i_end) {
         if (p_start > p_end || i_start > i_end) return nullptr;
 
-        auto *root = new TreeNode(preorder[p_start]);
+        auto* root = new TreeNode(preorder[p_start]);
         int i_root = inorder_map[root->val];
         int nums_left = i_root - i_start;
 
@@ -35,7 +35,7 @@ class Solution {
         return root;
     }
     template <typename T>
-    TreeNode<T> *BuildTree(vector<T> &preorder, vector<T> &inorder) {
+    TreeNode<T>* BuildTree(vector<T>& preorder, vector<T>& inorder) {
         unordered_map<int, int> inorder_map;
         for (int i = 0; i < (int)inorder.size(); i++)
             inorder_map[inorder[i]] = i;
@@ -50,7 +50,7 @@ using namespace std;
 TEST(construct_binary_tree_from_preorder_and_inorder_tranversal, t1) {
     vector<int> preorder = {3, 9, 20, 15, 7}, inorder = {9, 3, 15, 20, 7};
     Solution sl;
-    auto *node = sl.BuildTree(preorder, inorder);
+    auto* node = sl.BuildTree(preorder, inorder);
     std::vector<int> ret;
     BfsSearch(node, ret);
 
@@ -62,7 +62,7 @@ TEST(construct_binary_tree_from_preorder_and_inorder_tranversal, t1) {
 TEST(construct_binary_tree_from_preorder_and_inorder_tranversal, t2) {
     vector<int> preorder = {-1}, inorder = {-1};
     Solution sl;
-    auto *node = sl.BuildTree(preorder, inorder);
+    auto* node = sl.BuildTree(preorder, inorder);
     std::vector<int> ret;
     BfsSearch(node, ret);
 

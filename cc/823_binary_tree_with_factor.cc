@@ -26,7 +26,7 @@ class Solution {
     std::map<int, int> cache;
 
    public:
-    int NumFactoredBinaryTrees(vector<int> &arr) {
+    int NumFactoredBinaryTrees(vector<int>& arr) {
         // pass
         sort(arr.begin(), arr.end());
         std::set<int> set(arr.begin(), arr.end());
@@ -52,7 +52,7 @@ class Solution {
         return ret;
     }
     const int mod = 1e9 + 7;
-    int V2(vector<int> &arr) {
+    int V2(vector<int>& arr) {
         sort(arr.begin(), arr.end());
         int n = arr.size();
 

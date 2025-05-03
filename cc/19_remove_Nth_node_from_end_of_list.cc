@@ -16,21 +16,21 @@ using ListNode = List::ListNode<int>;
 namespace {
 class Solution {
    public:
-    ListNode *RemoveNthFromEnd(ListNode *head, int n) {
+    ListNode* RemoveNthFromEnd(ListNode* head, int n) {
         if (head == nullptr) {
             return nullptr;
         }
 
-        ListNode *slow = head;
-        ListNode *fast = head;
+        ListNode* slow = head;
+        ListNode* fast = head;
 
         int i = 0;
         while (fast != nullptr && i < n) {
             fast = fast->next;
             if (fast == nullptr) {
                 if (i == n - 1) {
-                    ListNode *tmp = head;
-                    ListNode *ret = tmp->next;
+                    ListNode* tmp = head;
+                    ListNode* ret = tmp->next;
 
                     delete tmp;
                     return ret;
@@ -49,7 +49,7 @@ class Solution {
             }
 
             {
-                ListNode *tmp = slow->next;
+                ListNode* tmp = slow->next;
                 slow->next = slow->next->next;
 
                 delete tmp;
@@ -61,9 +61,9 @@ class Solution {
     }
 };
 
-void ExpectEqList(ListNode *const head, const std::vector<int> &elements) {
+void ExpectEqList(ListNode* const head, const std::vector<int>& elements) {
     int i = 0;
-    ListNode *m_head = head;
+    ListNode* m_head = head;
 
     while (m_head != nullptr) {
         EXPECT_EQ(m_head->val, elements[i]);
@@ -77,7 +77,7 @@ TEST(remove_Nth_node_from_end_of_list, t1) {
     const std::vector<int> v{1, 2, 3, 4, 5};
     const int n = 2;
 
-    ListNode *head = List::ConstructList(v);
+    ListNode* head = List::ConstructList(v);
     Solution sl;
     head = sl.RemoveNthFromEnd(head, n);
     ExpectEqList(head, std::vector<int>{1, 2, 3, 5});
@@ -88,7 +88,7 @@ TEST(remove_Nth_node_from_end_of_list, t2) {
     const std::vector<int> v{1};
     const int n = 1;
 
-    ListNode *head = List::ConstructList(v);
+    ListNode* head = List::ConstructList(v);
     Solution sl;
     head = sl.RemoveNthFromEnd(head, n);
     ExpectEqList(head, std::vector<int>{});
@@ -99,10 +99,10 @@ TEST(remove_Nth_node_from_end_of_list, t3) {
     const std::vector<int> v{1, 2};
     const int n = 1;
 
-    ListNode *head = List::ConstructList(v);
+    ListNode* head = List::ConstructList(v);
     Solution sl;
     head = sl.RemoveNthFromEnd(head, n);
     ExpectEqList(head, std::vector<int>{1});
     List::FreeList(head);
 }
-} // namespace
+}  // namespace

@@ -25,7 +25,7 @@ class Solution {
    public:
     int count = 0;
     template <typename T>
-    void Dfs(TreeNode<T> *root, vector<T> mpp) {
+    void Dfs(TreeNode<T>* root, vector<T> mpp) {
         if (root->left == nullptr && root->right == nullptr) {
             mpp[root->val]++;
             int count_odd = 0;
@@ -49,16 +49,16 @@ class Solution {
         mpp[root->val] -= mpp[root->val];
     }
     template <typename T>
-    int PseudoPalindromicPaths(TreeNode<T> *root) {
+    int PseudoPalindromicPaths(TreeNode<T>* root) {
         vector<int> mpp(10, 0);
         Dfs(root, mpp);
         return count;
     }
     template <typename T>
-    bool IsPalindromic(std::vector<TreeNode<T> *> n) {
+    bool IsPalindromic(std::vector<TreeNode<T>*> n) {
         if (n.size() <= 1) return true;
         std::sort(n.begin(), n.end(),
-                  [](const TreeNode<T> *lft, const TreeNode<T> *rht) -> bool {
+                  [](const TreeNode<T>* lft, const TreeNode<T>* rht) -> bool {
                       return lft->val > rht->val;
                   });
 
@@ -89,14 +89,14 @@ class Solution {
         return true;
     }
     template <typename T>
-    int PseudoPalindromicPathsV1(TreeNode<T> *root) {
+    int PseudoPalindromicPathsV1(TreeNode<T>* root) {
         if (root == nullptr) return 0;
-        std::vector<TreeNode<T> *> path;
-        std::stack<TreeNode<T> *> q;
+        std::vector<TreeNode<T>*> path;
+        std::stack<TreeNode<T>*> q;
         q.push(root);
         int sum = 0;
         while (q.size()) {
-            auto *top = q.top();
+            auto* top = q.top();
             path.push_back(top);
             q.pop();
             if (top->left || top->right) {
@@ -138,7 +138,7 @@ TEST(pseudo_palindromic_paths_in_a_binary_tree, t1) {
     */
     std::vector<optional<int>> root = {2, 3, 1, 3, 1, null, 1};
     int output = 2;
-    auto *node = ConstructBinaryTree(root);
+    auto* node = ConstructBinaryTree(root);
 
     // Explanation: The figure above represents the given binary tree. There are
     // three paths going from the root node to leaf nodes: the red path [2,3,3],
@@ -177,7 +177,7 @@ TEST(pseudo_palindromic_paths_in_a_binary_tree, t2) {
     */
 
     int output = 1;
-    auto *node = ConstructBinaryTree(root);
+    auto* node = ConstructBinaryTree(root);
     // The figure above represents the given binary tree. There are three paths
     // going from the root node to leaf nodes: the green path [2,1,1], the path
     // [2,1,3,1], and the path [2,1]. Among these paths only the green path is
@@ -193,7 +193,7 @@ TEST(pseudo_palindromic_paths_in_a_binary_tree, t2) {
 TEST(pseudo_palindromic_paths_in_a_binary_tree, t3) {
     std::vector<optional<int>> root = {9};
     int output = 1;
-    auto *node = ConstructBinaryTree(root);
+    auto* node = ConstructBinaryTree(root);
 
     Solution sl;
     int ret = sl.PseudoPalindromicPaths(node);
@@ -220,7 +220,7 @@ TEST(pseudo_palindromic_paths_in_a_binary_tree_v2, t1) {
     */
     std::vector<optional<int>> root = {2, 3, 1, 3, 1, null, 1};
     int output = 2;
-    auto *node = ConstructBinaryTree(root);
+    auto* node = ConstructBinaryTree(root);
 
     // Explanation: The figure above represents the given binary tree. There are
     // three paths going from the root node to leaf nodes: the red path [2,3,3],
@@ -259,7 +259,7 @@ TEST(pseudo_palindromic_paths_in_a_binary_tree_v2, t2) {
     */
 
     int output = 1;
-    auto *node = ConstructBinaryTree(root);
+    auto* node = ConstructBinaryTree(root);
     // The figure above represents the given binary tree. There are three paths
     // going from the root node to leaf nodes: the green path [2,1,1], the path
     // [2,1,3,1], and the path [2,1]. Among these paths only the green path is
@@ -275,7 +275,7 @@ TEST(pseudo_palindromic_paths_in_a_binary_tree_v2, t2) {
 TEST(pseudo_palindromic_paths_in_a_binary_tree_v2, t3) {
     std::vector<optional<int>> root = {9};
     int output = 1;
-    auto *node = ConstructBinaryTree(root);
+    auto* node = ConstructBinaryTree(root);
 
     Solution sl;
     int ret = sl.PseudoPalindromicPathsV1(node);

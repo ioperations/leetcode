@@ -25,7 +25,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    void Merge(vector<int> &nums1, int m, vector<int> &nums2, int n) {
+    void Merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
         // pass
         vector<int> numz = nums1;
 

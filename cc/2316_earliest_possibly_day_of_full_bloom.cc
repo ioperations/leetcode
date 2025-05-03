@@ -28,7 +28,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    int EarliestFullBloom(vector<int> &plant_time, vector<int> &grow_time) {
+    int EarliestFullBloom(vector<int>& plant_time, vector<int>& grow_time) {
         /*
         This solution employs plot-based (visual) calculation of total time.
         Time complexity is logarithmic: O(N*logN). Space complexity is linear:

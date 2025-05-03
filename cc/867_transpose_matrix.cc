@@ -15,7 +15,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    vector<vector<int>> Transpose(vector<vector<int>> &matrix) {
+    vector<vector<int>> Transpose(vector<vector<int>>& matrix) {
         int n = matrix.size();
         int m = matrix[0].size();
         vector<vector<int>> res(m, vector<int>(n, 0));  // matrix creation

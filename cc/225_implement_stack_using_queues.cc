@@ -83,7 +83,7 @@ class MyStackV2 {
 
 TEST(implement_stack_using_queues, t1) {
     // * Your MyStack object will be instantiated and called as such:
-    MyStack *obj = new MyStack();
+    MyStack* obj = new MyStack();
     int x = 0;
     obj->Push(x);
     int param_3 = obj->Top();
@@ -99,7 +99,7 @@ TEST(implement_stack_using_queues, t1) {
 
 TEST(implement_stack_using_queues_v2, t1) {
     // * Your MyStack object will be instantiated and called as such:
-    MyStackV2 *obj = new MyStackV2();
+    MyStackV2* obj = new MyStackV2();
     int x = 0;
     obj->Push(x);
     int param_3 = obj->Top();
@@ -121,7 +121,7 @@ TEST(implement_stack_using_queues, t2) {
     // Output [null, null, null, 2, 2, false]
 
     // Explanation
-    MyStack *my_stack = new MyStack();
+    MyStack* my_stack = new MyStack();
     my_stack->Push(1);
     my_stack->Push(2);
 
@@ -143,7 +143,7 @@ TEST(implement_stack_using_queues_v2, t2) {
     // Output [null, null, null, 2, 2, false]
 
     // Explanation
-    MyStackV2 *my_stack = new MyStackV2();
+    MyStackV2* my_stack = new MyStackV2();
     my_stack->Push(1);
     my_stack->Push(2);
 

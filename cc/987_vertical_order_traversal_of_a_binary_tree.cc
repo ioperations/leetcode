@@ -31,7 +31,7 @@ using namespace Tree;
 struct Mystruct {
     int val;
     int column;
-    bool operator<(const Mystruct &rhs) const {
+    bool operator<(const Mystruct& rhs) const {
         if (column > rhs.column) {
             return true;
         }
@@ -50,17 +50,17 @@ namespace {
 class Solution {
    public:
     template <typename T>
-    vector<vector<T>> VerticalTraversal(TreeNode<T> *root) {
-        queue<pair<TreeNode<T> *, int>> q;
+    vector<vector<T>> VerticalTraversal(TreeNode<T>* root) {
+        queue<pair<TreeNode<T>*, int>> q;
         map<int, vector<int>> mp;
         q.push(make_pair(root, 0));
         while (q.size()) {
             int n = q.size();
             map<int, priority_queue<int, vector<int>, greater<int>>> tmp;
             for (int i = 0; i < n; i++) {
-                pair<TreeNode<T> *, int> curr = q.front();
+                pair<TreeNode<T>*, int> curr = q.front();
                 q.pop();
-                auto *node = curr.first;
+                auto* node = curr.first;
                 int col = curr.second;
                 tmp[col].push(node->val);
                 if (node->left) {
@@ -89,16 +89,16 @@ class Solution {
     }
 
     template <typename T>
-    vector<vector<T>> VerticalTraversal1(TreeNode<T> *root) {
+    vector<vector<T>> VerticalTraversal1(TreeNode<T>* root) {
         vector<vector<T>> ret;
         if (root == nullptr) return ret;
         priority_queue<Mystruct> q;
 
-        queue<std::pair<TreeNode<T> *, int>> navigate;
+        queue<std::pair<TreeNode<T>*, int>> navigate;
         navigate.push({root, 0});
 
         while (navigate.size()) {
-            auto &front = navigate.front();
+            auto& front = navigate.front();
 
             if (front.first->left) {
                 navigate.push({front.first->left, front.second - 1});
@@ -115,7 +115,7 @@ class Solution {
         vector<int> tmp;
         int flag = q.top().column;
         while (q.size()) {
-            auto &t = q.top();
+            auto& t = q.top();
             if (t.column == flag) {
                 tmp.push_back(t.val);
 
@@ -143,7 +143,7 @@ using namespace std;
 TEST(vertical_order_traversal_of_a_binary_tree, t1) {
     vector<optional<int>> root = {3, 9, 20, null, null, 15, 7};
     vector<vector<int>> output = {{9}, {3, 15}, {20}, {7}};
-    auto *node = ConstructBinaryTree(root);
+    auto* node = ConstructBinaryTree(root);
     // Explanation:
     // Column -1: Only node 9 is in this column.
     // Column 0: Nodes 3 and 15 are in this column in that order from top to
@@ -159,7 +159,7 @@ TEST(vertical_order_traversal_of_a_binary_tree, t1) {
 TEST(vertical_order_traversal_of_a_binary_tree, t2) {
     vector<optional<int>> root = {1, 2, 3, 4, 5, 6, 7};
     vector<vector<int>> output = {{4}, {2}, {1, 5, 6}, {3}, {7}};
-    auto *node = ConstructBinaryTree(root);
+    auto* node = ConstructBinaryTree(root);
     // Column -2: Only node 4 is in this column.
     // Column -1: Only node 2 is in this column.
     // Column 0: Nodes 1, 5, and 6 are in this column.
@@ -176,7 +176,7 @@ TEST(vertical_order_traversal_of_a_binary_tree, t2) {
 TEST(vertical_order_traversal_of_a_binary_tree, t3) {
     vector<optional<int>> root = {1, 2, 3, 4, 6, 5, 7};
     vector<vector<int>> output = {{4}, {2}, {1, 5, 6}, {3}, {7}};
-    auto *node = ConstructBinaryTree(root);
+    auto* node = ConstructBinaryTree(root);
     // This case is the exact same as example 2, but with nodes 5 and 6 swapped.
     // Note that the solution remains the same since 5 and 6 are in the same
     // location and should be ordered by their values. Column -2: Only node 4 is

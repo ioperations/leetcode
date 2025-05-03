@@ -19,7 +19,7 @@ namespace {
 class Solution {
    public:
     template <typename T>
-    TreeNode<T> *PruneTree(TreeNode<T> *&root) {
+    TreeNode<T>* PruneTree(TreeNode<T>*& root) {
         if (root == nullptr) return root;
         PruneTree(root->left);
         PruneTree(root->right);
@@ -37,9 +37,9 @@ using namespace std;
 
 TEST(binary_tree_pruning, t1) {
     vector<optional<int>> root = {1, null, 0, 0, 1};
-    auto *node = ConstructBinaryTree(root);
+    auto* node = ConstructBinaryTree(root);
     Solution sl;
-    auto *ret = sl.PruneTree(node);
+    auto* ret = sl.PruneTree(node);
     vector<optional<int>> output{1, null, 0, null, 1};
 
     vector<optional<int>> ret_node;
@@ -54,9 +54,9 @@ TEST(binary_tree_pruning, t1) {
 
 TEST(binary_tree_pruning, t2) {
     vector<optional<int>> root = {1, 0, 1, 0, 0, 0, 1};
-    auto *node = ConstructBinaryTree(root);
+    auto* node = ConstructBinaryTree(root);
     Solution sl;
-    auto *ret = sl.PruneTree(node);
+    auto* ret = sl.PruneTree(node);
     vector<optional<int>> output{1, null, 1, null, 1};
 
     vector<optional<int>> ret_node;
@@ -70,9 +70,9 @@ TEST(binary_tree_pruning, t2) {
 }
 TEST(binary_tree_pruning, t3) {
     vector<optional<int>> root = {1, 1, 0, 1, 1, 0, 1, 0};
-    auto *node = ConstructBinaryTree(root);
+    auto* node = ConstructBinaryTree(root);
     Solution sl;
-    auto *ret = sl.PruneTree(node);
+    auto* ret = sl.PruneTree(node);
     vector<optional<int>> output{1, 1, 0, 1, 1, null, 1};
 
     vector<optional<int>> ret_node;

@@ -40,7 +40,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    int RemoveElement(vector<int> &nums, int val) {
+    int RemoveElement(vector<int>& nums, int val) {
         // pass
         int n = nums.size();
 

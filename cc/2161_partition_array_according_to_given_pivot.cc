@@ -19,11 +19,11 @@ using namespace std;
 
 class Solution {
    public:
-    vector<int> pivotArray(vector<int> &nums, int pivot) {
+    vector<int> pivotArray(vector<int>& nums, int pivot) {
         vector<int> left;
         vector<int> middle;
         vector<int> right;
-        for (auto &n : nums) {
+        for (auto& n : nums) {
             if (n < pivot) {
                 left.push_back(n);
             } else if (n == pivot) {
@@ -32,18 +32,18 @@ class Solution {
                 right.push_back(n);
             }
         }
-        for (auto &q : middle) {
+        for (auto& q : middle) {
             left.push_back(q);
         }
 
-        for (auto &q : right) {
+        for (auto& q : right) {
             left.push_back(q);
         }
 
         return left;
     }
 
-    vector<int> pivotArrayV2(vector<int> &nums, int pivot) {
+    vector<int> pivotArrayV2(vector<int>& nums, int pivot) {
         vector<int> result(nums.size(), 0);
         int left = 0, right = nums.size() - 1;
 
@@ -108,7 +108,7 @@ TEST(t0, t2) {
     // orderings.
 }
 
-int main(int argc, char *argv[]) {
+int main(int argc, char* argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

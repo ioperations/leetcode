@@ -107,7 +107,7 @@ class NumArray {
     }
 
     // 0 based indexing segment tree ..value of v always starts from 1
-    NumArray(vector<int> &a) {
+    NumArray(vector<int>& a) {
         n = a.size();
         vp.resize(n);
         vp = a;

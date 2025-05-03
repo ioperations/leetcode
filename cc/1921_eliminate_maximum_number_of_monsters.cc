@@ -31,7 +31,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    int EliminateMaximum(vector<int> &dist, vector<int> &speed) {
+    int EliminateMaximum(vector<int>& dist, vector<int>& speed) {
         //     n == dist.length == speed.length
         //     1 <= n <= 105
         //     1 <= dist[i], speed[i] <= 105

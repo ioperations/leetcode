@@ -22,13 +22,13 @@ namespace {
 class Solution {
    public:
     template <typename T>
-    int CountNodes(TreeNode<T> *root) {
-        std::queue<TreeNode<T> *> q;
+    int CountNodes(TreeNode<T>* root) {
+        std::queue<TreeNode<T>*> q;
         if (root == nullptr) return 0;
         q.emplace(root);
         int count = 0;
         while (!q.empty()) {
-            auto *n = q.front();
+            auto* n = q.front();
             if (n->left) q.emplace(n->left);
             if (n->right) q.emplace(n->right);
             q.pop();
@@ -46,7 +46,7 @@ using namespace std;
 TEST(count_complete_tree_nodes, t1) {
     vector<optional<int>> root = {1, 2, 3, 4, 5, 6};
     int output = 6;
-    auto *const node = ConstructBinaryTree(root);
+    auto* const node = ConstructBinaryTree(root);
     Solution sl;
     int const ret = sl.CountNodes(node);
     EXPECT_EQ(ret, output);
@@ -56,7 +56,7 @@ TEST(count_complete_tree_nodes, t1) {
 TEST(count_complete_tree_nodes, t2) {
     vector<optional<int>> root = {};
     int output = 0;
-    auto *const node = ConstructBinaryTree(root);
+    auto* const node = ConstructBinaryTree(root);
     Solution sl;
     int const ret = sl.CountNodes(node);
     EXPECT_EQ(ret, output);
@@ -66,7 +66,7 @@ TEST(count_complete_tree_nodes, t2) {
 TEST(count_complete_tree_nodes, t3) {
     vector<optional<int>> root = {1};
     int output = 1;
-    auto *const node = ConstructBinaryTree(root);
+    auto* const node = ConstructBinaryTree(root);
     Solution sl;
     int const ret = sl.CountNodes(node);
     EXPECT_EQ(ret, output);

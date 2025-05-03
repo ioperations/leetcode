@@ -23,10 +23,10 @@ using ListNode = List::ListNode<int>;
 namespace {
 class Solution {
    public:
-    ListNode *DetectCycle(ListNode *head) {
+    ListNode* DetectCycle(ListNode* head) {
         bool cycle_present = false;
-        ListNode *fast = head;
-        ListNode *slow = head;
+        ListNode* fast = head;
+        ListNode* slow = head;
         while (fast != nullptr and fast->next != nullptr) {
             fast = fast->next->next;
             slow = slow->next;
@@ -38,7 +38,7 @@ class Solution {
         if (cycle_present == false) {
             return nullptr;
         }
-        ListNode *k = head;
+        ListNode* k = head;
         while (k != slow) {
             k = k->next;
             slow = slow->next;
@@ -48,7 +48,7 @@ class Solution {
 };
 
 TEST(memleak, t1) {
-    ListNode *head = List::ConstructList(std::vector<int>{3, 2, 0, -4});
+    ListNode* head = List::ConstructList(std::vector<int>{3, 2, 0, -4});
 
     FreeList(head);
 }
@@ -70,10 +70,10 @@ TEST(linked_list_cycle_ii, t1) {
 
     */
 
-    ListNode *head = List::ConstructList(std::vector<int>{3, 2, 0, -4});
+    ListNode* head = List::ConstructList(std::vector<int>{3, 2, 0, -4});
 
-    ListNode *it = head;
-    ListNode *it2 = head;
+    ListNode* it = head;
+    ListNode* it2 = head;
 
     it = it->next;
 
@@ -84,7 +84,7 @@ TEST(linked_list_cycle_ii, t1) {
     it2->next = it;
 
     Solution s;
-    ListNode *ret = s.DetectCycle(head);
+    ListNode* ret = s.DetectCycle(head);
     EXPECT_EQ(ret->val, 2);
 
     it2->next = nullptr;
@@ -102,10 +102,10 @@ TEST(linked_list_cycle_ii, t2) {
          |-------------------|
     */
 
-    ListNode *head = List::ConstructList(std::vector<int>{1, 2});
+    ListNode* head = List::ConstructList(std::vector<int>{1, 2});
 
-    ListNode *it = head;
-    ListNode *it2 = head;
+    ListNode* it = head;
+    ListNode* it2 = head;
 
     while (it2->next != nullptr) {
         it2 = it2->next;
@@ -114,7 +114,7 @@ TEST(linked_list_cycle_ii, t2) {
     it2->next = it;
 
     Solution s;
-    ListNode *ret = s.DetectCycle(head);
+    ListNode* ret = s.DetectCycle(head);
     EXPECT_EQ(ret->val, 1);
 
     it2->next = nullptr;
@@ -129,20 +129,20 @@ TEST(linked_list_cycle_ii, t3) {
         |___|
 
     */
-    ListNode *head = List::ConstructList(std::vector<int>{1});
+    ListNode* head = List::ConstructList(std::vector<int>{1});
 
     Solution s;
-    ListNode *ret = s.DetectCycle(head);
+    ListNode* ret = s.DetectCycle(head);
     EXPECT_EQ(ret, nullptr);
 
     FreeList(head);
 }
 
 TEST(linked_list_cycle_ii, t4) {
-    ListNode *head = List::ConstructList(std::vector<int>{});
+    ListNode* head = List::ConstructList(std::vector<int>{});
 
     Solution s;
-    ListNode *ret = s.DetectCycle(head);
+    ListNode* ret = s.DetectCycle(head);
     EXPECT_EQ(ret, nullptr);
 
     FreeList(head);

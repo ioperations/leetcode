@@ -32,7 +32,6 @@ class Solution {
     bool RepeatedSubstringPattern(string s) { return PrefixFunction(s); }
 };
 
-
 TEST(repeated_substring_pattern, t1) {
     string s = "abab";
     bool output = true;
@@ -60,4 +59,4 @@ TEST(repeated_substring_pattern, t3) {
     EXPECT_EQ(ret, output);
 }
 
-} // namespace
+}  // namespace

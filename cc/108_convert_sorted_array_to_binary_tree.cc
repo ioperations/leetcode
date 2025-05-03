@@ -20,21 +20,21 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    TreeNode *SortedArrayToBst(std::vector<int> &nums) {
+    TreeNode* SortedArrayToBst(std::vector<int>& nums) {
         return Helper(nums, 0, nums.size() - 1);
     }
 
-    TreeNode *Helper(vector<int> &nums, int start, int end) {
+    TreeNode* Helper(vector<int>& nums, int start, int end) {
         if (start > end) return nullptr;
         int mid = start + (end - start) / 2;
-        TreeNode *bs_ttree = new TreeNode(nums[mid]);
+        TreeNode* bs_ttree = new TreeNode(nums[mid]);
         bs_ttree->left = Helper(nums, start, mid - 1);
         bs_ttree->right = Helper(nums, mid + 1, end);
         return bs_ttree;
     }
 };
 
-void InorderLeft(TreeNode *root, std::vector<int> &vec) {
+void InorderLeft(TreeNode* root, std::vector<int>& vec) {
     if (root == nullptr) {
         return;
     }
@@ -50,7 +50,7 @@ TEST(convert_sorted_array_to_binary_tree, t1) {
 
     Solution sl;
     std::vector<int> v{-10, -3, 0, 5, 9};
-    TreeNode *root = sl.SortedArrayToBst(v);
+    TreeNode* root = sl.SortedArrayToBst(v);
 
     std::vector<int> visit;
 

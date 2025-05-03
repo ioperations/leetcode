@@ -40,8 +40,6 @@ class Solution {
     }
 };
 
-
-
 TEST(longest_palindromic_subsequence, t1) {
     string s = "bbbab";
     int output = 4;
@@ -60,4 +58,4 @@ TEST(longest_palindromic_subsequence, t2) {
     EXPECT_EQ(ret, output);
 }
 
-} // namespace
+}  // namespace

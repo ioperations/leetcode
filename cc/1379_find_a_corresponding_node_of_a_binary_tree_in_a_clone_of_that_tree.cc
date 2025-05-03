@@ -18,7 +18,7 @@ and the answer must be a reference to a node in the cloned tree.*/
 using namespace Tree;
 
 template <typename T>
-TreeNode<T> *FindNodeInBinaryTree(TreeNode<T> *head, int target) {
+TreeNode<T>* FindNodeInBinaryTree(TreeNode<T>* head, int target) {
     if (head == nullptr) {
         return nullptr;
     }
@@ -26,7 +26,7 @@ TreeNode<T> *FindNodeInBinaryTree(TreeNode<T> *head, int target) {
     if (target == head->val) {
         return head;
     }
-    auto *tmp = FindNodeInBinaryTree(head->left, target);
+    auto* tmp = FindNodeInBinaryTree(head->left, target);
     if (tmp == nullptr) {
         return FindNodeInBinaryTree(head->right, target);
     }
@@ -42,8 +42,8 @@ namespace {
 class Solution {
    public:
     template <typename T>
-    void DFS(TreeNode<T> *current, deque<bool> &path, TreeNode<T> *&target,
-             bool &found) {
+    void DFS(TreeNode<T>* current, deque<bool>& path, TreeNode<T>*& target,
+             bool& found) {
         if (current == target) {
             found = true;  // I'd like to get rid of this.
             return;
@@ -71,7 +71,7 @@ class Solution {
     }
 
     template <typename T>
-    TreeNode<T> *GetCopyNode(deque<bool> &path, TreeNode<T> *current) {
+    TreeNode<T>* GetCopyNode(deque<bool>& path, TreeNode<T>* current) {
         while (!path.empty()) {
             // Now iterating from the opposite side of the queue.
             if (path.front())  // True == left
@@ -84,8 +84,8 @@ class Solution {
     }
 
     template <typename T>
-    TreeNode<T> *GetTargetCopy(TreeNode<T> *original, TreeNode<T> *cloned,
-                               TreeNode<T> *target) {
+    TreeNode<T>* GetTargetCopy(TreeNode<T>* original, TreeNode<T>* cloned,
+                               TreeNode<T>* target) {
         // Passed a reference to the head of original and cloned, and the
         // reference of the target in original. Solution 1: non-unique values
         deque<bool> path =
@@ -106,10 +106,10 @@ using namespace std;
 TEST(memleak, t1) {
     std::vector<int> v{7, 4, 3, 6, 19};
 
-    auto *head = ConstructRight(v);
-    auto *head2 = ConstructRight(v);
+    auto* head = ConstructRight(v);
+    auto* head2 = ConstructRight(v);
     int target = 3;
-    auto *target_node = FindNodeInBinaryTree(head, target);
+    auto* target_node = FindNodeInBinaryTree(head, target);
     EXPECT_EQ(target_node->val, target);
     std::vector<int> vec;
     BfsSearch(head, vec);
@@ -123,12 +123,12 @@ TEST(memleak, t1) {
 TEST(find_a_corresponding_node_of_a_binary_tree_in_a_clone_of_that_tree, t1) {
     std::vector<optional<int>> v{7, 4, 3, null, null, 6, 19};
 
-    auto *head = ConstructBinaryTree(v);
-    auto *head2 = ConstructBinaryTree(v);
+    auto* head = ConstructBinaryTree(v);
+    auto* head2 = ConstructBinaryTree(v);
     int target = 3;
     Solution sl;
-    auto *target_node = FindNodeInBinaryTree(head, target);
-    auto *ret = sl.GetTargetCopy(head, head2, target_node);
+    auto* target_node = FindNodeInBinaryTree(head, target);
+    auto* ret = sl.GetTargetCopy(head, head2, target_node);
     EXPECT_EQ(ret->val, target);
 
     FreeTreeNode(head);
@@ -138,13 +138,13 @@ TEST(find_a_corresponding_node_of_a_binary_tree_in_a_clone_of_that_tree, t1) {
 TEST(find_a_corresponding_node_of_a_binary_tree_in_a_clone_of_that_tree, t2) {
     std::vector<optional<int>> v{7};
 
-    auto *head = ConstructBinaryTree(v);
-    auto *head2 = ConstructBinaryTree(v);
+    auto* head = ConstructBinaryTree(v);
+    auto* head2 = ConstructBinaryTree(v);
     int target = 7;
     Solution sl;
 
-    auto *target_node = FindNodeInBinaryTree(head, target);
-    auto *ret = sl.GetTargetCopy(head, head2, target_node);
+    auto* target_node = FindNodeInBinaryTree(head, target);
+    auto* ret = sl.GetTargetCopy(head, head2, target_node);
     EXPECT_EQ(ret->val, target);
 
     FreeTreeNode(head);
@@ -155,12 +155,12 @@ TEST(find_a_corresponding_node_of_a_binary_tree_in_a_clone_of_that_tree, t3) {
     std::vector<optional<int>> v{8,    null, 6,    null, 5,    null, 4,
                                  null, 3,    null, 2,    null, 1};
 
-    auto *head = ConstructBinaryTree(v);
-    auto *head2 = ConstructBinaryTree(v);
+    auto* head = ConstructBinaryTree(v);
+    auto* head2 = ConstructBinaryTree(v);
     int target = 4;
     Solution sl;
-    auto *target_node = FindNodeInBinaryTree(head, target);
-    auto *ret = sl.GetTargetCopy(head, head2, target_node);
+    auto* target_node = FindNodeInBinaryTree(head, target);
+    auto* ret = sl.GetTargetCopy(head, head2, target_node);
 
     EXPECT_EQ(ret->val, target);
 

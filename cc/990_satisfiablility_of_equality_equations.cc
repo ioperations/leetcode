@@ -56,9 +56,9 @@ class DSU {
 
 class Solution {
    public:
-    bool EquationsPossible(vector<string> &equations) {
+    bool EquationsPossible(vector<string>& equations) {
         DSU obj;
-        for (const auto &it : equations) {
+        for (const auto& it : equations) {
             // first unify all the elements which are equal
             if (it[1] == '=') {
                 int const x = it[0] - 'a';
@@ -66,7 +66,7 @@ class Solution {
                 obj.Unionn(x, y);
             }
         }
-        for (const auto &it : equations) {
+        for (const auto& it : equations) {
             // Find parents, if they are equal means we can't give them
             // different numbers, so return false.
             if (it[1] == '!') {

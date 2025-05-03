@@ -30,7 +30,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    int NumIslands(vector<vector<char>> &grid) {
+    int NumIslands(vector<vector<char>>& grid) {
         int rows = grid.size();                // rows
         int cols = rows ? grid[0].size() : 0;  // cols
         int islands = 0;
@@ -71,7 +71,7 @@ class Solution {
     }
 
     // DFS
-    int NumIslandsDFS(vector<vector<char>> &grid) {
+    int NumIslandsDFS(vector<vector<char>>& grid) {
         auto rows = grid.size();
         auto cols = grid[0].size();
 
@@ -87,7 +87,7 @@ class Solution {
         }
         return islands;
     }
-    void Dfs(vector<vector<char>> &grid, int r, int c) {
+    void Dfs(vector<vector<char>>& grid, int r, int c) {
         int rows = grid.size();
         int cols = grid[0].size();
         vector<vector<int>> offsets = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
@@ -106,8 +106,8 @@ class Solution {
         }
     }
 
-    void DfsUsingStack(const vector<vector<char>> &grid,
-                       vector<vector<bool>> &visit, int i, int j) {
+    void DfsUsingStack(const vector<vector<char>>& grid,
+                       vector<vector<bool>>& visit, int i, int j) {
         stack<pair<int, int>> stack;
         stack.emplace(i, j);
         while (stack.size()) {
@@ -128,8 +128,8 @@ class Solution {
         }
     }
 
-    void BfsUsingQueue(const vector<vector<char>> &grid,
-                       vector<vector<bool>> &visit, int i, int j) {
+    void BfsUsingQueue(const vector<vector<char>>& grid,
+                       vector<vector<bool>>& visit, int i, int j) {
         queue<pair<int, int>> queue;
         queue.emplace(i, j);
         while (queue.size()) {

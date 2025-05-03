@@ -27,7 +27,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    bool Check(const string &a, const string &b) {
+    bool Check(const string& a, const string& b) {
         int cnt = 0, idx = 0;
         for (int i = 0; i < (int)a.size() && idx < (int)b.size(); i++, idx++) {
             if (a[i] != b[idx]) {
@@ -40,11 +40,11 @@ class Solution {
         }
         return cnt <= 1;
     }
-    int LongestStrChain(vector<string> &words) {
+    int LongestStrChain(vector<string>& words) {
         int ans = 1;
         vector<int> dp(words.size(), 1);
         sort(words.begin(), words.end(),
-             [](const string &s1, const string &s2) {
+             [](const string& s1, const string& s2) {
                  return s1.length() < s2.length();
              });
         for (int i = 0; i < (int)words.size(); i++) {

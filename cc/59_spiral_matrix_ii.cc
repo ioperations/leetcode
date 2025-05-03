@@ -28,7 +28,7 @@ class Solution {
 
         vector<vector<int>> ret;
         ret.resize(n);
-        for (auto &ptr : ret) {
+        for (auto& ptr : ret) {
             ptr.resize(n);
         }
         enum direction {

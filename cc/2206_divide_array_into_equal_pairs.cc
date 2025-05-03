@@ -13,18 +13,18 @@ using namespace std;
 
 class Solution {
    public:
-    bool divideArray(vector<int> &nums) {
+    bool divideArray(vector<int>& nums) {
         /* nums.length == 2 * n
          * 1 <= n <= 500
          * 1 <= nums[i] <= 500
          */
         unordered_map<int, int> v;
-        for (auto &p : nums) {
+        for (auto& p : nums) {
             v[p]++;
         }
 
         return !any_of(v.begin(), v.end(),
-                       [](auto &v) { return v.second % 2 == 1; });
+                       [](auto& v) { return v.second % 2 == 1; });
     }
 };
 
@@ -54,7 +54,7 @@ TEST(t0, t2) {
     // will satisfy all the conditions.
 }
 
-int main(int argc, char *argv[]) {
+int main(int argc, char* argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

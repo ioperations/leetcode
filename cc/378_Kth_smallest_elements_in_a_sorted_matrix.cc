@@ -27,7 +27,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    int KthSmallest(const vector<vector<int>> &matrix, int k) {
+    int KthSmallest(const vector<vector<int>>& matrix, int k) {
         // pass
         // n == matrix.length == matrix[i].length
         // 1 <= n <= 300
@@ -82,7 +82,7 @@ class Solution {
         return ret;
     }
 
-    int KthSmallestV2(vector<vector<int>> &matrix, int k) {
+    int KthSmallestV2(vector<vector<int>>& matrix, int k) {
         priority_queue<pair<int, pair<int, int>>,
                        vector<pair<int, pair<int, int>>>,
                        greater<pair<int, pair<int, int>>>>
@@ -104,7 +104,7 @@ class Solution {
      * @brief O(n2) 解法
      * @return
      */
-    int KthSmallestOn2(vector<vector<int>> &matrix, int k) {
+    int KthSmallestOn2(vector<vector<int>>& matrix, int k) {
         // pass
 
         vector<int> z(matrix.size() * matrix.size(), 0);

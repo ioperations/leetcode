@@ -22,11 +22,11 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    static bool Comp(vector<int> &p1, vector<int> &p2) {
+    static bool Comp(vector<int>& p1, vector<int>& p2) {
         return (p1[1] > p2[1]);
     }
 
-    int MaximumUnits(vector<vector<int>> &b, int t) {
+    int MaximumUnits(vector<vector<int>>& b, int t) {
         sort(b.begin(), b.end(), Comp);
 
         int ret = 0, i = 0, n = b.size();

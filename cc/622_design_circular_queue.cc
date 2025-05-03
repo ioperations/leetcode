@@ -36,12 +36,12 @@ Output
 [null, true, true, true, false, 3, true, true, true, 4]
 */
 
-#include <vector>
 #include <string>
+#include <vector>
 
 #include "gtest/gtest.h"
 
-namespace { 
+namespace {
 class MyCircularQueue {
    private:
     std::vector<int> v;
@@ -72,8 +72,6 @@ class MyCircularQueue {
     bool IsFull() { return len == (int)v.size(); }
 };
 
-
-
 TEST(design_circular_queue, t1) {
     MyCircularQueue my_circular_queue(3);
     bool ret = my_circular_queue.EnQueue(1);  // return True
@@ -96,4 +94,4 @@ TEST(design_circular_queue, t1) {
     EXPECT_EQ(ret1, 4);
 }
 
-}
+}  // namespace

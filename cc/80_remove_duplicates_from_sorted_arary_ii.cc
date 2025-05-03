@@ -26,7 +26,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    int RemoveDuplicates(vector<int> &nums) {
+    int RemoveDuplicates(vector<int>& nums) {
         int idx = 0, n = nums.size();
         for (int i = 0; i < n; i++) {
             if (idx < 2 || nums[idx - 2] != nums[i]) {
@@ -37,7 +37,7 @@ class Solution {
         return idx;
     }
 
-    void MakeVectorBack(vector<int> &nums, int from, int end) {
+    void MakeVectorBack(vector<int>& nums, int from, int end) {
         for (int i = from; i < end - 1; i++) {
             nums[i] = nums[i + 1];
         }

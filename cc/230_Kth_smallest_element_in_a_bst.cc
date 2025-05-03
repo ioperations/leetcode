@@ -14,7 +14,7 @@ using TreeNode = Tree::TreeNode<int>;
 namespace {
 class Solution {
    public:
-    int KthSmallest(TreeNode *root, int k) {
+    int KthSmallest(TreeNode* root, int k) {
         // pass
 
         std::priority_queue<int, std::vector<int>, std::greater<int>> q;
@@ -29,8 +29,8 @@ class Solution {
     }
 
     void Inorder(
-        TreeNode *root,
-        std::priority_queue<int, std::vector<int>, std::greater<int>> &q) {
+        TreeNode* root,
+        std::priority_queue<int, std::vector<int>, std::greater<int>>& q) {
         if (root == nullptr) {
             return;
         }
@@ -45,7 +45,7 @@ TEST(Kth_smallest_element_in_a_bst, t1) {
     std::vector<int> root = {3, 1, 4, 2};
     int k = 1;
 
-    TreeNode *head = Tree::ConstructTree(root);
+    TreeNode* head = Tree::ConstructTree(root);
     Solution s;
     int ret = s.KthSmallest(head, k);
     EXPECT_EQ(ret, 1);
@@ -56,7 +56,7 @@ TEST(Kth_smallest_element_in_a_bst, t2) {
     std::vector<int> root = {5, 3, 6, 2, 4, 1};
     int k = 3;
 
-    TreeNode *head = Tree::ConstructTree(root);
+    TreeNode* head = Tree::ConstructTree(root);
     Solution s;
     int ret = s.KthSmallest(head, k);
     EXPECT_EQ(ret, 3);

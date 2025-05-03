@@ -20,7 +20,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    bool ArrayStringsAreEqual(vector<string> &word1, vector<string> &word2) {
+    bool ArrayStringsAreEqual(vector<string>& word1, vector<string>& word2) {
         int i = 0, j = 0;  // word pointers
         int m = 0, n = 0;  // char pointers
 

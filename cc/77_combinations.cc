@@ -16,8 +16,8 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    void Fn(int i, int k, int n, vector<int> &nums, vector<int> &v,
-            vector<vector<int>> &ans) {
+    void Fn(int i, int k, int n, vector<int>& nums, vector<int>& v,
+            vector<vector<int>>& ans) {
         // base case
         if (i > n || k == 0) {
             if (k == 0) ans.push_back(v);

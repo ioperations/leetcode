@@ -10,7 +10,7 @@
 namespace {
 class Solution {
    public:
-    std::vector<int> TwoSum(std::vector<int> &nums, int target) {
+    std::vector<int> TwoSum(std::vector<int>& nums, int target) {
         std::vector<int> ret;
         for (size_t i = 0; i < nums.size(); ++i) {
             for (size_t j = i + 1; j < nums.size(); j++) {

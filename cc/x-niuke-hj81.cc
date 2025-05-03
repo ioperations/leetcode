@@ -13,7 +13,7 @@
 
 namespace {
 
-void Func(std::string &less, std::string &more) {
+void Func(std::string& less, std::string& more) {
     bool t = true;
     std::map<int, char> less_set{};
     for (size_t i = 0; i < less.size(); ++i) {
@@ -23,7 +23,7 @@ void Func(std::string &less, std::string &more) {
     for (size_t i = 0; i < less_set.size(); ++i) {
         auto z = std::find_if(
             more.begin(), more.end(),
-            [&less_set, &i](const char &c) { return c == less_set[i]; });
+            [&less_set, &i](const char& c) { return c == less_set[i]; });
         if (z == std::end(more)) {
             t = false;
             break;

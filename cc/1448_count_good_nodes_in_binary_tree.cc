@@ -19,12 +19,12 @@ namespace {
 class Solution {
    public:
     template <typename T>
-    int GoodNodes(TreeNode<T> *root) {
+    int GoodNodes(TreeNode<T>* root) {
         int count = 0;
         if (root == nullptr) return 0;
 
-        std::function<void(TreeNode<T> *, int)> fun = [&](TreeNode<T> *n,
-                                                          int val) -> void {
+        std::function<void(TreeNode<T>*, int)> fun = [&](TreeNode<T>* n,
+                                                         int val) -> void {
             if (n == nullptr) return;
             if (n->val >= val) count++;
             int z = std::max(n->val, val);
@@ -47,7 +47,7 @@ TEST(count_good_nodes_in_binary_tree, t1) {
 #define null optional<int>()
     vector<optional<int>> root = {3, 1, 4, 3, null, 1, 5};
     int output = 4;
-    auto *node = ConstructBinaryTree(root);
+    auto* node = ConstructBinaryTree(root);
     Solution sl;
     int ret = sl.GoodNodes(node);
     EXPECT_EQ(ret, output);
@@ -64,7 +64,7 @@ TEST(count_good_nodes_in_binary_tree, t2) {
 #define null optional<int>()
     vector<optional<int>> root = {3, 3, null, 4, 2};
     int output = 3;
-    auto *node = ConstructBinaryTree(root);
+    auto* node = ConstructBinaryTree(root);
     Solution sl;
     int ret = sl.GoodNodes(node);
     EXPECT_EQ(ret, output);
@@ -76,7 +76,7 @@ TEST(count_good_nodes_in_binary_tree, t3) {
 #define null optional<int>()
     vector<optional<int>> root = {1};
     int output = 1;
-    auto *node = ConstructBinaryTree(root);
+    auto* node = ConstructBinaryTree(root);
     Solution sl;
     int ret = sl.GoodNodes(node);
     EXPECT_EQ(ret, output);
@@ -96,7 +96,7 @@ TEST(count_good_nodes_in_binary_tree, t4) {
      *         6
      */
     int output = 1;
-    auto *node = ConstructBinaryTree(root);
+    auto* node = ConstructBinaryTree(root);
     Solution sl;
     int ret = sl.GoodNodes(node);
     EXPECT_EQ(ret, output);

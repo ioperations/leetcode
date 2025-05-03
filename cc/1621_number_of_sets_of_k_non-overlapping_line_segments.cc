@@ -50,8 +50,8 @@ namespace {
 class Solution {
    public:
     int mod = 1e9 + 7;
-    int SumDyp(int n, int k, vector<vector<int>> &dp,
-               vector<vector<int>> &sum_dp) {
+    int SumDyp(int n, int k, vector<vector<int>>& dp,
+               vector<vector<int>>& sum_dp) {
         if (n < 2) return 0;
 
         if (sum_dp[n][k] != -1) return sum_dp[n][k];
@@ -62,8 +62,8 @@ class Solution {
         return sum_dp[n][k];
     }
 
-    int Dyp(int n, int k, vector<vector<int>> &dp,
-            vector<vector<int>> &sum_dp) {
+    int Dyp(int n, int k, vector<vector<int>>& dp,
+            vector<vector<int>>& sum_dp) {
         if (n < 2) return 0;
 
         if (dp[n][k] != -1) return dp[n][k];

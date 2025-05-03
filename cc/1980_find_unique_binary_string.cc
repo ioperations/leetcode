@@ -13,7 +13,7 @@ using namespace std;
 
 class Solution {
    public:
-    string findDifferentBinaryString(vector<string> &nums) {
+    string findDifferentBinaryString(vector<string>& nums) {
         /* n == nums.length
          1 <= n <= 16
          nums[i].length == n
@@ -33,8 +33,8 @@ class Solution {
         return str;
     }
 
-    bool Gen(string &str, long long &v, int index, int n,
-             const std::set<long long> &s) {
+    bool Gen(string& str, long long& v, int index, int n,
+             const std::set<long long>& s) {
         if (index == n) {
             if (s.count(v) == 0) {
                 return true;
@@ -54,13 +54,13 @@ class Solution {
         return false;
     }
 
-    void get(vector<string> &ori, set<long long> &s) {
-        for (const auto &value : ori) {
+    void get(vector<string>& ori, set<long long>& s) {
+        for (const auto& value : ori) {
             s.emplace(getInt(value));
         }
     }
 
-    long long getInt(const std::string &v) {
+    long long getInt(const std::string& v) {
         long long ret = 0;
         for (auto chars : v) {
             ret = ret * 10 + (chars - '0');
@@ -102,7 +102,7 @@ TEST(t0, t3) {
     EXPECT_TRUE(set.count(ret) > 0);
 }
 
-int main(int argc, char *argv[]) {
+int main(int argc, char* argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

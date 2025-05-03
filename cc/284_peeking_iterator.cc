@@ -29,17 +29,17 @@ using namespace std;
 
 namespace {
 class Iterator {
-    const std::vector<int> &nums;
+    const std::vector<int>& nums;
     int size;
     int i;
 
    public:
-    Iterator(const vector<int> &nums) : nums(nums) {
+    Iterator(const vector<int>& nums) : nums(nums) {
         size = nums.size();
         i = -1;
     }
 
-    Iterator(const Iterator &iter) : nums(iter.nums) {
+    Iterator(const Iterator& iter) : nums(iter.nums) {
         size = iter.size;
         i = iter.i;
     };
@@ -61,7 +61,7 @@ class PeekingIterator : public Iterator {
     int next_val;
 
    public:
-    PeekingIterator(const vector<int> &nums) : Iterator(nums) {
+    PeekingIterator(const vector<int>& nums) : Iterator(nums) {
         next_val = Iterator::next();
         // Initialize any member here.
         // **DO NOT** save a copy of nums and manipulate it directly.
@@ -92,7 +92,7 @@ TEST(peeking_iterator, t1) {
 
     // Explanation
     std::vector<int> z{1, 2, 3};
-    Iterator *peeking_iterator = new Iterator(z);
+    Iterator* peeking_iterator = new Iterator(z);
     // [1,2,3]
 
     // return 1, the pointer moves to the next element [1,2,3].
@@ -120,7 +120,7 @@ TEST(peeking_iterator, t2) {
 
     // Explanation
     std::vector<int> z{1, 2, 3};
-    PeekingIterator *peeking_iterator = new PeekingIterator(z);
+    PeekingIterator* peeking_iterator = new PeekingIterator(z);
     // [1,2,3]
 
     // return 1, the pointer moves to the next element [1,2,3].

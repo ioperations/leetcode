@@ -22,10 +22,10 @@ using namespace std;
 
 class Solution {
    public:
-    int minOperations(vector<int> &nums, int k) {
+    int minOperations(vector<int>& nums, int k) {
         // pass
         priority_queue<long long, vector<long long>, std::greater<long long>> q;
-        for (auto &n : nums) {
+        for (auto& n : nums) {
             q.emplace(n);
         }
 
@@ -89,7 +89,7 @@ TEST(t0, t3) {
      */
 }
 
-int main(int argc, char *argv[]) {
+int main(int argc, char* argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

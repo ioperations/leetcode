@@ -22,7 +22,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    vector<string> TopKFrequent(vector<string> &words, int k) {
+    vector<string> TopKFrequent(vector<string>& words, int k) {
         unordered_map<string, int> umap;
         for (string s : words) umap[s]++;
         priority_queue<pair<int, string>> pq;

@@ -14,7 +14,7 @@ namespace {
 
 int pos;
 
-int Result(const string &data) {
+int Result(const string& data) {
     int num = 0;
     char flag = '+';
     stack<int> stk;
@@ -64,28 +64,28 @@ int Result(const string &data) {
 
 TEST(x_niuke_hj54_v2, t2) {
     pos = 0;
-    const char *s = "400+5";
+    const char* s = "400+5";
     int ret = Result(s);
     EXPECT_EQ(ret, 405);
 }
 
 TEST(x_niuke_hj54_v2, t3) {
     pos = 0;
-    const char *s = "4*(2+5)";
+    const char* s = "4*(2+5)";
     int ret = Result(s);
     EXPECT_EQ(ret, 28);
 }
 
 TEST(x_niuke_hj54_v2, t4) {
     pos = 0;
-    const char *s = "4*(2+(5-7))";
+    const char* s = "4*(2+(5-7))";
     int ret = Result(s);
     EXPECT_EQ(ret, 0);
 }
 
 TEST(x_niuke_hj54_v2, t5) {
     pos = 0;
-    const char *s = "(2+(5-7))*(-4)";
+    const char* s = "(2+(5-7))*(-4)";
     int ret = Result(s);
     EXPECT_EQ(ret, 0);
 }

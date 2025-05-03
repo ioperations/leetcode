@@ -41,7 +41,7 @@ class LFUCacheImpl {
     LFUCacheImpl() : min_freq(1), capacity(default_capacity) {}
     explicit LFUCacheImpl(int m_capacity) : min_freq(1), capacity(m_capacity) {}
 
-    void Put(const K &key, const V &value) {
+    void Put(const K& key, const V& value) {
         if (key_table.find(key) != key_table.end()) {
             auto node = key_table[key];
             int freq = node->freq;
@@ -71,7 +71,7 @@ class LFUCacheImpl {
         }
     }
 
-    std::optional<V> Get(const K &key) {
+    std::optional<V> Get(const K& key) {
         if (key_table.find(key) != key_table.end()) {
             auto node = key_table[key];
             int freq = node->freq;
@@ -103,9 +103,9 @@ class LFUCacheImpl {
         int freq;
         K key;
         V val;
-        Node() : freq(0), key(K()), val(V()){};
-        Node(const K &m_key, V m_val, int m_freq)
-            : freq(m_freq), key(m_key), val(m_val){};
+        Node() : freq(0), key(K()), val(V()) {};
+        Node(const K& m_key, V m_val, int m_freq)
+            : freq(m_freq), key(m_key), val(m_val) {};
     };
     constexpr static int default_capacity = 50;
     unordered_map<K, typename list<Node>::iterator> key_table;  // 键值是key
@@ -117,8 +117,8 @@ class LFUCacheImpl {
 template <typename K, typename V>
 class LFUCache {
     LFUCache(int cap) : impl(cap) {}
-    void Put(const K &key, const int &value) { impl.Put(key, value); }
-    std::optional<V> Get(const K &key) { return impl.Get(key); }
+    void Put(const K& key, const int& value) { impl.Put(key, value); }
+    std::optional<V> Get(const K& key) { return impl.Get(key); }
 
    private:
     LFUCacheImpl<K, V> impl;
@@ -128,8 +128,8 @@ template <typename K>
 class LFUCache<K, int> {
    public:
     LFUCache(int cap) : impl(cap) {}
-    void Put(const K &key, const int &value) { impl.Put(key, value); }
-    int Get(const K &key) {
+    void Put(const K& key, const int& value) { impl.Put(key, value); }
+    int Get(const K& key) {
         auto ret = impl.Get(key);
         if (!ret) {
             return -1;
@@ -212,7 +212,7 @@ TEST(lfu_cache, t3) {
 }  // namespace
 
 #ifdef TEST_ADQ
-int main(int argc, char *argv[]) {
+int main(int argc, char* argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

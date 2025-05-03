@@ -29,7 +29,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    int MaxTaskAssign(vector<int> &tasks, vector<int> &workers, int pills,
+    int MaxTaskAssign(vector<int>& tasks, vector<int>& workers, int pills,
                       int strength) {
         /*
             n == tasks.length

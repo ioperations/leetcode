@@ -21,8 +21,8 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    vector<string> FindRestaurant(vector<string> &list1,
-                                  vector<string> &list2) {
+    vector<string> FindRestaurant(vector<string>& list1,
+                                  vector<string>& list2) {
         unordered_map<string, int> pos;
         vector<string> ans;
         int min_sum = INT_MAX;

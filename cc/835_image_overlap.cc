@@ -30,7 +30,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    int LargestOverlap(vector<vector<int>> &img1, vector<vector<int>> &img2) {
+    int LargestOverlap(vector<vector<int>>& img1, vector<vector<int>>& img2) {
         int n = img1.size();
         vector<pair<int, int>> vec_a;
         vector<pair<int, int>> vec_b;

@@ -24,7 +24,7 @@ class Solution {
         Node(int x, int y, int step) : x(x), y(y), step(step) {}
     };
 
-    vector<vector<int>> UpdateMatrix(vector<vector<int>> &mat) {
+    vector<vector<int>> UpdateMatrix(vector<vector<int>>& mat) {
         int m = mat.size();
         int n = mat[0].size();
         vector<vector<int>> ans(m, vector<int>(n, 0));

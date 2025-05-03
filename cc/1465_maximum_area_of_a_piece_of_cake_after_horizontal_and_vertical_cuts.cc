@@ -21,8 +21,8 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    int MaxArea(int h, int w, vector<int> &horizontal_cuts,
-                vector<int> &vertical_cuts) {
+    int MaxArea(int h, int w, vector<int>& horizontal_cuts,
+                vector<int>& vertical_cuts) {
         // pass
         int maxh = 0, maxv = 0;
 

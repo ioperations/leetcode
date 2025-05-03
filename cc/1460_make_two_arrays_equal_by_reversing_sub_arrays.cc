@@ -19,7 +19,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    bool CanBeEqual(vector<int> &target, vector<int> &arr) {
+    bool CanBeEqual(vector<int>& target, vector<int>& arr) {
         // pass
         std::sort(target.begin(), target.end());
         std::sort(arr.begin(), arr.end());

@@ -54,7 +54,7 @@ class Solution {
         return ret;
     }
 
-    void remove(vector<bool> &exists, int index, int len) {
+    void remove(vector<bool>& exists, int index, int len) {
         auto size = exists.size();
         int count = 0;
         for (int i = index; i < size; i++) {
@@ -100,7 +100,7 @@ TEST(t0, t2) {
     // - s = "axyb", remove "xy" starting at index 1 so s = "ab".
 }
 
-int main(int argc, char *argv[]) {
+int main(int argc, char* argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

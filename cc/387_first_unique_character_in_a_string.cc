@@ -21,7 +21,7 @@ class Solution {
             m[s[i]].first++;
             m[s[i]].second = i;
         }
-        for (const auto &[c, p] : m) {
+        for (const auto& [c, p] : m) {
             if (p.first == 1) {
                 idx = min(idx, p.second);
             }

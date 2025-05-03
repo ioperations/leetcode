@@ -26,10 +26,10 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    int MaxLength(vector<string> &arr) {
+    int MaxLength(vector<string>& arr) {
         // 这个性能肯定又不过关,但是好理解
-        auto existed = [&](std::map<char, int> &map, std::string &str) -> bool {
-            for (const auto &ptr : str) {
+        auto existed = [&](std::map<char, int>& map, std::string& str) -> bool {
+            for (const auto& ptr : str) {
                 if (map.count(ptr)) {
                     if (map[ptr] != 0) {
                         return true;
@@ -41,8 +41,8 @@ class Solution {
 
         std::map<char, int> visisted;
         int const size = arr.size();
-        function<int(std::string &, int, int)> fun =
-            [&](std::string &pre, int i, int result) -> int {
+        function<int(std::string&, int, int)> fun = [&](std::string& pre, int i,
+                                                        int result) -> int {
             if (i >= size) return result;
             if (existed(visisted, arr[i])) {
                 return std::max(fun(pre, i + 1, result), result);
@@ -52,11 +52,11 @@ class Solution {
             {
                 /// take current element as the last pre output
                 pre += arr[i];
-                for (auto &ptr : arr[i]) {
+                for (auto& ptr : arr[i]) {
                     visisted[ptr]++;
                 }
                 next = fun(pre, i + 1, result + arr[i].size());
-                for (auto &ptr : arr[i]) {
+                for (auto& ptr : arr[i]) {
                     visisted[ptr]--;
                 }
                 for (int j = 0; j < (int)arr[i].size(); j++) {
@@ -72,10 +72,10 @@ class Solution {
         return fun(cur, 0, 0);
     }
 
-    int MaxLengthV2(vector<string> &arr) {
+    int MaxLengthV2(vector<string>& arr) {
         vector<int> a;
 
-        for (const string &x : arr) {
+        for (const string& x : arr) {
             int mask = 0;
             for (char c : x) mask |= 1 << (c - 'a');
             if (__builtin_popcount(mask) != x.length()) continue;
@@ -175,7 +175,7 @@ TEST(Maximum_Length_of_a_Concatenated_String_with_Unique_Characters_v2, t3) {
     EXPECT_EQ(ret, output);
 }
 
-static void BenchMarkV1(benchmark::State &state) {
+static void BenchMarkV1(benchmark::State& state) {
     vector<string> arr = {"un", "iq", "ue"};
     for (auto _ : state) {
         int output = 4;
@@ -187,7 +187,7 @@ static void BenchMarkV1(benchmark::State &state) {
 }
 BENCHMARK(BenchMarkV1);
 
-static void BenchMarkV2(benchmark::State &state) {
+static void BenchMarkV2(benchmark::State& state) {
     vector<string> arr = {"un", "iq", "ue"};
     for (auto _ : state) {
         int output = 4;

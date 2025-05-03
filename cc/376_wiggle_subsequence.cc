@@ -30,7 +30,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    int WiggleMaxLength(vector<int> &nums) {
+    int WiggleMaxLength(vector<int>& nums) {
         int n = nums.size();
         int peak = 1, valley = 1;
 

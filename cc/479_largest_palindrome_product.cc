@@ -109,8 +109,6 @@ class Solution {
     }
 };
 
-
-
 TEST(t, t1) {
     // Explanation: 99 x 91 = 9009, 9009 % 1337 = 987
     Solution s;
@@ -142,4 +140,4 @@ TEST(largest_palindrome_product, t2) {
     EXPECT_EQ(ret, expected);
 }
 
-} // namespace
+}  // namespace

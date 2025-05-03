@@ -27,11 +27,11 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    bool ValidPartition(vector<int> &nums) {
+    bool ValidPartition(vector<int>& nums) {
         // pass
         return CheckIfOk(nums, 0);
     }
-    bool CheckIfOk(vector<int> &nums, int start_from) {
+    bool CheckIfOk(vector<int>& nums, int start_from) {
         // pass
         if (start_from == nums.size()) {
             return true;

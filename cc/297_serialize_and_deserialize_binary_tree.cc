@@ -32,13 +32,13 @@ class Codec {
    public:
     // Encodes a tree to a single string.
     template <typename T>
-    string Serialize(TreeNode<T> *root) {
+    string Serialize(TreeNode<T>* root) {
         if (!root) return "";
         string s = "";
-        queue<TreeNode<T> *> q;
+        queue<TreeNode<T>*> q;
         q.push(root);
         while (!q.empty()) {
-            TreeNode<T> *cur = q.front();
+            TreeNode<T>* cur = q.front();
             q.pop();
             if (cur == nullptr)
                 s.append("#,");
@@ -56,19 +56,19 @@ class Codec {
     }
 
     // Decodes your encoded data to tree.
-    TreeNode<int> *Deserialize(string data) {
+    TreeNode<int>* Deserialize(string data) {
         if (data.size() == 0) return nullptr;
 
         stringstream s(data);
         string str;
         getline(s, str, ',');
         int x = stoi(str);
-        auto *root = new TreeNode(x);
-        queue<TreeNode<int> *> q;
+        auto* root = new TreeNode(x);
+        queue<TreeNode<int>*> q;
         q.push(root);
 
         while (!q.empty()) {
-            auto *cur = q.front();
+            auto* cur = q.front();
             q.pop();
 
             getline(s, str, ',');
@@ -76,7 +76,7 @@ class Codec {
                 cur->left = nullptr;
             } else {
                 x = stoi(str);
-                auto *left_n = new TreeNode(x);
+                auto* left_n = new TreeNode(x);
                 cur->left = left_n;
                 q.push(left_n);
             }
@@ -86,7 +86,7 @@ class Codec {
                 cur->right = nullptr;
             } else {
                 x = stoi(str);
-                auto *right_n = new TreeNode(x);
+                auto* right_n = new TreeNode(x);
                 cur->right = right_n;
                 q.push(right_n);
             }
@@ -109,7 +109,7 @@ TEST(construtTest, t1) {
         1, 2, 3, optional<int>(), optional<int>(), 4, 5};
 
     std::vector<int> output = {1, 2, 3, 4, 5};
-    auto *ret = ConstructBinaryTree(input);
+    auto* ret = ConstructBinaryTree(input);
 
     PrintBt(ret);
     std::vector<int> vec;
@@ -123,7 +123,7 @@ TEST(memleak, t0) {
     std::vector<optional<int>> input{};
     std::vector<int> output = {};
 
-    auto *head = ConstructBinaryTree(input);
+    auto* head = ConstructBinaryTree(input);
 
     FreeTreeNode(head);
 }
@@ -133,7 +133,7 @@ TEST(serialize_and_deserialize_binary_tree, t1) {
     std::vector<optional<int>> input{1, 2, 3, null, null, 4, 5};
     std::vector<int> output = {1, 2, 3, 4, 5};
 
-    auto *head = ConstructBinaryTree(input);
+    auto* head = ConstructBinaryTree(input);
 
     PrintBt(head);
 
@@ -141,7 +141,7 @@ TEST(serialize_and_deserialize_binary_tree, t1) {
     std::string data = cl.Serialize(head);
 
     EXPECT_EQ(data, "1,2,3,#,#,4,5,#,#,#,#,");
-    auto *ret = cl.Deserialize(data);
+    auto* ret = cl.Deserialize(data);
 
     std::vector<int> vec;
     BfsSearch(ret, vec);
@@ -156,12 +156,12 @@ TEST(serialize_and_deserialize_binary_tree, t2) {
     std::vector<optional<int>> input(10, optional<int>());
     std::vector<int> output = {};
 
-    auto *head = ConstructBinaryTree(input);
+    auto* head = ConstructBinaryTree(input);
 
     Codec cl;
     string data = cl.Serialize(head);
     EXPECT_EQ(data, "");
-    auto *ret = cl.Deserialize(data);
+    auto* ret = cl.Deserialize(data);
 
     std::vector<int> vec;
     BfsSearch(ret, vec);

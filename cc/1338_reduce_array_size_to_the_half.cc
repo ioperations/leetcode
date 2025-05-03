@@ -18,14 +18,14 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    int MinSetSize(vector<int> &arr) {
+    int MinSetSize(vector<int>& arr) {
         int n = arr.size();
 
         unordered_map<int, int> mp;
         for (auto i : arr) mp[i]++;
 
         priority_queue<int> pq;
-        for (auto &[val, cnt] : mp) pq.push(cnt);
+        for (auto& [val, cnt] : mp) pq.push(cnt);
 
         int val = 0, sum = 0;
         while (!pq.empty() and sum < n / 2) {

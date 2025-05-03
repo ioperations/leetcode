@@ -24,7 +24,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    int CanCompleteCircuit(vector<int> &gas, vector<int> &cost) {
+    int CanCompleteCircuit(vector<int>& gas, vector<int>& cost) {
         /*
             n == gas.length == cost.length
             1 <= n <= 105
@@ -50,7 +50,7 @@ class Solution {
 
 class SolutionV {
    public:
-    int CanCompleteCircuit(std::vector<int> &gas, std::vector<int> &cost) {
+    int CanCompleteCircuit(std::vector<int>& gas, std::vector<int>& cost) {
         int curr_gas = 0;
         int total_gas = 0;
         size_t start = 0;

@@ -18,7 +18,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    vector<int> PlusOne(vector<int> &digits) {
+    vector<int> PlusOne(vector<int>& digits) {
         // pass
         int carry = 1;
 

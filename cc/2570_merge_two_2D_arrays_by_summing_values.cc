@@ -19,8 +19,8 @@ using namespace std;
 
 class Solution {
    public:
-    vector<vector<int>> mergeArrays(vector<vector<int>> &nums1,
-                                    vector<vector<int>> &nums2) {
+    vector<vector<int>> mergeArrays(vector<vector<int>>& nums1,
+                                    vector<vector<int>>& nums2) {
         size_t n1 = nums1.size();
         size_t n2 = nums2.size();
         size_t size = n1 + n2;
@@ -92,7 +92,7 @@ TEST(t0, t2) {
     // resulting list.
 }
 
-int main(int argc, char *argv[]) {
+int main(int argc, char* argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

@@ -15,18 +15,18 @@ using namespace std;
 
 class Solution {
    public:
-    int maximumSum(vector<int> &nums) {
+    int maximumSum(vector<int>& nums) {
         // 1 <= nums.length <= 105
         // 1 <= nums[i] <= 109
         unordered_map<int, priority_queue<int>> map;
 
-        for (auto &ptr : nums) {
+        for (auto& ptr : nums) {
             map[getDigitSum(ptr)].emplace(ptr);
         }
 
         int ret = -1;
-        for (auto &it : map) {
-            auto &n = it.second;
+        for (auto& it : map) {
+            auto& n = it.second;
             if (n.size() > 1) {
                 int v = n.top();
                 n.pop();
@@ -72,7 +72,7 @@ TEST(t0, t2) {
     // There are no two numbers that satisfy the conditions, so we return -1.
 }
 
-int main(int argc, char *argv[]) {
+int main(int argc, char* argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

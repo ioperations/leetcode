@@ -22,7 +22,7 @@
 namespace {
 class Solution {
    public:
-    void SortColors(std::vector<int> &nums) {
+    void SortColors(std::vector<int>& nums) {
         for (std::size_t i = 0; i < nums.size(); i++) {
             for (std::size_t j = i + 1; j < nums.size(); j++) {
                 if (nums[i] > nums[j]) {
@@ -31,7 +31,7 @@ class Solution {
             }
         }
     }
-    void Merge(std::vector<int> &nums, int low, int mid, int high) {
+    void Merge(std::vector<int>& nums, int low, int mid, int high) {
         std::vector<int> temp;
         temp.resize(nums.size());
 
@@ -53,10 +53,10 @@ class Solution {
             nums[i] = temp[k];
         }
     }
-    void SortColorsV2(std::vector<int> &nums) {
+    void SortColorsV2(std::vector<int>& nums) {
         MergeSort(nums, 0, nums.size() - 1);
     }
-    void MergeSort(std::vector<int> &nums, int low, int high) {
+    void MergeSort(std::vector<int>& nums, int low, int high) {
         if (low >= high) {
             return;
         }
@@ -67,7 +67,7 @@ class Solution {
     }
 };
 
-static void BenchBubbleSort(benchmark::State &state) {
+static void BenchBubbleSort(benchmark::State& state) {
     for (auto _ : state) {
         Solution s;
         std::vector<int> nums{2, 0, 2, 1, 1, 0};
@@ -76,7 +76,7 @@ static void BenchBubbleSort(benchmark::State &state) {
 }
 BENCHMARK(BenchBubbleSort);
 
-static void BenchMergeSort(benchmark::State &state) {
+static void BenchMergeSort(benchmark::State& state) {
     for (auto _ : state) {
         Solution s;
         std::vector<int> nums{2, 0, 2, 1, 1, 0};

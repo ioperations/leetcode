@@ -20,14 +20,14 @@ namespace {
 class Solution {
    public:
     template <typename T>
-    int MaxDepth(TreeNode<T> *root) {
+    int MaxDepth(TreeNode<T>* root) {
         Z(root, 1);
 
         return ret;
     }
 
     template <typename T>
-    void Z(TreeNode<T> *root, int n) {
+    void Z(TreeNode<T>* root, int n) {
         if (root == nullptr) return;
         if (n > ret) ret = n;
         Z(root->left, n + 1);
@@ -44,14 +44,14 @@ using namespace std;
 TEST(memleak, t0) {
     vector<optional<int>> elements{3,  9, 20, optional<int>(), optional<int>(),
                                    15, 7};
-    auto *binary_tree = ConstructBinaryTree(elements);
+    auto* binary_tree = ConstructBinaryTree(elements);
     FreeTreeNode(binary_tree);
 }
 
 TEST(maximum_depth_of_binary_tree, t1) {
     vector<optional<int>> elements{3,  9, 20, optional<int>(), optional<int>(),
                                    15, 7};
-    auto *binary_tree = ConstructBinaryTree(elements);
+    auto* binary_tree = ConstructBinaryTree(elements);
     Solution sl;
     int ret = sl.MaxDepth(binary_tree);
     EXPECT_EQ(ret, 3);
@@ -60,7 +60,7 @@ TEST(maximum_depth_of_binary_tree, t1) {
 
 TEST(maximum_depth_of_binary_tree, t2) {
     vector<optional<int>> elements{1, optional<int>(), 2};
-    auto *binary_tree = ConstructBinaryTree(elements);
+    auto* binary_tree = ConstructBinaryTree(elements);
     Solution sl;
     int ret = sl.MaxDepth(binary_tree);
     EXPECT_EQ(ret, 2);

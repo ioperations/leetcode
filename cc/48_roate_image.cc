@@ -27,7 +27,7 @@ class Solution {
      * @param @matrix 二维表
      * @return
      */
-    void Rotate(vector<vector<int>> &matrix) {
+    void Rotate(vector<vector<int>>& matrix) {
         /*
              ___ ___ ___      ___ ___ ___
             | 1 | 2 | 3 |    | 7 | 4 | 1 |

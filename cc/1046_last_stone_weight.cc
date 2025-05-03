@@ -24,9 +24,9 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    int LastStoneWeight(vector<int> &stones) {
+    int LastStoneWeight(vector<int>& stones) {
         std::priority_queue<int> q;
-        for (auto &ptr : stones) {
+        for (auto& ptr : stones) {
             q.push(ptr);
         }
 

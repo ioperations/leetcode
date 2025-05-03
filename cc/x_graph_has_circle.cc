@@ -14,7 +14,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    bool CanFinish(int num_courses, vector<vector<int>> &prerequisites) {
+    bool CanFinish(int num_courses, vector<vector<int>>& prerequisites) {
         // 记录顶点入度
         vector<int> indegree(num_courses, 0);
         // 邻接表
@@ -22,7 +22,7 @@ class Solution {
         int len = prerequisites.size();
         // 计算所有的顶点的入度值
         for (int i = 0; i < len; i++) {
-            vector<int> &item = prerequisites[i];
+            vector<int>& item = prerequisites[i];
             int cur_course = item[0];
             int pre_course = item[1];
             // 计算入度

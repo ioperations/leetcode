@@ -27,7 +27,7 @@ namespace {
 class Solution {
     std::vector<vector<int>> m_ret;
     template <typename T>
-    void Inorder(TreeNode<T> *root, std::vector<int> &path, int target_sum) {
+    void Inorder(TreeNode<T>* root, std::vector<int>& path, int target_sum) {
         if (root == nullptr) return;
         path.push_back(root->val);
         if (root->left) {
@@ -49,7 +49,7 @@ class Solution {
 
    public:
     template <typename T>
-    vector<vector<int>> PathSum(TreeNode<T> *root, int target_sum) {
+    vector<vector<int>> PathSum(TreeNode<T>* root, int target_sum) {
         std::vector<int> path;
 
         Inorder(root, path, target_sum);
@@ -71,7 +71,7 @@ TEST(path_sum_ii, t1) {
            22 5 + 8 + 4 + 5 = 22
     */
 
-    auto *node = ConstructBinaryTree(root);
+    auto* node = ConstructBinaryTree(root);
 
     Solution sl;
     auto ret = sl.PathSum(node, target_sum);
@@ -90,7 +90,7 @@ TEST(path_sum_ii, t2) {
            22 5 + 8 + 4 + 5 = 22
     */
 
-    auto *node = ConstructBinaryTree(root);
+    auto* node = ConstructBinaryTree(root);
 
     Solution sl;
     auto ret = sl.PathSum(node, target_sum);
@@ -109,7 +109,7 @@ TEST(path_sum_ii, t3) {
            22 5 + 8 + 4 + 5 = 22
     */
 
-    auto *node = ConstructBinaryTree(root);
+    auto* node = ConstructBinaryTree(root);
     Solution sl;
     auto ret = sl.PathSum(node, target_sum);
 

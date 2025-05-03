@@ -14,7 +14,7 @@ class Solution {
     }
 
    private:
-    static std::string Reverse(const std::string &s) {
+    static std::string Reverse(const std::string& s) {
         if (s.size() <= 1) {
             return s;
         }

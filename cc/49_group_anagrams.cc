@@ -20,7 +20,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    vector<vector<string>> GroupAnagrams(vector<string> &strs) {
+    vector<vector<string>> GroupAnagrams(vector<string>& strs) {
         unordered_map<string, vector<string>> mapp;
         for (auto str : strs) {
             string st = str;

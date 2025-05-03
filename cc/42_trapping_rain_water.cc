@@ -32,7 +32,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    int Trap(vector<int> &height) {
+    int Trap(vector<int>& height) {
         int n = height.size();
         int left = 0;
         int right = n - 1;

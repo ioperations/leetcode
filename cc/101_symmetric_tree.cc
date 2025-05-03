@@ -18,7 +18,7 @@ using TreeNode = Tree::TreeNode<int>;
 namespace {
 class Solution {
    public:
-    bool IsSymmetric(TreeNode *root) {
+    bool IsSymmetric(TreeNode* root) {
         if (root == nullptr) {
             return true;
         }
@@ -27,9 +27,9 @@ class Solution {
         std::vector<int> q;
 
         Inorder<true>(root->left,
-                      [&p](const TreeNode *n) { p.push_back(n->val); });
+                      [&p](const TreeNode* n) { p.push_back(n->val); });
         Inorder<false>(root->right,
-                       [&q](const TreeNode *n) { q.push_back(n->val); });
+                       [&q](const TreeNode* n) { q.push_back(n->val); });
 
         if (p.size() != q.size()) {
             return false;
@@ -45,7 +45,7 @@ class Solution {
     }
 
     template <bool from_left_to_right>
-    void Inorder(TreeNode *root, std::function<void(const TreeNode *)> fun) {
+    void Inorder(TreeNode* root, std::function<void(const TreeNode*)> fun) {
         if (root == nullptr) {
             return;
         }
@@ -77,7 +77,7 @@ TEST(symmetric_tree, t1) {
     */
 
     std::vector<std::optional<int>> data{1, 2, 2, 3, 4, 4, 3};
-    TreeNode *root = Tree::ConstructBinaryTree(data);
+    TreeNode* root = Tree::ConstructBinaryTree(data);
     Solution sl;
     bool ret = sl.IsSymmetric(root);
     EXPECT_EQ(ret, true);
@@ -99,7 +99,7 @@ TEST(symmetric_tree, t2) {
 
 #define null std::optional<int>()
     std::vector<std::optional<int>> data{1, 2, 2, null, 3, null, 3};
-    TreeNode *root = Tree::ConstructBinaryTree(data);
+    TreeNode* root = Tree::ConstructBinaryTree(data);
     Solution sl;
     bool ret = sl.IsSymmetric(root);
     EXPECT_EQ(ret, false);

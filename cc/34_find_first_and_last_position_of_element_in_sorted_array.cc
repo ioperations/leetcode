@@ -18,7 +18,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    vector<int> SearchRange(vector<int> &nums, int target) {
+    vector<int> SearchRange(vector<int>& nums, int target) {
         vector<int> ans(2, -1);
         if (nums.size() == 0) return ans;  // base case
         auto it = lower_bound(nums.begin(), nums.end(), target);

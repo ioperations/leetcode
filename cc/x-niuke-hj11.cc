@@ -7,7 +7,7 @@
 
 namespace {
 
-std::string ReturnS(const char *s, int len) {
+std::string ReturnS(const char* s, int len) {
     if (len == 0) {
         return "";
     }

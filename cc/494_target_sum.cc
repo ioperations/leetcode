@@ -22,7 +22,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    int FindTargetSumWaysV2(vector<int> &nums, int target) {
+    int FindTargetSumWaysV2(vector<int>& nums, int target) {
         /*
             1<= nums.length <= 20
             0 <= nums[i] <= 1000
@@ -31,15 +31,15 @@ class Solution {
         */
         return 0;
     }
-    int FindTargetSumWays(vector<int> &nums, int target) {
+    int FindTargetSumWays(vector<int>& nums, int target) {
         int count = 0;
         int sum = 0;
         Backtrack(nums, target, 0, count, sum);
         return count;
     }
 
-    void Backtrack(vector<int> &nums, int target, int index, int &count,
-                   int &sum) {
+    void Backtrack(vector<int>& nums, int target, int index, int& count,
+                   int& sum) {
         if (index == (int)nums.size()) {
             if (target == sum) count++;
         } else {

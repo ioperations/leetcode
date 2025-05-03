@@ -19,7 +19,7 @@ using namespace std;
 
 class Solution {
    public:
-    int numberOfAlternatingGroups(vector<int> &colors, int k) {
+    int numberOfAlternatingGroups(vector<int>& colors, int k) {
         colors.insert(colors.end(), colors.begin(), colors.begin() + (k - 1));
         int count = 0;
         int left = 0;
@@ -67,7 +67,7 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char *argv[]) {
+int main(int argc, char* argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

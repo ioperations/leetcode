@@ -28,7 +28,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    int MaxScore(vector<int> &card_points, int k) {
+    int MaxScore(vector<int>& card_points, int k) {
         map<tuple<int, int, int>, int> map;
         function<int(int, int, int)> fun = [&](int left, int right,
                                                int k) -> int {
@@ -49,7 +49,7 @@ class Solution {
 
         return fun(0, (int)(card_points.size() - 1), k);
     }
-    int MaxScoreV2(vector<int> &card_points, int k) {
+    int MaxScoreV2(vector<int>& card_points, int k) {
         long long sum = accumulate(card_points.begin(), card_points.end(), 0LL);
 
         int ans = 0;

@@ -7,6 +7,7 @@
 */
 
 #include <benchmark/benchmark.h>
+
 #include <stack>
 #include <string>
 #include <utility>
@@ -68,8 +69,6 @@ class Solution {
     }
 };
 
-
-
 TEST(reverse_words_in_a_string_iii, t1) {
     string const s = "Let's take LeetCode contest";
     string const output = "s'teL ekat edoCteeL tsetnoc";
@@ -86,7 +85,7 @@ TEST(reverse_words_in_a_string_iii, t2) {
     EXPECT_EQ(ret, output);
 }
 
-static void BenchMarkStack(benchmark::State &state) {
+static void BenchMarkStack(benchmark::State& state) {
     string const s = "Let's take LeetCode contest";
     Solution sl;
     string const output = "s'teL ekat edoCteeL tsetnoc";
@@ -97,7 +96,7 @@ static void BenchMarkStack(benchmark::State &state) {
 }
 BENCHMARK(BenchMarkStack);
 
-static void BenchMarkTwoPointer(benchmark::State &state) {
+static void BenchMarkTwoPointer(benchmark::State& state) {
     string const s = "Let's take LeetCode contest";
     Solution sl;
     string const output = "s'teL ekat edoCteeL tsetnoc";

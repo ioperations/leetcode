@@ -31,7 +31,7 @@ class NumberContainers {
     void change(int index, int number) {
         if (table.count(index) != 0) {
             auto n = table[index];
-            auto &z = hm[n];
+            auto& z = hm[n];
             z.erase(std::remove_if(z.begin(), z.end(),
                                    [&](auto i) { return (i == index); }),
                     z.end());
@@ -47,8 +47,8 @@ class NumberContainers {
         auto it = hm.find(number);
         if (it != hm.end()) {
             int idx = std::numeric_limits<int>::max();
-            auto &all = it->second;
-            for (auto &ptr : all) {
+            auto& all = it->second;
+            for (auto& ptr : all) {
                 if (ptr < idx) {
                     idx = ptr;
                 }
@@ -195,7 +195,7 @@ TEST(t1, t1) {
     */
 }
 
-int main(int argc, char *argv[]) {
+int main(int argc, char* argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

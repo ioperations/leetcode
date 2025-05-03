@@ -48,10 +48,10 @@ class Node {
    public:
     bool val;
     bool is_leaf;
-    Node *top_left;
-    Node *top_right;
-    Node *bottom_left;
-    Node *bottom_right;
+    Node* top_left;
+    Node* top_right;
+    Node* bottom_left;
+    Node* bottom_right;
 
     Node() {
         val = false;
@@ -71,8 +71,8 @@ class Node {
         bottom_right = nullptr;
     }
 
-    Node(bool n_val, bool n_is_leaf, Node *n_top_left, Node *n_top_rightt,
-         Node *n_bottom_left, Node *n_bottom_rightt) {
+    Node(bool n_val, bool n_is_leaf, Node* n_top_left, Node* n_top_rightt,
+         Node* n_bottom_left, Node* n_bottom_rightt) {
         val = n_val;
         is_leaf = n_is_leaf;
         top_left = n_top_left;
@@ -87,17 +87,17 @@ using namespace std;
 
 class Solution {
    public:
-    Node *Construct(vector<vector<int>> &grid) {
-        std::function<Node *(int i, int j, int len)> fun =
-            [&](int i, int j, int len) -> Node * {
+    Node* Construct(vector<vector<int>>& grid) {
+        std::function<Node*(int i, int j, int len)> fun =
+            [&](int i, int j, int len) -> Node* {
             if (len == 1) {
                 return new Node(grid[i][j], true);
             }
             int size = len / 2;
-            auto *top_left = fun(i, j, size);
-            auto *top_right = fun(i, j + size, size);
-            auto *bottom_left = fun(i + size, j, size);
-            auto *bottom_right = fun(i + size, j + size, size);
+            auto* top_left = fun(i, j, size);
+            auto* top_right = fun(i, j + size, size);
+            auto* bottom_left = fun(i + size, j, size);
+            auto* bottom_right = fun(i + size, j + size, size);
             if (top_left->is_leaf && top_right->is_leaf &&
                 bottom_left->is_leaf && bottom_right->is_leaf) {
                 if ((top_left->val == top_right->val) &&
@@ -121,13 +121,13 @@ class Solution {
 
 #define null optional<vector<int>>()
 
-vector<optional<vector<int>>> FlattenQuadTree(Node *n) {
+vector<optional<vector<int>>> FlattenQuadTree(Node* n) {
     // pass
-    std::queue<Node *> q;
+    std::queue<Node*> q;
     q.push(n);
     vector<optional<vector<int>>> ret;
     while (q.size()) {
-        auto *n = q.front();
+        auto* n = q.front();
         if (n == nullptr) {
             ret.push_back(null);
             ret.push_back(null);
@@ -159,8 +159,7 @@ TEST(construct_quad_tree, t1) {
         vector<int>{1, 0},
         vector<int>{1, 1},
         vector<int>{1, 1},
-        vector<int>{1, 0}
-        // clang-format on
+        vector<int>{1, 0}  // clang-format on
     };
     // Explanation
     // : The explanation of this example is shown below
@@ -168,7 +167,7 @@ TEST(construct_quad_tree, t1) {
     // 1 represents True in the photo representing the Quad - Tree.
 
     Solution sl;
-    auto *ret = sl.Construct(grid);
+    auto* ret = sl.Construct(grid);
     auto flattern = FlattenQuadTree(ret);
     EXPECT_EQ(flattern, output);
 }
@@ -210,7 +209,7 @@ TEST(construct_quad_tree, t2) {
     // sub-grids where each has the same value
 
     Solution sl;
-    auto *ret = sl.Construct(grid);
+    auto* ret = sl.Construct(grid);
     auto flattern = FlattenQuadTree(ret);
     EXPECT_EQ(flattern, output);
 }

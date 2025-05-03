@@ -41,7 +41,7 @@ class Solution {
         }
         return dp[i][j] = val;
     }
-    int LongestIncreasingPath(vector<vector<int>> &matrix) {
+    int LongestIncreasingPath(vector<vector<int>>& matrix) {
         this->a = matrix;
         n = matrix.size();
         m = matrix[0].size();

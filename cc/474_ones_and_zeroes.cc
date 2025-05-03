@@ -21,7 +21,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    int FindMaxForm(vector<std::string> &strs, int m, int n) {
+    int FindMaxForm(vector<std::string>& strs, int m, int n) {
         vector<string> strings = {""};
         strings.insert(strings.end(), strs.begin(), strs.end());
 
@@ -48,12 +48,12 @@ class Solution {
 
         return arr[strings.size() - 1][m][n];
     }
-    int FindMaxFormV1(vector<std::string> &strs, int m, int n) {
+    int FindMaxFormV1(vector<std::string>& strs, int m, int n) {
         // pass
         vector<pair<int /* length of 1 */, int /* length of 0 */>> strs_count;
         strs_count.reserve(strs.size());
 
-        for (auto &ptr : strs) {
+        for (auto& ptr : strs) {
             // int first = std::count(ptr.begin(), ptr.end(), [](const char c) {
             // return c == '1'; });
             int first = 0;
@@ -64,8 +64,6 @@ class Solution {
         return 0;
     }
 };
-
-
 
 TEST(ones_and_zeroes, t1) {
     vector<string> strs = {"10", "0001", "111001", "1", "0"};
@@ -92,4 +90,4 @@ TEST(ones_and_zeroes, t2) {
     EXPECT_EQ(ret, output);
 }
 
-} // namespace
+}  // namespace

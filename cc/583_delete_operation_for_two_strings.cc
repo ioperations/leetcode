@@ -8,15 +8,15 @@ In one step, you can delete exactly one character in either string.
 
 */
 
+#include <algorithm>
 #include <string>
 #include <vector>
-#include <algorithm>
 
 #include "gtest/gtest.h"
 
 using namespace std;
 
-namespace { 
+namespace {
 class Solution {
    public:
     int Lcs(string s, string t) {
@@ -47,8 +47,6 @@ class Solution {
     }
 };
 
-
-
 TEST(delete_operation_for_two_strings, t1) {
     string word1 = "sea", word2 = "eat";
     int output = 2;
@@ -69,4 +67,4 @@ TEST(delete_operation_for_two_strings, t2) {
     EXPECT_EQ(ret, output);
 }
 
-}
+}  // namespace

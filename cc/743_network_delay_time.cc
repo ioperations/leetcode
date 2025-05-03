@@ -25,9 +25,9 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    int NetworkDelayTime(vector<vector<int>> &times, int n, int k) {
+    int NetworkDelayTime(vector<vector<int>>& times, int n, int k) {
         vector<vector<pair<int, int>>> adj(n + 1);
-        for (auto &it : times) {
+        for (auto& it : times) {
             adj[it[0]].push_back({it[1], it[2]});
         }
 
@@ -41,7 +41,7 @@ class Solution {
             while (sz--) {
                 auto [node, prev] = q.front();
                 q.pop();
-                for (auto &it : adj[node]) {
+                for (auto& it : adj[node]) {
                     int curr_time = prev + it.second;
                     if (dist[it.first] > curr_time) {
                         dist[it.first] = curr_time;
@@ -63,13 +63,13 @@ class Solution {
     const int max_time = 1e8;
     using pa = pair<int, int>;
 
-    int NetworkDelayTimeV1(vector<vector<int>> &times, int n, int k) {
+    int NetworkDelayTimeV1(vector<vector<int>>& times, int n, int k) {
         vector<vector<pa>> graph(n + 1);
         vector<int> visited(n + 1);
         vector<int> dist(n + 1, max_time);
         dist[k] = 0;
 
-        for (auto &edge : times) {
+        for (auto& edge : times) {
             int u = edge[0], v = edge[1], time = edge[2];
             graph[u].push_back({time, v});
         }
@@ -82,7 +82,7 @@ class Solution {
 
             if (visited[current_node]) continue;
 
-            for (auto &[time, adj_current_node] : graph[current_node]) {
+            for (auto& [time, adj_current_node] : graph[current_node]) {
                 if (current_time + time < dist[adj_current_node]) {
                     dist[adj_current_node] = current_time + time;
                     pq.push({dist[adj_current_node], adj_current_node});

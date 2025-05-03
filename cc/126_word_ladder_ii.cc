@@ -34,7 +34,7 @@ class Solution {
         for (int i = 0; i < (int)s.length(); i++) c += (s[i] != t[i]);
         return c == 1;
     }
-    void Bfs(vector<vector<int>> &g, vector<vector<int>> &parent, int n, int sr,
+    void Bfs(vector<vector<int>>& g, vector<vector<int>>& parent, int n, int sr,
              int ds) {
         vector<int> dist(n, 1005);
         queue<int> q;
@@ -55,8 +55,8 @@ class Solution {
             }
         }
     }
-    void ShortestPaths(vector<vector<int>> &paths, vector<int> &path,
-                       vector<vector<int>> &parent, int node) {
+    void ShortestPaths(vector<vector<int>>& paths, vector<int>& path,
+                       vector<vector<int>>& parent, int node) {
         if (node == -1) {
             paths.push_back(path);
             return;
@@ -68,7 +68,7 @@ class Solution {
         }
     }
     vector<vector<string>> FindLadders(string begin_wordd, string end_word,
-                                       vector<string> &word_list) {
+                                       vector<string>& word_list) {
         int n = word_list.size(), sr = -1, ds = -1;
         vector<vector<string>> ans;
         for (int i = 0; i < n; i++) {

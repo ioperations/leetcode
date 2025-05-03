@@ -11,7 +11,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    string AddBinary(const string &a, const string &b) {
+    string AddBinary(const string& a, const string& b) {
         const std::array<char, 4> map = {'0', '1', '0', '1'};
         for (auto a_it = a.rbegin(), b_it = b.rbegin();
 

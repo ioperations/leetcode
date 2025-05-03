@@ -16,7 +16,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    string Mapping(vector<int> &row) {
+    string Mapping(vector<int>& row) {
         std::string ans = "";
 
         for (int j : row) ans += to_string(j) + "#";
@@ -24,7 +24,7 @@ class Solution {
         return ans;
     }
 
-    int EqualPairs(vector<vector<int>> &grid) {
+    int EqualPairs(vector<vector<int>>& grid) {
         int count = 0;
         int n = grid.size();
         unordered_map<string, int> mp;

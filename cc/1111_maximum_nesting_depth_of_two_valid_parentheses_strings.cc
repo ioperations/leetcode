@@ -38,7 +38,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    std::vector<int> MaxDepthAfterSplit(const string &seq) {
+    std::vector<int> MaxDepthAfterSplit(const string& seq) {
         std::vector<int> ans{};
         std::stack<char> s;
         for (auto c : seq) {

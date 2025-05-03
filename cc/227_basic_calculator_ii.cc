@@ -82,7 +82,6 @@ class Solution {
     }
 };
 
-
 TEST(basic_calculator_ii, t1) {
     string s = "3+2*2";
     int output = 7;
@@ -107,4 +106,4 @@ TEST(basic_calculator_ii, t3) {
     EXPECT_EQ(ret, output);
 }
 
-} // namespace
+}  // namespace

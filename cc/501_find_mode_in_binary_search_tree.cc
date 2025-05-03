@@ -30,17 +30,17 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    vector<int> FindMode(TreeNode *root) {
+    vector<int> FindMode(TreeNode* root) {
         vector<int> sol;
         if (!root) return sol;
 
         map<int, int> freq;
         int maxfreq = std::numeric_limits<int>::min();
 
-        stack<TreeNode *> myst;
+        stack<TreeNode*> myst;
         myst.push(root);
         while (myst.size()) {
-            TreeNode *curr = myst.top();
+            TreeNode* curr = myst.top();
             myst.pop();
 
             freq[curr->val]++;
@@ -56,7 +56,7 @@ class Solution {
         return sol;
     }
 
-    void InorderLeft(TreeNode *root, std::map<int, int> &count) {
+    void InorderLeft(TreeNode* root, std::map<int, int>& count) {
         if (root == nullptr) {
             return;
         }
@@ -71,7 +71,7 @@ TEST(find_mode_in_binary_search_tree, t1) {
     std::vector<int> root = {1, 2, 2};
     std::vector<int> output{2};
 
-    TreeNode *node = Tree::ConstructTree(root);
+    TreeNode* node = Tree::ConstructTree(root);
 
     Solution sl;
     auto ret = sl.FindMode(node);
@@ -85,7 +85,7 @@ TEST(find_mode_in_binary_search_tree, t2) {
     std::vector<int> root = {1};
     std::vector<int> output{1};
 
-    TreeNode *node = Tree::ConstructTree(root);
+    TreeNode* node = Tree::ConstructTree(root);
 
     Solution sl;
     auto ret = sl.FindMode(node);

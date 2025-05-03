@@ -35,7 +35,7 @@ class Solution {
         return all[k - 1];
     }
 
-    void Gen(vector<string> &list, string &cur, char last, int index, int n) {
+    void Gen(vector<string>& list, string& cur, char last, int index, int n) {
         if (index >= n) {
             list.push_back(cur);
             return;
@@ -82,7 +82,7 @@ TEST(t0, t3) {
     // find the 9th string = "cab"
 }
 
-int main(int argc, char *argv[]) {
+int main(int argc, char* argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

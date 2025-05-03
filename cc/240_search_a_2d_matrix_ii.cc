@@ -17,7 +17,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    bool Binarys(vector<int> &row, int target) {
+    bool Binarys(vector<int>& row, int target) {
         int l = 0, r = row.size();
         while (l < r) {
             int mid = l + (r - l) / 2;
@@ -30,7 +30,7 @@ class Solution {
         return false;
     }
 
-    bool SearchMatrix(vector<vector<int>> &matrix, int target) {
+    bool SearchMatrix(vector<vector<int>>& matrix, int target) {
         int i = 0;
         int j = matrix[0].size() - 1;
 

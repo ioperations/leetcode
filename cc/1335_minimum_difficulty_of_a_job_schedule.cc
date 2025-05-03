@@ -27,7 +27,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    int MinDifficulty(vector<int> &job_difficulty, int d) {
+    int MinDifficulty(vector<int>& job_difficulty, int d) {
         int const n = job_difficulty.size();
         job_difficulty.insert(job_difficulty.begin(), 0);
         vector<vector<int>> dp(n + 1, vector<int>(d + 1, INT_MAX / 2));
@@ -52,8 +52,8 @@ class Solution {
         return dp[n][d];
     }
 
-    int Dfs(const vector<int> &jobs, int start_idx, int days_left,
-            vector<vector<int>> &memo) {
+    int Dfs(const vector<int>& jobs, int start_idx, int days_left,
+            vector<vector<int>>& memo) {
         if (start_idx >= (int)jobs.size()) {
             return std::numeric_limits<int>::max();
         }
@@ -83,7 +83,7 @@ class Solution {
         return state_value;
     }
 
-    int MinDifficultyV2(vector<int> &job_difficulty, int d) {
+    int MinDifficultyV2(vector<int>& job_difficulty, int d) {
         vector<vector<int>> memo(job_difficulty.size(), vector<int>(d + 1, -1));
 
         int const result = Dfs(job_difficulty, 0, d, memo);

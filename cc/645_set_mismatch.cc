@@ -23,7 +23,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    vector<int> FindErrorNums(vector<int> &nums) {
+    vector<int> FindErrorNums(vector<int>& nums) {
         int n = nums.size();
         vector<int> arr(n + 1, 0);
         vector<int> vec;

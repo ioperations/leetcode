@@ -16,7 +16,7 @@ enum type {
     LENGTH,
 };
 
-void Func(const char *s, int len) {
+void Func(const char* s, int len) {
     int classfy[type::LENGTH] = {0};
 
     for (int i = 0; i < len; ++i) {

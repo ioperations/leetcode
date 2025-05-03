@@ -26,9 +26,9 @@ class LoserTree {
     // 败者树根节点为ls[1]
     vector<int> ls;
 
-    vector<int> *base;  // 数组副本(叶节点数据)
+    vector<int>* base;  // 数组副本(叶节点数据)
    public:
-    LoserTree(vector<int> &nums) {
+    LoserTree(vector<int>& nums) {
         const int nums_size = nums.size();
         if (nums_size == 0) return;
         const int power_num = ceil(log2(nums_size));
@@ -89,9 +89,9 @@ class LoserTree {
 
 class Solution {
    public:
-    std::vector<int> GetLeastNumbers(std::vector<int> &arr, int k) {
+    std::vector<int> GetLeastNumbers(std::vector<int>& arr, int k) {
         std::vector<int> ans;
-        LoserTree *lstree = new LoserTree(arr);
+        LoserTree* lstree = new LoserTree(arr);
         for (int i = 0; i < k; i++) {
             const int min = lstree->GetMin();
             ans.push_back(min);
@@ -100,7 +100,7 @@ class Solution {
         return ans;
     }
 
-    MyListNode *MergeTwoLists(MyListNode *a, MyListNode *b) {
+    MyListNode* MergeTwoLists(MyListNode* a, MyListNode* b) {
         if ((!a) || (!b)) return a ? a : b;
         MyListNode head, *tail = &head, *a_ptr = a, *b_ptr = b;
         while (a_ptr && b_ptr) {
@@ -117,8 +117,8 @@ class Solution {
         return head.next;
     }
 
-    MyListNode *MergeKListsv1(vector<MyListNode *> &lists) {
-        MyListNode *ans = nullptr;
+    MyListNode* MergeKListsv1(vector<MyListNode*>& lists) {
+        MyListNode* ans = nullptr;
         for (size_t i = 0; i < lists.size(); ++i) {
             ans = MergeTwoLists(ans, lists[i]);
         }
@@ -127,15 +127,15 @@ class Solution {
 
     struct Status {
         int val;
-        MyListNode *ptr;
-        bool operator<(const Status &rhs) const { return val > rhs.val; }
+        MyListNode* ptr;
+        bool operator<(const Status& rhs) const { return val > rhs.val; }
     };
 
     std::priority_queue<Status> q;
 
     //  最小堆实现k路归并排序
-    MyListNode *MergeKListsPriorityQueue(std::vector<MyListNode *> &lists) {
-        for (auto *node : lists) {
+    MyListNode* MergeKListsPriorityQueue(std::vector<MyListNode*>& lists) {
+        for (auto* node : lists) {
             if (node) q.push({node->val, node});
         }
         MyListNode head, *tail = &head;
@@ -151,25 +151,25 @@ class Solution {
 
     ///* k路归并排序 升序
     ///* 听说用最小堆,还可以用败者树
-    MyListNode *MergeKLists(vector<MyListNode *> &lists) {
+    MyListNode* MergeKLists(vector<MyListNode*>& lists) {
         // 我们记录这一路 走到了什么位置
-        std::vector<MyListNode *> cursors;
+        std::vector<MyListNode*> cursors;
 
         cursors = lists;
 
         // 对于每一路我们拿出值最小的那个值(这个node !=
         // nullptr)，并将这一路的游标向右移动一格
 
-        MyListNode *head = nullptr;
-        MyListNode *pre;
+        MyListNode* head = nullptr;
+        MyListNode* pre;
 
         int first = true;
 
         while (true) {
-            MyListNode *candidate =
+            MyListNode* candidate =
                 nullptr;  // 所以现在的问题是怎样确定这个candidate
             const int val = std::numeric_limits<int>::max();
-            for (auto &cur_cursor : cursors) {
+            for (auto& cur_cursor : cursors) {
                 if (cur_cursor == nullptr) {
                     continue;
                 }
@@ -200,9 +200,9 @@ class Solution {
 };
 
 TEST(memleak, t1) {
-    MyListNode *n1 = new MyListNode(1);
-    MyListNode *n2 = new MyListNode(3);
-    MyListNode *n3 = new MyListNode(4);
+    MyListNode* n1 = new MyListNode(1);
+    MyListNode* n2 = new MyListNode(3);
+    MyListNode* n3 = new MyListNode(4);
     n1->next = n2;
     n2->next = n3;
 
@@ -212,14 +212,14 @@ TEST(memleak, t1) {
 TEST(memleak, t2) {
     std::vector<int> list1{1, 4, 5};
 
-    MyListNode *n1 = ConstructList(list1);
+    MyListNode* n1 = ConstructList(list1);
     FreeList(n1);
 }
 
 TEST(memleak, t3) {
     std::vector<int> list1{1, 4, 5};
 
-    MyListNode *n1 = ConstructList<int>(list1);
+    MyListNode* n1 = ConstructList<int>(list1);
     FreeList(n1);
 }
 
@@ -230,22 +230,22 @@ TEST(merge_k_sorted_list_v2, t1_1) {
     std::vector<int> list2{1, 3, 4};
     std::vector<int> list3{2, 6};
 
-    MyListNode *n1 = ConstructList(list1);
-    MyListNode *n2 = ConstructList(list2);
-    MyListNode *n3 = ConstructList(list3);
+    MyListNode* n1 = ConstructList(list1);
+    MyListNode* n2 = ConstructList(list2);
+    MyListNode* n3 = ConstructList(list3);
 
-    std::vector<MyListNode *> merge_list{n1, n2, n3};
+    std::vector<MyListNode*> merge_list{n1, n2, n3};
 
     Solution s;
     // 1->1->2->3->4->4->5->6
-    auto *ret = s.MergeKListsv1(merge_list);
+    auto* ret = s.MergeKListsv1(merge_list);
 
     FreeList(ret);
 }
 
-void ExpectEqList(MyListNode *list, const std::vector<int> &elemets) {
+void ExpectEqList(MyListNode* list, const std::vector<int>& elemets) {
     int count = 0;
-    MyListNode *ptr = list;
+    MyListNode* ptr = list;
     while (ptr != nullptr) {
         EXPECT_EQ(ptr->val, elemets[count]);
         ptr = ptr->next;
@@ -260,15 +260,15 @@ TEST(merge_k_sorted_list_v2, priority_queue) {
     std::vector<int> list2{1, 3, 4};
     std::vector<int> list3{2, 6};
 
-    MyListNode *n1 = ConstructList(list1);
-    MyListNode *n2 = ConstructList(list2);
-    MyListNode *n3 = ConstructList(list3);
+    MyListNode* n1 = ConstructList(list1);
+    MyListNode* n2 = ConstructList(list2);
+    MyListNode* n3 = ConstructList(list3);
 
-    std::vector<MyListNode *> merge_list{n1, n2, n3};
+    std::vector<MyListNode*> merge_list{n1, n2, n3};
 
     Solution s;
     // 1->1->2->3->4->4->5->6
-    auto *ret = s.MergeKListsPriorityQueue(merge_list);
+    auto* ret = s.MergeKListsPriorityQueue(merge_list);
 
     std::vector<int> expected{1, 1, 2, 3, 4, 4, 5, 6};
     ExpectEqList(ret, expected);
@@ -279,10 +279,10 @@ TEST(merge_k_sorted_list_v2, null) {
     /// Input: lists = [[1,4,5],[1,3,4],[2,6]]
     /// Output: [1,1,2,3,4,4,5,6]
 
-    std::vector<MyListNode *> merge_list{};
+    std::vector<MyListNode*> merge_list{};
 
     Solution s;
-    auto *ret = s.MergeKLists(merge_list);
+    auto* ret = s.MergeKLists(merge_list);
 
     EXPECT_EQ(ret, nullptr);
     // FreeListList(ret);
@@ -293,11 +293,11 @@ TEST(merge_k_sorted_list_v2, null2) {
     /// Output: [1,1,2,3,4,4,5,6]
     std::vector<int> list1{};
 
-    MyListNode *n1 = ConstructList(list1);
-    std::vector<MyListNode *> merge_list{n1};
+    MyListNode* n1 = ConstructList(list1);
+    std::vector<MyListNode*> merge_list{n1};
 
     Solution s;
-    auto *ret = s.MergeKLists(merge_list);
+    auto* ret = s.MergeKLists(merge_list);
 
     EXPECT_EQ(ret, nullptr);
 

@@ -13,7 +13,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    std::vector<int> Solve(vector<int> &nums) {
+    std::vector<int> Solve(vector<int>& nums) {
         int size = nums.size();
         std::vector<int> ret(size, -1);
         stack<int> stack;

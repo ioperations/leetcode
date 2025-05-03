@@ -25,7 +25,7 @@ Space Complexity: O(1), constant space.
 
     */
 
-    int KthSmallest(vector<vector<int>> &matrix, int k) {
+    int KthSmallest(vector<vector<int>>& matrix, int k) {
         int m = matrix.size();
         int n = matrix[0].size();
         int low = matrix[0][0], high = matrix[m - 1][n - 1];
@@ -44,7 +44,7 @@ Space Complexity: O(1), constant space.
         return ans;
     }
 
-    int CountLessOrEqual(vector<vector<int>> &mat, int x) {
+    int CountLessOrEqual(vector<vector<int>>& mat, int x) {
         int m = mat.size();
         int n = mat[0].size();
         int cnt = 0;
@@ -57,7 +57,7 @@ Space Complexity: O(1), constant space.
 
         return cnt;
     }
-    int KthSmallestV2(vector<vector<int>> &matrix, int k) {
+    int KthSmallestV2(vector<vector<int>>& matrix, int k) {
         priority_queue<int, vector<int>, greater<int>> pq;
         for (int i = 0; i < (int)matrix.size(); i++) {
             for (int j = 0; j < (int)matrix.size(); j++) {

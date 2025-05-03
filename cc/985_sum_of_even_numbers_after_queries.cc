@@ -20,19 +20,19 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    vector<int> SumEvenAfterQueries(vector<int> &nums,
-                                    vector<vector<int>> &queries) {
+    vector<int> SumEvenAfterQueries(vector<int>& nums,
+                                    vector<vector<int>>& queries) {
         int sum = accumulate(begin(nums), end(nums), 0, [](int sum, int x) {
             return IsEven(x) ? sum + x : sum;
         });
 
         vector<int> ans;
         ans.reserve(size(queries));
-        for (const vector<int> &query : queries) {
+        for (const vector<int>& query : queries) {
             const int val = query[0];
             const int index = query[1];
 
-            int &num = nums[index];
+            int& num = nums[index];
 
             if (IsEven(num)) sum -= num;
             num += val;

@@ -19,7 +19,7 @@ using TreeNode = Tree::TreeNode<int>;
 namespace {
 class Solution {
    public:
-    int SumOfLeftLeaves(TreeNode *root) {
+    int SumOfLeftLeaves(TreeNode* root) {
         if (root == nullptr) {
             return 0;
         }
@@ -37,13 +37,13 @@ class Solution {
     }
 };
 
-TreeNode *AddToRoot(TreeNode *root, int val) {
+TreeNode* AddToRoot(TreeNode* root, int val) {
     if (root == nullptr) {
         return nullptr;
     }
     if (val < root->val) {
         if (root->left) {
-            TreeNode *head = AddToRoot(root->left, val);
+            TreeNode* head = AddToRoot(root->left, val);
             root->left = head;
             return root;
         }
@@ -51,7 +51,7 @@ TreeNode *AddToRoot(TreeNode *root, int val) {
 
     } else {
         if (root->right) {
-            TreeNode *head = AddToRoot(root->right, val);
+            TreeNode* head = AddToRoot(root->right, val);
             root->right = head;
             return root;
         }
@@ -60,12 +60,12 @@ TreeNode *AddToRoot(TreeNode *root, int val) {
     return root;
 }
 
-TreeNode *ConstructTree(const std::vector<int> &elements) {
+TreeNode* ConstructTree(const std::vector<int>& elements) {
     if (!elements.size()) {
         return nullptr;
     }
 
-    TreeNode *root = new TreeNode(elements[0]);
+    TreeNode* root = new TreeNode(elements[0]);
 
     for (int i = 1; i < (int)elements.size(); i++) {
         root = AddToRoot(root, elements[i]);
@@ -74,7 +74,7 @@ TreeNode *ConstructTree(const std::vector<int> &elements) {
     return root;
 }
 
-void FreeRoot(TreeNode *root) {
+void FreeRoot(TreeNode* root) {
     if (root == nullptr) {
         return;
     }
@@ -86,7 +86,7 @@ void FreeRoot(TreeNode *root) {
 
 TEST(sum_of_left_leaves, t1) {
     const std::vector<int> elements = {7, 3, 20, 15, 9};
-    TreeNode *root = ConstructTree(elements);
+    TreeNode* root = ConstructTree(elements);
     Solution s;
     const int ret = s.SumOfLeftLeaves(root);
     EXPECT_EQ(ret, 12);
@@ -96,7 +96,7 @@ TEST(sum_of_left_leaves, t1) {
 
 TEST(sum_of_left_leaves, t3) {
     const std::vector<int> elements = {1, 2, 3, 4, 5};
-    TreeNode *root = ConstructTree(elements);
+    TreeNode* root = ConstructTree(elements);
     Solution s;
     const int ret = s.SumOfLeftLeaves(root);
     EXPECT_EQ(ret, 0);
@@ -106,7 +106,7 @@ TEST(sum_of_left_leaves, t3) {
 
 TEST(sum_of_left_leaves, t2) {
     const std::vector<int> elements = {1};
-    TreeNode *root = ConstructTree(elements);
+    TreeNode* root = ConstructTree(elements);
     Solution s;
     const int ret = s.SumOfLeftLeaves(root);
     EXPECT_EQ(ret, 0);

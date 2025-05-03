@@ -20,7 +20,7 @@ namespace {
 class Solution {
    public:
     template <typename T>
-    vector<int> RightSideView(TreeNode<T> *root) {
+    vector<int> RightSideView(TreeNode<T>* root) {
         vector<int> ret;
         if (root == nullptr) return ret;
         ret.push_back(root->val);
@@ -30,7 +30,7 @@ class Solution {
     }
 
     template <typename T>
-    void FindRight(TreeNode<T> *root, vector<T> &ret, int &max_height,
+    void FindRight(TreeNode<T>* root, vector<T>& ret, int& max_height,
                    int now_height) {
         // pass
         if (root == nullptr) return;
@@ -47,7 +47,7 @@ class Solution {
 TEST(binary_tree_right_side_view, t1) {
     vector<optional<int>> root = {
         1, 2, 3, std::optional<int>(), 5, std::optional<int>(), 4};
-    TreeNode<int> *node = ConstructBinaryTree(root);
+    TreeNode<int>* node = ConstructBinaryTree(root);
     Solution sl;
     auto ret = sl.RightSideView(node);
     vector<int> output = {1, 3, 4};
@@ -58,7 +58,7 @@ TEST(binary_tree_right_side_view, t1) {
 
 TEST(binary_tree_right_side_view, t2) {
     vector<optional<int>> root = {1, std::optional<int>(), 3};
-    TreeNode<int> *node = ConstructBinaryTree(root);
+    TreeNode<int>* node = ConstructBinaryTree(root);
     Solution sl;
     auto ret = sl.RightSideView(node);
     vector<int> output = {1, 3};
@@ -69,7 +69,7 @@ TEST(binary_tree_right_side_view, t2) {
 
 TEST(binary_tree_right_side_view, t3) {
     vector<optional<int>> root = {};
-    TreeNode<int> *node = ConstructBinaryTree(root);
+    TreeNode<int>* node = ConstructBinaryTree(root);
     Solution sl;
     auto ret = sl.RightSideView(node);
     vector<int> output = {};

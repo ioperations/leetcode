@@ -19,7 +19,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    int MinMoves2(vector<int> &nums) {
+    int MinMoves2(vector<int>& nums) {
         // pass
         int n = nums.size();
         sort(nums.begin(), nums.end());

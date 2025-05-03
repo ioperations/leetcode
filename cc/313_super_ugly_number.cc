@@ -17,7 +17,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    int NthSuperUglyNumber(int n, vector<int> &primes) {
+    int NthSuperUglyNumber(int n, vector<int>& primes) {
         int n2 = primes.size();
         vector<int> dp(n2, 0);
         vector<long long> ans{1};

@@ -24,15 +24,15 @@ using ListNode = List::ListNode<int>;
 namespace {
 class Solution {
    public:
-    ListNode *ReverseKGroup(ListNode *head, int k) {
+    ListNode* ReverseKGroup(ListNode* head, int k) {
         // pass
 
         if (head == nullptr) {
             return nullptr;
         }
-        ListNode *this_tail = head;
-        ListNode *this_head_it = head;
-        ListNode *this_head_back = head;
+        ListNode* this_tail = head;
+        ListNode* this_head_it = head;
+        ListNode* this_head_back = head;
         bool reverse = true;
         for (int i = 1; i < k; i++) {
             if (this_head_it->next) {
@@ -44,7 +44,7 @@ class Solution {
         }
 
         if (reverse) {
-            ListNode *this_follow = ReverseKGroup(this_head_it->next, k);
+            ListNode* this_follow = ReverseKGroup(this_head_it->next, k);
             this_head_it->next = nullptr;
 
             this_head_back = ReverseList(this_head_back);
@@ -54,12 +54,12 @@ class Solution {
         return this_head_back;
     }
     /// 反转整个链表
-    ListNode *ReverseList(ListNode *head) {
+    ListNode* ReverseList(ListNode* head) {
         if (head == nullptr) {
             return nullptr;
         }
-        ListNode *this_head = head;
-        ListNode *this_follow = head->next;
+        ListNode* this_head = head;
+        ListNode* this_follow = head->next;
         this_head->next = nullptr;
 
         this_follow = ReverseList(this_follow);
@@ -67,7 +67,7 @@ class Solution {
             return this_head;
         }
 
-        ListNode *this_follow_it = this_follow;
+        ListNode* this_follow_it = this_follow;
 
         while (this_follow_it->next != nullptr) {
             this_follow_it = this_follow_it->next;
@@ -79,9 +79,9 @@ class Solution {
 
 #include <vector>
 
-void ExpectEqList(ListNode *const head, const std::vector<int> &elements) {
+void ExpectEqList(ListNode* const head, const std::vector<int>& elements) {
     int i = 0;
-    ListNode *m_head = head;
+    ListNode* m_head = head;
 
     while (m_head != nullptr) {
         EXPECT_EQ(m_head->val, elements[i]);
@@ -93,7 +93,7 @@ void ExpectEqList(ListNode *const head, const std::vector<int> &elements) {
 
 TEST(memleak, t0) {
     std::vector<int> head = {1, 2, 3, 4, 5};
-    ListNode *root = List::ConstructList(head);
+    ListNode* root = List::ConstructList(head);
 
     std::vector<int> expect = {1, 2, 3, 4, 5};
 
@@ -104,7 +104,7 @@ TEST(memleak, t0) {
 TEST(reverse_nodes_in_k_group, t0) {
     std::vector<int> head = {1, 2, 3, 4, 5};
     int k = 2;
-    ListNode *root = List::ConstructList(head);
+    ListNode* root = List::ConstructList(head);
 
     Solution s;
     root = s.ReverseKGroup(root, k);
@@ -119,7 +119,7 @@ TEST(reverse_nodes_in_k_group, t1) {
     std::vector<int> head = {1, 2, 3, 4, 5};
     int k = 3;
     std::vector<int> expect = {3, 2, 1, 4, 5};
-    ListNode *root = List::ConstructList(head);
+    ListNode* root = List::ConstructList(head);
 
     Solution s;
     root = s.ReverseKGroup(root, k);
@@ -134,7 +134,7 @@ TEST(reverse_nodes_in_k_group, t2) {
     std::vector<int> head = {1, 2, 3, 4, 5};
     int k = 1;
     std::vector<int> expect = {1, 2, 3, 4, 5};
-    ListNode *root = List::ConstructList(head);
+    ListNode* root = List::ConstructList(head);
 
     Solution s;
     root = s.ReverseKGroup(root, k);
@@ -144,4 +144,4 @@ TEST(reverse_nodes_in_k_group, t2) {
     // Output: [2,1,4,3,5]
     List::FreeList(root);
 }
-} // namespace
+}  // namespace

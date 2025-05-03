@@ -21,7 +21,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    vector<vector<int>> ThreeSum(vector<int> &nums) {
+    vector<vector<int>> ThreeSum(vector<int>& nums) {
         std::vector<std::vector<int>> ret;
 
         for (size_t i = 0; i < nums.size(); i++) {
@@ -38,7 +38,7 @@ class Solution {
         return ret;
     }
 
-    vector<vector<int>> ThreeSumV2(vector<int> &nums) {
+    vector<vector<int>> ThreeSumV2(vector<int>& nums) {
         size_t n = nums.size();
         vector<vector<int>> res;
         sort(nums.begin(), nums.end());
@@ -71,9 +71,9 @@ class Solution {
         return res;
     }
 
-    bool HasElements(const std::vector<std::vector<int>> &nums,
-                     const std::vector<int> &elements) noexcept {
-        for (auto &ptr : nums) {
+    bool HasElements(const std::vector<std::vector<int>>& nums,
+                     const std::vector<int>& elements) noexcept {
+        for (auto& ptr : nums) {
             if (Equal(ptr, elements)) return true;
         }
 
@@ -83,7 +83,7 @@ class Solution {
     // first.size() ==3 && second.size() ==3
     // first[0] + first[1]  + first[2]  =0
     // second[0] + second[1]  + second[2]  =0
-    bool Equal(const std::vector<int> &first, const std::vector<int> &second) {
+    bool Equal(const std::vector<int>& first, const std::vector<int>& second) {
         // assert(first.size() == second.size() == 3);
         if (first[0] == second[0]) {
             if (first[1] == second[1] || first[1] == second[2]) {
@@ -104,7 +104,7 @@ class Solution {
         return false;
     }
 
-    std::vector<int> TwoSum(vector<int> &nums, size_t left, int target) {
+    std::vector<int> TwoSum(vector<int>& nums, size_t left, int target) {
         std::vector<int> ret;
         for (size_t i = left; i < nums.size(); ++i) {
             for (size_t j = i + 1; j < nums.size(); j++) {
@@ -117,7 +117,6 @@ class Solution {
         return ret;
     }
 };
-
 
 TEST(sum, t1) {
     std::vector<int> nums = {-1, 0, 1, 2, -1, -4};
@@ -144,4 +143,4 @@ TEST(sum, t3) {
     EXPECT_EQ(ret, expected);
 }
 
-} // namespace
+}  // namespace

@@ -8,12 +8,12 @@ A string is a palindrome when it reads the same backward as forward.
 A substring is a contiguous sequence of characters within the string.*/
 
 #include <benchmark/benchmark.h>
+
 #include <string>
 
 #include "gtest/gtest.h"
 
 using namespace std;
-
 
 namespace {
 class Solution {
@@ -29,7 +29,7 @@ class Solution {
         }
         return count;
     }
-    bool IsParlindromic(std::string &s, int i, int j) {
+    bool IsParlindromic(std::string& s, int i, int j) {
         while (i < j) {
             if (s[i] == s[j]) {
                 i++;
@@ -63,7 +63,6 @@ class Solution {
         return count;
     }
 };
-
 
 TEST(palindromic_substrings, t1) {
     string s = "abc";
@@ -105,7 +104,7 @@ TEST(palindromic_substrings_v2, t2) {
     EXPECT_EQ(ret, output);
 }
 
-static void BenchMarkV1(benchmark::State &state) {
+static void BenchMarkV1(benchmark::State& state) {
     for (auto _ : state) {
         string s = "aaa";
         int output = 6;
@@ -119,7 +118,7 @@ static void BenchMarkV1(benchmark::State &state) {
 }
 BENCHMARK(BenchMarkV1);
 
-static void BenchMarkV0(benchmark::State &state) {
+static void BenchMarkV0(benchmark::State& state) {
     for (auto _ : state) {
         string s = "aaa";
         int output = 6;

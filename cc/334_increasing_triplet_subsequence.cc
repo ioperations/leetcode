@@ -19,7 +19,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    bool IncreasingTriplet(vector<int> &nums) {
+    bool IncreasingTriplet(vector<int>& nums) {
         int const n = nums.size();
         if (n < 3) {
             return 0;

@@ -41,8 +41,8 @@ class Solution {
     // 从最大的数开始填充，如果填充不了，就回溯到上一个数，尝试填充下一个数
     // 递归的方式，填充到最后一个数，如果填充成功，就返回true，否则返回false
     // 如果前面的填充不了，就填充1，就标记numberOneUsed为true，表示1已经被使用过了
-    bool Gen(vector<int> &results, const vector<int> &valueSet,
-             vector<bool> &exists, bool numberOneUsed, int index = 0,
+    bool Gen(vector<int>& results, const vector<int>& valueSet,
+             vector<bool>& exists, bool numberOneUsed, int index = 0,
              int fillsize = 0) {
         // 复杂度为O(n!)
         auto resultSize = results.size();
@@ -124,7 +124,7 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char *argv[]) {
+int main(int argc, char* argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

@@ -47,7 +47,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    bool ValidUtf8(vector<int> &data) {
+    bool ValidUtf8(vector<int>& data) {
         const int mask_10 = 0x80;     // 128
         const int mask_110 = 0xC0;    // 192
         const int mask_1110 = 0xE0;   // 224

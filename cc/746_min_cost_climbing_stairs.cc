@@ -22,7 +22,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    int MinCostClimbingStairs(vector<int> &cost) {
+    int MinCostClimbingStairs(vector<int>& cost) {
         // pass
         if ((int)cost.size() == 0) {
             return 0;

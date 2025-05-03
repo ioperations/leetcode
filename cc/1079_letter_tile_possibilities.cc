@@ -30,7 +30,7 @@ class Solution {
         return ret;
     }
 
-    void Gen(string &str, int &num, bool allowEnd = false) {
+    void Gen(string& str, int& num, bool allowEnd = false) {
         if (allowEnd && cache.count(str) == 0) {
             num += 1;
             cache.emplace(str);
@@ -83,7 +83,7 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char *argv[]) {
+int main(int argc, char* argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

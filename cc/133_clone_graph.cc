@@ -36,16 +36,16 @@ namespace {
 class Node {
    public:
     int val;
-    vector<Node *> neighbors;
+    vector<Node*> neighbors;
     Node() {
         val = 0;
-        neighbors = vector<Node *>();
+        neighbors = vector<Node*>();
     }
     Node(int my_val) {
         val = my_val;
-        neighbors = vector<Node *>();
+        neighbors = vector<Node*>();
     }
-    Node(int my_val, vector<Node *> my_neighbors) {
+    Node(int my_val, vector<Node*> my_neighbors) {
         val = my_val;
         neighbors = my_neighbors;
     }
@@ -53,9 +53,9 @@ class Node {
 
 class Solution {
    public:
-    unordered_map<int, Node *> track;
+    unordered_map<int, Node*> track;
 
-    Node *CloneGraph(Node *node) {
+    Node* CloneGraph(Node* node) {
         // node is nullptr then graph is empty
         if (node == nullptr) return nullptr;
 
@@ -63,7 +63,7 @@ class Solution {
         if (track.count(node->val)) return track[node->val];
 
         // create new node from node value
-        Node *n_node = new Node(node->val);
+        Node* n_node = new Node(node->val);
 
         // store new node object in track
         track[node->val] = n_node;
@@ -78,23 +78,23 @@ class Solution {
         return n_node;
     }
 
-    unordered_map<Node *, shared_ptr<Node>> visited;
+    unordered_map<Node*, shared_ptr<Node>> visited;
 
-    Node *CloneGraphV2(Node *node) {
+    Node* CloneGraphV2(Node* node) {
         if (node == nullptr) {
             return nullptr;
         }
 
         visited.clear();
-        queue<Node *> q;
+        queue<Node*> q;
         q.push(node);
         visited[node] = make_shared<Node>(node->val);
 
         while (!q.empty()) {
-            auto *current = q.front();
+            auto* current = q.front();
             q.pop();
 
-            for (auto *v : current->neighbors) {
+            for (auto* v : current->neighbors) {
                 if (visited.find(v) == visited.end()) {
                     visited[v] = make_shared<Node>(v->val);
                     q.push(v);
@@ -107,21 +107,21 @@ class Solution {
     }
 };
 
-Node *GetOrInsert(std::map<int, Node *> &map, int v) {
+Node* GetOrInsert(std::map<int, Node*>& map, int v) {
     if (map.find(v) == map.end()) {
-        Node *n = new Node(v);
+        Node* n = new Node(v);
         map[v] = n;
     }
     return map[v];
 }
 
-Node *BuildNode(vector<std::vector<int>> &adj_list) {
-    std::map<int, Node *> node;
+Node* BuildNode(vector<std::vector<int>>& adj_list) {
+    std::map<int, Node*> node;
     int count = 1;
-    for (auto &ptr : adj_list) {
-        for (auto &z : ptr) {
-            Node *to_insert = GetOrInsert(node, z);
-            Node *to_be_insert = GetOrInsert(node, count);
+    for (auto& ptr : adj_list) {
+        for (auto& z : ptr) {
+            Node* to_insert = GetOrInsert(node, z);
+            Node* to_be_insert = GetOrInsert(node, count);
             to_be_insert->neighbors.push_back(to_insert);
         }
         count++;
@@ -132,32 +132,32 @@ Node *BuildNode(vector<std::vector<int>> &adj_list) {
     return nullptr;
 }
 
-auto FreeGraph(Node *node) -> void {
+auto FreeGraph(Node* node) -> void {
     if (node == nullptr) {
         return;
     }
 
-    std::function<void(Node *, std::map<int, Node *> &)> impl =
-        [&](Node *node, std::map<int, Node *> &waiting) {
+    std::function<void(Node*, std::map<int, Node*>&)> impl =
+        [&](Node* node, std::map<int, Node*>& waiting) {
             if (waiting.find(node->val) != waiting.end()) {
                 return;
             }
             waiting[node->val] = node;
 
-            for (auto &ptr : node->neighbors) {
+            for (auto& ptr : node->neighbors) {
                 impl(ptr, waiting);
             }
         };
 
-    std::map<int, Node *> map;
+    std::map<int, Node*> map;
     impl(node, map);
 
-    for (auto &ptr : map) {
+    for (auto& ptr : map) {
         delete ptr.second;
     }
 }
 
-void CheckEqual(Node *node, std::vector<std::vector<int>> &adj_list) {
+void CheckEqual(Node* node, std::vector<std::vector<int>>& adj_list) {
     // TODO:: to implemen
 }
 
@@ -165,9 +165,9 @@ TEST(clone_graph, t1) {
     std::vector<std::vector<int>> adj_list = {
         std::vector<int>{2, 4}, std::vector<int>{1, 3}, std::vector<int>{2, 4},
         std::vector<int>{1, 3}};
-    Node *node = BuildNode(adj_list);
+    Node* node = BuildNode(adj_list);
     Solution sl;
-    auto *ret = sl.CloneGraph(node);
+    auto* ret = sl.CloneGraph(node);
     FreeGraph(node);
     FreeGraph(ret);
     CheckEqual(ret, adj_list);
@@ -181,9 +181,9 @@ TEST(clone_graph, t1) {
 
 TEST(clone_graph, t2) {
     std::vector<std::vector<int>> adj_list = {std::vector<int>{}};
-    Node *node = BuildNode(adj_list);
+    Node* node = BuildNode(adj_list);
     Solution sl;
-    auto *ret = sl.CloneGraph(node);
+    auto* ret = sl.CloneGraph(node);
     FreeGraph(node);
     FreeGraph(ret);
     CheckEqual(ret, adj_list);
@@ -193,9 +193,9 @@ TEST(clone_graph, t2) {
 
 TEST(clone_graph, t3) {
     std::vector<std::vector<int>> adj_list = {};
-    Node *node = BuildNode(adj_list);
+    Node* node = BuildNode(adj_list);
     Solution sl;
-    auto *ret = sl.CloneGraph(node);
+    auto* ret = sl.CloneGraph(node);
     FreeGraph(node);
     FreeGraph(ret);
     CheckEqual(ret, adj_list);
@@ -206,9 +206,9 @@ TEST(clone_graph_v2, t1) {
     std::vector<std::vector<int>> adj_list = {
         std::vector<int>{2, 4}, std::vector<int>{1, 3}, std::vector<int>{2, 4},
         std::vector<int>{1, 3}};
-    Node *node = BuildNode(adj_list);
+    Node* node = BuildNode(adj_list);
     Solution sl;
-    auto *ret = sl.CloneGraphV2(node);
+    auto* ret = sl.CloneGraphV2(node);
     FreeGraph(node);
     CheckEqual(ret, adj_list);
     // Explanation: There are 4 nodes in the graph.
@@ -221,9 +221,9 @@ TEST(clone_graph_v2, t1) {
 
 TEST(clone_graph_v2, t2) {
     std::vector<std::vector<int>> adj_list = {std::vector<int>{}};
-    Node *node = BuildNode(adj_list);
+    Node* node = BuildNode(adj_list);
     Solution sl;
-    auto *ret = sl.CloneGraphV2(node);
+    auto* ret = sl.CloneGraphV2(node);
     FreeGraph(node);
     CheckEqual(ret, adj_list);
     /*Note that the input contains one empty list. The graph consists of only
@@ -232,9 +232,9 @@ TEST(clone_graph_v2, t2) {
 
 TEST(clone_graph_v2, t3) {
     std::vector<std::vector<int>> adj_list = {};
-    Node *node = BuildNode(adj_list);
+    Node* node = BuildNode(adj_list);
     Solution sl;
-    auto *ret = sl.CloneGraphV2(node);
+    auto* ret = sl.CloneGraphV2(node);
     FreeGraph(node);
     CheckEqual(ret, adj_list);
     /*This an empty graph, it does not have any nodes.*/

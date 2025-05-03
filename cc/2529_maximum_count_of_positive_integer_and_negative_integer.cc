@@ -14,7 +14,7 @@ using namespace std;
 
 class Solution {
    public:
-    int maximumCount(vector<int> &nums) {
+    int maximumCount(vector<int>& nums) {
         /*
          * 1 <= nums.length <= 2000
          * -2000 <= nums[i] <= 2000
@@ -61,7 +61,7 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char *argv[]) {
+int main(int argc, char* argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

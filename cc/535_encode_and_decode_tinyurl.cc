@@ -21,6 +21,7 @@ object.
 */
 
 #include <stdlib.h>
+
 #include <string>
 #include <unordered_map>
 
@@ -79,8 +80,6 @@ class Solution {
 // Solution solution;
 // solution.decode(solution.encode(url));
 
-
-
 TEST(testName, testNum) {
     std::string url = "https://leetcode.com/problems/design-tinyurl";
 
@@ -88,4 +87,4 @@ TEST(testName, testNum) {
     EXPECT_EQ(s.Decode(s.Encode(url)), url);
 }
 
-} // namespace
+}  // namespace

@@ -34,7 +34,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    bool IsValidSudoku(vector<vector<char>> &board) {
+    bool IsValidSudoku(vector<vector<char>>& board) {
         array<int, 9> rows = {};
         array<int, 9> cols = {};
         array<int, 9> boxes = {};
@@ -57,8 +57,6 @@ class Solution {
         return true;
     }
 };
-
-
 
 TEST(valid_sudoku, t1) {
     vector<vector<char>> board = {
@@ -96,4 +94,4 @@ TEST(valid_sudoku, t2) {
     EXPECT_EQ(ret, output);
 }
 
-} // namespace
+}  // namespace

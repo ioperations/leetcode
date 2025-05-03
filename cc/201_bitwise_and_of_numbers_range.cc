@@ -57,7 +57,7 @@ TEST(bitwise_and_of_numbers_range, t4) {
     EXPECT_EQ(ret, 0);
 }
 
-void BenchMarkSeqBitAnd(benchmark::State &state) {
+void BenchMarkSeqBitAnd(benchmark::State& state) {
     for (auto _ : state) {
         Solution s;
         const int left = 1, right = 200000;
@@ -68,7 +68,7 @@ void BenchMarkSeqBitAnd(benchmark::State &state) {
 }
 BENCHMARK(BenchMarkSeqBitAnd);
 
-void BenchMarkWise(benchmark::State &state) {
+void BenchMarkWise(benchmark::State& state) {
     for (auto _ : state) {
         Solution s;
         const int left = 1, right = 200000;

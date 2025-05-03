@@ -19,7 +19,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    bool Find132pattern(vector<int> &nums) {
+    bool Find132pattern(vector<int>& nums) {
         int n = nums.size();
         vector<int> minval(n);
         minval[0] = nums[0];

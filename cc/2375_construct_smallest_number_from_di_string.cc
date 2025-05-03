@@ -34,7 +34,7 @@ class Solution {
         return ret;
     }
 
-    bool Gen(string &ret, int index, int size, vector<bool> &visiable) {
+    bool Gen(string& ret, int index, int size, vector<bool>& visiable) {
         if (index == size) {
             if (checkFunc(ret)) {
                 return true;
@@ -55,7 +55,7 @@ class Solution {
         return false;
     }
 
-    bool checkFunc(const string &str) {
+    bool checkFunc(const string& str) {
         for (int i = 0; i < pattern.size(); i++) {
             if (pattern[i] == 'I') {
                 if (str[i] >= str[i + 1]) {
@@ -103,7 +103,7 @@ TEST(t0, t2) {
     // It can be proven that "4321" is the smallest possible num that meets the
     // conditions.
 }
-int main(int argc, char *argv[]) {
+int main(int argc, char* argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

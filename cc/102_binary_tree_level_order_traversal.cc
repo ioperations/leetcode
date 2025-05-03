@@ -21,10 +21,10 @@ namespace {
 class Solution {
    public:
     template <typename T>
-    vector<vector<T>> LevelOrder(TreeNode<T> *root) {
+    vector<vector<T>> LevelOrder(TreeNode<T>* root) {
         vector<vector<T>> ret;
         struct Status {
-            TreeNode<T> *t;
+            TreeNode<T>* t;
             int level;
         };
         if (root == nullptr) return ret;
@@ -75,7 +75,7 @@ TEST(binary_tree_level_order_traversal, t1) {
     vector<optional<int>> root = {3, 9, 20, null, null, 15, 7};
     vector<vector<int>> output = {{3}, {9, 20}, {15, 7}};
     Solution sl;
-    auto *tree = ConstructBinaryTree(root);
+    auto* tree = ConstructBinaryTree(root);
     auto ret = sl.LevelOrder(tree);
     EXPECT_EQ(ret, output);
     FreeTreeNode(tree);
@@ -85,7 +85,7 @@ TEST(binary_tree_level_order_traversal, t2) {
     vector<optional<int>> root = {1};
     vector<vector<int>> output = {{1}};
     Solution sl;
-    auto *tree = ConstructBinaryTree(root);
+    auto* tree = ConstructBinaryTree(root);
     auto ret = sl.LevelOrder(tree);
     EXPECT_EQ(ret, output);
     FreeTreeNode(tree);
@@ -95,7 +95,7 @@ TEST(binary_tree_level_order_traversal, t3) {
     vector<optional<int>> root = {};
     vector<vector<int>> output = {};
     Solution sl;
-    auto *tree = ConstructBinaryTree(root);
+    auto* tree = ConstructBinaryTree(root);
     auto ret = sl.LevelOrder(tree);
     EXPECT_EQ(ret, output);
     FreeTreeNode(tree);

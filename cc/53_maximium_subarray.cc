@@ -20,7 +20,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    int MaxSubArray(vector<int> &nums) {
+    int MaxSubArray(vector<int>& nums) {
         // pass
         int max_sum = nums[0];
         int cur = max_sum;

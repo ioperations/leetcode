@@ -19,7 +19,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    bool CheckSubarraySum(vector<int> &nums, int k) {
+    bool CheckSubarraySum(vector<int>& nums, int k) {
         // Questions to ask the interviewer -
 
         // 1. So you said k is an integer? Can the k be equal to 0? Can it

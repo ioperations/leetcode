@@ -25,7 +25,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    int FindCircleNum(vector<vector<int>> &is_connected) {
+    int FindCircleNum(vector<vector<int>>& is_connected) {
         if ((int)is_connected.size() == 1) return 1;
 
         int is_connected_size = is_connected.size();
@@ -48,8 +48,8 @@ class Solution {
     }
 
    public:
-    void DfSprovince(vector<vector<int>> &is_connected,
-                     vector<vector<int>> &is_visited, int i, int j) {
+    void DfSprovince(vector<vector<int>>& is_connected,
+                     vector<vector<int>>& is_visited, int i, int j) {
         if (j == (int)is_connected.size()) return;
         is_visited[i][j] = 1;
         // isVisited[i][j] = 1;

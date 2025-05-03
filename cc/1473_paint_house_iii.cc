@@ -30,7 +30,7 @@ namespace {
 class Solution {
    private:
     vector<vector<vector<int>>> mem;
-    int Solve(vector<int> &houses, vector<vector<int>> &cost, int target,
+    int Solve(vector<int>& houses, vector<vector<int>>& cost, int target,
               int index, int p) {
         int m = houses.size(), n = cost[0].size();
         if (index == m) {
@@ -70,7 +70,7 @@ class Solution {
     }
 
    public:
-    int MinCost(vector<int> &houses, vector<vector<int>> &cost, int m, int n,
+    int MinCost(vector<int>& houses, vector<vector<int>>& cost, int m, int n,
                 int target) {
         mem = vector<vector<vector<int>>>(
             m, vector<vector<int>>(n + 1, vector<int>(target + 1, -1)));

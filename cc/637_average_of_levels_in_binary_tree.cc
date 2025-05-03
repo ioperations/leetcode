@@ -20,16 +20,16 @@ namespace {
 class Solution {
    public:
     template <typename T>
-    vector<double> AverageOfLevels(TreeNode<T> *root) {
+    vector<double> AverageOfLevels(TreeNode<T>* root) {
         std::vector<double> v;
         if (root == nullptr) return v;
-        queue<std::pair<TreeNode<T> *, int>> q;
+        queue<std::pair<TreeNode<T>*, int>> q;
         int cur_level = 1;
         int cur_count = 0;
         long cur_sum = 0;
         q.push({root, cur_level});
         while (q.size()) {
-            auto &z = q.front();
+            auto& z = q.front();
             if (z.second == cur_level) {
                 cur_sum += z.first->val;
                 cur_count++;
@@ -68,7 +68,7 @@ TEST(average_of_levels_in_binary_tree, t1) {
     // Explanation: The average value of nodes on level 0 is 3, on level 1
     // is 14.5, and on level 2 is 11. Hence return [3, 14.5, 11].
     Solution sl;
-    auto *rootnode = ConstructBinaryTree(root);
+    auto* rootnode = ConstructBinaryTree(root);
     auto ret = sl.AverageOfLevels(rootnode);
     int i = 0;
     for (auto ptr1 : ret) {
@@ -84,7 +84,7 @@ TEST(average_of_levels_in_binary_tree, t2) {
     // Explanation: The average value of nodes on level 0 is 3, on level 1
     // is 14.5, and on level 2 is 11. Hence return [3, 14.5, 11].
     Solution sl;
-    auto *rootnode = ConstructBinaryTree(root);
+    auto* rootnode = ConstructBinaryTree(root);
     auto ret = sl.AverageOfLevels(rootnode);
     int i = 0;
     for (auto ptr1 : ret) {
@@ -100,7 +100,7 @@ TEST(average_of_levels_in_binary_tree, t3) {
     // Explanation: The average value of nodes on level 0 is 3, on level 1
     // is 14.5, and on level 2 is 11. Hence return [3, 14.5, 11].
     Solution sl;
-    auto *rootnode = ConstructBinaryTree(root);
+    auto* rootnode = ConstructBinaryTree(root);
     auto ret = sl.AverageOfLevels(rootnode);
     int i = 0;
     for (auto ptr1 : ret) {

@@ -28,9 +28,9 @@ class Solution {
     // You can search "find bridges graph" in youtube or google to understand
     // algorithm, that is easiest way.
     vector<vector<int>> CriticalConnections(int n,
-                                            vector<vector<int>> &connections) {
+                                            vector<vector<int>>& connections) {
         vector<vector<int>> adj(n);
-        for (const auto &c : connections) {
+        for (const auto& c : connections) {
             adj[c[0]].push_back(c[1]);
             adj[c[1]].push_back(c[0]);
         }

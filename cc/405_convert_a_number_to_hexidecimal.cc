@@ -39,8 +39,6 @@ class Solution {
     }
 };
 
-
-
 TEST(convert_a_number_to_hexidecimal, t1) {
     int num = 26;
     std::string output = "1a";
@@ -58,4 +56,4 @@ TEST(convert_a_number_to_hexidecimal, t2) {
     auto ret = s.ToHex(num);
     EXPECT_EQ(ret, output);
 }
-} // namespace
+}  // namespace

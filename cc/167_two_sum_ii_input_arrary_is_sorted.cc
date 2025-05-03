@@ -27,7 +27,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    vector<int> TwoSum(vector<int> &numbers, int target) {
+    vector<int> TwoSum(vector<int>& numbers, int target) {
         vector<int> ret;
 
         int size = numbers.size();
@@ -41,7 +41,7 @@ class Solution {
         return ret;
     }
 
-    int FindInArray(const vector<int> &numbers, int left, int right,
+    int FindInArray(const vector<int>& numbers, int left, int right,
                     int target) {
         while (left <= right) {
             int mid = (left + right) / 2;

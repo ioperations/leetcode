@@ -23,13 +23,13 @@ using namespace std;
 namespace {
 class Solution {
    private:
-    bool InBoundsAndClear(vector<vector<int>> &grid, int i, int j) {
+    bool InBoundsAndClear(vector<vector<int>>& grid, int i, int j) {
         return i >= 0 && i < (int)grid.size() && j >= 0 &&
                j < (int)grid.at(i).size() && grid.at(i).at(j) == 0;
     }
 
    public:
-    int ShortestPathBinaryMatrix(vector<vector<int>> &grid) {
+    int ShortestPathBinaryMatrix(vector<vector<int>>& grid) {
         if (grid.at(0).at(0) == 1) return -1;  // path is blocked from the start
 
         vector<vector<int>> dirs = {{-1, 0},  {1, 0},  {0, -1}, {0, 1},
@@ -53,7 +53,7 @@ class Solution {
                     y == (int)grid.at(x).size() - 1)
                     return steps;
 
-                for (vector<int> &dir : dirs) {
+                for (vector<int>& dir : dirs) {
                     int new_x = x + dir.at(0), new_y = y + dir.at(1);
 
                     if (!InBoundsAndClear(grid, new_x, new_y)) continue;

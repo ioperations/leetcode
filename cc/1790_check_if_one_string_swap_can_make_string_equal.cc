@@ -34,7 +34,7 @@ class Solution {
         return false;
     }
 
-    void change(std::string &s, size_t i, size_t j) {
+    void change(std::string& s, size_t i, size_t j) {
         char tmp = s[i];
         s[i] = s[j];
         s[j] = tmp;
@@ -127,7 +127,7 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char *argv[]) {
+int main(int argc, char* argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

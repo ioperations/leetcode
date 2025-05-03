@@ -26,13 +26,13 @@ have.*/
 
 using namespace std;
 
-const char *table[] = {".-",   "-...", "-.-.", "-..",  ".",    "..-.", "--.",
+const char* table[] = {".-",   "-...", "-.-.", "-..",  ".",    "..-.", "--.",
                        "....", "..",   ".---", "-.-",  ".-..", "--",   "-.",
                        "---",  ".--.", "--.-", ".-.",  "...",  "-",    "..-",
                        "...-", ".--",  "-..-", "-.--", "--.."};
 namespace {
 class Solution {
-    std::string Convert(std::string &s) {
+    std::string Convert(std::string& s) {
         string ret;
         for (auto chars : s) {
             ret += table[chars - 'a'];
@@ -42,10 +42,10 @@ class Solution {
     }
 
    public:
-    int UniqueMorseRepresentations(vector<string> &words) {
+    int UniqueMorseRepresentations(vector<string>& words) {
         // pass
         std::set<string> set;
-        for (auto &ptr : words) {
+        for (auto& ptr : words) {
             set.insert(Convert(ptr));
         }
 

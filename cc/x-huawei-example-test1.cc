@@ -16,10 +16,10 @@ namespace {
 void Processing(std::vector<int> nums) {
     // find the max
     int max = std::numeric_limits<int>::min();
-    for (auto &ret : nums) {
+    for (auto& ret : nums) {
         max = std::max(max, ret);
     }
-    int *dp = new int[max + 1];
+    int* dp = new int[max + 1];
 
     for (int i = 0; i <= max; ++i) {
         *(dp + i) = -1;
@@ -44,7 +44,7 @@ void Processing(std::vector<int> nums) {
     };
 
     // get value per nums
-    for (auto &pingzi : nums) {
+    for (auto& pingzi : nums) {
         std::cout << dp_fun(pingzi) << std::endl;
     }
 

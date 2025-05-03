@@ -27,7 +27,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    int MaxRotateFunction(vector<int> &nums) {
+    int MaxRotateFunction(vector<int>& nums) {
         int size = nums.size();
 
         int tmp = std::numeric_limits<int>::min();

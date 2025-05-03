@@ -74,4 +74,4 @@ TEST(k_inverse_pairs_array, t2) {
     EXPECT_EQ(ret, output);
 }
 
-} // namespace
+}  // namespace

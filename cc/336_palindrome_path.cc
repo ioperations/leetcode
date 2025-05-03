@@ -22,7 +22,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    vector<vector<int>> PalindromePairs(vector<string> &words) {
+    vector<vector<int>> PalindromePairs(vector<string>& words) {
         vector<vector<int>> ret;
 
         for (int i = 0; i < (int)words.size() - 1; i++) {
@@ -38,7 +38,7 @@ class Solution {
 
         return ret;
     }
-    bool IsPalindromePairs(vector<string> &words, int i, int j) {
+    bool IsPalindromePairs(vector<string>& words, int i, int j) {
         // pass
 
         string tmp = words[i] + words[j];
@@ -63,15 +63,15 @@ class Solution {
     struct TrieNode {
         TrieNode() : word_index(-1), children(26, nullptr) {}
         int word_index;
-        vector<TrieNode *> children;
+        vector<TrieNode*> children;
         ~TrieNode() {
-            for (auto &ptr : children) {
+            for (auto& ptr : children) {
                 delete ptr;
             }
         }
     };
 
-    void Insert(TrieNode *root, string &word, int word_index) {
+    void Insert(TrieNode* root, string& word, int word_index) {
         for (auto c : word) {
             const int index = c - 'a';
             if (root->children[index] == nullptr) {
@@ -83,7 +83,7 @@ class Solution {
         root->word_index = word_index;
     }
 
-    bool IsPalindrome(const string &s) {
+    bool IsPalindrome(const string& s) {
         int i = 0;
         int j = s.size() - 1;
 
@@ -98,7 +98,7 @@ class Solution {
         return true;
     }
 
-    void Dfs(TrieNode *root, vector<int> &long_word_indices, string &str) {
+    void Dfs(TrieNode* root, vector<int>& long_word_indices, string& str) {
         if (root == nullptr) {
             return;
         }
@@ -115,7 +115,7 @@ class Solution {
         }
     }
 
-    void Find(TrieNode *root, string &word, int word_index) {
+    void Find(TrieNode* root, string& word, int word_index) {
         // word is longer than its corresponding word.
         int index = 0;
         while (index < (int)word.length() && root != nullptr) {
@@ -140,8 +140,8 @@ class Solution {
     }
 
    public:
-    vector<vector<int>> PalindromePairsV1(vector<string> &words) {
-        TrieNode *root = new TrieNode();
+    vector<vector<int>> PalindromePairsV1(vector<string>& words) {
+        TrieNode* root = new TrieNode();
 
         // Create Trie with reversed words
         for (int i = 0; i < (int)words.size(); ++i) {
@@ -151,7 +151,7 @@ class Solution {
         }
 
         for (int i = 0; i < (int)words.size(); ++i) {
-            string &word = words[i];
+            string& word = words[i];
             // word is palindrome
             if (root->word_index != -1 && !word.empty() && IsPalindrome(word)) {
                 res.push_back({i, root->word_index});
@@ -164,7 +164,7 @@ class Solution {
     }
 
    private:
-    bool CheckPalindrome(string &s) {
+    bool CheckPalindrome(string& s) {
         int left = 0;
         int right = s.size() - 1;
 
@@ -180,7 +180,7 @@ class Solution {
     }
 
    public:
-    vector<vector<int>> PalindromePairsV2(vector<string> &words) {
+    vector<vector<int>> PalindromePairsV2(vector<string>& words) {
         unordered_map<string, int> rev;
         string temp;
 
@@ -237,8 +237,6 @@ class Solution {
     }
 };
 
-
-
 TEST(palindrome_path, t1) {
     vector<string> words = {"abcd", "dcba", "lls", "s", "sssll"};
     vector<vector<int>> output = {{0, 1}, {1, 0}, {3, 2}, {2, 4}};
@@ -283,4 +281,4 @@ TEST(palindrome_path, t2) {
     EXPECT_EQ(ret_set2, output_set);
 }
 
-} // namespace
+}  // namespace

@@ -20,7 +20,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    vector<int> FindClosestElements(vector<int> &arr, int k, int x) {
+    vector<int> FindClosestElements(vector<int>& arr, int k, int x) {
         vector<int>::iterator const iter =
             lower_bound(arr.begin(), arr.end(), x);
         int j = iter - arr.begin();

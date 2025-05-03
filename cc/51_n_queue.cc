@@ -31,7 +31,7 @@ class Solution {
         Solve(board, 0);  // calling the recursive function
         return sols;
     }
-    bool IsSafe(vector<string> &board, int row, int col) {
+    bool IsSafe(vector<string>& board, int row, int col) {
         int n = size(board);
         for (int i = 0; i < n; i++) {
             // checking if there is a queen in the same column
@@ -50,7 +50,7 @@ class Solution {
     }
     // Recursive Function (solve) - It basically tries all possible placement of
     // queen for the current row & recurses for it's next row
-    void Solve(vector<string> &board, int row) {
+    void Solve(vector<string>& board, int row) {
         // Base condition.
         // We reached the last row, so we have a solution so we add it to the
         // solution vector

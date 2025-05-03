@@ -28,7 +28,7 @@ class Solution {
     int steps = 0;
 
     template <typename T>
-    int Helper(TreeNode<T> *root) {
+    int Helper(TreeNode<T>* root) {
         if (!root) return 0;
 
         int left_coins_required = Helper(root->left);
@@ -46,7 +46,7 @@ class Solution {
     }
 
     template <typename T>
-    int DistributeCoins(TreeNode<T> *root) {
+    int DistributeCoins(TreeNode<T>* root) {
         Helper(root);
         return steps;
     }
@@ -56,7 +56,7 @@ using namespace std;
 
 TEST(distribute_coins_in_binary_tree, t1) {
     std::vector<optional<int>> v{3, 0, 0};
-    auto *root = ConstructBinaryTree(v);
+    auto* root = ConstructBinaryTree(v);
     int out = 2;
     Solution sl;
     // From the root of the tree, we move one coin to its left child, and one
@@ -68,7 +68,7 @@ TEST(distribute_coins_in_binary_tree, t1) {
 
 TEST(distribute_coins_in_binary_tree, t2) {
     std::vector<optional<int>> v{0, 3, 0};
-    auto *root = ConstructBinaryTree(v);
+    auto* root = ConstructBinaryTree(v);
     // From the left child of the root, we move two coins to the root [taking
     // two moves]. Then, we move one coin from the root of the tree to the right
     // child.

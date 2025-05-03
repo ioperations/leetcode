@@ -32,7 +32,7 @@ class LRUCache {
     }
 
     ~LRUCache() {
-        CacheNode *p;
+        CacheNode* p;
         p = p_cache_list_head->next;
 
         while (p != nullptr) {
@@ -46,7 +46,7 @@ class LRUCache {
 
     [[nodiscard]] int Get(int key) {
         if (map.find(key) != map.end()) {
-            CacheNode *p = map[key];
+            CacheNode* p = map[key];
             DetachNode(p);
             AddFristNode(p);
             return (map[key]->value);
@@ -57,14 +57,14 @@ class LRUCache {
     void Put(int key, int value) {
         if (map.find(key) != map.end()) {
             map[key]->value = value;
-            DetachNode((CacheNode *)map[key]);
-            AddFristNode((CacheNode *)map[key]);
+            DetachNode((CacheNode*)map[key]);
+            AddFristNode((CacheNode*)map[key]);
             if (map.size() > capacity) {
                 DelEndNode();
             }
 
         } else {
-            CacheNode *p = new CacheNode();
+            CacheNode* p = new CacheNode();
             p->k = key;
             p->value = value;
             AddFristNode(p);
@@ -81,21 +81,21 @@ class LRUCache {
         int k;
         int value;
 
-        struct Node *next;
-        struct Node *pre;
+        struct Node* next;
+        struct Node* pre;
     } CacheNode;
 
     unsigned int capacity;
-    CacheNode *p_cache_list_head;
-    CacheNode *p_cache_list_near;
-    std::map<int, CacheNode *> map;
+    CacheNode* p_cache_list_head;
+    CacheNode* p_cache_list_near;
+    std::map<int, CacheNode*> map;
 
-    void DetachNode(CacheNode *node) {
+    void DetachNode(CacheNode* node) {
         node->pre->next = node->next;
         node->next->pre = node->pre;
     }
 
-    void AddFristNode(CacheNode *node) {
+    void AddFristNode(CacheNode* node) {
         node->pre = p_cache_list_head;
 
         if (map.empty()) {
@@ -109,7 +109,7 @@ class LRUCache {
         }
     }
     void DelEndNode() {
-        CacheNode *p = p_cache_list_near->pre;
+        CacheNode* p = p_cache_list_near->pre;
         DetachNode(p);
         map.erase(p->k);
         delete p;
@@ -121,8 +121,8 @@ class Node {
    public:
     int key;
     int val;
-    Node *next = nullptr;
-    Node *prev = nullptr;
+    Node* next = nullptr;
+    Node* prev = nullptr;
 };
 
 /**

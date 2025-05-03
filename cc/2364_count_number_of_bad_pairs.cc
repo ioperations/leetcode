@@ -11,7 +11,7 @@ using namespace std;
 
 class Solution {
    public:
-    long long countBadPairs(vector<int> &nums) {
+    long long countBadPairs(vector<int>& nums) {
         // FIXME: timeout
         long long ret = 0;
         auto size = nums.size();
@@ -54,7 +54,7 @@ TEST(t0, t2) {
     // Explanation : There are no bad pairs.
 }
 
-int main(int argc, char *argv[]) {
+int main(int argc, char* argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

@@ -17,7 +17,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    int MaxProductV1(vector<string> &words) {
+    int MaxProductV1(vector<string>& words) {
         // pass
         int ret = 0;
 
@@ -33,13 +33,13 @@ class Solution {
         return ret;
     }
 
-    bool ShareSameChar(std::string &a, std::string &b) {
+    bool ShareSameChar(std::string& a, std::string& b) {
         // pass
         sort(a.begin(), a.end());
         sort(b.begin(), b.end());
         int c_b = b.size();
         int i = 0;
-        for (auto &ptr_a : a) {
+        for (auto& ptr_a : a) {
             while (i < c_b && b[i] <= ptr_a) {
                 if (b[i] == ptr_a) {
                     return true;
@@ -51,7 +51,7 @@ class Solution {
         return true;
     }
 
-    int MaxProduct(vector<string> &words) {
+    int MaxProduct(vector<string>& words) {
         int ans = 0;
         vector<vector<int>> dp(words.size(), vector<int>(26));
         for (int i = 0; i < (int)words.size(); i++) {
@@ -78,8 +78,6 @@ class Solution {
         return ans;
     }
 };
-
-
 
 TEST(maximium_product_of_word_lengths, t1) {
     std::vector<string> words = {"abcw", "baz", "foo", "bar", "xtfn", "abcdef"};
@@ -108,4 +106,4 @@ TEST(maximium_product_of_word_lengths, t3) {
     EXPECT_EQ(ret, output);
 }
 
-} // namespace
+}  // namespace

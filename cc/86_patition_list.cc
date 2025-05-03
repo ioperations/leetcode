@@ -19,13 +19,13 @@ using ListNode = List::ListNode<int>;
 namespace {
 class Solution {
    public:
-    ListNode *Partition(ListNode *head, int x) {
+    ListNode* Partition(ListNode* head, int x) {
         // pass
         ListNode less;
         ListNode more;
 
-        ListNode *less_it = &less;
-        ListNode *more_it = &more;
+        ListNode* less_it = &less;
+        ListNode* more_it = &more;
 
         while (head != nullptr) {
             if (head->val < x) {
@@ -48,9 +48,9 @@ class Solution {
 
 #include <vector>
 
-void ExpectEqList(ListNode *const head, const std::vector<int> &elements) {
+void ExpectEqList(ListNode* const head, const std::vector<int>& elements) {
     int i = 0;
-    ListNode *m_head = head;
+    ListNode* m_head = head;
 
     while (m_head != nullptr) {
         EXPECT_EQ(m_head->val, elements[i]);
@@ -64,7 +64,7 @@ TEST(patition_list, t1) {
     std::vector<int> vec = {1, 4, 3, 2, 5, 2};
     int x = 3;
 
-    ListNode *head = List::ConstructList(vec);
+    ListNode* head = List::ConstructList(vec);
     Solution s;
     head = s.Partition(head, x);
 
@@ -76,7 +76,7 @@ TEST(patition_list, t2) {
     std::vector<int> vec = {2, 1};
     int x = 2;
 
-    ListNode *head = List::ConstructList(vec);
+    ListNode* head = List::ConstructList(vec);
     Solution s;
     head = s.Partition(head, x);
 
@@ -88,7 +88,7 @@ TEST(patition_list, t3) {
     std::vector<int> vec = {2, 1};
     int x = 0;
 
-    ListNode *head = List::ConstructList(vec);
+    ListNode* head = List::ConstructList(vec);
     Solution s;
     head = s.Partition(head, x);
 

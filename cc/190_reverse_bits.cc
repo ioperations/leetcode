@@ -25,7 +25,7 @@ the output represents the signed integer -1073741825.
 
 using namespace std;
 
-uint32_t ConstructUint32T(const std::string &s) {
+uint32_t ConstructUint32T(const std::string& s) {
     uint32_t num = 0;
     // pass
     for (size_t i = 0; i < s.size(); i++) {

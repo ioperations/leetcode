@@ -75,8 +75,8 @@ class Solution {
 
 class SolutionV2 {
    public:
-    SolutionV2(){};
-    virtual ~SolutionV2(){};
+    SolutionV2() {};
+    virtual ~SolutionV2() {};
 
     std::stack<string> stack;
     string SimplifyPath(string path) {

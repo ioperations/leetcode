@@ -45,7 +45,7 @@ class Solution {
     // a key semantics: each parseX() will just extract a valid X, not checking
     // if it is the last one the caller function should do the check!!
 
-    bool ParseDigits(const string &s, int &i) {
+    bool ParseDigits(const string& s, int& i) {
         int j = i;
         while (j < (int)s.size() && isdigit(s[j])) j++;
         bool ret = false;
@@ -58,7 +58,7 @@ class Solution {
         return ret;
     }
 
-    bool ParseDecimal(const string &s, int &i) {
+    bool ParseDecimal(const string& s, int& i) {
         if (i == (int)s.size()) return false;
 
         // optionally + or -
@@ -88,7 +88,7 @@ class Solution {
     }
 
     // integer may be a part of the component, followed by more things
-    bool ParseInteger(const string &s, int &i) {
+    bool ParseInteger(const string& s, int& i) {
         if (i == (int)s.size()) return false;
         // optionally + or -
         if (s[i] == '+' || s[i] == '-') i++;
@@ -100,7 +100,7 @@ class Solution {
     }
 
     // this is after decimal or integer: as optional part!!
-    bool ParseExponent(const string &s, int &i) {
+    bool ParseExponent(const string& s, int& i) {
         if (i == (int)s.size()) return false;
         if (s[i] == 'e' || s[i] == 'E') {
             i++;  // mistake: forgot this!!
@@ -153,8 +153,8 @@ class Solution {
 
     class Tokener {
        public:
-        Tokener(std::string s) : s(s), cursor(0){};
-        virtual ~Tokener(){};
+        Tokener(std::string s) : s(s), cursor(0) {};
+        virtual ~Tokener() {};
 
         enum token_type {
             PLUS_OR_MINUS,
@@ -198,7 +198,7 @@ class Solution {
             return true;
         }
 
-        std::pair<token_type, std::string> Next(int &cursor) {
+        std::pair<token_type, std::string> Next(int& cursor) {
             if (cursor >= (int)s.size()) {
                 return make_pair(token_type::END, " ");
             }
@@ -318,15 +318,9 @@ class Solution2 {
     }
 
     // parser primitives
-    void TakeWhileMatches(char c) {
-        while (TakeIfMatches(c))
-            ;
-    }
+    void TakeWhileMatches(char c) { while (TakeIfMatches(c)); }
 
-    void TakeWhileMatches(char c, char d) {
-        while (TakeIfMatches(c, d))
-            ;
-    }
+    void TakeWhileMatches(char c, char d) { while (TakeIfMatches(c, d)); }
 
     bool TakeIfMatches(char c) {
         if (IsEnd()) return false;
@@ -425,7 +419,7 @@ TEST(valid_number_v2, t5) {
     bool expected = true;
 
     Solution2 sl;
-    for (auto &ptr : s) {
+    for (auto& ptr : s) {
         bool ret = sl.IsNumber(ptr);
         EXPECT_EQ(ret, expected);
     }
@@ -437,7 +431,7 @@ TEST(valid_number_v2, t6) {
     bool expected = false;
 
     Solution2 sl;
-    for (auto &ptr : s) {
+    for (auto& ptr : s) {
         bool ret = sl.IsNumber(ptr);
         EXPECT_EQ(ret, expected);
     }

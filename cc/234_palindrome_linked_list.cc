@@ -20,9 +20,9 @@ using ListNode = List::ListNode<int>;
 namespace {
 class Solution2 {
    public:
-    bool IsPalindrome(ListNode *head) {
-        auto *right = head;
-        auto *left = head;
+    bool IsPalindrome(ListNode* head) {
+        auto* right = head;
+        auto* left = head;
 
         // Left makes one step when right makes two
         while (right->next) {
@@ -50,10 +50,10 @@ class Solution2 {
     }
 
     // common reverse algorithm
-    static void Reverse(ListNode *from) noexcept {
-        ListNode *prev = nullptr;
-        ListNode *cur = from;
-        ListNode *tmp = nullptr;
+    static void Reverse(ListNode* from) noexcept {
+        ListNode* prev = nullptr;
+        ListNode* cur = from;
+        ListNode* tmp = nullptr;
         while (cur) {
             tmp = cur->next;
             cur->next = prev;
@@ -65,9 +65,9 @@ class Solution2 {
 
 class Solution {
    public:
-    bool IsPalindrome(ListNode *head) {
-        std::vector<ListNode *> vec;
-        ListNode *z = head;
+    bool IsPalindrome(ListNode* head) {
+        std::vector<ListNode*> vec;
+        ListNode* z = head;
         while (z != nullptr) {
             vec.push_back(z);
             z = z->next;
@@ -76,7 +76,7 @@ class Solution {
         return IsPalindrome(vec);
     }
 
-    bool IsPalindrome(std::vector<ListNode *> &vec) {
+    bool IsPalindrome(std::vector<ListNode*>& vec) {
         std::size_t size = vec.size();
         if (vec.size() == 1 || vec.size() == 0) {
             return true;
@@ -106,7 +106,7 @@ class Solution {
 };
 
 TEST(palindrome_linked_list, t1) {
-    ListNode *head = List::ConstructList(std::vector<int>{1, 2, 2, 1});
+    ListNode* head = List::ConstructList(std::vector<int>{1, 2, 2, 1});
 
     Solution s;
     bool ret = s.IsPalindrome(head);
@@ -130,7 +130,7 @@ TEST(palindrome_linked_list_v2, t1) {
 }
 
 TEST(palindrome_linked_list, t2) {
-    ListNode *head = List::ConstructList(std::vector<int>{1, 2});
+    ListNode* head = List::ConstructList(std::vector<int>{1, 2});
 
     Solution s;
     bool ret = s.IsPalindrome(head);
@@ -149,7 +149,7 @@ TEST(palindrome_linked_list_v2, t2) {
     EXPECT_EQ(ret, false);
 }
 
-static void BenchFastSlow(benchmark::State &state) {
+static void BenchFastSlow(benchmark::State& state) {
     Solution2 s;
     for (auto _ : state) {
         ListNode head(1);
@@ -180,7 +180,7 @@ static void BenchFastSlow(benchmark::State &state) {
     }
 }
 BENCHMARK(BenchFastSlow);
-static void BenchMyVec(benchmark::State &state) {
+static void BenchMyVec(benchmark::State& state) {
     Solution s;
     for (auto _ : state) {
         ListNode head(1);

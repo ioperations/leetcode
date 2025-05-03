@@ -10,6 +10,7 @@ if sentence is a pangram, or false otherwise.
 */
 
 #include <benchmark/benchmark.h>
+
 #include <set>
 #include <string>
 
@@ -21,25 +22,23 @@ namespace {
 
 class Solution {
    public:
-    bool CheckIfPangram(string &sentence) {
+    bool CheckIfPangram(string& sentence) {
         std::set<char> s;
-        for (auto &ptr : sentence) {
+        for (auto& ptr : sentence) {
             s.emplace(ptr);
         }
         return s.size() == 26;
     }
-    bool CheckIfPangramV2(string &sentence) {
+    bool CheckIfPangramV2(string& sentence) {
         int max = (1 << 26) - 1;
         int temp = 0;
-        for (auto &ptr : sentence) {
+        for (auto& ptr : sentence) {
             temp |= 1 << (ptr - 'a');
             if (temp == max) return true;
         }
         return false;
     }
 };
-
-
 
 TEST(check_if_the_sentence_is_pangram, t1) {
     string sentence = "thequickbrownfoxjumpsoverthelazydog";
@@ -77,7 +76,7 @@ TEST(check_if_the_sentence_is_pangram_v2, t2) {
     EXPECT_EQ(ret, output);
 }
 
-static void BenchMarkV1(benchmark::State &state) {
+static void BenchMarkV1(benchmark::State& state) {
     string sentence = "thequickbrownfoxjumpsoverthelazydog";
     for (auto _ : state) {
         bool const output = true;
@@ -90,7 +89,7 @@ static void BenchMarkV1(benchmark::State &state) {
 }
 BENCHMARK(BenchMarkV1);
 
-static void BenchMarkV2(benchmark::State &state) {
+static void BenchMarkV2(benchmark::State& state) {
     string sentence = "thequickbrownfoxjumpsoverthelazydog";
     for (auto _ : state) {
         bool const output = true;

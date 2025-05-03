@@ -35,7 +35,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    int MinimumEffortPath(vector<vector<int>> &heights) {
+    int MinimumEffortPath(vector<vector<int>>& heights) {
         // pass
         /*
             rows == heights.length
@@ -124,7 +124,7 @@ class Solution {
         return x < 0 || y < 0 || x >= m || y >= n;
     }
 
-    int MinimumEffortPathV2(vector<vector<int>> &heights) {
+    int MinimumEffortPathV2(vector<vector<int>>& heights) {
         int m = heights.size();
         int n = heights[0].size();
 

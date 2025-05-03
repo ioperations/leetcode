@@ -27,7 +27,7 @@ class Solution {
     std::string Real(std::string s) {
         std::string ret;
         std::stack<char> stack;
-        for (auto &ptr : s) {
+        for (auto& ptr : s) {
             if (ptr == '#') {
                 if (stack.size()) {
                     stack.pop();

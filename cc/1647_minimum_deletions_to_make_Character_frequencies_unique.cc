@@ -28,12 +28,12 @@ class Solution {
     int MinDeletionsV2(string s) {
         if (s.size() == 0) return 0;
         std::map<char, int> map;
-        for (auto &ptr : s) {
+        for (auto& ptr : s) {
             map[ptr]++;
         }
         vector<int> vec;
 
-        for (auto &ptr : map) {
+        for (auto& ptr : map) {
             vec.push_back(ptr.second);
         }
 
@@ -74,7 +74,7 @@ class Solution {
             charcnt[s[i] - 'a']++;
         }
 
-        for (auto &it : charcnt) {
+        for (auto& it : charcnt) {
             int x = it.second;
             if (uniquefreq[x] != 0) {
                 while (x > 0 && uniquefreq[x] != 0) {

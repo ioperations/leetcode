@@ -35,8 +35,8 @@ class Solution {
     }
 
     int EditDistance(
-        const std::string &word1, const std::string &word2,
-        std::map<std::pair<std::string, std::string>, int> &cache) {
+        const std::string& word1, const std::string& word2,
+        std::map<std::pair<std::string, std::string>, int>& cache) {
         if (!word2.size()) {
             return word1.size();
         }
@@ -174,7 +174,7 @@ TEST(edit_distance_v4, t4) {
     EXPECT_EQ(ret, output);
 }
 
-static void BenchMarkFirst(benchmark::State &state) {
+static void BenchMarkFirst(benchmark::State& state) {
     for (auto _ : state) {
         std::string word1 = "horse", word2 = "ros";
 
@@ -187,7 +187,7 @@ static void BenchMarkFirst(benchmark::State &state) {
 }
 BENCHMARK(BenchMarkFirst);
 
-static void BenchMarkSecond(benchmark::State &state) {
+static void BenchMarkSecond(benchmark::State& state) {
     for (auto _ : state) {
         std::string word1 = "horse", word2 = "ros";
 
@@ -200,7 +200,7 @@ static void BenchMarkSecond(benchmark::State &state) {
 }
 BENCHMARK(BenchMarkSecond);
 
-static void BenchMarkThird(benchmark::State &state) {
+static void BenchMarkThird(benchmark::State& state) {
     for (auto _ : state) {
         std::string word1 = "horse", word2 = "ros";
 

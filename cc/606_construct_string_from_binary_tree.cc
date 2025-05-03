@@ -19,18 +19,18 @@ relationship between the string and the original binary tree.
 using namespace std;
 using namespace Tree;
 
-namespace { 
+namespace {
 class Solution {
    public:
     template <typename T>
-    string Tree2str(TreeNode<T> *root) {
+    string Tree2str(TreeNode<T>* root) {
         // pass
         std::string str;
         Tree2str(root, str);
         return str;
     }
     template <typename T>
-    void Tree2str(TreeNode<T> *root, std::string &str) {
+    void Tree2str(TreeNode<T>* root, std::string& str) {
         if (root == nullptr) return;
         str += std::to_string(root->val);
         if (root->left != nullptr || root->right != nullptr) {
@@ -81,7 +81,7 @@ TEST(construct_string_from_binary_tree, t1) {
     // to omit all the unnecessary empty parenthesis pairs. And it will be
     // "1(2(4))(3)"
     Solution sl;
-    auto *node = ConstructBinaryTree(root);
+    auto* node = ConstructBinaryTree(root);
     auto ret = sl.Tree2str(node);
     EXPECT_EQ(ret, output);
 
@@ -116,11 +116,11 @@ TEST(construct_string_from_binary_tree, t2) {
     // parenthesis pair to break the one-to-one mapping relationship between the
     // input and the output.
     Solution sl;
-    auto *node = ConstructBinaryTree(root);
+    auto* node = ConstructBinaryTree(root);
     auto ret = sl.Tree2str(node);
     EXPECT_EQ(ret, output);
 
     FreeTreeNode(node);
 }
 
-}
+}  // namespace

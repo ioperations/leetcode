@@ -23,7 +23,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    int MinOperations(vector<int> &nums, int x) {
+    int MinOperations(vector<int>& nums, int x) {
         int sum = 0;
         int n = nums.size();
         int len = 0;

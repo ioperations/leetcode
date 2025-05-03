@@ -22,7 +22,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    vector<vector<int>> DiagonalSort(vector<vector<int>> &mat) {
+    vector<vector<int>> DiagonalSort(vector<vector<int>>& mat) {
         /*
             m == mat.length
             n == mat[i].length
@@ -46,14 +46,14 @@ class Solution {
 
 
         */
-        auto bubble_sort = [&](vector<void *> &arr, int n) {
+        auto bubble_sort = [&](vector<void*>& arr, int n) {
             int i, j;
             for (i = 0; i < n - 1; i++)
                 for (j = 0; j < n - i - 1; j++)
-                    if (*(int *)arr[j] > *(int *)arr[j + 1]) {
-                        int tmp = *(int *)arr[j];
-                        *(int *)arr[j] = *(int *)arr[j + 1];
-                        *(int *)arr[j + 1] = tmp;
+                    if (*(int*)arr[j] > *(int*)arr[j + 1]) {
+                        int tmp = *(int*)arr[j];
+                        *(int*)arr[j] = *(int*)arr[j + 1];
+                        *(int*)arr[j + 1] = tmp;
                     }
         };
 
@@ -66,7 +66,7 @@ class Solution {
             // pass
             {
                 // 在这里对这一条斜线上的数字做排序
-                vector<void *> address;
+                vector<void*> address;
                 address.reserve(min(row, column));
 
                 for (int tmp_i = max(i, 0), tmp_j = j;

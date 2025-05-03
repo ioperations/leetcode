@@ -42,8 +42,6 @@ class Solution {
     }
 };
 
-
-
 TEST(reverse_vowels_of_a_string, t1) {
     std::string s = "hello";
     std::string output = "holle";
@@ -60,4 +58,4 @@ TEST(reverse_vowels_of_a_string, t2) {
     EXPECT_EQ(ret, output);
 }
 
-} // namespace
+}  // namespace

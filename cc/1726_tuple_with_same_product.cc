@@ -12,7 +12,7 @@ using namespace std;
 
 class Solution {
    public:
-    int tupleSameProduct(vector<int> &nums) {
+    int tupleSameProduct(vector<int>& nums) {
         /*
          * 1 <= nums.length <= 1000
          * 1 <= nums[i] <= 104
@@ -52,7 +52,7 @@ class Solution {
             }
         }
 
-        for (auto &[_, times] : map) {
+        for (auto& [_, times] : map) {
             if (times >= 2) {
                 res += 8 * (times * (times - 1) / 2);
             }
@@ -93,7 +93,7 @@ TEST(t0, t2) {
      */
 }
 
-int main(int argc, char *argv[]) {
+int main(int argc, char* argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

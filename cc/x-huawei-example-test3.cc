@@ -15,7 +15,7 @@ void Processing(std::string s) {
 
     int ret = 0;
 
-    for (auto &c : s2) {
+    for (auto& c : s2) {
         int cur = 0;
         if ('A' <= c && c <= 'F') {
             cur = 10 + c - 'A';

@@ -27,11 +27,11 @@ namespace {
 class Solution {
    public:
     int LadderLength(string begin_word, string end_word,
-                     vector<string> &word_list) {
+                     vector<string>& word_list) {
         // pass
         set<string> words;
         bool has_end = false;
-        for (const string &word : word_list) {
+        for (const string& word : word_list) {
             words.insert(word);
             if (word == end_word) has_end = true;
         }
@@ -47,7 +47,7 @@ class Solution {
             // traverse all nodes of current level
             // bcz we are not going to use depth array
             while (qsize--) {
-                const string &curr = q.front();
+                const string& curr = q.front();
                 q.pop();
                 for (int i = 0; i < (int)curr.length(); i++) {
                     string tmp = curr;

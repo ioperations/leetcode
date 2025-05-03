@@ -23,7 +23,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    int MaximumUniqueSubarray(vector<int> &nums) {
+    int MaximumUniqueSubarray(vector<int>& nums) {
         //	Initially we will keep our i and j pointer at index 0
         //	keep moving j and add the current no to sum and
         //	also add the curr no to map

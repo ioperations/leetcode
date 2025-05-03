@@ -22,25 +22,25 @@ namespace {
 class Node {
    public:
     int val;
-    Node *left;
-    Node *right;
-    Node *next;
+    Node* left;
+    Node* right;
+    Node* next;
 
     Node() : val(0), left(nullptr), right(nullptr), next(nullptr) {}
 
     Node(int val) : val(val), left(nullptr), right(nullptr), next(nullptr) {}
 
-    Node(int val, Node *left, Node *right, Node *next)
+    Node(int val, Node* left, Node* right, Node* next)
         : val(val), left(left), right(right), next(next) {}
 };
 
 class Solution {
    public:
-    Node *Connect(Node *root) {
+    Node* Connect(Node* root) {
         Node n;
-        Node *start = &n;
-        Node *node_child = start;
-        Node *node = root;
+        Node* start = &n;
+        Node* node_child = start;
+        Node* node = root;
 
         while (node != nullptr) {
             while (node != nullptr) {  // Connect node child

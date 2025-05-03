@@ -19,7 +19,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    int FindDuplicate(vector<int> &nums) {
+    int FindDuplicate(vector<int>& nums) {
         // pass
         // 1 <= n <= 105
         // nums.length == n + 1
@@ -40,7 +40,7 @@ class Solution {
         }
         return min;
     }
-    int FindDuplicateV1(vector<int> &nums) {
+    int FindDuplicateV1(vector<int>& nums) {
         int slow = nums[0], fast = nums[nums[0]];
         while (slow != fast) {  // detecting cycle
             slow = nums[slow];
@@ -90,7 +90,7 @@ TEST(find_the_duplicate_number_v2, t2) {
     int ret = sll.FindDuplicateV1(v);
     EXPECT_EQ(ret, i);
 }
-static void BenchMarkV0(benchmark::State &state) {
+static void BenchMarkV0(benchmark::State& state) {
     for (auto _ : state) {
         std::vector<int> v{3, 1, 3, 4, 2};
 
@@ -102,7 +102,7 @@ static void BenchMarkV0(benchmark::State &state) {
 }
 BENCHMARK(BenchMarkV0);
 
-static void BenchMarkV1(benchmark::State &state) {
+static void BenchMarkV1(benchmark::State& state) {
     for (auto _ : state) {
         std::vector<int> v{3, 1, 3, 4, 2};
 

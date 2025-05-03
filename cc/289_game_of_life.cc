@@ -42,7 +42,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    void GameOfLife(vector<vector<int>> &board) {
+    void GameOfLife(vector<vector<int>>& board) {
         auto z = board;
         int m = board.size();
         int n = board[0].size();

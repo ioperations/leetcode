@@ -9,10 +9,10 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    void SolveSudoku(vector<vector<char>> &board);
+    void SolveSudoku(vector<vector<char>>& board);
 
    private:
-    bool Valid(vector<vector<char>> &board);
+    bool Valid(vector<vector<char>>& board);
     /// **get candidate using the position**
     /// * NOTE: this function do have sequence dependency cause it use global
     /// state
@@ -22,11 +22,11 @@ class Solution {
 };
 
 /// 横着没有重复 竖着没有重复 九宫格内没有重复
-bool Solution::Valid(vector<vector<char>> &board) { return false; }
+bool Solution::Valid(vector<vector<char>>& board) { return false; }
 
 /// 将数独棋盘填充完整
 /// 暴力破解
-void Solution::SolveSudoku(vector<vector<char>> &board) {
+void Solution::SolveSudoku(vector<vector<char>>& board) {
     /// get candidate
 
     /// 一行中第一个空位 填充 在这个情况下填充第二个 空位（ 空位的选择

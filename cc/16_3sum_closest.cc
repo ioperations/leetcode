@@ -21,7 +21,7 @@ class Solution {
     ///* 将输入的数据得到他的全排列，
     ///* 在每一次排列当中，得到前3个数字，
     ///* 将这三个数字加和，更最后的要求做比较
-    int ThreeSum(std::vector<int> &nums, int target) {
+    int ThreeSum(std::vector<int>& nums, int target) {
         auto t = nums;
         std::sort(t.begin(), t.end());
         int ret = std::numeric_limits<int>::max();
@@ -38,7 +38,7 @@ class Solution {
     }
 
     // 第二种解法，效率更高，我的第一种解法直接在数据量大的时候超时，两个指针
-    int ThreeSum2(std::vector<int> &nums, int target) {
+    int ThreeSum2(std::vector<int>& nums, int target) {
         int i, j, k;
         sort(nums.begin(), nums.end());
         const int n = nums.size();
@@ -87,7 +87,7 @@ TEST(sum_closest_v2, t3) {
 
     EXPECT_EQ(ret, 0);
 }
-static void BenchV2(benchmark::State &state) {
+static void BenchV2(benchmark::State& state) {
     Solution s;
     for (auto _ : state) {
         std::vector<int> nums{0, 0, 0, 0, 0, 0};
@@ -96,7 +96,7 @@ static void BenchV2(benchmark::State &state) {
 }
 BENCHMARK(BenchV2);
 
-static void BenchV1(benchmark::State &state) {
+static void BenchV1(benchmark::State& state) {
     Solution s;
 
     for (auto _ : state) {

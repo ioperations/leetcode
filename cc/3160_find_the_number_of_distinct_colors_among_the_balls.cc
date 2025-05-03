@@ -19,7 +19,7 @@
 using namespace std;
 class Solution {
    public:
-    vector<int> QueryResults(int limit, vector<vector<int>> &queries) {
+    vector<int> QueryResults(int limit, vector<vector<int>>& queries) {
         /*
           1 <= limit <= 109
           1 <= n == queries.length <= 105
@@ -33,7 +33,7 @@ class Solution {
         unordered_map<int, int> table;
 
         for (size_t i = 0; i < size; i++) {
-            auto &curr = queries[i];
+            auto& curr = queries[i];
             int index = curr[0];
             if (!(table.count(index) == 0 or table[index] == 0)) {
                 int c = table[index];
@@ -50,7 +50,7 @@ class Solution {
         return ret;
     }
 
-    vector<int> QueryResultsV0(int limit, vector<vector<int>> &queries) {
+    vector<int> QueryResultsV0(int limit, vector<vector<int>>& queries) {
         // FIXME: memory limit exceeded
         /*
          1 <= limit <= 109
@@ -65,7 +65,7 @@ class Solution {
         vector<int> table(limit + 1, 0);
 
         for (size_t i = 0; i < size; i++) {
-            auto &curr = queries[i];
+            auto& curr = queries[i];
             int index = curr[0];
             if (!(table[index] == 0)) {
                 int c = table[index];
@@ -127,7 +127,7 @@ TEST(t0, t2) {
        */
 }
 
-int main(int argc, char *argv[]) {
+int main(int argc, char* argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

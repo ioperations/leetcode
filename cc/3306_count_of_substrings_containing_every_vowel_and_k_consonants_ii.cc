@@ -29,7 +29,7 @@ class Solution {
     }
 
     // Function computes the number at most k consonants
-    inline long long lessEq(string &word, int k) {
+    inline long long lessEq(string& word, int k) {
         int lastPos[5] = {-1};  // last position of each vowel
         int freq[6] = {0};      // 0-4 for vowl 5 for consonants)
         long long ans = 0;      // count of valid substrings
@@ -62,7 +62,7 @@ class Solution {
     }
 
     // Main function to count the substrings based on the given k value
-    long long countOfSubstrings(string &word, int k) {
+    long long countOfSubstrings(string& word, int k) {
         set_type();
 
         n = word.size();  // Store the length of the word
@@ -119,7 +119,7 @@ TEST(t0, t3) {
     EXPECT_EQ(ret, output);
 }
 
-int main(int argc, char *argv[]) {
+int main(int argc, char* argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

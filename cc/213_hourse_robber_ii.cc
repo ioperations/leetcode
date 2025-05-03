@@ -18,14 +18,14 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    int Rob(vector<int> &nums) {
+    int Rob(vector<int>& nums) {
         // pass
         int v1 = Rob(nums, true, 1, false) + nums[0];
         int v2 = Rob(nums, false, 1, true);
         return max(v1, v2);
     }
 
-    int Rob(vector<int> &nums, bool previous_robd, int current_index,
+    int Rob(vector<int>& nums, bool previous_robd, int current_index,
             bool last_can_be_robbed) {
         if (current_index >= nums.size()) {
             return 0;

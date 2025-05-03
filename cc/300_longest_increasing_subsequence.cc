@@ -20,7 +20,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    int LengthOfLisV1(vector<int> &nums) {
+    int LengthOfLisV1(vector<int>& nums) {
         int size = nums.size();
         function<int(int, int)> fun = [&](int start_with,
                                           int min_required) -> int {
@@ -38,7 +38,7 @@ class Solution {
         };
         return fun(0, std::numeric_limits<int>::min());
     }
-    int LengthOfLis(vector<int> &nums) {
+    int LengthOfLis(vector<int>& nums) {
         vector<int> ans;
         ans.push_back(nums[0]);
         for (int i = 1; i < (int)nums.size(); i++) {

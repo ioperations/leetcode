@@ -17,7 +17,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    vector<int> DailyTemperatures(vector<int> &temperatures) {
+    vector<int> DailyTemperatures(vector<int>& temperatures) {
         int size = temperatures.size();
 
         vector<int> ret(size, 0);

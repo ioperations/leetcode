@@ -27,7 +27,7 @@ using TreeNode = Tree::TreeNode<int>;
 namespace {
 class Solution {
    public:
-    bool IsValidBstV2(TreeNode *root) {
+    bool IsValidBstV2(TreeNode* root) {
         std::vector<int> z;
         Solve(root, z);
 
@@ -38,7 +38,7 @@ class Solution {
         }
         return true;
     }
-    bool IsBst(TreeNode *root, long min, long max) {
+    bool IsBst(TreeNode* root, long min, long max) {
         // top to bottom approach
 
         // base case
@@ -61,9 +61,9 @@ class Solution {
         // tree is a BST if both sides are BST
         return is_left_part_bst && is_right_part_bst;
     }
-    bool IsValidBst(TreeNode *root) { return IsBst(root, LONG_MIN, LONG_MAX); }
+    bool IsValidBst(TreeNode* root) { return IsBst(root, LONG_MIN, LONG_MAX); }
 
-    bool IsValidBstV1(TreeNode *root) {
+    bool IsValidBstV1(TreeNode* root) {
         if (root == nullptr) {
             return true;
         }
@@ -80,7 +80,7 @@ class Solution {
         return IsValidBst(root->left) && IsValidBst(root->right);
     }
 
-    void Solve(TreeNode *root, std::vector<int> &z) {
+    void Solve(TreeNode* root, std::vector<int>& z) {
         if (root == nullptr) {
             return;
         }
@@ -90,10 +90,10 @@ class Solution {
         Solve(root->right, z);
     }
 
-    bool IsValidBstV3(TreeNode *root) {
+    bool IsValidBstV3(TreeNode* root) {
         if (root == nullptr) return true;
-        std::function<bool(TreeNode *, int, int)> fun =
-            [&](TreeNode *n, int left, int right) -> bool {
+        std::function<bool(TreeNode*, int, int)> fun =
+            [&](TreeNode* n, int left, int right) -> bool {
             if (root == nullptr) return true;
 
             if (n->val > right || n->val < left) {
@@ -108,13 +108,13 @@ class Solution {
     }
 };
 
-TreeNode *AddToRoot(TreeNode *root, int val) {
+TreeNode* AddToRoot(TreeNode* root, int val) {
     if (root == nullptr) {
         return nullptr;
     }
     if (val < root->val) {
         if (root->left) {
-            TreeNode *head = AddToRoot(root->left, val);
+            TreeNode* head = AddToRoot(root->left, val);
             root->left = head;
             return root;
         }
@@ -122,7 +122,7 @@ TreeNode *AddToRoot(TreeNode *root, int val) {
 
     } else {
         if (root->right) {
-            TreeNode *head = AddToRoot(root->right, val);
+            TreeNode* head = AddToRoot(root->right, val);
             root->right = head;
             return root;
         }
@@ -131,12 +131,12 @@ TreeNode *AddToRoot(TreeNode *root, int val) {
     return root;
 }
 
-TreeNode *ConstructTree(const std::vector<int> &elements) {
+TreeNode* ConstructTree(const std::vector<int>& elements) {
     if (!elements.size()) {
         return nullptr;
     }
 
-    TreeNode *root = new TreeNode(elements[0]);
+    TreeNode* root = new TreeNode(elements[0]);
 
     for (int i = 1; i < (int)elements.size(); i++) {
         root = AddToRoot(root, elements[i]);
@@ -145,7 +145,7 @@ TreeNode *ConstructTree(const std::vector<int> &elements) {
     return root;
 }
 
-void FreeRoot(TreeNode *root) {
+void FreeRoot(TreeNode* root) {
     if (root == nullptr) {
         return;
     }
@@ -158,7 +158,7 @@ void FreeRoot(TreeNode *root) {
 TEST(validate_binary_search_tree, t1) {
     std::vector<int> root = {2, 1, 3};
     bool output = true;
-    TreeNode *head = ConstructTree(root);
+    TreeNode* head = ConstructTree(root);
 
     Solution sl;
     bool ret = sl.IsValidBst(head);

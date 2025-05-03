@@ -17,7 +17,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    bool IsToeplitzMatrix(vector<vector<int>> &matrix) {
+    bool IsToeplitzMatrix(vector<vector<int>>& matrix) {
         int const rows = matrix.size();
         int const cols = matrix[0].size();
         for (int r = 1; r < rows; ++r)

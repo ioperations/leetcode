@@ -17,9 +17,9 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    int FindKthLargest(vector<int> &nums, int k) {
+    int FindKthLargest(vector<int>& nums, int k) {
         priority_queue<int> q;
-        for (auto &ptr : nums) {
+        for (auto& ptr : nums) {
             q.push(ptr);
         }
 

@@ -32,7 +32,7 @@ class MyCalendar {
 
     bool Book(int start, int end) {
         auto slice = make_pair(start, end);
-        auto cmp = [](const pair<int, int> &a, const pair<int, int> &b) {
+        auto cmp = [](const pair<int, int>& a, const pair<int, int>& b) {
             return a.second <= b.first;
         };
         auto bound = equal_range(slices.begin(), slices.end(), slice, cmp);

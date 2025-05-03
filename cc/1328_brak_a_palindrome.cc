@@ -27,7 +27,7 @@ namespace {
 class Solution {
    public:
     string BreakPalindrome(string palindrome) {
-        string &ret = palindrome;
+        string& ret = palindrome;
         int const original_size = palindrome.size();
         int const size = palindrome.size() / 2;
         for (int i = 0; i < size; i++) {

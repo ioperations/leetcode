@@ -22,9 +22,9 @@ using namespace std;
 
 class Solution {
    public:
-    int magnificentSets(int n, vector<vector<int>> &edges) {
+    int magnificentSets(int n, vector<vector<int>>& edges) {
         vector<vector<int>> adj(n);
-        for (const auto &e : edges) {
+        for (const auto& e : edges) {
             adj[e[0] - 1].push_back(e[1] - 1);
             adj[e[1] - 1].push_back(e[0] - 1);
         }
@@ -37,15 +37,15 @@ class Solution {
             }
         }
         int maxGroups = {0};
-        for (const auto &comp : components) {
+        for (const auto& comp : components) {
             maxGroups += bfsMaxDepth(comp, adj);
         }
         return maxGroups;
     }
 
    private:
-    bool dfs(int node, int col, const vector<vector<int>> &adj,
-             vector<int> &color, vector<int> &comp) {
+    bool dfs(int node, int col, const vector<vector<int>>& adj,
+             vector<int>& color, vector<int>& comp) {
         color[node] = col;
         comp.push_back(node);
         for (int neighbor : adj[node]) {
@@ -56,7 +56,7 @@ class Solution {
         }
         return true;
     }
-    int bfsMaxDepth(const vector<int> &comp, const vector<vector<int>> &adj) {
+    int bfsMaxDepth(const vector<int>& comp, const vector<vector<int>>& adj) {
         int maxDepth = {0};
         for (int start : comp) {
             vector<int> depth(adj.size(), -1);

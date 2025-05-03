@@ -29,13 +29,13 @@ using ListNode = List::ListNode<int>;
 namespace {
 class Solution {
    public:
-    void ReorderList(ListNode *head) { Solve(head); }
+    void ReorderList(ListNode* head) { Solve(head); }
 
-    void Solve(ListNode *&head) {
-        std::stack<ListNode *> stack;
-        std::queue<ListNode *> queue;
+    void Solve(ListNode*& head) {
+        std::stack<ListNode*> stack;
+        std::queue<ListNode*> queue;
 
-        ListNode *my_head = head;
+        ListNode* my_head = head;
         int size = 0;
         while (my_head != nullptr) {
             stack.push(my_head);
@@ -45,7 +45,7 @@ class Solution {
         }
 
         ListNode node;
-        ListNode *it = &node;
+        ListNode* it = &node;
 
         for (int i = 0; i < size;) {
             it->next = queue.front();
@@ -61,9 +61,9 @@ class Solution {
     }
 };
 
-void ExpectEqList(ListNode *const head, const std::vector<int> &elements) {
+void ExpectEqList(ListNode* const head, const std::vector<int>& elements) {
     int i = 0;
-    ListNode *m_head = head;
+    ListNode* m_head = head;
 
     while (m_head != nullptr) {
         EXPECT_EQ(m_head->val, elements[i]);
@@ -87,7 +87,7 @@ TEST(reorder_list, t1) {
 
     */
 
-    ListNode *head = List::ConstructList(v);
+    ListNode* head = List::ConstructList(v);
     Solution sl;
     sl.ReorderList(head);
 
@@ -111,7 +111,7 @@ TEST(reorder_list, t2) {
     |___|    |___|     |___|     |___|     |___|
 
     */
-    ListNode *head = List::ConstructList(v);
+    ListNode* head = List::ConstructList(v);
     Solution sl;
     sl.ReorderList(head);
 

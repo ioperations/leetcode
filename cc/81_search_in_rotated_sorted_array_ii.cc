@@ -25,7 +25,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    bool Search(vector<int> &nums, int target) {
+    bool Search(vector<int>& nums, int target) {
         int left = 0, right = nums.size() - 1;
         while (left <= right) {
             int mid = (left + right) / 2;

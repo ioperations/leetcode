@@ -18,12 +18,12 @@
 namespace {
 class Solution {
    public:
-    Solution(){};
+    Solution() {};
     std::vector<int> FindSubString(std::string s,
-                                   std::vector<std::string> &words) {
+                                   std::vector<std::string>& words) {
         std::sort(
             words.begin(), words.end(),
-            [](std::string &left, std::string &right) { return left > right; });
+            [](std::string& left, std::string& right) { return left > right; });
 
         std::set<int> ret;
         do {
@@ -41,7 +41,7 @@ class Solution {
     }
 
    private:
-    int IsOnlyOnce(const std::string &tofind, const std::string &candidate) {
+    int IsOnlyOnce(const std::string& tofind, const std::string& candidate) {
         auto it = tofind.find(candidate);
         if (it != std::string::npos) {
             return tofind.substr(it, tofind.size()).find(candidate) !=
@@ -51,8 +51,8 @@ class Solution {
         }
         return -1;
     }
-    static std::set<int> AllSubString(const std::string &tofind,
-                                      const std::string &candidate,
+    static std::set<int> AllSubString(const std::string& tofind,
+                                      const std::string& candidate,
                                       int index = 0) {
         auto it = tofind.find(candidate);
         if (it != std::string::npos) {
@@ -65,10 +65,8 @@ class Solution {
     }
 };
 
-
-
 TEST(_substringwith_concatenation_of_all_words, t1) {
-    Solution *s = new Solution();
+    Solution* s = new Solution();
     const std::string str = "wordgoodgoodgoodbestword";
     std::vector<std::string> words{"word", "good", "best", "word"};
     auto ret = s->FindSubString(str, words);
@@ -124,4 +122,4 @@ TEST(_substringwith_concatenation_of_all_words, t5) {
     EXPECT_EQ(retset, expect);
 }
 
-} // namespace
+}  // namespace

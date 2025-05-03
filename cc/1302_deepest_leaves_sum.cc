@@ -15,24 +15,24 @@ using namespace std;
 //* Definition for a binary tree node.
 struct TreeNode {
     int val;
-    TreeNode *left;
-    TreeNode *right;
+    TreeNode* left;
+    TreeNode* right;
     bool deleted = false;
     TreeNode() : val(0), left(nullptr), right(nullptr) {}
     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
-    TreeNode(int x, TreeNode *left, TreeNode *right)
+    TreeNode(int x, TreeNode* left, TreeNode* right)
         : val(x), left(left), right(right) {}
 };
 
 namespace {
 class Solution {
    public:
-    int Height(TreeNode *root) {
+    int Height(TreeNode* root) {
         if (!root) return 0;
         return std::max(Height(root->left), Height(root->right)) + 1;
     }
     int sum = 0;
-    int SumAtK(TreeNode *root, int k) {
+    int SumAtK(TreeNode* root, int k) {
         if (!root) return sum;
         if (k == 0 && root->val != -1) sum = sum + root->val;
         SumAtK(root->left, k - 1);
@@ -40,7 +40,7 @@ class Solution {
         return sum;
     }
 
-    int DeepestLeavesSum(TreeNode *root) {
+    int DeepestLeavesSum(TreeNode* root) {
         const int h = Height(root);
         const int sum = SumAtK(root, h - 1);
         return sum;
@@ -49,14 +49,14 @@ class Solution {
 
 class SolutionV2 {
    public:
-    int DeepestLeavesSum(TreeNode *root) {
+    int DeepestLeavesSum(TreeNode* root) {
         if (!root) return 0;
-        queue<TreeNode *> q;
+        queue<TreeNode*> q;
         q.push(root);
         q.push(nullptr);
         int sum = 0;
         while (q.size() > 1) {
-            auto *curr = q.front();
+            auto* curr = q.front();
             q.pop();
             if (!curr) {
                 q.push(nullptr);
@@ -73,20 +73,20 @@ class SolutionV2 {
 
 #define null -1
 
-TreeNode *NewNode(int data) {
-    TreeNode *node = new TreeNode;
+TreeNode* NewNode(int data) {
+    TreeNode* node = new TreeNode;
     node->val = data;
     node->left = node->right = nullptr;
     return node;
 }
 
 // Function to insert nodes in level order
-TreeNode *InsertLevelOrder(vector<int> &arr, int i) {
+TreeNode* InsertLevelOrder(vector<int>& arr, int i) {
     // Base case for recursion
     const int n = arr.size();
     if (i < n) {
-        TreeNode *temp = NewNode(arr[i]);
-        TreeNode *root = temp;
+        TreeNode* temp = NewNode(arr[i]);
+        TreeNode* root = temp;
 
         // insert left child
         root->left = InsertLevelOrder(arr, 2 * i + 1);
@@ -104,7 +104,7 @@ TreeNode *InsertLevelOrder(vector<int> &arr, int i) {
 
 // Function to print tree nodes in
 // InOrder fashion
-void FreeTreeNode(TreeNode *root) {
+void FreeTreeNode(TreeNode* root) {
     if (root == nullptr) return;
 
     FreeTreeNode(root->left);
@@ -113,14 +113,14 @@ void FreeTreeNode(TreeNode *root) {
     delete root;
 }
 
-TreeNode *ConstructTreeNode(std::vector<int> &arr) {
+TreeNode* ConstructTreeNode(std::vector<int>& arr) {
     return InsertLevelOrder(arr, 0);
 }
 
 TEST(deepest_leaves_sum, t1) {
     vector<int> vec = {1, 2, 3, 4, 5, null, 6, 7, null, null, null, null, 8};
 
-    TreeNode *root = ConstructTreeNode(vec);
+    TreeNode* root = ConstructTreeNode(vec);
     const int expected = 15;
 
     Solution sl;
@@ -133,7 +133,7 @@ TEST(deepest_leaves_sum, t1) {
 TEST(deepest_leaves_sum, t2) {
     vector<int> vec = {6, 7, 8, 2, 7, 1, 3, 9, null, 1, 4, null, null, null, 5};
 
-    TreeNode *root = ConstructTreeNode(vec);
+    TreeNode* root = ConstructTreeNode(vec);
     const int expected = 19;
 
     Solution sl;

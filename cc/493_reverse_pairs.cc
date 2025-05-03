@@ -20,7 +20,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    int ReversePairs(vector<int> &nums) {
+    int ReversePairs(vector<int>& nums) {
         // pass
 
         int count = 0;
@@ -40,11 +40,11 @@ class Solution {
 
 class SolutionV2 {
    public:
-    int ReversePairs(vector<int> &nums) {
+    int ReversePairs(vector<int>& nums) {
         vector<int> temp(nums.size());
         return Merge(nums, 0, nums.size(), temp);
     }
-    int BinaryCnt(vector<int> &nums, int left, int right, double n,
+    int BinaryCnt(vector<int>& nums, int left, int right, double n,
                   bool direction) {
         int size = right - left;
         int ori_left = left;
@@ -69,7 +69,7 @@ class SolutionV2 {
         return (left - ori_left);
     };
 
-    int Merge(vector<int> &nums, int left, int right, vector<int> &temp) {
+    int Merge(vector<int>& nums, int left, int right, vector<int>& temp) {
         long cnt = 0;
         if (right - left < 2) {
             return cnt;

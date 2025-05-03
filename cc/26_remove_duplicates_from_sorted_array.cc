@@ -47,11 +47,11 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    int RemoveDuplicates(vector<int> &nums) {
+    int RemoveDuplicates(vector<int>& nums) {
         priority_queue<int, vector<int>, std::greater<int>> q;
         int last = 0;
         bool last_set = false;
-        for (auto &ptr : nums) {
+        for (auto& ptr : nums) {
             if (last_set) {
                 if (ptr != last) {
                     last = ptr;
