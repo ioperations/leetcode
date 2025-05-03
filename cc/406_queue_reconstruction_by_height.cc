@@ -14,7 +14,6 @@ the front of the queue).*/
 #include <algorithm>
 #include <iterator>
 #include <map>
-#include <utility>
 #include <vector>
 
 #include "gtest/gtest.h"

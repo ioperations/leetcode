@@ -31,16 +31,12 @@ namespace {
 class Iterator {
     const std::vector<int>& m_nums;
     int size;
-    int i;
+    int i{-1};
 
    public:
-    Iterator(const vector<int>& nums)
-        : m_nums(nums), size(nums.size()), i(-1) {}
+    Iterator(const vector<int>& nums) : m_nums(nums), size(nums.size()) {}
 
-    Iterator(const Iterator& iter)
-        : m_nums(iter.m_nums), size(iter.size), i(iter.i) {
-
-          };
+    Iterator(const Iterator& iter) = default;
 
     // Returns the next element in the iteration.
     int next() {
@@ -58,31 +54,31 @@ class Iterator {
 };
 
 class PeekingIterator : public Iterator {
-    int next_val;
+  int m_next_val;
 
-   public:
-    PeekingIterator(const vector<int>& nums)
-        : Iterator(nums), next_val(Iterator::next()) {
-        // Initialize any member here.
-        // **DO NOT** save a copy of nums and manipulate it directly.
-        // You should only use the Iterator interface methods.
-    }
+ public:
+  PeekingIterator(const vector<int>& nums)
+      : Iterator(nums), m_next_val(Iterator::next()) {
+    // Initialize any member here.
+    // **DO NOT** save a copy of nums and manipulate it directly.
+    // You should only use the Iterator interface methods.
+  }
 
     // Returns the next element in the iteration without advancing the iterator.
-    int Peek() { return next_val; }
+    int Peek() { return m_next_val; }
 
     // hasNext() and next() should behave the same as in the Iterator interface.
     // Override them if needed.
     int next() {
-        int const temp = next_val;
-        if (Iterator::hasNext())
-            next_val = Iterator::next();
-        else
-            next_val = 0;
-        return temp;
+      int const temp = m_next_val;
+      if (Iterator::hasNext())
+        m_next_val = Iterator::next();
+      else
+        m_next_val = 0;
+      return temp;
     }
 
-    [[nodiscard]] bool hasNext() const { return (next_val != 0); }
+    [[nodiscard]] bool hasNext() const { return (m_next_val != 0); }
 };
 
 TEST(peeking_iterator, t1) {

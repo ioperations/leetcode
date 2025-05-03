@@ -27,9 +27,9 @@ list, if the index is valid.*/
 namespace {
 class Node {
    public:
-    int val;
-    Node* next;
-    Node(int val) : val(val), next(nullptr) {}
+    int m_val;
+    Node* next{nullptr};
+    Node(int val) : m_val(val) {}
 };
 class MyLinkedList {
     void FreeNode(Node* r) {
@@ -48,7 +48,7 @@ class MyLinkedList {
         if (index < 0 || index >= m_size) return -1;
         Node* temp = m_head->next;
         for (int i = 0; i < index; i++) temp = temp->next;
-        return temp->val;
+        return temp->m_val;
     }
     void AddAtHead(int val) {
         Node* temp = m_head->next;

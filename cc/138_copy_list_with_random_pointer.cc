@@ -27,11 +27,11 @@ of the original linked list.*/
 namespace {
 class Node {
    public:
-    int val;
-    Node* next;
-    Node* random;
+    int m_val;
+    Node* next{nullptr};
+    Node* random{nullptr};
 
-    Node(int my_val) : val(my_val), next(nullptr), random(nullptr) {}
+    Node(int my_val) : m_val(my_val) {}
 };
 
 class Solution {
@@ -46,13 +46,13 @@ class Solution {
         std::vector<Node*> new_nodes;
         int i = 0;
         while (ite_old != nullptr) {
-            ite_new->next = new Node(ite_old->val);
-            map[ite_old] = i;
-            ite_old = ite_old->next;
-            ite_new = ite_new->next;
-            new_nodes.push_back(ite_new);
+          ite_new->next = new Node(ite_old->m_val);
+          map[ite_old] = i;
+          ite_old = ite_old->next;
+          ite_new = ite_new->next;
+          new_nodes.push_back(ite_new);
 
-            i++;
+          i++;
         }
 
         ite_new = &dummy_new;
@@ -110,7 +110,7 @@ std::vector<std::vector<std::optional<int>>> RestoreNode(Node* node) {
     while (ite != nullptr) {
         map[ite] = i;
         std::vector<std::optional<int>> myret(2, std::optional<int>());
-        myret[0] = ite->val;
+        myret[0] = ite->m_val;
         ite = ite->next;
         ret.push_back(myret);
         i++;

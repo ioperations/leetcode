@@ -85,14 +85,14 @@ class Solution {
         int ans = 0;
 
         vector<int> dp{0};
-        for (int i : a) {
-            int const size = dp.size();
-            for (int j = 0; j < size; ++j) {
-                if (dp[j] & i) continue;
-                int const t = dp[j] | i;
-                dp.push_back(t);
-                ans = max(ans, __builtin_popcount(t));
-            }
+        for (int const i : a) {
+          int const size = dp.size();
+          for (int j = 0; j < size; ++j) {
+            if (dp[j] & i) continue;
+            int const t = dp[j] | i;
+            dp.push_back(t);
+            ans = max(ans, __builtin_popcount(t));
+          }
         }
 
         return ans;

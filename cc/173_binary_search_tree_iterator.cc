@@ -30,7 +30,7 @@ namespace {
 template <typename T>
 class BSTIterator {
    private:
-    TreeNode<T>* pt;
+    TreeNode<T>* m_pt;
     std::stack<TreeNode<T>*> m_s;
 
     void PushStack(TreeNode<T>* node) {
@@ -41,7 +41,7 @@ class BSTIterator {
     }
     // pushed the left subtree to the stack
    public:
-    BSTIterator(TreeNode<T>* root) : pt(root) { PushStack(pt); }
+    BSTIterator(TreeNode<T>* root) : m_pt(root) { PushStack(m_pt); }
 
     int next() {
         TreeNode<T>* temp = m_s.top();

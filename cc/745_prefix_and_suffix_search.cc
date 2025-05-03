@@ -29,58 +29,58 @@ class Trie {
    public:
     struct Node {
        public:
-        Node* child[27];
+        Node* m_child[27];
         int m_end_idx;
 
        public:
-        bool Contains(char& ch) { return (child[ch - 'a'] != nullptr); }
+        bool Contains(char& ch) { return (m_child[ch - 'a'] != nullptr); }
 
-        void PutNode(char& ch, Node* new_node) { child[ch - 'a'] = new_node; }
+        void PutNode(char& ch, Node* new_node) { m_child[ch - 'a'] = new_node; }
 
-        Node* GetNext(char& ch) { return child[ch - 'a']; }
+        Node* GetNext(char& ch) { return m_child[ch - 'a']; }
 
         void SetIdx(int& i) { m_end_idx = i; }
 
         int GetIdx() { return m_end_idx; }
     };
 
-    Node* root;
+    Node* m_root;
     void DeleteNode(Node* n) {
         if (n == nullptr) return;
-        for (auto& i : n->child) {
-            DeleteNode(i);
+        for (auto& i : n->m_child) {
+          DeleteNode(i);
         }
         delete n;
     }
 
    public:
-    Trie() : root(new Node()) {}
+    Trie() : m_root(new Node()) {}
 
-    ~Trie() { DeleteNode(root); }
+    ~Trie() { DeleteNode(m_root); }
 
     void Insert(string& word, int& idx) {
-        Node* temp = root;
+      Node* temp = m_root;
 
-        for (auto& ch : word) {
-            if (!temp->Contains(ch)) {
-                temp->PutNode(ch, new Node());
-            }
-
-            temp = temp->GetNext(ch);
-            temp->SetIdx(idx);
+      for (auto& ch : word) {
+        if (!temp->Contains(ch)) {
+          temp->PutNode(ch, new Node());
         }
+
+        temp = temp->GetNext(ch);
+        temp->SetIdx(idx);
+      }
     }
 
     int StartsWith(string& word) {
-        Node* temp = root;
+      Node* temp = m_root;
 
-        for (auto& ch : word) {
-            if (!temp->Contains(ch)) {
-                return -1;
-            }
-
-            temp = temp->GetNext(ch);
+      for (auto& ch : word) {
+        if (!temp->Contains(ch)) {
+          return -1;
         }
+
+        temp = temp->GetNext(ch);
+      }
 
         return temp->GetIdx();
     }

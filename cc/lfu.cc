@@ -25,7 +25,7 @@ class LfuCache {
         Node(K key, V value, int freq)
             : m_key(key), m_value(value), m_freq(freq) {}
     };
-    int min_freq;
+    int min_freq{1};
     int m_capablity;
     std::unordered_map<K, typename std::list<Node>::iterator>
         m_key_to_list_head;
@@ -34,8 +34,7 @@ class LfuCache {
 
 template <typename K, typename V>
 LfuCache<K, V>::LfuCache(int capablity)
-    : m_capablity(capablity),
-      min_freq(1){
+    : m_capablity(capablity){
 
       };
 

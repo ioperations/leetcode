@@ -49,12 +49,12 @@ class Solution {
 
         set<int> st;
 
-        for (int i : in) {
-            int const target = k - i;
-            if (st.find(target) != st.end()) {
-                return true;
-            }
-            st.insert(i);
+        for (int const i : in) {
+          int const target = k - i;
+          if (st.find(target) != st.end()) {
+            return true;
+          }
+          st.insert(i);
         }
 
         return false;

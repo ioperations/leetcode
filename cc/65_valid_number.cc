@@ -165,36 +165,36 @@ class Solution {
             ERROR,
             END,
         };
-        std::pair<token_type, std::string> Next() { return Next(cursor); }
+        std::pair<token_type, std::string> Next() { return Next(m_cursor); }
 
         std::pair<token_type, std::string> Seek(int number) {
-            int z = cursor;
-            std::pair<token_type, std::string> ret;
-            for (int i = 0; i < number; i++) {
-                ret = Next(z);
-            }
+          int z = m_cursor;
+          std::pair<token_type, std::string> ret;
+          for (int i = 0; i < number; i++) {
+            ret = Next(z);
+          }
             return ret;
         }
 
         bool Consume(int number) {
-            int z = cursor;
-            std::pair<token_type, std::string> ret;
-            bool end = false;
-            for (int i = 0; i < number; i++) {
-                if (end) {
-                    return false;  // already end
-                }
-                ret = Next(z);
-                switch (ret.first) {
-                    case ERROR:
-                        return false;
-                        break;
-                    case END:
-                        end = true;
-                        break;
-                    default:
-                        break;
-                }
+          int z = m_cursor;
+          std::pair<token_type, std::string> ret;
+          bool end = false;
+          for (int i = 0; i < number; i++) {
+            if (end) {
+              return false;  // already end
+            }
+            ret = Next(z);
+            switch (ret.first) {
+              case ERROR:
+                return false;
+                break;
+              case END:
+                end = true;
+                break;
+              default:
+                break;
+            }
             }
             return true;
         }
@@ -236,7 +236,7 @@ class Solution {
 
        private:
         std::string m_s;
-        int cursor = 0;
+        int m_cursor = 0;
     };
 };
 

@@ -13,6 +13,7 @@ Each group of children is separated by the null value (See examples)
 
 #include <optional>
 #include <queue>
+#include <utility>
 #include <vector>
 
 #include "gtest/gtest.h"
@@ -22,15 +23,15 @@ using namespace std;
 namespace {
 class Node {
    public:
-    int val{};
-    vector<Node*> children;
+    int m_val{};
+    vector<Node*> m_children;
 
     Node() = default;
 
-    Node(int i_val) : val(i_val) {}
+    Node(int i_val) : m_val(i_val) {}
 
     Node(int i_val, vector<Node*> i_children)
-        : val(i_val), children(i_children) {}
+        : m_val(i_val), m_children(std::move(i_children)) {}
 };
 
 class Solution {
@@ -43,19 +44,19 @@ class Solution {
 
     void Postorder(Node* root, std::vector<int>& ret) {
         if (root == nullptr) return;
-        for (auto& ptr : root->children) {
-            Postorder(ptr, ret);
+        for (auto& ptr : root->m_children) {
+          Postorder(ptr, ret);
         }
-        ret.push_back(root->val);
+        ret.push_back(root->m_val);
     }
 };
 
 vector<Node*> ConstructTreeNode(Node* z1, vector<int>& z) {
     for (auto& ptr : z) {
         Node* ptrn = new Node(ptr);
-        z1->children.push_back(ptrn);
+        z1->m_children.push_back(ptrn);
     }
-    return z1->children;
+    return z1->m_children;
 }
 
 Node* ConstructTreeNode(vector<optional<int>>& elements) {
@@ -93,8 +94,8 @@ void FreeNode(Node* n) {
     if (n == nullptr) {
         return;
     }
-    for (auto& ptr : n->children) {
-        FreeNode(ptr);
+    for (auto& ptr : n->m_children) {
+      FreeNode(ptr);
     }
     delete n;
 }

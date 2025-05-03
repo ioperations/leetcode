@@ -32,7 +32,7 @@ class Trie {
     class TrieNode {
        public:
         vector<TrieNode*> m_child;
-        bool is_end{false};
+        bool m_is_end{false};
         TrieNode() { m_child.resize(26, nullptr); }
         ~TrieNode() { m_child.clear(); }
     };
@@ -59,7 +59,7 @@ class Trie {
             }
             c = c->m_child[x - 'a'];
         }
-        c->is_end = true;
+        c->m_is_end = true;
     }
 
     bool Search(string word) {
@@ -70,7 +70,7 @@ class Trie {
             }
             c = c->m_child[x - 'a'];
         }
-        return c->is_end;
+        return c->m_is_end;
     }
 
     bool StartsWith(string prefix) {

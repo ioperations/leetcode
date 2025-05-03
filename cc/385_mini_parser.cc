@@ -28,7 +28,7 @@ using namespace std;
 namespace {
 class NestedInteger {
     bool is_integer = true;
-    int val{};
+    int m_val{};
     vector<NestedInteger> m_vec;
 
    public:
@@ -36,7 +36,7 @@ class NestedInteger {
     NestedInteger() = default;
 
     // Constructor initializes a single integer.
-    NestedInteger(int value) : is_integer(true), val(value) {}
+    NestedInteger(int value) : m_val(value) {}
 
     // Return true if this NestedInteger holds a single integer, rather than a
     // nested list.
@@ -45,12 +45,12 @@ class NestedInteger {
     // Return the single integer that this NestedInteger holds, if it holds a
     // single integer The result is undefined if this NestedInteger holds a
     // nested list
-    [[nodiscard]] int GetInteger() const { return val; }
+    [[nodiscard]] int GetInteger() const { return m_val; }
 
     // Set this NestedInteger to hold a single integer.
     void SetInteger(int value) {
         m_vec.clear();
-        val = value;
+        m_val = value;
         is_integer = true;
     }
 

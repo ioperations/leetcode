@@ -42,9 +42,9 @@ using namespace std;
 void ExpectEqList(ListNode* const head, const std::vector<int>& elements) {
     ListNode* m_head = head;
 
-    for (int element : elements) {
-        EXPECT_EQ(m_head->val, element);
-        m_head = m_head->next;
+    for (int const element : elements) {
+      EXPECT_EQ(m_head->val, element);
+      m_head = m_head->next;
     }
 }
 

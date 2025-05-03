@@ -62,7 +62,7 @@ class Solution {
     vector<vector<int>> m_res;
     struct TrieNode {
         TrieNode() : m_children(26, nullptr) {}
-        int word_index{-1};
+        int m_word_index{-1};
         vector<TrieNode*> m_children;
         ~TrieNode() {
             for (auto& ptr : m_children) {
@@ -80,7 +80,7 @@ class Solution {
             root = root->m_children[index];
         }
 
-        root->word_index = word_index;
+        root->m_word_index = word_index;
     }
 
     bool IsPalindrome(const string& s) {
@@ -104,8 +104,8 @@ class Solution {
         }
 
         // palindrome + reverse_word
-        if (root->word_index != -1 && !str.empty() && IsPalindrome(str)) {
-            long_word_indices.push_back(root->word_index);
+        if (root->m_word_index != -1 && !str.empty() && IsPalindrome(str)) {
+          long_word_indices.push_back(root->m_word_index);
         }
 
         for (int i = 0; i < 26; ++i) {
@@ -120,11 +120,11 @@ class Solution {
         int index = 0;
         while (index < (int)word.length() && root != nullptr) {
             root = root->m_children[word[index++] - 'a'];
-            if (root != nullptr && root->word_index != -1) {
-                if (root->word_index != word_index &&
-                    IsPalindrome(word.substr(index))) {
-                    m_res.push_back({word_index, root->word_index});
-                }
+            if (root != nullptr && root->m_word_index != -1) {
+              if (root->m_word_index != word_index &&
+                  IsPalindrome(word.substr(index))) {
+                m_res.push_back({word_index, root->m_word_index});
+              }
             }
         }
 
@@ -153,8 +153,9 @@ class Solution {
         for (int i = 0; i < (int)words.size(); ++i) {
             string& word = words[i];
             // word is palindrome
-            if (root->word_index != -1 && !word.empty() && IsPalindrome(word)) {
-                m_res.push_back({i, root->word_index});
+            if (root->m_word_index != -1 && !word.empty() &&
+                IsPalindrome(word)) {
+              m_res.push_back({i, root->m_word_index});
             }
             Find(root, word, i);
         }

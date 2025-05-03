@@ -17,6 +17,7 @@ x steps in the history and steps > x, you will forward only x steps. Return the
 current url after forwarding in history at most steps.*/
 
 #include <string>
+#include <utility>
 
 #include "gtest/gtest.h"
 
@@ -33,9 +34,9 @@ class BrowserHistory {
     */
    public:
     struct Node {
-        string url;
-        Node *prev, *next;
-        Node(string str) : url(str), prev(nullptr), next(nullptr) {}
+        string m_url;
+        Node *prev{nullptr}, *next{nullptr};
+        Node(string str) : m_url(std::move(str)) {}
     };
 
     Node *home_page, *curr_page;
@@ -74,9 +75,9 @@ class BrowserHistory {
         while (curr_page->prev) {
             curr_page = curr_page->prev;
             cnt++;
-            if (cnt == steps) return curr_page->url;
+            if (cnt == steps) return curr_page->m_url;
         }
-        return curr_page->url;
+        return curr_page->m_url;
     }
 
     string Forward(int steps) {
@@ -84,32 +85,35 @@ class BrowserHistory {
         while (curr_page->next) {
             curr_page = curr_page->next;
             cnt++;
-            if (cnt == steps) return curr_page->url;
+            if (cnt == steps) return curr_page->m_url;
         }
-        return curr_page->url;
+        return curr_page->m_url;
     }
 };
 
 using namespace std;
 class BrowserHistorySysV2 {
    public:
-    BrowserHistorySysV2(const string& homepage, int max_count) {
-        capability = max_count;
-        p_head = new Node("head");
-        p_end = new Node("end");
-        p_head->next = p_end;
-        p_end->pre = p_head;
-        p_head->pre = nullptr;
-        p_end->next = nullptr;
+    BrowserHistorySysV2(const BrowserHistorySysV2&) = default;
+    BrowserHistorySysV2(BrowserHistorySysV2&&) = delete;
+    BrowserHistorySysV2& operator=(const BrowserHistorySysV2&) = default;
+    BrowserHistorySysV2& operator=(BrowserHistorySysV2&&) = delete;
+    BrowserHistorySysV2(const string& homepage, int max_count)
+        : current_size(1), capability(max_count) {
+        m_p_head = new Node("head");
+        m_p_end = new Node("end");
+        m_p_head->next = m_p_end;
+        m_p_end->pre = m_p_head;
+        m_p_head->pre = nullptr;
+        m_p_end->next = nullptr;
 
-        struct Node* p = new Node(homepage);
+        auto* p = new Node(homepage);
         AddToHead(p);
-        p_currnet = p;
-        current_size = 1;
+        m_p_currnet = p;
     }
 
     ~BrowserHistorySysV2() {
-        Node* p = p_head;
+        Node* p = m_p_head;
         while (p != nullptr) {
             Node* tmp = p;
             p = p->next;
@@ -118,16 +122,16 @@ class BrowserHistorySysV2 {
     }
 
     int Visit(const string& url) {
-        if (p_currnet->url == url) {
+        if (m_p_currnet->url == url) {
             return current_size;
         }
 
         CleanNodeToHead();
 
-        struct Node* p = new Node(url);
+        auto* p = new Node(url);
         AddToHead(p);
         current_size++;
-        p_currnet = p;
+        m_p_currnet = p;
 
         if (current_size > capability) {
             DeleteLastNode();
@@ -136,20 +140,20 @@ class BrowserHistorySysV2 {
     }
 
     string Back() {
-        Node* p = p_currnet;
-        if (p->next != p_end) {
+        Node* p = m_p_currnet;
+        if (p->next != m_p_end) {
             p = p->next;
         }
-        p_currnet = p;
+        m_p_currnet = p;
         return p->url;
     }
 
     string Forward() {
-        Node* p = p_currnet;
-        if (p->pre != p_head) {
+        Node* p = m_p_currnet;
+        if (p->pre != m_p_head) {
             p = p->pre;
         }
-        p_currnet = p;
+        m_p_currnet = p;
         return p->url;
     }
 
@@ -159,45 +163,41 @@ class BrowserHistorySysV2 {
         std::string url;
         struct Node* pre;
 
-        Node(std::string u) {
-            url = u;
-            next = nullptr;
-            pre = nullptr;
-        }
+        Node(std::string u) : next(nullptr), url(std::move(u)), pre(nullptr) {}
     };
 
     void CleanNodeToHead() {
-        Node* p = p_currnet->pre;
-        while (p != p_head) {
+        Node* p = m_p_currnet->pre;
+        while (p != m_p_head) {
             Node* tmp = p->pre;
             delete p;
             p = tmp;
             current_size--;
         }
 
-        p = p_currnet;
-        p_head->next = p;
-        p->pre = p_head;
+        p = m_p_currnet;
+        m_p_head->next = p;
+        p->pre = m_p_head;
     }
 
     void AddToHead(struct Node* n) {
-        p_head->next->pre = n;
-        n->next = p_head->next;
-        n->pre = p_head;
-        p_head->next = n;
+        m_p_head->next->pre = n;
+        n->next = m_p_head->next;
+        n->pre = m_p_head;
+        m_p_head->next = n;
     }
 
     void DeleteLastNode() {
-        Node* target = p_end->pre;
+        Node* target = m_p_end->pre;
         target->pre->next = target->next;
         target->next->pre = target->pre;
         delete target;
         current_size--;
     }
 
-    struct Node* p_currnet;
-    struct Node* p_head;
-    struct Node* p_end;
+    struct Node* m_p_currnet;
+    struct Node* m_p_head;
+    struct Node* m_p_end;
     int current_size;
 
     int capability;
@@ -255,7 +255,7 @@ TEST(design_browser_history_v2, t2) {
 
 TEST(design_browser_history, t1) {
     // Explanation:
-    BrowserHistory* browser_history = new BrowserHistory("leetcode.com");
+    auto* browser_history = new BrowserHistory("leetcode.com");
     // You are in "leetcode.com". Visit "google.com"
     browser_history->Visit("google.com");
     browser_history->Visit("facebook.com");
@@ -289,7 +289,7 @@ TEST(design_browser_history, t2) {
     // [null,null,null,null,"facebook.com","google.com","facebook.com",null,"linkedin.com","google.com","leetcode.com"]
 
     // Explanation:
-    BrowserHistory* browser_history = new BrowserHistory("leetcode.com");
+    auto* browser_history = new BrowserHistory("leetcode.com");
     // You are in "leetcode.com". Visit "google.com"
     browser_history->Visit("google.com");
     // You are in "google.com". Visit "facebook.com"

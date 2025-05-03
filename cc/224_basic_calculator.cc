@@ -73,49 +73,50 @@ class Solution {
             EOL,
         };
 
-        Token(std::string s) : m_s(std::move(s)), index(-1) { next(); }
+        Token(std::string s) : m_s(std::move(s)) { next(); }
         void next() {
-            index++;
+            m_index++;
             m_val = 0;
             bool val_set = false;
-            if (index >= m_s.size()) {
+            if (m_index >= m_s.size()) {
                 m_cur_token = EOL;
                 return;
             }
-            while (index < m_s.size()) {
-                if (' ' == m_s[index]) {
-                    index++;
+            while (m_index < m_s.size()) {
+                if (' ' == m_s[m_index]) {
+                    m_index++;
                     continue;
                 }
-                if ('0' <= m_s[index] && m_s[index] <= '9') {
+                if ('0' <= m_s[m_index] && m_s[m_index] <= '9') {
                     val_set = true;
                     m_cur_token = NUMBER;
-                    m_val = m_val * 10 + m_s[index] - '0';
+                    m_val = m_val * 10 + m_s[m_index] - '0';
                 }
 
                 if (val_set) {
-                    if ((index + 1) < m_s.size()) {
-                        if ('0' <= m_s[index + 1] && m_s[index + 1] <= '9') {
-                            index++;
+                    if ((m_index + 1) < m_s.size()) {
+                        if ('0' <= m_s[m_index + 1] &&
+                            m_s[m_index + 1] <= '9') {
+                            m_index++;
                             continue;
                         }
                         break;
                     }
                     break;
                 }
-                if ('+' == m_s[index]) {
+                if ('+' == m_s[m_index]) {
                     m_cur_token = PLUS;
                     break;
                 }
-                if ('-' == m_s[index]) {
+                if ('-' == m_s[m_index]) {
                     m_cur_token = MINUS;
                     break;
                 }
-                if ('(' == m_s[index]) {
+                if ('(' == m_s[m_index]) {
                     m_cur_token = LEFT_PARAM;
                     break;
                 }
-                if (')' == m_s[index]) {
+                if (')' == m_s[m_index]) {
                     m_cur_token = RIGHT_PARAM;
                     break;
                 }
@@ -130,7 +131,7 @@ class Solution {
        private:
         std::string m_s;
         int m_val{};
-        size_t index;
+        size_t m_index{0};
         token_type m_cur_token;
     };
 };

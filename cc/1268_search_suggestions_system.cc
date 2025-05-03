@@ -85,43 +85,43 @@ class Solution {
 class SolutionV2 {
     class TrieNode {
        public:
-        TrieNode* links[26]{};
+        TrieNode* m_links[26]{};
         vector<int> m_idx;
     };
 
     class Trie {
-        TrieNode* root;
+      TrieNode* m_root;
 
-       private:
-        void DeleteNode(TrieNode* root) {
-            if (root == nullptr) return;
-            for (auto& link : root->links) {
-                DeleteNode(link);
-            }
-            delete root;
+     private:
+      void DeleteNode(TrieNode* root) {
+        if (root == nullptr) return;
+        for (auto& link : root->m_links) {
+          DeleteNode(link);
         }
+        delete root;
+      }
 
        public:
-        Trie() : root(new TrieNode()) {}
-        ~Trie() { DeleteNode(root); }
+        Trie() : m_root(new TrieNode()) {}
+        ~Trie() { DeleteNode(m_root); }
 
         void Insert(const string& s, int id) {
-            TrieNode* node = root;
-            for (auto& ch : s) {
-                if (!node->links[ch - 'a'])
-                    node->links[ch - 'a'] = new TrieNode();
+          TrieNode* node = m_root;
+          for (auto& ch : s) {
+            if (!node->m_links[ch - 'a'])
+              node->m_links[ch - 'a'] = new TrieNode();
 
-                node = node->links[ch - 'a'];
-                node->m_idx.push_back(id);
-            }
+            node = node->m_links[ch - 'a'];
+            node->m_idx.push_back(id);
+          }
         }
 
         vector<int> Search(const string& s) {
-            TrieNode* node = root;
-            for (int i = 0; i < (int)s.length(); i++) {
-                if (!node->links[s[i] - 'a']) return {};
-                node = node->links[s[i] - 'a'];
-            }
+          TrieNode* node = m_root;
+          for (int i = 0; i < (int)s.length(); i++) {
+            if (!node->m_links[s[i] - 'a']) return {};
+            node = node->m_links[s[i] - 'a'];
+          }
             return node->m_idx;
         }
     };

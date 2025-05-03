@@ -70,8 +70,8 @@ class Solution {
         unordered_map<int, int> uniquefreq;
         int count = 0;
 
-        for (char i : s) {
-            charcnt[i - 'a']++;
+        for (char const i : s) {
+          charcnt[i - 'a']++;
         }
 
         for (auto& it : charcnt) {
