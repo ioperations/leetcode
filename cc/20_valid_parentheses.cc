@@ -63,45 +63,45 @@ class Solution {
 };
 
 TEST(valid_parentheses, t1) {
-  string const s = "()";
-  bool const output = true;
+    string const s = "()";
+    bool const output = true;
 
-  Solution sl;
-  bool const ret = sl.IsValid(s);
-  EXPECT_EQ(ret, output);
+    Solution sl;
+    bool const ret = sl.IsValid(s);
+    EXPECT_EQ(ret, output);
 }
 
 TEST(valid_parentheses, t2) {
-  string const s = "()[]{}";
-  bool const output = true;
+    string const s = "()[]{}";
+    bool const output = true;
 
-  Solution sl;
-  bool const ret = sl.IsValid(s);
-  EXPECT_EQ(ret, output);
+    Solution sl;
+    bool const ret = sl.IsValid(s);
+    EXPECT_EQ(ret, output);
 }
 
 TEST(valid_parentheses, t3) {
-  string const s = "(]";
+    string const s = "(]";
 
-  bool const output = false;
+    bool const output = false;
 
-  Solution sl;
-  bool const ret = sl.IsValid(s);
-  EXPECT_EQ(ret, output);
+    Solution sl;
+    bool const ret = sl.IsValid(s);
+    EXPECT_EQ(ret, output);
 }
 
 TEST(valid_parentheses, t4) {
-  string const s = "([)]";
-  Solution sl;
-  bool const ret = sl.IsValid(s);
-  EXPECT_EQ(ret, false);
+    string const s = "([)]";
+    Solution sl;
+    bool const ret = sl.IsValid(s);
+    EXPECT_EQ(ret, false);
 }
 
 TEST(valid_parentheses, t5) {
-  string const s = "{[]}";
-  Solution sl;
-  bool const ret = sl.IsValid(s);
-  EXPECT_EQ(ret, true);
+    string const s = "{[]}";
+    Solution sl;
+    bool const ret = sl.IsValid(s);
+    EXPECT_EQ(ret, true);
 }
 
 }  // namespace

@@ -27,8 +27,8 @@ class Solution {
         std::map<char, Trie> m_ndoe;
         vector<int> index_array;
         ~Trie() {
-          m_ndoe.clear();
-          index_array.clear();
+            m_ndoe.clear();
+            index_array.clear();
         }
     };
     Trie m_root;
@@ -42,18 +42,18 @@ class Solution {
         Build();
         vector<vector<string>> ret;
         for (int i = 0; i < (int)search_word.size(); i++) {
-          vector<string> const tmp = Search(search_word.substr(0, i + 1));
-          ret.push_back(tmp);
+            vector<string> const tmp = Search(search_word.substr(0, i + 1));
+            ret.push_back(tmp);
         }
         return ret;
     }
 
     vector<string> Search(const string& pattern) {
-      Trie* z = &m_root;
-      for (auto& ptr : pattern) {
-        if (z->m_ndoe.find(ptr) != z->m_ndoe.end()) {
-          z = &z->m_ndoe[ptr];
-        }
+        Trie* z = &m_root;
+        for (auto& ptr : pattern) {
+            if (z->m_ndoe.find(ptr) != z->m_ndoe.end()) {
+                z = &z->m_ndoe[ptr];
+            }
         }
 #define b z->index_array
         if (z->index_array.size() >= 3) {
@@ -73,10 +73,10 @@ class Solution {
 
     void Build() {
         for (int i = 0; i < (int)m_product.size(); i++) {
-          Trie* t = &m_root;
-          for (auto& ptr : m_product[i]) {
-            t = &t->m_ndoe[ptr];
-            t->index_array.push_back(i);
+            Trie* t = &m_root;
+            for (auto& ptr : m_product[i]) {
+                t = &t->m_ndoe[ptr];
+                t->index_array.push_back(i);
             }
         }
     }
@@ -96,7 +96,7 @@ class SolutionV2 {
         void DeleteNode(TrieNode* root) {
             if (root == nullptr) return;
             for (auto& link : root->links) {
-              DeleteNode(link);
+                DeleteNode(link);
             }
             delete root;
         }
@@ -152,47 +152,47 @@ class SolutionV2 {
 };
 
 TEST(search_suggestions_system, t1) {
-  vector<string> const products = {"mobile", "mouse", "moneypot", "monitor",
-                                   "mousepad"};
-  string const search_word = "mouse";
+    vector<string> const products = {"mobile", "mouse", "moneypot", "monitor",
+                                     "mousepad"};
+    string const search_word = "mouse";
 
-  Solution sl;
-  vector<vector<string>> const out{{"mobile", "moneypot", "monitor"},
-                                   {"mobile", "moneypot", "monitor"},
-                                   {"mouse", "mousepad"},
-                                   {"mouse", "mousepad"},
-                                   {"mouse", "mousepad"}};
-  vector<vector<string>> const ret =
-      sl.SuggestedProducts(products, search_word);
-  EXPECT_EQ(ret, out);
+    Solution sl;
+    vector<vector<string>> const out{{"mobile", "moneypot", "monitor"},
+                                     {"mobile", "moneypot", "monitor"},
+                                     {"mouse", "mousepad"},
+                                     {"mouse", "mousepad"},
+                                     {"mouse", "mousepad"}};
+    vector<vector<string>> const ret =
+        sl.SuggestedProducts(products, search_word);
+    EXPECT_EQ(ret, out);
 }
 
 TEST(search_suggestions_system, t2) {
-  vector<string> const products = {"havana"};
-  string const search_word = "havana";
+    vector<string> const products = {"havana"};
+    string const search_word = "havana";
 
-  Solution sl;
-  vector<vector<string>> const out{
-      {"havana"}, {"havana"}, {"havana"}, {"havana"}, {"havana"}, {"havana"},
-  };
-  vector<vector<string>> const ret =
-      sl.SuggestedProducts(products, search_word);
-  EXPECT_EQ(ret, out);
+    Solution sl;
+    vector<vector<string>> const out{
+        {"havana"}, {"havana"}, {"havana"}, {"havana"}, {"havana"}, {"havana"},
+    };
+    vector<vector<string>> const ret =
+        sl.SuggestedProducts(products, search_word);
+    EXPECT_EQ(ret, out);
 }
 
 TEST(search_suggestions_system, t3) {
-  vector<string> const products = {"bags", "baggage", "banner", "box",
-                                   "cloths"};
-  string const search_word = "bags";
+    vector<string> const products = {"bags", "baggage", "banner", "box",
+                                     "cloths"};
+    string const search_word = "bags";
 
-  Solution sl;
-  vector<vector<string>> const out{{"baggage", "bags", "banner"},
-                                   {"baggage", "bags", "banner"},
-                                   {"baggage", "bags"},
-                                   {"bags"}};
-  vector<vector<string>> const ret =
-      sl.SuggestedProducts(products, search_word);
-  EXPECT_EQ(ret, out);
+    Solution sl;
+    vector<vector<string>> const out{{"baggage", "bags", "banner"},
+                                     {"baggage", "bags", "banner"},
+                                     {"baggage", "bags"},
+                                     {"bags"}};
+    vector<vector<string>> const ret =
+        sl.SuggestedProducts(products, search_word);
+    EXPECT_EQ(ret, out);
 }
 
 TEST(search_suggestions_system_v2, t1) {

@@ -24,9 +24,9 @@ class Solution {
                 if (word1[i - 1] == word2[j - 1]) {
                     dp[i][j] = dp[i - 1][j - 1];
                 } else {
-                  dp[i][j] =
-                      std::min({dp[i - 1][j - 1], dp[i - 1][j], dp[i][j - 1]}) +
-                      1;
+                    dp[i][j] = std::min({dp[i - 1][j - 1], dp[i - 1][j],
+                                         dp[i][j - 1]}) +
+                               1;
                 }
             }
         }
@@ -34,12 +34,12 @@ class Solution {
     }
 
     int MinDistanceV2(const std::string& word1, const std::string& word2) {
-      int const n1 = word1.size();
-      int const n2 = word2.size();
-      std::vector<std::vector<int>> cache;
-      cache.resize(n1);
-      for (auto& prt : cache) {
-        prt.resize(n2);
+        int const n1 = word1.size();
+        int const n2 = word2.size();
+        std::vector<std::vector<int>> cache;
+        cache.resize(n1);
+        for (auto& prt : cache) {
+            prt.resize(n2);
         }
 
         if (n1 == 0 || n2 == 0) {
@@ -57,42 +57,42 @@ class Solution {
 };
 
 TEST(editdistance, t0) {
-  std::string const a("abc");
-  std::string const b("Abc");
+    std::string const a("abc");
+    std::string const b("Abc");
 
-  Solution s;
-  int const ret = s.MinDistance(a, b);
+    Solution s;
+    int const ret = s.MinDistance(a, b);
 
-  EXPECT_EQ(ret, 1);
+    EXPECT_EQ(ret, 1);
 }
 TEST(editdistance, t1) {
-  std::string const a("ab");
-  std::string const b("Abc");
+    std::string const a("ab");
+    std::string const b("Abc");
 
-  Solution s;
-  int const ret = s.MinDistance(a, b);
+    Solution s;
+    int const ret = s.MinDistance(a, b);
 
-  EXPECT_EQ(ret, 2);
+    EXPECT_EQ(ret, 2);
 }
 
 TEST(editdistanceV2, t0) {
-  std::string const a("abc");
-  std::string const b("Abc");
+    std::string const a("abc");
+    std::string const b("Abc");
 
-  Solution s;
-  int const ret = s.MinDistanceV2(a, b);
+    Solution s;
+    int const ret = s.MinDistanceV2(a, b);
 
-  EXPECT_EQ(ret, 1);
+    EXPECT_EQ(ret, 1);
 }
 
 TEST(editdistanceV2, t1) {
-  std::string const a("ab");
-  std::string const b("Abc");
+    std::string const a("ab");
+    std::string const b("Abc");
 
-  Solution s;
-  int const ret = s.MinDistanceV2(a, b);
+    Solution s;
+    int const ret = s.MinDistanceV2(a, b);
 
-  EXPECT_EQ(ret, 2);
+    EXPECT_EQ(ret, 2);
 }
 
 }  // namespace

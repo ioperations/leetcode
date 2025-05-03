@@ -19,19 +19,19 @@ namespace {
 class Solution {
    public:
     int MinSetSize(vector<int>& arr) {
-      int const n = arr.size();
+        int const n = arr.size();
 
-      unordered_map<int, int> mp;
-      for (auto i : arr) mp[i]++;
+        unordered_map<int, int> mp;
+        for (auto i : arr) mp[i]++;
 
-      priority_queue<int> pq;
-      for (auto& [val, cnt] : mp) pq.push(cnt);
+        priority_queue<int> pq;
+        for (auto& [val, cnt] : mp) pq.push(cnt);
 
-      int val = 0, sum = 0;
-      while (!pq.empty() and sum < n / 2) {
-        sum += pq.top();
-        pq.pop();
-        val++;
+        int val = 0, sum = 0;
+        while (!pq.empty() and sum < n / 2) {
+            sum += pq.top();
+            pq.pop();
+            val++;
         }
         return val;
     }

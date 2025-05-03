@@ -20,25 +20,25 @@ using namespace std;
 
 namespace {
 class KthLargest {
-  priority_queue<int, vector<int>, greater<>> m_q;
-  int m_k;
+    priority_queue<int, vector<int>, greater<>> m_q;
+    int m_k;
 
- public:
-  KthLargest(int k, vector<int>& nums) : m_k(k) {
-    int const size = nums.size();
-    for (int i = 0; i < size; i++) {
-      m_q.push(nums[i]);
-      if ((int)m_q.size() > k) m_q.pop();
+   public:
+    KthLargest(int k, vector<int>& nums) : m_k(k) {
+        int const size = nums.size();
+        for (int i = 0; i < size; i++) {
+            m_q.push(nums[i]);
+            if ((int)m_q.size() > k) m_q.pop();
+        }
     }
-  }
 
     int Add(int val) {
-      m_q.push(val);
-      if ((int)m_q.size() > m_k) {
-        m_q.pop();
-      }
+        m_q.push(val);
+        if ((int)m_q.size() > m_k) {
+            m_q.pop();
+        }
 
-      return m_q.top();
+        return m_q.top();
     }
 };
 

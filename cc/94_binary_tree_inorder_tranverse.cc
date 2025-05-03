@@ -39,17 +39,17 @@ using namespace std;
 
 TEST(binary_tree_inorder_tranverse_v2, t0) {
 #define null optional<int>()
-  std::vector<optional<int>> const vec = {1, null, 2, 3};
-  // Output: [1,3,2]
+    std::vector<optional<int>> const vec = {1, null, 2, 3};
+    // Output: [1,3,2]
 
-  TreeNode<int>* root = ConstructBinaryTree(vec);
-  PrintBt(root);
+    TreeNode<int>* root = ConstructBinaryTree(vec);
+    PrintBt(root);
 
-  Solution s;
-  auto ret = s.InorderTraversal(root);
-  EXPECT_EQ(ret, (std::vector<int>{1, 3, 2}));
+    Solution s;
+    auto ret = s.InorderTraversal(root);
+    EXPECT_EQ(ret, (std::vector<int>{1, 3, 2}));
 
-  FreeTreeNode(root);
+    FreeTreeNode(root);
 }
 
 }  // namespace

@@ -21,12 +21,12 @@ namespace {
 class Solution {
    public:
     int FindUnsortedSubarray(vector<int>& nums) {
-      priority_queue<int, vector<int>, std::less<>> q1;
-      priority_queue<int, vector<int>, std::greater<>> q2;
-      int i = 0, n = nums.size(), j = 0;
-      for (i = 0; i < n; i++) {
-        q1.push(nums[i]);
-        q2.push(nums[i]);
+        priority_queue<int, vector<int>, std::less<>> q1;
+        priority_queue<int, vector<int>, std::greater<>> q2;
+        int i = 0, n = nums.size(), j = 0;
+        for (i = 0; i < n; i++) {
+            q1.push(nums[i]);
+            q2.push(nums[i]);
         }
         for (i = 0; i < n; i++) {
             if (nums[i] != q2.top()) break;

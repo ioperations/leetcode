@@ -30,11 +30,11 @@ class Solution {
         return s.size() == 26;
     }
     bool CheckIfPangramV2(string& sentence) {
-      int const max = (1 << 26) - 1;
-      int temp = 0;
-      for (auto& ptr : sentence) {
-        temp |= 1 << (ptr - 'a');
-        if (temp == max) return true;
+        int const max = (1 << 26) - 1;
+        int temp = 0;
+        for (auto& ptr : sentence) {
+            temp |= 1 << (ptr - 'a');
+            if (temp == max) return true;
         }
         return false;
     }

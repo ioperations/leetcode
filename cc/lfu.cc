@@ -19,11 +19,11 @@ class LfuCache {
 
    private:
     struct Node {
-      K m_key;
-      V m_value;
-      int m_freq;
-      Node(K key, V value, int freq)
-          : m_key(key), m_value(value), m_freq(freq) {}
+        K m_key;
+        V m_value;
+        int m_freq;
+        Node(K key, V value, int freq)
+            : m_key(key), m_value(value), m_freq(freq) {}
     };
     int min_freq;
     int m_capablity;
@@ -41,60 +41,60 @@ LfuCache<K, V>::LfuCache(int capablity)
 
 template <typename K, typename V>
 LfuCache<K, V>::~LfuCache() {
-  m_key_to_list_head.clear();
-  m_freq_to_list.clear();
+    m_key_to_list_head.clear();
+    m_freq_to_list.clear();
 }
 
 template <typename K, typename V>
 void LfuCache<K, V>::Set(const K& key, const V& value) {
-  if (m_key_to_list_head.find(key) != m_key_to_list_head.end()) {
-    // key_to_list_head
-    auto& node = m_key_to_list_head[key];
-    int freq = node->m_freq;
-    m_freq_to_list[freq].erase(node);
-    if (m_freq_to_list[freq].size() == 0) {
-      m_freq_to_list.erase(freq);
-      if (freq == min_freq) ++min_freq;
-    }
-    Node const tmp(key, value, freq);
-    freq++;
-    m_freq_to_list[freq].push_front(tmp);
-    m_key_to_list_head[key] = m_freq_to_list[freq].begin();
+    if (m_key_to_list_head.find(key) != m_key_to_list_head.end()) {
+        // key_to_list_head
+        auto& node = m_key_to_list_head[key];
+        int freq = node->m_freq;
+        m_freq_to_list[freq].erase(node);
+        if (m_freq_to_list[freq].size() == 0) {
+            m_freq_to_list.erase(freq);
+            if (freq == min_freq) ++min_freq;
+        }
+        Node const tmp(key, value, freq);
+        freq++;
+        m_freq_to_list[freq].push_front(tmp);
+        m_key_to_list_head[key] = m_freq_to_list[freq].begin();
 
-  } else {
-    if (m_key_to_list_head.size() >= m_capablity) {
-      m_key_to_list_head.erase(m_freq_to_list[min_freq].back().m_key);
-      m_freq_to_list[min_freq].pop_back();
+    } else {
+        if (m_key_to_list_head.size() >= m_capablity) {
+            m_key_to_list_head.erase(m_freq_to_list[min_freq].back().m_key);
+            m_freq_to_list[min_freq].pop_back();
 
-      if (m_freq_to_list[min_freq].size() == 0) {
-        m_freq_to_list.erase(min_freq);
-      }
+            if (m_freq_to_list[min_freq].size() == 0) {
+                m_freq_to_list.erase(min_freq);
+            }
+        }
+        Node const node{key, value, 1};
+        m_freq_to_list[1].push_front(node);
+        m_key_to_list_head[key] = m_freq_to_list[1].begin();
+        min_freq = 1;
     }
-    Node const node{key, value, 1};
-    m_freq_to_list[1].push_front(node);
-    m_key_to_list_head[key] = m_freq_to_list[1].begin();
-    min_freq = 1;
-  }
 }
 
 template <typename K, typename V>
 std::optional<V> LfuCache<K, V>::Get(const K& key) {
-  if (m_key_to_list_head.find(key) != m_key_to_list_head.end()) {
-    auto& n = m_key_to_list_head[key];
-    V value = n->m_value;
-    int freq = n->m_freq;
+    if (m_key_to_list_head.find(key) != m_key_to_list_head.end()) {
+        auto& n = m_key_to_list_head[key];
+        V value = n->m_value;
+        int freq = n->m_freq;
 
-    m_freq_to_list[freq].erase(n);
-    if (m_freq_to_list[freq].size() == 0) {
-      m_freq_to_list.erase(freq);
-      if (min_freq == freq) min_freq++;
+        m_freq_to_list[freq].erase(n);
+        if (m_freq_to_list[freq].size() == 0) {
+            m_freq_to_list.erase(freq);
+            if (min_freq == freq) min_freq++;
+        }
+        freq++;
+        m_freq_to_list[freq].push_front(Node(key, value, freq));
+        m_key_to_list_head[key] = m_freq_to_list[freq].begin();
+
+        return value;
     }
-    freq++;
-    m_freq_to_list[freq].push_front(Node(key, value, freq));
-    m_key_to_list_head[key] = m_freq_to_list[freq].begin();
-
-    return value;
-  }
     return std::optional<V>();
 }
 

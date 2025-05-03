@@ -24,12 +24,12 @@ namespace {
 class Solution {
    public:
     vector<int> FindErrorNums(vector<int>& nums) {
-      int const n = nums.size();
-      vector<int> arr(n + 1, 0);
-      vector<int> vec;
+        int const n = nums.size();
+        vector<int> arr(n + 1, 0);
+        vector<int> vec;
 
-      for (auto i : nums) {
-        arr[i]++;
+        for (auto i : nums) {
+            arr[i]++;
         }
 
         for (int i = 1; i < n + 1; i++) {

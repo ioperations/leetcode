@@ -30,63 +30,63 @@ class MedianFinder {
    public:
     // Adds a number into the data structure.
     void AddNum(int num) {
-      if (m_min_set.empty() && m_max_set.empty()) {
-        m_min_set.insert(num);
-        return;
-      }
-      if (m_min_set.size() < m_max_set.size()) {
-        if (num <= *begin(m_max_set)) {
-          m_min_set.insert(num);
-          return;
+        if (m_min_set.empty() && m_max_set.empty()) {
+            m_min_set.insert(num);
+            return;
         }
-        if (num > *begin(m_max_set)) {
-          m_min_set.insert(*begin(m_max_set));
-          m_max_set.erase(begin(m_max_set));
-          m_max_set.insert(num);
-          return;
+        if (m_min_set.size() < m_max_set.size()) {
+            if (num <= *begin(m_max_set)) {
+                m_min_set.insert(num);
+                return;
+            }
+            if (num > *begin(m_max_set)) {
+                m_min_set.insert(*begin(m_max_set));
+                m_max_set.erase(begin(m_max_set));
+                m_max_set.insert(num);
+                return;
+            }
+            return;
         }
-        return;
-      }
-      if (m_min_set.size() > m_max_set.size()) {
-        if (num >= *prev(end(m_min_set))) {
-          m_max_set.insert(num);
-          return;
+        if (m_min_set.size() > m_max_set.size()) {
+            if (num >= *prev(end(m_min_set))) {
+                m_max_set.insert(num);
+                return;
+            }
+            if (num < *prev(end(m_min_set))) {
+                m_max_set.insert(*prev(end(m_min_set)));
+                m_min_set.erase(prev(end(m_min_set)));
+                m_min_set.insert(num);
+                return;
+            }
+            return;
         }
-        if (num < *prev(end(m_min_set))) {
-          m_max_set.insert(*prev(end(m_min_set)));
-          m_min_set.erase(prev(end(m_min_set)));
-          m_min_set.insert(num);
-          return;
+        if (m_min_set.size() == m_max_set.size()) {
+            if (num <= *begin(m_max_set)) {
+                m_min_set.insert(num);
+                return;
+            }
+            if (num > *begin(m_max_set)) {
+                m_max_set.insert(num);
+                return;
+            }
+            return;
         }
-        return;
-      }
-      if (m_min_set.size() == m_max_set.size()) {
-        if (num <= *begin(m_max_set)) {
-          m_min_set.insert(num);
-          return;
-        }
-        if (num > *begin(m_max_set)) {
-          m_max_set.insert(num);
-          return;
-        }
-        return;
-      }
         return;
     }
 
     // Returns the median of current data stream
     double FindMedian() {
-      if (m_min_set.size() < m_max_set.size()) {
-        return double(*begin(m_max_set));
-      }
-      if (m_min_set.size() > m_max_set.size()) {
-        return double(*prev(end(m_min_set)));
-      }
-      if (m_min_set.size() == m_max_set.size()) {
-        double const min_set_max_val = double(*prev(end(m_min_set)));
-        double const max_set_min_val = double(*begin(m_max_set));
-        return min_set_max_val / 2.0 + max_set_min_val / 2.0;
-      }
+        if (m_min_set.size() < m_max_set.size()) {
+            return double(*begin(m_max_set));
+        }
+        if (m_min_set.size() > m_max_set.size()) {
+            return double(*prev(end(m_min_set)));
+        }
+        if (m_min_set.size() == m_max_set.size()) {
+            double const min_set_max_val = double(*prev(end(m_min_set)));
+            double const max_set_min_val = double(*begin(m_max_set));
+            return min_set_max_val / 2.0 + max_set_min_val / 2.0;
+        }
         return 0.0;
     }
 

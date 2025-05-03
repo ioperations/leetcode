@@ -24,25 +24,25 @@ using namespace std;
 class Solution {
    public:
     int NumberOfArrays(vector<int>& differences, int lower, int upper) {
-      // n == differences.length
-      // 1 <= n <= 105
-      // -105 <= differences[i] <= 105
-      // -105 <= lower <= upper <= 105
-      int start = lower;
+        // n == differences.length
+        // 1 <= n <= 105
+        // -105 <= differences[i] <= 105
+        // -105 <= lower <= upper <= 105
+        int start = lower;
 
-      int lowerlst = lower;
-      int upperlst = lower;
+        int lowerlst = lower;
+        int upperlst = lower;
 
-      for (auto& diff : differences) {
-        start = start + diff;
-        lowerlst = std::min(lowerlst, start);
-        upperlst = std::max(upperlst, start);
-        if (upper - (upperlst + (lower - lowerlst)) < 0) {
-          return 0;
+        for (auto& diff : differences) {
+            start = start + diff;
+            lowerlst = std::min(lowerlst, start);
+            upperlst = std::max(upperlst, start);
+            if (upper - (upperlst + (lower - lowerlst)) < 0) {
+                return 0;
+            }
         }
-      }
 
-      return std::max(0, upper - (upperlst + (lower - lowerlst)) + 1);
+        return std::max(0, upper - (upperlst + (lower - lowerlst)) + 1);
     }
 };
 

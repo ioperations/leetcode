@@ -15,17 +15,17 @@ using namespace std;
 class Solution {
    public:
     int MaximumCount(vector<int>& nums) {
-      /*
-       * 1 <= nums.length <= 2000
-       * -2000 <= nums[i] <= 2000
-       * nums is sorted in a non-decreasing order.
-       */
-      auto it = lower_bound(nums.begin(), nums.end(), 0);
+        /*
+         * 1 <= nums.length <= 2000
+         * -2000 <= nums[i] <= 2000
+         * nums is sorted in a non-decreasing order.
+         */
+        auto it = lower_bound(nums.begin(), nums.end(), 0);
 
-      auto n = it - nums.begin();
-      it = upper_bound(nums.begin(), nums.end(), 0);
+        auto n = it - nums.begin();
+        it = upper_bound(nums.begin(), nums.end(), 0);
 
-      return std::max(nums.end() - it, n);
+        return std::max(nums.end() - it, n);
     }
 };
 

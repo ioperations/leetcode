@@ -43,10 +43,10 @@ class Solution {
                                 {'m', 'n', 'o'}, {'p', 'q', 'r', 's'},
                                 {'t', 'u', 'v'}, {'w', 'x', 'y', 'z'}
                                 };
-      // clang-format on
-      vector<string> ans;
-      Solve(v, ans, digits, 0, "");
-      return ans;
+        // clang-format on
+        vector<string> ans;
+        Solve(v, ans, digits, 0, "");
+        return ans;
     }
     // clang-format on
 };

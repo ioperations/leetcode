@@ -18,17 +18,18 @@ namespace {
 class Solution {
    public:
     vector<int> DailyTemperatures(vector<int>& temperatures) {
-      int const size = temperatures.size();
+        int const size = temperatures.size();
 
-      vector<int> ret(size, 0);
-      stack<int> stack;
+        vector<int> ret(size, 0);
+        stack<int> stack;
 
-      for (int i = 0; i < size; i++) {
-        while (stack.size() && temperatures[stack.top()] < temperatures[i]) {
-          ret[stack.top()] = i - stack.top();
-          stack.pop();
-        }
-        stack.push(i);
+        for (int i = 0; i < size; i++) {
+            while (stack.size() &&
+                   temperatures[stack.top()] < temperatures[i]) {
+                ret[stack.top()] = i - stack.top();
+                stack.pop();
+            }
+            stack.push(i);
         }
 
         return ret;

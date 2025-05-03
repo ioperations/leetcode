@@ -24,9 +24,9 @@ class Solution {
         dp[0] = 0;
         int count = 1;
         while (count * count <= n) {
-          int const sq = count * count;
-          for (int i = sq; i < n + 1; i++) {
-            dp[i] = std::min(dp[i - sq] + 1, dp[i]);
+            int const sq = count * count;
+            for (int i = sq; i < n + 1; i++) {
+                dp[i] = std::min(dp[i - sq] + 1, dp[i]);
             }
             count++;
         }
@@ -35,21 +35,21 @@ class Solution {
 };
 
 TEST(perfect_squares, t1) {
-  int const n = 12;
-  int const output = 3;
-  // Explanation: 12 = 4 + 4 + 4.
-  Solution sl;
-  int const ret = sl.NumSquares(n);
-  EXPECT_EQ(ret, output);
+    int const n = 12;
+    int const output = 3;
+    // Explanation: 12 = 4 + 4 + 4.
+    Solution sl;
+    int const ret = sl.NumSquares(n);
+    EXPECT_EQ(ret, output);
 }
 
 TEST(perfect_squares, t2) {
-  int const n = 13;
-  int const output = 2;
-  // Explanation: 12 = 4 + 9
-  Solution sl;
-  int const ret = sl.NumSquares(n);
-  EXPECT_EQ(ret, output);
+    int const n = 13;
+    int const output = 2;
+    // Explanation: 12 = 4 + 9
+    Solution sl;
+    int const ret = sl.NumSquares(n);
+    EXPECT_EQ(ret, output);
 }
 
 }  // namespace

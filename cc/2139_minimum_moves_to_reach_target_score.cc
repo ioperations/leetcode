@@ -71,53 +71,53 @@ class Solution {
 };
 
 TEST(minimum_moves_to_reach_target_score, t1) {
-  int const target = 19;
-  int const max_double = 2;
-  int const ret = 7;
-  Solution sl;
-  int const out = sl.MinMoves(target, max_double);
-  /*Initially, x = 1
-  Increment 3 times so x = 4
-  Double once so x = 8
-  Increment once so x = 9
-  Double again so x = 18
-  Increment once so x = 19
-  */
-  EXPECT_EQ(ret, out);
+    int const target = 19;
+    int const max_double = 2;
+    int const ret = 7;
+    Solution sl;
+    int const out = sl.MinMoves(target, max_double);
+    /*Initially, x = 1
+    Increment 3 times so x = 4
+    Double once so x = 8
+    Increment once so x = 9
+    Double again so x = 18
+    Increment once so x = 19
+    */
+    EXPECT_EQ(ret, out);
 }
 
 TEST(minimum_moves_to_reach_target_score, t2) {
-  int const target = 10;
-  int const max_double = 4;
-  int const ret = 4;
-  Solution sl;
-  /*
-   Initially, x = 1
-   Increment once so x = 2
-   Double once so x = 4
-   Increment once so x = 5
-   Double again so x = 10
-  */
-  int const out = sl.MinMoves(target, max_double);
-  EXPECT_EQ(ret, out);
+    int const target = 10;
+    int const max_double = 4;
+    int const ret = 4;
+    Solution sl;
+    /*
+     Initially, x = 1
+     Increment once so x = 2
+     Double once so x = 4
+     Increment once so x = 5
+     Double again so x = 10
+    */
+    int const out = sl.MinMoves(target, max_double);
+    EXPECT_EQ(ret, out);
 }
 
 TEST(minimum_moves_to_reach_target_score, t3) {
-  int const target = 5;
-  int const max_double = 0;
-  int const ret = 4;
-  Solution sl;
-  int const out = sl.MinMoves(target, max_double);
-  EXPECT_EQ(ret, out);
+    int const target = 5;
+    int const max_double = 0;
+    int const ret = 4;
+    Solution sl;
+    int const out = sl.MinMoves(target, max_double);
+    EXPECT_EQ(ret, out);
 }
 
 TEST(minimum_moves_to_reach_target_score, t4) {
-  int const target = 766972377;
-  int const max_double = 92;
-  int const ret = 45;
-  Solution sl;
-  int const out = sl.MinMovesV1(target, max_double);
-  EXPECT_EQ(ret, out);
+    int const target = 766972377;
+    int const max_double = 92;
+    int const ret = 45;
+    Solution sl;
+    int const out = sl.MinMovesV1(target, max_double);
+    EXPECT_EQ(ret, out);
 }
 
 }  // namespace

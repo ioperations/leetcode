@@ -26,29 +26,29 @@ class Solution {
 };
 
 TEST(power_of_three, t1) {
-  int const n = 27;
-  bool const expected = true;
+    int const n = 27;
+    bool const expected = true;
 
-  Solution sl;
-  bool const ret = sl.IsPowerOfThree(n);
-  EXPECT_EQ(ret, expected);
+    Solution sl;
+    bool const ret = sl.IsPowerOfThree(n);
+    EXPECT_EQ(ret, expected);
 }
 
 TEST(power_of_three, t2) {
-  int const n = 0;
-  bool const expected = false;
+    int const n = 0;
+    bool const expected = false;
 
-  Solution sl;
-  bool const ret = sl.IsPowerOfThree(n);
-  EXPECT_EQ(ret, expected);
+    Solution sl;
+    bool const ret = sl.IsPowerOfThree(n);
+    EXPECT_EQ(ret, expected);
 }
 TEST(power_of_three, t3) {
-  int const n = 9;
-  bool const expected = true;
+    int const n = 9;
+    bool const expected = true;
 
-  Solution sl;
-  bool const ret = sl.IsPowerOfThree(n);
-  EXPECT_EQ(ret, expected);
+    Solution sl;
+    bool const ret = sl.IsPowerOfThree(n);
+    EXPECT_EQ(ret, expected);
 }
 
 }  // namespace

@@ -21,42 +21,42 @@ using namespace std;
 class Solution {
    public:
     int LenLongestFibSubseq(vector<int>& arr) {
-      /*
-       * 3 <= arr.length <= 1000
-       * 1 <= arr[i] < arr[i + 1] <= 109
-       */
-      m_size = arr.size();
-      for (size_t i = 0; i < m_size; ++i) {
-        m_value_to_index[arr[i]] = i;
-      }
-      this->m_arr = arr;
-      auto v = Next(0, 0, 0, 0);
-      if (v <= 2) {
-        return 0;
-      }
-      return v;
+        /*
+         * 3 <= arr.length <= 1000
+         * 1 <= arr[i] < arr[i + 1] <= 109
+         */
+        m_size = arr.size();
+        for (size_t i = 0; i < m_size; ++i) {
+            m_value_to_index[arr[i]] = i;
+        }
+        this->m_arr = arr;
+        auto v = Next(0, 0, 0, 0);
+        if (v <= 2) {
+            return 0;
+        }
+        return v;
     }
 
     size_t Next(int index, int now, int next, int curr_len) {
-      if (index >= m_size) {
-        return curr_len;
-      }
-      if (curr_len == 0) {
-        return max(Next(index + 1, now, next, curr_len),
-                   Next(index + 1, m_arr[index], next, 1));
-      }
+        if (index >= m_size) {
+            return curr_len;
+        }
+        if (curr_len == 0) {
+            return max(Next(index + 1, now, next, curr_len),
+                       Next(index + 1, m_arr[index], next, 1));
+        }
 
-      if (curr_len == 1) {
-        return max(Next(index + 1, m_arr[index], now + m_arr[index], 2),
-                   Next(index + 1, now, next, 1));
-      }
+        if (curr_len == 1) {
+            return max(Next(index + 1, m_arr[index], now + m_arr[index], 2),
+                       Next(index + 1, now, next, 1));
+        }
 
-      auto it = m_value_to_index.find(next);
-      if (it == m_value_to_index.end()) {
-        return curr_len;
-      }
+        auto it = m_value_to_index.find(next);
+        if (it == m_value_to_index.end()) {
+            return curr_len;
+        }
 
-      return Next(it->second + 1, next, next + now, curr_len + 1);
+        return Next(it->second + 1, next, next + now, curr_len + 1);
     }
 
     unordered_map<int, int> m_value_to_index;

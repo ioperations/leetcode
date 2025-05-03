@@ -36,52 +36,52 @@ using namespace std;
 #define null optional<int>()
 
 TEST(binary_tree_pruning, t1) {
-  vector<optional<int>> const root = {1, null, 0, 0, 1};
-  auto* node = ConstructBinaryTree(root);
-  Solution sl;
-  auto* ret = sl.PruneTree(node);
-  vector<optional<int>> const output{1, null, 0, null, 1};
+    vector<optional<int>> const root = {1, null, 0, 0, 1};
+    auto* node = ConstructBinaryTree(root);
+    Solution sl;
+    auto* ret = sl.PruneTree(node);
+    vector<optional<int>> const output{1, null, 0, null, 1};
 
-  vector<optional<int>> ret_node;
-  BfsSearchV1(ret, ret_node);
-  // Explanation:
-  // Only the red nodes satisfy the property "every subtree not containing a
-  // 1".
-  // The diagram on the right represents the answer.
-  EXPECT_EQ(ret_node, output);
-  FreeTreeNode(node);
+    vector<optional<int>> ret_node;
+    BfsSearchV1(ret, ret_node);
+    // Explanation:
+    // Only the red nodes satisfy the property "every subtree not containing a
+    // 1".
+    // The diagram on the right represents the answer.
+    EXPECT_EQ(ret_node, output);
+    FreeTreeNode(node);
 }
 
 TEST(binary_tree_pruning, t2) {
-  vector<optional<int>> const root = {1, 0, 1, 0, 0, 0, 1};
-  auto* node = ConstructBinaryTree(root);
-  Solution sl;
-  auto* ret = sl.PruneTree(node);
-  vector<optional<int>> const output{1, null, 1, null, 1};
+    vector<optional<int>> const root = {1, 0, 1, 0, 0, 0, 1};
+    auto* node = ConstructBinaryTree(root);
+    Solution sl;
+    auto* ret = sl.PruneTree(node);
+    vector<optional<int>> const output{1, null, 1, null, 1};
 
-  vector<optional<int>> ret_node;
-  BfsSearchV1(ret, ret_node);
-  // Explanation:
-  // Only the red nodes satisfy the property "every subtree not containing a
-  // 1".
-  // The diagram on the right represents the answer.
-  EXPECT_EQ(ret_node, output);
-  FreeTreeNode(node);
+    vector<optional<int>> ret_node;
+    BfsSearchV1(ret, ret_node);
+    // Explanation:
+    // Only the red nodes satisfy the property "every subtree not containing a
+    // 1".
+    // The diagram on the right represents the answer.
+    EXPECT_EQ(ret_node, output);
+    FreeTreeNode(node);
 }
 TEST(binary_tree_pruning, t3) {
-  vector<optional<int>> const root = {1, 1, 0, 1, 1, 0, 1, 0};
-  auto* node = ConstructBinaryTree(root);
-  Solution sl;
-  auto* ret = sl.PruneTree(node);
-  vector<optional<int>> const output{1, 1, 0, 1, 1, null, 1};
+    vector<optional<int>> const root = {1, 1, 0, 1, 1, 0, 1, 0};
+    auto* node = ConstructBinaryTree(root);
+    Solution sl;
+    auto* ret = sl.PruneTree(node);
+    vector<optional<int>> const output{1, 1, 0, 1, 1, null, 1};
 
-  vector<optional<int>> ret_node;
-  BfsSearchV1(ret, ret_node);
-  // Explanation:
-  // Only the red nodes satisfy the property "every subtree not containing a
-  // 1".
-  // The diagram on the right represents the answer.
-  EXPECT_EQ(ret_node, output);
-  FreeTreeNode(node);
+    vector<optional<int>> ret_node;
+    BfsSearchV1(ret, ret_node);
+    // Explanation:
+    // Only the red nodes satisfy the property "every subtree not containing a
+    // 1".
+    // The diagram on the right represents the answer.
+    EXPECT_EQ(ret_node, output);
+    FreeTreeNode(node);
 }
 }  // namespace

@@ -37,9 +37,9 @@ class Solution {
         auto tuple =
             make_tuple(previous_robd, current_index, last_can_be_robbed);
         if (previous_robd) {
-          m_cache[tuple] =
-              Rob(nums, false, current_index + 1, last_can_be_robbed);
-          return m_cache[tuple];
+            m_cache[tuple] =
+                Rob(nums, false, current_index + 1, last_can_be_robbed);
+            return m_cache[tuple];
         }
 
         // 偷这个

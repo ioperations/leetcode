@@ -14,23 +14,23 @@ using namespace std;
 class Solution {
    public:
     string FindDifferentBinaryString(vector<string>& nums) {
-      /* n == nums.length
-       1 <= n <= 16
-       nums[i].length == n
-       nums[i] is either '0' or '1'.
-       All the strings of nums are unique.
-      */
+        /* n == nums.length
+         1 <= n <= 16
+         nums[i].length == n
+         nums[i] is either '0' or '1'.
+         All the strings of nums are unique.
+        */
 
-      auto n = nums.size();
+        auto n = nums.size();
 
-      set<long long> s;
-      Get(nums, s);
+        set<long long> s;
+        Get(nums, s);
 
-      long long v = 0;
+        long long v = 0;
 
-      string str(n, '0');
-      Gen(str, v, 0, n, s);
-      return str;
+        string str(n, '0');
+        Gen(str, v, 0, n, s);
+        return str;
     }
 
     bool Gen(string& str, long long& v, int index, int n,
@@ -55,17 +55,17 @@ class Solution {
     }
 
     void Get(vector<string>& ori, set<long long>& s) {
-      for (const auto& value : ori) {
-        s.emplace(GetInt(value));
-      }
+        for (const auto& value : ori) {
+            s.emplace(GetInt(value));
+        }
     }
 
     long long GetInt(const std::string& v) {
-      long long ret = 0;
-      for (auto chars : v) {
-        ret = ret * 10 + (chars - '0');
-      }
-      return ret;
+        long long ret = 0;
+        for (auto chars : v) {
+            ret = ret * 10 + (chars - '0');
+        }
+        return ret;
     }
 };
 

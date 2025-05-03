@@ -34,21 +34,21 @@ using namespace std;
 
 namespace {
 class NestedInteger {
-  bool m_is_integer{};
-  int m_val{};
-  vector<NestedInteger> m_vec;
+    bool m_is_integer{};
+    int m_val{};
+    vector<NestedInteger> m_vec;
 
- public:
-  // Return true if this NestedInteger holds a single integer, rather than a
-  // nested list.
-  NestedInteger(vector<int> in) {}
-  NestedInteger() = default;
-  NestedInteger(int i) : m_is_integer(true), m_val(i) {}
-  ~NestedInteger() { m_vec.clear(); }
+   public:
+    // Return true if this NestedInteger holds a single integer, rather than a
+    // nested list.
+    NestedInteger(vector<int> in) {}
+    NestedInteger() = default;
+    NestedInteger(int i) : m_is_integer(true), m_val(i) {}
+    ~NestedInteger() { m_vec.clear(); }
 
-  void AddNestedInteger(NestedInteger& in) {
-    m_is_integer = false;
-    m_vec.push_back(in);
+    void AddNestedInteger(NestedInteger& in) {
+        m_is_integer = false;
+        m_vec.push_back(in);
     }
 
     [[nodiscard]] bool IsInteger() const { return m_is_integer; }
@@ -65,29 +65,29 @@ class NestedInteger {
 };
 
 class NestedIterator {
-  int m_i;
-  vector<int> m_faltterned;
+    int m_i;
+    vector<int> m_faltterned;
 
-  void FlatternAdd(vector<int>& dest, NestedInteger& now) {
-    if (now.IsInteger()) {
-      dest.push_back(now.GetInteger());
-    }
+    void FlatternAdd(vector<int>& dest, NestedInteger& now) {
+        if (now.IsInteger()) {
+            dest.push_back(now.GetInteger());
+        }
 
-    else {
-      for (auto& ptr : now.GetList()) {
-        FlatternAdd(dest, ptr);
-      }
-    }
+        else {
+            for (auto& ptr : now.GetList()) {
+                FlatternAdd(dest, ptr);
+            }
+        }
     }
 
    public:
     NestedIterator(vector<NestedInteger>& nested_list) : m_i(0) {
-      for (auto& ptr : nested_list) {
-        FlatternAdd(m_faltterned, ptr);
-      }
+        for (auto& ptr : nested_list) {
+            FlatternAdd(m_faltterned, ptr);
+        }
     }
     NestedIterator(NestedInteger& nested_list) : m_i(0) {
-      FlatternAdd(m_faltterned, nested_list);
+        FlatternAdd(m_faltterned, nested_list);
     }
 
     int next() { return m_faltterned[m_i++]; }

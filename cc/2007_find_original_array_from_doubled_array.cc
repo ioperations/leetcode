@@ -28,17 +28,17 @@ class Solution {
         for (int const& val : changed) freq[val]++;
 
         for (int const& val : changed) {
-          if (freq[val] <= 0) continue;
+            if (freq[val] <= 0) continue;
 
-          freq[val]--;
+            freq[val]--;
 
-          if (freq[2 * val] > 0) {
-            freq[2 * val]--;
-            result.push_back(val);
-            continue;
-          }
+            if (freq[2 * val] > 0) {
+                freq[2 * val]--;
+                result.push_back(val);
+                continue;
+            }
 
-          break;
+            break;
         }
 
         if (2 * result.size() != changed.size()) return {};

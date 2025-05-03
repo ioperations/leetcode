@@ -40,33 +40,33 @@ class Solution {
     }
 
     vector<vector<int>> ThreeSumV2(vector<int>& nums) {
-      size_t const n = nums.size();
-      vector<vector<int>> res;
-      sort(nums.begin(), nums.end());
+        size_t const n = nums.size();
+        vector<vector<int>> res;
+        sort(nums.begin(), nums.end());
 
-      for (size_t i = 0; i < n; i++) {
-        size_t const target = 0 - nums[i];
+        for (size_t i = 0; i < n; i++) {
+            size_t const target = 0 - nums[i];
 
-        size_t front = i + 1;
-        size_t back = n - 1;
+            size_t front = i + 1;
+            size_t back = n - 1;
 
-        while (front < back) {
-          int const sum = nums[front] + nums[back];
+            while (front < back) {
+                int const sum = nums[front] + nums[back];
 
-          if (sum < target)
-            front++;
-          else if (sum > target)
-            back--;
-          else {
-            vector<int> temp = {nums[i], nums[front], nums[back]};
-            res.push_back(temp);
+                if (sum < target)
+                    front++;
+                else if (sum > target)
+                    back--;
+                else {
+                    vector<int> temp = {nums[i], nums[front], nums[back]};
+                    res.push_back(temp);
 
-            while (front < back && nums[front] == temp[1]) front++;
-            while (front < back && nums[back] == temp[2]) back--;
-          }
-        }
+                    while (front < back && nums[front] == temp[1]) front++;
+                    while (front < back && nums[back] == temp[2]) back--;
+                }
+            }
 
-        while (i < n - 1 && nums[i] == nums[i + 1]) i++;
+            while (i < n - 1 && nums[i] == nums[i + 1]) i++;
         }
 
         return res;

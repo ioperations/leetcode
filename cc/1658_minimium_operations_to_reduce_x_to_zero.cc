@@ -30,7 +30,7 @@ class Solution {
 
         //         calculate the sum of array
         for (int const i : nums) {
-          sum += i;
+            sum += i;
         }
         //         if total sum is equal to x then return size of array
         if (sum == x) return n;

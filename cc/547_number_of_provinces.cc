@@ -32,8 +32,8 @@ class Solution {
         vector<vector<int>> visited(is_connected.size());
         int provinces = 0;
         for (int i = 0; i < is_connected_size; i++) {
-          vector<int> const row_size(is_connected_size);
-          visited[i] = row_size;
+            vector<int> const row_size(is_connected_size);
+            visited[i] = row_size;
         }
 
         for (int i = 0; i < (int)is_connected.size(); i++) {

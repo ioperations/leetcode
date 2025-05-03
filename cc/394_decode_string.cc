@@ -34,49 +34,50 @@ class Solution {
         string curr = "";
         string num = "";
         for (char const i : encoded_string) {
-          if (isalpha(i)) curr += i;
-          if (isdigit(i)) num += i;
-          if (i == '[') {
-            st.push(curr);
-            st.push(num);
-            num = "";
-            curr = "";
-          }
-          if (i == ']') {
-            int const to_repeat = stoi(st.top());
-            st.pop();
-            string left_part_plus_repeat = st.top();
-            st.pop();
-            for (int i = 0; i < to_repeat; i++) left_part_plus_repeat += curr;
-            curr = left_part_plus_repeat;
-          }
+            if (isalpha(i)) curr += i;
+            if (isdigit(i)) num += i;
+            if (i == '[') {
+                st.push(curr);
+                st.push(num);
+                num = "";
+                curr = "";
+            }
+            if (i == ']') {
+                int const to_repeat = stoi(st.top());
+                st.pop();
+                string left_part_plus_repeat = st.top();
+                st.pop();
+                for (int i = 0; i < to_repeat; i++)
+                    left_part_plus_repeat += curr;
+                curr = left_part_plus_repeat;
+            }
         }
         return curr;
     }
 };
 
 TEST(decode_string, t1) {
-  string const s = "3[a]2[bc]";
-  string const out = "aaabcbc";
-  Solution sl;
-  auto ret = sl.DecodeString(s);
-  EXPECT_EQ(ret, out);
+    string const s = "3[a]2[bc]";
+    string const out = "aaabcbc";
+    Solution sl;
+    auto ret = sl.DecodeString(s);
+    EXPECT_EQ(ret, out);
 }
 
 TEST(decode_string, t2) {
-  string const s = "3[a2[c]]";
-  string const out = "accaccacc";
-  Solution sl;
-  auto ret = sl.DecodeString(s);
-  EXPECT_EQ(ret, out);
+    string const s = "3[a2[c]]";
+    string const out = "accaccacc";
+    Solution sl;
+    auto ret = sl.DecodeString(s);
+    EXPECT_EQ(ret, out);
 }
 
 TEST(decode_string, t3) {
-  string const s = "2[abc]3[cd]ef";
-  string const out = "abcabccdcdcdef";
-  Solution sl;
-  auto ret = sl.DecodeString(s);
-  EXPECT_EQ(ret, out);
+    string const s = "2[abc]3[cd]ef";
+    string const out = "abcabccdcdcdef";
+    Solution sl;
+    auto ret = sl.DecodeString(s);
+    EXPECT_EQ(ret, out);
 }
 
 using namespace Tree;
@@ -84,9 +85,9 @@ using namespace Tree;
 
 TEST(decode_string, t4) {
 #define null std::optional<int>()
-  std::vector<int> const values{1, 2, 3, 4, 5, 6, 7};
-  TreeNode<int>* n = ConstructTree<int>(values);
-  FreeTreeNode<int>(n);
+    std::vector<int> const values{1, 2, 3, 4, 5, 6, 7};
+    TreeNode<int>* n = ConstructTree<int>(values);
+    FreeTreeNode<int>(n);
 }
 
 }  // namespace

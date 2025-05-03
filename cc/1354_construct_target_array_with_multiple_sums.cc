@@ -21,21 +21,21 @@ namespace {
 class Solution {
    public:
     bool IsPossible(vector<int>& targets) {
-      int const n = targets.size();
-      long s = 0;
-      priority_queue<int, vector<int>> q;
-      for (int i = 0; i < n; i++) s += targets[i], q.push(targets[i]);
-      while (!q.empty()) {
-        int now = q.top();
-        q.pop();
-        if (now == 1) continue;
+        int const n = targets.size();
+        long s = 0;
+        priority_queue<int, vector<int>> q;
+        for (int i = 0; i < n; i++) s += targets[i], q.push(targets[i]);
+        while (!q.empty()) {
+            int now = q.top();
+            q.pop();
+            if (now == 1) continue;
 
-        if (s == now || now <= s - now) return false;
-        s -= now;
-        now %= s;
-        if (s == 1) now = 1;
-        q.push(now);
-        s += now;
+            if (s == now || now <= s - now) return false;
+            s -= now;
+            now %= s;
+            if (s == 1) now = 1;
+            q.push(now);
+            s += now;
         }
         return true;
     }

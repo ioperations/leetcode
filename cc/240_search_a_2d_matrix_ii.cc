@@ -20,12 +20,12 @@ class Solution {
     bool Binarys(vector<int>& row, int target) {
         int l = 0, r = row.size();
         while (l < r) {
-          int const mid = l + (r - l) / 2;
-          if (row[mid] == target) return true;
-          if (row[mid] > target)
-            r = mid;
-          else
-            l = mid + 1;
+            int const mid = l + (r - l) / 2;
+            if (row[mid] == target) return true;
+            if (row[mid] > target)
+                r = mid;
+            else
+                l = mid + 1;
         }
         return false;
     }

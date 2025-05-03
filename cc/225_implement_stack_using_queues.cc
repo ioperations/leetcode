@@ -33,21 +33,21 @@ standard operations.
 
 namespace {
 class MyStack {
-  std::queue<int> m_q;
+    std::queue<int> m_q;
 
- public:
-  MyStack() = default;
+   public:
+    MyStack() = default;
 
-  void Push(int x) {
-    m_q.push(x);
-    for (int i = 0; i < (int)m_q.size() - 1; i++) {
-      m_q.push(Pop());
-    }
+    void Push(int x) {
+        m_q.push(x);
+        for (int i = 0; i < (int)m_q.size() - 1; i++) {
+            m_q.push(Pop());
+        }
     }
     int Pop() {
-      int const result = Top();
-      m_q.pop();
-      return result;
+        int const result = Top();
+        m_q.pop();
+        return result;
     }
 
     int Top() { return m_q.front(); }
@@ -61,19 +61,19 @@ class MyStackV2 {
     MyStackV2() = default;
 
     void Push(int x) {
-      m_q.push(x);
-      int i = 1;
-      while (i < (int)m_q.size()) {
-        m_q.push(m_q.front());
-        m_q.pop();
-        i++;
-      }
+        m_q.push(x);
+        int i = 1;
+        while (i < (int)m_q.size()) {
+            m_q.push(m_q.front());
+            m_q.pop();
+            i++;
+        }
     }
 
     int Pop() {
-      int const ele = m_q.front();
-      m_q.pop();
-      return ele;
+        int const ele = m_q.front();
+        m_q.pop();
+        return ele;
     }
 
     int Top() { return m_q.front(); }

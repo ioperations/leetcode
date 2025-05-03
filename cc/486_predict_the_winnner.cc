@@ -71,10 +71,10 @@ class Solution {
     }
 
     bool PredictTheWinnerV2(vector<int>& nums) {
-      memset(m_dp, -1, sizeof m_dp);
-      int const res = Ok(nums, 0, nums.size() - 1, true);
+        memset(m_dp, -1, sizeof m_dp);
+        int const res = Ok(nums, 0, nums.size() - 1, true);
 
-      return res >= 0;
+        return res >= 0;
     }
 };
 

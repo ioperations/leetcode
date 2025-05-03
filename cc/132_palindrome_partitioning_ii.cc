@@ -48,29 +48,29 @@ class Solution {
 };
 
 TEST(palindrome_partitioning_ii, t1) {
-  std::string const s = "aab";
+    std::string const s = "aab";
 
-  int const i = 1;
-  Solution sl;
-  int const ret = sl.MinCut(s);
-  EXPECT_EQ(ret, i);
+    int const i = 1;
+    Solution sl;
+    int const ret = sl.MinCut(s);
+    EXPECT_EQ(ret, i);
 }
 
 TEST(palindrome_partitioning_ii, t2) {
-  std::string const s = "a";
+    std::string const s = "a";
 
-  int const i = 0;
-  Solution sl;
-  int const ret = sl.MinCut(s);
-  EXPECT_EQ(ret, i);
+    int const i = 0;
+    Solution sl;
+    int const ret = sl.MinCut(s);
+    EXPECT_EQ(ret, i);
 }
 
 TEST(palindrome_partitioning_ii, t3) {
-  std::string const s = "ab";
+    std::string const s = "ab";
 
-  int const i = 1;
-  Solution sl;
-  int const ret = sl.MinCut(s);
-  EXPECT_EQ(ret, i);
+    int const i = 1;
+    Solution sl;
+    int const ret = sl.MinCut(s);
+    EXPECT_EQ(ret, i);
 }
 }  // namespace

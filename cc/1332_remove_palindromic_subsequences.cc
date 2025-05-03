@@ -37,31 +37,31 @@ class Solution {
 };
 
 TEST(remove_palindromic_subsequences, t1) {
-  string const s = "ababa";
-  int const out = 1;
-  // s is already a palindrome, so its entirety can be removed in a single
-  // step.
-  Solution sl;
-  int const ret = sl.RemovePalindromeSub(s);
-  EXPECT_EQ(ret, out);
+    string const s = "ababa";
+    int const out = 1;
+    // s is already a palindrome, so its entirety can be removed in a single
+    // step.
+    Solution sl;
+    int const ret = sl.RemovePalindromeSub(s);
+    EXPECT_EQ(ret, out);
 }
 
 TEST(remove_palindromic_subsequences, t2) {
-  string const s = "abb";
-  int const out = 2;
-  //"abb" -> "bb" -> "". Remove palindromic subsequence "a" then "bb".
-  Solution sl;
-  int const ret = sl.RemovePalindromeSub(s);
-  EXPECT_EQ(ret, out);
+    string const s = "abb";
+    int const out = 2;
+    //"abb" -> "bb" -> "". Remove palindromic subsequence "a" then "bb".
+    Solution sl;
+    int const ret = sl.RemovePalindromeSub(s);
+    EXPECT_EQ(ret, out);
 }
 
 TEST(remove_palindromic_subsequences, t3) {
-  string const s = "baabb";
-  int const out = 2;
-  // "baabb" -> "b" -> "". Remove palindromic subsequence "baab" then "b".
-  Solution sl;
-  int const ret = sl.RemovePalindromeSub(s);
-  EXPECT_EQ(ret, out);
+    string const s = "baabb";
+    int const out = 2;
+    // "baabb" -> "b" -> "". Remove palindromic subsequence "baab" then "b".
+    Solution sl;
+    int const ret = sl.RemovePalindromeSub(s);
+    EXPECT_EQ(ret, out);
 }
 
 }  // namespace

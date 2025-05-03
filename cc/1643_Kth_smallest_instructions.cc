@@ -39,21 +39,21 @@ class Solution {
     int m_dp[mxn][mxn]{};
 
     int Go(int x, int y) {
-      if (x == m_n && y == m_m) return 1;
-      if (x < 0 || x > m_n || y < 0 || y > m_m) return 0;
-      int& ans = m_dp[x][y];
-      if (ans != -1) return ans;
-      ans = Go(x + 1, y) + Go(x, y + 1);
-      return ans;
+        if (x == m_n && y == m_m) return 1;
+        if (x < 0 || x > m_n || y < 0 || y > m_m) return 0;
+        int& ans = m_dp[x][y];
+        if (ans != -1) return ans;
+        ans = Go(x + 1, y) + Go(x, y + 1);
+        return ans;
     }
 
     string m_way;
     void Build(int x, int y, int k) {
-      if (x == m_n && y == m_m) return;
-      if (x < 0 || x > m_n || y < 0 || y > m_m) return;
-      if (k <= Go(x, y + 1)) {
-        m_way.push_back('H');
-        Build(x, y + 1, k);
+        if (x == m_n && y == m_m) return;
+        if (x < 0 || x > m_n || y < 0 || y > m_m) return;
+        if (k <= Go(x, y + 1)) {
+            m_way.push_back('H');
+            Build(x, y + 1, k);
         } else {
             k -= Go(x, y + 1);
             m_way.push_back('V');
@@ -63,12 +63,12 @@ class Solution {
 
    public:
     string KthSmallestPath(vector<int>& destination, int k) {
-      m_n = destination[0];
-      m_m = destination[1];
-      memset(m_dp, -1LL, sizeof(m_dp));
-      Go(0, 0);
-      Build(0, 0, k);
-      return m_way;
+        m_n = destination[0];
+        m_m = destination[1];
+        memset(m_dp, -1LL, sizeof(m_dp));
+        Go(0, 0);
+        Build(0, 0, k);
+        return m_way;
     }
 };
 

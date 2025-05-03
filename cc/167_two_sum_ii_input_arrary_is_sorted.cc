@@ -44,10 +44,10 @@ class Solution {
     int FindInArray(const vector<int>& numbers, int left, int right,
                     int target) {
         while (left <= right) {
-          int const mid = (left + right) / 2;
+            int const mid = (left + right) / 2;
 
-          if (numbers[mid] > target) {
-            right = mid - 1;
+            if (numbers[mid] > target) {
+                right = mid - 1;
 
             } else if (numbers[mid] < target) {
                 left = mid + 1;

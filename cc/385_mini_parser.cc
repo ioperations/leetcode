@@ -49,16 +49,16 @@ class NestedInteger {
 
     // Set this NestedInteger to hold a single integer.
     void SetInteger(int value) {
-      m_vec.clear();
-      val = value;
-      is_integer = true;
+        m_vec.clear();
+        val = value;
+        is_integer = true;
     }
 
     // Set this NestedInteger to hold a nested list and adds a nested integer to
     // it.
     void Add(const NestedInteger& ni) {
-      m_vec.push_back(ni);
-      is_integer = false;
+        m_vec.push_back(ni);
+        is_integer = false;
     }
 
     // Return the nested list that this NestedInteger holds, if it holds a
@@ -85,7 +85,7 @@ class Solution {
                 it = it2;
             } else {
                 if (c == '[') {
-                  stk.emplace();
+                    stk.emplace();
                 } else if (c == ']') {
                     const NestedInteger ni = stk.top();
                     stk.pop();
@@ -103,7 +103,7 @@ class Solution {
         stack<NestedInteger> stk({NestedInteger()});
         for (size_t i = 0; i < s.size(); ++i) {
             if (s[i] == '[') {
-              stk.emplace();
+                stk.emplace();
             } else if (s[i] == ']') {
                 const NestedInteger ni = stk.top();
                 stk.pop();

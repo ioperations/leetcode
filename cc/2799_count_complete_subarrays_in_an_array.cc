@@ -13,19 +13,19 @@ using namespace std;
 class Solution {
    public:
     int CountCompleteSubarrays(vector<int>& nums) {
-      /*
-       * 1 <= nums.length <= 1000
-       * 1 <= nums[i] <= 2000
-       */
-      int k = unordered_set<int>(nums.begin(), nums.end()).size(), res = 0;
-      for (int i = 0; i < nums.size(); i++) {
-        unordered_set<int> st;
-        for (int j = i; j < nums.size(); j++) {
-          st.insert(nums[j]);
-          if (st.size() == k) res++;
+        /*
+         * 1 <= nums.length <= 1000
+         * 1 <= nums[i] <= 2000
+         */
+        int k = unordered_set<int>(nums.begin(), nums.end()).size(), res = 0;
+        for (int i = 0; i < nums.size(); i++) {
+            unordered_set<int> st;
+            for (int j = i; j < nums.size(); j++) {
+                st.insert(nums[j]);
+                if (st.size() == k) res++;
+            }
         }
-      }
-      return res;
+        return res;
     }
 };
 

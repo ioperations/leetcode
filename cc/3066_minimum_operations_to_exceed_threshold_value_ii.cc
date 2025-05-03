@@ -23,22 +23,22 @@ using namespace std;
 class Solution {
    public:
     int MinOperations(vector<int>& nums, int k) {
-      // pass
-      priority_queue<long long, vector<long long>, std::greater<>> q;
-      for (auto& n : nums) {
-        q.emplace(n);
-      }
+        // pass
+        priority_queue<long long, vector<long long>, std::greater<>> q;
+        for (auto& n : nums) {
+            q.emplace(n);
+        }
 
-      int i = 0;
-      for (; q.top() < k; i++) {
-        auto n = q.top();
-        q.pop();
-        auto m = q.top();
-        q.pop();
+        int i = 0;
+        for (; q.top() < k; i++) {
+            auto n = q.top();
+            q.pop();
+            auto m = q.top();
+            q.pop();
 
-        q.emplace(min(n, m) * 2 + max(n, m));
-      }
-      return i;
+            q.emplace(min(n, m) * 2 + max(n, m));
+        }
+        return i;
     }
 };
 #include <gtest/gtest.h>

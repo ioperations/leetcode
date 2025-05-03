@@ -69,8 +69,8 @@ class Solution {
                     }
                 }
                 if (common) {
-                  int const cur = words[i].size() * words[j].size();
-                  ans = max(ans, cur);
+                    int const cur = words[i].size() * words[j].size();
+                    ans = max(ans, cur);
                 }
             }
         }

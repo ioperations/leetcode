@@ -38,19 +38,19 @@ class Solution {
 };
 
 TEST(unique_binary_search_tree, t1) {
-  int const n = 3;
-  int const out = 5;
-  Solution sl;
-  int const ret = sl.NumTrees(n);
-  EXPECT_EQ(ret, out);
+    int const n = 3;
+    int const out = 5;
+    Solution sl;
+    int const ret = sl.NumTrees(n);
+    EXPECT_EQ(ret, out);
 }
 
 TEST(unique_binary_search_tree, t2) {
-  int const n = 1;
-  int const out = 1;
-  Solution sl;
-  int const ret = sl.NumTrees(n);
-  EXPECT_EQ(ret, out);
+    int const n = 1;
+    int const out = 1;
+    Solution sl;
+    int const ret = sl.NumTrees(n);
+    EXPECT_EQ(ret, out);
 }
 
 TEST(unique_binary_search_tree, t3) {
@@ -61,8 +61,8 @@ TEST(unique_binary_search_tree, t3) {
     Solution sl;
     int const size = test_case.size();
     for (int i = 1; i < size; i++) {
-      int const ret = sl.NumTrees(i);
-      EXPECT_EQ(ret, test_case[i]);
+        int const ret = sl.NumTrees(i);
+        EXPECT_EQ(ret, test_case[i]);
     }
 }
 

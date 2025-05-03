@@ -42,10 +42,10 @@ class Solution {
         vector<int> ans;
         ans.push_back(nums[0]);
         for (int i = 1; i < (int)nums.size(); i++) {
-          int const ele = nums[i];
-          if (ele > ans.back()) {
-            ans.push_back(ele);
-            continue;
+            int const ele = nums[i];
+            if (ele > ans.back()) {
+                ans.push_back(ele);
+                continue;
             }
             int const idx =
                 lower_bound(ans.begin(), ans.end(), ele) - ans.begin();

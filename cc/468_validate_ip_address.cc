@@ -130,92 +130,92 @@ class Solution {
 };
 
 TEST(validate_ip_address, t0) {
-  string const query_ip = "192.0.0.1";
-  string const output = "IPv4";
-  // Explanation: This is a valid IPv4 address, return "IPv4".
-  Solution sl;
-  auto ret = sl.ValidIpAddress(query_ip);
-  EXPECT_EQ(ret, output);
+    string const query_ip = "192.0.0.1";
+    string const output = "IPv4";
+    // Explanation: This is a valid IPv4 address, return "IPv4".
+    Solution sl;
+    auto ret = sl.ValidIpAddress(query_ip);
+    EXPECT_EQ(ret, output);
 }
 TEST(validate_ip_address, t1) {
-  string const query_ip = "172.16.254.1";
-  string const output = "IPv4";
-  // Explanation: This is a valid IPv4 address, return "IPv4".
-  Solution sl;
-  auto ret = sl.ValidIpAddress(query_ip);
-  EXPECT_EQ(ret, output);
+    string const query_ip = "172.16.254.1";
+    string const output = "IPv4";
+    // Explanation: This is a valid IPv4 address, return "IPv4".
+    Solution sl;
+    auto ret = sl.ValidIpAddress(query_ip);
+    EXPECT_EQ(ret, output);
 }
 
 TEST(validate_ip_address, t2) {
-  string const query_ip = "2001:0db8:85a3:0:0:8A2E:0370:7334";
-  string const output = "IPv6";
-  // Explanation: This is a valid IPv6 address, return "IPv6".
-  Solution sl;
-  auto ret = sl.ValidIpAddress(query_ip);
-  EXPECT_EQ(ret, output);
+    string const query_ip = "2001:0db8:85a3:0:0:8A2E:0370:7334";
+    string const output = "IPv6";
+    // Explanation: This is a valid IPv6 address, return "IPv6".
+    Solution sl;
+    auto ret = sl.ValidIpAddress(query_ip);
+    EXPECT_EQ(ret, output);
 }
 
 TEST(validate_ip_address, t3) {
-  string const query_ip = "2001:0db8:85a3::8A2E:037j:7334";
-  string const output = "Neither";
-  // Explanation: This is a valid IPv6 address, return "IPv6".
-  Solution sl;
-  auto ret = sl.ValidIpAddress(query_ip);
-  EXPECT_EQ(ret, output);
+    string const query_ip = "2001:0db8:85a3::8A2E:037j:7334";
+    string const output = "Neither";
+    // Explanation: This is a valid IPv6 address, return "IPv6".
+    Solution sl;
+    auto ret = sl.ValidIpAddress(query_ip);
+    EXPECT_EQ(ret, output);
 }
 
 TEST(validate_ip_address, t4) {
-  string const query_ip = "02001:0db8:85a3:0000:0000:8a2e:0370:7334";
-  string const output = "Neither";
-  // Explanation: This is a valid IPv6 address, return "IPv6".
-  Solution sl;
-  auto ret = sl.ValidIpAddress(query_ip);
-  EXPECT_EQ(ret, output);
+    string const query_ip = "02001:0db8:85a3:0000:0000:8a2e:0370:7334";
+    string const output = "Neither";
+    // Explanation: This is a valid IPv6 address, return "IPv6".
+    Solution sl;
+    auto ret = sl.ValidIpAddress(query_ip);
+    EXPECT_EQ(ret, output);
 }
 
 TEST(validate_ip_address, t5) {
-  string const query_ip = "2001:0db8:85a3:0000:0000:8a2e:0370:7334";
-  string const output = "IPv6";
-  // Explanation: This is a valid IPv6 address, return "IPv6".
-  Solution sl;
-  auto ret = sl.ValidIpAddress(query_ip);
-  EXPECT_EQ(ret, output);
+    string const query_ip = "2001:0db8:85a3:0000:0000:8a2e:0370:7334";
+    string const output = "IPv6";
+    // Explanation: This is a valid IPv6 address, return "IPv6".
+    Solution sl;
+    auto ret = sl.ValidIpAddress(query_ip);
+    EXPECT_EQ(ret, output);
 }
 
 TEST(validate_ip_address, t6) {
-  string const query_ip = "2001:db8:85a3:0:0:8A2E:0370:7334";
-  string const output = "IPv6";
-  // Explanation: This is a valid IPv6 address, return "IPv6".
-  Solution sl;
-  auto ret = sl.ValidIpAddress(query_ip);
-  EXPECT_EQ(ret, output);
+    string const query_ip = "2001:db8:85a3:0:0:8A2E:0370:7334";
+    string const output = "IPv6";
+    // Explanation: This is a valid IPv6 address, return "IPv6".
+    Solution sl;
+    auto ret = sl.ValidIpAddress(query_ip);
+    EXPECT_EQ(ret, output);
 }
 
 TEST(validate_ip_address, t7) {
-  string const query_ip = "2001:db8:85a3:0:0:8A2E:0370:7334";
-  string const output = "IPv6";
-  // Explanation: This is a valid IPv6 address, return "IPv6".
-  Solution sl;
-  auto ret = sl.ValidIpAddress(query_ip);
-  EXPECT_EQ(ret, output);
+    string const query_ip = "2001:db8:85a3:0:0:8A2E:0370:7334";
+    string const output = "IPv6";
+    // Explanation: This is a valid IPv6 address, return "IPv6".
+    Solution sl;
+    auto ret = sl.ValidIpAddress(query_ip);
+    EXPECT_EQ(ret, output);
 }
 
 TEST(validate_ip_address, t8) {
-  string const query_ip = "2001:db8:85a3:0::8a2E:0370:7334";
-  string const output = "Neither";
-  // Explanation: This is a valid IPv6 address, return "IPv6".
-  Solution sl;
-  auto ret = sl.ValidIpAddress(query_ip);
-  EXPECT_EQ(ret, output);
+    string const query_ip = "2001:db8:85a3:0::8a2E:0370:7334";
+    string const output = "Neither";
+    // Explanation: This is a valid IPv6 address, return "IPv6".
+    Solution sl;
+    auto ret = sl.ValidIpAddress(query_ip);
+    EXPECT_EQ(ret, output);
 }
 
 TEST(validate_ip_address_v2, t3) {
-  string const query_ip = "256.256.256.256";
-  string const output = "Neither";
-  // Explanation: This is neither a IPv4 address nor a IPv6 address.
-  Solution sl;
-  auto ret = sl.ValidIpAddress(query_ip);
-  EXPECT_EQ(ret, output);
+    string const query_ip = "256.256.256.256";
+    string const output = "Neither";
+    // Explanation: This is neither a IPv4 address nor a IPv6 address.
+    Solution sl;
+    auto ret = sl.ValidIpAddress(query_ip);
+    EXPECT_EQ(ret, output);
 }
 
 }  // namespace

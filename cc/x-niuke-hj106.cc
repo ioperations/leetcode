@@ -15,8 +15,8 @@ std::string ReturnS(const char* s, int len) {
 }
 
 TEST(x_niuke_hjv2, t2) {
-  std::string const s = "1516000";
-  std::string const rets = ReturnS(s.c_str(), s.size());
-  EXPECT_EQ(rets, std::string("0006151"));
+    std::string const s = "1516000";
+    std::string const rets = ReturnS(s.c_str(), s.size());
+    EXPECT_EQ(rets, std::string("0006151"));
 }
 }  // namespace

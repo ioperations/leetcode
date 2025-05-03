@@ -61,59 +61,59 @@ class Solution {
 #define null optional<int>()
 
 TEST(path_sum_ii, t1) {
-  vector<optional<int>> const root = {5, 4, 8,    11,   null, 13, 4,
-                                      7, 2, null, null, 5,    1};
-  int const target_sum = 22;
-  vector<vector<int>> const output = {{5, 4, 11, 2}, {5, 8, 4, 5}};
-  /*
-  Explanation:
-      There are two paths whose sum equals targetSum : 5 + 4 + 11 + 2 =
-         22 5 + 8 + 4 + 5 = 22
-  */
+    vector<optional<int>> const root = {5, 4, 8,    11,   null, 13, 4,
+                                        7, 2, null, null, 5,    1};
+    int const target_sum = 22;
+    vector<vector<int>> const output = {{5, 4, 11, 2}, {5, 8, 4, 5}};
+    /*
+    Explanation:
+        There are two paths whose sum equals targetSum : 5 + 4 + 11 + 2 =
+           22 5 + 8 + 4 + 5 = 22
+    */
 
-  auto* node = ConstructBinaryTree(root);
+    auto* node = ConstructBinaryTree(root);
 
-  Solution sl;
-  auto ret = sl.PathSum(node, target_sum);
+    Solution sl;
+    auto ret = sl.PathSum(node, target_sum);
 
-  EXPECT_EQ(ret, output);
-  FreeTreeNode(node);
+    EXPECT_EQ(ret, output);
+    FreeTreeNode(node);
 }
 
 TEST(path_sum_ii, t2) {
-  vector<optional<int>> const root = {1, 2, 3};
-  int const target_sum = 5;
-  vector<vector<int>> const output = {};
-  /*
-  Explanation:
-      There are two paths whose sum equals targetSum : 5 + 4 + 11 + 2 =
-         22 5 + 8 + 4 + 5 = 22
-  */
+    vector<optional<int>> const root = {1, 2, 3};
+    int const target_sum = 5;
+    vector<vector<int>> const output = {};
+    /*
+    Explanation:
+        There are two paths whose sum equals targetSum : 5 + 4 + 11 + 2 =
+           22 5 + 8 + 4 + 5 = 22
+    */
 
-  auto* node = ConstructBinaryTree(root);
+    auto* node = ConstructBinaryTree(root);
 
-  Solution sl;
-  auto ret = sl.PathSum(node, target_sum);
+    Solution sl;
+    auto ret = sl.PathSum(node, target_sum);
 
-  EXPECT_EQ(ret, output);
-  FreeTreeNode(node);
+    EXPECT_EQ(ret, output);
+    FreeTreeNode(node);
 }
 
 TEST(path_sum_ii, t3) {
-  vector<optional<int>> const root = {1, 2};
-  int const target_sum = 0;
-  vector<vector<int>> const output = {};
-  /*
-  Explanation:
-      There are two paths whose sum equals targetSum : 5 + 4 + 11 + 2 =
-         22 5 + 8 + 4 + 5 = 22
-  */
+    vector<optional<int>> const root = {1, 2};
+    int const target_sum = 0;
+    vector<vector<int>> const output = {};
+    /*
+    Explanation:
+        There are two paths whose sum equals targetSum : 5 + 4 + 11 + 2 =
+           22 5 + 8 + 4 + 5 = 22
+    */
 
-  auto* node = ConstructBinaryTree(root);
-  Solution sl;
-  auto ret = sl.PathSum(node, target_sum);
+    auto* node = ConstructBinaryTree(root);
+    Solution sl;
+    auto ret = sl.PathSum(node, target_sum);
 
-  EXPECT_EQ(ret, output);
-  FreeTreeNode(node);
+    EXPECT_EQ(ret, output);
+    FreeTreeNode(node);
 }
 }  // namespace

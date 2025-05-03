@@ -17,34 +17,34 @@ using namespace std;
 class Solution {
    public:
     int MaximumSum(vector<int>& nums) {
-      // 1 <= nums.length <= 105
-      // 1 <= nums[i] <= 109
-      unordered_map<int, priority_queue<int>> map;
+        // 1 <= nums.length <= 105
+        // 1 <= nums[i] <= 109
+        unordered_map<int, priority_queue<int>> map;
 
-      for (auto& ptr : nums) {
-        map[GetDigitSum(ptr)].emplace(ptr);
-      }
-
-      int ret = -1;
-      for (auto& it : map) {
-        auto& n = it.second;
-        if (n.size() > 1) {
-          int v = n.top();
-          n.pop();
-          v += n.top();
-
-          ret = std::max(ret, v);
+        for (auto& ptr : nums) {
+            map[GetDigitSum(ptr)].emplace(ptr);
         }
-      }
-      return ret;
+
+        int ret = -1;
+        for (auto& it : map) {
+            auto& n = it.second;
+            if (n.size() > 1) {
+                int v = n.top();
+                n.pop();
+                v += n.top();
+
+                ret = std::max(ret, v);
+            }
+        }
+        return ret;
     }
     int GetDigitSum(int n) {
-      int ret = 0;
-      for (; n > 0;) {
-        ret += n % 10;
-        n = n / 10;
-      }
-      return ret;
+        int ret = 0;
+        for (; n > 0;) {
+            ret += n % 10;
+            n = n / 10;
+        }
+        return ret;
     }
 };
 

@@ -43,13 +43,13 @@ class Solution {
             return false;
         }
         if (m_cache.find(start_from) != m_cache.end()) {
-          return m_cache[start_from];
+            return m_cache[start_from];
         }
 
         if (nums[start_from] == nums[start_from + 1]) {
             if (CheckIfOk(nums, start_from + 2)) {
-              m_cache[start_from] = true;
-              return true;
+                m_cache[start_from] = true;
+                return true;
             }
 
             if (start_from + 2 < nums.size()) {

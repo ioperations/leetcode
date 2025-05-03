@@ -62,7 +62,7 @@ class Solution {
 
     vector<string> RestoreIpAddresses(string s) {
         if (s.length() > 12) {
-          return m_v;
+            return m_v;
         }
 
         Check(s, "", 4, 0);
@@ -71,34 +71,34 @@ class Solution {
 };
 
 TEST(restore_ip_addresses, t1) {
-  string const s = "25525511135";
-  std::vector<string> output{"255.255.11.135", "255.255.111.35"};
-  Solution sl;
-  auto ret = sl.RestoreIpAddresses(s);
-  set<std::string> const ret_set(ret.begin(), ret.end());
-  set<std::string> const out_set(output.begin(), output.end());
-  EXPECT_EQ(out_set, ret_set);
+    string const s = "25525511135";
+    std::vector<string> output{"255.255.11.135", "255.255.111.35"};
+    Solution sl;
+    auto ret = sl.RestoreIpAddresses(s);
+    set<std::string> const ret_set(ret.begin(), ret.end());
+    set<std::string> const out_set(output.begin(), output.end());
+    EXPECT_EQ(out_set, ret_set);
 }
 
 TEST(restore_ip_addresses, t2) {
-  string const s = "0000";
-  std::vector<string> output{"0.0.0.0"};
-  Solution sl;
-  auto ret = sl.RestoreIpAddresses(s);
-  set<std::string> const ret_set(ret.begin(), ret.end());
-  set<std::string> const out_set(output.begin(), output.end());
-  EXPECT_EQ(out_set, ret_set);
+    string const s = "0000";
+    std::vector<string> output{"0.0.0.0"};
+    Solution sl;
+    auto ret = sl.RestoreIpAddresses(s);
+    set<std::string> const ret_set(ret.begin(), ret.end());
+    set<std::string> const out_set(output.begin(), output.end());
+    EXPECT_EQ(out_set, ret_set);
 }
 
 TEST(restore_ip_addresses, t3) {
-  string const s = "101023";
-  std::vector<string> output{"1.0.10.23", "1.0.102.3", "10.1.0.23", "10.10.2.3",
-                             "101.0.2.3"};
-  Solution sl;
-  auto ret = sl.RestoreIpAddresses(s);
-  set<std::string> const ret_set(ret.begin(), ret.end());
-  set<std::string> const out_set(output.begin(), output.end());
-  EXPECT_EQ(out_set, ret_set);
+    string const s = "101023";
+    std::vector<string> output{"1.0.10.23", "1.0.102.3", "10.1.0.23",
+                               "10.10.2.3", "101.0.2.3"};
+    Solution sl;
+    auto ret = sl.RestoreIpAddresses(s);
+    set<std::string> const ret_set(ret.begin(), ret.end());
+    set<std::string> const out_set(output.begin(), output.end());
+    EXPECT_EQ(out_set, ret_set);
 }
 
 }  // namespace

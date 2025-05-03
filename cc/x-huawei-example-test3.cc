@@ -32,38 +32,38 @@ void Processing(std::string s) {
 }
 
 TEST(x_huawei_example_testv2, t2) {
-  std::string const s = "0xA";
-  testing::internal::CaptureStdout();
-  Processing(s);
-  std::string const ret = testing::internal::GetCapturedStdout();
+    std::string const s = "0xA";
+    testing::internal::CaptureStdout();
+    Processing(s);
+    std::string const ret = testing::internal::GetCapturedStdout();
 
-  EXPECT_EQ(ret, std::string("10\n"));
+    EXPECT_EQ(ret, std::string("10\n"));
 }
 
 TEST(x_huawei_example_testv3, t2) {
-  std::string const s = "0xF";
-  testing::internal::CaptureStdout();
-  Processing(s);
-  std::string const ret = testing::internal::GetCapturedStdout();
+    std::string const s = "0xF";
+    testing::internal::CaptureStdout();
+    Processing(s);
+    std::string const ret = testing::internal::GetCapturedStdout();
 
-  EXPECT_EQ(ret, std::string("15\n"));
+    EXPECT_EQ(ret, std::string("15\n"));
 }
 
 TEST(x_huawei_example_testv4, t1) {
-  std::string const s = "0xFF";
-  testing::internal::CaptureStdout();
-  Processing(s);
-  std::string const ret = testing::internal::GetCapturedStdout();
+    std::string const s = "0xFF";
+    testing::internal::CaptureStdout();
+    Processing(s);
+    std::string const ret = testing::internal::GetCapturedStdout();
 
-  EXPECT_EQ(ret, std::string("255\n"));
+    EXPECT_EQ(ret, std::string("255\n"));
 }
 
 TEST(x_huawei_example_test3, t2) {
-  std::string const s = "0xAA";
-  testing::internal::CaptureStdout();
-  Processing(s);
-  std::string const ret = testing::internal::GetCapturedStdout();
+    std::string const s = "0xAA";
+    testing::internal::CaptureStdout();
+    Processing(s);
+    std::string const ret = testing::internal::GetCapturedStdout();
 
-  EXPECT_EQ(ret, std::string("170\n"));
+    EXPECT_EQ(ret, std::string("170\n"));
 }
 }  // namespace

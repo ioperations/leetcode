@@ -13,18 +13,18 @@ using namespace std;
 class Solution {
    public:
     long long CountBadPairs(vector<int>& nums) {
-      // FIXME: timeout
-      long long ret = 0;
-      auto size = nums.size();
-      for (size_t i = 0; i < size; i++) {
-        for (int j = i + 1; j < size; j++) {
-          if (nums[j] - nums[i] != (j - i)) {
-            ret++;
-          }
+        // FIXME: timeout
+        long long ret = 0;
+        auto size = nums.size();
+        for (size_t i = 0; i < size; i++) {
+            for (int j = i + 1; j < size; j++) {
+                if (nums[j] - nums[i] != (j - i)) {
+                    ret++;
+                }
+            }
         }
-      }
 
-      return ret;
+        return ret;
     }
 };
 

@@ -46,10 +46,10 @@ class Solution {
         int ret = 0;
         int i = 0;
         while (queue.size()) {
-          int const val = queue.top();
-          queue.pop();
-          if (i < val) {
-            ret++;
+            int const val = queue.top();
+            queue.pop();
+            if (i < val) {
+                ret++;
             } else {
                 break;
             }

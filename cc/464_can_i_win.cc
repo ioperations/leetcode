@@ -26,17 +26,17 @@ class Solution {
    private:
     vector<vector<int>> m_dp;
     bool Backtrack(int curr, int& max_int, int& desire, int mask, int player) {
-      if (m_dp[player][mask] != -1) {
-        return m_dp[player][mask];
-      }
+        if (m_dp[player][mask] != -1) {
+            return m_dp[player][mask];
+        }
         for (int i = 1; i <= max_int; i++) {
-          int const nmask = (1 << (i - 1));
-          if ((mask & nmask) == 0) {
-            if (curr + i >= desire or
-                !Backtrack(curr + i, max_int, desire, mask + nmask,
-                           (player + 1) % 2)) {
-              return (m_dp[player][mask] = true);
-            }
+            int const nmask = (1 << (i - 1));
+            if ((mask & nmask) == 0) {
+                if (curr + i >= desire or
+                    !Backtrack(curr + i, max_int, desire, mask + nmask,
+                               (player + 1) % 2)) {
+                    return (m_dp[player][mask] = true);
+                }
             }
         }
         return (m_dp[player][mask] = false);
@@ -44,11 +44,11 @@ class Solution {
 
    public:
     bool CanIWin(int max_choosable_integer, int desired_total) {
-      m_dp =
-          vector<vector<int>>(2, vector<int>(1 << max_choosable_integer, -1));
-      if (max_choosable_integer * (max_choosable_integer + 1) / 2 <
-          desired_total) {
-        return false;
+        m_dp =
+            vector<vector<int>>(2, vector<int>(1 << max_choosable_integer, -1));
+        if (max_choosable_integer * (max_choosable_integer + 1) / 2 <
+            desired_total) {
+            return false;
         }
         int curr = 0, mask = 0;
         return Backtrack(curr, max_choosable_integer, desired_total, mask, 0);

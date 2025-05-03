@@ -20,30 +20,30 @@ namespace {
 class Solution {
    public:
     int Lcs(string s, string t) {
-      int const n = s.length();
-      int const m = t.length();
+        int const n = s.length();
+        int const m = t.length();
 
-      vector<vector<int>> dp(n + 1, vector<int>(m + 1, 0));
-      for (int i = 0; i <= n; i++) {
-        for (int j = 0; j <= m; j++) {
-          if (i == 0 || j == 0) {
-            dp[i][j] = 0;
-          } else {
-            if (s[i - 1] == t[j - 1]) {
-              dp[i][j] = 1 + dp[i - 1][j - 1];
-            } else {
-              dp[i][j] = max(dp[i - 1][j], dp[i][j - 1]);
+        vector<vector<int>> dp(n + 1, vector<int>(m + 1, 0));
+        for (int i = 0; i <= n; i++) {
+            for (int j = 0; j <= m; j++) {
+                if (i == 0 || j == 0) {
+                    dp[i][j] = 0;
+                } else {
+                    if (s[i - 1] == t[j - 1]) {
+                        dp[i][j] = 1 + dp[i - 1][j - 1];
+                    } else {
+                        dp[i][j] = max(dp[i - 1][j], dp[i][j - 1]);
+                    }
+                }
             }
-          }
-        }
         }
         return dp[n][m];
     }
 
     int MinDistance(string word1, string word2) {
-      int const n = word1.size();
-      int const m = word2.size();
-      return n + m - 2 * Lcs(word1, word2);
+        int const n = word1.size();
+        int const m = word2.size();
+        return n + m - 2 * Lcs(word1, word2);
     }
 };
 

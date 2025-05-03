@@ -16,17 +16,17 @@ namespace {
 class Solution {
    public:
     ListNode* RotateRight(ListNode* head, int k) {
-      int const ret = Solve(head);
-      if (ret != 0) {
-        int const left = k % ret - 1;
-        if (k % ret == 0) {
-          for (int i = 0; i < (k - 1); i++) {
-            Solve(head);
-          }
-        }
-        for (int i = 0; i < left; i++) {
-          Solve(head);
-        }
+        int const ret = Solve(head);
+        if (ret != 0) {
+            int const left = k % ret - 1;
+            if (k % ret == 0) {
+                for (int i = 0; i < (k - 1); i++) {
+                    Solve(head);
+                }
+            }
+            for (int i = 0; i < left; i++) {
+                Solve(head);
+            }
         } else {
             for (int i = 0; i < (k - 1); i++) {
                 Solve(head);
@@ -109,102 +109,102 @@ void ExpectEqList(ListNode* const head, const std::vector<int>& elements) {
 }
 
 TEST(rotate_list, t1) {
-  std::vector<int> const v{1, 2, 3, 4, 5};
-  int const k = 2;
-  std::vector<int> const output{4, 5, 1, 2, 3};
-  ListNode* head = List::ConstructList(v);
-  Solution sl;
-  head = sl.RotateRight(head, k);
-  ExpectEqList(head, output);
-  List::FreeList(head);
+    std::vector<int> const v{1, 2, 3, 4, 5};
+    int const k = 2;
+    std::vector<int> const output{4, 5, 1, 2, 3};
+    ListNode* head = List::ConstructList(v);
+    Solution sl;
+    head = sl.RotateRight(head, k);
+    ExpectEqList(head, output);
+    List::FreeList(head);
 };
 
 TEST(rotate_list, t2) {
-  std::vector<int> const v{0, 1, 2};
-  int const k = 4;
-  std::vector<int> const output{2, 0, 1};
-  ListNode* head = List::ConstructList(v);
-  Solution sl;
-  head = sl.RotateRight(head, k);
-  ExpectEqList(head, output);
-  List::FreeList(head);
+    std::vector<int> const v{0, 1, 2};
+    int const k = 4;
+    std::vector<int> const output{2, 0, 1};
+    ListNode* head = List::ConstructList(v);
+    Solution sl;
+    head = sl.RotateRight(head, k);
+    ExpectEqList(head, output);
+    List::FreeList(head);
 };
 
 TEST(rotate_list, t3) {
-  std::vector<int> const v{1, 2};
-  int const k = 1;
-  std::vector<int> const output{2, 1};
-  ListNode* head = List::ConstructList(v);
-  Solution sl;
-  head = sl.RotateRight(head, k);
-  ExpectEqList(head, output);
-  List::FreeList(head);
+    std::vector<int> const v{1, 2};
+    int const k = 1;
+    std::vector<int> const output{2, 1};
+    ListNode* head = List::ConstructList(v);
+    Solution sl;
+    head = sl.RotateRight(head, k);
+    ExpectEqList(head, output);
+    List::FreeList(head);
 };
 
 TEST(rotate_list, t4) {
-  std::vector<int> const v{1, 2};
-  int const k = 1;
-  std::vector<int> const output{2, 1};
-  ListNode* head = List::ConstructList(v);
-  Solution sl;
-  head = sl.RotateRightV1(head, k);
-  ExpectEqList(head, output);
-  List::FreeList(head);
+    std::vector<int> const v{1, 2};
+    int const k = 1;
+    std::vector<int> const output{2, 1};
+    ListNode* head = List::ConstructList(v);
+    Solution sl;
+    head = sl.RotateRightV1(head, k);
+    ExpectEqList(head, output);
+    List::FreeList(head);
 };
 
 TEST(rotate_list, t5) {
-  std::vector<int> const v{};
-  int const k = 1;
-  std::vector<int> const output{};
-  ListNode* head = List::ConstructList(v);
-  Solution sl;
-  head = sl.RotateRight(head, k);
-  ExpectEqList(head, output);
-  List::FreeList(head);
+    std::vector<int> const v{};
+    int const k = 1;
+    std::vector<int> const output{};
+    ListNode* head = List::ConstructList(v);
+    Solution sl;
+    head = sl.RotateRight(head, k);
+    ExpectEqList(head, output);
+    List::FreeList(head);
 };
 
 TEST(rotate_list, t6) {
-  std::vector<int> const v{1, 2, 3};
-  int const k = 2000000000;
-  std::vector<int> const output{2, 3, 1};
-  ListNode* head = List::ConstructList(v);
-  Solution sl;
-  head = sl.RotateRight(head, k);
-  ExpectEqList(head, output);
-  List::FreeList(head);
+    std::vector<int> const v{1, 2, 3};
+    int const k = 2000000000;
+    std::vector<int> const output{2, 3, 1};
+    ListNode* head = List::ConstructList(v);
+    Solution sl;
+    head = sl.RotateRight(head, k);
+    ExpectEqList(head, output);
+    List::FreeList(head);
 };
 
 TEST(rotate_list, t7) {
-  std::vector<int> const v{1, 2};
-  int const k = 2;
-  std::vector<int> const output{1, 2};
-  ListNode* head = List::ConstructList(v);
-  Solution sl;
-  head = sl.RotateRight(head, k);
-  ExpectEqList(head, output);
-  List::FreeList(head);
+    std::vector<int> const v{1, 2};
+    int const k = 2;
+    std::vector<int> const output{1, 2};
+    ListNode* head = List::ConstructList(v);
+    Solution sl;
+    head = sl.RotateRight(head, k);
+    ExpectEqList(head, output);
+    List::FreeList(head);
 };
 
 TEST(rotate_list, t8) {
-  std::vector<int> const v{1, 2, 3};
-  int const k = 3;
-  std::vector<int> const output{1, 2, 3};
-  ListNode* head = List::ConstructList(v);
-  Solution sl;
-  head = sl.RotateRight(head, k);
-  ExpectEqList(head, output);
-  List::FreeList(head);
+    std::vector<int> const v{1, 2, 3};
+    int const k = 3;
+    std::vector<int> const output{1, 2, 3};
+    ListNode* head = List::ConstructList(v);
+    Solution sl;
+    head = sl.RotateRight(head, k);
+    ExpectEqList(head, output);
+    List::FreeList(head);
 }
 
 TEST(rotate_list, t9) {
-  std::vector<int> const v{1, 2, 3, 4, 5};
-  int const k = 10;
-  std::vector<int> const output{1, 2, 3, 4, 5};
-  ListNode* head = List::ConstructList(v);
-  Solution sl;
-  head = sl.RotateRight(head, k);
-  ExpectEqList(head, output);
-  List::FreeList(head);
+    std::vector<int> const v{1, 2, 3, 4, 5};
+    int const k = 10;
+    std::vector<int> const output{1, 2, 3, 4, 5};
+    ListNode* head = List::ConstructList(v);
+    Solution sl;
+    head = sl.RotateRight(head, k);
+    ExpectEqList(head, output);
+    List::FreeList(head);
 }
 
 }  // namespace

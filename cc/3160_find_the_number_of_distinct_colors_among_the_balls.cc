@@ -37,10 +37,10 @@ class Solution {
             auto& curr = queries[i];
             int const index = curr[0];
             if (!(table.count(index) == 0 or table[index] == 0)) {
-              int const c = table[index];
-              hm[c]--;
-              if (hm[c] == 0) {
-                hm.erase(c);
+                int const c = table[index];
+                hm[c]--;
+                if (hm[c] == 0) {
+                    hm.erase(c);
                 }
             }
             int const color = curr[1];
@@ -69,10 +69,10 @@ class Solution {
             auto& curr = queries[i];
             int const index = curr[0];
             if (!(table[index] == 0)) {
-              int const c = table[index];
-              hm[c]--;
-              if (hm[c] == 0) {
-                hm.erase(c);
+                int const c = table[index];
+                hm[c]--;
+                if (hm[c] == 0) {
+                    hm.erase(c);
                 }
             }
             int const color = curr[1];

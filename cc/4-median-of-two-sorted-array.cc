@@ -16,23 +16,23 @@ namespace {
 class Solution {
    public:
     double FindMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {
-      clock_t start = 0, end = 0;
+        clock_t start = 0, end = 0;
 
-      start = clock();
-      double tmp = ImplV1(nums1, nums2);
-      end = clock();
-      std::cout << "v1 const time " << end - start << std::endl;
+        start = clock();
+        double tmp = ImplV1(nums1, nums2);
+        end = clock();
+        std::cout << "v1 const time " << end - start << std::endl;
 
-      start = clock();
-      tmp = ImplV2(nums1, nums2);
-      end = clock();
-      std::cout << "v2 const time " << end - start << std::endl;
+        start = clock();
+        tmp = ImplV2(nums1, nums2);
+        end = clock();
+        std::cout << "v2 const time " << end - start << std::endl;
 
-      start = clock();
-      tmp = ImplV3(nums1, nums2);
-      end = clock();
-      std::cout << "v3 const time " << end - start << std::endl;
-      return tmp;
+        start = clock();
+        tmp = ImplV3(nums1, nums2);
+        end = clock();
+        std::cout << "v3 const time " << end - start << std::endl;
+        return tmp;
     }
 
    private:
@@ -78,26 +78,26 @@ class Solution {
         int high = x;
         int low = 0;
         while (low <= high) {
-          int const divide_x = low + (high - low) / 2;
-          int const divide_y = (x + y + 1) / 2 - divide_x;
+            int const divide_x = low + (high - low) / 2;
+            int const divide_y = (x + y + 1) / 2 - divide_x;
 
-          double const max_left_x =
-              (divide_x == 0 ? INT_MIN : nums1[divide_x - 1]);
-          double const min_right_x =
-              (divide_x == x ? INT_MAX : nums1[divide_x]);
+            double const max_left_x =
+                (divide_x == 0 ? INT_MIN : nums1[divide_x - 1]);
+            double const min_right_x =
+                (divide_x == x ? INT_MAX : nums1[divide_x]);
 
-          double const max_left_y =
-              (divide_y == 0 ? INT_MIN : nums2[divide_y - 1]);
-          double const min_right_y =
-              (divide_y == y ? INT_MAX : nums2[divide_y]);
+            double const max_left_y =
+                (divide_y == 0 ? INT_MIN : nums2[divide_y - 1]);
+            double const min_right_y =
+                (divide_y == y ? INT_MAX : nums2[divide_y]);
 
-          if (max_left_x <= min_right_y && max_left_y <= min_right_x) {
-            if ((x + y) % 2 == 0) {
-              return (max(max_left_x, max_left_y) +
-                      min(min_right_x, min_right_y)) /
-                     2.0;
-            }
-            return max(max_left_x, max_left_y);
+            if (max_left_x <= min_right_y && max_left_y <= min_right_x) {
+                if ((x + y) % 2 == 0) {
+                    return (max(max_left_x, max_left_y) +
+                            min(min_right_x, min_right_y)) /
+                           2.0;
+                }
+                return max(max_left_x, max_left_y);
             }
             if (max_left_x > min_right_y) {
                 high = divide_x - 1;
@@ -128,21 +128,21 @@ class Solution {
 
     double Median(vector<int>& a, vector<int>& b, int s1, int e1, int s2,
                   int e2, int tar) {
-      int la = 0, lb = 0, ma = 0, mb = 0, m = max(e1 - s1 + 1, 0),
-          n = max(e2 - s2 + 1, 0), ans = 0;
-      if (!m) return b[s2 + tar];
-      if (!n) return a[s1 + tar];
+        int la = 0, lb = 0, ma = 0, mb = 0, m = max(e1 - s1 + 1, 0),
+            n = max(e2 - s2 + 1, 0), ans = 0;
+        if (!m) return b[s2 + tar];
+        if (!n) return a[s1 + tar];
 
-      la = m / 2;
-      lb = n / 2;
-      ma = a[s1 + la];
-      mb = b[s2 + lb];
+        la = m / 2;
+        lb = n / 2;
+        ma = a[s1 + la];
+        mb = b[s2 + lb];
 
-      if (la + lb >= tar) {
-        if (ma > mb)
-          ans = Median(a, b, s1, s1 + la - 1, s2, e2, tar);
-        else
-          ans = Median(a, b, s1, e1, s2, s2 + lb - 1, tar);
+        if (la + lb >= tar) {
+            if (ma > mb)
+                ans = Median(a, b, s1, s1 + la - 1, s2, e2, tar);
+            else
+                ans = Median(a, b, s1, e1, s2, s2 + lb - 1, tar);
         } else {
             if (ma > mb)
                 ans = Median(a, b, s1, e1, s2 + lb + 1, e2, tar - lb - 1);

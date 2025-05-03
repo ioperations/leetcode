@@ -44,19 +44,19 @@ class Solution {
         int left = 0;
         int right = nums.size() - 1;
         while (left <= right) {
-          int const mid = (left + right) / 2;
-          if (nums[mid] == target) return mid;
+            int const mid = (left + right) / 2;
+            if (nums[mid] == target) return mid;
 
-          // instead of comparing target and nums[mid]
-          // we need to compare nums[left] and nums[mid]
-          if (nums[left] <= nums[mid]) {
-            // In addition to first condition, we also need to consider
-            // target < nums [left]
-            if (nums[mid] < target || target < nums[left]) {
-              left = mid + 1;
-            } else {
-              right = mid - 1;
-            }
+            // instead of comparing target and nums[mid]
+            // we need to compare nums[left] and nums[mid]
+            if (nums[left] <= nums[mid]) {
+                // In addition to first condition, we also need to consider
+                // target < nums [left]
+                if (nums[mid] < target || target < nums[left]) {
+                    left = mid + 1;
+                } else {
+                    right = mid - 1;
+                }
             } else {
                 if (nums[mid] > target || target > nums[right])
                     right = mid - 1;

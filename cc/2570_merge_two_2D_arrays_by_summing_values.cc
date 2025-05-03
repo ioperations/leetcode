@@ -22,43 +22,44 @@ class Solution {
    public:
     vector<vector<int>> MergeArrays(vector<vector<int>>& nums1,
                                     vector<vector<int>>& nums2) {
-      size_t const n1 = nums1.size();
-      size_t const n2 = nums2.size();
-      size_t const size = n1 + n2;
-      vector<vector<int>> ret;
-      ret.reserve(size);
+        size_t const n1 = nums1.size();
+        size_t const n2 = nums2.size();
+        size_t const size = n1 + n2;
+        vector<vector<int>> ret;
+        ret.reserve(size);
 
-      int i = 0, j = 0;
-      for (int k = 0; k < size; k++) {
-        if (i < n1 && j < n2) {
-          if (nums1[i][0] == nums2[j][0]) {
-            ret.push_back(vector<int>{nums1[i][0], nums1[i][1] + nums2[j][1]});
-            i++;
-            j++;
-            continue;
-          }
-          if (nums1[i][0] < nums2[j][0]) {
-            ret.push_back(nums1[i]);
-            i++;
-            continue;
-          }
-          ret.push_back(nums2[j]);
-          j++;
-          continue;
+        int i = 0, j = 0;
+        for (int k = 0; k < size; k++) {
+            if (i < n1 && j < n2) {
+                if (nums1[i][0] == nums2[j][0]) {
+                    ret.push_back(
+                        vector<int>{nums1[i][0], nums1[i][1] + nums2[j][1]});
+                    i++;
+                    j++;
+                    continue;
+                }
+                if (nums1[i][0] < nums2[j][0]) {
+                    ret.push_back(nums1[i]);
+                    i++;
+                    continue;
+                }
+                ret.push_back(nums2[j]);
+                j++;
+                continue;
+            }
+
+            if (i < n1) {
+                ret.push_back(nums1[i]);
+                i++;
+            }
+
+            if (j < n2) {
+                ret.push_back(nums2[j]);
+                j++;
+            }
         }
 
-        if (i < n1) {
-          ret.push_back(nums1[i]);
-          i++;
-        }
-
-        if (j < n2) {
-          ret.push_back(nums2[j]);
-          j++;
-        }
-      }
-
-      return ret;
+        return ret;
     }
 };
 

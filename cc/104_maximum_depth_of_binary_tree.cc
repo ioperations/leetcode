@@ -42,29 +42,29 @@ class Solution {
 using namespace std;
 
 TEST(memleak, t0) {
-  vector<optional<int>> const elements{
-      3, 9, 20, optional<int>(), optional<int>(), 15, 7};
-  auto* binary_tree = ConstructBinaryTree(elements);
-  FreeTreeNode(binary_tree);
+    vector<optional<int>> const elements{
+        3, 9, 20, optional<int>(), optional<int>(), 15, 7};
+    auto* binary_tree = ConstructBinaryTree(elements);
+    FreeTreeNode(binary_tree);
 }
 
 TEST(maximum_depth_of_binary_tree, t1) {
-  vector<optional<int>> const elements{
-      3, 9, 20, optional<int>(), optional<int>(), 15, 7};
-  auto* binary_tree = ConstructBinaryTree(elements);
-  Solution sl;
-  int const ret = sl.MaxDepth(binary_tree);
-  EXPECT_EQ(ret, 3);
-  FreeTreeNode(binary_tree);
+    vector<optional<int>> const elements{
+        3, 9, 20, optional<int>(), optional<int>(), 15, 7};
+    auto* binary_tree = ConstructBinaryTree(elements);
+    Solution sl;
+    int const ret = sl.MaxDepth(binary_tree);
+    EXPECT_EQ(ret, 3);
+    FreeTreeNode(binary_tree);
 }
 
 TEST(maximum_depth_of_binary_tree, t2) {
-  vector<optional<int>> const elements{1, optional<int>(), 2};
-  auto* binary_tree = ConstructBinaryTree(elements);
-  Solution sl;
-  int const ret = sl.MaxDepth(binary_tree);
-  EXPECT_EQ(ret, 2);
-  FreeTreeNode(binary_tree);
+    vector<optional<int>> const elements{1, optional<int>(), 2};
+    auto* binary_tree = ConstructBinaryTree(elements);
+    Solution sl;
+    int const ret = sl.MaxDepth(binary_tree);
+    EXPECT_EQ(ret, 2);
+    FreeTreeNode(binary_tree);
 }
 
 }  // namespace

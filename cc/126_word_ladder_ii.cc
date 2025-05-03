@@ -42,17 +42,17 @@ class Solution {
         parent[sr] = {-1};
         dist[sr] = 0;
         while (!q.empty()) {
-          int const x = q.front();
-          q.pop();
-          for (int const u : g[x]) {
-            if (dist[u] > dist[x] + 1) {
-              dist[u] = dist[x] + 1;
-              q.push(u);
-              parent[u].clear();
-              parent[u].push_back(x);
-            } else if (dist[u] == dist[x] + 1)
-              parent[u].push_back(x);
-          }
+            int const x = q.front();
+            q.pop();
+            for (int const u : g[x]) {
+                if (dist[u] > dist[x] + 1) {
+                    dist[u] = dist[x] + 1;
+                    q.push(u);
+                    parent[u].clear();
+                    parent[u].push_back(x);
+                } else if (dist[u] == dist[x] + 1)
+                    parent[u].push_back(x);
+            }
         }
     }
     void ShortestPaths(vector<vector<int>>& paths, vector<int>& path,

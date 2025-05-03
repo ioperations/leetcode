@@ -46,26 +46,26 @@ class Solution {
 using namespace std;
 
 TEST(binary_tree_cameras, t1) {
-  std::vector<optional<int>> const v{0, 0, null, 0, 0};
-  int const out = 1;
-  auto* n = ConstructBinaryTree(v);
-  Solution sl;
-  int const ret = sl.MinCameraCover(n);
-  EXPECT_EQ(ret, out);
-  // One camera is enough to monitor all nodes if placed as shown.
-  FreeTreeNode(n);
+    std::vector<optional<int>> const v{0, 0, null, 0, 0};
+    int const out = 1;
+    auto* n = ConstructBinaryTree(v);
+    Solution sl;
+    int const ret = sl.MinCameraCover(n);
+    EXPECT_EQ(ret, out);
+    // One camera is enough to monitor all nodes if placed as shown.
+    FreeTreeNode(n);
 }
 
 TEST(binary_tree_cameras, t2) {
-  std::vector<optional<int>> const v{0, 0, null, 0, null, 0, null, null, 0};
-  int const out = 2;
-  auto* n = ConstructBinaryTree(v);
-  Solution sl;
-  int const ret = sl.MinCameraCover(n);
-  EXPECT_EQ(ret, out);
-  // At least two cameras are needed to monitor all nodes of the tree. The
-  // above image shows one of the valid configurations of camera placement.
-  FreeTreeNode(n);
+    std::vector<optional<int>> const v{0, 0, null, 0, null, 0, null, null, 0};
+    int const out = 2;
+    auto* n = ConstructBinaryTree(v);
+    Solution sl;
+    int const ret = sl.MinCameraCover(n);
+    EXPECT_EQ(ret, out);
+    // At least two cameras are needed to monitor all nodes of the tree. The
+    // above image shows one of the valid configurations of camera placement.
+    FreeTreeNode(n);
 }
 
 }  // namespace

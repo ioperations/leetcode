@@ -31,36 +31,36 @@ class Solution {
    public:
     int MaxPerformance(int n, vector<int>& speed, vector<int>& efficiency,
                        int k) {
-      int const mod = 1e9 + 7;
-      vector<pair<int, int>> candidates(n);
-      // we build the pair { efficiency, speed } so that we can sort it later
-      for (int i = 0; i < n; i++) candidates[i] = {efficiency[i], speed[i]};
-      // sort candidates in descending order
-      sort(candidates.rbegin(), candidates.rend());
-      // Using Example 1:
-      // speed: [2, 10, 3, 1 ,5, 8] and efficiency: [5, 4, 3, 9, 7, 2]
-      // after sort, it becomes
-      // candidates: [{9, 1}, {7 ,5}, {5, 2}, {4, 10}, {3, 3}, {2, 8}]
-      long speed_sum = 0, ans = 0;
-      // we use priority queue here with greater<int> to store the sum
-      // i.e min heap (the smallest element goes on the top)
-      priority_queue<int, vector<int>, greater<>> pq;
-      // iterate each pair
-      for (auto& [e, s] : candidates) {
-        // put the speed to priority queue
-        pq.push(s);
-        // add to speedSum
-        speed_sum += s;
-        // we only need to choose at most k engineers
-        // hence if the queue size is greater than k
-        // we need to remove a candidate
-        if ((int)pq.size() > k) {
-          // who to remove? of course the one with smallest speed
-          speed_sum -= pq.top();
-          pq.pop();
-        }
-        // a team is formed now, calculate the performance
-        ans = max(ans, speed_sum * e);
+        int const mod = 1e9 + 7;
+        vector<pair<int, int>> candidates(n);
+        // we build the pair { efficiency, speed } so that we can sort it later
+        for (int i = 0; i < n; i++) candidates[i] = {efficiency[i], speed[i]};
+        // sort candidates in descending order
+        sort(candidates.rbegin(), candidates.rend());
+        // Using Example 1:
+        // speed: [2, 10, 3, 1 ,5, 8] and efficiency: [5, 4, 3, 9, 7, 2]
+        // after sort, it becomes
+        // candidates: [{9, 1}, {7 ,5}, {5, 2}, {4, 10}, {3, 3}, {2, 8}]
+        long speed_sum = 0, ans = 0;
+        // we use priority queue here with greater<int> to store the sum
+        // i.e min heap (the smallest element goes on the top)
+        priority_queue<int, vector<int>, greater<>> pq;
+        // iterate each pair
+        for (auto& [e, s] : candidates) {
+            // put the speed to priority queue
+            pq.push(s);
+            // add to speedSum
+            speed_sum += s;
+            // we only need to choose at most k engineers
+            // hence if the queue size is greater than k
+            // we need to remove a candidate
+            if ((int)pq.size() > k) {
+                // who to remove? of course the one with smallest speed
+                speed_sum -= pq.top();
+                pq.pop();
+            }
+            // a team is formed now, calculate the performance
+            ans = max(ans, speed_sum * e);
         }
         return ans % mod;
     }
@@ -106,48 +106,48 @@ class Solution {
 };
 
 TEST(maximium_performance_of_a_team, t1) {
-  int const n = 6;
-  vector<int> speed = {2, 10, 3, 1, 5, 8}, efficiency = {5, 4, 3, 9, 7, 2};
-  int const k = 2;
-  int const output = 60;
+    int const n = 6;
+    vector<int> speed = {2, 10, 3, 1, 5, 8}, efficiency = {5, 4, 3, 9, 7, 2};
+    int const k = 2;
+    int const output = 60;
 
-  /*
-  Explanation:
-  We have the maximum performance of the team by selecting engineer 2 (with
-  speed=10 and efficiency=4) and engineer 5 (with speed=5 and efficiency=7).
-  That is, performance = (10 + 5) * min(4, 7) = 60.
-  */
+    /*
+    Explanation:
+    We have the maximum performance of the team by selecting engineer 2 (with
+    speed=10 and efficiency=4) and engineer 5 (with speed=5 and efficiency=7).
+    That is, performance = (10 + 5) * min(4, 7) = 60.
+    */
 
-  Solution sl;
-  int const ret = sl.MaxPerformance(n, speed, efficiency, k);
-  EXPECT_EQ(ret, output);
+    Solution sl;
+    int const ret = sl.MaxPerformance(n, speed, efficiency, k);
+    EXPECT_EQ(ret, output);
 }
 
 TEST(maximium_performance_of_a_team, t2) {
-  int const n = 6;
-  vector<int> speed = {2, 10, 3, 1, 5, 8}, efficiency = {5, 4, 3, 9, 7, 2};
-  int const k = 3;
-  int const output = 68;
+    int const n = 6;
+    vector<int> speed = {2, 10, 3, 1, 5, 8}, efficiency = {5, 4, 3, 9, 7, 2};
+    int const k = 3;
+    int const output = 68;
 
-  /*This is the same example as the first but k = 3. We can select engineer 1,
-   * engineer 2 and engineer 5 to get the maximum performance of the team.
-   * That is, performance = (2 + 10 + 5) * min(5, 4, 7) = 68.
-   */
+    /*This is the same example as the first but k = 3. We can select engineer 1,
+     * engineer 2 and engineer 5 to get the maximum performance of the team.
+     * That is, performance = (2 + 10 + 5) * min(5, 4, 7) = 68.
+     */
 
-  Solution sl;
-  int const ret = sl.MaxPerformance(n, speed, efficiency, k);
-  EXPECT_EQ(ret, output);
+    Solution sl;
+    int const ret = sl.MaxPerformance(n, speed, efficiency, k);
+    EXPECT_EQ(ret, output);
 }
 
 TEST(maximium_performance_of_a_team, t3) {
-  int const n = 6;
-  vector<int> speed = {2, 10, 3, 1, 5, 8}, efficiency = {5, 4, 3, 9, 7, 2};
-  int const k = 4;
-  int const output = 72;
+    int const n = 6;
+    vector<int> speed = {2, 10, 3, 1, 5, 8}, efficiency = {5, 4, 3, 9, 7, 2};
+    int const k = 4;
+    int const output = 72;
 
-  Solution sl;
-  int const ret = sl.MaxPerformance(n, speed, efficiency, k);
-  EXPECT_EQ(ret, output);
+    Solution sl;
+    int const ret = sl.MaxPerformance(n, speed, efficiency, k);
+    EXPECT_EQ(ret, output);
 }
 
 }  // namespace

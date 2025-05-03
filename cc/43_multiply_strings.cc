@@ -24,9 +24,9 @@ class Solution {
         std::string ret = "";
 
         while (num) {
-          int const last_bit = num % 10;
-          num = num / 10;
-          ret = std::to_string('0' + last_bit) + ret;
+            int const last_bit = num % 10;
+            num = num / 10;
+            ret = std::to_string('0' + last_bit) + ret;
         }
         return ret;
     }

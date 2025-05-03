@@ -42,14 +42,14 @@ class Solution {
             return INT_MAX;
         }
         if (m_mem[index][p][target] != -1) {
-          return m_mem[index][p][target];
+            return m_mem[index][p][target];
         }
         if (houses[index] == 0) {
             int min_cost = INT_MAX;
             for (int color = 1; color <= n; color++) {
-              int ans = 0;
-              if (color == p) {
-                ans = Solve(houses, cost, target, index + 1, p);
+                int ans = 0;
+                if (color == p) {
+                    ans = Solve(houses, cost, target, index + 1, p);
                 } else {
                     ans = Solve(houses, cost, target - 1, index + 1, color);
                 }
@@ -61,8 +61,8 @@ class Solution {
             return m_mem[index][p][target] = min_cost;
         }
         if (houses[index] == p) {
-          return m_mem[index][p][target] =
-                     Solve(houses, cost, target, index + 1, p);
+            return m_mem[index][p][target] =
+                       Solve(houses, cost, target, index + 1, p);
         }
         return m_mem[index][p][target] =
                    Solve(houses, cost, target - 1, index + 1, houses[index]);
@@ -71,10 +71,10 @@ class Solution {
    public:
     int MinCost(vector<int>& houses, vector<vector<int>>& cost, int m, int n,
                 int target) {
-      m_mem = vector<vector<vector<int>>>(
-          m, vector<vector<int>>(n + 1, vector<int>(target + 1, -1)));
-      int const ans = Solve(houses, cost, target, 0, 0);
-      return ans == INT_MAX ? -1 : ans;
+        m_mem = vector<vector<vector<int>>>(
+            m, vector<vector<int>>(n + 1, vector<int>(target + 1, -1)));
+        int const ans = Solve(houses, cost, target, 0, 0);
+        return ans == INT_MAX ? -1 : ans;
     }
 };
 

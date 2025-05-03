@@ -48,7 +48,7 @@ class Trie {
     void DeleteNode(Node* n) {
         if (n == nullptr) return;
         for (auto& i : n->child) {
-          DeleteNode(i);
+            DeleteNode(i);
         }
         delete n;
     }
@@ -87,37 +87,37 @@ class Trie {
 };
 
 class WordFilter {
-  Trie m_trie;
+    Trie m_trie;
 
- public:
-  WordFilter(vector<string>& words) {
-    /*
+   public:
+    WordFilter(vector<string>& words) {
+        /*
 
-    We are storing word as suffix + '{' + prefix, index
-    why '{' ? you can use any special character, but '{' - 'a' will give
-    26th index so, we don't need to take care of special character.
+        We are storing word as suffix + '{' + prefix, index
+        why '{' ? you can use any special character, but '{' - 'a' will give
+        26th index so, we don't need to take care of special character.
 
-    apple -> suffix + '{' + prefix, i
-        apple{apple 0
-        pple{apple 0
-        ple{apple 0
-        le{apple 0
-        e{apple 0
-        {apple 0
+        apple -> suffix + '{' + prefix, i
+            apple{apple 0
+            pple{apple 0
+            ple{apple 0
+            le{apple 0
+            e{apple 0
+            {apple 0
 
 
-    */
-    int const len = words.size();
-    for (int i = 0; i < len; i++) {
-      string const str = words[i];
-      int const n = str.size();
+        */
+        int const len = words.size();
+        for (int i = 0; i < len; i++) {
+            string const str = words[i];
+            int const n = str.size();
 
-      for (int j = 0; j <= n; j++) {
-        string cur = str.substr(j) + '{' + str;
+            for (int j = 0; j <= n; j++) {
+                string cur = str.substr(j) + '{' + str;
 
-        m_trie.Insert(cur, i);
-      }
-    }
+                m_trie.Insert(cur, i);
+            }
+        }
     }
 
     int F(string prefix, string suffix) {
@@ -132,8 +132,8 @@ class WordFilter {
 
 class WordFilterMy {
     struct Pp {
-      string m_s;
-      int m_index;
+        string m_s;
+        int m_index;
     };
 
     class PrefixTree {
@@ -142,8 +142,8 @@ class WordFilterMy {
         std::map<char, PrefixTree> m_node;
         PrefixTree() = default;
         ~PrefixTree() {
-          m_node.clear();
-          m_n.clear();
+            m_node.clear();
+            m_n.clear();
         }
     };
 
@@ -157,13 +157,13 @@ class WordFilterMy {
         // 第一个前缀树当中还需要保留链表，
         int const size = words.size();
         for (int i = 0; i < size; i++) {
-          PrefixTree* z = &m_root;
-          string const tmp = words[i];
-          reverse(words[i].begin(), words[i].end());
+            PrefixTree* z = &m_root;
+            string const tmp = words[i];
+            reverse(words[i].begin(), words[i].end());
 
-          for (auto& ptr : tmp) {
-            z = &z->m_node[ptr];
-            z->m_n.push_back(Pp{words[i], i});
+            for (auto& ptr : tmp) {
+                z = &z->m_node[ptr];
+                z->m_n.push_back(Pp{words[i], i});
             }
         }
     }
@@ -172,22 +172,22 @@ class WordFilterMy {
         // pass
         PrefixTree* z = &m_root;
         for (auto& ptr : prefix) {
-          if (z->m_node.find(ptr) != z->m_node.end()) {
-            z = &z->m_node[ptr];
-          } else {
-            return -1;
-          }
+            if (z->m_node.find(ptr) != z->m_node.end()) {
+                z = &z->m_node[ptr];
+            } else {
+                return -1;
+            }
         }
         int max = -1;
 
         int const suffix_size = suffix.size();
         reverse(suffix.begin(), suffix.end());
         for (auto& ptr : z->m_n) {
-          if ((int)ptr.m_s.size() >= suffix_size) {
-            if (ptr.m_s.substr(0, suffix_size) == suffix) {
-              max = std::max(max, ptr.m_index);
+            if ((int)ptr.m_s.size() >= suffix_size) {
+                if (ptr.m_s.substr(0, suffix_size) == suffix) {
+                    max = std::max(max, ptr.m_index);
+                }
             }
-          }
         }
 
         return max;

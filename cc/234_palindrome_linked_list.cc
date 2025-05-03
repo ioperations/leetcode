@@ -77,9 +77,9 @@ class Solution {
     }
 
     bool IsPalindrome(std::vector<ListNode*>& vec) {
-      std::size_t const size = vec.size();
-      if (vec.size() == 1 || vec.size() == 0) {
-        return true;
+        std::size_t const size = vec.size();
+        if (vec.size() == 1 || vec.size() == 0) {
+            return true;
         }
 
         int left = 0;

@@ -42,43 +42,43 @@ class Solution {
 };
 
 TEST(memleak, t0) {
-  vector<optional<int>> const elements{
-      3, 9, 20, optional<int>(), optional<int>(), 15, 7};
-  auto* binary_tree = Tree::ConstructBinaryTree(elements);
-  Tree::FreeTreeNode(binary_tree);
+    vector<optional<int>> const elements{
+        3, 9, 20, optional<int>(), optional<int>(), 15, 7};
+    auto* binary_tree = Tree::ConstructBinaryTree(elements);
+    Tree::FreeTreeNode(binary_tree);
 }
 
 TEST(binary_tree_zigzag_level_order_traversal, t1) {
-  vector<optional<int>> const elements{
-      3, 9, 20, optional<int>(), optional<int>(), 15, 7};
-  auto* binary_tree = Tree::ConstructBinaryTree(elements);
+    vector<optional<int>> const elements{
+        3, 9, 20, optional<int>(), optional<int>(), 15, 7};
+    auto* binary_tree = Tree::ConstructBinaryTree(elements);
 
-  Solution sl;
-  auto ret = sl.ZigzagLevelOrder(binary_tree);
-  vector<vector<int>> const output{{3}, {20, 9}, {15, 7}};
-  EXPECT_EQ(ret, output);
-  Tree::FreeTreeNode(binary_tree);
+    Solution sl;
+    auto ret = sl.ZigzagLevelOrder(binary_tree);
+    vector<vector<int>> const output{{3}, {20, 9}, {15, 7}};
+    EXPECT_EQ(ret, output);
+    Tree::FreeTreeNode(binary_tree);
 }
 
 TEST(binary_tree_zigzag_level_order_traversal, t2) {
-  vector<optional<int>> const elements{1};
-  auto* binary_tree = Tree::ConstructBinaryTree(elements);
+    vector<optional<int>> const elements{1};
+    auto* binary_tree = Tree::ConstructBinaryTree(elements);
 
-  Solution sl;
-  auto ret = sl.ZigzagLevelOrder(binary_tree);
-  vector<vector<int>> const output{{1}};
-  EXPECT_EQ(ret, output);
-  Tree::FreeTreeNode(binary_tree);
+    Solution sl;
+    auto ret = sl.ZigzagLevelOrder(binary_tree);
+    vector<vector<int>> const output{{1}};
+    EXPECT_EQ(ret, output);
+    Tree::FreeTreeNode(binary_tree);
 }
 
 TEST(binary_tree_zigzag_level_order_traversal, t3) {
-  vector<optional<int>> const elements{};
-  auto* binary_tree = Tree::ConstructBinaryTree(elements);
+    vector<optional<int>> const elements{};
+    auto* binary_tree = Tree::ConstructBinaryTree(elements);
 
-  Solution sl;
-  auto ret = sl.ZigzagLevelOrder(binary_tree);
-  vector<vector<int>> const output{};
-  EXPECT_EQ(ret, output);
-  Tree::FreeTreeNode(binary_tree);
+    Solution sl;
+    auto ret = sl.ZigzagLevelOrder(binary_tree);
+    vector<vector<int>> const output{};
+    EXPECT_EQ(ret, output);
+    Tree::FreeTreeNode(binary_tree);
 }
 }  // namespace

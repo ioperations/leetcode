@@ -37,27 +37,27 @@ class Solution {
         string code = "";
 
         for (int i = 0; i < m_len; i++) {
-          int const type = rand() % 3;
+            int const type = rand() % 3;
 
-          if (type == 0) {  // number
-            code += char(rand() % 10 + 48);
-          } else if (type == 1) {  // lowercase char
-            code += char(rand() % 26 + 97);
-          } else {  // uppercase char
-            code += char(rand() % 26 + 65);
-          }
+            if (type == 0) {  // number
+                code += char(rand() % 10 + 48);
+            } else if (type == 1) {  // lowercase char
+                code += char(rand() % 26 + 97);
+            } else {  // uppercase char
+                code += char(rand() % 26 + 65);
+            }
         }
 
         if (m_um.find(code) != m_um.end()) {
-          return GenerateRandomCode(long_url);
+            return GenerateRandomCode(long_url);
         }
         m_um[code] = long_url;
         return code;
     }
 
     string GetCode(string short_url) {
-      int const n = short_url.size();
-      return short_url.substr(n - m_len, m_len);
+        int const n = short_url.size();
+        return short_url.substr(n - m_len, m_len);
     }
 
    public:
@@ -70,8 +70,8 @@ class Solution {
 
     // Decodes a shortened URL to its original URL.
     string Decode(string short_url) {
-      string const code = GetCode(short_url);
-      return m_um[code];
+        string const code = GetCode(short_url);
+        return m_um[code];
     }
 };
 
@@ -80,10 +80,10 @@ class Solution {
 // solution.decode(solution.encode(url));
 
 TEST(testName, testNum) {
-  std::string const url = "https://leetcode.com/problems/design-tinyurl";
+    std::string const url = "https://leetcode.com/problems/design-tinyurl";
 
-  Solution s;
-  EXPECT_EQ(s.Decode(s.Encode(url)), url);
+    Solution s;
+    EXPECT_EQ(s.Decode(s.Encode(url)), url);
 }
 
 }  // namespace

@@ -41,7 +41,7 @@ class LoserTree {
         (*this->m_base).resize(leaves_num, inf);
         // 左闭右开
         for (int i = 0; i < leaves_num; i++) {
-          this->m_ls[this->m_leaves_ls_st + i] = i;
+            this->m_ls[this->m_leaves_ls_st + i] = i;
         }
         this->m_ls[0] = this->Build(1);
     }
@@ -49,30 +49,30 @@ class LoserTree {
     // node_idx为ls中的下标
     //  返回:winner_id为base中的下标
     int Build(int node_idx) {
-      if (node_idx >= this->m_leaves_ls_st) {
-        return this->m_ls[node_idx];
-      }
+        if (node_idx >= this->m_leaves_ls_st) {
+            return this->m_ls[node_idx];
+        }
         const int lwinner_idx = Build(node_idx << 1);
         const int rwinner_idx = Build(node_idx << 1 | 1);
         int winner_idx = -1;
         // 父节点存loser
         if ((*this->m_base)[lwinner_idx] < (*this->m_base)[rwinner_idx]) {
-          this->m_ls[node_idx] = rwinner_idx;
-          winner_idx = lwinner_idx;
+            this->m_ls[node_idx] = rwinner_idx;
+            winner_idx = lwinner_idx;
         } else {
-          this->m_ls[node_idx] = lwinner_idx;
-          winner_idx = rwinner_idx;
+            this->m_ls[node_idx] = lwinner_idx;
+            winner_idx = rwinner_idx;
         }
         return winner_idx;
     }
 
     int GetMin() {
-      const int ans = (*this->m_base)[m_ls[0]];
-      // modify_fa_idx为ls的下标
-      const int leaves_idx = this->m_leaves_ls_st + m_ls[0];
-      (*this->m_base)[this->m_ls[leaves_idx]] = inf;
-      this->Sort(leaves_idx >> 1, this->m_ls[0]);
-      return ans;
+        const int ans = (*this->m_base)[m_ls[0]];
+        // modify_fa_idx为ls的下标
+        const int leaves_idx = this->m_leaves_ls_st + m_ls[0];
+        (*this->m_base)[this->m_ls[leaves_idx]] = inf;
+        this->Sort(leaves_idx >> 1, this->m_ls[0]);
+        return ans;
     }
 
     // node_idx:ls的index
@@ -80,10 +80,10 @@ class LoserTree {
     // 自底上更新败者树
     void Sort(int node_idx, int winner_idx) {
         while (node_idx) {
-          if ((*this->m_base)[winner_idx] >
-              (*this->m_base)[this->m_ls[node_idx]]) {
-            swap(this->m_ls[node_idx], winner_idx);
-          }
+            if ((*this->m_base)[winner_idx] >
+                (*this->m_base)[this->m_ls[node_idx]]) {
+                swap(this->m_ls[node_idx], winner_idx);
+            }
             node_idx >>= 1;
         }
         this->m_ls[0] = winner_idx;
@@ -123,15 +123,15 @@ class Solution {
     MyListNode* MergeKListsv1(vector<MyListNode*>& lists) {
         MyListNode* ans = nullptr;
         for (auto& list : lists) {
-          ans = MergeTwoLists(ans, list);
+            ans = MergeTwoLists(ans, list);
         }
         return ans;
     }
 
     struct Status {
-      int m_val;
-      MyListNode* m_ptr;
-      bool operator<(const Status& rhs) const { return m_val > rhs.m_val; }
+        int m_val;
+        MyListNode* m_ptr;
+        bool operator<(const Status& rhs) const { return m_val > rhs.m_val; }
     };
 
     std::priority_queue<Status> m_q;
@@ -139,15 +139,15 @@ class Solution {
     //  最小堆实现k路归并排序
     MyListNode* MergeKListsPriorityQueue(std::vector<MyListNode*>& lists) {
         for (auto* node : lists) {
-          if (node) m_q.push({node->val, node});
+            if (node) m_q.push({node->val, node});
         }
         MyListNode head, *tail = &head;
         while (!m_q.empty()) {
-          auto f = m_q.top();
-          m_q.pop();
-          tail->next = f.m_ptr;
-          tail = tail->next;
-          if (f.m_ptr->next) m_q.push({f.m_ptr->next->val, f.m_ptr->next});
+            auto f = m_q.top();
+            m_q.pop();
+            tail->next = f.m_ptr;
+            tail = tail->next;
+            if (f.m_ptr->next) m_q.push({f.m_ptr->next->val, f.m_ptr->next});
         }
         return head.next;
     }
@@ -203,27 +203,27 @@ class Solution {
 };
 
 TEST(memleak, t1) {
-  auto* n1 = new MyListNode(1);
-  auto* n2 = new MyListNode(3);
-  auto* n3 = new MyListNode(4);
-  n1->next = n2;
-  n2->next = n3;
+    auto* n1 = new MyListNode(1);
+    auto* n2 = new MyListNode(3);
+    auto* n3 = new MyListNode(4);
+    n1->next = n2;
+    n2->next = n3;
 
-  FreeList(n1);
+    FreeList(n1);
 }
 
 TEST(memleak, t2) {
-  std::vector<int> const list1{1, 4, 5};
+    std::vector<int> const list1{1, 4, 5};
 
-  MyListNode* n1 = ConstructList(list1);
-  FreeList(n1);
+    MyListNode* n1 = ConstructList(list1);
+    FreeList(n1);
 }
 
 TEST(memleak, t3) {
-  std::vector<int> const list1{1, 4, 5};
+    std::vector<int> const list1{1, 4, 5};
 
-  MyListNode* n1 = ConstructList<int>(list1);
-  FreeList(n1);
+    MyListNode* n1 = ConstructList<int>(list1);
+    FreeList(n1);
 }
 
 TEST(merge_k_sorted_list_v2, t1_1) {

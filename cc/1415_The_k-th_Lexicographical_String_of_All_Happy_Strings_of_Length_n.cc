@@ -22,17 +22,17 @@ using namespace std;
 class Solution {
    public:
     string GetHappyString(int n, int k) {
-      // 1 <= n <= 10
-      // 1 <= k <= 100
-      string const ret;
+        // 1 <= n <= 10
+        // 1 <= k <= 100
+        string const ret;
 
-      vector<string> all;
-      string cur(n, '0');
-      Gen(all, cur, '0', 0, n);
-      if (k > all.size()) {
-        return "";
-      }
-      return all[k - 1];
+        vector<string> all;
+        string cur(n, '0');
+        Gen(all, cur, '0', 0, n);
+        if (k > all.size()) {
+            return "";
+        }
+        return all[k - 1];
     }
 
     void Gen(vector<string>& list, string& cur, char last, int index, int n) {
@@ -41,9 +41,9 @@ class Solution {
             return;
         }
         for (int i = 0; i < 3; i++) {
-          char const now = 'a' + i;
-          if (now == last) {
-            continue;
+            char const now = 'a' + i;
+            if (now == last) {
+                continue;
             }
             cur[index] = now;
             Gen(list, cur, now, index + 1, n);

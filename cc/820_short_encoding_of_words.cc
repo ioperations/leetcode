@@ -26,8 +26,8 @@ class Solution {
     // we need to create a structure
    private:
     struct TrieNode {
-      int m_ends_here;
-      TrieNode* m_child[26];
+        int m_ends_here;
+        TrieNode* m_child[26];
     };
 
     // creates a node with character and returns it
@@ -43,7 +43,7 @@ class Solution {
     void DeleteNode(TrieNode* root) {
         if (root == nullptr) return;
         for (auto& i : root->m_child) {
-          DeleteNode(i);
+            DeleteNode(i);
         }
         delete root;
     }
@@ -62,40 +62,40 @@ class Solution {
         // the number of words =  number of # to add in result string
         int res = 0;  // the total length of the result string
         for (const auto& word : words) {
-          if (s.count(word)) continue;
-          s.insert(word);
-          Insert(word, count, res);
+            if (s.count(word)) continue;
+            s.insert(word);
+            Insert(word, count, res);
         }
         return res + count;
     }
 
     void Insert(string word, int& count, int& res) {
-      TrieNode* curr = m_root;
-      int const len = word.length();
-      bool flag = true;
-      for (int i = len - 1; i >= 0; i--) {
-        int const ind = word[i] - 'a';
-        if (curr->m_child[ind] == nullptr) {
-          flag = false;
-          // if no word has created yet
-          curr->m_child[ind] = GetNode();
-        }
-        // a word ends here previously
-        // so donot consider it in the result
-        if (curr->m_ends_here) {
-          curr->m_ends_here = 0;
-          count--;
-          res -= (len - i - 1);
-        }
-        curr = curr->m_child[ind];
+        TrieNode* curr = m_root;
+        int const len = word.length();
+        bool flag = true;
+        for (int i = len - 1; i >= 0; i--) {
+            int const ind = word[i] - 'a';
+            if (curr->m_child[ind] == nullptr) {
+                flag = false;
+                // if no word has created yet
+                curr->m_child[ind] = GetNode();
+            }
+            // a word ends here previously
+            // so donot consider it in the result
+            if (curr->m_ends_here) {
+                curr->m_ends_here = 0;
+                count--;
+                res -= (len - i - 1);
+            }
+            curr = curr->m_child[ind];
         }
         // flag will be true if some word previously has created all the
         // nodes ex- ["time","me"] for "me" the flag will be true so we dont
         // calculate the result
         if (!flag) {
-          curr->m_ends_here = 1;
-          count++;
-          res += len;
+            curr->m_ends_here = 1;
+            count++;
+            res += len;
         }
     }
 };

@@ -26,16 +26,16 @@ using namespace std;
 class Solution {
    public:
     vector<int> ConstructDistancedSequence(int n) {
-      const int num = 2 * n - 1;
-      vector<int> results(num, 0);
-      vector<int> value_set;
-      vector<bool> exists(n - 1, true);
-      for (int i = n; i > 1; i--) {
-        value_set.push_back(i);
-      }
+        const int num = 2 * n - 1;
+        vector<int> results(num, 0);
+        vector<int> value_set;
+        vector<bool> exists(n - 1, true);
+        for (int i = n; i > 1; i--) {
+            value_set.push_back(i);
+        }
 
-      Gen(results, value_set, exists, false);
-      return results;
+        Gen(results, value_set, exists, false);
+        return results;
     }
 
     // 贪婪算法:
@@ -45,84 +45,84 @@ class Solution {
     bool Gen(vector<int>& results, const vector<int>& value_set,
              vector<bool>& exists, bool number_one_used, int index = 0,
              int fillsize = 0) {
-      // 复杂度为O(n!)
-      auto result_size = results.size();
-      if (fillsize == result_size) {
-        return true;
-      }
-
-      if (results[index] != 0) {
-        return Gen(results, value_set, exists, number_one_used, index + 1,
-                   fillsize);
-      }
-
-      for (size_t i = 0; i < value_set.size(); i++) {
-        if (!exists[i]) {
-          continue;
+        // 复杂度为O(n!)
+        auto result_size = results.size();
+        if (fillsize == result_size) {
+            return true;
         }
 
-        const auto value = value_set[i];
-        if (index + value >= result_size || results[index + value] != 0) {
-          continue;
+        if (results[index] != 0) {
+            return Gen(results, value_set, exists, number_one_used, index + 1,
+                       fillsize);
         }
 
-        results[index] = value;
-        results[index + value] = value;
-        exists[i] = false;
+        for (size_t i = 0; i < value_set.size(); i++) {
+            if (!exists[i]) {
+                continue;
+            }
 
-        if (Gen(results, value_set, exists, number_one_used, index + 1,
-                fillsize + 2)) {
-          return true;
+            const auto value = value_set[i];
+            if (index + value >= result_size || results[index + value] != 0) {
+                continue;
+            }
+
+            results[index] = value;
+            results[index + value] = value;
+            exists[i] = false;
+
+            if (Gen(results, value_set, exists, number_one_used, index + 1,
+                    fillsize + 2)) {
+                return true;
+            }
+
+            results[index] = 0;
+            results[index + value] = 0;
+            exists[i] = true;
+        }
+        if (number_one_used) {
+            return false;
         }
 
+        results[index] = 1;
+        if (Gen(results, value_set, exists, true, index + 1, fillsize + 1)) {
+            return true;
+        }
         results[index] = 0;
-        results[index + value] = 0;
-        exists[i] = true;
-      }
-      if (number_one_used) {
         return false;
-      }
-
-      results[index] = 1;
-      if (Gen(results, value_set, exists, true, index + 1, fillsize + 1)) {
-        return true;
-      }
-      results[index] = 0;
-      return false;
     }
 };
 
 #include <gtest/gtest.h>
 
 TEST(t0, t1) {
-  int const n = 3;
-  std::vector<int> const output = {3, 1, 2, 3, 2};
-  // Explanation: [2,3,2,1,3] is also a valid sequence, but [3,1,2,3,2] is the
-  // lexicographically largest valid sequence.
+    int const n = 3;
+    std::vector<int> const output = {3, 1, 2, 3, 2};
+    // Explanation: [2,3,2,1,3] is also a valid sequence, but [3,1,2,3,2] is the
+    // lexicographically largest valid sequence.
 
-  Solution sl;
-  auto ret = sl.ConstructDistancedSequence(n);
-  EXPECT_EQ(ret, output);
+    Solution sl;
+    auto ret = sl.ConstructDistancedSequence(n);
+    EXPECT_EQ(ret, output);
 }
 
 TEST(t0, t2) {
-  int const n = 5;
-  std::vector<int> const output = {5, 3, 1, 4, 3, 5, 2, 4, 2};
-  // Explanation: [2,3,2,1,3] is also a valid sequence, but [3,1,2,3,2] is the
-  // lexicographically largest valid sequence.
+    int const n = 5;
+    std::vector<int> const output = {5, 3, 1, 4, 3, 5, 2, 4, 2};
+    // Explanation: [2,3,2,1,3] is also a valid sequence, but [3,1,2,3,2] is the
+    // lexicographically largest valid sequence.
 
-  Solution sl;
-  auto ret = sl.ConstructDistancedSequence(n);
-  EXPECT_EQ(ret, output);
+    Solution sl;
+    auto ret = sl.ConstructDistancedSequence(n);
+    EXPECT_EQ(ret, output);
 }
 
 TEST(t0, t3) {
-  int const n = 6;
-  std::vector<int> const output = {6, 4, 2, 5, 2, 4, 6, 3, 5, 1, 3};
+    int const n = 6;
+    std::vector<int> const output = {6, 4, 2, 5, 2, 4, 6, 3, 5, 1, 3};
 
-  Solution sl;
-  auto ret = sl.ConstructDistancedSequence(n);
-  EXPECT_EQ(ret, output);
+    Solution sl;
+    auto ret = sl.ConstructDistancedSequence(n);
+    EXPECT_EQ(ret, output);
 }
 
 int main(int argc, char* argv[]) {

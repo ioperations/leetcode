@@ -46,11 +46,11 @@ class Solution {
 
             for (int i = (int)coins.size() - 1; i >= 0; i--) {
                 if (coins[i] <= a) {
-                  int const tmp = fun(a - coins[i]);
-                  cache[a - coins[i]] = tmp;
+                    int const tmp = fun(a - coins[i]);
+                    cache[a - coins[i]] = tmp;
 
-                  if (tmp != -1) {
-                    ret = 1 + (ret == -1 ? tmp : std::min(ret - 1, tmp));
+                    if (tmp != -1) {
+                        ret = 1 + (ret == -1 ? tmp : std::min(ret - 1, tmp));
                     }
                 } else {
                     break;
@@ -67,27 +67,27 @@ class Solution {
         vector<int> h((amount + 1), INT_MAX - 1);
         h[0] = 0;
         for (int i = 0; i < (int)h.size(); i++) {
-          for (int const coin : coins) {
-            if (i >= coin) h[i] = min(h[i], 1 + h[i - coin]);
-          }
+            for (int const coin : coins) {
+                if (i >= coin) h[i] = min(h[i], 1 + h[i - coin]);
+            }
         }
         return (h[h.size() - 1] < INT_MAX - 1) ? h[h.size() - 1] : -1;
     }
 
     int CoinChangeV2(vector<int>& arr, int sum) {
-      int const n = arr.size();
+        int const n = arr.size();
 
-      vector<vector<int>> dp(n + 1, vector<int>(sum + 1));
+        vector<vector<int>> dp(n + 1, vector<int>(sum + 1));
 
-      for (int i = 0; i <= n; i++) dp[i][0] = 0;
+        for (int i = 0; i <= n; i++) dp[i][0] = 0;
 
-      for (int i = 0; i < sum + 1; i++) dp[0][i] = INT_MAX - 1;
+        for (int i = 0; i < sum + 1; i++) dp[0][i] = INT_MAX - 1;
 
-      for (int i = 1; i <= sum; i++) {
-        if (i % arr[0] == 0)
-          dp[1][i] = i / arr[0];
-        else
-          dp[1][i] = INT_MAX - 1;
+        for (int i = 1; i <= sum; i++) {
+            if (i % arr[0] == 0)
+                dp[1][i] = i / arr[0];
+            else
+                dp[1][i] = INT_MAX - 1;
         }
 
         for (int i = 1; i <= n; i++) {

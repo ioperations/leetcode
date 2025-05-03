@@ -32,11 +32,11 @@ class Solution {
         int i = 12;
 
         while (str_len < n) {
-          int const build_count = magic_string[i] - '0';
-          i++;
-          last = last == '2' ? '1' : '2';
-          BuildCountBuild(magic_string, last, build_count);
-          str_len += build_count;
+            int const build_count = magic_string[i] - '0';
+            i++;
+            last = last == '2' ? '1' : '2';
+            BuildCountBuild(magic_string, last, build_count);
+            str_len += build_count;
         }
         return CountNumber(magic_string, n);
     }
@@ -59,66 +59,66 @@ class Solution {
 };
 
 TEST(magical_string, t1) {
-  int const n = 6;
-  int const expected = 3;
-  // Explanation: The first 6 elements of magical string s is "122112" and it
-  // contains three 1's, so return 3.
+    int const n = 6;
+    int const expected = 3;
+    // Explanation: The first 6 elements of magical string s is "122112" and it
+    // contains three 1's, so return 3.
 
-  Solution s;
-  int const ret = s.MagicalString(n);
-  EXPECT_EQ(ret, expected);
+    Solution s;
+    int const ret = s.MagicalString(n);
+    EXPECT_EQ(ret, expected);
 }
 
 TEST(magical_string, t2) {
-  int const n = 1;
-  int const expected = 1;
+    int const n = 1;
+    int const expected = 1;
 
-  Solution s;
-  int const ret = s.MagicalString(n);
-  EXPECT_EQ(ret, expected);
+    Solution s;
+    int const ret = s.MagicalString(n);
+    EXPECT_EQ(ret, expected);
 }
 
 TEST(magical_string, t3) {
-  int const n = 36;
-  int const expected = 18;
-  // Explanation: The first 6 elements of magical string s is "122112" and it
-  // contains three 1's, so return 3.
+    int const n = 36;
+    int const expected = 18;
+    // Explanation: The first 6 elements of magical string s is "122112" and it
+    // contains three 1's, so return 3.
 
-  Solution s;
-  int const ret = s.MagicalString(n);
-  EXPECT_EQ(ret, expected);
+    Solution s;
+    int const ret = s.MagicalString(n);
+    EXPECT_EQ(ret, expected);
 }
 
 TEST(magical_string, t4) {
-  int const n = 37;
-  int const expected = 19;
-  // Explanation: The first 6 elements of magical string s is "122112" and it
-  // contains three 1's, so return 3.
+    int const n = 37;
+    int const expected = 19;
+    // Explanation: The first 6 elements of magical string s is "122112" and it
+    // contains three 1's, so return 3.
 
-  Solution s;
-  int const ret = s.MagicalString(n);
-  EXPECT_EQ(ret, expected);
+    Solution s;
+    int const ret = s.MagicalString(n);
+    EXPECT_EQ(ret, expected);
 }
 TEST(magical_string, t5) {
-  int const n = 38;
-  int const expected = 19;
-  // Explanation: The first 6 elements of magical string s is "122112" and it
-  // contains three 1's, so return 3.
+    int const n = 38;
+    int const expected = 19;
+    // Explanation: The first 6 elements of magical string s is "122112" and it
+    // contains three 1's, so return 3.
 
-  Solution s;
-  int const ret = s.MagicalString(n);
-  EXPECT_EQ(ret, expected);
+    Solution s;
+    int const ret = s.MagicalString(n);
+    EXPECT_EQ(ret, expected);
 }
 
 TEST(magical_string, t6) {
-  int const n = 9758;
-  int const expected = 4874;
-  // Explanation: The first 6 elements of magical string s is "122112" and it
-  // contains three 1's, so return 3.
+    int const n = 9758;
+    int const expected = 4874;
+    // Explanation: The first 6 elements of magical string s is "122112" and it
+    // contains three 1's, so return 3.
 
-  Solution s;
-  int const ret = s.MagicalString(n);
-  EXPECT_EQ(ret, expected);
+    Solution s;
+    int const ret = s.MagicalString(n);
+    EXPECT_EQ(ret, expected);
 }
 
 }  // namespace

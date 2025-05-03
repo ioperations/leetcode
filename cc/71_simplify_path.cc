@@ -88,16 +88,16 @@ class SolutionV2 {
         string tmp;
         while (ss >> tmp) {
             if (tmp == "..") {
-              if (m_stack.size()) m_stack.pop();
+                if (m_stack.size()) m_stack.pop();
             } else if (tmp == ".") {
             } else {
-              m_stack.push(tmp);
+                m_stack.push(tmp);
             }
         }
 
         while (m_stack.size()) {
-          ret = ('/' + m_stack.top()) + ret;
-          m_stack.pop();
+            ret = ('/' + m_stack.top()) + ret;
+            m_stack.pop();
         }
         if (ret == "") {
             return "/";
@@ -107,64 +107,64 @@ class SolutionV2 {
 };
 
 TEST(simplify_path, t1) {
-  std::string const path = "/home/";
-  std::string const output = "/home";
-  // Explanation : Note that there is no trailing slash after the last
-  // directory name.*
+    std::string const path = "/home/";
+    std::string const output = "/home";
+    // Explanation : Note that there is no trailing slash after the last
+    // directory name.*
 
-  Solution s;
-  auto ret = s.SimplifyPath(path);
-  EXPECT_EQ(ret, output);
+    Solution s;
+    auto ret = s.SimplifyPath(path);
+    EXPECT_EQ(ret, output);
 }
 
 TEST(simplify_path, t2) {
-  std::string const path = "/../";
-  std::string const output = "/";
-  // Explanation: Going one level up from the root directory is a no-op, as
-  // the root level is the highest level you can go.
-  Solution s;
-  auto ret = s.SimplifyPath(path);
-  EXPECT_EQ(ret, output);
+    std::string const path = "/../";
+    std::string const output = "/";
+    // Explanation: Going one level up from the root directory is a no-op, as
+    // the root level is the highest level you can go.
+    Solution s;
+    auto ret = s.SimplifyPath(path);
+    EXPECT_EQ(ret, output);
 }
 
 TEST(simplify_path, t3) {
-  std::string const path = "/home//foo/";
-  std::string const output = "/home/foo";
-  // Explanation: In the canonical path, multiple consecutive slashes are
-  // replaced by a single one.
-  Solution s;
-  auto ret = s.SimplifyPath(path);
-  EXPECT_EQ(ret, output);
+    std::string const path = "/home//foo/";
+    std::string const output = "/home/foo";
+    // Explanation: In the canonical path, multiple consecutive slashes are
+    // replaced by a single one.
+    Solution s;
+    auto ret = s.SimplifyPath(path);
+    EXPECT_EQ(ret, output);
 }
 
 TEST(simplify_path_v2, t1) {
-  std::string const path = "/home/";
-  std::string const output = "/home";
-  // Explanation : Note that there is no trailing slash after the last
-  // directory name.*
+    std::string const path = "/home/";
+    std::string const output = "/home";
+    // Explanation : Note that there is no trailing slash after the last
+    // directory name.*
 
-  SolutionV2 s;
-  auto ret = s.SimplifyPath(path);
-  EXPECT_EQ(ret, output);
+    SolutionV2 s;
+    auto ret = s.SimplifyPath(path);
+    EXPECT_EQ(ret, output);
 }
 
 TEST(simplify_path_v2, t2) {
-  std::string const path = "/../";
-  std::string const output = "/";
-  // Explanation: Going one level up from the root directory is a no-op, as
-  // the root level is the highest level you can go.
-  SolutionV2 s;
-  auto ret = s.SimplifyPath(path);
-  EXPECT_EQ(ret, output);
+    std::string const path = "/../";
+    std::string const output = "/";
+    // Explanation: Going one level up from the root directory is a no-op, as
+    // the root level is the highest level you can go.
+    SolutionV2 s;
+    auto ret = s.SimplifyPath(path);
+    EXPECT_EQ(ret, output);
 }
 
 TEST(simplify_path_v2, t3) {
-  std::string const path = "/home//foo/";
-  std::string const output = "/home/foo";
-  // Explanation: In the canonical path, multiple consecutive slashes are
-  // replaced by a single one.
-  SolutionV2 s;
-  auto ret = s.SimplifyPath(path);
-  EXPECT_EQ(ret, output);
+    std::string const path = "/home//foo/";
+    std::string const output = "/home/foo";
+    // Explanation: In the canonical path, multiple consecutive slashes are
+    // replaced by a single one.
+    SolutionV2 s;
+    auto ret = s.SimplifyPath(path);
+    EXPECT_EQ(ret, output);
 }
 }  // namespace

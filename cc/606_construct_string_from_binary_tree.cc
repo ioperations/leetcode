@@ -88,39 +88,39 @@ TEST(construct_string_from_binary_tree, t1) {
     FreeTreeNode(node);
 }
 TEST(construct_string_from_binary_tree, t2) {
-  vector<optional<int>> const root = {1, 2, 3, null, 4};
+    vector<optional<int>> const root = {1, 2, 3, null, 4};
 
-  /*
-                        _________
-                        |       |
-                        |   1   |
-                        |_______|
-
-
-
-               _________          _________
-               |       |          |       |
-               |   2   |          |   3   |
-               |_______|          |_______|
+    /*
+                          _________
+                          |       |
+                          |   1   |
+                          |_______|
 
 
-    _________          _________
-    |       |          |       |
-    | null  |          |   4   |
-    |_______|          |_______|
 
-  */
+                 _________          _________
+                 |       |          |       |
+                 |   2   |          |   3   |
+                 |_______|          |_______|
 
-  std::string const output = "1(2()(4))(3)";
-  // Almost the same as the first example, except we cannot omit the first
-  // parenthesis pair to break the one-to-one mapping relationship between the
-  // input and the output.
-  Solution sl;
-  auto* node = ConstructBinaryTree(root);
-  auto ret = sl.Tree2str(node);
-  EXPECT_EQ(ret, output);
 
-  FreeTreeNode(node);
+      _________          _________
+      |       |          |       |
+      | null  |          |   4   |
+      |_______|          |_______|
+
+    */
+
+    std::string const output = "1(2()(4))(3)";
+    // Almost the same as the first example, except we cannot omit the first
+    // parenthesis pair to break the one-to-one mapping relationship between the
+    // input and the output.
+    Solution sl;
+    auto* node = ConstructBinaryTree(root);
+    auto ret = sl.Tree2str(node);
+    EXPECT_EQ(ret, output);
+
+    FreeTreeNode(node);
 }
 
 }  // namespace

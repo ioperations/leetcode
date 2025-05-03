@@ -65,69 +65,69 @@ class Solution {
 };
 
 TEST(palindromic_substrings, t1) {
-  string const s = "abc";
-  int const output = 3;
-  // Explanation: Three palindromic strings: "a", "b", "c".
+    string const s = "abc";
+    int const output = 3;
+    // Explanation: Three palindromic strings: "a", "b", "c".
 
-  Solution sl;
-  int const ret = sl.CountSubstrings(s);
-  EXPECT_EQ(ret, output);
+    Solution sl;
+    int const ret = sl.CountSubstrings(s);
+    EXPECT_EQ(ret, output);
 }
 
 TEST(palindromic_substrings, t2) {
-  string const s = "aaa";
-  int const output = 6;
-  // Explanation: Six palindromic strings: "a", "a", "a", "aa", "aa", "aaa".
+    string const s = "aaa";
+    int const output = 6;
+    // Explanation: Six palindromic strings: "a", "a", "a", "aa", "aa", "aaa".
 
-  Solution sl;
-  int const ret = sl.CountSubstrings(s);
-  EXPECT_EQ(ret, output);
+    Solution sl;
+    int const ret = sl.CountSubstrings(s);
+    EXPECT_EQ(ret, output);
 }
 
 TEST(palindromic_substrings_v2, t1) {
-  string const s = "abc";
-  int const output = 3;
-  // Explanation: Three palindromic strings: "a", "b", "c".
+    string const s = "abc";
+    int const output = 3;
+    // Explanation: Three palindromic strings: "a", "b", "c".
 
-  Solution sl;
-  int const ret = sl.CountSubstringsV1(s);
-  EXPECT_EQ(ret, output);
+    Solution sl;
+    int const ret = sl.CountSubstringsV1(s);
+    EXPECT_EQ(ret, output);
 }
 
 TEST(palindromic_substrings_v2, t2) {
-  string const s = "aaa";
-  int const output = 6;
-  // Explanation: Six palindromic strings: "a", "a", "a", "aa", "aa", "aaa".
+    string const s = "aaa";
+    int const output = 6;
+    // Explanation: Six palindromic strings: "a", "a", "a", "aa", "aa", "aaa".
 
-  Solution sl;
-  int const ret = sl.CountSubstringsV1(s);
-  EXPECT_EQ(ret, output);
+    Solution sl;
+    int const ret = sl.CountSubstringsV1(s);
+    EXPECT_EQ(ret, output);
 }
 
 static void BenchMarkV1(benchmark::State& state) {
     for (auto _ : state) {
-      string const s = "aaa";
-      int const output = 6;
-      // Explanation: Six palindromic strings: "a", "a", "a", "aa", "aa",
-      // "aaa".
+        string const s = "aaa";
+        int const output = 6;
+        // Explanation: Six palindromic strings: "a", "a", "a", "aa", "aa",
+        // "aaa".
 
-      Solution sl;
-      int const ret = sl.CountSubstringsV1(s);
-      EXPECT_EQ(ret, output);
+        Solution sl;
+        int const ret = sl.CountSubstringsV1(s);
+        EXPECT_EQ(ret, output);
     }
 }
 BENCHMARK(BenchMarkV1);
 
 static void BenchMarkV0(benchmark::State& state) {
     for (auto _ : state) {
-      string const s = "aaa";
-      int const output = 6;
-      // Explanation: Six palindromic strings: "a", "a", "a", "aa", "aa",
-      // "aaa".
+        string const s = "aaa";
+        int const output = 6;
+        // Explanation: Six palindromic strings: "a", "a", "a", "aa", "aa",
+        // "aaa".
 
-      Solution sl;
-      int const ret = sl.CountSubstrings(s);
-      EXPECT_EQ(ret, output);
+        Solution sl;
+        int const ret = sl.CountSubstrings(s);
+        EXPECT_EQ(ret, output);
     }
 }
 BENCHMARK(BenchMarkV0);

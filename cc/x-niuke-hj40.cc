@@ -33,17 +33,17 @@ void Func(const char* s, int len) {
     }
 
     for (int const i : classfy) {
-      std::cout << i << std::endl;
+        std::cout << i << std::endl;
     }
 }
 
 TEST(x_niuke_hjv2, t2) {
-  std::string const s =
-      R"(1qazxsw23 edcvfr45tgbn hy67uj m,ki89ol.\\/;p0-=\\][)";
-  testing::internal::CaptureStdout();
-  Func(s.c_str(), s.size());
-  std::string const result = testing::internal::GetCapturedStdout();
-  std::string const expected("26\n3\n10\n12\n");
-  EXPECT_EQ(result, expected);
+    std::string const s =
+        R"(1qazxsw23 edcvfr45tgbn hy67uj m,ki89ol.\\/;p0-=\\][)";
+    testing::internal::CaptureStdout();
+    Func(s.c_str(), s.size());
+    std::string const result = testing::internal::GetCapturedStdout();
+    std::string const expected("26\n3\n10\n12\n");
+    EXPECT_EQ(result, expected);
 }
 }  // namespace

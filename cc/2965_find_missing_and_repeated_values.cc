@@ -17,30 +17,30 @@ using namespace std;
 class Solution {
    public:
     vector<int> FindMissingAndRepeatedValues(vector<vector<int>>& grid) {
-      auto size = grid.size();
-      int const all = (size * size) * (size * size + 1) / 2;
-      int sum = 0;
+        auto size = grid.size();
+        int const all = (size * size) * (size * size + 1) / 2;
+        int sum = 0;
 
-      unordered_set<int> set;
-      set.reserve(size * size);
-      bool record = true;
-      int v = 0;
+        unordered_set<int> set;
+        set.reserve(size * size);
+        bool record = true;
+        int v = 0;
 
-      for (auto& layer1 : grid) {
-        for (auto& layer2 : layer1) {
-          if (set.count(layer2) > 0) {
-            v = layer2;
-            record = false;
-          }
+        for (auto& layer1 : grid) {
+            for (auto& layer2 : layer1) {
+                if (set.count(layer2) > 0) {
+                    v = layer2;
+                    record = false;
+                }
 
-          sum += layer2;
-          if (record) {
-            set.emplace(layer2);
-          }
+                sum += layer2;
+                if (record) {
+                    set.emplace(layer2);
+                }
+            }
         }
-      }
 
-      return {v, all - (sum - v)};
+        return {v, all - (sum - v)};
     }
 };
 

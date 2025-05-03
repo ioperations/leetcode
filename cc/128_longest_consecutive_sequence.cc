@@ -21,19 +21,19 @@ class Solution {
         unordered_set<int> record(nums.begin(), nums.end());
         int ans = 0;
         for (int const it : nums) {
-          if (record.find(it) == record.end()) continue;
-          int prev = it - 1, next = it + 1;
-          while (record.find(prev) != record.end())
-            prev--;  // walk left on the number line, erasing numbers as you
-                     // go,
-          while (record.find(next) != record.end())
-            next++;  // walk right on the number line, erasing numbers as
-                     // you go,
-          ans =
-              max(ans,
-                  next - prev -
-                      1);  // and consider the length of the resulting sequence.
-          record.erase(it);  // must do other wise you got tle
+            if (record.find(it) == record.end()) continue;
+            int prev = it - 1, next = it + 1;
+            while (record.find(prev) != record.end())
+                prev--;  // walk left on the number line, erasing numbers as you
+                         // go,
+            while (record.find(next) != record.end())
+                next++;  // walk right on the number line, erasing numbers as
+                         // you go,
+            ans = max(
+                ans,
+                next - prev -
+                    1);  // and consider the length of the resulting sequence.
+            record.erase(it);  // must do other wise you got tle
         }
         return ans;
         // upvote if you like    }

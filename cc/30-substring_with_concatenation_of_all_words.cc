@@ -66,16 +66,16 @@ class Solution {
 };
 
 TEST(_substringwith_concatenation_of_all_words, t1) {
-  auto* s = new Solution();
-  const std::string str = "wordgoodgoodgoodbestword";
-  std::vector<std::string> words{"word", "good", "best", "word"};
-  auto ret = s->FindSubString(str, words);
+    auto* s = new Solution();
+    const std::string str = "wordgoodgoodgoodbestword";
+    std::vector<std::string> words{"word", "good", "best", "word"};
+    auto ret = s->FindSubString(str, words);
 
-  const std::set<int> expect{};
-  const std::set<int> retset(ret.begin(), ret.end());
-  EXPECT_EQ(retset, expect);
+    const std::set<int> expect{};
+    const std::set<int> retset(ret.begin(), ret.end());
+    EXPECT_EQ(retset, expect);
 
-  delete s;
+    delete s;
 }
 
 TEST(_substringwith_concatenation_of_all_words, t2) {

@@ -29,13 +29,13 @@ class Solution {
 
    public:
     int NumberOfWeakCharacters(vector<vector<int>>& properties) {
-      int const n = properties.size();
-      sort(properties.begin(), properties.end(), Comp);
-      int maxdef = INT_MIN;
-      int count = 0;
-      for (int i = n - 1; i >= 0; i--) {
-        if (properties[i][1] < maxdef) count++;
-        maxdef = max(maxdef, properties[i][1]);
+        int const n = properties.size();
+        sort(properties.begin(), properties.end(), Comp);
+        int maxdef = INT_MIN;
+        int count = 0;
+        for (int i = n - 1; i >= 0; i--) {
+            if (properties[i][1] < maxdef) count++;
+            maxdef = max(maxdef, properties[i][1]);
         }
         return count;
     }

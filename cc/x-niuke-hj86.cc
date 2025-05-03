@@ -20,14 +20,14 @@ int Func(int number) {
     // bool last_bit_is_one = false;
     int already_lian_xu_one_length = 0;
     for (int const i : z) {
-      bool const this_bit_is_one = (number & i) != 0;
-      // last_bit_is_one = this_bit_is_one;
-      if (this_bit_is_one) {
-        already_lian_xu_one_length++;
-        max = std::max(max, already_lian_xu_one_length);
-      } else {
-        already_lian_xu_one_length = 0;
-      }
+        bool const this_bit_is_one = (number & i) != 0;
+        // last_bit_is_one = this_bit_is_one;
+        if (this_bit_is_one) {
+            already_lian_xu_one_length++;
+            max = std::max(max, already_lian_xu_one_length);
+        } else {
+            already_lian_xu_one_length = 0;
+        }
     }
 
     return max;

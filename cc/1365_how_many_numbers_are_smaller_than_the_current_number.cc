@@ -26,7 +26,7 @@ class Solution {
             }
         }
         for (int& i : f) {
-          i = s[i];
+            i = s[i];
         }
         return f;
     }

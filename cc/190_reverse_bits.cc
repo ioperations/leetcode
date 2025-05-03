@@ -25,31 +25,31 @@ the output represents the signed integer -1073741825.
 using namespace std;
 
 static uint32_t ConstructUint32T(const std::string& s) {
-  uint32_t num = 0;
-  // pass
-  for (size_t i = 0; i < s.size(); i++) {
-    num += (s[s.size() - i - 1] == '1') ? (i == 0 ? 1 : 2 << (i - 1)) : 0;
-  }
-  return num;
+    uint32_t num = 0;
+    // pass
+    for (size_t i = 0; i < s.size(); i++) {
+        num += (s[s.size() - i - 1] == '1') ? (i == 0 ? 1 : 2 << (i - 1)) : 0;
+    }
+    return num;
 }
 
 static std::string ConstructString(uint32_t n) {
-  std::string ret = "00000000000000000000000000000000";
+    std::string ret = "00000000000000000000000000000000";
 
-  int i = 0;
+    int i = 0;
 
-  while (n) {
-    if (n & 1) {
-      ret[i] = '1';
-    } else {
-      ret[i] = '0';
+    while (n) {
+        if (n & 1) {
+            ret[i] = '1';
+        } else {
+            ret[i] = '0';
+        }
+        n = n >> 1;
+        i++;
     }
-    n = n >> 1;
-    i++;
-  }
-  std::reverse(ret.begin(), ret.end());
+    std::reverse(ret.begin(), ret.end());
 
-  return ret;
+    return ret;
 }
 
 namespace {
@@ -99,43 +99,43 @@ TEST(base, tp) {
 }
 
 TEST(base, t0) {
-  std::string const z = "00000000000000000000000000000001";
-  uint32_t const n = ConstructUint32T(z);           //
-  std::string const expected = ConstructString(n);  //(
-  EXPECT_EQ(expected, z);
+    std::string const z = "00000000000000000000000000000001";
+    uint32_t const n = ConstructUint32T(z);           //
+    std::string const expected = ConstructString(n);  //(
+    EXPECT_EQ(expected, z);
 }
 
 TEST(base, t1) {
-  std::string const z = "00000010100101000001111010011100";
-  uint32_t const n = ConstructUint32T(z);  //
+    std::string const z = "00000010100101000001111010011100";
+    uint32_t const n = ConstructUint32T(z);  //
 
-  std::string const expected = ConstructString(n);  //(
-  EXPECT_EQ(expected, z);
+    std::string const expected = ConstructString(n);  //(
+    EXPECT_EQ(expected, z);
 }
 
 TEST(reverse_bits, t1) {
-  std::string const input = "00000010100101000001111010011100";
-  uint32_t const n = ConstructUint32T(input);  //
-  uint32_t const expected = 964176192;  //( 00111001011110000010100101000000)
+    std::string const input = "00000010100101000001111010011100";
+    uint32_t const n = ConstructUint32T(input);  //
+    uint32_t const expected = 964176192;  //( 00111001011110000010100101000000)
 
-  std::string const output_expected = ConstructString(expected);
+    std::string const output_expected = ConstructString(expected);
 
-  Solution s;
-  uint32_t const ret = s.ReverseBits(n);
-  std::string const ret_str = ConstructString(ret);
-  EXPECT_EQ(ret_str, output_expected);
+    Solution s;
+    uint32_t const ret = s.ReverseBits(n);
+    std::string const ret_str = ConstructString(ret);
+    EXPECT_EQ(ret_str, output_expected);
 }
 
 TEST(reverse_bits, t2) {
-  uint32_t const n = ConstructUint32T("11111111111111111111111111111101");  //
-  uint32_t const expected = 3221225471;  // (10111111111111111111111111111111)
+    uint32_t const n = ConstructUint32T("11111111111111111111111111111101");  //
+    uint32_t const expected = 3221225471;  // (10111111111111111111111111111111)
 
-  std::string const output_expected = ConstructString(expected);
-  Solution s;
-  uint32_t const ret = s.ReverseBits(n);
+    std::string const output_expected = ConstructString(expected);
+    Solution s;
+    uint32_t const ret = s.ReverseBits(n);
 
-  std::string const ret_str = ConstructString(ret);
-  EXPECT_EQ(ret_str, output_expected);
+    std::string const ret_str = ConstructString(ret);
+    EXPECT_EQ(ret_str, output_expected);
 }
 
 }  // namespace

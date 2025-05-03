@@ -20,42 +20,42 @@ namespace {
 class Solution {
    public:
     int Lcs(string string1, string string2) {
-      int const n1 = string1.length();
-      int const n2 = string2.length();
-      vector<vector<int>> dp(n1 + 1, vector<int>(n2 + 1, 0));
-      for (int i = 0; i < n1; i++) {
-        for (int j = 0; j < n2; j++) {
-          if (string1[i] == string2[j])
-            dp[i + 1][j + 1] = dp[i][j] + 1;
-          else
-            dp[i + 1][j + 1] = max(dp[i][j + 1], dp[i + 1][j]);
-        }
+        int const n1 = string1.length();
+        int const n2 = string2.length();
+        vector<vector<int>> dp(n1 + 1, vector<int>(n2 + 1, 0));
+        for (int i = 0; i < n1; i++) {
+            for (int j = 0; j < n2; j++) {
+                if (string1[i] == string2[j])
+                    dp[i + 1][j + 1] = dp[i][j] + 1;
+                else
+                    dp[i + 1][j + 1] = max(dp[i][j + 1], dp[i + 1][j]);
+            }
         }
         return dp[n1][n2];
     }
     int LongestPalindromeSubseq(string s) {
-      string const k = s;
-      reverse(s.begin(), s.end());
-      return Lcs(s, k);
+        string const k = s;
+        reverse(s.begin(), s.end());
+        return Lcs(s, k);
     }
 };
 
 TEST(longest_palindromic_subsequence, t1) {
-  string const s = "bbbab";
-  int const output = 4;
-  // Explanation: One possible longest palindromic subsequence is "bbbb".
-  Solution sl;
-  int const ret = sl.LongestPalindromeSubseq(s);
-  EXPECT_EQ(ret, output);
+    string const s = "bbbab";
+    int const output = 4;
+    // Explanation: One possible longest palindromic subsequence is "bbbb".
+    Solution sl;
+    int const ret = sl.LongestPalindromeSubseq(s);
+    EXPECT_EQ(ret, output);
 }
 
 TEST(longest_palindromic_subsequence, t2) {
-  string const s = "cbbd";
-  int const output = 2;
-  // One possible longest palindromic subsequence is "bb".
-  Solution sl;
-  int const ret = sl.LongestPalindromeSubseq(s);
-  EXPECT_EQ(ret, output);
+    string const s = "cbbd";
+    int const output = 2;
+    // One possible longest palindromic subsequence is "bb".
+    Solution sl;
+    int const ret = sl.LongestPalindromeSubseq(s);
+    EXPECT_EQ(ret, output);
 }
 
 }  // namespace

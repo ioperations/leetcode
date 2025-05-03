@@ -69,46 +69,46 @@ class Solution {
 };
 
 TEST(best_time_to_buy_and_sell_stock_iv, t1) {
-  int const k = 2;
-  vector<int> prices = {2, 4, 1};
-  int const output = 2;
-  // Explanation: Buy on day 1 (price = 2) and sell on day 2 (price = 4),
-  // profit = 4-2 = 2.
-  Solution sl;
-  int const ret = sl.MaxProfit(k, prices);
-  EXPECT_EQ(ret, output);
+    int const k = 2;
+    vector<int> prices = {2, 4, 1};
+    int const output = 2;
+    // Explanation: Buy on day 1 (price = 2) and sell on day 2 (price = 4),
+    // profit = 4-2 = 2.
+    Solution sl;
+    int const ret = sl.MaxProfit(k, prices);
+    EXPECT_EQ(ret, output);
 }
 
 TEST(best_time_to_buy_and_sell_stock_iv, t2) {
-  int const k = 2;
-  vector<int> prices = {3, 2, 6, 5, 0, 3};
-  int const output = 7;
-  // Buy on day 2 (price = 2) and sell on day 3 (price = 6), profit = 6-2 = 4.
-  // Then buy on day 5 (price = 0) and sell on day 6 (price = 3), profit = 3-0
-  // = 3.
-  Solution sl;
-  int const ret = sl.MaxProfit(k, prices);
-  EXPECT_EQ(ret, output);
+    int const k = 2;
+    vector<int> prices = {3, 2, 6, 5, 0, 3};
+    int const output = 7;
+    // Buy on day 2 (price = 2) and sell on day 3 (price = 6), profit = 6-2 = 4.
+    // Then buy on day 5 (price = 0) and sell on day 6 (price = 3), profit = 3-0
+    // = 3.
+    Solution sl;
+    int const ret = sl.MaxProfit(k, prices);
+    EXPECT_EQ(ret, output);
 }
 
 TEST(best_time_to_buy_and_sell_stock_iv, t3) {
-  int const k = 2;
-  vector<int> prices = {3, 3, 5, 0, 0, 3, 1, 4};
-  int const output = 6;
-  Solution sl;
-  int const ret = sl.MaxProfit(k, prices);
-  EXPECT_EQ(ret, output);
+    int const k = 2;
+    vector<int> prices = {3, 3, 5, 0, 0, 3, 1, 4};
+    int const output = 6;
+    Solution sl;
+    int const ret = sl.MaxProfit(k, prices);
+    EXPECT_EQ(ret, output);
 }
 
 TEST(best_time_to_buy_and_sell_stock_iv, t4) {
-  int const k = 7;
-  vector<int> prices = {48, 12, 60, 93, 97, 42, 25, 64, 17, 56,
-                        85, 93, 9,  48, 52, 42, 58, 85, 81, 84,
-                        69, 36, 1,  54, 23, 15, 72, 15, 11, 94};
-  int const output = 469;
-  Solution sl;
-  int const ret = sl.MaxProfit(k, prices);
-  EXPECT_EQ(ret, output);
+    int const k = 7;
+    vector<int> prices = {48, 12, 60, 93, 97, 42, 25, 64, 17, 56,
+                          85, 93, 9,  48, 52, 42, 58, 85, 81, 84,
+                          69, 36, 1,  54, 23, 15, 72, 15, 11, 94};
+    int const output = 469;
+    Solution sl;
+    int const ret = sl.MaxProfit(k, prices);
+    EXPECT_EQ(ret, output);
 }
 
 }  // namespace

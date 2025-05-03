@@ -21,28 +21,28 @@ class Solution {
             return "-" + ConvertToBase7(-num);
         }
         while (num != 0) {
-          int const left = num % 7;
-          ret = std::to_string(left) + ret;
-          num = num / 7;
+            int const left = num % 7;
+            ret = std::to_string(left) + ret;
+            num = num / 7;
         }
         return ret;
     }
 };
 
 TEST(base_7, t1) {
-  int const num = 100;
-  string const output = "202";
-  Solution sl;
-  auto ret = sl.ConvertToBase7(num);
-  EXPECT_EQ(ret, output);
+    int const num = 100;
+    string const output = "202";
+    Solution sl;
+    auto ret = sl.ConvertToBase7(num);
+    EXPECT_EQ(ret, output);
 }
 
 TEST(base_7, t2) {
-  int const num = -7;
-  string const output = "-10";
-  Solution sl;
-  auto ret = sl.ConvertToBase7(num);
-  EXPECT_EQ(ret, output);
+    int const num = -7;
+    string const output = "-10";
+    Solution sl;
+    auto ret = sl.ConvertToBase7(num);
+    EXPECT_EQ(ret, output);
 }
 
 }  // namespace

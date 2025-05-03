@@ -26,11 +26,11 @@ class Solution {
         int const n = nums.size();
         int min = 1, max = n - 1;
         while (min != max) {
-          int const mid = (min + max) / 2;
-          int count = 0;
+            int const mid = (min + max) / 2;
+            int count = 0;
 
-          for (auto k : nums) {
-            if (k <= mid) count++;
+            for (auto k : nums) {
+                if (k <= mid) count++;
             }
 
             if (count <= mid)

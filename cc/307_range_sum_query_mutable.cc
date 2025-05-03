@@ -42,8 +42,8 @@ class NumArray {
 
     void Build(ll v, ll tl, ll tr) {
         if (tl == tr) {
-          m_segarr[v] = vp[tl];
-          return;
+            m_segarr[v] = vp[tl];
+            return;
         }
 
         ll const tm = (tl + tr) / 2;
@@ -57,8 +57,8 @@ class NumArray {
     void Upd(ll v, ll tl, ll tr, ll ind, ll val) {
         // that update point itself
         if (tl == ind && tr == ind) {
-          m_segarr[v] = val;
-          return;
+            m_segarr[v] = val;
+            return;
         }
 
         // we are in wrong region we dont need to update anthing here
@@ -89,7 +89,7 @@ class NumArray {
 
         // fully within
         if (l <= tl && r >= tr) {
-          return m_segarr[v];
+            return m_segarr[v];
         }
 
         // partial overlap
@@ -108,10 +108,10 @@ class NumArray {
 
     // 0 based indexing segment tree ..value of v always starts from 1
     NumArray(vector<int>& a) : n(a.size()), vp(a) {
-      vp.resize(n);
+        vp.resize(n);
 
-      m_segarr.resize(4 * n);
-      Build(1, 0, n - 1);
+        m_segarr.resize(4 * n);
+        Build(1, 0, n - 1);
     }
 };
 

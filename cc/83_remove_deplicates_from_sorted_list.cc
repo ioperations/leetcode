@@ -55,26 +55,26 @@ void ExpectEqList(ListNode* const head, const std::vector<int>& elements) {
 }
 
 TEST(remove_deplicates_from_sorted_list, t1) {
-  std::vector<int> const head{1, 1, 2};
-  std::vector<int> const output{1, 2};
+    std::vector<int> const head{1, 1, 2};
+    std::vector<int> const output{1, 2};
 
-  ListNode* root = List::ConstructList(head);
+    ListNode* root = List::ConstructList(head);
 
-  Solution sl;
-  auto* ret = sl.DeleteDuplicates(root);
-  ExpectEqList(ret, output);
-  List::FreeList(root);
+    Solution sl;
+    auto* ret = sl.DeleteDuplicates(root);
+    ExpectEqList(ret, output);
+    List::FreeList(root);
 }
 TEST(remove_deplicates_from_sorted_list, t2) {
-  std::vector<int> const head{1, 1, 2, 3, 3};
-  std::vector<int> const output{1, 2, 3};
+    std::vector<int> const head{1, 1, 2, 3, 3};
+    std::vector<int> const output{1, 2, 3};
 
-  ListNode* root = List::ConstructList(head);
+    ListNode* root = List::ConstructList(head);
 
-  Solution sl;
-  auto* ret = sl.DeleteDuplicates(root);
-  ExpectEqList(ret, output);
-  List::FreeList(root);
+    Solution sl;
+    auto* ret = sl.DeleteDuplicates(root);
+    ExpectEqList(ret, output);
+    List::FreeList(root);
 }
 
 }  // namespace

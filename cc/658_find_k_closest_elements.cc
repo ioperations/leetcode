@@ -20,20 +20,20 @@ namespace {
 class Solution {
    public:
     vector<int> FindClosestElements(vector<int>& arr, int k, int x) {
-      auto const iter = lower_bound(arr.begin(), arr.end(), x);
-      int j = iter - arr.begin();
-      int i = j - 1;
-      vector<int> ans;
-      int const n = arr.size();
+        auto const iter = lower_bound(arr.begin(), arr.end(), x);
+        int j = iter - arr.begin();
+        int i = j - 1;
+        vector<int> ans;
+        int const n = arr.size();
 
-      while (i >= 0 && j < n && (int)ans.size() < k) {
-        if (abs(x - arr[i]) <= abs(x - arr[j])) {
-          ans.push_back(arr[i]);
-          i--;
-        } else {
-          ans.push_back(arr[j]);
-          j++;
-        }
+        while (i >= 0 && j < n && (int)ans.size() < k) {
+            if (abs(x - arr[i]) <= abs(x - arr[j])) {
+                ans.push_back(arr[i]);
+                i--;
+            } else {
+                ans.push_back(arr[j]);
+                j++;
+            }
         }
 
         while (i >= 0 && ans.size() < k) {

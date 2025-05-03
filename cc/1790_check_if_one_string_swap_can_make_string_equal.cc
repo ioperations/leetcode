@@ -16,77 +16,77 @@ using namespace std;
 class Solution {
    public:
     bool AreAlmostEqual(string s1, string s2) {
-      /*
-       * 1 <= s1.length, s2.length <= 100
-       * s1.length == s2.length
-       * s1 and s2 consist of only lowercase English letters.
-       */
-      auto size = s1.length();
+        /*
+         * 1 <= s1.length, s2.length <= 100
+         * s1.length == s2.length
+         * s1 and s2 consist of only lowercase English letters.
+         */
+        auto size = s1.length();
 
-      for (size_t i = 0; i < size; i++) {
-        for (int j = i; j < size; j++) {
-          Change(s1, i, j);
-          if (s1 == s2) {
-            return true;
-          }
-          Change(s1, i, j);
+        for (size_t i = 0; i < size; i++) {
+            for (int j = i; j < size; j++) {
+                Change(s1, i, j);
+                if (s1 == s2) {
+                    return true;
+                }
+                Change(s1, i, j);
+            }
         }
-      }
-      return false;
+        return false;
     }
 
     void Change(std::string& s, size_t i, size_t j) {
-      char const tmp = s[i];
-      s[i] = s[j];
-      s[j] = tmp;
+        char const tmp = s[i];
+        s[i] = s[j];
+        s[j] = tmp;
     }
 };
 
 class SolutionV2 {
    public:
     bool AreAlmostEqual(string s1, string s2) {
-      /*
-       * Initialize Variables:
-       Use variables i and j to store the indices of characters that differ
-       between the two strings. Initialize them to -1. Use a counter cnt to
-       count the number of differing positions.
+        /*
+         * Initialize Variables:
+         Use variables i and j to store the indices of characters that differ
+         between the two strings. Initialize them to -1. Use a counter cnt to
+         count the number of differing positions.
 
-       Iterate Through the Strings:
-       Traverse each character of the strings using a loop. If characters at
-       the current position differ, increment the counter cnt. Store the index
-       of the differing characters in i and j when cnt is 1 and 2
-       respectively.
+         Iterate Through the Strings:
+         Traverse each character of the strings using a loop. If characters at
+         the current position differ, increment the counter cnt. Store the index
+         of the differing characters in i and j when cnt is 1 and 2
+         respectively.
 
-       Check Conditions: If cnt is 0, the strings are already equal, so return
-       true. If cnt is 2, check if swapping the characters at positions i and
-       j in one string makes it equal to the other string. If both conditions
-       are met, return true; otherwise, return false.
+         Check Conditions: If cnt is 0, the strings are already equal, so return
+         true. If cnt is 2, check if swapping the characters at positions i and
+         j in one string makes it equal to the other string. If both conditions
+         are met, return true; otherwise, return false.
 
-       Complexity Time complexity:
-       O(n) Space complexity: O(1)
-      */
-      int i = -1, j = -1;
-      int cnt = 0;
+         Complexity Time complexity:
+         O(n) Space complexity: O(1)
+        */
+        int i = -1, j = -1;
+        int cnt = 0;
 
-      for (int k = 0; k < s1.length(); k++) {
-        if (s1[k] != s2[k]) {
-          cnt++;
-          if (i == -1) {
-            i = k;
-          } else if (j == -1) {
-            j = k;
-          }
+        for (int k = 0; k < s1.length(); k++) {
+            if (s1[k] != s2[k]) {
+                cnt++;
+                if (i == -1) {
+                    i = k;
+                } else if (j == -1) {
+                    j = k;
+                }
+            }
         }
-      }
 
-      if (cnt == 0) {
-        return true;
-      }
-      if (cnt == 2 && s1[i] == s2[j] && s1[j] == s2[i]) {
-        return true;
-      }
+        if (cnt == 0) {
+            return true;
+        }
+        if (cnt == 2 && s1[i] == s2[j] && s1[j] == s2[i]) {
+            return true;
+        }
 
-      return false;
+        return false;
     }
 };
 #include <gtest/gtest.h>

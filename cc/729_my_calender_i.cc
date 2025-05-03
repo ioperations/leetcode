@@ -39,8 +39,8 @@ class MyCalendar {
         auto it1 = bound.first;
         auto it2 = bound.second;
         if (it1 == it2) {
-          m_slices.insert(it1, slice);
-          return true;
+            m_slices.insert(it1, slice);
+            return true;
         }
         return false;
     }

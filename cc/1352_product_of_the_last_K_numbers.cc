@@ -28,16 +28,16 @@ class ProductOfNumbers {
      */
 
     void Add(int num) {
-      for (auto& ptr : m_d) {
-        ptr = ptr * num;
-      }
+        for (auto& ptr : m_d) {
+            ptr = ptr * num;
+        }
 
-      m_d.push_back(num);
+        m_d.push_back(num);
     }
 
     int GetProduct(int k) {
-      auto size = m_d.size();
-      return m_d[size - k];
+        auto size = m_d.size();
+        return m_d[size - k];
     }
 
    private:

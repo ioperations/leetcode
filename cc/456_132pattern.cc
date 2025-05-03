@@ -20,11 +20,11 @@ namespace {
 class Solution {
    public:
     bool Find132pattern(vector<int>& nums) {
-      int const n = nums.size();
-      vector<int> minval(n);
-      minval[0] = nums[0];
-      for (int i = 1; i < n; i++) {
-        minval[i] = min(nums[i], minval[i - 1]);
+        int const n = nums.size();
+        vector<int> minval(n);
+        minval[0] = nums[0];
+        for (int i = 1; i < n; i++) {
+            minval[i] = min(nums[i], minval[i - 1]);
         }
         stack<int> st;
         for (int j = n - 1; j >= 0; j--) {

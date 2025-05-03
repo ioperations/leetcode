@@ -35,10 +35,10 @@ class Solution {
 
         int i = 0;
         while (x) {
-          int const cur = x % 2;
-          ret[31 - i] = '0' + cur;
-          x /= 2;
-          i++;
+            int const cur = x % 2;
+            ret[31 - i] = '0' + cur;
+            x /= 2;
+            i++;
         }
         // std::reverse(ret.begin(), ret.end());
         return ret;

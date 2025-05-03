@@ -27,18 +27,18 @@ namespace {
 class Solution {
    public:
     int MaxRotateFunction(vector<int>& nums) {
-      int const size = nums.size();
+        int const size = nums.size();
 
-      int tmp = std::numeric_limits<int>::min();
-      for (int i = 0; i < size; i++) {
-        int tmp_sum = 0;
-        for (int j = 0; j < size; j++) {
-          tmp_sum += j * nums[j];
-        }
-        tmp = max(tmp_sum, tmp);
-        int const z = nums.back();
-        nums.pop_back();
-        nums.insert(nums.begin(), z);
+        int tmp = std::numeric_limits<int>::min();
+        for (int i = 0; i < size; i++) {
+            int tmp_sum = 0;
+            for (int j = 0; j < size; j++) {
+                tmp_sum += j * nums[j];
+            }
+            tmp = max(tmp_sum, tmp);
+            int const z = nums.back();
+            nums.pop_back();
+            nums.insert(nums.begin(), z);
         }
         // return tmp;
 

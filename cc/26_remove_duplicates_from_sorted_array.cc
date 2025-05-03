@@ -49,20 +49,20 @@ namespace {
 class Solution {
    public:
     int RemoveDuplicates(vector<int>& nums) {
-      priority_queue<int, vector<int>, std::greater<>> q;
-      int last = 0;
-      bool last_set = false;
-      for (auto& ptr : nums) {
-        if (last_set) {
-          if (ptr != last) {
-            last = ptr;
-            q.push(ptr);
-          }
-        } else {
-          last = ptr;
-          last_set = true;
-          q.push(ptr);
-        }
+        priority_queue<int, vector<int>, std::greater<>> q;
+        int last = 0;
+        bool last_set = false;
+        for (auto& ptr : nums) {
+            if (last_set) {
+                if (ptr != last) {
+                    last = ptr;
+                    q.push(ptr);
+                }
+            } else {
+                last = ptr;
+                last_set = true;
+                q.push(ptr);
+            }
         }
 
         int i = 0;

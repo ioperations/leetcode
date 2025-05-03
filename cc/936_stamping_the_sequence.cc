@@ -28,10 +28,10 @@ namespace {
 class Solution {
    public:
     bool CanReplace(string& stamp, string& target, int pos) {
-      int const m = stamp.size();
-      for (int i = 0; i < m; i++) {
-        if (target[i + pos] != '?' and target[i + pos] != stamp[i])
-          return false;
+        int const m = stamp.size();
+        for (int i = 0; i < m; i++) {
+            if (target[i + pos] != '?' and target[i + pos] != stamp[i])
+                return false;
         }
         return true;
     }

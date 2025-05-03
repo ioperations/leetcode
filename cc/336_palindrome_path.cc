@@ -61,13 +61,13 @@ class Solution {
    private:
     vector<vector<int>> m_res;
     struct TrieNode {
-      TrieNode() : m_children(26, nullptr) {}
-      int word_index{-1};
-      vector<TrieNode*> m_children;
-      ~TrieNode() {
-        for (auto& ptr : m_children) {
-          delete ptr;
-        }
+        TrieNode() : m_children(26, nullptr) {}
+        int word_index{-1};
+        vector<TrieNode*> m_children;
+        ~TrieNode() {
+            for (auto& ptr : m_children) {
+                delete ptr;
+            }
         }
     };
 
@@ -75,7 +75,7 @@ class Solution {
         for (auto c : word) {
             const int index = c - 'a';
             if (root->m_children[index] == nullptr) {
-              root->m_children[index] = new TrieNode();
+                root->m_children[index] = new TrieNode();
             }
             root = root->m_children[index];
         }
@@ -119,12 +119,12 @@ class Solution {
         // word is longer than its corresponding word.
         int index = 0;
         while (index < (int)word.length() && root != nullptr) {
-          root = root->m_children[word[index++] - 'a'];
-          if (root != nullptr && root->word_index != -1) {
-            if (root->word_index != word_index &&
-                IsPalindrome(word.substr(index))) {
-              m_res.push_back({word_index, root->word_index});
-            }
+            root = root->m_children[word[index++] - 'a'];
+            if (root != nullptr && root->word_index != -1) {
+                if (root->word_index != word_index &&
+                    IsPalindrome(word.substr(index))) {
+                    m_res.push_back({word_index, root->word_index});
+                }
             }
         }
 
@@ -134,27 +134,27 @@ class Solution {
             vector<int> long_word_indices;
             Dfs(root, long_word_indices, str);
             for (const int i : long_word_indices) {
-              m_res.push_back({word_index, i});
+                m_res.push_back({word_index, i});
             }
         }
     }
 
    public:
     vector<vector<int>> PalindromePairsV1(vector<string>& words) {
-      auto* root = new TrieNode();
+        auto* root = new TrieNode();
 
-      // Create Trie with reversed words
-      for (int i = 0; i < (int)words.size(); ++i) {
-        string reversed_word = words[i];
-        reverse(reversed_word.begin(), reversed_word.end());
-        Insert(root, reversed_word, i);
+        // Create Trie with reversed words
+        for (int i = 0; i < (int)words.size(); ++i) {
+            string reversed_word = words[i];
+            reverse(reversed_word.begin(), reversed_word.end());
+            Insert(root, reversed_word, i);
         }
 
         for (int i = 0; i < (int)words.size(); ++i) {
             string& word = words[i];
             // word is palindrome
             if (root->word_index != -1 && !word.empty() && IsPalindrome(word)) {
-              m_res.push_back({i, root->word_index});
+                m_res.push_back({i, root->word_index});
             }
             Find(root, word, i);
         }

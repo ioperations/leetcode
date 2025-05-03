@@ -25,8 +25,8 @@ class Solution {
     }
 
     inline void AppendToStringv1(int i, std::string& str) {
-      std::string const ret = DemicalToBinary(i);
-      str += ret;
+        std::string const ret = DemicalToBinary(i);
+        str += ret;
     }
     void AppendToString(int n, std::string& str) {
         for (int i = 1; i < (n + 1); ++i) {

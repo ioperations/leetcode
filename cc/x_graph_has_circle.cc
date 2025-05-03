@@ -41,17 +41,17 @@ class Solution {
         int count = 0;  // 记录访问过的顶点数
         // 拓扑排序遍历顶点
         while (!course_queue.empty()) {
-          int const point = course_queue.front();
-          course_queue.pop();
-          count++;
-          // 从邻接表里面访问，把从该顶点出发所能到达人顶点的入度减一
-          for (int const pre_course : adjacency_list[point]) {
-            indegree[pre_course]--;
-            // 入度为0则加入队列
-            if (indegree[pre_course] == 0) {
-              course_queue.push(pre_course);
+            int const point = course_queue.front();
+            course_queue.pop();
+            count++;
+            // 从邻接表里面访问，把从该顶点出发所能到达人顶点的入度减一
+            for (int const pre_course : adjacency_list[point]) {
+                indegree[pre_course]--;
+                // 入度为0则加入队列
+                if (indegree[pre_course] == 0) {
+                    course_queue.push(pre_course);
+                }
             }
-          }
         }
 
         // 如果遍历完还有顶点没有访问到，说明该有向图有环

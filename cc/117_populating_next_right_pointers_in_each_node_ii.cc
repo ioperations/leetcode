@@ -45,15 +45,15 @@ class Solution {
 
         while (node != nullptr) {
             while (node != nullptr) {  // Connect node child
-              if (node->m_left != nullptr) {
-                node_child->m_next = node->m_left;
-                node_child = node_child->m_next;
-              }
-              if (node->m_right != nullptr) {
-                node_child->m_next = node->m_right;
-                node_child = node_child->m_next;
-              }
-              node = node->m_next;
+                if (node->m_left != nullptr) {
+                    node_child->m_next = node->m_left;
+                    node_child = node_child->m_next;
+                }
+                if (node->m_right != nullptr) {
+                    node_child->m_next = node->m_right;
+                    node_child = node_child->m_next;
+                }
+                node = node->m_next;
             }
             node = start->m_next;
             start->m_next = nullptr;

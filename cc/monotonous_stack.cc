@@ -14,16 +14,16 @@ namespace {
 class Solution {
    public:
     std::vector<int> Solve(vector<int>& nums) {
-      int const size = nums.size();
-      std::vector<int> ret(size, -1);
-      stack<int> stack;
+        int const size = nums.size();
+        std::vector<int> ret(size, -1);
+        stack<int> stack;
 
-      for (int i = 0; i < size; i++) {
-        while (stack.size() && nums[stack.top()] < nums[i]) {
-          ret[stack.top()] = i;
-          stack.pop();
-        }
-        stack.push(i);
+        for (int i = 0; i < size; i++) {
+            while (stack.size() && nums[stack.top()] < nums[i]) {
+                ret[stack.top()] = i;
+                stack.pop();
+            }
+            stack.push(i);
         }
         return ret;
     }

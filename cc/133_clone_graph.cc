@@ -65,7 +65,7 @@ class Solution {
         // add neighbor node objects of current node in to new node's neighbor
         // from DFS call
         for (auto& neighbor : node->m_neighbors) {
-          n_node->m_neighbors.push_back(CloneGraph(neighbor));
+            n_node->m_neighbors.push_back(CloneGraph(neighbor));
         }
 
         // return new node object
@@ -89,11 +89,11 @@ class Solution {
             q.pop();
 
             for (auto* v : current->m_neighbors) {
-              if (m_visited.find(v) == m_visited.end()) {
-                m_visited[v] = make_shared<Node>(v->m_val);
-                q.push(v);
-              }
-              m_visited[current]->m_neighbors.push_back(m_visited[v].get());
+                if (m_visited.find(v) == m_visited.end()) {
+                    m_visited[v] = make_shared<Node>(v->m_val);
+                    q.push(v);
+                }
+                m_visited[current]->m_neighbors.push_back(m_visited[v].get());
             }
         }
 
@@ -133,14 +133,14 @@ auto FreeGraph(Node* node) -> void {
 
     std::function<void(Node*, std::map<int, Node*>&)> impl =
         [&](Node* node, std::map<int, Node*>& waiting) {
-          if (waiting.find(node->m_val) != waiting.end()) {
-            return;
-          }
-          waiting[node->m_val] = node;
+            if (waiting.find(node->m_val) != waiting.end()) {
+                return;
+            }
+            waiting[node->m_val] = node;
 
-          for (auto& ptr : node->m_neighbors) {
-            impl(ptr, waiting);
-          }
+            for (auto& ptr : node->m_neighbors) {
+                impl(ptr, waiting);
+            }
         };
 
     std::map<int, Node*> map;

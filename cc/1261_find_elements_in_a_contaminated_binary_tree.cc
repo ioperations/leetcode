@@ -46,10 +46,10 @@ class FindElements {
 
    private:
     void Gen(TreeNode* root, int v) {
-      m_s.emplace(v);
+        m_s.emplace(v);
 
-      if (root->left) {
-        Gen(root->left, 2 * v + 1);
+        if (root->left) {
+            Gen(root->left, 2 * v + 1);
         }
         if (root->right) {
             Gen(root->right, 2 * v + 2);
@@ -74,7 +74,7 @@ TEST(t0, t1) {
     // Output
     // [null,false,true]
     // Explanation
-    auto *root = Tree::ConstructBinaryTree(
+    auto* root = Tree::ConstructBinaryTree(
         std::vector<std::optional<int>>{-1, null, -1});
     FindElements find_elements(root);
     auto ret = find_elements.Find(1);  // return False
@@ -90,7 +90,7 @@ TEST(t0, t2) {
     // Output
     // [null,false,true]
     // Explanation
-    auto *root = Tree::ConstructBinaryTree(
+    auto* root = Tree::ConstructBinaryTree(
         std::vector<std::optional<int>>{-1, -1, -1, -1, -1});
     FindElements find_elements(root);
     auto ret = find_elements.Find(1);  // return False
@@ -108,12 +108,12 @@ TEST(t0, t3) {
     // Output
     // [null,false,true]
     // Explanation
-    auto *root = Tree::ConstructBinaryTree(
+    auto* root = Tree::ConstructBinaryTree(
         std::vector<std::optional<int>>{-1, null, -1});
     {
-      auto *root2 =
-          Tree::ConstructBinaryTree(std::vector<std::optional<int>>{-1, -1});
-      root->right->left = root2;
+        auto* root2 =
+            Tree::ConstructBinaryTree(std::vector<std::optional<int>>{-1, -1});
+        root->right->left = root2;
     }
     FindElements find_elements(root);
     auto ret = find_elements.Find(2);  // return False

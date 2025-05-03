@@ -30,24 +30,25 @@ using namespace std;
 #include <gtest/gtest.h>
 namespace {
 class Solution {
-  unordered_map<string, unordered_map<string, double>> m_unmp;
-  unordered_set<string> m_visited;
+    unordered_map<string, unordered_map<string, double>> m_unmp;
+    unordered_set<string> m_visited;
 
- public:
-  double Dfs(string src, string dest) {
-    m_visited.insert(src);
-    if (src == dest && m_unmp.find(src) != m_unmp.end())
-      return 1;  // if we reached destionation and  destionation string
-                 // actually present in the graph
-    for (auto it : m_unmp[src]) {
-      if (m_visited.find(it.first) != m_visited.end()) continue;
-      double const d = Dfs(it.first, dest);
-      if (d > 0)
-        return d * it.second;  // when returned value is > 0 means we are
-                               // coming here after visiting destination
-    }
-    return -1;  // when destionation cannot be reached with from this
-                // recursive call return -1
+   public:
+    double Dfs(string src, string dest) {
+        m_visited.insert(src);
+        if (src == dest && m_unmp.find(src) != m_unmp.end())
+            return 1;  // if we reached destionation and  destionation string
+                       // actually present in the graph
+        for (auto it : m_unmp[src]) {
+            if (m_visited.find(it.first) != m_visited.end()) continue;
+            double const d = Dfs(it.first, dest);
+            if (d > 0)
+                return d *
+                       it.second;  // when returned value is > 0 means we are
+                                   // coming here after visiting destination
+        }
+        return -1;  // when destionation cannot be reached with from this
+                    // recursive call return -1
     }
     vector<double> CalcEquation(vector<vector<string>>& eq,
                                 vector<double>& values,
@@ -55,14 +56,14 @@ class Solution {
         for (int i = 0; i < (int)values.size();
              i++)  // this loop is for creating graph
         {
-          m_unmp[eq[i][0]].insert({eq[i][1], values[i]});
-          m_unmp[eq[i][1]].insert({eq[i][0], 1 / values[i]});
+            m_unmp[eq[i][0]].insert({eq[i][1], values[i]});
+            m_unmp[eq[i][1]].insert({eq[i][0], 1 / values[i]});
         }
         vector<double> ans;
         for (auto it : queries) {
-          m_visited.clear();  // we clear visited array for each dfs
-          ans.push_back(Dfs(
-              it[0], it[1]));  // pushing answer of each query returned by dfs
+            m_visited.clear();  // we clear visited array for each dfs
+            ans.push_back(Dfs(
+                it[0], it[1]));  // pushing answer of each query returned by dfs
         }
         return ans;
     }

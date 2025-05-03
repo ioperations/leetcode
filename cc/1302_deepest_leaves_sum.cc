@@ -14,14 +14,14 @@ using namespace std;
 
 //* Definition for a binary tree node.
 struct TreeNode {
-  int m_val;
-  TreeNode* m_left;
-  TreeNode* m_right;
-  bool m_deleted = false;
-  TreeNode() : m_val(0), m_left(nullptr), m_right(nullptr) {}
-  TreeNode(int x) : m_val(x), m_left(nullptr), m_right(nullptr) {}
-  TreeNode(int x, TreeNode* left, TreeNode* right)
-      : m_val(x), m_left(left), m_right(right) {}
+    int m_val;
+    TreeNode* m_left;
+    TreeNode* m_right;
+    bool m_deleted = false;
+    TreeNode() : m_val(0), m_left(nullptr), m_right(nullptr) {}
+    TreeNode(int x) : m_val(x), m_left(nullptr), m_right(nullptr) {}
+    TreeNode(int x, TreeNode* left, TreeNode* right)
+        : m_val(x), m_left(left), m_right(right) {}
 };
 
 namespace {
@@ -33,11 +33,11 @@ class Solution {
     }
     int m_sum = 0;
     int SumAtK(TreeNode* root, int k) {
-      if (!root) return m_sum;
-      if (k == 0 && root->m_val != -1) m_sum = m_sum + root->m_val;
-      SumAtK(root->m_left, k - 1);
-      SumAtK(root->m_right, k - 1);
-      return m_sum;
+        if (!root) return m_sum;
+        if (k == 0 && root->m_val != -1) m_sum = m_sum + root->m_val;
+        SumAtK(root->m_left, k - 1);
+        SumAtK(root->m_right, k - 1);
+        return m_sum;
     }
 
     int DeepestLeavesSum(TreeNode* root) {
@@ -74,10 +74,10 @@ class SolutionV2 {
 #define null -1
 
 TreeNode* NewNode(int data) {
-  auto* node = new TreeNode;
-  node->m_val = data;
-  node->m_left = node->m_right = nullptr;
-  return node;
+    auto* node = new TreeNode;
+    node->m_val = data;
+    node->m_left = node->m_right = nullptr;
+    return node;
 }
 
 // Function to insert nodes in level order
@@ -95,7 +95,7 @@ TreeNode* InsertLevelOrder(vector<int>& arr, int i) {
         root->m_right = InsertLevelOrder(arr, 2 * i + 2);
 
         if (arr[i] == -1) {
-          root->m_deleted = true;
+            root->m_deleted = true;
         }
         return root;
     }

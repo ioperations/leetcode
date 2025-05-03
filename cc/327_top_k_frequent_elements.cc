@@ -37,7 +37,7 @@ class Solution {
 
         std::priority_queue<pair<int, int>, vector<pair<int, int>>, Cmp> q;
         for (auto& ptr : map) {
-          q.emplace(ptr);
+            q.emplace(ptr);
         }
 
         for (int i = 0; i < k; i++) {
@@ -51,10 +51,10 @@ class Solution {
         priority_queue<pair<int, int>> pq;
         vector<int> ans;
         for (int const i : nums) {
-          ++mp[i];
+            ++mp[i];
         }
         for (auto it : mp) {
-          pq.emplace(it.second, it.first);
+            pq.emplace(it.second, it.first);
         }
 
         while (k--) {

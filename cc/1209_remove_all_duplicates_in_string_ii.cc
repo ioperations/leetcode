@@ -83,8 +83,8 @@ class Solution {
 class SolutionV2 {
    public:
     struct Node {
-      char m_c;   // char
-      int m_cnt;  // count
+        char m_c;   // char
+        int m_cnt;  // count
     };
 
     string RemoveDuplicatesV2(const string& s, int k) {
@@ -93,10 +93,10 @@ class SolutionV2 {
             if (st.empty())
                 st.push({s[i], 1});
             else {
-              if (st.top().m_c == s[i])
-                st.top().m_cnt++;
-              else
-                st.push({s[i], 1});
+                if (st.top().m_c == s[i])
+                    st.top().m_cnt++;
+                else
+                    st.push({s[i], 1});
             }
 
             if (st.top().m_cnt == k) st.pop();  // if make k len characters
@@ -105,9 +105,9 @@ class SolutionV2 {
         // make a sentence from stack
         string ans = "";
         while (!st.empty()) {
-          for (int i = 0; i < st.top().m_cnt; i++) {
-            ans += st.top().m_c;
-          }
+            for (int i = 0; i < st.top().m_cnt; i++) {
+                ans += st.top().m_c;
+            }
             st.pop();
         }
         reverse(ans.begin(), ans.end());
@@ -115,19 +115,19 @@ class SolutionV2 {
     }
 
     string RemoveDuplicates(const string& s, int k) {
-      int const n = s.size();
-      if (n < k) return s;
+        int const n = s.size();
+        if (n < k) return s;
 
-      stack<pair<char, int>> stk;
-      for (int i = 0; i < n; ++i) {
-        if (stk.empty() || stk.top().first != s[i])
-          stk.emplace(s[i], 1);
-        else {
-          auto prev = stk.top();
-          stk.pop();
-          stk.emplace(s[i], prev.second + 1);
-        }
-        if (stk.top().second == k) stk.pop();
+        stack<pair<char, int>> stk;
+        for (int i = 0; i < n; ++i) {
+            if (stk.empty() || stk.top().first != s[i])
+                stk.emplace(s[i], 1);
+            else {
+                auto prev = stk.top();
+                stk.pop();
+                stk.emplace(s[i], prev.second + 1);
+            }
+            if (stk.top().second == k) stk.pop();
         }
 
         string ans = "";
@@ -144,27 +144,27 @@ class SolutionV2 {
 };
 
 TEST(remove_all_duplicates_in_string_ii, t1) {
-  string const s = "abcd";
-  int const k = 2;
-  Solution sl;
-  string const ret = sl.RemoveDuplicates(s, k);
-  EXPECT_EQ(ret, "abcd");
+    string const s = "abcd";
+    int const k = 2;
+    Solution sl;
+    string const ret = sl.RemoveDuplicates(s, k);
+    EXPECT_EQ(ret, "abcd");
 }
 
 TEST(remove_all_duplicates_in_string_ii, t2) {
-  string const s = "deeedbbcccbdaa";
-  int const k = 3;
-  Solution sl;
-  string const ret = sl.RemoveDuplicates(s, k);
-  EXPECT_EQ(ret, "aa");
+    string const s = "deeedbbcccbdaa";
+    int const k = 3;
+    Solution sl;
+    string const ret = sl.RemoveDuplicates(s, k);
+    EXPECT_EQ(ret, "aa");
 }
 
 TEST(remove_all_duplicates_in_string_ii, t3) {
-  string const s = "pbbcggttciiippooaais";
-  int const k = 2;
-  Solution sl;
-  string const ret = sl.RemoveDuplicates(s, k);
-  EXPECT_EQ(ret, "ps");
+    string const s = "pbbcggttciiippooaais";
+    int const k = 2;
+    Solution sl;
+    string const ret = sl.RemoveDuplicates(s, k);
+    EXPECT_EQ(ret, "ps");
 }
 
 }  // namespace

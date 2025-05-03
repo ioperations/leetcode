@@ -68,30 +68,30 @@ class Solution {
 };
 
 TEST(find_mode_in_binary_search_tree, t1) {
-  std::vector<int> const root = {1, 2, 2};
-  std::vector<int> const output{2};
+    std::vector<int> const root = {1, 2, 2};
+    std::vector<int> const output{2};
 
-  TreeNode* node = Tree::ConstructTree(root);
+    TreeNode* node = Tree::ConstructTree(root);
 
-  Solution sl;
-  auto ret = sl.FindMode(node);
+    Solution sl;
+    auto ret = sl.FindMode(node);
 
-  EXPECT_EQ(ret, output);
+    EXPECT_EQ(ret, output);
 
-  Tree::FreeTreeNode(node);
+    Tree::FreeTreeNode(node);
 }
 
 TEST(find_mode_in_binary_search_tree, t2) {
-  std::vector<int> const root = {1};
-  std::vector<int> const output{1};
+    std::vector<int> const root = {1};
+    std::vector<int> const output{1};
 
-  TreeNode* node = Tree::ConstructTree(root);
+    TreeNode* node = Tree::ConstructTree(root);
 
-  Solution sl;
-  auto ret = sl.FindMode(node);
+    Solution sl;
+    auto ret = sl.FindMode(node);
 
-  EXPECT_EQ(ret, output);
+    EXPECT_EQ(ret, output);
 
-  Tree::FreeTreeNode(node);
+    Tree::FreeTreeNode(node);
 }
 }  // namespace

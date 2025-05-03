@@ -44,13 +44,13 @@ class Solution {
         int size = 0;
         for (const auto& ptr : words) {
         retry:
-          int const remain_size = max_width - size -
-                                  (q.size() ? (q.size() - 1) : 0) -
-                                  ((size) ? 1 : 0);
+            int const remain_size = max_width - size -
+                                    (q.size() ? (q.size() - 1) : 0) -
+                                    ((size) ? 1 : 0);
 
-          if (remain_size >= (int)ptr.size()) {
-            q.push(ptr);
-            size += ptr.size();
+            if (remain_size >= (int)ptr.size()) {
+                q.push(ptr);
+                size += ptr.size();
             } else {
                 std::string str = BuildMaxLeft(q, max_width - size);
                 if ((int)str.size() < max_width) {
@@ -84,13 +84,13 @@ class Solution {
 
         int i = 0;
         while (q.size()) {
-          std::string const str = q.front();
-          ret += str;
-          q.pop();
-          if (q.size()) {
-            for (int j = 0; j < z[i]; j++) {
-              ret += ' ';
-            }
+            std::string const str = q.front();
+            ret += str;
+            q.pop();
+            if (q.size()) {
+                for (int j = 0; j < z[i]; j++) {
+                    ret += ' ';
+                }
             }
             i++;
         }

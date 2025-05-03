@@ -155,14 +155,14 @@ void FreeRoot(TreeNode* root) {
 }
 
 TEST(validate_binary_search_tree, t1) {
-  std::vector<int> const root = {2, 1, 3};
-  bool const output = true;
-  TreeNode* head = ConstructTree(root);
+    std::vector<int> const root = {2, 1, 3};
+    bool const output = true;
+    TreeNode* head = ConstructTree(root);
 
-  Solution sl;
-  bool const ret = sl.IsValidBst(head);
-  EXPECT_EQ(ret, output);
-  FreeRoot(head);
+    Solution sl;
+    bool const ret = sl.IsValidBst(head);
+    EXPECT_EQ(ret, output);
+    FreeRoot(head);
 }
 
 TEST(validate_binary_search_tree, t2) {

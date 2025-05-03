@@ -73,50 +73,50 @@ void ExpectEqList(ListNode* const head, const std::vector<int>& elements) {
     EXPECT_EQ(i, elements.size());
 }
 TEST(reorder_list, t1) {
-  std::vector<int> const v = {1, 2, 3, 4};
-  std::vector<int> const output = {1, 4, 2, 3};
+    std::vector<int> const v = {1, 2, 3, 4};
+    std::vector<int> const output = {1, 4, 2, 3};
 
-  /*
-   ___      ___       ___       ___
-  | 1 |    | 2 |     | 3 |     | 4 |
-  |___|    |___|     |___|     |___|
+    /*
+     ___      ___       ___       ___
+    | 1 |    | 2 |     | 3 |     | 4 |
+    |___|    |___|     |___|     |___|
 
-   ___      ___       ___       ___
-  | 1 |    | 4 |     | 2 |     | 3 |
-  |___|    |___|     |___|     |___|
+     ___      ___       ___       ___
+    | 1 |    | 4 |     | 2 |     | 3 |
+    |___|    |___|     |___|     |___|
 
-  */
+    */
 
-  ListNode* head = List::ConstructList(v);
-  Solution sl;
-  sl.ReorderList(head);
+    ListNode* head = List::ConstructList(v);
+    Solution sl;
+    sl.ReorderList(head);
 
-  ExpectEqList(head, output);
-  List::FreeList(head);
+    ExpectEqList(head, output);
+    List::FreeList(head);
 }
 
 TEST(reorder_list, t2) {
-  std::vector<int> const v = {1, 2, 3, 4, 5};
-  std::vector<int> const output = {1, 5, 2, 4, 3};
+    std::vector<int> const v = {1, 2, 3, 4, 5};
+    std::vector<int> const output = {1, 5, 2, 4, 3};
 
-  /*
-   ___      ___       ___       ___       ___
-  | 1 |    | 2 |     | 3 |     | 4 |     | 5 |
-  |___|    |___|     |___|     |___|     |___|
+    /*
+     ___      ___       ___       ___       ___
+    | 1 |    | 2 |     | 3 |     | 4 |     | 5 |
+    |___|    |___|     |___|     |___|     |___|
 
 
 
-   ___      ___       ___       ___       ___
-  | 1 |    | 5 |     | 2 |     | 4 |     | 5 |
-  |___|    |___|     |___|     |___|     |___|
+     ___      ___       ___       ___       ___
+    | 1 |    | 5 |     | 2 |     | 4 |     | 5 |
+    |___|    |___|     |___|     |___|     |___|
 
-  */
-  ListNode* head = List::ConstructList(v);
-  Solution sl;
-  sl.ReorderList(head);
+    */
+    ListNode* head = List::ConstructList(v);
+    Solution sl;
+    sl.ReorderList(head);
 
-  ExpectEqList(head, output);
-  List::FreeList(head);
+    ExpectEqList(head, output);
+    List::FreeList(head);
 }
 
 }  // namespace

@@ -55,9 +55,9 @@ class Solution {
         const int n = board[0].size();
 
         if (board[x][y] == word[0]) {
-          stack.emplace(x, y);
-          // seen.emplace(std::make_pair(x, y));
-          route[x][y] = true;
+            stack.emplace(x, y);
+            // seen.emplace(std::make_pair(x, y));
+            route[x][y] = true;
         } else {
             return false;
         }
@@ -141,37 +141,37 @@ class Solution {
 
    public:
     bool IsSafe(int i, int j) {
-      return (i >= 0 && j >= 0 && i < m_row && j < m_col) ? true : false;
+        return (i >= 0 && j >= 0 && i < m_row && j < m_col) ? true : false;
     }
 
     void Backtrack(int i, int j, vector<vector<char>>& board,
                    const string& word) {
-      if (m_index >= (int)word.size()) return;   // base-case
-      if (word[m_index] != board[i][j]) return;  // search pruning
+        if (m_index >= (int)word.size()) return;   // base-case
+        if (word[m_index] != board[i][j]) return;  // search pruning
 
-      m_s.push_back(board[i][j]);  // make move
-      board[i][j] = '?';
-      m_index++;
+        m_s.push_back(board[i][j]);  // make move
+        board[i][j] = '?';
+        m_index++;
 
-      if (m_s == word) m_decision = true;  // record solution
+        if (m_s == word) m_decision = true;  // record solution
 
-      for (int k = 0; k < 4; k++)  // backtrack
-        if (IsSafe(i + m_dir[k], j + m_dir[k + 1]))
-          Backtrack(i + m_dir[k], j + m_dir[k + 1], board, word);
+        for (int k = 0; k < 4; k++)  // backtrack
+            if (IsSafe(i + m_dir[k], j + m_dir[k + 1]))
+                Backtrack(i + m_dir[k], j + m_dir[k + 1], board, word);
 
-      board[i][j] = m_s.back();  // undo move
-      m_s.pop_back();
-      m_index--;
+        board[i][j] = m_s.back();  // undo move
+        m_s.pop_back();
+        m_index--;
     }
 
     bool Exist(vector<vector<char>>& board, const string& word) {
         // apply dfs from all starting characters in board
         m_row = board.size(), m_col = board[0].size();
         for (int i = 0; i < m_row; i++)
-          for (int j = 0; j < m_col; j++)
-            if (board[i][j] == word[0]) {
-              Backtrack(i, j, board, word);
-            }
+            for (int j = 0; j < m_col; j++)
+                if (board[i][j] == word[0]) {
+                    Backtrack(i, j, board, word);
+                }
 
         return m_decision;
     }

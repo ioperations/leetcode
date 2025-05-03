@@ -15,7 +15,7 @@ void ReverseOutPutAllWords(const char* s, int len) {
         // base case
 
         if (str_len == 0) {
-          return {""};
+            return {""};
         }
 
         int i = 0;
@@ -28,7 +28,7 @@ void ReverseOutPutAllWords(const char* s, int len) {
         const char* begin = str + i;
 
         if (i >= str_len) {
-          return {""};
+            return {""};
         }
         for (; ('a' <= *(str + i) && *(str + i) <= 'z') ||
                ('A' <= *(str + i) && *(str + i) <= 'Z');

@@ -26,19 +26,19 @@ class LRUCache {
         : m_capacity(capacity),
           p_cache_list_head(new CacheNode()),
           p_cache_list_near(new CacheNode()) {
-      p_cache_list_head->next = p_cache_list_near;
-      p_cache_list_head->pre = nullptr;
-      p_cache_list_near->pre = p_cache_list_head;
-      p_cache_list_near->next = nullptr;
+        p_cache_list_head->next = p_cache_list_near;
+        p_cache_list_head->pre = nullptr;
+        p_cache_list_near->pre = p_cache_list_head;
+        p_cache_list_near->next = nullptr;
     }
 
     ~LRUCache() {
-      CacheNode* p = nullptr;
-      p = p_cache_list_head->next;
+        CacheNode* p = nullptr;
+        p = p_cache_list_head->next;
 
-      while (p != nullptr) {
-        delete p->pre;
-        p = p->next;
+        while (p != nullptr) {
+            delete p->pre;
+            p = p->next;
         }
         delete p_cache_list_near;
 
@@ -46,44 +46,44 @@ class LRUCache {
     }
 
     [[nodiscard]] int Get(int key) {
-      if (m_map.find(key) != m_map.end()) {
-        CacheNode* p = m_map[key];
-        DetachNode(p);
-        AddFristNode(p);
-        return (m_map[key]->value);
-      }
+        if (m_map.find(key) != m_map.end()) {
+            CacheNode* p = m_map[key];
+            DetachNode(p);
+            AddFristNode(p);
+            return (m_map[key]->value);
+        }
         return -1;
     }
 
     void Put(int key, int value) {
-      if (m_map.find(key) != m_map.end()) {
-        m_map[key]->value = value;
-        DetachNode((CacheNode*)m_map[key]);
-        AddFristNode((CacheNode*)m_map[key]);
-        if (m_map.size() > m_capacity) {
-          DelEndNode();
-        }
+        if (m_map.find(key) != m_map.end()) {
+            m_map[key]->value = value;
+            DetachNode((CacheNode*)m_map[key]);
+            AddFristNode((CacheNode*)m_map[key]);
+            if (m_map.size() > m_capacity) {
+                DelEndNode();
+            }
 
-      } else {
-        auto* p = new CacheNode();
-        p->k = key;
-        p->value = value;
-        AddFristNode(p);
-        m_map[key] = p;
-        if (m_map.size() > m_capacity) {
-          DelEndNode();
+        } else {
+            auto* p = new CacheNode();
+            p->k = key;
+            p->value = value;
+            AddFristNode(p);
+            m_map[key] = p;
+            if (m_map.size() > m_capacity) {
+                DelEndNode();
+            }
         }
-      }
         return;
     }
 
    private:
     using CacheNode = struct Node {
-      int k;
-      int value;
+        int k;
+        int value;
 
-      struct Node* next;
-      struct Node* pre;
+        struct Node* next;
+        struct Node* pre;
     };
 
     unsigned int m_capacity;
@@ -100,13 +100,13 @@ class LRUCache {
         node->pre = p_cache_list_head;
 
         if (m_map.empty()) {
-          node->next = p_cache_list_near;
-          p_cache_list_near->pre = node;
-          p_cache_list_head->next = node;
+            node->next = p_cache_list_near;
+            p_cache_list_near->pre = node;
+            p_cache_list_head->next = node;
         } else {
-          node->next = p_cache_list_head->next;
-          p_cache_list_head->next->pre = node;
-          p_cache_list_head->next = node;
+            node->next = p_cache_list_head->next;
+            p_cache_list_head->next->pre = node;
+            p_cache_list_head->next = node;
         }
     }
     void DelEndNode() {

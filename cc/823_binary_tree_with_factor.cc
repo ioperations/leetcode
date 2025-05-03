@@ -23,32 +23,33 @@ using namespace std;
 
 namespace {
 class Solution {
-  std::map<int, int> m_cache;
+    std::map<int, int> m_cache;
 
- public:
-  int NumFactoredBinaryTrees(vector<int>& arr) {
-    // pass
-    sort(arr.begin(), arr.end());
-    std::set<int> set(arr.begin(), arr.end());
+   public:
+    int NumFactoredBinaryTrees(vector<int>& arr) {
+        // pass
+        sort(arr.begin(), arr.end());
+        std::set<int> set(arr.begin(), arr.end());
 
-    // 表示从index对应的arr的值作为顶开始，向左走，能有多少组合
-    function<int(int)> fun = [&](int index) -> int {
-      // pass
-      if (m_cache.count(index)) return m_cache[index];
-      int num = 1;
-      for (int i = 0; i < index; i++) {
-        if ((arr[index] % arr[i]) == 0 && set.count(arr[index] / arr[i])) {
-          num += fun(i) * fun(arr[index] / arr[i]);
+        // 表示从index对应的arr的值作为顶开始，向左走，能有多少组合
+        function<int(int)> fun = [&](int index) -> int {
+            // pass
+            if (m_cache.count(index)) return m_cache[index];
+            int num = 1;
+            for (int i = 0; i < index; i++) {
+                if ((arr[index] % arr[i]) == 0 &&
+                    set.count(arr[index] / arr[i])) {
+                    num += fun(i) * fun(arr[index] / arr[i]);
+                }
+            }
+            return m_cache[index] = num;
+        };
+
+        int ret = 0;
+        for (int i = 0; i < (int)arr.size(); i++) {
+            ret += fun(i);
         }
-      }
-      return m_cache[index] = num;
-    };
-
-    int ret = 0;
-    for (int i = 0; i < (int)arr.size(); i++) {
-      ret += fun(i);
-    }
-    return ret;
+        return ret;
     }
     const int m_mod = 1e9 + 7;
     int V2(vector<int>& arr) {
@@ -62,11 +63,11 @@ class Solution {
             while (l <= r) {
                 if (arr[l] * 1LL * arr[r] == arr[i] * 1LL) {
                     if (l != r)
-                      dp[i] = (dp[i] +
-                               (dp[l] * 1LL * dp[r] % m_mod * 2LL % m_mod)) %
-                              m_mod;
+                        dp[i] = (dp[i] +
+                                 (dp[l] * 1LL * dp[r] % m_mod * 2LL % m_mod)) %
+                                m_mod;
                     else
-                      dp[i] = (dp[i] + (dp[l] * 1LL * dp[r] % m_mod)) % m_mod;
+                        dp[i] = (dp[i] + (dp[l] * 1LL * dp[r] % m_mod)) % m_mod;
                     l++, r--;
                 } else if (arr[l] * 1LL * arr[r] > arr[i] * 1LL)
                     r--;

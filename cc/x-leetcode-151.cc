@@ -60,28 +60,28 @@ TEST(x_leetcode_v2, t2) {
 }
 
 TEST(x_leetcode_v2, t3) {
-  std::string const s("a good  example");
-  Solution slu;
-  std::string const ret = slu.ReverseWords(s);
-  EXPECT_EQ(ret, std::string("example good a"));
+    std::string const s("a good  example");
+    Solution slu;
+    std::string const ret = slu.ReverseWords(s);
+    EXPECT_EQ(ret, std::string("example good a"));
 }
 
 TEST(x_leetcode_v2, t4) {
-  std::string const s("the sky is blue");
-  Solution slu;
-  std::string const ret = slu.ReverseWords(s);
-  EXPECT_EQ(ret, std::string("blue is sky the"));
+    std::string const s("the sky is blue");
+    Solution slu;
+    std::string const ret = slu.ReverseWords(s);
+    EXPECT_EQ(ret, std::string("blue is sky the"));
 }
 TEST(x_leetcode_v2, t5) {
-  std::string const s(" Bob  Loves Alice ");
-  Solution slu;
-  std::string const ret = slu.ReverseWords(s);
-  EXPECT_EQ(ret, std::string("Alice Loves Bob"));
+    std::string const s(" Bob  Loves Alice ");
+    Solution slu;
+    std::string const ret = slu.ReverseWords(s);
+    EXPECT_EQ(ret, std::string("Alice Loves Bob"));
 }
 TEST(x_leetcode_v2, t6) {
-  std::string const s("Alice does not even like bob");
-  Solution slu;
-  std::string const ret = slu.ReverseWords(s);
-  EXPECT_EQ(ret, std::string("bob like even not does Alice"));
+    std::string const s("Alice does not even like bob");
+    Solution slu;
+    std::string const ret = slu.ReverseWords(s);
+    EXPECT_EQ(ret, std::string("bob like even not does Alice"));
 }
 }  // namespace

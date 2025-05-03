@@ -19,13 +19,13 @@ class MinStack {
     void Push(int val) {
         // 1st element
         if (m_v.size() == 0) {
-          m_v.emplace_back(val, val);
+            m_v.emplace_back(val, val);
         } else {
-          // check min element of last pair
-          pair<int, int> const prev = m_v.back();
+            // check min element of last pair
+            pair<int, int> const prev = m_v.back();
 
-          int const mini = min(val, prev.second);
-          m_v.emplace_back(val, mini);
+            int const mini = min(val, prev.second);
+            m_v.emplace_back(val, mini);
         }
     }
 

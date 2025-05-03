@@ -29,10 +29,10 @@ class Solution {
             if (2 * k == sum)
                 ans += v / 2, v -= v / 2 * 2;
             else if (v > 0 && freq.count(sum - k) && freq[sum - k] > 0) {
-              int const pair_cnt = min(v, freq[sum - k]);
-              ans += pair_cnt;
-              v -= pair_cnt;
-              freq[sum - k] -= pair_cnt;
+                int const pair_cnt = min(v, freq[sum - k]);
+                ans += pair_cnt;
+                v -= pair_cnt;
+                freq[sum - k] -= pair_cnt;
             }
         }
         return ans;
@@ -42,10 +42,10 @@ class Solution {
         unordered_map<int, int> freq;
         int ans = 0;
         for (auto cur : nums) {
-          int const complement = k - cur;
-          if (freq[complement] > 0) {
-            ans++;
-            freq[complement]--;
+            int const complement = k - cur;
+            if (freq[complement] > 0) {
+                ans++;
+                freq[complement]--;
             } else
                 freq[cur]++;
         }
@@ -56,10 +56,10 @@ class Solution {
         unordered_map<int, int> freq;
         int ans = 0;
         for (auto cur : nums) {
-          int const complement = k - cur;
-          if (freq[complement] > 0) {
-            ans++;
-            freq[complement]--;
+            int const complement = k - cur;
+            if (freq[complement] > 0) {
+                ans++;
+                freq[complement]--;
             } else {
                 freq[cur]++;
             }

@@ -27,28 +27,28 @@ class Solution {
 };
 
 TEST(length_of_last_word, t1) {
-  std::string const s = "Hello World";
-  int const output = 5;
+    std::string const s = "Hello World";
+    int const output = 5;
 
-  Solution sl;
-  int const ret = sl.LengthOfLastWord(s);
-  EXPECT_EQ(ret, output);
+    Solution sl;
+    int const ret = sl.LengthOfLastWord(s);
+    EXPECT_EQ(ret, output);
 }
 
 TEST(length_of_last_word, t2) {
-  std::string const s = "   fly me   to   the moon  ";
-  int const output = 4;
-  Solution sl;
-  int const ret = sl.LengthOfLastWord(s);
-  EXPECT_EQ(ret, output);
+    std::string const s = "   fly me   to   the moon  ";
+    int const output = 4;
+    Solution sl;
+    int const ret = sl.LengthOfLastWord(s);
+    EXPECT_EQ(ret, output);
 }
 
 TEST(length_of_last_word, t3) {
-  std::string const s = "luffy is still joyboy";
-  int const output = 6;
-  Solution sl;
-  int const ret = sl.LengthOfLastWord(s);
-  EXPECT_EQ(ret, output);
+    std::string const s = "luffy is still joyboy";
+    int const output = 6;
+    Solution sl;
+    int const ret = sl.LengthOfLastWord(s);
+    EXPECT_EQ(ret, output);
 }
 
 }  // namespace

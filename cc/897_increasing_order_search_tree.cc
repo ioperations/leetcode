@@ -98,36 +98,36 @@ std::vector<int> BFS(TreeNode* root) {
 }
 
 TEST(memleak, t1) {
-  auto* root = new TreeNode(-1);
+    auto* root = new TreeNode(-1);
 
-  for (int i = 0; i < 100; i++) {
-    root = AddToRoot(root, i);
+    for (int i = 0; i < 100; i++) {
+        root = AddToRoot(root, i);
     }
 
     Tree::FreeTreeNode(root);
 }
 TEST(increasing_order_search_tree, t1) {
-  auto* root = new TreeNode(5);
+    auto* root = new TreeNode(5);
 
-  root = AddToRoot(root, (std::vector<int>{3, 6, 2, 4, 8, 1, 7, 9}));
-  Solution s;
-  root = s.IncreasingBst(root);
-  auto ret = BFS(root);
-  EXPECT_EQ(ret, (std::vector<int>{1, 2, 3, 4, 5, 6, 7, 8, 9}));
+    root = AddToRoot(root, (std::vector<int>{3, 6, 2, 4, 8, 1, 7, 9}));
+    Solution s;
+    root = s.IncreasingBst(root);
+    auto ret = BFS(root);
+    EXPECT_EQ(ret, (std::vector<int>{1, 2, 3, 4, 5, 6, 7, 8, 9}));
 
-  Tree::FreeTreeNode(root);
+    Tree::FreeTreeNode(root);
 }
 
 TEST(increasing_order_search_tree, t2) {
-  auto* root = new TreeNode(5);
+    auto* root = new TreeNode(5);
 
-  root = AddToRoot(root, (std::vector<int>{1, 7}));
-  Solution s;
-  root = s.IncreasingBst(root);
-  auto ret = BFS(root);
-  EXPECT_EQ(ret, (std::vector<int>{1, 5, 7}));
+    root = AddToRoot(root, (std::vector<int>{1, 7}));
+    Solution s;
+    root = s.IncreasingBst(root);
+    auto ret = BFS(root);
+    EXPECT_EQ(ret, (std::vector<int>{1, 5, 7}));
 
-  Tree::FreeTreeNode(root);
+    Tree::FreeTreeNode(root);
 }
 
 }  // namespace

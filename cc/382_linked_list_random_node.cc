@@ -16,19 +16,19 @@ using ListNode = List::ListNode<int>;
 
 namespace {
 class Solution {
-  vector<int> m_vec;
+    vector<int> m_vec;
 
- public:
-  Solution(ListNode* head) {
-    while (head != nullptr) {
-      m_vec.push_back(head->val);
-      head = head->next;
-    }
+   public:
+    Solution(ListNode* head) {
+        while (head != nullptr) {
+            m_vec.push_back(head->val);
+            head = head->next;
+        }
     }
 
     int GetRandom() {
-      int const random_index = rand() / (RAND_MAX + 1.0) * m_vec.size();
-      return m_vec[random_index];
+        int const random_index = rand() / (RAND_MAX + 1.0) * m_vec.size();
+        return m_vec[random_index];
     }
 };
 

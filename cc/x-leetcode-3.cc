@@ -35,34 +35,34 @@ class Solution {
 };
 
 TEST(r1, t2) {
-  std::string const in("abcabcbb");
-  Solution slu;
-  int const ret = slu.LengthOfLongestSubstring(in);
-  EXPECT_EQ(ret, 3);
+    std::string const in("abcabcbb");
+    Solution slu;
+    int const ret = slu.LengthOfLongestSubstring(in);
+    EXPECT_EQ(ret, 3);
 }
 TEST(r1, t3) {
-  std::string const in("bbbbbb");
-  Solution slu;
-  int const ret = slu.LengthOfLongestSubstring(in);
-  EXPECT_EQ(ret, 1);
+    std::string const in("bbbbbb");
+    Solution slu;
+    int const ret = slu.LengthOfLongestSubstring(in);
+    EXPECT_EQ(ret, 1);
 }
 TEST(r1, t4) {
-  std::string const in("pwwwkew");
-  Solution slu;
-  int const ret = slu.LengthOfLongestSubstring(in);
-  EXPECT_EQ(ret, 3);
+    std::string const in("pwwwkew");
+    Solution slu;
+    int const ret = slu.LengthOfLongestSubstring(in);
+    EXPECT_EQ(ret, 3);
 }
 TEST(r1, t5) {
-  std::string const in("");
-  Solution slu;
-  int const ret = slu.LengthOfLongestSubstring(in);
-  EXPECT_EQ(ret, 0);
+    std::string const in("");
+    Solution slu;
+    int const ret = slu.LengthOfLongestSubstring(in);
+    EXPECT_EQ(ret, 0);
 }
 TEST(r2, t2) {
-  std::string const in("aab");
-  Solution slu;
-  int const ret = slu.LengthOfLongestSubstring(in);
-  EXPECT_EQ(ret, 2);
+    std::string const in("aab");
+    Solution slu;
+    int const ret = slu.LengthOfLongestSubstring(in);
+    EXPECT_EQ(ret, 2);
 }
 
 }  // namespace

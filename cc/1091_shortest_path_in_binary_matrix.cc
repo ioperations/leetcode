@@ -44,24 +44,25 @@ class Solution {
 
             int const size = fill_values.size();
             for (int i = 0; i < size; i++) {
-              pair<int, int> const coord = fill_values.front();
-              fill_values.pop();
+                pair<int, int> const coord = fill_values.front();
+                fill_values.pop();
 
-              int x = coord.first, y = coord.second;
+                int x = coord.first, y = coord.second;
 
-              if (x == (int)grid.size() - 1 && y == (int)grid.at(x).size() - 1)
-                return steps;
+                if (x == (int)grid.size() - 1 &&
+                    y == (int)grid.at(x).size() - 1)
+                    return steps;
 
-              for (vector<int>& dir : dirs) {
-                int new_x = x + dir.at(0), new_y = y + dir.at(1);
+                for (vector<int>& dir : dirs) {
+                    int new_x = x + dir.at(0), new_y = y + dir.at(1);
 
-                if (!InBoundsAndClear(grid, new_x, new_y)) continue;
+                    if (!InBoundsAndClear(grid, new_x, new_y)) continue;
 
-                // mark as visited
-                grid.at(new_x).at(new_y) = -1;
+                    // mark as visited
+                    grid.at(new_x).at(new_y) = -1;
 
-                // push coordinates of clear cell to explore other paths
-                fill_values.emplace(new_x, new_y);
+                    // push coordinates of clear cell to explore other paths
+                    fill_values.emplace(new_x, new_y);
                 }
             }
         }

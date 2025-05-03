@@ -15,10 +15,10 @@ class Solution {
         int i = 0;
         int j = height.size() - 1;
         for (; j > i;) {
-          int const het = std::min(height[i], height[j]);
-          ret = std::max(ret, het * (j - i));
-          if (height[i] < height[j]) {
-            i++;
+            int const het = std::min(height[i], height[j]);
+            ret = std::max(ret, het * (j - i));
+            if (height[i] < height[j]) {
+                i++;
             } else {
                 j--;
             }
@@ -32,11 +32,11 @@ class Solution {
         int h = height.size() - 1;
         int max_area = 0;
         while (l < h) {
-          int const lh = height[l];
-          int const hh = height[h];
-          max_area = std::max(max_area, (h - l) * std::min(lh, hh));
-          if (lh < hh) {
-            l++;
+            int const lh = height[l];
+            int const hh = height[h];
+            max_area = std::max(max_area, (h - l) * std::min(lh, hh));
+            if (lh < hh) {
+                l++;
             } else {
                 h--;
             }

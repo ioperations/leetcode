@@ -45,10 +45,10 @@ class Solution {
     }
 
     int BagOfTokensScore(vector<int>& tokens, int power) {
-      int const n = tokens.size();
-      vector<vector<int>> dp(n, vector<int>(n, -1));
-      sort(tokens.begin(), tokens.end());
-      return Recursion(tokens, power, 0, tokens.size() - 1, dp);
+        int const n = tokens.size();
+        vector<vector<int>> dp(n, vector<int>(n, -1));
+        sort(tokens.begin(), tokens.end());
+        return Recursion(tokens, power, 0, tokens.size() - 1, dp);
     }
 
     int BagOfTokensScoreV1(vector<int>& tokens, int power) {
@@ -162,8 +162,8 @@ static void BenchmarkTwoArrayDpv1(benchmark::State& state) {
     int const output = 4;
 
     for (auto _ : state) {
-      int const ret = sl.BagOfTokensScore(tokens, power);
-      EXPECT_EQ(output, ret);
+        int const ret = sl.BagOfTokensScore(tokens, power);
+        EXPECT_EQ(output, ret);
     }
 }
 BENCHMARK(BenchmarkTwoArrayDpv1);
@@ -175,8 +175,8 @@ static void BenchmarkMyImplementation(benchmark::State& state) {
     int const output = 4;
 
     for (auto _ : state) {
-      int const ret = sl.BagOfTokensScoreV1(tokens, power);
-      EXPECT_EQ(output, ret);
+        int const ret = sl.BagOfTokensScoreV1(tokens, power);
+        EXPECT_EQ(output, ret);
     }
 }
 BENCHMARK(BenchmarkMyImplementation);

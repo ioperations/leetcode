@@ -26,43 +26,43 @@ Space Complexity: O(1), constant space.
     */
 
     int KthSmallest(vector<vector<int>>& matrix, int k) {
-      int const m = matrix.size();
-      int const n = matrix[0].size();
-      int low = matrix[0][0], high = matrix[m - 1][n - 1];
-      int ans = -1;
+        int const m = matrix.size();
+        int const n = matrix[0].size();
+        int low = matrix[0][0], high = matrix[m - 1][n - 1];
+        int ans = -1;
 
-      // do binary search
-      while (low <= high) {
-        int const mid = (low + high) >> 1;
-        if (CountLessOrEqual(matrix, mid) >= k) {
-          ans = mid;
-          high = mid - 1;
-        } else
-          low = mid + 1;
+        // do binary search
+        while (low <= high) {
+            int const mid = (low + high) >> 1;
+            if (CountLessOrEqual(matrix, mid) >= k) {
+                ans = mid;
+                high = mid - 1;
+            } else
+                low = mid + 1;
         }
 
         return ans;
     }
 
     int CountLessOrEqual(vector<vector<int>>& mat, int x) {
-      int const m = mat.size();
-      int const n = mat[0].size();
-      int cnt = 0;
-      int c = n - 1;
+        int const m = mat.size();
+        int const n = mat[0].size();
+        int cnt = 0;
+        int c = n - 1;
 
-      for (int i = 0; i < m; i++) {
-        while (c >= 0 && mat[i][c] > x) c--;
-        cnt += c + 1;
+        for (int i = 0; i < m; i++) {
+            while (c >= 0 && mat[i][c] > x) c--;
+            cnt += c + 1;
         }
 
         return cnt;
     }
     int KthSmallestV2(vector<vector<int>>& matrix, int k) {
-      priority_queue<int, vector<int>, greater<>> pq;
-      for (int i = 0; i < (int)matrix.size(); i++) {
-        for (int j = 0; j < (int)matrix.size(); j++) {
-          pq.push(matrix[i][j]);
-        }
+        priority_queue<int, vector<int>, greater<>> pq;
+        for (int i = 0; i < (int)matrix.size(); i++) {
+            for (int j = 0; j < (int)matrix.size(); j++) {
+                pq.push(matrix[i][j]);
+            }
         }
         while (k > 1) {
             pq.pop();

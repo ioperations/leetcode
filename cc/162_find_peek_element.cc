@@ -63,15 +63,15 @@ class Solution {
         if (nums.size() == 1) return 0;
 
         while (low <= high) {
-          int const mid = low + (high - low) / 2;
+            int const mid = low + (high - low) / 2;
 
-          // if we are at the begning we can compare with the next element
-          // only
-          if (mid == 0) {
-            if (nums[mid] > nums[mid + 1]) return mid;
-            low = mid + 1;
-            // if we are at the end we can compare with last second element
+            // if we are at the begning we can compare with the next element
             // only
+            if (mid == 0) {
+                if (nums[mid] > nums[mid + 1]) return mid;
+                low = mid + 1;
+                // if we are at the end we can compare with last second element
+                // only
             } else if (mid == (int)nums.size() - 1) {
                 if (nums[mid] > nums[mid - 1]) return mid;
                 high = mid - 1;
@@ -97,21 +97,21 @@ class Solution {
 #include <set>
 
 TEST(find_peek_element, t1) {
-  std::set<int> const expectd{2};
-  std::vector<int> nums{1, 2, 3, 1};
-  Solution s;
+    std::set<int> const expectd{2};
+    std::vector<int> nums{1, 2, 3, 1};
+    Solution s;
 
-  int const ret = s.FindPeakElementV2(nums);
-  EXPECT_EQ(expectd.count(ret), true);
+    int const ret = s.FindPeakElementV2(nums);
+    EXPECT_EQ(expectd.count(ret), true);
 }
 
 TEST(find_peek_element, t2) {
-  std::set<int> const expectd{1, 5};
-  std::vector<int> nums{1, 2, 1, 3, 5, 6, 4};
-  Solution s;
+    std::set<int> const expectd{1, 5};
+    std::vector<int> nums{1, 2, 1, 3, 5, 6, 4};
+    Solution s;
 
-  int const ret = s.FindPeakElementV2(nums);
-  EXPECT_EQ(expectd.count(ret), true);
+    int const ret = s.FindPeakElementV2(nums);
+    EXPECT_EQ(expectd.count(ret), true);
 }
 
 }  // namespace

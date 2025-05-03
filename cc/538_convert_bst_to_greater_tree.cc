@@ -104,10 +104,10 @@ std::vector<int> BFS(TreeNode* root) {
 }
 
 TEST(memleak, t1) {
-  auto* root = new TreeNode(-1);
+    auto* root = new TreeNode(-1);
 
-  for (int i = 0; i < 100; i++) {
-    root = AddToRoot(root, i);
+    for (int i = 0; i < 100; i++) {
+        root = AddToRoot(root, i);
     }
 
     Tree::FreeTreeNode(root);

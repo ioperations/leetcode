@@ -43,10 +43,10 @@ class Solution {
 
             int min_rank = rank;
             for (int const v : adj[u]) {
-              if (v == p) continue;
-              int const returned_rank = dfs(v, u, rank + 1);
-              if (returned_rank == rank + 1) result.push_back({u, v});
-              min_rank = min(min_rank, returned_rank);
+                if (v == p) continue;
+                int const returned_rank = dfs(v, u, rank + 1);
+                if (returned_rank == rank + 1) result.push_back({u, v});
+                min_rank = min(min_rank, returned_rank);
             }
 
             return min_rank;
@@ -59,28 +59,28 @@ class Solution {
 };
 
 TEST(critical_connections_in_a_network, t1) {
-  int const n = 4;
-  std::vector<vector<int>> connections = {{0, 1}, {1, 2}, {2, 0}, {1, 3}};
-  std::vector<vector<int>> const output = {{1, 3}};
+    int const n = 4;
+    std::vector<vector<int>> connections = {{0, 1}, {1, 2}, {2, 0}, {1, 3}};
+    std::vector<vector<int>> const output = {{1, 3}};
 
-  Solution sl;
-  auto ret = sl.CriticalConnections(n, connections);
+    Solution sl;
+    auto ret = sl.CriticalConnections(n, connections);
 
-  EXPECT_EQ(output, ret);
+    EXPECT_EQ(output, ret);
 
-  // Explanation : [[ 3, 1 ]] is also accepted.
+    // Explanation : [[ 3, 1 ]] is also accepted.
 }
 TEST(critical_connections_in_a_network, t2) {
-  int const n = 2;
-  std::vector<vector<int>> connections = {{0, 1}};
-  std::vector<vector<int>> const output = {{0, 1}};
+    int const n = 2;
+    std::vector<vector<int>> connections = {{0, 1}};
+    std::vector<vector<int>> const output = {{0, 1}};
 
-  Solution sl;
-  auto ret = sl.CriticalConnections(n, connections);
+    Solution sl;
+    auto ret = sl.CriticalConnections(n, connections);
 
-  // const set<vector<int>> ret_set(ret.begin(), ret.end());
+    // const set<vector<int>> ret_set(ret.begin(), ret.end());
 
-  EXPECT_EQ(output, ret);
+    EXPECT_EQ(output, ret);
 }
 
 }  // namespace

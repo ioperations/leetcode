@@ -28,12 +28,12 @@ class Solution {
 };
 
 TEST(other_count_2_appear_times, t1) {
-  int const left = 1;
-  int const right = 22;
-  int const output = 6;
-  Solution sl;
-  int const ret = sl.Solve(left, right);
-  EXPECT_EQ(ret, output);
+    int const left = 1;
+    int const right = 22;
+    int const output = 6;
+    Solution sl;
+    int const ret = sl.Solve(left, right);
+    EXPECT_EQ(ret, output);
 }
 
 }  // namespace

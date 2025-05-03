@@ -39,11 +39,11 @@ class Solution {
             if (cache.count(index)) return cache[index];
             int const m1 = fun(index + 1);
             if (index + 2 < size) {
-              int const m2 = nums[index] + fun(index + 2);
-              int const tmp = max(m1, m2);
+                int const m2 = nums[index] + fun(index + 2);
+                int const tmp = max(m1, m2);
 
-              cache[index] = tmp;
-              return tmp;
+                cache[index] = tmp;
+                return tmp;
             }
             int const tmp = std::max(m1, nums[index]);
             cache[index] = tmp;

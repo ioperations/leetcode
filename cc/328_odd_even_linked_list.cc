@@ -111,96 +111,96 @@ void ExpectEqList(ListNode* const head, const std::vector<int>& elements) {
 }
 
 TEST(odd_even_linked_list, t1) {
-  std::vector<int> const v{1, 2, 3, 4, 5};
-  std::vector<int> const ex{1, 3, 5, 2, 4};
+    std::vector<int> const v{1, 2, 3, 4, 5};
+    std::vector<int> const ex{1, 3, 5, 2, 4};
 
-  /*
-       ___      ___       ___        ___       ___
-      | 1 |    | 2 |     | 3 |      | 4 |     | 5 |
-      |___|    |___|     |___|      |___|     |___|
+    /*
+         ___      ___       ___        ___       ___
+        | 1 |    | 2 |     | 3 |      | 4 |     | 5 |
+        |___|    |___|     |___|      |___|     |___|
 
 
-       ___      ___       ___        ___       ___
-      | 1 |    | 3 |     | 5 |      | 2 |     | 4 |
-      |___|    |___|     |___|      |___|     |___|
+         ___      ___       ___        ___       ___
+        | 1 |    | 3 |     | 5 |      | 2 |     | 4 |
+        |___|    |___|     |___|      |___|     |___|
 
-  */
-  ListNode* head = List::ConstructList(v);
+    */
+    ListNode* head = List::ConstructList(v);
 
-  Solution sl;
-  head = sl.OddEvenListV1(head);
+    Solution sl;
+    head = sl.OddEvenListV1(head);
 
-  ExpectEqList(head, ex);
-  List::FreeList(head);
+    ExpectEqList(head, ex);
+    List::FreeList(head);
 }
 
 TEST(odd_even_linked_list, t2) {
-  std::vector<int> const v{2, 1, 3, 5, 6, 4, 7};
-  std::vector<int> const ex{2, 6, 4, 1, 3, 5, 7};
-  /*
-       ___      ___       ___        ___       ___        ___       ___
-      | 2 |    | 1 |     | 3 |      | 5 |     | 6 |      | 4 |     | 7 |
-      |___|    |___|     |___|      |___|     |___|      |___|     |___|
+    std::vector<int> const v{2, 1, 3, 5, 6, 4, 7};
+    std::vector<int> const ex{2, 6, 4, 1, 3, 5, 7};
+    /*
+         ___      ___       ___        ___       ___        ___       ___
+        | 2 |    | 1 |     | 3 |      | 5 |     | 6 |      | 4 |     | 7 |
+        |___|    |___|     |___|      |___|     |___|      |___|     |___|
 
 
-       ___      ___       ___        ___       ___        ___       ___
-      | 2 |    | 6 |     | 4 |      | 1 |     | 3 |      | 5 |     | 7 |
-      |___|    |___|     |___|      |___|     |___|      |___|     |___|
-  */
+         ___      ___       ___        ___       ___        ___       ___
+        | 2 |    | 6 |     | 4 |      | 1 |     | 3 |      | 5 |     | 7 |
+        |___|    |___|     |___|      |___|     |___|      |___|     |___|
+    */
 
-  ListNode* head = List::ConstructList(v);
+    ListNode* head = List::ConstructList(v);
 
-  Solution sl;
-  head = sl.OddEvenListV1(head);
+    Solution sl;
+    head = sl.OddEvenListV1(head);
 
-  ExpectEqList(head, ex);
-  List::FreeList(head);
+    ExpectEqList(head, ex);
+    List::FreeList(head);
 }
 
 TEST(odd_even_linked_list_v2, t1) {
-  std::vector<int> const v{1, 2, 3, 4, 5};
-  std::vector<int> const ex{1, 3, 5, 2, 4};
+    std::vector<int> const v{1, 2, 3, 4, 5};
+    std::vector<int> const ex{1, 3, 5, 2, 4};
 
-  /*
-       ___      ___       ___        ___       ___
-      | 1 |    | 2 |     | 3 |      | 4 |     | 5 |
-      |___|    |___|     |___|      |___|     |___|
+    /*
+         ___      ___       ___        ___       ___
+        | 1 |    | 2 |     | 3 |      | 4 |     | 5 |
+        |___|    |___|     |___|      |___|     |___|
 
 
-       ___      ___       ___        ___       ___
-      | 1 |    | 3 |     | 5 |      | 2 |     | 4 |
-      |___|    |___|     |___|      |___|     |___|
+         ___      ___       ___        ___       ___
+        | 1 |    | 3 |     | 5 |      | 2 |     | 4 |
+        |___|    |___|     |___|      |___|     |___|
 
-  */
-  ListNode* head = List::ConstructList(v);
+    */
+    ListNode* head = List::ConstructList(v);
 
-  Solution sl;
-  head = sl.OddEvenList(head);
+    Solution sl;
+    head = sl.OddEvenList(head);
 
-  ExpectEqList(head, ex);
-  List::FreeList(head);
+    ExpectEqList(head, ex);
+    List::FreeList(head);
 }
 
 TEST(odd_even_linked_list_v2, t2) {
-  std::vector<int> const v{2, 1, 3, 5, 6, 4, 7};
-  std::vector<int> const ex{2, 3, 6, 7, 1, 5, 4};
-  /*
-       ___      ___       ___        ___       ___        ___       ___
-      | 2 |    | 1 |     | 3 |      | 5 |     | 6 |      | 4 |     | 7 |
-      |___|    |___|     |___|      |___|     |___|      |___|     |___|
+    std::vector<int> const v{2, 1, 3, 5, 6, 4, 7};
+    std::vector<int> const ex{2, 3, 6, 7, 1, 5, 4};
+    /*
+         ___      ___       ___        ___       ___        ___       ___
+        | 2 |    | 1 |     | 3 |      | 5 |     | 6 |      | 4 |     | 7 |
+        |___|    |___|     |___|      |___|     |___|      |___|     |___|
 
 
-       ___      ___       ___        ___       ___        ___       ___
-      | 2 |    | 3 |     | 6 |      | 7 |     | 1 |      | 5 |     | 4 |
-      |___|    |___|     |___|      |___|     |___|      |___|     |___|
-  */
+         ___      ___       ___        ___       ___        ___       ___
+        | 2 |    | 3 |     | 6 |      | 7 |     | 1 |      | 5 |     | 4 |
+        |___|    |___|     |___|      |___|     |___|      |___|     |___|
+    */
 
-  ListNode* head = List::ConstructList(v);
+    ListNode* head = List::ConstructList(v);
 
-  Solution sl;
-  head = sl.OddEvenList(head);
+    Solution sl;
+    head = sl.OddEvenList(head);
 
-  ExpectEqList(head, ex);
-  List::FreeList(head);
+    ExpectEqList(head, ex);
+    List::FreeList(head);
 }
 }  // namespace

@@ -34,22 +34,22 @@ class Solution {
         return 0;
     }
     int FirstMissingPositiveV2(std::vector<int>& nums) {
-      int const n = nums.size();
-      // making all negative to zero as they are useless
-      for (int i = 0; i < n; i++) {
-        if (nums[i] < 0) nums[i] = 0;
+        int const n = nums.size();
+        // making all negative to zero as they are useless
+        for (int i = 0; i < n; i++) {
+            if (nums[i] < 0) nums[i] = 0;
         }
 
         // maarking -ve for present
         for (int i = 0; i < n; i++) {
-          int const val = abs(nums[i]);
-          if (val >= 1 && val <= n) {
-            int const idx = val - 1;
-            if (nums[idx] == 0) {
-              nums[idx] = -(n + 1);
-            } else if (nums[idx] > 0) {
-              nums[idx] *= -1;
-            }
+            int const val = abs(nums[i]);
+            if (val >= 1 && val <= n) {
+                int const idx = val - 1;
+                if (nums[idx] == 0) {
+                    nums[idx] = -(n + 1);
+                } else if (nums[idx] > 0) {
+                    nums[idx] *= -1;
+                }
             }
         }
 

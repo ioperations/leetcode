@@ -40,20 +40,20 @@ class Solution {
 };
 
 TEST(convert_a_number_to_hexidecimal, t1) {
-  int const num = 26;
-  std::string const output = "1a";
+    int const num = 26;
+    std::string const output = "1a";
 
-  Solution s;
-  auto ret = s.ToHex(num);
-  EXPECT_EQ(ret, output);
+    Solution s;
+    auto ret = s.ToHex(num);
+    EXPECT_EQ(ret, output);
 }
 TEST(convert_a_number_to_hexidecimal, t2) {
-  int const num = -1;
+    int const num = -1;
 
-  std::string const output = "ffffffff";
+    std::string const output = "ffffffff";
 
-  Solution s;
-  auto ret = s.ToHex(num);
-  EXPECT_EQ(ret, output);
+    Solution s;
+    auto ret = s.ToHex(num);
+    EXPECT_EQ(ret, output);
 }
 }  // namespace

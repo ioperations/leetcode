@@ -18,33 +18,33 @@ class Solution {
    public:
     template <typename M>
     int Calculate(vector<int>& nums, M&& m) {
-      /*
-       * Kadane’s algorithm is to traverse over the array from left to right
-       * and for each element, find the maximum sum among all subarrays ending
-       * at that element. The result will be the maximum of all these values.
-       * 以某一个元素结尾的子数组 总和最大值 是前一个
-       *  .......................................... 的 最大值 加上本元素的值
-       *  或者
-       *      就是本元素的值
-       *
-       *      取决于前一个.......................... 最大值 是正输还是负数
-       */
-      int res = nums[0];
-      int max_ending = nums[0];
+        /*
+         * Kadane’s algorithm is to traverse over the array from left to right
+         * and for each element, find the maximum sum among all subarrays ending
+         * at that element. The result will be the maximum of all these values.
+         * 以某一个元素结尾的子数组 总和最大值 是前一个
+         *  .......................................... 的 最大值 加上本元素的值
+         *  或者
+         *      就是本元素的值
+         *
+         *      取决于前一个.......................... 最大值 是正输还是负数
+         */
+        int res = nums[0];
+        int max_ending = nums[0];
 
-      for (auto i = 1; i < nums.size(); ++i) {
-        max_ending = m(max_ending + nums[i], nums[i]);
-        res = m(res, max_ending);
-      }
-      return res;
+        for (auto i = 1; i < nums.size(); ++i) {
+            max_ending = m(max_ending + nums[i], nums[i]);
+            res = m(res, max_ending);
+        }
+        return res;
     }
 
     int MaxAbsoluteSum(vector<int>& nums) {
-      int const ma =
-          Calculate(nums, [](int a, int b) { return std::max(a, b); });
-      int const mi =
-          Calculate(nums, [](int a, int b) { return std::min(a, b); });
-      return max(abs(ma), abs(mi));
+        int const ma =
+            Calculate(nums, [](int a, int b) { return std::max(a, b); });
+        int const mi =
+            Calculate(nums, [](int a, int b) { return std::min(a, b); });
+        return max(abs(ma), abs(mi));
     }
 };
 

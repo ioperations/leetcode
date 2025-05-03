@@ -79,48 +79,48 @@ class Solution {
             m_val = 0;
             bool val_set = false;
             if (index >= m_s.size()) {
-              m_cur_token = EOL;
-              return;
+                m_cur_token = EOL;
+                return;
             }
             while (index < m_s.size()) {
-              if (' ' == m_s[index]) {
-                index++;
-                continue;
-              }
-              if ('0' <= m_s[index] && m_s[index] <= '9') {
-                val_set = true;
-                m_cur_token = NUMBER;
-                m_val = m_val * 10 + m_s[index] - '0';
-              }
-
-              if (val_set) {
-                if ((index + 1) < m_s.size()) {
-                  if ('0' <= m_s[index + 1] && m_s[index + 1] <= '9') {
+                if (' ' == m_s[index]) {
                     index++;
                     continue;
-                  }
-                  break;
                 }
+                if ('0' <= m_s[index] && m_s[index] <= '9') {
+                    val_set = true;
+                    m_cur_token = NUMBER;
+                    m_val = m_val * 10 + m_s[index] - '0';
+                }
+
+                if (val_set) {
+                    if ((index + 1) < m_s.size()) {
+                        if ('0' <= m_s[index + 1] && m_s[index + 1] <= '9') {
+                            index++;
+                            continue;
+                        }
+                        break;
+                    }
+                    break;
+                }
+                if ('+' == m_s[index]) {
+                    m_cur_token = PLUS;
+                    break;
+                }
+                if ('-' == m_s[index]) {
+                    m_cur_token = MINUS;
+                    break;
+                }
+                if ('(' == m_s[index]) {
+                    m_cur_token = LEFT_PARAM;
+                    break;
+                }
+                if (')' == m_s[index]) {
+                    m_cur_token = RIGHT_PARAM;
+                    break;
+                }
+                m_cur_token = EOL;
                 break;
-              }
-              if ('+' == m_s[index]) {
-                m_cur_token = PLUS;
-                break;
-              }
-              if ('-' == m_s[index]) {
-                m_cur_token = MINUS;
-                break;
-              }
-              if ('(' == m_s[index]) {
-                m_cur_token = LEFT_PARAM;
-                break;
-              }
-              if (')' == m_s[index]) {
-                m_cur_token = RIGHT_PARAM;
-                break;
-              }
-              m_cur_token = EOL;
-              break;
             }
         }
         token_type CurToken() { return m_cur_token; }

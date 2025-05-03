@@ -36,29 +36,29 @@ class Solution {
 };
 
 TEST(search_in_a_binary_search_tree, t1) {
-  std::vector<int> const v{4, 2, 7, 1, 3};
-  int const val = 2;
-  std::vector<int> const expected{2, 1, 3};
+    std::vector<int> const v{4, 2, 7, 1, 3};
+    int const val = 2;
+    std::vector<int> const expected{2, 1, 3};
 
-  TreeNode<int>* node = ConstructTree(v);
-  Solution sl;
-  auto* out = sl.SearchBst(node, val);
+    TreeNode<int>* node = ConstructTree(v);
+    Solution sl;
+    auto* out = sl.SearchBst(node, val);
 
-  (void)out;
-  FreeTreeNode(node);
+    (void)out;
+    FreeTreeNode(node);
 }
 
 TEST(search_in_a_binary_search_tree, t2) {
-  std::vector<int> const v{4, 2, 7, 1, 3};
-  int const val = 5;
-  std::vector<int> const expected{};
+    std::vector<int> const v{4, 2, 7, 1, 3};
+    int const val = 5;
+    std::vector<int> const expected{};
 
-  TreeNode<int>* node = ConstructTree(v);
-  Solution sl;
-  auto* out = sl.SearchBst(node, val);
-  EXPECT_EQ(out, nullptr);
+    TreeNode<int>* node = ConstructTree(v);
+    Solution sl;
+    auto* out = sl.SearchBst(node, val);
+    EXPECT_EQ(out, nullptr);
 
-  FreeTreeNode(node);
+    FreeTreeNode(node);
 }
 
 }  // namespace

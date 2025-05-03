@@ -28,7 +28,7 @@ class Solution {
     int NetworkDelayTime(vector<vector<int>>& times, int n, int k) {
         vector<vector<pair<int, int>>> adj(n + 1);
         for (auto& it : times) {
-          adj[it[0]].emplace_back(it[1], it[2]);
+            adj[it[0]].emplace_back(it[1], it[2]);
         }
 
         vector<int> dist(n + 1, 1e9);
@@ -42,10 +42,10 @@ class Solution {
                 auto [node, prev] = q.front();
                 q.pop();
                 for (auto& it : adj[node]) {
-                  int const curr_time = prev + it.second;
-                  if (dist[it.first] > curr_time) {
-                    dist[it.first] = curr_time;
-                    q.emplace(it.first, curr_time);
+                    int const curr_time = prev + it.second;
+                    if (dist[it.first] > curr_time) {
+                        dist[it.first] = curr_time;
+                        q.emplace(it.first, curr_time);
                     }
                 }
             }
@@ -94,8 +94,8 @@ class Solution {
 
         int ans = 0;
         for (int node = 1; node <= n; node++) {
-          if (dist[node] == m_max_time) return -1;
-          ans = max(ans, dist[node]);
+            if (dist[node] == m_max_time) return -1;
+            ans = max(ans, dist[node]);
         }
 
         return ans;

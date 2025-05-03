@@ -30,33 +30,33 @@ class NumberContainers {
     NumberContainers() = default;
 
     void Change(int index, int number) {
-      if (m_table.count(index) != 0) {
-        auto n = m_table[index];
-        auto& z = m_hm[n];
-        z.erase(std::remove_if(z.begin(), z.end(),
-                               [&](auto i) { return (i == index); }),
-                z.end());
-        if (z.empty()) {
-          m_hm.erase(n);
+        if (m_table.count(index) != 0) {
+            auto n = m_table[index];
+            auto& z = m_hm[n];
+            z.erase(std::remove_if(z.begin(), z.end(),
+                                   [&](auto i) { return (i == index); }),
+                    z.end());
+            if (z.empty()) {
+                m_hm.erase(n);
+            }
         }
-      }
-      m_table[index] = number;
-      m_hm[number].push_back(index);
+        m_table[index] = number;
+        m_hm[number].push_back(index);
     }
 
     int Find(int number) {
-      auto it = m_hm.find(number);
-      if (it != m_hm.end()) {
-        int idx = std::numeric_limits<int>::max();
-        auto& all = it->second;
-        for (auto& ptr : all) {
-          if (ptr < idx) {
-            idx = ptr;
-          }
+        auto it = m_hm.find(number);
+        if (it != m_hm.end()) {
+            int idx = std::numeric_limits<int>::max();
+            auto& all = it->second;
+            for (auto& ptr : all) {
+                if (ptr < idx) {
+                    idx = ptr;
+                }
+            }
+            return idx;
         }
-        return idx;
-      }
-      return -1;
+        return -1;
     }
 
    private:
@@ -67,27 +67,27 @@ class NumberContainers {
 using namespace std;
 
 class NumberContainersV2 {
-  unordered_map<int, priority_queue<int, vector<int>, greater<>>> m_res;
-  unordered_map<int, int> m_index_val;
+    unordered_map<int, priority_queue<int, vector<int>, greater<>>> m_res;
+    unordered_map<int, int> m_index_val;
 
- public:
-  void Change(int index, int number) {
-    if (m_index_val.count(index)) {
-      int const prev_num = m_index_val[index];
-      if (prev_num == number) return;
-      m_res[prev_num].push(INT_MAX);  // Lazy deletion
+   public:
+    void Change(int index, int number) {
+        if (m_index_val.count(index)) {
+            int const prev_num = m_index_val[index];
+            if (prev_num == number) return;
+            m_res[prev_num].push(INT_MAX);  // Lazy deletion
+        }
+        m_res[number].push(index);
+        m_index_val[index] = number;
     }
-    m_res[number].push(index);
-    m_index_val[index] = number;
-  }
 
-  int Find(int number) {
-    while (!m_res[number].empty() &&
-           m_index_val[m_res[number].top()] != number) {
-      m_res[number].pop();
+    int Find(int number) {
+        while (!m_res[number].empty() &&
+               m_index_val[m_res[number].top()] != number) {
+            m_res[number].pop();
+        }
+        return m_res[number].empty() ? -1 : m_res[number].top();
     }
-    return m_res[number].empty() ? -1 : m_res[number].top();
-  }
 };
 
 /**

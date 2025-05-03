@@ -63,18 +63,18 @@ class Solution {
         int start = new_interval[0], end = new_interval[1];
 
         for (auto& interval : intervals) {
-          if (interval[1] < start || end < interval[0]) {
-            if (interval[1] < start) {  // push element before overlap
-              ans.push_back(interval);
-            } else {  // push element after overlap
-              ans.push_back({start, end});
-              start = interval[0];
-              end = interval[1];
+            if (interval[1] < start || end < interval[0]) {
+                if (interval[1] < start) {  // push element before overlap
+                    ans.push_back(interval);
+                } else {  // push element after overlap
+                    ans.push_back({start, end});
+                    start = interval[0];
+                    end = interval[1];
+                }
+            } else {  // merge overlap
+                start = min(start, interval[0]);
+                end = max(end, interval[1]);
             }
-          } else {  // merge overlap
-            start = min(start, interval[0]);
-            end = max(end, interval[1]);
-          }
         }
 
         ans.push_back({start, end});

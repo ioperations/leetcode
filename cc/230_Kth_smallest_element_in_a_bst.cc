@@ -31,36 +31,36 @@ class Solution {
     void Inorder(
         TreeNode* root,
         std::priority_queue<int, std::vector<int>, std::greater<>>& q) {
-      if (root == nullptr) {
-        return;
-      }
+        if (root == nullptr) {
+            return;
+        }
 
-      q.push(root->val);
-      Inorder(root->left, q);
-      Inorder(root->right, q);
+        q.push(root->val);
+        Inorder(root->left, q);
+        Inorder(root->right, q);
     }
 };
 
 TEST(Kth_smallest_element_in_a_bst, t1) {
-  std::vector<int> const root = {3, 1, 4, 2};
-  int const k = 1;
+    std::vector<int> const root = {3, 1, 4, 2};
+    int const k = 1;
 
-  TreeNode* head = Tree::ConstructTree(root);
-  Solution s;
-  int const ret = s.KthSmallest(head, k);
-  EXPECT_EQ(ret, 1);
-  Tree::FreeTreeNode(head);
+    TreeNode* head = Tree::ConstructTree(root);
+    Solution s;
+    int const ret = s.KthSmallest(head, k);
+    EXPECT_EQ(ret, 1);
+    Tree::FreeTreeNode(head);
 }
 
 TEST(Kth_smallest_element_in_a_bst, t2) {
-  std::vector<int> const root = {5, 3, 6, 2, 4, 1};
-  int const k = 3;
+    std::vector<int> const root = {5, 3, 6, 2, 4, 1};
+    int const k = 3;
 
-  TreeNode* head = Tree::ConstructTree(root);
-  Solution s;
-  int const ret = s.KthSmallest(head, k);
-  EXPECT_EQ(ret, 3);
-  Tree::FreeTreeNode(head);
+    TreeNode* head = Tree::ConstructTree(root);
+    Solution s;
+    int const ret = s.KthSmallest(head, k);
+    EXPECT_EQ(ret, 3);
+    Tree::FreeTreeNode(head);
 }
 
 }  // namespace

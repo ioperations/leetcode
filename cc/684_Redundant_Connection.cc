@@ -20,92 +20,92 @@ using namespace std;
 class Solution {
    public:
     vector<int> FindRedundantConnection(vector<vector<int>>& edges) {
-      /**
-      The problem asks us to find a redundant connection in a graph
-              formed by edges. A "redundant connection" is the edge that, when
-         added, creates a cycle. We are tasked with finding the first such
-         edge in the given list. Since the graph initially has no cycles, our
-         goal is to detect the first edge that completes a cycle.
+        /**
+        The problem asks us to find a redundant connection in a graph
+                formed by edges. A "redundant connection" is the edge that, when
+           added, creates a cycle. We are tasked with finding the first such
+           edge in the given list. Since the graph initially has no cycles, our
+           goal is to detect the first edge that completes a cycle.
 
-      To achieve this, we maintain a representation of the graph using
-         an adjacency list. We can then determine if adding a new edge forms a
-         cycle by checking if there is already a path between the two nodes of
-         that edge. If a path exists, the edge forms a cycle, and we return
-         it.
+        To achieve this, we maintain a representation of the graph using
+           an adjacency list. We can then determine if adding a new edge forms a
+           cycle by checking if there is already a path between the two nodes of
+           that edge. If a path exists, the edge forms a cycle, and we return
+           it.
 
-      - Approach
-              Graph Representation:
-              Use an unordered_map<int, vector<int>> to represent the graph as
-         an adjacency list. This data structure allows us to dynamically store
-         the connections between nodes and efficiently traverse the graph.
+        - Approach
+                Graph Representation:
+                Use an unordered_map<int, vector<int>> to represent the graph as
+           an adjacency list. This data structure allows us to dynamically store
+           the connections between nodes and efficiently traverse the graph.
 
-       - Cycle Detection Without DFS/BFS:
-              Instead of a standard DFS or BFS, implement a custom iterative
-              path-checking mechanism:
+         - Cycle Detection Without DFS/BFS:
+                Instead of a standard DFS or BFS, implement a custom iterative
+                path-checking mechanism:
 
-              Use a stack to simulate traversal starting from one node.
-              Use an unordered_set to track visited nodes during this process.
-              If the target node is found during traversal, it indicates that
-         adding the current edge would form a cycle. Processing Edges:
+                Use a stack to simulate traversal starting from one node.
+                Use an unordered_set to track visited nodes during this process.
+                If the target node is found during traversal, it indicates that
+           adding the current edge would form a cycle. Processing Edges:
 
-      - Iterate through each edge in the input.
-              Before adding an edge, check if there is already a path between
-         the two nodes using the path-checking function (isConnected). If a
-         path exists, return the current edge as it forms the first cycle. If
-         no path exists, add the edge to the graph by updating the adjacency
-         list. Termination: Once we find the first edge forming a cycle,
-         return it. Otherwise, if no cycles are detected (which won't happen
-         based on the problem constraints), return an empty result.
+        - Iterate through each edge in the input.
+                Before adding an edge, check if there is already a path between
+           the two nodes using the path-checking function (isConnected). If a
+           path exists, return the current edge as it forms the first cycle. If
+           no path exists, add the edge to the graph by updating the adjacency
+           list. Termination: Once we find the first edge forming a cycle,
+           return it. Otherwise, if no cycles are detected (which won't happen
+           based on the problem constraints), return an empty result.
 
-      - Complexity
-              Time Complexity:
+        - Complexity
+                Time Complexity:
 
-              For each edge, we check if there is a path between two nodes
-         using an iterative traversal. In the worst case, this traversal can
-         visit all nodes (O(V)), and we repeat this for each edge (O(E)).
-         Hence, the overall time complexity is (O(E+ V)), where (E) is the
-         number of edges and (V) is the number of nodes. Space Complexity:
+                For each edge, we check if there is a path between two nodes
+           using an iterative traversal. In the worst case, this traversal can
+           visit all nodes (O(V)), and we repeat this for each edge (O(E)).
+           Hence, the overall time complexity is (O(E+ V)), where (E) is the
+           number of edges and (V) is the number of nodes. Space Complexity:
 
-              The adjacency list requires (O(V + E)) space.
-              The stack and visited set for traversal require (O(V)) space
-         during path checking. Therefore, the total space complexity is (O(V +
-         E)).
-      */
-      unordered_map<int, vector<int>> graph;
+                The adjacency list requires (O(V + E)) space.
+                The stack and visited set for traversal require (O(V)) space
+           during path checking. Therefore, the total space complexity is (O(V +
+           E)).
+        */
+        unordered_map<int, vector<int>> graph;
 
-      auto is_connected = [&](int u, int v) {
-        unordered_set<int> visited;
-        stack<int> stack;
-        stack.push(u);
+        auto is_connected = [&](int u, int v) {
+            unordered_set<int> visited;
+            stack<int> stack;
+            stack.push(u);
 
-        while (!stack.empty()) {
-          int const node = stack.top();
-          stack.pop();
+            while (!stack.empty()) {
+                int const node = stack.top();
+                stack.pop();
 
-          if (visited.count(node)) continue;
-          visited.insert(node);
+                if (visited.count(node)) continue;
+                visited.insert(node);
 
-          if (node == v) return true;
+                if (node == v) return true;
 
-          for (int const neighbor : graph[node]) {
-            stack.push(neighbor);
-          }
+                for (int const neighbor : graph[node]) {
+                    stack.push(neighbor);
+                }
+            }
+            return false;
+        };
+
+        for (const auto& edge : edges) {
+            int u = edge[0], v = edge[1];
+
+            if (graph.count(u) && graph.count(v) && is_connected(u, v)) {
+                return edge;
+            }
+
+            graph[u].push_back(v);
+            graph[v].push_back(u);
         }
-        return false;
-      };
 
-      for (const auto& edge : edges) {
-        int u = edge[0], v = edge[1];
-
-        if (graph.count(u) && graph.count(v) && is_connected(u, v)) {
-          return edge;
-        }
-
-        graph[u].push_back(v);
-        graph[v].push_back(u);
-      }
-
-      return {};
+        return {};
     }
 };
 

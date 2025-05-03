@@ -46,20 +46,20 @@ void InorderLeft(TreeNode* root, std::vector<int>& vec) {
 }
 
 TEST(convert_sorted_array_to_binary_tree, t1) {
-  std::set<std::vector<int>> const expected{{-10, -3, 0, 5, 9},
-                                            {0, -10, 5, -3, 9}};
-  // Explanation: [0,-10,5,null,-3,null,9] is also accepted:
+    std::set<std::vector<int>> const expected{{-10, -3, 0, 5, 9},
+                                              {0, -10, 5, -3, 9}};
+    // Explanation: [0,-10,5,null,-3,null,9] is also accepted:
 
-  Solution sl;
-  std::vector<int> v{-10, -3, 0, 5, 9};
-  TreeNode* root = sl.SortedArrayToBst(v);
+    Solution sl;
+    std::vector<int> v{-10, -3, 0, 5, 9};
+    TreeNode* root = sl.SortedArrayToBst(v);
 
-  std::vector<int> visit;
+    std::vector<int> visit;
 
-  InorderLeft(root, visit);
-  EXPECT_TRUE(expected.count(visit) != 0);
+    InorderLeft(root, visit);
+    EXPECT_TRUE(expected.count(visit) != 0);
 
-  Tree::FreeTreeNode(root);
+    Tree::FreeTreeNode(root);
 }
 
 }  // namespace

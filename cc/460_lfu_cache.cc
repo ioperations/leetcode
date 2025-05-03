@@ -44,70 +44,70 @@ class LFUCacheImpl {
         : m_min_freq(1), m_capacity(m_capacity) {}
 
     void Put(const K& key, const V& value) {
-      if (m_key_table.find(key) != m_key_table.end()) {
-        auto node = m_key_table[key];
-        int freq = node->m_freq;
-        m_freq_table[freq].erase(node);
-        if (m_freq_table[freq].size() == 0) {
-          m_freq_table.erase(freq);
-          if (freq == m_min_freq) ++m_min_freq;
-        }
+        if (m_key_table.find(key) != m_key_table.end()) {
+            auto node = m_key_table[key];
+            int freq = node->m_freq;
+            m_freq_table[freq].erase(node);
+            if (m_freq_table[freq].size() == 0) {
+                m_freq_table.erase(freq);
+                if (freq == m_min_freq) ++m_min_freq;
+            }
 
-        freq++;
-        Node const tmp(key, value, freq);
-        m_freq_table[freq].push_front(tmp);
-        m_key_table[key] = m_freq_table[freq].begin();
-      } else {
-        if (m_key_table.size() == m_capacity) {
-          // 提前判断缓存是否会溢出，一是顺序合理，二是防止缓存刚插入(freq
-          // = 1)就被去掉
-          m_key_table.erase(m_freq_table[m_min_freq].back().m_key);
-          m_freq_table[m_min_freq].pop_back();
-          if (m_freq_table[m_min_freq].size() == 0) {
-            m_freq_table.erase(m_min_freq);
-          }
+            freq++;
+            Node const tmp(key, value, freq);
+            m_freq_table[freq].push_front(tmp);
+            m_key_table[key] = m_freq_table[freq].begin();
+        } else {
+            if (m_key_table.size() == m_capacity) {
+                // 提前判断缓存是否会溢出，一是顺序合理，二是防止缓存刚插入(freq
+                // = 1)就被去掉
+                m_key_table.erase(m_freq_table[m_min_freq].back().m_key);
+                m_freq_table[m_min_freq].pop_back();
+                if (m_freq_table[m_min_freq].size() == 0) {
+                    m_freq_table.erase(m_min_freq);
+                }
+            }
+            m_min_freq = 1;  // 既然插入了新元素那么minFreq自然就回归1了
+            m_freq_table[1].push_front(Node(key, value, 1));
+            m_key_table[key] = m_freq_table[1].begin();
         }
-        m_min_freq = 1;  // 既然插入了新元素那么minFreq自然就回归1了
-        m_freq_table[1].push_front(Node(key, value, 1));
-        m_key_table[key] = m_freq_table[1].begin();
-      }
     }
 
     std::optional<V> Get(const K& key) {
-      if (m_key_table.find(key) != m_key_table.end()) {
-        auto node = m_key_table[key];
-        int freq = node->m_freq;
-        V val = node->m_val;
-        m_freq_table[freq].erase(node);
-        if (m_freq_table[freq].size() == 0) {
-          // 如果当前频率的list空了，则要删除当前list并且判断是否需要更新minFreq
-          m_freq_table.erase(freq);
-          if (freq == m_min_freq) ++m_min_freq;
+        if (m_key_table.find(key) != m_key_table.end()) {
+            auto node = m_key_table[key];
+            int freq = node->m_freq;
+            V val = node->m_val;
+            m_freq_table[freq].erase(node);
+            if (m_freq_table[freq].size() == 0) {
+                // 如果当前频率的list空了，则要删除当前list并且判断是否需要更新minFreq
+                m_freq_table.erase(freq);
+                if (freq == m_min_freq) ++m_min_freq;
+            }
+            ++freq;
+            Node const tmp(key, val, freq);
+            m_freq_table[freq].push_front(tmp);
+            m_key_table[key] = m_freq_table[freq].begin();
+            return val;
         }
-        ++freq;
-        Node const tmp(key, val, freq);
-        m_freq_table[freq].push_front(tmp);
-        m_key_table[key] = m_freq_table[freq].begin();
-        return val;
-      }
         return std::optional<V>();
     }
 
     void Print() {  // 打印检查
-      for (auto it = m_key_table.begin(); it != m_key_table.end(); ++it) {
-        std::cout << it->second->key << " " << m_min_freq << " "
-                  << it->second->freq << std::endl;
-      }
+        for (auto it = m_key_table.begin(); it != m_key_table.end(); ++it) {
+            std::cout << it->second->key << " " << m_min_freq << " "
+                      << it->second->freq << std::endl;
+        }
     }
 
    private:
     struct Node {
-      int m_freq;
-      K m_key;
-      V m_val;
-      Node() : m_freq(0), m_key(K()), m_val(V()) {};
-      Node(const K& m_key, V m_val, int m_freq)
-          : m_freq(m_freq), m_key(m_key), m_val(std::move(m_val)) {};
+        int m_freq;
+        K m_key;
+        V m_val;
+        Node() : m_freq(0), m_key(K()), m_val(V()) {};
+        Node(const K& m_key, V m_val, int m_freq)
+            : m_freq(m_freq), m_key(m_key), m_val(std::move(m_val)) {};
     };
     constexpr static int default_capacity = 50;
     unordered_map<K, typename list<Node>::iterator> m_key_table;  // 键值是key
@@ -118,12 +118,12 @@ class LFUCacheImpl {
 
 template <typename K, typename V>
 class LFUCache {
-  LFUCache(int cap) : m_impl(cap) {}
-  void Put(const K& key, const int& value) { m_impl.Put(key, value); }
-  std::optional<V> Get(const K& key) { return m_impl.Get(key); }
+    LFUCache(int cap) : m_impl(cap) {}
+    void Put(const K& key, const int& value) { m_impl.Put(key, value); }
+    std::optional<V> Get(const K& key) { return m_impl.Get(key); }
 
- private:
-  LFUCacheImpl<K, V> m_impl;
+   private:
+    LFUCacheImpl<K, V> m_impl;
 };
 
 template <typename K>
@@ -132,9 +132,9 @@ class LFUCache<K, int> {
     LFUCache(int cap) : m_impl(cap) {}
     void Put(const K& key, const int& value) { m_impl.Put(key, value); }
     int Get(const K& key) {
-      auto ret = m_impl.Get(key);
-      if (!ret) {
-        return -1;
+        auto ret = m_impl.Get(key);
+        if (!ret) {
+            return -1;
         }
         return *ret;
     }

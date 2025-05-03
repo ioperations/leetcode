@@ -50,26 +50,26 @@ class Solution {
         return fun(0, (int)(card_points.size() - 1), k);
     }
     int MaxScoreV2(vector<int>& card_points, int k) {
-      long long const sum =
-          accumulate(card_points.begin(), card_points.end(), 0LL);
+        long long const sum =
+            accumulate(card_points.begin(), card_points.end(), 0LL);
 
-      int ans = 0;
-      int const n = card_points.size();
-      int const window_size = n - k;
-      int l = 0;
-      int r = 0;
-      long long window_sum = 0;
+        int ans = 0;
+        int const n = card_points.size();
+        int const window_size = n - k;
+        int l = 0;
+        int r = 0;
+        long long window_sum = 0;
 
-      while (r < n) {
-        int const right = card_points[r++];
-        window_sum += right;
-        while (r - l > window_size) {
-          int const left = card_points[l++];
-          window_sum -= left;
-        }
-        if (r - l == window_size) {
-          ans = max(ans, (int)(sum - window_sum));
-        }
+        while (r < n) {
+            int const right = card_points[r++];
+            window_sum += right;
+            while (r - l > window_size) {
+                int const left = card_points[l++];
+                window_sum -= left;
+            }
+            if (r - l == window_size) {
+                ans = max(ans, (int)(sum - window_sum));
+            }
         }
         return ans;
     }

@@ -29,25 +29,25 @@ class Solution {
     vector<vector<int>> m_res;
 
     vector<vector<int>> PermuteUniqueV1(vector<int>& nums) {
-      m_res = vector<vector<int>>();
-      sort(nums.begin(), nums.end());
-      vector<int> cur;
-      Helper(nums, cur, 0);
-      return m_res;
+        m_res = vector<vector<int>>();
+        sort(nums.begin(), nums.end());
+        vector<int> cur;
+        Helper(nums, cur, 0);
+        return m_res;
     }
 
     void Helper(const vector<int>& nums, vector<int>& perm, int v) {
-      if (perm.size() == nums.size()) return m_res.push_back(perm);
+        if (perm.size() == nums.size()) return m_res.push_back(perm);
 
-      int popped = INT_MIN;
+        int popped = INT_MIN;
 
-      for (int i = 0; i < (int)nums.size(); i++) {
-        auto a = nums[i];
-        if ((v >> i & 1) || a == popped) continue;
-        perm.push_back(a);
-        Helper(nums, perm, v | (1 << i));
-        popped = a;
-        perm.pop_back();
+        for (int i = 0; i < (int)nums.size(); i++) {
+            auto a = nums[i];
+            if ((v >> i & 1) || a == popped) continue;
+            perm.push_back(a);
+            Helper(nums, perm, v | (1 << i));
+            popped = a;
+            perm.pop_back();
         }
     }
 };

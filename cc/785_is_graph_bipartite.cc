@@ -29,17 +29,17 @@ class Solution {
    public:
     vector<int> m_vis, m_col;
     bool Dfs(int v, int c, vector<vector<int>>& graph) {
-      m_vis[v] = 1;
-      m_col[v] = c;
-      for (int const child : graph[v]) {
-        if (m_vis[child] == 0) {
-          // here c^1 is for flipping 1 by 0 or 0 by 1, that is flip the
-          // current color
-          if (Dfs(child, c ^ 1, graph) == false) return false;
-        } else {
-          if (m_col[v] == m_col[child]) return false;
+        m_vis[v] = 1;
+        m_col[v] = c;
+        for (int const child : graph[v]) {
+            if (m_vis[child] == 0) {
+                // here c^1 is for flipping 1 by 0 or 0 by 1, that is flip the
+                // current color
+                if (Dfs(child, c ^ 1, graph) == false) return false;
+            } else {
+                if (m_col[v] == m_col[child]) return false;
+            }
         }
-      }
         return true;
     }
 
@@ -62,9 +62,9 @@ class Solution {
         m_col.resize(n);
 
         for (int i = 0; i < n; ++i) {
-          if (m_vis[i] == 0 && Dfs(i, 0, graph) == false) {
-            return false;
-          }
+            if (m_vis[i] == 0 && Dfs(i, 0, graph) == false) {
+                return false;
+            }
         }
 
         return true;

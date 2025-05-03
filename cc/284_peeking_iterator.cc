@@ -29,30 +29,31 @@ using namespace std;
 
 namespace {
 class Iterator {
-  const std::vector<int>& m_nums;
-  int size;
-  int i;
+    const std::vector<int>& m_nums;
+    int size;
+    int i;
 
- public:
-  Iterator(const vector<int>& nums) : m_nums(nums), size(nums.size()), i(-1) {}
+   public:
+    Iterator(const vector<int>& nums)
+        : m_nums(nums), size(nums.size()), i(-1) {}
 
-  Iterator(const Iterator& iter)
-      : m_nums(iter.m_nums), size(iter.size), i(iter.i) {
+    Iterator(const Iterator& iter)
+        : m_nums(iter.m_nums), size(iter.size), i(iter.i) {
 
-        };
+          };
 
-  // Returns the next element in the iteration.
-  int next() {
-    if (!hasNext()) {
-      return -1;
-    }
-    i++;
-    return m_nums[i];
+    // Returns the next element in the iteration.
+    int next() {
+        if (!hasNext()) {
+            return -1;
+        }
+        i++;
+        return m_nums[i];
     };
 
     // Returns true if the iteration has more elements.
     [[nodiscard]] bool hasNext() const {
-      return 0 <= (i + 1) && (i + 1) < size;
+        return 0 <= (i + 1) && (i + 1) < size;
     };
 };
 
@@ -62,9 +63,9 @@ class PeekingIterator : public Iterator {
    public:
     PeekingIterator(const vector<int>& nums)
         : Iterator(nums), next_val(Iterator::next()) {
-      // Initialize any member here.
-      // **DO NOT** save a copy of nums and manipulate it directly.
-      // You should only use the Iterator interface methods.
+        // Initialize any member here.
+        // **DO NOT** save a copy of nums and manipulate it directly.
+        // You should only use the Iterator interface methods.
     }
 
     // Returns the next element in the iteration without advancing the iterator.
@@ -73,12 +74,12 @@ class PeekingIterator : public Iterator {
     // hasNext() and next() should behave the same as in the Iterator interface.
     // Override them if needed.
     int next() {
-      int const temp = next_val;
-      if (Iterator::hasNext())
-        next_val = Iterator::next();
-      else
-        next_val = 0;
-      return temp;
+        int const temp = next_val;
+        if (Iterator::hasNext())
+            next_val = Iterator::next();
+        else
+            next_val = 0;
+        return temp;
     }
 
     [[nodiscard]] bool hasNext() const { return (next_val != 0); }

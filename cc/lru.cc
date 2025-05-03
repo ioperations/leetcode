@@ -23,7 +23,7 @@ class Optional {
     }
     bool operator==(const int v) const {
         if (has_value) {
-          return m_value == v;
+            return m_value == v;
         }
         return false;
     }
@@ -38,10 +38,10 @@ class LRUCache final {
    public:
     LRUCache(int capability)
         : head(new Node()), tail(new Node()), m_capability(capability) {
-      head->m_next = tail;
-      tail->m_pre = head;
-      head->m_pre = nullptr;
-      tail->m_next = nullptr;
+        head->m_next = tail;
+        tail->m_pre = head;
+        head->m_pre = nullptr;
+        tail->m_next = nullptr;
     }
 
     ~LRUCache() {
@@ -54,60 +54,60 @@ class LRUCache final {
     }
 
     Optional<V> Get(const K& key) {
-      if (m_map.find(key) != m_map.end()) {
-        DelNode(m_map[key]);
-        AddToFirstNode(m_map[key]);
-        return m_map[key]->m_value;
-      }
+        if (m_map.find(key) != m_map.end()) {
+            DelNode(m_map[key]);
+            AddToFirstNode(m_map[key]);
+            return m_map[key]->m_value;
+        }
         return Optional<V>();
     }
 
     void Set(const K& key, const V& value) {
-      if (m_map.find(key) != m_map.end()) {
-        m_map[key]->m_value = value;
-        DelNode(m_map[key]);
-        AddToFirstNode((m_map[key]));
-      } else {
-        Node* p = new Node();
-        p->m_key = key;
-        p->m_value = value;
+        if (m_map.find(key) != m_map.end()) {
+            m_map[key]->m_value = value;
+            DelNode(m_map[key]);
+            AddToFirstNode((m_map[key]));
+        } else {
+            Node* p = new Node();
+            p->m_key = key;
+            p->m_value = value;
 
-        m_map[key] = p;
-        AddToFirstNode(p);
-        if (m_map.size() > m_capability) {
-          DelLastNode();
+            m_map[key] = p;
+            AddToFirstNode(p);
+            if (m_map.size() > m_capability) {
+                DelLastNode();
+            }
         }
-      }
     }
 
    private:
     struct Node {
-      K m_key;
-      V m_value;
-      Node* m_pre;
-      Node* m_next;
+        K m_key;
+        V m_value;
+        Node* m_pre;
+        Node* m_next;
     };
 
     void AddToFirstNode(Node* node) {
-      head->m_next->m_pre = node;
-      node->m_pre = head;
-      node->m_next = head->m_next;
-      head->m_next = node;
+        head->m_next->m_pre = node;
+        node->m_pre = head;
+        node->m_next = head->m_next;
+        head->m_next = node;
     }
 
     void DelNode(Node* node) {
-      node->m_pre->m_next = node->m_next;
-      node->m_next->m_pre = node->m_pre;
+        node->m_pre->m_next = node->m_next;
+        node->m_next->m_pre = node->m_pre;
     }
 
     void DelLastNode() {
-      Node* p = tail->m_pre;
+        Node* p = tail->m_pre;
 
-      tail->m_pre = p->m_pre;
-      p->m_pre->m_next = tail;
+        tail->m_pre = p->m_pre;
+        p->m_pre->m_next = tail;
 
-      m_map.erase(p->m_key);
-      delete p;
+        m_map.erase(p->m_key);
+        delete p;
     }
 
     Node* head;

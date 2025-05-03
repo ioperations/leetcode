@@ -16,19 +16,19 @@ namespace {
 class Solution {
    public:
     int SumSubarrayMins(vector<int>& arr) {
-      int const size = arr.size();
-      vector<int> nextsmaller(size, size);
-      vector<int> prevsmaller(size, -1);
+        int const size = arr.size();
+        vector<int> nextsmaller(size, size);
+        vector<int> prevsmaller(size, -1);
 
-      stack<int> stack;
+        stack<int> stack;
 
-      // calculating the nextsmaller index
-      for (int i = 0; i < size; i++) {
-        while (stack.size() && arr[stack.top()] > arr[i]) {
-          nextsmaller[stack.top()] = i;
-          stack.pop();
-        }
-        stack.push(i);
+        // calculating the nextsmaller index
+        for (int i = 0; i < size; i++) {
+            while (stack.size() && arr[stack.top()] > arr[i]) {
+                nextsmaller[stack.top()] = i;
+                stack.pop();
+            }
+            stack.push(i);
         }
 
         // clear the stack;

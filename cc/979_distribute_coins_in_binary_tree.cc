@@ -55,28 +55,28 @@ class Solution {
 using namespace std;
 
 TEST(distribute_coins_in_binary_tree, t1) {
-  std::vector<optional<int>> const v{3, 0, 0};
-  auto* root = ConstructBinaryTree(v);
-  int const out = 2;
-  Solution sl;
-  // From the root of the tree, we move one coin to its left child, and one
-  // coin to its right child.
-  int const ret = sl.DistributeCoins(root);
-  EXPECT_EQ(ret, out);
-  FreeTreeNode(root);
+    std::vector<optional<int>> const v{3, 0, 0};
+    auto* root = ConstructBinaryTree(v);
+    int const out = 2;
+    Solution sl;
+    // From the root of the tree, we move one coin to its left child, and one
+    // coin to its right child.
+    int const ret = sl.DistributeCoins(root);
+    EXPECT_EQ(ret, out);
+    FreeTreeNode(root);
 }
 
 TEST(distribute_coins_in_binary_tree, t2) {
-  std::vector<optional<int>> const v{0, 3, 0};
-  auto* root = ConstructBinaryTree(v);
-  // From the left child of the root, we move two coins to the root [taking
-  // two moves]. Then, we move one coin from the root of the tree to the right
-  // child.
-  int const out = 3;
-  Solution sl;
-  int const ret = sl.DistributeCoins(root);
-  EXPECT_EQ(ret, out);
-  FreeTreeNode(root);
+    std::vector<optional<int>> const v{0, 3, 0};
+    auto* root = ConstructBinaryTree(v);
+    // From the left child of the root, we move two coins to the root [taking
+    // two moves]. Then, we move one coin from the root of the tree to the right
+    // child.
+    int const out = 3;
+    Solution sl;
+    int const ret = sl.DistributeCoins(root);
+    EXPECT_EQ(ret, out);
+    FreeTreeNode(root);
 }
 
 }  // namespace

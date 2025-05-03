@@ -31,7 +31,7 @@ class Solution {
 
         int move = 0;
         for (int const x : nums) {
-          move += abs(x - mid);
+            move += abs(x - mid);
         }
         return move;
     }

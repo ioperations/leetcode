@@ -33,19 +33,19 @@ class Solution {
         return m_sols;
     }
     bool IsSafe(vector<string>& board, int row, int col) {
-      int const n = size(board);
-      for (int i = 0; i < n; i++) {
-        // checking if there is a queen in the same column
-        if (board[i][col] == 'Q') return false;
-        // checking if there is a queen in the same diagonal (left to right)
-        if (row - i >= 0 && col - i >= 0 && board[row - i][col - i] == 'Q')
-          return false;
-        if (row - i >= 0 && col + i < n && board[row - i][col + i] == 'Q')
-          return false;
-        if (row + i < n && col - i >= 0 && board[row + i][col - i] == 'Q')
-          return false;
-        if (row + i < n && col + i < n && board[row + i][col + i] == 'Q')
-          return false;
+        int const n = size(board);
+        for (int i = 0; i < n; i++) {
+            // checking if there is a queen in the same column
+            if (board[i][col] == 'Q') return false;
+            // checking if there is a queen in the same diagonal (left to right)
+            if (row - i >= 0 && col - i >= 0 && board[row - i][col - i] == 'Q')
+                return false;
+            if (row - i >= 0 && col + i < n && board[row - i][col + i] == 'Q')
+                return false;
+            if (row + i < n && col - i >= 0 && board[row + i][col - i] == 'Q')
+                return false;
+            if (row + i < n && col + i < n && board[row + i][col + i] == 'Q')
+                return false;
         }
         return true;
     }
@@ -56,8 +56,8 @@ class Solution {
         // We reached the last row, so we have a solution so we add it to the
         // solution vector
         if (row == (int)size(board)) {
-          m_sols.push_back(board);
-          return;
+            m_sols.push_back(board);
+            return;
         }
         // Try placing a queen on each column for a given row.
         // Explore next row by placing Q at each valid column for the current

@@ -19,38 +19,38 @@ using namespace std;
 
 namespace {
 class Solution {
-  std::map<char, int> m_map;
+    std::map<char, int> m_map;
 
- public:
-  bool IsAlienSorted(vector<string>& words, string order) {
-    int i = 0;
-    for (auto& ptr : order) {
-      m_map[ptr] = i;
-      i++;
-    }
-
-    int const size = words.size();
-    for (int i = 0; i < size; i++) {
-      for (int j = i + 1; j < size; j++) {
-        if (Greather(words[i], words[j])) {
-          return false;
+   public:
+    bool IsAlienSorted(vector<string>& words, string order) {
+        int i = 0;
+        for (auto& ptr : order) {
+            m_map[ptr] = i;
+            i++;
         }
-      }
-    }
 
-    return true;
+        int const size = words.size();
+        for (int i = 0; i < size; i++) {
+            for (int j = i + 1; j < size; j++) {
+                if (Greather(words[i], words[j])) {
+                    return false;
+                }
+            }
+        }
+
+        return true;
     }
 
     bool Greather(string& a, string& b) {
-      int const size_a = a.size();
-      int const size_b = b.size();
-      for (int i = 0; i < size_a && i < size_b; i++) {
-        if (m_map[a[i]] > m_map[b[i]]) {
-          return true;
-        }
-        if (m_map[a[i]] < m_map[b[i]]) {
-          return false;
-        }
+        int const size_a = a.size();
+        int const size_b = b.size();
+        for (int i = 0; i < size_a && i < size_b; i++) {
+            if (m_map[a[i]] > m_map[b[i]]) {
+                return true;
+            }
+            if (m_map[a[i]] < m_map[b[i]]) {
+                return false;
+            }
         }
         return size_a > size_b;
     }

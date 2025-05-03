@@ -21,60 +21,60 @@ using namespace std;
 
 namespace {
 class Solution {
-  set<pair<int, int>> m_visited;
+    set<pair<int, int>> m_visited;
 
- public:
-  Solution() = default;
-  int MaxAreaOfIslandV1(vector<vector<int>>& grid) {
-    // 行
-    const int column = grid.size();
-    assert(column > 0 && "the pre condition");
-    // 列
-    const int row = grid[0].size();
+   public:
+    Solution() = default;
+    int MaxAreaOfIslandV1(vector<vector<int>>& grid) {
+        // 行
+        const int column = grid.size();
+        assert(column > 0 && "the pre condition");
+        // 列
+        const int row = grid[0].size();
 
-    const int ret = 0;
-    const vector<vector<int>> dir = {{-1, 0}, {1, 0}, {0, 1}, {0, -1}};
-    for (int i = 0; i < column; i++) {
-      for (int j = 0; j < row; j++) {
-        auto pair = make_pair(i, j);
+        const int ret = 0;
+        const vector<vector<int>> dir = {{-1, 0}, {1, 0}, {0, 1}, {0, -1}};
+        for (int i = 0; i < column; i++) {
+            for (int j = 0; j < row; j++) {
+                auto pair = make_pair(i, j);
 
-        if (m_visited.count(pair)) {
-          // pass
+                if (m_visited.count(pair)) {
+                    // pass
+                }
+                m_visited.emplace(pair);
+            }
         }
-        m_visited.emplace(pair);
-      }
-    }
-    return ret;
+        return ret;
     }
 
     int m_m{}, m_n{};
     void Dfs(int i, int j, vector<vector<int>>& grid, int& count) {
-      if (i < 0 || j < 0 || i >= m_m || j >= m_n || grid[i][j] == 0 ||
-          grid[i][j] == 2)
-        return;
-      grid[i][j] = 2;
-      count++;  // sare direction me jao jiske just me 1 ho .. utna hi baar
-                // count bhi increase kro jeetne milenge aur 1 aaspass ke sare
-                // 1 ko 2 bna do jis se agli baar yeh nai mile
-      Dfs(i - 1, j, grid, count);
-      Dfs(i + 1, j, grid, count);
-      Dfs(i, j + 1, grid, count);
-      Dfs(i, j - 1, grid, count);
+        if (i < 0 || j < 0 || i >= m_m || j >= m_n || grid[i][j] == 0 ||
+            grid[i][j] == 2)
+            return;
+        grid[i][j] = 2;
+        count++;  // sare direction me jao jiske just me 1 ho .. utna hi baar
+                  // count bhi increase kro jeetne milenge aur 1 aaspass ke sare
+                  // 1 ko 2 bna do jis se agli baar yeh nai mile
+        Dfs(i - 1, j, grid, count);
+        Dfs(i + 1, j, grid, count);
+        Dfs(i, j + 1, grid, count);
+        Dfs(i, j - 1, grid, count);
     }
     int MaxAreaOfIslandV2(vector<vector<int>>& grid) {
-      m_m = grid.size();
-      m_n = grid[0].size();
+        m_m = grid.size();
+        m_n = grid[0].size();
 
-      int count = 0;
-      int ans = 0;
-      for (int i = 0; i < m_m; i++)
-        for (int j = 0; j < m_n; j++) {
-          if (grid[i][j] == 1) {
-            Dfs(i, j, grid, count);
-            ans = max(ans, count);
-            count = 0;
-          }
-        }
+        int count = 0;
+        int ans = 0;
+        for (int i = 0; i < m_m; i++)
+            for (int j = 0; j < m_n; j++) {
+                if (grid[i][j] == 1) {
+                    Dfs(i, j, grid, count);
+                    ans = max(ans, count);
+                    count = 0;
+                }
+            }
         return ans;
     }
     int Mark(vector<vector<int>>& grid, int x, int y, int m, int n) {

@@ -69,41 +69,41 @@ class Solution {
             if (i < (m - 1)) {
                 // 向下走
                 if (direction_t != 1) {
-                  int const z = fun(i + 1, j, -1);
-                  if (z != candidate1) {
-                    candidate1 =
-                        std::max(abs(heights[i + 1][j] - heights[i][j]), z);
+                    int const z = fun(i + 1, j, -1);
+                    if (z != candidate1) {
+                        candidate1 =
+                            std::max(abs(heights[i + 1][j] - heights[i][j]), z);
                     }
                 }
             }
             if (i > 1) {
                 // 向上走
                 if (direction_t != -1) {
-                  int const z = fun(i - 1, j, 1);
-                  if (z != candidate2) {
-                    candidate2 =
-                        std::max(abs(heights[i - 1][j] - heights[i][j]), z);
+                    int const z = fun(i - 1, j, 1);
+                    if (z != candidate2) {
+                        candidate2 =
+                            std::max(abs(heights[i - 1][j] - heights[i][j]), z);
                     }
                 }
             }
             if (j < (n - 1)) {
                 // 向右走
                 if (direction_t != -2) {
-                  int const z = fun(i, j + 1, 2);
-                  if (z != candidate3) {
-                    candidate3 =
-                        std::max(abs(heights[i][j + 1] - heights[i][j]),
-                                 fun(i, j + 1, 2));
+                    int const z = fun(i, j + 1, 2);
+                    if (z != candidate3) {
+                        candidate3 =
+                            std::max(abs(heights[i][j + 1] - heights[i][j]),
+                                     fun(i, j + 1, 2));
                     }
                 }
             }
             if (j > 1) {
                 // 向左走
                 if (direction_t != 2) {
-                  int const z = fun(i, j - 1, -2);
-                  if (z != candidate4) {
-                    candidate4 =
-                        std::max(abs(heights[i][j - 1] - heights[i][j]), z);
+                    int const z = fun(i, j - 1, -2);
+                    if (z != candidate4) {
+                        candidate4 =
+                            std::max(abs(heights[i][j - 1] - heights[i][j]), z);
                     }
                 }
             }
@@ -124,16 +124,16 @@ class Solution {
     }
 
     int MinimumEffortPathV2(vector<vector<int>>& heights) {
-      int const m = heights.size();
-      int const n = heights[0].size();
+        int const m = heights.size();
+        int const n = heights[0].size();
 
-      vector<vector<int>> dp(m + 1, vector<int>(n + 1, 0));
-      // int dp[m + 1][n + 1];
+        vector<vector<int>> dp(m + 1, vector<int>(n + 1, 0));
+        // int dp[m + 1][n + 1];
 
-      for (int i = 0; i < m; i++) {
-        for (int j = 0; j < n; j++) {
-          dp[i][j] = std::numeric_limits<int>::max();
-        }
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                dp[i][j] = std::numeric_limits<int>::max();
+            }
         }
         dp[0][0] = 0;
 

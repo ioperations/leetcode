@@ -18,19 +18,19 @@ namespace {
 class Solution {
    public:
     int NthSuperUglyNumber(int n, vector<int>& primes) {
-      int const n2 = primes.size();
-      vector<int> dp(n2, 0);
-      vector<long long> ans{1};
+        int const n2 = primes.size();
+        vector<int> dp(n2, 0);
+        vector<long long> ans{1};
 
-      while ((int)ans.size() < n) {
-        int mn = 0;
-        for (int i = 0; i < n2; i++)
-          if (ans[dp[i]] * primes[i] < ans[dp[mn]] * primes[mn]) mn = i;
+        while ((int)ans.size() < n) {
+            int mn = 0;
+            for (int i = 0; i < n2; i++)
+                if (ans[dp[i]] * primes[i] < ans[dp[mn]] * primes[mn]) mn = i;
 
-        ans.push_back(ans[dp[mn]] * primes[mn]);
+            ans.push_back(ans[dp[mn]] * primes[mn]);
 
-        for (int i = 0; i < n2; i++)
-          if (ans.back() == ans[dp[i]] * primes[i]) dp[i]++;
+            for (int i = 0; i < n2; i++)
+                if (ans.back() == ans[dp[i]] * primes[i]) dp[i]++;
         }
 
         return ans[n - 1];
@@ -38,25 +38,25 @@ class Solution {
 };
 
 TEST(super_ugly_number, t1) {
-  int const n = 12;
-  vector<int> primes = {2, 7, 13, 19};
-  int const output = 32;
-  // Explanation: [1,2,4,7,8,13,14,16,19,26,28,32] is the sequence of the
-  // first 12 super ugly numbers given primes = [2,7,13,19].
-  Solution sl;
-  int const ret = sl.NthSuperUglyNumber(n, primes);
-  EXPECT_EQ(ret, output);
+    int const n = 12;
+    vector<int> primes = {2, 7, 13, 19};
+    int const output = 32;
+    // Explanation: [1,2,4,7,8,13,14,16,19,26,28,32] is the sequence of the
+    // first 12 super ugly numbers given primes = [2,7,13,19].
+    Solution sl;
+    int const ret = sl.NthSuperUglyNumber(n, primes);
+    EXPECT_EQ(ret, output);
 }
 
 TEST(super_ugly_number, t2) {
-  int const n = 1;
-  vector<int> primes = {2, 3, 5};
-  int const output = 1;
-  // 1 has no prime factors, therefore all of its prime factors are in the
-  // array primes = [2,3,5]
-  Solution sl;
-  int const ret = sl.NthSuperUglyNumber(n, primes);
-  EXPECT_EQ(ret, output);
+    int const n = 1;
+    vector<int> primes = {2, 3, 5};
+    int const output = 1;
+    // 1 has no prime factors, therefore all of its prime factors are in the
+    // array primes = [2,3,5]
+    Solution sl;
+    int const ret = sl.NthSuperUglyNumber(n, primes);
+    EXPECT_EQ(ret, output);
 }
 
 }  // namespace

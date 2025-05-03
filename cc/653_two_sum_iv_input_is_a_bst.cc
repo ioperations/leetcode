@@ -50,11 +50,11 @@ class Solution {
         set<int> st;
 
         for (int i : in) {
-          int const target = k - i;
-          if (st.find(target) != st.end()) {
-            return true;
-          }
-          st.insert(i);
+            int const target = k - i;
+            if (st.find(target) != st.end()) {
+                return true;
+            }
+            st.insert(i);
         }
 
         return false;
@@ -66,25 +66,25 @@ using namespace std;
 #define null optional<int>()
 
 TEST(two_sum_iv_input_is_a_bst, t1) {
-  vector<optional<int>> const root = {5, 3, 6, 2, 4, null, 7};
-  int const k = 9;
-  bool const output = true;
-  auto* node = ConstructBinaryTree(root);
-  Solution sl;
-  bool const ret = sl.FindTarget(node, k);
-  EXPECT_EQ(ret, output);
-  FreeTreeNode(node);
+    vector<optional<int>> const root = {5, 3, 6, 2, 4, null, 7};
+    int const k = 9;
+    bool const output = true;
+    auto* node = ConstructBinaryTree(root);
+    Solution sl;
+    bool const ret = sl.FindTarget(node, k);
+    EXPECT_EQ(ret, output);
+    FreeTreeNode(node);
 }
 
 TEST(two_sum_iv_input_is_a_bst, t2) {
-  vector<optional<int>> const root = {5, 3, 6, 2, 4, null, 7};
-  int const k = 28;
-  bool const output = false;
-  auto* node = ConstructBinaryTree(root);
-  Solution sl;
-  bool const ret = sl.FindTarget(node, k);
-  EXPECT_EQ(ret, output);
-  FreeTreeNode(node);
+    vector<optional<int>> const root = {5, 3, 6, 2, 4, null, 7};
+    int const k = 28;
+    bool const output = false;
+    auto* node = ConstructBinaryTree(root);
+    Solution sl;
+    bool const ret = sl.FindTarget(node, k);
+    EXPECT_EQ(ret, output);
+    FreeTreeNode(node);
 }
 
 }  // namespace

@@ -14,17 +14,17 @@ using namespace std;
 class Solution {
    public:
     bool DivideArray(vector<int>& nums) {
-      /* nums.length == 2 * n
-       * 1 <= n <= 500
-       * 1 <= nums[i] <= 500
-       */
-      unordered_map<int, int> v;
-      for (auto& p : nums) {
-        v[p]++;
-      }
+        /* nums.length == 2 * n
+         * 1 <= n <= 500
+         * 1 <= nums[i] <= 500
+         */
+        unordered_map<int, int> v;
+        for (auto& p : nums) {
+            v[p]++;
+        }
 
-      return !any_of(v.begin(), v.end(),
-                     [](auto& v) { return v.second % 2 == 1; });
+        return !any_of(v.begin(), v.end(),
+                       [](auto& v) { return v.second % 2 == 1; });
     }
 };
 

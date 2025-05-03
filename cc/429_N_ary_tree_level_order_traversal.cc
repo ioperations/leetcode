@@ -36,8 +36,8 @@ class Solution {
         if (root == nullptr) return ret;
 
         struct Status {
-          Node* m_n;
-          int m_level;
+            Node* m_n;
+            int m_level;
         };
 
         queue<Status> q;
@@ -49,15 +49,15 @@ class Solution {
         while (q.size()) {
             const Status tmp = q.front();
             if (tmp.m_level == cur_level) {
-              tmp_vec.push_back(tmp.m_n->m_val);
+                tmp_vec.push_back(tmp.m_n->m_val);
             } else {
-              ret.push_back(tmp_vec);
-              tmp_vec.clear();
-              tmp_vec.push_back(tmp.m_n->m_val);
-              cur_level++;
+                ret.push_back(tmp_vec);
+                tmp_vec.clear();
+                tmp_vec.push_back(tmp.m_n->m_val);
+                cur_level++;
             }
             for (auto& ptr : tmp.m_n->m_children) {
-              q.push({ptr, cur_level + 1});
+                q.push({ptr, cur_level + 1});
             }
             q.pop();
         }

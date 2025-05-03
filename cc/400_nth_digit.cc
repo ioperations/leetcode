@@ -38,46 +38,46 @@ _________________________________________________________________
 */
 
 TEST(nth_digit, t1) {
-  int const n = 3;
+    int const n = 3;
 
-  int const output = 3;
-  Solution sl;
-  int const ret = sl.FindNthDigit(n);
-  EXPECT_EQ(ret, output);
+    int const output = 3;
+    Solution sl;
+    int const ret = sl.FindNthDigit(n);
+    EXPECT_EQ(ret, output);
 }
 
 TEST(nth_digit, t2) {
-  int const n = 11;
-  int const output = 0;
-  // Explanation: The 11th digit of the sequence 1, 2, 3, 4, 5, 6, 7, 8, 9,
-  // 10, 11, ... is a 0, which is part of the number 10.
-  Solution sl;
-  int const ret = sl.FindNthDigit(n);
-  EXPECT_EQ(ret, output);
+    int const n = 11;
+    int const output = 0;
+    // Explanation: The 11th digit of the sequence 1, 2, 3, 4, 5, 6, 7, 8, 9,
+    // 10, 11, ... is a 0, which is part of the number 10.
+    Solution sl;
+    int const ret = sl.FindNthDigit(n);
+    EXPECT_EQ(ret, output);
 }
 
 TEST(nth_digit, t3) {
-  int const n = 99;
-  int const output = 4;
-  Solution sl;
-  int const ret = sl.FindNthDigit(n);
-  EXPECT_EQ(ret, output);
+    int const n = 99;
+    int const output = 4;
+    Solution sl;
+    int const ret = sl.FindNthDigit(n);
+    EXPECT_EQ(ret, output);
 }
 
 TEST(nth_digit, t4) {
-  int const n = 100;
-  int const output = 5;
-  Solution sl;
-  int const ret = sl.FindNthDigit(n);
-  EXPECT_EQ(ret, output);
+    int const n = 100;
+    int const output = 5;
+    Solution sl;
+    int const ret = sl.FindNthDigit(n);
+    EXPECT_EQ(ret, output);
 }
 
 TEST(nth_digit, t5) {
-  int const n = 1000;
-  int const output = 3;
-  Solution sl;
-  int const ret = sl.FindNthDigit(n);
-  EXPECT_EQ(ret, output);
+    int const n = 1000;
+    int const output = 3;
+    Solution sl;
+    int const ret = sl.FindNthDigit(n);
+    EXPECT_EQ(ret, output);
 }
 
 }  // namespace

@@ -35,8 +35,8 @@ class BSTIterator {
 
     void PushStack(TreeNode<T>* node) {
         while (node != nullptr) {
-          m_s.push(node);
-          node = node->left;
+            m_s.push(node);
+            node = node->left;
         }
     }
     // pushed the left subtree to the stack
@@ -44,10 +44,10 @@ class BSTIterator {
     BSTIterator(TreeNode<T>* root) : pt(root) { PushStack(pt); }
 
     int next() {
-      TreeNode<T>* temp = m_s.top();
-      m_s.pop();
-      PushStack(temp->right);
-      return temp->val;
+        TreeNode<T>* temp = m_s.top();
+        m_s.pop();
+        PushStack(temp->right);
+        return temp->val;
     }
 
     // We pop the top node return its value

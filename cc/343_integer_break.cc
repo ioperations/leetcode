@@ -36,20 +36,20 @@ class Solution {
 };
 
 TEST(integer_break, t1) {
-  int const n = 2;
-  int const output = 1;
-  Solution sl;
-  int const ret = sl.IntegerBreak(n);
-  EXPECT_EQ(ret, output);
-  // Explanation: 2 = 1 + 1, 1 × 1 = 1.
+    int const n = 2;
+    int const output = 1;
+    Solution sl;
+    int const ret = sl.IntegerBreak(n);
+    EXPECT_EQ(ret, output);
+    // Explanation: 2 = 1 + 1, 1 × 1 = 1.
 }
 
 TEST(integer_break, t2) {
-  int const n = 10;
-  int const output = 36;
-  Solution sl;
-  int const ret = sl.IntegerBreak(n);
-  // 10 = 3 + 3 + 4, 3 × 3 × 4 = 36.
-  EXPECT_EQ(ret, output);
+    int const n = 10;
+    int const output = 36;
+    Solution sl;
+    int const ret = sl.IntegerBreak(n);
+    // 10 = 3 + 3 + 4, 3 × 3 × 4 = 36.
+    EXPECT_EQ(ret, output);
 }
 }  // namespace

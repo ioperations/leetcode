@@ -24,16 +24,16 @@ class DSU {
 
     void MakeSet() {
         for (int i = 0; i < 26; i++) {
-          m_parent[i] = i;
-          m_rank[i] = 0;
+            m_parent[i] = i;
+            m_rank[i] = 0;
         }
     }
 
     int FindParent(int x) {
-      if (m_parent[x] != x) {
-        m_parent[x] = FindParent(m_parent[x]);
-      }
-      return m_parent[x];
+        if (m_parent[x] != x) {
+            m_parent[x] = FindParent(m_parent[x]);
+        }
+        return m_parent[x];
     }
 
     void Unionn(int x, int y) {
@@ -43,12 +43,12 @@ class DSU {
             return;
         }
         if (m_rank[u] < m_rank[v]) {
-          m_parent[u] = v;
+            m_parent[u] = v;
         } else if (m_rank[u] > m_rank[v]) {
-          m_parent[v] = u;
+            m_parent[v] = u;
         } else {
-          m_parent[u] = v;
-          m_rank[u] = m_rank[v] + 1;
+            m_parent[u] = v;
+            m_rank[u] = m_rank[v] + 1;
         }
     }
     ~DSU() = default;

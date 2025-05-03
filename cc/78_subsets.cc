@@ -22,11 +22,11 @@ class Solution {
    public:
     void Solve(vector<vector<int>>& ans, vector<int> temp, int ind,
                vector<int>& nums) {
-      int const n = nums.size();
+        int const n = nums.size();
 
-      if (ind >= n) {
-        ans.push_back(temp);
-        return;
+        if (ind >= n) {
+            ans.push_back(temp);
+            return;
         }
 
         // not pick
@@ -49,11 +49,11 @@ class SolutionV1 {
    public:
     void Solve(vector<vector<int>>& ans, vector<int> temp, int ind,
                vector<int>& nums) {
-      int const n = nums.size();
+        int const n = nums.size();
 
-      if (ind >= n) {
-        ans.push_back(temp);
-        return;
+        if (ind >= n) {
+            ans.push_back(temp);
+            return;
         }
 
         // not pick

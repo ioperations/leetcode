@@ -30,12 +30,12 @@ class Solution {
         }
 
         while (!(q.size() == 1 || q.size() == 0)) {
-          int const v1 = q.top();
-          q.pop();
-          int const v2 = q.top();
-          q.pop();
-          if (v1 == v2) {
-            continue;
+            int const v1 = q.top();
+            q.pop();
+            int const v2 = q.top();
+            q.pop();
+            if (v1 == v2) {
+                continue;
             }
             q.push(abs(v2 - v1));
         }

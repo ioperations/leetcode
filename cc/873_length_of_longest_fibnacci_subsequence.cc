@@ -36,12 +36,12 @@ class Solution {
             if (mem.size() <= 1) {
                 mem.push_back(arr[index]);
             } else {
-              int const fib_1 = mem.back();
-              mem.pop_back();
-              int const fib_2 = mem.back();
-              mem.push_back(fib_1);
-              if (arr[index] == fib_1 + fib_2) {
-                mem.push_back(arr[index]);
+                int const fib_1 = mem.back();
+                mem.pop_back();
+                int const fib_2 = mem.back();
+                mem.push_back(fib_1);
+                if (arr[index] == fib_1 + fib_2) {
+                    mem.push_back(arr[index]);
                 }
             }
 
@@ -61,36 +61,36 @@ class Solution {
     int m_dp[1005][1005]{};
 
     int Func(int i, int j, vector<int>& v) {
-      if (m_mp.find(v[i] + v[j]) == m_mp.end()) {
-        return 0;
-      }
+        if (m_mp.find(v[i] + v[j]) == m_mp.end()) {
+            return 0;
+        }
 
-      if (m_dp[i][j] != -1) {
-        return m_dp[i][j];
-      }
+        if (m_dp[i][j] != -1) {
+            return m_dp[i][j];
+        }
 
-      return m_dp[i][j] = 1 + Func(j, m_mp[v[i] + v[j]], v);
+        return m_dp[i][j] = 1 + Func(j, m_mp[v[i] + v[j]], v);
     }
 
     int LenLongestFibSubseqV2(vector<int>& v) {
-      int i = 0, j = 0;
-      memset(m_dp, -1, sizeof(m_dp));
-      int const n = v.size();
+        int i = 0, j = 0;
+        memset(m_dp, -1, sizeof(m_dp));
+        int const n = v.size();
 
-      for (i = 0; i < n; i++) {
-        m_mp[v[i]] = i;
+        for (i = 0; i < n; i++) {
+            m_mp[v[i]] = i;
         }
 
         for (i = 0; i < n - 2; i++) {
             for (j = i + 1; j < n - 1; j++) {
-              if (m_mp.find(v[i] + v[j]) != m_mp.end()) {
-                m_ans = max(m_ans, Func(i, j, v));
-              }
+                if (m_mp.find(v[i] + v[j]) != m_mp.end()) {
+                    m_ans = max(m_ans, Func(i, j, v));
+                }
             }
         }
 
         if (m_ans == 0) {
-          return 0;
+            return 0;
         }
         return m_ans + 2;
     }

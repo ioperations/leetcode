@@ -69,8 +69,8 @@ class Solution {
         if (dp[n][k] != -1) return dp[n][k];
 
         if (k == 1) {
-          dp[n][k] = ((((n - 1) % m_mod) * (n % m_mod)) % m_mod) / 2;
-          return dp[n][k];
+            dp[n][k] = ((((n - 1) % m_mod) * (n % m_mod)) % m_mod) / 2;
+            return dp[n][k];
         }
 
         int const ans1 = Dyp(n - 1, k, dp, sum_dp);

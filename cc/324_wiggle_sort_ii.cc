@@ -16,20 +16,20 @@ namespace {
 class Solution {
    public:
     void WiggleSort(vector<int>& nums) {
-      int const n = nums.size();
-      sort(nums.begin(), nums.end());
+        int const n = nums.size();
+        sort(nums.begin(), nums.end());
 
-      vector<int> sorted(n);
+        vector<int> sorted(n);
 
-      int end = n - 1;
-      int start = end / 2;
+        int end = n - 1;
+        int start = end / 2;
 
-      int i = 0;
-      while (i < n) {
-        sorted[i++] = nums[start--];
-        if (i < n) {
-          sorted[i++] = nums[end--];
-        }
+        int i = 0;
+        while (i < n) {
+            sorted[i++] = nums[start--];
+            if (i < n) {
+                sorted[i++] = nums[end--];
+            }
         }
 
         nums = sorted;

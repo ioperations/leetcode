@@ -22,63 +22,63 @@ class Solution {
     int m_n{};
     char m_vow[26] = {0};  //  vowels & consonants mapped to 0~5
     void SetType() {
-      // Initialize all characters as consonants 5
-      memset(m_vow, 5, sizeof(m_vow));
-      m_vow[0] = 0, m_vow['e' - 'a'] = 1, m_vow['i' - 'a'] = 2,
-      m_vow['o' - 'a'] = 3,
-      m_vow['u' - 'a'] = 4;  // type for vowels
+        // Initialize all characters as consonants 5
+        memset(m_vow, 5, sizeof(m_vow));
+        m_vow[0] = 0, m_vow['e' - 'a'] = 1, m_vow['i' - 'a'] = 2,
+        m_vow['o' - 'a'] = 3,
+        m_vow['u' - 'a'] = 4;  // type for vowels
     }
 
     // Function computes the number at most k consonants
     inline long long LessEq(string& word, int k) {
-      int last_pos[5] = {-1};  // last position of each vowel
-      int freq[6] = {0};       // 0-4 for vowl 5 for consonants)
-      long long ans = 0;       // count of valid substrings
+        int last_pos[5] = {-1};  // last position of each vowel
+        int freq[6] = {0};       // 0-4 for vowl 5 for consonants)
+        long long ans = 0;       // count of valid substrings
 
-      int cnt_vow = 0;  // count different vowels in the current window
-      for (int l = 0, r = 0; r < m_n; r++) {
-        int type = m_vow[word[r] - 'a'];  // Get the type
+        int cnt_vow = 0;  // count different vowels in the current window
+        for (int l = 0, r = 0; r < m_n; r++) {
+            int type = m_vow[word[r] - 'a'];  // Get the type
 
-        if (type < 5) {
-          last_pos[type] = r;  // last position of the vowel
-          if (freq[type] == 0) cnt_vow++;
+            if (type < 5) {
+                last_pos[type] = r;  // last position of the vowel
+                if (freq[type] == 0) cnt_vow++;
+            }
+
+            freq[type]++;  // Increase the freq
+
+            // Shrink the window if the number of consonants exceeds k
+            while (freq[5] > k) {  // freq[5] tracks consonants
+                type = m_vow[word[l] - 'a'];
+                freq[type]--;
+                if (type < 5 && freq[type] == 0) cnt_vow--;
+                l++;  // Move left pointer
+            }
+            int const min_pos = *min_element(last_pos, last_pos + 5);
+            //    cout << freq[5] << endl;
+            // count the number of valid substrings
+            if (cnt_vow == 5)
+                ans += (min_pos - l + 1);  // valid substrings ending at r
         }
-
-        freq[type]++;  // Increase the freq
-
-        // Shrink the window if the number of consonants exceeds k
-        while (freq[5] > k) {  // freq[5] tracks consonants
-          type = m_vow[word[l] - 'a'];
-          freq[type]--;
-          if (type < 5 && freq[type] == 0) cnt_vow--;
-          l++;  // Move left pointer
-        }
-        int const min_pos = *min_element(last_pos, last_pos + 5);
-        //    cout << freq[5] << endl;
-        // count the number of valid substrings
-        if (cnt_vow == 5)
-          ans += (min_pos - l + 1);  // valid substrings ending at r
-      }
-      return ans;
+        return ans;
     }
 
     // Main function to count the substrings based on the given k value
     long long CountOfSubstrings(string& word, int k) {
-      SetType();
+        SetType();
 
-      m_n = word.size();  // Store the length of the word
+        m_n = word.size();  // Store the length of the word
 
-      // Return the number of substrings with at most k consonants minus
-      // those with at most k-1 consonants
-      return k == 0 ? LessEq(word, 0) : LessEq(word, k) - LessEq(word, k - 1);
+        // Return the number of substrings with at most k consonants minus
+        // those with at most k-1 consonants
+        return k == 0 ? LessEq(word, 0) : LessEq(word, k) - LessEq(word, k - 1);
     }
 };
 
 static auto init = []() {
-  ios::sync_with_stdio(false);
-  cin.tie(nullptr);
-  cout.tie(nullptr);
-  return 'c';
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
+    return 'c';
 }();
 
 #include <gtest/gtest.h>

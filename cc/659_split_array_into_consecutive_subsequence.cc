@@ -29,12 +29,12 @@ namespace {
 class Solution {
    public:
     bool IsPossible(vector<int>& nums) {
-      priority_queue<int, vector<int>, greater<>> pq;
-      unordered_map<int, int> um;
-      for (int const& num : nums) {
-        pq.push(num);
-        um[num]++;
-      }
+        priority_queue<int, vector<int>, greater<>> pq;
+        unordered_map<int, int> um;
+        for (int const& num : nums) {
+            pq.push(num);
+            um[num]++;
+        }
         queue<int> q;
         int count = 0, prev = 0;
         while (!pq.empty()) {

@@ -24,22 +24,22 @@ namespace {
 class Solution {
    public:
     int MaximumScoreV1(vector<int>& nums, vector<int>& multipliers) {
-      int const n = nums.size();
-      int m = multipliers.size();
+        int const n = nums.size();
+        int m = multipliers.size();
 
-      function<int(int, int, int, int)> fun = [&](int start, int end, int ith,
-                                                  int value) -> int {
-        if (ith == m) return value;
-        if (start > end) return value;
+        function<int(int, int, int, int)> fun = [&](int start, int end, int ith,
+                                                    int value) -> int {
+            if (ith == m) return value;
+            if (start > end) return value;
 
-        int const v1 = fun(start + 1, end, ith + 1,
-                           value + nums[start] * multipliers[ith]);
-        int const v2 =
-            fun(start, end - 1, ith + 1, value + nums[end] * multipliers[ith]);
+            int const v1 = fun(start + 1, end, ith + 1,
+                               value + nums[start] * multipliers[ith]);
+            int const v2 = fun(start, end - 1, ith + 1,
+                               value + nums[end] * multipliers[ith]);
 
-        return std::max(v1, v2);
-      };
-      return fun(0, n - 1, 0, 0);
+            return std::max(v1, v2);
+        };
+        return fun(0, n - 1, 0, 0);
     }
 
     int Dfs(int i, int j, vector<vector<int>>& dp, vector<int>& nums,

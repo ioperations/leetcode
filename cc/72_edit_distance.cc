@@ -86,30 +86,30 @@ class Solution {
             if (word1[i] == word2[j]) {
                 cache[make_pair(i, j)] = fun(i + 1, j + 1);
             } else {
-              cache[make_pair(i, j)] =
-                  1 + min({fun(i + 1, j + 1), fun(i + 1, j), fun(i, j + 1)});
+                cache[make_pair(i, j)] =
+                    1 + min({fun(i + 1, j + 1), fun(i + 1, j), fun(i, j + 1)});
             }
             return cache[make_pair(i, j)];
         };
         return fun(0, 0);
     }
     int MinDistanceV2(std::string word1, std::string word2) {
-      int const m = word1.length();
-      int const n = word2.length();
-      std::vector<std::vector<int>> dp(m + 1, std::vector<int>(n + 1, 0));
-      for (int i = 0; i <= m; i++) dp[i][0] = i;
-      for (int i = 0; i <= n; i++) dp[0][i] = i;
-      for (int i = 1; i <= m; i++) {
-        for (int j = 1; j <= n; j++) {
-          if (word1[i - 1] == word2[j - 1])
-            dp[i][j] = 0 + dp[i - 1][j - 1];
-          else {
-            int mn = 1 + dp[i - 1][j];
-            if (1 + dp[i][j - 1] < mn) mn = 1 + dp[i][j - 1];
-            if (1 + dp[i - 1][j - 1] < mn) mn = 1 + dp[i - 1][j - 1];
-            dp[i][j] = mn;
-          }
-        }
+        int const m = word1.length();
+        int const n = word2.length();
+        std::vector<std::vector<int>> dp(m + 1, std::vector<int>(n + 1, 0));
+        for (int i = 0; i <= m; i++) dp[i][0] = i;
+        for (int i = 0; i <= n; i++) dp[0][i] = i;
+        for (int i = 1; i <= m; i++) {
+            for (int j = 1; j <= n; j++) {
+                if (word1[i - 1] == word2[j - 1])
+                    dp[i][j] = 0 + dp[i - 1][j - 1];
+                else {
+                    int mn = 1 + dp[i - 1][j];
+                    if (1 + dp[i][j - 1] < mn) mn = 1 + dp[i][j - 1];
+                    if (1 + dp[i - 1][j - 1] < mn) mn = 1 + dp[i - 1][j - 1];
+                    dp[i][j] = mn;
+                }
+            }
         }
 
         return dp[m][n];

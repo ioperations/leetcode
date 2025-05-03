@@ -33,30 +33,30 @@ class Solution {
             }
         }
         while (z.size()) {
-          int const d = z.top();
+            int const d = z.top();
 
-          s[d] = num.front();
-          num.pop();
-          z.pop();
+            s[d] = num.front();
+            num.pop();
+            z.pop();
         }
         return s;
     }
 };
 
 TEST(reverse_vowels_of_a_string, t1) {
-  std::string const s = "hello";
-  std::string const output = "holle";
-  Solution sl;
-  auto ret = sl.ReverseVowels(s);
-  EXPECT_EQ(ret, output);
+    std::string const s = "hello";
+    std::string const output = "holle";
+    Solution sl;
+    auto ret = sl.ReverseVowels(s);
+    EXPECT_EQ(ret, output);
 }
 
 TEST(reverse_vowels_of_a_string, t2) {
-  std::string const s = "leetcode";
-  std::string const output = "leotcede";
-  Solution sl;
-  auto ret = sl.ReverseVowels(s);
-  EXPECT_EQ(ret, output);
+    std::string const s = "leetcode";
+    std::string const output = "leotcede";
+    Solution sl;
+    auto ret = sl.ReverseVowels(s);
+    EXPECT_EQ(ret, output);
 }
 
 }  // namespace

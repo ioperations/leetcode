@@ -46,23 +46,23 @@ class SolutionV2 {
     }
     int BinaryCnt(vector<int>& nums, int left, int right, double n,
                   bool direction) {
-      int const size = right - left;
-      int const ori_left = left;
-      right--;
-      int mid = 0;
-      while (left <= right) {
-        mid = left + (right - left) / 2;
-        if (direction) {
-          if (nums[mid] > n)
-            right = mid - 1;
-          else
-            left = mid + 1;
-        } else {
-          if (nums[mid] >= n)
-            right = mid - 1;
-          else
-            left = mid + 1;
-        }
+        int const size = right - left;
+        int const ori_left = left;
+        right--;
+        int mid = 0;
+        while (left <= right) {
+            mid = left + (right - left) / 2;
+            if (direction) {
+                if (nums[mid] > n)
+                    right = mid - 1;
+                else
+                    left = mid + 1;
+            } else {
+                if (nums[mid] >= n)
+                    right = mid - 1;
+                else
+                    left = mid + 1;
+            }
         }
 
         if (direction) return size - (left - ori_left);
