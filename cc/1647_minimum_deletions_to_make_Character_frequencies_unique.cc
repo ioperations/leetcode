@@ -71,7 +71,7 @@ class Solution {
         int count = 0;
 
         for (char const i : s) {
-          charcnt[i - 'a']++;
+            charcnt[i - 'a']++;
         }
 
         for (auto& it : charcnt) {

@@ -48,7 +48,7 @@ class Trie {
     void DeleteNode(Node* n) {
         if (n == nullptr) return;
         for (auto& i : n->m_child) {
-          DeleteNode(i);
+            DeleteNode(i);
         }
         delete n;
     }
@@ -59,28 +59,28 @@ class Trie {
     ~Trie() { DeleteNode(m_root); }
 
     void Insert(string& word, int& idx) {
-      Node* temp = m_root;
+        Node* temp = m_root;
 
-      for (auto& ch : word) {
-        if (!temp->Contains(ch)) {
-          temp->PutNode(ch, new Node());
+        for (auto& ch : word) {
+            if (!temp->Contains(ch)) {
+                temp->PutNode(ch, new Node());
+            }
+
+            temp = temp->GetNext(ch);
+            temp->SetIdx(idx);
         }
-
-        temp = temp->GetNext(ch);
-        temp->SetIdx(idx);
-      }
     }
 
     int StartsWith(string& word) {
-      Node* temp = m_root;
+        Node* temp = m_root;
 
-      for (auto& ch : word) {
-        if (!temp->Contains(ch)) {
-          return -1;
+        for (auto& ch : word) {
+            if (!temp->Contains(ch)) {
+                return -1;
+            }
+
+            temp = temp->GetNext(ch);
         }
-
-        temp = temp->GetNext(ch);
-      }
 
         return temp->GetIdx();
     }

@@ -26,13 +26,13 @@ class Solution {
     string RemoveAllUNreleated(std::string& ss) {
         std::string ret;
         for (char const s : ss) {
-          if ('A' <= s && s <= 'Z') {
-            ret += s - 'A' + 'a';
-          } else if ('a' <= s && s <= 'z') {
-            ret += s;
-          } else if ('0' <= s && s <= '9') {
-            ret += s;
-          }
+            if ('A' <= s && s <= 'Z') {
+                ret += s - 'A' + 'a';
+            } else if ('a' <= s && s <= 'z') {
+                ret += s;
+            } else if ('0' <= s && s <= '9') {
+                ret += s;
+            }
         }
         return ret;
     }

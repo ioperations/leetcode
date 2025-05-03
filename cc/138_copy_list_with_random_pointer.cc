@@ -46,13 +46,13 @@ class Solution {
         std::vector<Node*> new_nodes;
         int i = 0;
         while (ite_old != nullptr) {
-          ite_new->next = new Node(ite_old->m_val);
-          map[ite_old] = i;
-          ite_old = ite_old->next;
-          ite_new = ite_new->next;
-          new_nodes.push_back(ite_new);
+            ite_new->next = new Node(ite_old->m_val);
+            map[ite_old] = i;
+            ite_old = ite_old->next;
+            ite_new = ite_new->next;
+            new_nodes.push_back(ite_new);
 
-          i++;
+            i++;
         }
 
         ite_new = &dummy_new;

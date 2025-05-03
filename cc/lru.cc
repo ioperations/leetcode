@@ -16,15 +16,15 @@ class Optional {
     [[maybe_unused]] Optional(T v) : m_has_value(true), m_value(v) {}
     operator bool() { return m_has_value; }
     operator T() {
-      if (!m_has_value) {
-        throw std::exception();
-      }
+        if (!m_has_value) {
+            throw std::exception();
+        }
         return m_value;
     }
     bool operator==(const int v) const {
-      if (m_has_value) {
-        return m_value == v;
-      }
+        if (m_has_value) {
+            return m_value == v;
+        }
         return false;
     }
 
@@ -38,19 +38,19 @@ class LRUCache final {
    public:
     LRUCache(int capability)
         : m_head(new Node()), m_tail(new Node()), m_capability(capability) {
-      m_head->m_next = m_tail;
-      m_tail->m_pre = m_head;
-      m_head->m_pre = nullptr;
-      m_tail->m_next = nullptr;
+        m_head->m_next = m_tail;
+        m_tail->m_pre = m_head;
+        m_head->m_pre = nullptr;
+        m_tail->m_next = nullptr;
     }
 
     ~LRUCache() {
-      Node* p = m_head;
-      while (p) {
-        Node* q = p;
-        p = p->m_next;
-        delete q;
-      }
+        Node* p = m_head;
+        while (p) {
+            Node* q = p;
+            p = p->m_next;
+            delete q;
+        }
     }
 
     Optional<V> Get(const K& key) {
@@ -89,10 +89,10 @@ class LRUCache final {
     };
 
     void AddToFirstNode(Node* node) {
-      m_head->m_next->m_pre = node;
-      node->m_pre = m_head;
-      node->m_next = m_head->m_next;
-      m_head->m_next = node;
+        m_head->m_next->m_pre = node;
+        node->m_pre = m_head;
+        node->m_next = m_head->m_next;
+        m_head->m_next = node;
     }
 
     void DelNode(Node* node) {
@@ -101,13 +101,13 @@ class LRUCache final {
     }
 
     void DelLastNode() {
-      Node* p = m_tail->m_pre;
+        Node* p = m_tail->m_pre;
 
-      m_tail->m_pre = p->m_pre;
-      p->m_pre->m_next = m_tail;
+        m_tail->m_pre = p->m_pre;
+        p->m_pre->m_next = m_tail;
 
-      m_map.erase(p->m_key);
-      delete p;
+        m_map.erase(p->m_key);
+        delete p;
     }
 
     Node* m_head;

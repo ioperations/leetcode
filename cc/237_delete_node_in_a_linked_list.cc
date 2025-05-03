@@ -43,8 +43,8 @@ void ExpectEqList(ListNode* const head, const std::vector<int>& elements) {
     ListNode* m_head = head;
 
     for (int const element : elements) {
-      EXPECT_EQ(m_head->val, element);
-      m_head = m_head->next;
+        EXPECT_EQ(m_head->val, element);
+        m_head = m_head->next;
     }
 }
 

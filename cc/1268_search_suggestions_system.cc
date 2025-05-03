@@ -90,38 +90,38 @@ class SolutionV2 {
     };
 
     class Trie {
-      TrieNode* m_root;
+        TrieNode* m_root;
 
-     private:
-      void DeleteNode(TrieNode* root) {
-        if (root == nullptr) return;
-        for (auto& link : root->m_links) {
-          DeleteNode(link);
+       private:
+        void DeleteNode(TrieNode* root) {
+            if (root == nullptr) return;
+            for (auto& link : root->m_links) {
+                DeleteNode(link);
+            }
+            delete root;
         }
-        delete root;
-      }
 
        public:
         Trie() : m_root(new TrieNode()) {}
         ~Trie() { DeleteNode(m_root); }
 
         void Insert(const string& s, int id) {
-          TrieNode* node = m_root;
-          for (auto& ch : s) {
-            if (!node->m_links[ch - 'a'])
-              node->m_links[ch - 'a'] = new TrieNode();
+            TrieNode* node = m_root;
+            for (auto& ch : s) {
+                if (!node->m_links[ch - 'a'])
+                    node->m_links[ch - 'a'] = new TrieNode();
 
-            node = node->m_links[ch - 'a'];
-            node->m_idx.push_back(id);
-          }
+                node = node->m_links[ch - 'a'];
+                node->m_idx.push_back(id);
+            }
         }
 
         vector<int> Search(const string& s) {
-          TrieNode* node = m_root;
-          for (int i = 0; i < (int)s.length(); i++) {
-            if (!node->m_links[s[i] - 'a']) return {};
-            node = node->m_links[s[i] - 'a'];
-          }
+            TrieNode* node = m_root;
+            for (int i = 0; i < (int)s.length(); i++) {
+                if (!node->m_links[s[i] - 'a']) return {};
+                node = node->m_links[s[i] - 'a'];
+            }
             return node->m_idx;
         }
     };

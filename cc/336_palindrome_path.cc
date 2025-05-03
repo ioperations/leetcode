@@ -105,7 +105,7 @@ class Solution {
 
         // palindrome + reverse_word
         if (root->m_word_index != -1 && !str.empty() && IsPalindrome(str)) {
-          long_word_indices.push_back(root->m_word_index);
+            long_word_indices.push_back(root->m_word_index);
         }
 
         for (int i = 0; i < 26; ++i) {
@@ -121,10 +121,10 @@ class Solution {
         while (index < (int)word.length() && root != nullptr) {
             root = root->m_children[word[index++] - 'a'];
             if (root != nullptr && root->m_word_index != -1) {
-              if (root->m_word_index != word_index &&
-                  IsPalindrome(word.substr(index))) {
-                m_res.push_back({word_index, root->m_word_index});
-              }
+                if (root->m_word_index != word_index &&
+                    IsPalindrome(word.substr(index))) {
+                    m_res.push_back({word_index, root->m_word_index});
+                }
             }
         }
 
@@ -155,7 +155,7 @@ class Solution {
             // word is palindrome
             if (root->m_word_index != -1 && !word.empty() &&
                 IsPalindrome(word)) {
-              m_res.push_back({i, root->m_word_index});
+                m_res.push_back({i, root->m_word_index});
             }
             Find(root, word, i);
         }

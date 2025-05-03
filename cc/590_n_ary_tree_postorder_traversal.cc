@@ -45,7 +45,7 @@ class Solution {
     void Postorder(Node* root, std::vector<int>& ret) {
         if (root == nullptr) return;
         for (auto& ptr : root->m_children) {
-          Postorder(ptr, ret);
+            Postorder(ptr, ret);
         }
         ret.push_back(root->m_val);
     }
@@ -95,7 +95,7 @@ void FreeNode(Node* n) {
         return;
     }
     for (auto& ptr : n->m_children) {
-      FreeNode(ptr);
+        FreeNode(ptr);
     }
     delete n;
 }
