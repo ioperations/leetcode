@@ -37,6 +37,7 @@ If all assertions pass, then your solution will be accepted.
 Example 1:
 */
 
+#include <functional>
 #include <queue>
 #include <vector>
 
@@ -48,20 +49,20 @@ namespace {
 class Solution {
    public:
     int RemoveDuplicates(vector<int>& nums) {
-        priority_queue<int, vector<int>, std::greater<int>> q;
-        int last = 0;
-        bool last_set = false;
-        for (auto& ptr : nums) {
-            if (last_set) {
-                if (ptr != last) {
-                    last = ptr;
-                    q.push(ptr);
-                }
-            } else {
-                last = ptr;
-                last_set = true;
-                q.push(ptr);
-            }
+      priority_queue<int, vector<int>, std::greater<>> q;
+      int last = 0;
+      bool last_set = false;
+      for (auto& ptr : nums) {
+        if (last_set) {
+          if (ptr != last) {
+            last = ptr;
+            q.push(ptr);
+          }
+        } else {
+          last = ptr;
+          last_set = true;
+          q.push(ptr);
+        }
         }
 
         int i = 0;
@@ -76,10 +77,10 @@ class Solution {
 
 TEST(remove_duplicates_from_sorted_array, t1) {
     std::vector<int> nums = {1, 1, 2};
-    int output = 2;
+    int const output = 2;
     std::vector<int> nums_expected = {1, 2};
     Solution sl;
-    int k = sl.RemoveDuplicates(nums);
+    int const k = sl.RemoveDuplicates(nums);
     EXPECT_EQ(k, output);
     for (int i = 0; i < output; i++) {
         EXPECT_EQ(nums[i], nums_expected[i]);
@@ -87,10 +88,10 @@ TEST(remove_duplicates_from_sorted_array, t1) {
 }
 TEST(remove_duplicates_from_sorted_array, t2) {
     std::vector<int> nums = {0, 0, 1, 1, 1, 2, 2, 3, 3, 4};
-    int output = 5;
+    int const output = 5;
     std::vector<int> nums_expected = {0, 1, 2, 3, 4};
     Solution sl;
-    int k = sl.RemoveDuplicates(nums);
+    int const k = sl.RemoveDuplicates(nums);
     EXPECT_EQ(k, output);
     for (int i = 0; i < output; i++) {
         EXPECT_EQ(nums[i], nums_expected[i]);

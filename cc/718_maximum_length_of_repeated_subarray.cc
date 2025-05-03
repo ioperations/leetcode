@@ -53,19 +53,19 @@ class Solution {
 TEST(maximum_length_of_repeated_subarray, t1) {
     vector<int> nums1 = {1, 2, 3, 2, 1}, nums2 = {3, 2, 1, 4, 7};
 
-    int output = 3;
+    int const output = 3;
     /*The repeated subarray with maximum length is [3,2,1].*/
     Solution sl;
-    int ret = sl.FindLength(nums1, nums2);
+    int const ret = sl.FindLength(nums1, nums2);
     EXPECT_EQ(ret, output);
 }
 
 TEST(maximum_length_of_repeated_subarray, t2) {
     vector<int> nums1 = {0, 0, 0, 0, 0}, nums2 = {0, 0, 0, 0, 0};
 
-    int output = 5;
+    int const output = 5;
     Solution sl;
-    int ret = sl.FindLength(nums1, nums2);
+    int const ret = sl.FindLength(nums1, nums2);
     EXPECT_EQ(ret, output);
 }
 

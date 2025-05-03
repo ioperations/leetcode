@@ -35,10 +35,10 @@ class Solution {
 
         int i = 0;
         while (x) {
-            int cur = x % 2;
-            ret[31 - i] = '0' + cur;
-            x /= 2;
-            i++;
+          int const cur = x % 2;
+          ret[31 - i] = '0' + cur;
+          x /= 2;
+          i++;
         }
         // std::reverse(ret.begin(), ret.end());
         return ret;
@@ -56,7 +56,7 @@ class Solution {
 
 TEST(hamming_distance, t1) {
     int x = 1, y = 4;
-    int output = 2;
+    int const output = 2;
     // Explanation:
     // 1   (0 0 0 1)
     // 4   (0 1 0 0)
@@ -73,7 +73,7 @@ TEST(hamming_distance, t1) {
 
 TEST(hamming_distance, t2) {
     int x = 3, y = 1;
-    int output = 1;
+    int const output = 1;
     // Explanation:
     // 1   (0 0 0 1)
     // 4   (0 1 0 0)

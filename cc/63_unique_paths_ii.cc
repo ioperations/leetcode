@@ -56,24 +56,23 @@ class Solution {
         int m = obstacle_grid.size(), n = obstacle_grid[0].size();
         vector<vector<int>> grid(m, vector<int>(n, 0));
         queue<pair<int, int>> q;
-        vector<pair<int, int>> dirs = {make_pair(0, 1), make_pair(1, 0)};
+        vector<pair<int, int>> const dirs = {make_pair(0, 1), make_pair(1, 0)};
         grid[0][0] = obstacle_grid[0][0] == 0 ? 1 : 0;
-        q.push(make_pair(0, 0));
+        q.emplace(0, 0);
         while (q.size() > 0) {
-            pair<int, int> cell = q.front();
-            q.pop();
-            int next_value = grid[cell.first][cell.second];
-            for (auto& p : dirs) {
-                if ((p.second + cell.second) > n - 1 ||
-                    (p.first + cell.first) > m - 1 ||
-                    (obstacle_grid[p.first + cell.first]
-                                  [p.second + cell.second] == 1))
-                    continue;
-                pair<int, int> next_cell =
-                    make_pair(p.first + cell.first, p.second + cell.second);
-                if (grid[next_cell.first][next_cell.second] == 0)
-                    q.push(next_cell);
-                grid[next_cell.first][next_cell.second] += next_value;
+          pair<int, int> const cell = q.front();
+          q.pop();
+          int const next_value = grid[cell.first][cell.second];
+          for (auto& p : dirs) {
+            if ((p.second + cell.second) > n - 1 ||
+                (p.first + cell.first) > m - 1 ||
+                (obstacle_grid[p.first + cell.first][p.second + cell.second] ==
+                 1))
+              continue;
+            pair<int, int> const next_cell =
+                make_pair(p.first + cell.first, p.second + cell.second);
+            if (grid[next_cell.first][next_cell.second] == 0) q.push(next_cell);
+            grid[next_cell.first][next_cell.second] += next_value;
             }
         }
         return grid[m - 1][n - 1];
@@ -82,49 +81,49 @@ class Solution {
 
 TEST(unique_paths_ii, t1) {
     vector<vector<int>> obstacle_grid = {{0, 0, 0}, {0, 1, 0}, {0, 0, 0}};
-    int output = 2;
+    int const output = 2;
     // Explanation: There is one obstacle in the middle of the 3x3 grid above.
     // There are two ways to reach the bottom-right corner:
     // 1. Right -> Right -> Down -> Down
     // 2. Down -> Down -> Right -> Right
     Solution sl;
-    int ret = sl.UniquePathsWithObstacles(obstacle_grid);
+    int const ret = sl.UniquePathsWithObstacles(obstacle_grid);
     EXPECT_EQ(ret, output);
 }
 
 TEST(unique_paths_ii, t2) {
     vector<vector<int>> obstacle_grid = {{0, 1}, {0, 0}};
-    int output = 1;
+    int const output = 1;
     // Explanation: There is one obstacle in the middle of the 3x3 grid above.
     // There are two ways to reach the bottom-right corner:
     // 1. Right -> Right -> Down -> Down
     // 2. Down -> Down -> Right -> Right
     Solution sl;
-    int ret = sl.UniquePathsWithObstacles(obstacle_grid);
+    int const ret = sl.UniquePathsWithObstacles(obstacle_grid);
     EXPECT_EQ(ret, output);
 }
 
 TEST(unique_paths_ii_v2, t1) {
     vector<vector<int>> obstacle_grid = {{0, 0, 0}, {0, 1, 0}, {0, 0, 0}};
-    int output = 2;
+    int const output = 2;
     // Explanation: There is one obstacle in the middle of the 3x3 grid above.
     // There are two ways to reach the bottom-right corner:
     // 1. Right -> Right -> Down -> Down
     // 2. Down -> Down -> Right -> Right
     Solution sl;
-    int ret = sl.UniquePathsWithObstaclesV1(obstacle_grid);
+    int const ret = sl.UniquePathsWithObstaclesV1(obstacle_grid);
     EXPECT_EQ(ret, output);
 }
 
 TEST(unique_paths_ii_v2, t2) {
     vector<vector<int>> obstacle_grid = {{0, 1}, {0, 0}};
-    int output = 1;
+    int const output = 1;
     // Explanation: There is one obstacle in the middle of the 3x3 grid above.
     // There are two ways to reach the bottom-right corner:
     // 1. Right -> Right -> Down -> Down
     // 2. Down -> Down -> Right -> Right
     Solution sl;
-    int ret = sl.UniquePathsWithObstaclesV1(obstacle_grid);
+    int const ret = sl.UniquePathsWithObstaclesV1(obstacle_grid);
     EXPECT_EQ(ret, output);
 }
 

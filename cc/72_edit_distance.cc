@@ -53,14 +53,15 @@ class Solution {
                                 word2.substr(1, word2.size()), cache);
         }
 
-        int remove =
+        int const remove =
             1 + EditDistance(word1.substr(1, word1.size()), word2, cache);
-        int replace = 1 + EditDistance(word1.substr(1, word1.size()),
-                                       word2.substr(1, word2.size()), cache);
-        int insert =
+        int const replace =
+            1 + EditDistance(word1.substr(1, word1.size()),
+                             word2.substr(1, word2.size()), cache);
+        int const insert =
             1 + EditDistance(word1, word2.substr(1, word2.size()), cache);
 
-        int ret = std::min(std::min(remove, replace), insert);
+        int const ret = std::min({remove, replace, insert});
         cache[std::make_pair(word1, word2)] = ret;
         return ret;
     }
@@ -85,31 +86,30 @@ class Solution {
             if (word1[i] == word2[j]) {
                 cache[make_pair(i, j)] = fun(i + 1, j + 1);
             } else {
-                cache[make_pair(i, j)] =
-                    1 +
-                    min(fun(i + 1, j + 1), min(fun(i + 1, j), fun(i, j + 1)));
+              cache[make_pair(i, j)] =
+                  1 + min({fun(i + 1, j + 1), fun(i + 1, j), fun(i, j + 1)});
             }
             return cache[make_pair(i, j)];
         };
         return fun(0, 0);
     }
     int MinDistanceV2(std::string word1, std::string word2) {
-        int m = word1.length();
-        int n = word2.length();
-        std::vector<std::vector<int>> dp(m + 1, std::vector<int>(n + 1, 0));
-        for (int i = 0; i <= m; i++) dp[i][0] = i;
-        for (int i = 0; i <= n; i++) dp[0][i] = i;
-        for (int i = 1; i <= m; i++) {
-            for (int j = 1; j <= n; j++) {
-                if (word1[i - 1] == word2[j - 1])
-                    dp[i][j] = 0 + dp[i - 1][j - 1];
-                else {
-                    int mn = 1 + dp[i - 1][j];
-                    if (1 + dp[i][j - 1] < mn) mn = 1 + dp[i][j - 1];
-                    if (1 + dp[i - 1][j - 1] < mn) mn = 1 + dp[i - 1][j - 1];
-                    dp[i][j] = mn;
-                }
-            }
+      int const m = word1.length();
+      int const n = word2.length();
+      std::vector<std::vector<int>> dp(m + 1, std::vector<int>(n + 1, 0));
+      for (int i = 0; i <= m; i++) dp[i][0] = i;
+      for (int i = 0; i <= n; i++) dp[0][i] = i;
+      for (int i = 1; i <= m; i++) {
+        for (int j = 1; j <= n; j++) {
+          if (word1[i - 1] == word2[j - 1])
+            dp[i][j] = 0 + dp[i - 1][j - 1];
+          else {
+            int mn = 1 + dp[i - 1][j];
+            if (1 + dp[i][j - 1] < mn) mn = 1 + dp[i][j - 1];
+            if (1 + dp[i - 1][j - 1] < mn) mn = 1 + dp[i - 1][j - 1];
+            dp[i][j] = mn;
+          }
+        }
         }
 
         return dp[m][n];
@@ -118,20 +118,20 @@ class Solution {
 
 TEST(edit_distance_v2, t2) {
     std::string word1 = "intention", word2 = "execution";
-    int output = 5;
+    int const output = 5;
     Solution s;
 
-    int ret = s.MinDistance(word1, word2);
+    int const ret = s.MinDistance(word1, word2);
     EXPECT_EQ(ret, output);
 }
 
 TEST(edit_distance_v2, t3) {
     std::string word1 = "horse", word2 = "ros";
 
-    int output = 3;
+    int const output = 3;
     Solution s;
 
-    int ret = s.MinDistance(word1, word2);
+    int const ret = s.MinDistance(word1, word2);
     EXPECT_EQ(ret, output);
 }
 
@@ -139,38 +139,38 @@ TEST(edit_distance_v2, t4) {
     std::string word1 = "dinitrophenylhydrazine",
                 word2 = "acetylphenylhydrazine";
 
-    int output = 6;
+    int const output = 6;
     Solution s;
 
-    int ret = s.MinDistanceV2(word1, word2);
+    int const ret = s.MinDistanceV2(word1, word2);
     EXPECT_EQ(ret, output);
 }
 
 TEST(edit_distance_v3, t2) {
     std::string word1 = "intention", word2 = "execution";
-    int output = 5;
+    int const output = 5;
     Solution s;
 
-    int ret = s.MinDistanceV3(word1, word2);
+    int const ret = s.MinDistanceV3(word1, word2);
     EXPECT_EQ(ret, output);
 }
 TEST(edit_distance_v4, t3) {
     std::string word1 = "horse", word2 = "ros";
 
-    int output = 3;
+    int const output = 3;
     Solution s;
 
-    int ret = s.MinDistanceV3(word1, word2);
+    int const ret = s.MinDistanceV3(word1, word2);
     EXPECT_EQ(ret, output);
 }
 TEST(edit_distance_v4, t4) {
     std::string word1 = "dinitrophenylhydrazine",
                 word2 = "acetylphenylhydrazine";
 
-    int output = 6;
+    int const output = 6;
     Solution s;
 
-    int ret = s.MinDistanceV3(word1, word2);
+    int const ret = s.MinDistanceV3(word1, word2);
     EXPECT_EQ(ret, output);
 }
 
@@ -178,10 +178,10 @@ static void BenchMarkFirst(benchmark::State& state) {
     for (auto _ : state) {
         std::string word1 = "horse", word2 = "ros";
 
-        int output = 3;
+        int const output = 3;
         Solution s;
 
-        int ret = s.MinDistance(word1, word2);
+        int const ret = s.MinDistance(word1, word2);
         EXPECT_EQ(ret, output);
     }
 }
@@ -191,10 +191,10 @@ static void BenchMarkSecond(benchmark::State& state) {
     for (auto _ : state) {
         std::string word1 = "horse", word2 = "ros";
 
-        int output = 3;
+        int const output = 3;
         Solution s;
 
-        int ret = s.MinDistanceV2(word1, word2);
+        int const ret = s.MinDistanceV2(word1, word2);
         EXPECT_EQ(ret, output);
     }
 }
@@ -204,10 +204,10 @@ static void BenchMarkThird(benchmark::State& state) {
     for (auto _ : state) {
         std::string word1 = "horse", word2 = "ros";
 
-        int output = 3;
+        int const output = 3;
         Solution s;
 
-        int ret = s.MinDistanceV3(word1, word2);
+        int const ret = s.MinDistanceV3(word1, word2);
         EXPECT_EQ(ret, output);
     }
 }

@@ -46,7 +46,7 @@ class Solution {
 
 TEST(remove_duplicates_from_sorted_arary_ii, t1) {
     vector<int> nums = {1, 1, 1, 2, 2, 3};
-    int output = 5;
+    int const output = 5;
     vector<int> ret_expected = {1, 1, 2, 2, 3};
 
     // Explanation:
@@ -56,7 +56,7 @@ TEST(remove_duplicates_from_sorted_arary_ii, t1) {
     // .
 
     Solution sl;
-    int ret = sl.RemoveDuplicates(nums);
+    int const ret = sl.RemoveDuplicates(nums);
 
     EXPECT_EQ(ret, output);
 
@@ -67,7 +67,7 @@ TEST(remove_duplicates_from_sorted_arary_ii, t1) {
 
 TEST(remove_duplicates_from_sorted_arary_ii, t2) {
     vector<int> nums = {0, 0, 1, 1, 1, 1, 2, 3, 3};
-    int output = 7;
+    int const output = 7;
     vector<int> ret_expected = {0, 0, 1, 1, 2, 3, 3};
 
     // Your function should return k = 7, with the first seven elements of nums
@@ -76,7 +76,7 @@ TEST(remove_duplicates_from_sorted_arary_ii, t2) {
     // underscores).
 
     Solution sl;
-    int ret = sl.RemoveDuplicates(nums);
+    int const ret = sl.RemoveDuplicates(nums);
 
     EXPECT_EQ(ret, output);
 

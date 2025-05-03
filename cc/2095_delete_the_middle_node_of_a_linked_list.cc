@@ -75,52 +75,52 @@ void ExpectEqList(ListNode* const head, const std::vector<int>& elements) {
 using namespace std;
 
 TEST(delete_the_middle_node_of_a_linked_list, t1) {
-    vector<int> head = {1, 3, 4, 7, 1, 2, 6};
-    vector<int> output = {1, 3, 4, 1, 2, 6};
-    /*
-    Explanation:
-    The above figure represents the given linked list. The indices of the nodes
-    are written below. Since n = 7, node 3 with value 7 is the middle node,
-    which is marked in red. We return the new list after removing this node.
-    */
-    auto* list = List::ConstructList(head);
+  vector<int> const head = {1, 3, 4, 7, 1, 2, 6};
+  vector<int> const output = {1, 3, 4, 1, 2, 6};
+  /*
+  Explanation:
+  The above figure represents the given linked list. The indices of the nodes
+  are written below. Since n = 7, node 3 with value 7 is the middle node,
+  which is marked in red. We return the new list after removing this node.
+  */
+  auto* list = List::ConstructList(head);
 
-    Solution sl;
-    list = sl.DeleteMiddle(list);
-    ExpectEqList(list, output);
-    List::FreeList(list);
+  Solution sl;
+  list = sl.DeleteMiddle(list);
+  ExpectEqList(list, output);
+  List::FreeList(list);
 }
 
 TEST(delete_the_middle_node_of_a_linked_list, t2) {
-    vector<int> head = {1, 2, 3, 4};
-    vector<int> output = {1, 2, 4};
-    /*
-    Explanation:
-    The above figure represents the given linked list.
-    For n = 4, node 2 with value 3 is the middle node, which is marked in red.
-    */
-    auto* list = List::ConstructList(head);
+  vector<int> const head = {1, 2, 3, 4};
+  vector<int> const output = {1, 2, 4};
+  /*
+  Explanation:
+  The above figure represents the given linked list.
+  For n = 4, node 2 with value 3 is the middle node, which is marked in red.
+  */
+  auto* list = List::ConstructList(head);
 
-    Solution sl;
-    list = sl.DeleteMiddle(list);
-    ExpectEqList(list, output);
-    List::FreeList(list);
+  Solution sl;
+  list = sl.DeleteMiddle(list);
+  ExpectEqList(list, output);
+  List::FreeList(list);
 }
 
 TEST(delete_the_middle_node_of_a_linked_list, t3) {
-    vector<int> head = {2, 1};
-    vector<int> output = {2};
-    /*
-    The above figure represents the given linked list.
+  vector<int> const head = {2, 1};
+  vector<int> const output = {2};
+  /*
+  The above figure represents the given linked list.
 For n = 2, node 1 with value 1 is the middle node, which is marked in red.
 Node 0 with value 2 is the only node remaining after removing node 1.
-    */
-    auto* list = List::ConstructList(head);
+  */
+  auto* list = List::ConstructList(head);
 
-    Solution sl;
-    list = sl.DeleteMiddle(list);
-    ExpectEqList(list, output);
-    List::FreeList(list);
+  Solution sl;
+  list = sl.DeleteMiddle(list);
+  ExpectEqList(list, output);
+  List::FreeList(list);
 }
 
 }  // namespace

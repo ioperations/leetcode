@@ -24,16 +24,16 @@ class Solution {
     vector<vector<T>> LevelOrder(TreeNode<T>* root) {
         vector<vector<T>> ret;
         struct Status {
-            TreeNode<T>* t;
-            int level;
+          TreeNode<T>* m_t;
+          int m_level;
         };
         if (root == nullptr) return ret;
 
         queue<Status> q;
 
-        Status tmp;
-        tmp.level = 1;
-        tmp.t = root;
+        Status tmp{};
+        tmp.m_level = 1;
+        tmp.m_t = root;
 
         q.push(tmp);
 
@@ -41,21 +41,21 @@ class Solution {
 
         int now_level = 1;
         while (q.size()) {
-            Status tmp = q.front();
-            if (tmp.level == now_level) {
-                tmp_vec.push_back(tmp.t->val);
-            } else {
-                ret.push_back(tmp_vec);
-                tmp_vec.clear();
-                now_level++;
-                tmp_vec.push_back(tmp.t->val);
-            }
-            if (tmp.t->left) {
-                q.push({tmp.t->left, now_level + 1});
-            }
-            if (tmp.t->right) {
-                q.push({tmp.t->right, now_level + 1});
-            }
+          Status const tmp = q.front();
+          if (tmp.m_level == now_level) {
+            tmp_vec.push_back(tmp.m_t->val);
+          } else {
+            ret.push_back(tmp_vec);
+            tmp_vec.clear();
+            now_level++;
+            tmp_vec.push_back(tmp.m_t->val);
+          }
+          if (tmp.m_t->left) {
+            q.push({tmp.m_t->left, now_level + 1});
+          }
+          if (tmp.m_t->right) {
+            q.push({tmp.m_t->right, now_level + 1});
+          }
 
             q.pop();
         }
@@ -72,33 +72,33 @@ using namespace std;
     optional<int> {}
 
 TEST(binary_tree_level_order_traversal, t1) {
-    vector<optional<int>> root = {3, 9, 20, null, null, 15, 7};
-    vector<vector<int>> output = {{3}, {9, 20}, {15, 7}};
-    Solution sl;
-    auto* tree = ConstructBinaryTree(root);
-    auto ret = sl.LevelOrder(tree);
-    EXPECT_EQ(ret, output);
-    FreeTreeNode(tree);
+  vector<optional<int>> const root = {3, 9, 20, null, null, 15, 7};
+  vector<vector<int>> const output = {{3}, {9, 20}, {15, 7}};
+  Solution sl;
+  auto* tree = ConstructBinaryTree(root);
+  auto ret = sl.LevelOrder(tree);
+  EXPECT_EQ(ret, output);
+  FreeTreeNode(tree);
 }
 
 TEST(binary_tree_level_order_traversal, t2) {
-    vector<optional<int>> root = {1};
-    vector<vector<int>> output = {{1}};
-    Solution sl;
-    auto* tree = ConstructBinaryTree(root);
-    auto ret = sl.LevelOrder(tree);
-    EXPECT_EQ(ret, output);
-    FreeTreeNode(tree);
+  vector<optional<int>> const root = {1};
+  vector<vector<int>> const output = {{1}};
+  Solution sl;
+  auto* tree = ConstructBinaryTree(root);
+  auto ret = sl.LevelOrder(tree);
+  EXPECT_EQ(ret, output);
+  FreeTreeNode(tree);
 }
 
 TEST(binary_tree_level_order_traversal, t3) {
-    vector<optional<int>> root = {};
-    vector<vector<int>> output = {};
-    Solution sl;
-    auto* tree = ConstructBinaryTree(root);
-    auto ret = sl.LevelOrder(tree);
-    EXPECT_EQ(ret, output);
-    FreeTreeNode(tree);
+  vector<optional<int>> const root = {};
+  vector<vector<int>> const output = {};
+  Solution sl;
+  auto* tree = ConstructBinaryTree(root);
+  auto ret = sl.LevelOrder(tree);
+  EXPECT_EQ(ret, output);
+  FreeTreeNode(tree);
 }
 
 }  // namespace

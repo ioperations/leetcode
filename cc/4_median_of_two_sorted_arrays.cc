@@ -2,14 +2,15 @@
 // PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
 // https://pvs-studio.com
 
+#include <cstddef>
 #include <vector>
 
 #include "gtest/gtest.h"
 namespace {
 class Solution {
    public:
-    Solution() {};
-    virtual ~Solution() {};
+    Solution() = default;
+    virtual ~Solution() = default;
 
     double FindMedianSortedArrays(std::vector<int>& nums1,
                                   std::vector<int>& nums2) {

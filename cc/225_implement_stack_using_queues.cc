@@ -33,65 +33,65 @@ standard operations.
 
 namespace {
 class MyStack {
-    std::queue<int> q;
+  std::queue<int> m_q;
 
-   public:
-    MyStack() {}
+ public:
+  MyStack() = default;
 
-    void Push(int x) {
-        q.push(x);
-        for (int i = 0; i < (int)q.size() - 1; i++) {
-            q.push(Pop());
-        }
+  void Push(int x) {
+    m_q.push(x);
+    for (int i = 0; i < (int)m_q.size() - 1; i++) {
+      m_q.push(Pop());
+    }
     }
     int Pop() {
-        int result = Top();
-        q.pop();
-        return result;
+      int const result = Top();
+      m_q.pop();
+      return result;
     }
 
-    int Top() { return q.front(); }
+    int Top() { return m_q.front(); }
 
-    bool Empty() { return q.empty(); }
+    bool Empty() { return m_q.empty(); }
 };
 
 class MyStackV2 {
    public:
-    std::queue<int> q;
-    MyStackV2() {}
+    std::queue<int> m_q;
+    MyStackV2() = default;
 
     void Push(int x) {
-        q.push(x);
-        int i = 1;
-        while (i < (int)q.size()) {
-            q.push(q.front());
-            q.pop();
-            i++;
-        }
+      m_q.push(x);
+      int i = 1;
+      while (i < (int)m_q.size()) {
+        m_q.push(m_q.front());
+        m_q.pop();
+        i++;
+      }
     }
 
     int Pop() {
-        int ele = q.front();
-        q.pop();
-        return ele;
+      int const ele = m_q.front();
+      m_q.pop();
+      return ele;
     }
 
-    int Top() { return q.front(); }
+    int Top() { return m_q.front(); }
 
-    bool Empty() { return q.empty(); }
+    bool Empty() { return m_q.empty(); }
 };
 
 TEST(implement_stack_using_queues, t1) {
     // * Your MyStack object will be instantiated and called as such:
-    MyStack* obj = new MyStack();
-    int x = 0;
+    auto* obj = new MyStack();
+    int const x = 0;
     obj->Push(x);
-    int param_3 = obj->Top();
+    int const param_3 = obj->Top();
 
     EXPECT_EQ(param_3, x);
-    int param_2 = obj->Pop();
+    int const param_2 = obj->Pop();
     EXPECT_EQ(param_2, x);
-    bool param_4 = obj->Empty();
+    bool const param_4 = obj->Empty();
     EXPECT_EQ(param_4, true);
 
     delete obj;
@@ -99,15 +99,15 @@ TEST(implement_stack_using_queues, t1) {
 
 TEST(implement_stack_using_queues_v2, t1) {
     // * Your MyStack object will be instantiated and called as such:
-    MyStackV2* obj = new MyStackV2();
-    int x = 0;
+    auto* obj = new MyStackV2();
+    int const x = 0;
     obj->Push(x);
-    int param_3 = obj->Top();
+    int const param_3 = obj->Top();
 
     EXPECT_EQ(param_3, x);
-    int param_2 = obj->Pop();
+    int const param_2 = obj->Pop();
     EXPECT_EQ(param_2, x);
-    bool param_4 = obj->Empty();
+    bool const param_4 = obj->Empty();
     EXPECT_EQ(param_4, true);
 
     delete obj;
@@ -121,7 +121,7 @@ TEST(implement_stack_using_queues, t2) {
     // Output [null, null, null, 2, 2, false]
 
     // Explanation
-    MyStack* my_stack = new MyStack();
+    auto* my_stack = new MyStack();
     my_stack->Push(1);
     my_stack->Push(2);
 
@@ -129,7 +129,7 @@ TEST(implement_stack_using_queues, t2) {
     EXPECT_EQ(ret, 2);
     ret = my_stack->Pop();  // return 2
     EXPECT_EQ(ret, 2);
-    bool ret2 = my_stack->Empty();  // return False
+    bool const ret2 = my_stack->Empty();  // return False
     EXPECT_EQ(ret2, false);
 
     delete my_stack;
@@ -143,7 +143,7 @@ TEST(implement_stack_using_queues_v2, t2) {
     // Output [null, null, null, 2, 2, false]
 
     // Explanation
-    MyStackV2* my_stack = new MyStackV2();
+    auto* my_stack = new MyStackV2();
     my_stack->Push(1);
     my_stack->Push(2);
 
@@ -151,7 +151,7 @@ TEST(implement_stack_using_queues_v2, t2) {
     EXPECT_EQ(ret, 2);
     ret = my_stack->Pop();  // return 2
     EXPECT_EQ(ret, 2);
-    bool ret2 = my_stack->Empty();  // return False
+    bool const ret2 = my_stack->Empty();  // return False
     EXPECT_EQ(ret2, false);
 
     delete my_stack;

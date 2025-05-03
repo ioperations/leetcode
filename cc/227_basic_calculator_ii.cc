@@ -33,18 +33,18 @@ class Solution {
         stack<int> values;
         stack<char> op;
         for (int j = 0; j < i; j++) {
-            char ch = s[j];
-            if (ch == '+' or ch == '-') {
-                op.push(ch);
+          char const ch = s[j];
+          if (ch == '+' or ch == '-') {
+            op.push(ch);
             } else if (ch == '/' or ch == '*') {
-                int lastval = values.top();
-                values.pop();
-                int nextval = 0;
+              int const lastval = values.top();
+              values.pop();
+              int nextval = 0;
+              j++;
+              while (s[j] <= '9' and s[j] >= '0') {
+                nextval *= 10;
+                nextval += (int)(s[j] - '0');
                 j++;
-                while (s[j] <= '9' and s[j] >= '0') {
-                    nextval *= 10;
-                    nextval += (int)(s[j] - '0');
-                    j++;
                 }
                 j--;
                 if (ch == '/') {
@@ -66,13 +66,13 @@ class Solution {
         }
         int ans = 0;
         while (!op.empty()) {
-            int b = values.top();
-            values.pop();
-            char ch = op.top();
-            op.pop();
-            // cout<<a<<" "<<ch<<" "<<b<<endl;
-            if (ch == '+') {
-                ans += b;
+          int const b = values.top();
+          values.pop();
+          char const ch = op.top();
+          op.pop();
+          // cout<<a<<" "<<ch<<" "<<b<<endl;
+          if (ch == '+') {
+            ans += b;
             } else {
                 ans -= b;
             }
@@ -83,27 +83,27 @@ class Solution {
 };
 
 TEST(basic_calculator_ii, t1) {
-    string s = "3+2*2";
-    int output = 7;
-    Solution sl;
-    int ret = sl.Calculate(s);
-    EXPECT_EQ(ret, output);
+  string const s = "3+2*2";
+  int const output = 7;
+  Solution sl;
+  int const ret = sl.Calculate(s);
+  EXPECT_EQ(ret, output);
 }
 
 TEST(basic_calculator_ii, t2) {
-    string s = " 3/2 ";
-    int output = 1;
-    Solution sl;
-    int ret = sl.Calculate(s);
-    EXPECT_EQ(ret, output);
+  string const s = " 3/2 ";
+  int const output = 1;
+  Solution sl;
+  int const ret = sl.Calculate(s);
+  EXPECT_EQ(ret, output);
 }
 
 TEST(basic_calculator_ii, t3) {
-    string s = " 3+5 / 2 ";
-    int output = 5;
-    Solution sl;
-    int ret = sl.Calculate(s);
-    EXPECT_EQ(ret, output);
+  string const s = " 3+5 / 2 ";
+  int const output = 5;
+  Solution sl;
+  int const ret = sl.Calculate(s);
+  EXPECT_EQ(ret, output);
 }
 
 }  // namespace

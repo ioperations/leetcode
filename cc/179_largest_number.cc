@@ -44,21 +44,21 @@ class Solution {
 
 TEST(largest_number, t1) {
     std::vector<int> nums = {10, 2};
-    string output = "210";
+    string const output = "210";
 
     Solution sl;
 
-    string ret = sl.LargestNumber(nums);
+    string const ret = sl.LargestNumber(nums);
     EXPECT_EQ(ret, output);
 }
 
 TEST(largest_number, t2) {
     std::vector<int> nums = {3, 30, 34, 5, 9};
-    string output = "9534330";
+    string const output = "9534330";
 
     Solution sl;
 
-    string ret = sl.LargestNumber(nums);
+    string const ret = sl.LargestNumber(nums);
     EXPECT_EQ(ret, output);
 }
 

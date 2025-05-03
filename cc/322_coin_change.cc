@@ -14,9 +14,9 @@ You may assume that you have an infinite number of each kind of coin.
 */
 
 #include <benchmark/benchmark.h>
-#include <limits.h>
 
 #include <algorithm>
+#include <climits>
 #include <functional>
 #include <map>
 #include <vector>
@@ -46,11 +46,11 @@ class Solution {
 
             for (int i = (int)coins.size() - 1; i >= 0; i--) {
                 if (coins[i] <= a) {
-                    int tmp = fun(a - coins[i]);
-                    cache[a - coins[i]] = tmp;
+                  int const tmp = fun(a - coins[i]);
+                  cache[a - coins[i]] = tmp;
 
-                    if (tmp != -1) {
-                        ret = 1 + (ret == -1 ? tmp : std::min(ret - 1, tmp));
+                  if (tmp != -1) {
+                    ret = 1 + (ret == -1 ? tmp : std::min(ret - 1, tmp));
                     }
                 } else {
                     break;
@@ -67,27 +67,27 @@ class Solution {
         vector<int> h((amount + 1), INT_MAX - 1);
         h[0] = 0;
         for (int i = 0; i < (int)h.size(); i++) {
-            for (int j = 0; j < (int)coins.size(); j++) {
-                if (i >= coins[j]) h[i] = min(h[i], 1 + h[i - coins[j]]);
-            }
+          for (int coin : coins) {
+            if (i >= coin) h[i] = min(h[i], 1 + h[i - coin]);
+          }
         }
         return (h[h.size() - 1] < INT_MAX - 1) ? h[h.size() - 1] : -1;
     }
 
     int CoinChangeV2(vector<int>& arr, int sum) {
-        int n = arr.size();
+      int const n = arr.size();
 
-        vector<vector<int>> dp(n + 1, vector<int>(sum + 1));
+      vector<vector<int>> dp(n + 1, vector<int>(sum + 1));
 
-        for (int i = 0; i <= n; i++) dp[i][0] = 0;
+      for (int i = 0; i <= n; i++) dp[i][0] = 0;
 
-        for (int i = 0; i < sum + 1; i++) dp[0][i] = INT_MAX - 1;
+      for (int i = 0; i < sum + 1; i++) dp[0][i] = INT_MAX - 1;
 
-        for (int i = 1; i <= sum; i++) {
-            if (i % arr[0] == 0)
-                dp[1][i] = i / arr[0];
-            else
-                dp[1][i] = INT_MAX - 1;
+      for (int i = 1; i <= sum; i++) {
+        if (i % arr[0] == 0)
+          dp[1][i] = i / arr[0];
+        else
+          dp[1][i] = INT_MAX - 1;
         }
 
         for (int i = 1; i <= n; i++) {
@@ -109,42 +109,42 @@ class Solution {
 
 TEST(coin_change, t1) {
     std::vector<int> coins = {1, 2, 5};
-    int amount = 11;
-    int output = 3;
+    int const amount = 11;
+    int const output = 3;
     // Explanation: 11 = 5 + 5 + 1
     Solution sl;
-    int ret = sl.CoinChange(coins, amount);
+    int const ret = sl.CoinChange(coins, amount);
     EXPECT_EQ(ret, output);
 }
 
 TEST(coin_change, t2) {
     std::vector<int> coins = {2};
-    int amount = 3;
-    int output = -1;
+    int const amount = 3;
+    int const output = -1;
     // Explanation: 11 = 5 + 5 + 1
     Solution sl;
-    int ret = sl.CoinChange(coins, amount);
+    int const ret = sl.CoinChange(coins, amount);
     EXPECT_EQ(ret, output);
 }
 
 TEST(coin_change, t3) {
     std::vector<int> coins = {1};
-    int amount = 0;
-    int output = 0;
+    int const amount = 0;
+    int const output = 0;
     // Explanation: 11 = 5 + 5 + 1
     Solution sl;
-    int ret = sl.CoinChange(coins, amount);
+    int const ret = sl.CoinChange(coins, amount);
     EXPECT_EQ(ret, output);
 }
 
 static void BenchMarkV0(benchmark::State& state) {
     for (auto _ : state) {
         std::vector<int> coins = {1, 2, 5};
-        int amount = 11;
-        int output = 3;
+        int const amount = 11;
+        int const output = 3;
         // Explanation: 11 = 5 + 5 + 1
         Solution sl;
-        int ret = sl.CoinChange(coins, amount);
+        int const ret = sl.CoinChange(coins, amount);
         EXPECT_EQ(ret, output);
     }
 }
@@ -153,11 +153,11 @@ BENCHMARK(BenchMarkV0);
 static void BenchMarkV1(benchmark::State& state) {
     for (auto _ : state) {
         std::vector<int> coins = {1, 2, 5};
-        int amount = 11;
-        int output = 3;
+        int const amount = 11;
+        int const output = 3;
         // Explanation: 11 = 5 + 5 + 1
         Solution sl;
-        int ret = sl.CoinChangeV1(coins, amount);
+        int const ret = sl.CoinChangeV1(coins, amount);
         EXPECT_EQ(ret, output);
     }
 }
@@ -166,11 +166,11 @@ BENCHMARK(BenchMarkV1);
 static void BenchMarkV2(benchmark::State& state) {
     for (auto _ : state) {
         std::vector<int> coins = {1, 2, 5};
-        int amount = 11;
-        int output = 3;
+        int const amount = 11;
+        int const output = 3;
         // Explanation: 11 = 5 + 5 + 1
         Solution sl;
-        int ret = sl.CoinChangeV2(coins, amount);
+        int const ret = sl.CoinChangeV2(coins, amount);
         EXPECT_EQ(ret, output);
     }
 }

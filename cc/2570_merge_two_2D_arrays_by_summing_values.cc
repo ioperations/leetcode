@@ -14,51 +14,52 @@
  * 0. Return the resulting array. The returned array must be sorted in ascending
  * order by id.
  */
+#include <cstddef>
 #include <vector>
 using namespace std;
 
 class Solution {
    public:
-    vector<vector<int>> mergeArrays(vector<vector<int>>& nums1,
+    vector<vector<int>> MergeArrays(vector<vector<int>>& nums1,
                                     vector<vector<int>>& nums2) {
-        size_t n1 = nums1.size();
-        size_t n2 = nums2.size();
-        size_t size = n1 + n2;
-        vector<vector<int>> ret;
-        ret.reserve(size);
+      size_t const n1 = nums1.size();
+      size_t const n2 = nums2.size();
+      size_t const size = n1 + n2;
+      vector<vector<int>> ret;
+      ret.reserve(size);
 
-        int i = 0, j = 0;
-        for (int k = 0; k < size; k++) {
-            if (i < n1 && j < n2) {
-                if (nums1[i][0] == nums2[j][0]) {
-                    ret.push_back(
-                        vector<int>{nums1[i][0], nums1[i][1] + nums2[j][1]});
-                    i++;
-                    j++;
-                    continue;
-                } else if (nums1[i][0] < nums2[j][0]) {
-                    ret.push_back(nums1[i]);
-                    i++;
-                    continue;
-                } else {
-                    ret.push_back(nums2[j]);
-                    j++;
-                    continue;
-                }
-            }
-
-            if (i < n1) {
-                ret.push_back(nums1[i]);
-                i++;
-            }
-
-            if (j < n2) {
-                ret.push_back(nums2[j]);
-                j++;
-            }
+      int i = 0, j = 0;
+      for (int k = 0; k < size; k++) {
+        if (i < n1 && j < n2) {
+          if (nums1[i][0] == nums2[j][0]) {
+            ret.push_back(vector<int>{nums1[i][0], nums1[i][1] + nums2[j][1]});
+            i++;
+            j++;
+            continue;
+          }
+          if (nums1[i][0] < nums2[j][0]) {
+            ret.push_back(nums1[i]);
+            i++;
+            continue;
+          } else {
+            ret.push_back(nums2[j]);
+            j++;
+            continue;
+          }
         }
 
-        return ret;
+        if (i < n1) {
+          ret.push_back(nums1[i]);
+          i++;
+        }
+
+        if (j < n2) {
+          ret.push_back(nums2[j]);
+          j++;
+        }
+      }
+
+      return ret;
     }
 };
 
@@ -67,10 +68,10 @@ class Solution {
 TEST(t0, t1) {
     vector<vector<int>> nums1 = {{1, 2}, {2, 3}, {4, 5}},
                         nums2 = {{1, 4}, {3, 2}, {4, 1}};
-    vector<vector<int>> output = {{1, 6}, {2, 3}, {3, 2}, {4, 6}};
+    vector<vector<int>> const output = {{1, 6}, {2, 3}, {3, 2}, {4, 6}};
 
     Solution sl;
-    auto ret = sl.mergeArrays(nums1, nums2);
+    auto ret = sl.MergeArrays(nums1, nums2);
     EXPECT_EQ(ret, output);
 
     // Explanation: The resulting array contains the following:
@@ -82,10 +83,10 @@ TEST(t0, t1) {
 
 TEST(t0, t2) {
     vector<vector<int>> nums1{{2, 4}, {3, 6}, {5, 5}}, nums2 = {{1, 3}, {4, 3}};
-    vector<vector<int>> output = {{1, 3}, {2, 4}, {3, 6}, {4, 3}, {5, 5}};
+    vector<vector<int>> const output = {{1, 3}, {2, 4}, {3, 6}, {4, 3}, {5, 5}};
 
     Solution sl;
-    auto ret = sl.mergeArrays(nums1, nums2);
+    auto ret = sl.MergeArrays(nums1, nums2);
     EXPECT_EQ(ret, output);
 
     // There are no common ids, so we just include each id with its value in the

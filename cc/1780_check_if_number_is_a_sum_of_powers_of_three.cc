@@ -6,36 +6,36 @@
  * 3x.
  */
 
-constexpr int GenThree(int n) {
-    int v = 1;
-    for (int i = 0; i < n; i++) {
-        v = 3 * v;
-    }
+constexpr static int GenThree(int n) {
+  int v = 1;
+  for (int i = 0; i < n; i++) {
+    v = 3 * v;
+  }
 
-    return v;
+  return v;
 }
 
 class Solution {
    public:
-    bool checkPowersOfThree(int n) {
-        // 3进制表示
-        // 1 <= n <= 107
-        //
-        // Let's note that the maximum power of 3 you'll use in your soln is
-        // 3^16
-        //
-        // The number can not be represented as a sum of powers
-        // of 3 if it's ternary presentation has a 2 in it
+    bool CheckPowersOfThree(int n) {
+      // 3进制表示
+      // 1 <= n <= 107
+      //
+      // Let's note that the maximum power of 3 you'll use in your soln is
+      // 3^16
+      //
+      // The number can not be represented as a sum of powers
+      // of 3 if it's ternary presentation has a 2 in it
 
-        for (int i = 0; i < 17; i++) {
-            int v = n / arr[i];
-            n = n % arr[i];
+      for (int i : arr) {
+        int const v = n / i;
+        n = n % i;
 
-            if (v == 2) {
-                return false;
-            }
+        if (v == 2) {
+          return false;
         }
-        return true;
+      }
+      return true;
     }
 
     static constexpr int arr[17] = {
@@ -49,24 +49,24 @@ class Solution {
 #include <gtest/gtest.h>
 
 TEST(t0, t1) {
-    int n = 12;
-    Solution sl;
-    auto ret = sl.checkPowersOfThree(n);
-    EXPECT_EQ(true, ret);
+  int const n = 12;
+  Solution sl;
+  auto ret = sl.CheckPowersOfThree(n);
+  EXPECT_EQ(true, ret);
 }
 
 TEST(t0, t2) {
-    int n = 91;
-    Solution sl;
-    auto ret = sl.checkPowersOfThree(n);
-    EXPECT_EQ(true, ret);
+  int const n = 91;
+  Solution sl;
+  auto ret = sl.CheckPowersOfThree(n);
+  EXPECT_EQ(true, ret);
 }
 
 TEST(t0, t3) {
-    int n = 21;
-    Solution sl;
-    auto ret = sl.checkPowersOfThree(n);
-    EXPECT_EQ(false, ret);
+  int const n = 21;
+  Solution sl;
+  auto ret = sl.CheckPowersOfThree(n);
+  EXPECT_EQ(false, ret);
 }
 
 int main(int argc, char* argv[]) {

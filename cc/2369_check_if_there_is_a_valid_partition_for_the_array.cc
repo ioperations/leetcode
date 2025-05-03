@@ -42,24 +42,24 @@ class Solution {
         if (start_from + 1 == nums.size()) {
             return false;
         }
-        if (cache.find(start_from) != cache.end()) {
-            return cache[start_from];
+        if (m_cache.find(start_from) != m_cache.end()) {
+          return m_cache[start_from];
         }
 
         if (nums[start_from] == nums[start_from + 1]) {
             if (CheckIfOk(nums, start_from + 2)) {
-                cache[start_from] = true;
-                return true;
+              m_cache[start_from] = true;
+              return true;
             }
 
             if (start_from + 2 < nums.size()) {
                 if (nums[start_from] == nums[start_from + 2]) {
                     return CheckIfOk(nums, start_from + 3);
                 }
-                cache[start_from] = false;
+                m_cache[start_from] = false;
                 return false;
             }
-            cache[start_from] = false;
+            m_cache[start_from] = false;
             return false;
         }
 
@@ -72,28 +72,28 @@ class Solution {
                 return CheckIfOk(nums, start_from + 3);
             }
         }
-        cache[start_from] = false;
+        m_cache[start_from] = false;
         return false;
     }
-    std::map<int, bool> cache;
+    std::map<int, bool> m_cache;
 };
 
 TEST(check_if_there_is_a_valid_partition_for_the_array, t1) {
     vector<int> nums = {4, 4, 4, 5, 6};
-    bool output = true;
+    bool const output = true;
     // Explanation: The array can be partitioned into the subarrays [4,4] and
     // [4,5,6]. This partition is valid, so we return true.
     Solution sl;
-    bool ret = sl.ValidPartition(nums);
+    bool const ret = sl.ValidPartition(nums);
     EXPECT_EQ(output, ret);
 }
 
 TEST(check_if_there_is_a_valid_partition_for_the_array, t2) {
     vector<int> nums = {1, 1, 1, 2};
-    bool output = false;
+    bool const output = false;
     // There is no valid partition for this array.
     Solution sl;
-    bool ret = sl.ValidPartition(nums);
+    bool const ret = sl.ValidPartition(nums);
     EXPECT_EQ(output, ret);
 }
 }  // namespace

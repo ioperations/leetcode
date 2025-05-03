@@ -44,19 +44,19 @@ class Solution {
         int left = 0;
         int right = nums.size() - 1;
         while (left <= right) {
-            int mid = (left + right) / 2;
-            if (nums[mid] == target) return mid;
+          int const mid = (left + right) / 2;
+          if (nums[mid] == target) return mid;
 
-            // instead of comparing target and nums[mid]
-            // we need to compare nums[left] and nums[mid]
-            if (nums[left] <= nums[mid]) {
-                // In addition to first condition, we also need to consider
-                // target < nums [left]
-                if (nums[mid] < target || target < nums[left]) {
-                    left = mid + 1;
-                } else {
-                    right = mid - 1;
-                }
+          // instead of comparing target and nums[mid]
+          // we need to compare nums[left] and nums[mid]
+          if (nums[left] <= nums[mid]) {
+            // In addition to first condition, we also need to consider
+            // target < nums [left]
+            if (nums[mid] < target || target < nums[left]) {
+              left = mid + 1;
+            } else {
+              right = mid - 1;
+            }
             } else {
                 if (nums[mid] > target || target > nums[right])
                     right = mid - 1;
@@ -70,28 +70,28 @@ class Solution {
 
 TEST(search_in_rotated_sorted_array, t1) {
     std::vector<int> nums = {4, 5, 6, 7, 0, 1, 2};
-    int target = 0;
-    int output = 4;
+    int const target = 0;
+    int const output = 4;
     Solution s;
-    int ret = s.Search(nums, target);
+    int const ret = s.Search(nums, target);
     EXPECT_EQ(ret, output);
 }
 
 TEST(search_in_rotated_sorted_array, t2) {
     std::vector<int> nums = {4, 5, 6, 7, 0, 1, 2};
-    int target = 3;
-    int output = -1;
+    int const target = 3;
+    int const output = -1;
     Solution s;
-    int ret = s.Search(nums, target);
+    int const ret = s.Search(nums, target);
     EXPECT_EQ(ret, output);
 }
 
 TEST(search_in_rotated_sorted_array, t3) {
     std::vector<int> nums = {1};
-    int target = 0;
-    int output = -1;
+    int const target = 0;
+    int const output = -1;
     Solution s;
-    int ret = s.Search(nums, target);
+    int const ret = s.Search(nums, target);
     EXPECT_EQ(ret, output);
 }
 }  // namespace

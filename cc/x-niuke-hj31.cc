@@ -15,7 +15,7 @@ void ReverseOutPutAllWords(const char* s, int len) {
         // base case
 
         if (str_len == 0) {
-            return std::string("");
+          return {""};
         }
 
         int i = 0;
@@ -28,40 +28,40 @@ void ReverseOutPutAllWords(const char* s, int len) {
         const char* begin = str + i;
 
         if (i >= str_len) {
-            return std::string("");
+          return {""};
         }
         for (; ('a' <= *(str + i) && *(str + i) <= 'z') ||
                ('A' <= *(str + i) && *(str + i) <= 'Z');
              ++i) {
         }
-        std::string back(begin, str + i);
+        std::string const back(begin, str + i);
         return recursive(str + i, str_len - i) + " " + back;
     };
 
     std::string ret = recursive(s, len);
 
     /// remove the first " " in front of ret
-    std::string ret2(ret.begin() + 1, ret.end());
+    std::string const ret2(ret.begin() + 1, ret.end());
 
     std::cout << ret2 << std::endl;
 }
 
 TEST(x_niuke_hjv2, t2) {
     testing::internal::CaptureStdout();
-    std::string s("i am a student");
+    std::string const s("i am a student");
 
     ReverseOutPutAllWords(s.c_str(), s.size());
-    std::string out = testing::internal::GetCapturedStdout();
+    std::string const out = testing::internal::GetCapturedStdout();
 
     EXPECT_EQ(out, std::string("student a am i\n"));
 }
 
 TEST(x_niuke_hjv3, t2) {
     testing::internal::CaptureStdout();
-    std::string s("$bo*y gi!r#l");
+    std::string const s("$bo*y gi!r#l");
 
     ReverseOutPutAllWords(s.c_str(), s.size());
-    std::string out = testing::internal::GetCapturedStdout();
+    std::string const out = testing::internal::GetCapturedStdout();
 
     EXPECT_EQ(out, std::string("l r gi y bo\n"));
 }

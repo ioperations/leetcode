@@ -33,35 +33,35 @@ namespace {
 class Solution {
    public:
     int Trap(vector<int>& height) {
-        int n = height.size();
-        int left = 0;
-        int right = n - 1;
-        int res = 0;
-        int leftmax = 0, rightmax = 0;
+      int const n = height.size();
+      int left = 0;
+      int right = n - 1;
+      int res = 0;
+      int leftmax = 0, rightmax = 0;
 
-        while (left <= right) {
-            // handling left ptr
-            if (height[left] <= height[right]) {
-                if (height[left] >= leftmax)
-                    leftmax = height[left];
+      while (left <= right) {
+        // handling left ptr
+        if (height[left] <= height[right]) {
+          if (height[left] >= leftmax)
+            leftmax = height[left];
 
-                else
-                    res += leftmax - height[left];
+          else
+            res += leftmax - height[left];
 
-                left++;
+          left++;
 
-            }
+        }
 
-            // handling right ptr
-            else {
-                if (height[right] >= rightmax)
-                    rightmax = height[right];
+        // handling right ptr
+        else {
+          if (height[right] >= rightmax)
+            rightmax = height[right];
 
-                else
-                    res += rightmax - height[right];
+          else
+            res += rightmax - height[right];
 
-                right--;
-            }
+          right--;
+        }
         }
 
         return res;
@@ -70,19 +70,19 @@ class Solution {
 
 TEST(trapping_rain_water, t1) {
     std::vector<int> height = {0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1};
-    int expected = 6;
+    int const expected = 6;
 
     Solution s;
-    int ret = s.Trap(height);
+    int const ret = s.Trap(height);
 
     EXPECT_EQ(ret, expected);
 }
 TEST(trapping_rain_water, t2) {
     std::vector<int> height = {4, 2, 0, 3, 2, 5};
-    int expected = 9;
+    int const expected = 9;
 
     Solution s;
-    int ret = s.Trap(height);
+    int const ret = s.Trap(height);
 
     EXPECT_EQ(ret, expected);
 }

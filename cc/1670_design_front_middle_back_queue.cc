@@ -29,90 +29,90 @@ using namespace std;
 
 namespace {
 class FrontMiddleBackQueue {
-    deque<int> q;
+  deque<int> m_q;
 
-   public:
-    FrontMiddleBackQueue() {}
-    ~FrontMiddleBackQueue() { q.clear(); }
+ public:
+  FrontMiddleBackQueue() = default;
+  ~FrontMiddleBackQueue() { m_q.clear(); }
 
-    void PushFront(int val) { q.push_front(val); }
+  void PushFront(int val) { m_q.push_front(val); }
 
-    void PushMiddle(int val) {
-        deque<int> q1;
-        int size = q.size() / 2;
-        for (int i = 0; i < size; i++) {
-            int val = q.front();
-            q.pop_front();
-            q1.push_back(val);
-        }
-        q.push_front(val);
-        while (!q1.empty()) {
-            int val = q1.back();
-            q1.pop_back();
-            q.push_front(val);
-        }
+  void PushMiddle(int val) {
+    deque<int> q1;
+    int const size = m_q.size() / 2;
+    for (int i = 0; i < size; i++) {
+      int const val = m_q.front();
+      m_q.pop_front();
+      q1.push_back(val);
+    }
+    m_q.push_front(val);
+    while (!q1.empty()) {
+      int const val = q1.back();
+      q1.pop_back();
+      m_q.push_front(val);
+    }
     }
 
-    void PushBack(int val) { q.push_back(val); }
+    void PushBack(int val) { m_q.push_back(val); }
 
     int PopFront() {
-        if (q.empty()) return -1;
-        int val = q.front();
-        q.pop_front();
-        return val;
+      if (m_q.empty()) return -1;
+      int const val = m_q.front();
+      m_q.pop_front();
+      return val;
     }
 
     int PopMiddle() {
-        int size = q.size();
-        if (q.empty() || size < size / 2) return -1;
+      int size = m_q.size();
+      if (m_q.empty() || size < size / 2) return -1;
 
-        if (size % 2 == 0) {
-            size = (size / 2) - 1;
+      if (size % 2 == 0) {
+        size = (size / 2) - 1;
         } else {
             size = size / 2;
         }
         deque<int> q1;
         for (int i = 0; i < size; i++) {
-            int val = q.front();
-            q.pop_front();
-            q1.push_back(val);
+          int const val = m_q.front();
+          m_q.pop_front();
+          q1.push_back(val);
         }
-        int t = q.front();
-        q.pop_front();
+        int const t = m_q.front();
+        m_q.pop_front();
 
         while (!q1.empty()) {
-            int val = q1.back();
-            q1.pop_back();
-            q.push_front(val);
+          int const val = q1.back();
+          q1.pop_back();
+          m_q.push_front(val);
         }
         return t;
     }
 
     int PopBack() {
-        if (q.empty()) return -1;
-        int val = q.back();
-        q.pop_back();
-        return val;
+      if (m_q.empty()) return -1;
+      int const val = m_q.back();
+      m_q.pop_back();
+      return val;
     }
 };
 
 TEST(design_front_middle_back_queue, t1) {
-    FrontMiddleBackQueue* q = new FrontMiddleBackQueue();
-    q->PushFront(1);          // [1]
-    q->PushBack(2);           // [1, 2]
-    q->PushMiddle(3);         // [1, 3, 2]
-    q->PushMiddle(4);         // [1, 4, 3, 2]
-    int ret = q->PopFront();  // return 1 -> [4, 3, 2]
-    EXPECT_EQ(ret, 1);
-    ret = q->PopMiddle();  // return 3 -> [4, 2]
-    EXPECT_EQ(ret, 3);
-    ret = q->PopMiddle();  // return 4 -> [2]
-    EXPECT_EQ(ret, 4);
-    ret = q->PopBack();  // return 2 -> []
-    EXPECT_EQ(ret, 2);
-    ret = q->PopFront();  // return -1 -> [] (The queue is empty)
-    EXPECT_EQ(ret, -1);
-    delete q;
+  auto* q = new FrontMiddleBackQueue();
+  q->PushFront(1);          // [1]
+  q->PushBack(2);           // [1, 2]
+  q->PushMiddle(3);         // [1, 3, 2]
+  q->PushMiddle(4);         // [1, 4, 3, 2]
+  int ret = q->PopFront();  // return 1 -> [4, 3, 2]
+  EXPECT_EQ(ret, 1);
+  ret = q->PopMiddle();  // return 3 -> [4, 2]
+  EXPECT_EQ(ret, 3);
+  ret = q->PopMiddle();  // return 4 -> [2]
+  EXPECT_EQ(ret, 4);
+  ret = q->PopBack();  // return 2 -> []
+  EXPECT_EQ(ret, 2);
+  ret = q->PopFront();  // return -1 -> [] (The queue is empty)
+  EXPECT_EQ(ret, -1);
+  delete q;
 }
 
 }  // namespace

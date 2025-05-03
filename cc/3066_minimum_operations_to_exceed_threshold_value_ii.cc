@@ -22,34 +22,34 @@ using namespace std;
 
 class Solution {
    public:
-    int minOperations(vector<int>& nums, int k) {
-        // pass
-        priority_queue<long long, vector<long long>, std::greater<long long>> q;
-        for (auto& n : nums) {
-            q.emplace(n);
-        }
+    int MinOperations(vector<int>& nums, int k) {
+      // pass
+      priority_queue<long long, vector<long long>, std::greater<>> q;
+      for (auto& n : nums) {
+        q.emplace(n);
+      }
 
-        int i = 0;
-        for (; q.top() < k; i++) {
-            auto n = q.top();
-            q.pop();
-            auto m = q.top();
-            q.pop();
+      int i = 0;
+      for (; q.top() < k; i++) {
+        auto n = q.top();
+        q.pop();
+        auto m = q.top();
+        q.pop();
 
-            q.emplace(min(n, m) * 2 + max(n, m));
-        }
-        return i;
+        q.emplace(min(n, m) * 2 + max(n, m));
+      }
+      return i;
     }
 };
 #include <gtest/gtest.h>
 
 TEST(t0, t1) {
     vector<int> nums = {2, 11, 10, 1, 3};
-    int k = 10;
-    int Output = 2;
+    int const k = 10;
+    int const output = 2;
     Solution sl;
-    int ret = sl.minOperations(nums, k);
-    EXPECT_EQ(ret, Output);
+    int const ret = sl.MinOperations(nums, k);
+    EXPECT_EQ(ret, output);
     // Explanation: In the first operation, we remove elements 1 and 2, then add
     // 1 * 2 + 2 to nums. nums becomes equal to [4, 11, 10, 3]. In the second
     // operation, we remove elements 3 and 4, then add 3 * 2 + 4 to nums. nums
@@ -61,11 +61,11 @@ TEST(t0, t1) {
 
 TEST(t0, t2) {
     vector<int> nums = {1, 1, 2, 4, 9};
-    int k = 20;
-    int Output = 4;
+    int const k = 20;
+    int const output = 4;
     Solution sl;
-    int ret = sl.minOperations(nums, k);
-    EXPECT_EQ(ret, Output);
+    int const ret = sl.MinOperations(nums, k);
+    EXPECT_EQ(ret, output);
     /*
      * After one operation, nums becomes equal to [2, 4, 9, 3].
       After two operations, nums becomes equal to [7, 4, 9].
@@ -79,11 +79,11 @@ TEST(t0, t2) {
 
 TEST(t0, t3) {
     vector<int> nums = {999999999, 999999999, 999999999};
-    int k = 1000000000;
-    int Output = 2;
+    int const k = 1000000000;
+    int const output = 2;
     Solution sl;
-    int ret = sl.minOperations(nums, k);
-    EXPECT_EQ(ret, Output);
+    int const ret = sl.MinOperations(nums, k);
+    EXPECT_EQ(ret, output);
     /*
      * NOTE: long long
      */

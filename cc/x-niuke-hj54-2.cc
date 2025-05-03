@@ -3,6 +3,7 @@
 // https://pvs-studio.com
 /// 这个题目考验的是对 编译器 的 表达式 执行的过程
 /// 中缀表达式 转为 后缀表达式
+#include <cctype>
 #include <stack>
 #include <string>
 
@@ -18,7 +19,7 @@ int Result(const string& data) {
     int num = 0;
     char flag = '+';
     stack<int> stk;
-    int len = data.length();
+    int const len = data.length();
     while (pos < len) {
         if (data[pos] == '(') {
             pos++;
@@ -65,28 +66,28 @@ int Result(const string& data) {
 TEST(x_niuke_hj54_v2, t2) {
     pos = 0;
     const char* s = "400+5";
-    int ret = Result(s);
+    int const ret = Result(s);
     EXPECT_EQ(ret, 405);
 }
 
 TEST(x_niuke_hj54_v2, t3) {
     pos = 0;
     const char* s = "4*(2+5)";
-    int ret = Result(s);
+    int const ret = Result(s);
     EXPECT_EQ(ret, 28);
 }
 
 TEST(x_niuke_hj54_v2, t4) {
     pos = 0;
     const char* s = "4*(2+(5-7))";
-    int ret = Result(s);
+    int const ret = Result(s);
     EXPECT_EQ(ret, 0);
 }
 
 TEST(x_niuke_hj54_v2, t5) {
     pos = 0;
     const char* s = "(2+(5-7))*(-4)";
-    int ret = Result(s);
+    int const ret = Result(s);
     EXPECT_EQ(ret, 0);
 }
 }  // namespace

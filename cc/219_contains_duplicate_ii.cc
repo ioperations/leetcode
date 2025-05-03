@@ -7,8 +7,7 @@ distinct indices i and j in the array such that nums[i] == nums[j] and abs(i -
 j) <= k.
 */
 
-#include <stdlib.h>
-
+#include <cstdlib>
 #include <unordered_map>
 #include <vector>
 
@@ -30,7 +29,7 @@ class Solution {
     }
     bool ContainsNearbyDuplicateV2(const vector<int>& nums, int k) {
         unordered_map<int, int> map;
-        int n = nums.size();
+        int const n = nums.size();
         for (int i = 0; i < n; i++) {
             if (map.count(nums[i])) {
                 if (abs(i - map[nums[i]]) <= k) return true;
@@ -42,63 +41,63 @@ class Solution {
 };
 
 TEST(contains_duplicate_ii, t1) {
-    std::vector<int> nums = {1, 2, 3, 1};
-    int k = 3;
-    bool output = true;
+  std::vector<int> const nums = {1, 2, 3, 1};
+  int const k = 3;
+  bool const output = true;
 
-    Solution sl;
-    bool ret = sl.ContainsNearbyDuplicate(nums, k);
-    EXPECT_EQ(ret, output);
+  Solution sl;
+  bool const ret = sl.ContainsNearbyDuplicate(nums, k);
+  EXPECT_EQ(ret, output);
 }
 
 TEST(contains_duplicate_ii, t2) {
-    std::vector<int> nums = {1, 0, 1, 1};
-    int k = 1;
-    bool output = true;
+  std::vector<int> const nums = {1, 0, 1, 1};
+  int const k = 1;
+  bool const output = true;
 
-    Solution sl;
-    bool ret = sl.ContainsNearbyDuplicate(nums, k);
-    EXPECT_EQ(ret, output);
+  Solution sl;
+  bool const ret = sl.ContainsNearbyDuplicate(nums, k);
+  EXPECT_EQ(ret, output);
 }
 
 TEST(contains_duplicate_ii, t3) {
-    std::vector<int> nums = {1, 2, 3, 1, 2, 3};
-    int k = 2;
-    bool output = false;
+  std::vector<int> const nums = {1, 2, 3, 1, 2, 3};
+  int const k = 2;
+  bool const output = false;
 
-    Solution sl;
-    bool ret = sl.ContainsNearbyDuplicate(nums, k);
-    EXPECT_EQ(ret, output);
+  Solution sl;
+  bool const ret = sl.ContainsNearbyDuplicate(nums, k);
+  EXPECT_EQ(ret, output);
 }
 
 TEST(contains_duplicate_ii_v2, t1) {
-    std::vector<int> nums = {1, 2, 3, 1};
-    int k = 3;
-    bool output = true;
+  std::vector<int> const nums = {1, 2, 3, 1};
+  int const k = 3;
+  bool const output = true;
 
-    Solution sl;
-    bool ret = sl.ContainsNearbyDuplicateV2(nums, k);
-    EXPECT_EQ(ret, output);
+  Solution sl;
+  bool const ret = sl.ContainsNearbyDuplicateV2(nums, k);
+  EXPECT_EQ(ret, output);
 }
 
 TEST(contains_duplicate_ii_v2, t2) {
-    std::vector<int> nums = {1, 0, 1, 1};
-    int k = 1;
-    bool output = true;
+  std::vector<int> const nums = {1, 0, 1, 1};
+  int const k = 1;
+  bool const output = true;
 
-    Solution sl;
-    bool ret = sl.ContainsNearbyDuplicateV2(nums, k);
-    EXPECT_EQ(ret, output);
+  Solution sl;
+  bool const ret = sl.ContainsNearbyDuplicateV2(nums, k);
+  EXPECT_EQ(ret, output);
 }
 
 TEST(contains_duplicate_ii_v2, t3) {
-    std::vector<int> nums = {1, 2, 3, 1, 2, 3};
-    int k = 2;
-    bool output = false;
+  std::vector<int> const nums = {1, 2, 3, 1, 2, 3};
+  int const k = 2;
+  bool const output = false;
 
-    Solution sl;
-    bool ret = sl.ContainsNearbyDuplicateV2(nums, k);
-    EXPECT_EQ(ret, output);
+  Solution sl;
+  bool const ret = sl.ContainsNearbyDuplicateV2(nums, k);
+  EXPECT_EQ(ret, output);
 }
 
 }  // namespace

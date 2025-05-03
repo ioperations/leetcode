@@ -39,27 +39,27 @@ class Solution {
 TEST(maximium_subarray, t1) {
     std::vector<int> v{-2, 1, -3, 4, -1, 2, 1, -5, 4};
 
-    int o = 6;
+    int const o = 6;
     Solution sl;
-    int ret = sl.MaxSubArray(v);
+    int const ret = sl.MaxSubArray(v);
     EXPECT_EQ(ret, o);
 }
 
 TEST(maximium_subarray, t2) {
     std::vector<int> v{1};
 
-    int o = 1;
+    int const o = 1;
     Solution sl;
-    int ret = sl.MaxSubArray(v);
+    int const ret = sl.MaxSubArray(v);
     EXPECT_EQ(ret, o);
 }
 
 TEST(maximium_subarray, t3) {
     std::vector<int> v{5, 4, -1, 7, 8};
 
-    int o = 23;
+    int const o = 23;
     Solution sl;
-    int ret = sl.MaxSubArray(v);
+    int const ret = sl.MaxSubArray(v);
     EXPECT_EQ(ret, o);
 }
 

@@ -4,6 +4,7 @@
 /*Given a string s, find the first non-repeating character in it and return its
  * index. If it does not exist, return -1.*/
 #include <algorithm>
+#include <string>
 #include <unordered_map>
 #include <utility>
 
@@ -32,24 +33,24 @@ class Solution {
 };
 
 TEST(first_unique_character_in_a_string, t1) {
-    string s = "leetcode";
-    Solution sl;
-    int ret = sl.FirstUniqChar(s);
-    EXPECT_EQ(ret, 0);
+  string const s = "leetcode";
+  Solution sl;
+  int const ret = sl.FirstUniqChar(s);
+  EXPECT_EQ(ret, 0);
 }
 
 TEST(first_unique_character_in_a_string, t2) {
-    string s = "loveleetcode";
-    Solution sl;
-    int ret = sl.FirstUniqChar(s);
-    EXPECT_EQ(ret, 2);
+  string const s = "loveleetcode";
+  Solution sl;
+  int const ret = sl.FirstUniqChar(s);
+  EXPECT_EQ(ret, 2);
 }
 
 TEST(first_unique_character_in_a_string, t3) {
-    string s = "aabb";
-    Solution sl;
-    int ret = sl.FirstUniqChar(s);
-    EXPECT_EQ(ret, -1);
+  string const s = "aabb";
+  Solution sl;
+  int const ret = sl.FirstUniqChar(s);
+  EXPECT_EQ(ret, -1);
 }
 
 }  // namespace

@@ -24,11 +24,11 @@ class Solution {
    public:
     vector<string> TopKFrequent(vector<string>& words, int k) {
         unordered_map<string, int> umap;
-        for (string s : words) umap[s]++;
+        for (string const& s : words) umap[s]++;
         priority_queue<pair<int, string>> pq;
         for (auto it : umap) {
             // minus sign used to build min heap
-            pq.push({-it.second, it.first});
+            pq.emplace(-it.second, it.first);
             if ((int)pq.size() > k) pq.pop();
         }
         vector<string> res;
@@ -44,8 +44,8 @@ class Solution {
 TEST(top_k_frequent_words, t1) {
     std::vector<string> words = {"i", "love", "leetcode",
                                  "i", "love", "coding"};
-    int k = 2;
-    std::vector<string> output = {"i", "love"};
+    int const k = 2;
+    std::vector<string> const output = {"i", "love"};
     /*
         "i" and "love" are the two most frequent words.
         Note that "i" comes before "love" due to a lower alphabetical order.
@@ -59,8 +59,8 @@ TEST(top_k_frequent_words, t1) {
 TEST(top_k_frequent_words, t2) {
     std::vector<string> words = {"the", "day", "is",    "sunny", "the",
                                  "the", "the", "sunny", "is",    "is"};
-    int k = 4;
-    std::vector<string> output = {"the", "is", "sunny", "day"};
+    int const k = 4;
+    std::vector<string> const output = {"the", "is", "sunny", "day"};
     // Explanation: "the", "is", "sunny" and "day" are the four most frequent
     // words, with the number of occurrence being 4, 3, 2 and 1 respectively.
 

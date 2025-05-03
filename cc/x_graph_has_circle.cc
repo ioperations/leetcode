@@ -1,8 +1,7 @@
 // This is a personal academic project. Dear PVS-Studio, please check it.
 // PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
 // https://pvs-studio.com
-#include <stddef.h>
-
+#include <cstddef>
 #include <queue>
 #include <vector>
 
@@ -19,12 +18,12 @@ class Solution {
         vector<int> indegree(num_courses, 0);
         // 邻接表
         vector<vector<int>> adjacency_list(num_courses, vector<int>());
-        int len = prerequisites.size();
+        int const len = prerequisites.size();
         // 计算所有的顶点的入度值
         for (int i = 0; i < len; i++) {
             vector<int>& item = prerequisites[i];
-            int cur_course = item[0];
-            int pre_course = item[1];
+            int const cur_course = item[0];
+            int const pre_course = item[1];
             // 计算入度
             indegree[pre_course]++;
             // 构造邻接表
@@ -42,18 +41,17 @@ class Solution {
         int count = 0;  // 记录访问过的顶点数
         // 拓扑排序遍历顶点
         while (!course_queue.empty()) {
-            int point = course_queue.front();
-            course_queue.pop();
-            count++;
-            // 从邻接表里面访问，把从该顶点出发所能到达人顶点的入度减一
-            for (size_t i = 0; i < adjacency_list[point].size(); i++) {
-                int pre_course = adjacency_list[point][i];
-                indegree[pre_course]--;
-                // 入度为0则加入队列
-                if (indegree[pre_course] == 0) {
-                    course_queue.push(pre_course);
-                }
+          int const point = course_queue.front();
+          course_queue.pop();
+          count++;
+          // 从邻接表里面访问，把从该顶点出发所能到达人顶点的入度减一
+          for (int pre_course : adjacency_list[point]) {
+            indegree[pre_course]--;
+            // 入度为0则加入队列
+            if (indegree[pre_course] == 0) {
+              course_queue.push(pre_course);
             }
+          }
         }
 
         // 如果遍历完还有顶点没有访问到，说明该有向图有环
@@ -71,7 +69,7 @@ TEST(x_graph_has_circle, t1) {
     std::vector<std::vector<int>> v{{1, 0}, {0, 1}};
 
     Solution s;
-    bool ret = s.CanFinish(2, v);
+    bool const ret = s.CanFinish(2, v);
     EXPECT_EQ(ret, false);
 }
 
@@ -82,7 +80,7 @@ TEST(x_graph_has_circle, t2) {
     std::vector<std::vector<int>> v{{1, 0}};
 
     Solution s;
-    bool ret = s.CanFinish(2, v);
+    bool const ret = s.CanFinish(2, v);
     EXPECT_EQ(ret, true);
 }
 

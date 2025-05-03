@@ -31,18 +31,18 @@ namespace {
 class Solution {
    public:
     int LargestOverlap(vector<vector<int>>& img1, vector<vector<int>>& img2) {
-        int n = img1.size();
-        vector<pair<int, int>> vec_a;
-        vector<pair<int, int>> vec_b;
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
-                if (img1[i][j] == 1) {
-                    vec_a.push_back({i, j});
-                }
-                if (img2[i][j] == 1) {
-                    vec_b.push_back({i, j});
-                }
-            }
+      int const n = img1.size();
+      vector<pair<int, int>> vec_a;
+      vector<pair<int, int>> vec_b;
+      for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+          if (img1[i][j] == 1) {
+            vec_a.emplace_back(i, j);
+          }
+          if (img2[i][j] == 1) {
+            vec_b.emplace_back(i, j);
+          }
+        }
         }
         int ans = 0;
         map<pair<int, int>, int> mp;
@@ -59,27 +59,27 @@ class Solution {
 TEST(image_overlap, t1) {
     vector<vector<int>> img1 = {{1, 1, 0}, {0, 1, 0}, {0, 1, 0}},
                         img2 = {{0, 0, 0}, {0, 1, 1}, {0, 0, 1}};
-    int output = 3;
+    int const output = 3;
     // Explanation: We translate img1 to right by 1 unit and down by 1 unit.
     // The number of positions that have a 1 in both images is 3 (shown in red).
     Solution sl;
-    int ret = sl.LargestOverlap(img1, img2);
+    int const ret = sl.LargestOverlap(img1, img2);
     EXPECT_EQ(ret, output);
 }
 
 TEST(image_overlap, t2) {
     vector<vector<int>> img1 = {{1}}, img2 = {{1}};
-    int output = 1;
+    int const output = 1;
     Solution sl;
-    int ret = sl.LargestOverlap(img1, img2);
+    int const ret = sl.LargestOverlap(img1, img2);
     EXPECT_EQ(ret, output);
 }
 
 TEST(image_overlap, t3) {
     vector<vector<int>> img1 = {{0}}, img2 = {{0}};
-    int output = 0;
+    int const output = 0;
     Solution sl;
-    int ret = sl.LargestOverlap(img1, img2);
+    int const ret = sl.LargestOverlap(img1, img2);
     EXPECT_EQ(ret, output);
 }
 }  // namespace

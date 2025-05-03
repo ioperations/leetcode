@@ -17,9 +17,8 @@ Return the minimum effort required to travel from the top-left cell to the
 bottom-right cell.
 */
 
-#include <stdlib.h>
-
 #include <algorithm>
+#include <cstdlib>
 #include <functional>
 #include <limits>
 #include <map>
@@ -60,7 +59,7 @@ class Solution {
             if (visiting.count(make_pair(i, j)))
                 return std::numeric_limits<int>::max();
 
-            visiting.emplace(make_pair(i, j));
+            visiting.emplace(i, j);
 
             int candidate1 = std::numeric_limits<int>::max();
             int candidate2 = std::numeric_limits<int>::max();
@@ -70,52 +69,52 @@ class Solution {
             if (i < (m - 1)) {
                 // 向下走
                 if (direction_t != 1) {
-                    int z = fun(i + 1, j, -1);
-                    if (z != candidate1) {
-                        candidate1 =
-                            std::max(abs(heights[i + 1][j] - heights[i][j]), z);
+                  int const z = fun(i + 1, j, -1);
+                  if (z != candidate1) {
+                    candidate1 =
+                        std::max(abs(heights[i + 1][j] - heights[i][j]), z);
                     }
                 }
             }
             if (i > 1) {
                 // 向上走
                 if (direction_t != -1) {
-                    int z = fun(i - 1, j, 1);
-                    if (z != candidate2) {
-                        candidate2 =
-                            std::max(abs(heights[i - 1][j] - heights[i][j]), z);
+                  int const z = fun(i - 1, j, 1);
+                  if (z != candidate2) {
+                    candidate2 =
+                        std::max(abs(heights[i - 1][j] - heights[i][j]), z);
                     }
                 }
             }
             if (j < (n - 1)) {
                 // 向右走
                 if (direction_t != -2) {
-                    int z = fun(i, j + 1, 2);
-                    if (z != candidate3) {
-                        candidate3 =
-                            std::max(abs(heights[i][j + 1] - heights[i][j]),
-                                     fun(i, j + 1, 2));
+                  int const z = fun(i, j + 1, 2);
+                  if (z != candidate3) {
+                    candidate3 =
+                        std::max(abs(heights[i][j + 1] - heights[i][j]),
+                                 fun(i, j + 1, 2));
                     }
                 }
             }
             if (j > 1) {
                 // 向左走
                 if (direction_t != 2) {
-                    int z = fun(i, j - 1, -2);
-                    if (z != candidate4) {
-                        candidate4 =
-                            std::max(abs(heights[i][j - 1] - heights[i][j]), z);
+                  int const z = fun(i, j - 1, -2);
+                  if (z != candidate4) {
+                    candidate4 =
+                        std::max(abs(heights[i][j - 1] - heights[i][j]), z);
                     }
                 }
             }
 
-            int ret =
+            int const ret =
                 std::min({candidate1, candidate2, candidate3, candidate4});
 
             cache[make_pair(i, j)] = ret;
             return ret;
         };
-        int ret = fun(0, 0, 0);
+        int const ret = fun(0, 0, 0);
         return ret;
     }
 
@@ -125,25 +124,25 @@ class Solution {
     }
 
     int MinimumEffortPathV2(vector<vector<int>>& heights) {
-        int m = heights.size();
-        int n = heights[0].size();
+      int const m = heights.size();
+      int const n = heights[0].size();
 
-        vector<vector<int>> dp(m + 1, vector<int>(n + 1, 0));
-        // int dp[m + 1][n + 1];
+      vector<vector<int>> dp(m + 1, vector<int>(n + 1, 0));
+      // int dp[m + 1][n + 1];
 
-        for (int i = 0; i < m; i++) {
-            for (int j = 0; j < n; j++) {
-                dp[i][j] = std::numeric_limits<int>::max();
-            }
+      for (int i = 0; i < m; i++) {
+        for (int j = 0; j < n; j++) {
+          dp[i][j] = std::numeric_limits<int>::max();
+        }
         }
         dp[0][0] = 0;
 
         queue<pair<int, int>> q;
-        q.push({0, 0});
-        int x[4] = {0, -1, 0, 1};
-        int y[4] = {-1, 0, 1, 0};
+        q.emplace(0, 0);
+        int const x[4] = {0, -1, 0, 1};
+        int const y[4] = {-1, 0, 1, 0};
         pair<int, int> temp;
-        int px, py;
+        int px = 0, py = 0;
 
         while (!q.empty()) {
             temp = q.front();
@@ -163,7 +162,7 @@ class Solution {
                     min(dp[px][py], max(dp[temp.first][temp.second],
                                         abs(heights[temp.first][temp.second] -
                                             heights[px][py])));
-                q.push({px, py});
+                q.emplace(px, py);
             }
         }
 
@@ -182,20 +181,20 @@ TEST(path_with_minimium_effort, t1) {
         |___|___|___|
     */
     vector<vector<int>> heights = {{1, 2, 2}, {3, 8, 2}, {5, 3, 5}};
-    int output = 2;
+    int const output = 2;
     // Explanation: The route of [1,3,5,3,5] has a maximum absolute difference
     // of 2 in consecutive cells.
     // This is better than the route of [1,2,2,2,5], where the maximum absolute
     // difference is 3.
 
     Solution s;
-    int ret = s.MinimumEffortPath(heights);
+    int const ret = s.MinimumEffortPath(heights);
     EXPECT_EQ(ret, output);
 }
 
 TEST(path_with_minimium_effort, t2) {
     vector<vector<int>> heights = {{1, 2, 3}, {3, 8, 4}, {5, 3, 5}};
-    int output = 1;
+    int const output = 1;
     /*
         ___ ___ ___
        | 1 | 2 | 3 |
@@ -212,7 +211,7 @@ TEST(path_with_minimium_effort, t2) {
     // difference is 3.
 
     Solution s;
-    int ret = s.MinimumEffortPath(heights);
+    int const ret = s.MinimumEffortPath(heights);
     EXPECT_EQ(ret, output);
 }
 TEST(path_with_minimium_effort, t3) {
@@ -235,10 +234,10 @@ TEST(path_with_minimium_effort, t3) {
     | 1 | 1 | 1 | 2 | 1 |
     |___|___|___|___|___|
     */
-    int output = 0;
+    int const output = 0;
 
     Solution s;
-    int ret = s.MinimumEffortPathV2(heights);
+    int const ret = s.MinimumEffortPathV2(heights);
     EXPECT_EQ(ret, output);
 }
 

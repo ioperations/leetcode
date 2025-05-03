@@ -25,9 +25,9 @@ class Solution {
         if (n == 0 && goal == 0) return 1;
         if (n == 0 || goal == 0) return 0;
         if (dp[n][goal] != -1) return dp[n][goal];
-        ll pick = Solve(n - 1, goal - 1, k, dp) * n;
-        ll notpick = Solve(n, goal - 1, k, dp) * max(n - k, 0);
-        return dp[n][goal] = (pick + notpick) % mod;
+        ll const pick = Solve(n - 1, goal - 1, k, dp) * n;
+        ll const notpick = Solve(n, goal - 1, k, dp) * max(n - k, 0);
+        return dp[n][goal] = (pick + notpick) % m_mod;
     }
 
     int NumMusicPlaylists(int n, int goal, int k) {
@@ -68,7 +68,7 @@ class Solution {
         vector<vector<int>> dp(n + 1, vector<int>(goal + 1, -1));
         return Solve(n, goal, k, dp);
     }
-    const int mod = 1000000007;
+    const int m_mod = 1000000007;
 };
 
 TEST(number_of_music_playlists, t1) {

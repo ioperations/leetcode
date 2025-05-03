@@ -27,19 +27,19 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    vector<int> vis, col;
+    vector<int> m_vis, m_col;
     bool Dfs(int v, int c, vector<vector<int>>& graph) {
-        vis[v] = 1;
-        col[v] = c;
-        for (int child : graph[v]) {
-            if (vis[child] == 0) {
-                // here c^1 is for flipping 1 by 0 or 0 by 1, that is flip the
-                // current color
-                if (Dfs(child, c ^ 1, graph) == false) return false;
-            } else {
-                if (col[v] == col[child]) return false;
-            }
+      m_vis[v] = 1;
+      m_col[v] = c;
+      for (int const child : graph[v]) {
+        if (m_vis[child] == 0) {
+          // here c^1 is for flipping 1 by 0 or 0 by 1, that is flip the
+          // current color
+          if (Dfs(child, c ^ 1, graph) == false) return false;
+        } else {
+          if (m_col[v] == m_col[child]) return false;
         }
+      }
         return true;
     }
 
@@ -57,14 +57,14 @@ class Solution {
            SPACE COMPLEXITY
            O(n+n) [vis and col vectors are of size n each]
         */
-        int n = graph.size();
-        vis.resize(n);
-        col.resize(n);
+        int const n = graph.size();
+        m_vis.resize(n);
+        m_col.resize(n);
 
         for (int i = 0; i < n; ++i) {
-            if (vis[i] == 0 && Dfs(i, 0, graph) == false) {
-                return false;
-            }
+          if (m_vis[i] == 0 && Dfs(i, 0, graph) == false) {
+            return false;
+          }
         }
 
         return true;
@@ -85,11 +85,11 @@ TEST(is_graph_bipartite, t1) {
     */
 
     vector<vector<int>> graph = {{1, 2, 3}, {0, 2}, {0, 1, 3}, {0, 2}};
-    bool expected = false;
+    bool const expected = false;
     // There is no way to partition the nodes into two independent sets such
     // that every edge connects a node in one and a node in the other.
     Solution s;
-    bool ret = s.IsBipartite(graph);
+    bool const ret = s.IsBipartite(graph);
     EXPECT_EQ(ret, expected);
 }
 
@@ -107,10 +107,10 @@ TEST(is_graph_bipartite, t2) {
     */
 
     vector<vector<int>> graph = {{1, 3}, {0, 2}, {1, 3}, {0, 2}};
-    bool expected = true;
+    bool const expected = true;
     // We can partition the nodes into two sets: {0, 2} and {1, 3}.
     Solution s;
-    bool ret = s.IsBipartite(graph);
+    bool const ret = s.IsBipartite(graph);
     EXPECT_EQ(ret, expected);
 }
 

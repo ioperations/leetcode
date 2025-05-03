@@ -9,64 +9,65 @@
  * A substring is a contiguous sequence of characters in a string.
  */
 
+#include <cstddef>
 #include <string>
 #include <vector>
 using namespace std;
 
 class Solution {
    public:
-    string removeOccurrences(string s, string part) {
-        // FIXME: not effciency
-        /**
-         * 1 <= s.length <= 1000
-         * 1 <= part.length <= 1000
-         * s and part consists of lowercase English letters.
-         */
-        size_t size = s.size();
-        vector<bool> exists(size, true);
+    string RemoveOccurrences(string s, string part) {
+      // FIXME: not effciency
+      /**
+       * 1 <= s.length <= 1000
+       * 1 <= part.length <= 1000
+       * s and part consists of lowercase English letters.
+       */
+      size_t const size = s.size();
+      vector<bool> exists(size, true);
 
-        size_t len = part.size();
-        for (int i = 0; i < size; i++) {
-            int n = 0;
-            for (int j = 0; j < len; j++) {
-                for (; (i + j + n) < size && !exists[i + j + n];) {
-                    n++;
-                }
-                if (s[i + j + n] != part[j]) {
-                    break;
-                }
+      size_t const len = part.size();
+      for (int i = 0; i < size; i++) {
+        int n = 0;
+        for (int j = 0; j < len; j++) {
+          for (; (i + j + n) < size && !exists[i + j + n];) {
+            n++;
+          }
+          if (s[i + j + n] != part[j]) {
+            break;
+          }
 
-                if (j == (len - 1)) {
-                    remove(exists, i, len);
-                    i = -1;
-                    break;
-                }
-            }
+          if (j == (len - 1)) {
+            Remove(exists, i, len);
+            i = -1;
+            break;
+          }
         }
+      }
 
-        std::string ret;
-        for (int i = 0; i < size; i++) {
-            if (exists[i]) {
-                ret += s[i];
-            }
+      std::string ret;
+      for (int i = 0; i < size; i++) {
+        if (exists[i]) {
+          ret += s[i];
         }
+      }
 
-        return ret;
+      return ret;
     }
 
-    void remove(vector<bool>& exists, int index, int len) {
-        auto size = exists.size();
-        int count = 0;
-        for (int i = index; i < size; i++) {
-            if (!exists[i]) {
-                continue;
-            }
-            exists[i] = false;
-            count++;
-            if (count == len) {
-                break;
-            }
+    void Remove(vector<bool>& exists, int index, int len) {
+      auto size = exists.size();
+      int count = 0;
+      for (int i = index; i < size; i++) {
+        if (!exists[i]) {
+          continue;
         }
+        exists[i] = false;
+        count++;
+        if (count == len) {
+          break;
+        }
+      }
     }
 };
 
@@ -74,9 +75,9 @@ class Solution {
 
 TEST(t0, t1) {
     string s = "daabcbaabcbc", part = "abc";
-    string output = "dab";
+    string const output = "dab";
     Solution sl;
-    auto ret = sl.removeOccurrences(s, part);
+    auto ret = sl.RemoveOccurrences(s, part);
     EXPECT_EQ(ret, output);
     // Explanation: The following operations are done:
     // - s = "daabcbaabcbc", remove "abc" starting at index 2, so s =
@@ -88,9 +89,9 @@ TEST(t0, t1) {
 
 TEST(t0, t2) {
     string s = "axxxxyyyyb", part = "xy";
-    string output = "ab";
+    string const output = "ab";
     Solution sl;
-    auto ret = sl.removeOccurrences(s, part);
+    auto ret = sl.RemoveOccurrences(s, part);
     EXPECT_EQ(ret, output);
     // Explanation:
     //     The following operations are done:

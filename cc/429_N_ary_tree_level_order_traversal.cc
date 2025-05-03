@@ -16,17 +16,14 @@ using namespace std;
 namespace {
 class Node {
    public:
-    int m_val;
+    int m_val{};
     vector<Node*> m_children;
 
-    Node() {}
+    Node() = default;
 
-    Node(int val) { m_val = val; }
+    Node(int val) : m_val(val) {}
 
-    Node(int val, vector<Node*> children) {
-        m_val = val;
-        m_children = children;
-    }
+    Node(int val, vector<Node*> children) : m_val(val), m_children(children) {}
 };
 
 class Solution {
@@ -37,8 +34,8 @@ class Solution {
         if (root == nullptr) return ret;
 
         struct Status {
-            Node* n;
-            int level;
+          Node* m_n;
+          int m_level;
         };
 
         queue<Status> q;
@@ -49,16 +46,16 @@ class Solution {
         vector<int> tmp_vec;
         while (q.size()) {
             const Status tmp = q.front();
-            if (tmp.level == cur_level) {
-                tmp_vec.push_back(tmp.n->m_val);
+            if (tmp.m_level == cur_level) {
+              tmp_vec.push_back(tmp.m_n->m_val);
             } else {
-                ret.push_back(tmp_vec);
-                tmp_vec.clear();
-                tmp_vec.push_back(tmp.n->m_val);
-                cur_level++;
+              ret.push_back(tmp_vec);
+              tmp_vec.clear();
+              tmp_vec.push_back(tmp.m_n->m_val);
+              cur_level++;
             }
-            for (auto& ptr : tmp.n->m_children) {
-                q.push({ptr, cur_level + 1});
+            for (auto& ptr : tmp.m_n->m_children) {
+              q.push({ptr, cur_level + 1});
             }
             q.pop();
         }

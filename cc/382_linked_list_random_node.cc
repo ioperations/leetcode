@@ -16,32 +16,32 @@ using ListNode = List::ListNode<int>;
 
 namespace {
 class Solution {
-    vector<int> vec;
+  vector<int> m_vec;
 
-   public:
-    Solution(ListNode* head) {
-        while (head != nullptr) {
-            vec.push_back(head->val);
-            head = head->next;
-        }
+ public:
+  Solution(ListNode* head) {
+    while (head != nullptr) {
+      m_vec.push_back(head->val);
+      head = head->next;
+    }
     }
 
     int GetRandom() {
-        int random_index = rand() / (RAND_MAX + 1.0) * vec.size();
-        return vec[random_index];
+      int const random_index = rand() / (RAND_MAX + 1.0) * m_vec.size();
+      return m_vec[random_index];
     }
 };
 
 TEST(linked_list_random_node, t1) {
     std::vector<int> rt{1, 2, 3};
     ListNode* head = List::ConstructList(rt);
-    Solution* s = new Solution(head);
+    auto* s = new Solution(head);
     std::map<int, int> val_count;
-    int count = 10000;
+    int const count = 10000;
     for (int i = 0; i < count; i++) {
         val_count[s->GetRandom()]++;
     }
-    std::set<int> set(rt.begin(), rt.end());
+    std::set<int> const set(rt.begin(), rt.end());
     for (auto& ptr : val_count) {
         EXPECT_NEAR(ptr.second, count / val_count.size(), 1000);
     }

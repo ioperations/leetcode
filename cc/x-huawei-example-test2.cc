@@ -28,7 +28,7 @@ TEST(x_huawei_example_testv2, t2) {
     std::vector<int> t{1, 2, 4, 5, 5, 6, 6, 7, 7, 7, 3};
     testing::internal::CaptureStdout();
     Processing(t);
-    std::string s = testing::internal::GetCapturedStdout();
+    std::string const s = testing::internal::GetCapturedStdout();
 
     EXPECT_EQ(s, std::string("1\n2\n3\n4\n5\n6\n7\n"));
 }

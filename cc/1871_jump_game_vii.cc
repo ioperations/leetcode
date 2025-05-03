@@ -31,12 +31,12 @@ class Solution {
         for (int i = 0; i < (int)s.size(); i++)
             if (s[i] == '0') list.push_back(i);
         queue<pair<int, int>> q;
-        q.push({0, 0});
+        q.emplace(0, 0);
         for (int i = 0; i < (int)list.size(); i++) {
             if (q.empty()) return false;
             if (list[i] >= q.front().first && list[i] <= q.front().second) {
                 if (list[i] == (int)s.size() - 1) return true;
-                q.push({list[i] + min_jump, list[i] + max_jump});
+                q.emplace(list[i] + min_jump, list[i] + max_jump);
             } else {
                 if (list[i] > q.front().second) q.pop(), i--;
             }
@@ -46,25 +46,25 @@ class Solution {
 };
 
 TEST(jump_game_vii, t1) {
-    string s = "011010";
-    int min_jump = 2, max_jump = 3;
-    bool output = true;
-    // In the first step, move from index 0 to index 3. In the second step, move
-    // from index 3 to index 5.
-    Solution sl;
-    bool ret = sl.CanReach(s, min_jump, max_jump);
-    EXPECT_EQ(ret, output);
+  string const s = "011010";
+  int min_jump = 2, max_jump = 3;
+  bool const output = true;
+  // In the first step, move from index 0 to index 3. In the second step, move
+  // from index 3 to index 5.
+  Solution sl;
+  bool const ret = sl.CanReach(s, min_jump, max_jump);
+  EXPECT_EQ(ret, output);
 }
 
 TEST(jump_game_vii, t2) {
-    string s = "01101110";
-    int min_jump = 2, max_jump = 3;
-    bool output = false;
-    // In the first step, move from index 0 to index 3. In the second step, move
-    // from index 3 to index 5.
-    Solution sl;
-    bool ret = sl.CanReach(s, min_jump, max_jump);
-    EXPECT_EQ(ret, output);
+  string const s = "01101110";
+  int min_jump = 2, max_jump = 3;
+  bool const output = false;
+  // In the first step, move from index 0 to index 3. In the second step, move
+  // from index 3 to index 5.
+  Solution sl;
+  bool const ret = sl.CanReach(s, min_jump, max_jump);
+  EXPECT_EQ(ret, output);
 }
 
 }  // namespace

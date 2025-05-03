@@ -28,7 +28,7 @@ class Solution {
         vector<int> dp(1001, -1);
         return Combination(nums, target, dp);
     }
-    int ans = 0;
+    int m_ans = 0;
 
     int CombinationSum4V1(vector<int>& nums, int tar) {
         if (nums.size() == 0) return 0;
@@ -75,7 +75,7 @@ class Solution {
 
 TEST(combination_sum_iv, t1) {
     vector<int> nums = {1, 2, 3};
-    int target = 4;
+    int const target = 4;
     Solution sl;
     /*
         The possible combination ways are:
@@ -89,22 +89,22 @@ TEST(combination_sum_iv, t1) {
         Note that different sequences are counted as different combinations.
     */
 
-    int ret = sl.CombinationSum4(nums, target);
+    int const ret = sl.CombinationSum4(nums, target);
     EXPECT_EQ(ret, 7);
 }
 
 TEST(combination_sum_iv, t2) {
     vector<int> nums = {9};
-    int target = 3;
+    int const target = 3;
     Solution sl;
 
-    int ret = sl.CombinationSum4(nums, target);
+    int const ret = sl.CombinationSum4(nums, target);
     EXPECT_EQ(ret, 0);
 }
 
 TEST(combination_sum_iv_v2, t1) {
     vector<int> nums = {1, 2, 3};
-    int target = 4;
+    int const target = 4;
     Solution sl;
     /*
         The possible combination ways are:
@@ -118,22 +118,22 @@ TEST(combination_sum_iv_v2, t1) {
         Note that different sequences are counted as different combinations.
     */
 
-    int ret = sl.CombinationSum4V1(nums, target);
+    int const ret = sl.CombinationSum4V1(nums, target);
     EXPECT_EQ(ret, 7);
 }
 
 TEST(combination_sum_iv_v2, t2) {
     vector<int> nums = {9};
-    int target = 3;
+    int const target = 3;
     Solution sl;
 
-    int ret = sl.CombinationSum4V1(nums, target);
+    int const ret = sl.CombinationSum4V1(nums, target);
     EXPECT_EQ(ret, 0);
 }
 
 TEST(combination_sum_iv_v3, t1) {
     vector<int> nums = {1, 2, 3};
-    int target = 4;
+    int const target = 4;
     Solution sl;
     /*
         The possible combination ways are:
@@ -147,16 +147,16 @@ TEST(combination_sum_iv_v3, t1) {
         Note that different sequences are counted as different combinations.
     */
 
-    int ret = sl.CombinationSum4V2(nums, target);
+    int const ret = sl.CombinationSum4V2(nums, target);
     EXPECT_EQ(ret, 7);
 }
 
 TEST(combination_sum_iv_v3, t2) {
     vector<int> nums = {9};
-    int target = 3;
+    int const target = 3;
     Solution sl;
 
-    int ret = sl.CombinationSum4V2(nums, target);
+    int const ret = sl.CombinationSum4V2(nums, target);
     EXPECT_EQ(ret, 0);
 }
 

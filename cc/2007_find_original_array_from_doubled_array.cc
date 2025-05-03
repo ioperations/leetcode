@@ -25,20 +25,20 @@ class Solution {
 
         sort(changed.begin(), changed.end());
 
-        for (int& val : changed) freq[val]++;
+        for (int const& val : changed) freq[val]++;
 
-        for (int& val : changed) {
-            if (freq[val] <= 0) continue;
+        for (int const& val : changed) {
+          if (freq[val] <= 0) continue;
 
-            freq[val]--;
+          freq[val]--;
 
-            if (freq[2 * val] > 0) {
-                freq[2 * val]--;
-                result.push_back(val);
-                continue;
-            }
+          if (freq[2 * val] > 0) {
+            freq[2 * val]--;
+            result.push_back(val);
+            continue;
+          }
 
-            break;
+          break;
         }
 
         if (2 * result.size() != changed.size()) return {};
@@ -52,7 +52,7 @@ class Solution {
 TEST(find_original_array_from_doubled_array, t1) {
     std::vector<int> changed = {1, 3, 4, 2, 6, 8};
     std::vector<int> output = {1, 3, 4};
-    std::set<int> output_set(output.begin(), output.end());
+    std::set<int> const output_set(output.begin(), output.end());
     // Explanation: One possible original array could be [1,3,4]:
     // - Twice the value of 1 is 1 * 2 = 2.
     // - Twice the value of 3 is 3 * 2 = 6.
@@ -61,30 +61,30 @@ TEST(find_original_array_from_doubled_array, t1) {
 
     Solution sl;
     auto ret = sl.FindOriginalArray(changed);
-    std::set<int> ret_set(ret.begin(), ret.end());
+    std::set<int> const ret_set(ret.begin(), ret.end());
     EXPECT_EQ(ret_set, output_set);
 }
 
 TEST(find_original_array_from_doubled_array, t2) {
     std::vector<int> changed = {6, 3, 0, 1};
     std::vector<int> output = {};
-    std::set<int> output_set(output.begin(), output.end());
+    std::set<int> const output_set(output.begin(), output.end());
     // changed is not a doubled array.
 
     Solution sl;
     auto ret = sl.FindOriginalArray(changed);
-    std::set<int> ret_set(ret.begin(), ret.end());
+    std::set<int> const ret_set(ret.begin(), ret.end());
     EXPECT_EQ(ret_set, output_set);
 }
 
 TEST(find_original_array_from_doubled_array, t3) {
     std::vector<int> changed = {1};
     std::vector<int> output = {};
-    std::set<int> output_set(output.begin(), output.end());
+    std::set<int> const output_set(output.begin(), output.end());
     // changed is not a doubled array.
     Solution sl;
     auto ret = sl.FindOriginalArray(changed);
-    std::set<int> ret_set(ret.begin(), ret.end());
+    std::set<int> const ret_set(ret.begin(), ret.end());
     EXPECT_EQ(ret_set, output_set);
 }
 

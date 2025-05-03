@@ -22,21 +22,21 @@ using namespace std;
 
 namespace {
 class Solution {
-    unordered_map<string, bool> cache;
+  unordered_map<string, bool> m_cache;
 
-   public:
-    bool IsSubsequence(const string& s1, const string& s2) {
-        if (cache.count(s1)) return cache[s1];
-        int n = s1.length(), m = s2.length();
-        int i = 0, j = 0;
-        while (i < n && j < m) {
-            if (s1[i] == s2[j]) i++;
-            j++;
-        }
-        /*If i reaches end of s1,that mean we found all
-        characters of s1 in s2,
-        so s1 is subsequence of s2, else not*/
-        return cache[s1] = i == n;
+ public:
+  bool IsSubsequence(const string& s1, const string& s2) {
+    if (m_cache.count(s1)) return m_cache[s1];
+    int n = s1.length(), m = s2.length();
+    int i = 0, j = 0;
+    while (i < n && j < m) {
+      if (s1[i] == s2[j]) i++;
+      j++;
+    }
+    /*If i reaches end of s1,that mean we found all
+    characters of s1 in s2,
+    so s1 is subsequence of s2, else not*/
+    return m_cache[s1] = i == n;
     }
     int NumMatchingSubseqV1(string s, vector<string>& words) {
         // pass
@@ -86,23 +86,23 @@ class Solution {
 };
 
 TEST(number_of_matching_subsequences, t1) {
-    string s = "abcde";
-    vector<string> words = {"a", "bb", "acd", "ace"};
-    int output = 3;
-    // Explanation: There are three strings in words that are a subsequence
-    // of s: "a", "acd", "ace".
-    Solution sl;
-    int ret = sl.NumMatchingSubseq(s, words);
-    EXPECT_EQ(ret, output);
+  string const s = "abcde";
+  vector<string> words = {"a", "bb", "acd", "ace"};
+  int const output = 3;
+  // Explanation: There are three strings in words that are a subsequence
+  // of s: "a", "acd", "ace".
+  Solution sl;
+  int const ret = sl.NumMatchingSubseq(s, words);
+  EXPECT_EQ(ret, output);
 }
 
 TEST(number_of_matching_subsequences, t2) {
-    string s = "dsahjpjauf";
-    vector<string> words = {"ahjpjau", "ja", "ahbwzgqnuk", "tnmlanowax"};
-    int output = 2;
-    Solution sl;
-    int ret = sl.NumMatchingSubseq(s, words);
-    EXPECT_EQ(ret, output);
+  string const s = "dsahjpjauf";
+  vector<string> words = {"ahjpjau", "ja", "ahbwzgqnuk", "tnmlanowax"};
+  int const output = 2;
+  Solution sl;
+  int const ret = sl.NumMatchingSubseq(s, words);
+  EXPECT_EQ(ret, output);
 }
 
 }  // namespace

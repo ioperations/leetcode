@@ -19,19 +19,19 @@ namespace {
 class Solution {
    public:
     int MinSetSize(vector<int>& arr) {
-        int n = arr.size();
+      int const n = arr.size();
 
-        unordered_map<int, int> mp;
-        for (auto i : arr) mp[i]++;
+      unordered_map<int, int> mp;
+      for (auto i : arr) mp[i]++;
 
-        priority_queue<int> pq;
-        for (auto& [val, cnt] : mp) pq.push(cnt);
+      priority_queue<int> pq;
+      for (auto& [val, cnt] : mp) pq.push(cnt);
 
-        int val = 0, sum = 0;
-        while (!pq.empty() and sum < n / 2) {
-            sum += pq.top();
-            pq.pop();
-            val++;
+      int val = 0, sum = 0;
+      while (!pq.empty() and sum < n / 2) {
+        sum += pq.top();
+        pq.pop();
+        val++;
         }
         return val;
     }
@@ -39,7 +39,7 @@ class Solution {
 
 TEST(reduce_array_size_to_the_half, t1) {
     vector<int> arr = {3, 3, 3, 3, 5, 5, 5, 2, 2, 7};
-    int output = 2;
+    int const output = 2;
     /*
     Explanation: Choosing {3,7} will make the new array [5,5,5,2,2] which has
     size 5 (i.e equal to half of the size of the old array). Possible sets of
@@ -48,19 +48,19 @@ TEST(reduce_array_size_to_the_half, t1) {
     size of the old array.
     */
     Solution sl;
-    int ret = sl.MinSetSize(arr);
+    int const ret = sl.MinSetSize(arr);
     EXPECT_EQ(ret, output);
 }
 
 TEST(reduce_array_size_to_the_half, t2) {
     vector<int> arr = {7, 7, 7, 7, 7, 7};
-    int output = 1;
+    int const output = 1;
     /*
     The only possible set you can choose is {7}. This will make the new array
     empty.
     */
     Solution sl;
-    int ret = sl.MinSetSize(arr);
+    int const ret = sl.MinSetSize(arr);
     EXPECT_EQ(ret, output);
 }
 

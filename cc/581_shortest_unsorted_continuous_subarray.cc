@@ -21,12 +21,12 @@ namespace {
 class Solution {
    public:
     int FindUnsortedSubarray(vector<int>& nums) {
-        priority_queue<int, vector<int>, std::less<int>> q1;
-        priority_queue<int, vector<int>, std::greater<int>> q2;
-        int i, n = nums.size(), j;
-        for (i = 0; i < n; i++) {
-            q1.push(nums[i]);
-            q2.push(nums[i]);
+      priority_queue<int, vector<int>, std::less<>> q1;
+      priority_queue<int, vector<int>, std::greater<>> q2;
+      int i = 0, n = nums.size(), j = 0;
+      for (i = 0; i < n; i++) {
+        q1.push(nums[i]);
+        q2.push(nums[i]);
         }
         for (i = 0; i < n; i++) {
             if (nums[i] != q2.top()) break;
@@ -43,21 +43,21 @@ class Solution {
 
 TEST(shortest_unsorted_continuous_subarray, t1) {
     std::vector<int> v{2, 6, 4, 8, 10, 9, 15};
-    int expected = 5;
+    int const expected = 5;
     // You need to sort [6, 4, 8, 10, 9] in ascending
     // order to make the whole
     // array sorted in ascending order.
     Solution sl;
-    int ret = sl.FindUnsortedSubarray(v);
+    int const ret = sl.FindUnsortedSubarray(v);
 
     EXPECT_EQ(ret, expected);
 }
 
 TEST(shortest_unsorted_continuous_subarray, t2) {
     std::vector<int> v{1, 2, 3, 4};
-    int expected = 0;
+    int const expected = 0;
     Solution sl;
-    int ret = sl.FindUnsortedSubarray(v);
+    int const ret = sl.FindUnsortedSubarray(v);
     EXPECT_EQ(ret, expected);
 }
 

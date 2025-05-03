@@ -10,6 +10,7 @@ adjacent cells are horizontally or vertically neighboring. The same letter cell
 may not be used more than once.
 */
 
+#include <cstddef>
 #include <map>
 #include <set>
 #include <stack>
@@ -54,9 +55,9 @@ class Solution {
         const int n = board[0].size();
 
         if (board[x][y] == word[0]) {
-            stack.push(make_pair(x, y));
-            // seen.emplace(std::make_pair(x, y));
-            route[x][y] = true;
+          stack.emplace(x, y);
+          // seen.emplace(std::make_pair(x, y));
+          route[x][y] = true;
         } else {
             return false;
         }
@@ -75,7 +76,7 @@ class Solution {
                     if (next[make_pair(x, y)].count(make_pair(x - 1, y)) == 0 &&
                         board[x - 1][y] == word[word_it]) {
                         // next[make_pair(x, y)].emplace(make_pair(x - 1, y));
-                        stack.push(make_pair(x - 1, y));
+                        stack.emplace(x - 1, y);
                         set = true;
                         word_it++;
                         readllyx = x - 1;
@@ -86,7 +87,7 @@ class Solution {
                     if (next[make_pair(x, y)].count(make_pair(x + 1, y)) == 0 &&
                         board[x + 1][y] == word[word_it]) {
                         // next[make_pair(x, y)].emplace(make_pair(x + 1, y));
-                        stack.push(make_pair(x + 1, y));
+                        stack.emplace(x + 1, y);
                         set = true;
 
                         readllyx = x + 1;
@@ -97,7 +98,7 @@ class Solution {
                     if (next[make_pair(x, y)].count(make_pair(x, y - 1)) == 0 &&
                         board[x][y - 1] == word[word_it]) {
                         // next[make_pair(x, y)].emplace(make_pair(x, y - 1));
-                        stack.push(make_pair(x, y - 1));
+                        stack.emplace(x, y - 1);
                         set = true;
 
                         readllyx = x;
@@ -108,7 +109,7 @@ class Solution {
                     if (next[make_pair(x, y)].count(make_pair(x, y + 1)) == 0 &&
                         board[x][y + 1] == word[word_it]) {
                         // next[make_pair(x, y)].emplace(make_pair(x, y + 1));
-                        stack.push(make_pair(x, y + 1));
+                        stack.emplace(x, y + 1);
                         set = true;
 
                         readllyx = x;
@@ -134,45 +135,45 @@ class Solution {
     }
 
    private:
-    string s;
-    int row, col, index = 0, dir[5] = {1, 0, -1, 0, 1};
-    bool decision = false;
+    string m_s;
+    int m_row{}, m_col{}, m_index = 0, m_dir[5] = {1, 0, -1, 0, 1};
+    bool m_decision = false;
 
    public:
     bool IsSafe(int i, int j) {
-        return (i >= 0 && j >= 0 && i < row && j < col) ? true : false;
+      return (i >= 0 && j >= 0 && i < m_row && j < m_col) ? true : false;
     }
 
     void Backtrack(int i, int j, vector<vector<char>>& board,
                    const string& word) {
-        if (index >= (int)word.size()) return;   // base-case
-        if (word[index] != board[i][j]) return;  // search pruning
+      if (m_index >= (int)word.size()) return;   // base-case
+      if (word[m_index] != board[i][j]) return;  // search pruning
 
-        s.push_back(board[i][j]);  // make move
-        board[i][j] = '?';
-        index++;
+      m_s.push_back(board[i][j]);  // make move
+      board[i][j] = '?';
+      m_index++;
 
-        if (s == word) decision = true;  // record solution
+      if (m_s == word) m_decision = true;  // record solution
 
-        for (int k = 0; k < 4; k++)  // backtrack
-            if (IsSafe(i + dir[k], j + dir[k + 1]))
-                Backtrack(i + dir[k], j + dir[k + 1], board, word);
+      for (int k = 0; k < 4; k++)  // backtrack
+        if (IsSafe(i + m_dir[k], j + m_dir[k + 1]))
+          Backtrack(i + m_dir[k], j + m_dir[k + 1], board, word);
 
-        board[i][j] = s.back();  // undo move
-        s.pop_back();
-        index--;
+      board[i][j] = m_s.back();  // undo move
+      m_s.pop_back();
+      m_index--;
     }
 
     bool Exist(vector<vector<char>>& board, const string& word) {
         // apply dfs from all starting characters in board
-        row = board.size(), col = board[0].size();
-        for (int i = 0; i < row; i++)
-            for (int j = 0; j < col; j++)
-                if (board[i][j] == word[0]) {
-                    Backtrack(i, j, board, word);
-                }
+        m_row = board.size(), m_col = board[0].size();
+        for (int i = 0; i < m_row; i++)
+          for (int j = 0; j < m_col; j++)
+            if (board[i][j] == word[0]) {
+              Backtrack(i, j, board, word);
+            }
 
-        return decision;
+        return m_decision;
     }
 };
 

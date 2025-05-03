@@ -38,7 +38,7 @@ class Solution {
 
 TEST(check_if_two_arrays_are_equivalent, t1) {
     vector<string> word1 = {"ab", "c"}, word2 = {"a", "bc"};
-    bool output = true;
+    bool const output = true;
     /*
     Explanation:
     word1 represents string "ab" + "c" -> "abc"
@@ -46,23 +46,23 @@ TEST(check_if_two_arrays_are_equivalent, t1) {
     The strings are the same, so return true.
     */
     Solution sl;
-    bool ret = sl.ArrayStringsAreEqual(word1, word2);
+    bool const ret = sl.ArrayStringsAreEqual(word1, word2);
     EXPECT_EQ(ret, output);
 }
 
 TEST(check_if_two_arrays_are_equivalent, t2) {
     vector<string> word1 = {"a", "cb"}, word2 = {"ab", "c"};
-    bool output = false;
+    bool const output = false;
     Solution sl;
-    bool ret = sl.ArrayStringsAreEqual(word1, word2);
+    bool const ret = sl.ArrayStringsAreEqual(word1, word2);
     EXPECT_EQ(ret, output);
 }
 
 TEST(check_if_two_arrays_are_equivalent, t3) {
     vector<string> word1 = {"abc", "d", "defg"}, word2 = {"abcddefg"};
-    bool output = true;
+    bool const output = true;
     Solution sl;
-    bool ret = sl.ArrayStringsAreEqual(word1, word2);
+    bool const ret = sl.ArrayStringsAreEqual(word1, word2);
     EXPECT_EQ(ret, output);
 }
 

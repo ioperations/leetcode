@@ -14,6 +14,7 @@ in any order.
 */
 
 #include <array>
+#include <functional>
 #include <optional>
 #include <unordered_set>
 #include <vector>
@@ -28,30 +29,30 @@ using namespace std;
 namespace {
 class Solution {
    private:
-    vector<TreeNode*> ans;
-    unordered_set<int> us;
+    vector<TreeNode*> m_ans;
+    unordered_set<int> m_us;
 
    public:
     TreeNode* Solve(TreeNode* root) {
         if (!root) return nullptr;
         root->left = Solve(root->left);
         root->right = Solve(root->right);
-        if (us.find(root->val) != us.end()) {
-            if (root->left) {
-                ans.push_back(root->left);
-            }
-            if (root->right) {
-                ans.push_back(root->right);
-            }
-            return nullptr;
+        if (m_us.find(root->val) != m_us.end()) {
+          if (root->left) {
+            m_ans.push_back(root->left);
+          }
+          if (root->right) {
+            m_ans.push_back(root->right);
+          }
+          return nullptr;
         }
         return root;
     }
     vector<TreeNode*> DelNodes(TreeNode* root, const vector<int>& targets) {
-        for (const int& target : targets) us.insert(target);
-        if (us.find(root->val) == us.end()) ans.push_back(root);
-        Solve(root);
-        return ans;
+      for (const int& target : targets) m_us.insert(target);
+      if (m_us.find(root->val) == m_us.end()) m_ans.push_back(root);
+      Solve(root);
+      return m_ans;
     }
 };
 
@@ -66,35 +67,34 @@ void InOrderTraverse(TreeNode* node, function<void(TreeNode*)> func) {
 }
 
 TEST(t, t1) {
-    auto* binaryTree = Tree::ConstructBinaryTree(
-        std::vector<std::optional<int>>{1, 2, 3, 4, 5, 6, 7});
-    vector<TreeNode*> toFree;
-    InOrderTraverse(binaryTree,
-                    [&toFree](TreeNode* node) { toFree.push_back(node); });
+  auto* binary_tree = Tree::ConstructBinaryTree(
+      std::vector<std::optional<int>>{1, 2, 3, 4, 5, 6, 7});
+  vector<TreeNode*> to_free;
+  InOrderTraverse(binary_tree,
+                  [&to_free](TreeNode* node) { to_free.push_back(node); });
 
-    auto* n = Tree::ConstructBinaryTree(
-        std::vector<std::optional<int>>{1, 2, std::optional<int>(), 4});
-    ScopeGuard freeMem([&toFree, &n]() {
-        for (auto& node : toFree) {
-            delete node;
-        }
-        Tree::FreeTreeNode(n);
-    });
+  auto* n = Tree::ConstructBinaryTree(
+      std::vector<std::optional<int>>{1, 2, std::optional<int>(), 4});
+  ScopeGuard const free_mem([&to_free, &n]() {
+    for (auto& node : to_free) {
+      delete node;
+    }
+    Tree::FreeTreeNode(n);
+  });
 
-    std::array<TreeNode, 3> expected = {*n, TreeNode{6}, TreeNode{7}};
-    Solution sl;
-    auto ret = sl.DelNodes(binaryTree, {3, 5});
+  std::array<TreeNode, 3> expected = {*n, TreeNode{6}, TreeNode{7}};
+  Solution sl;
+  auto ret = sl.DelNodes(binary_tree, {3, 5});
 
-    int i = 0;
-    for (auto& node : expected) {
-        std::vector<int> ret_p;
-        InOrderTraverse(ret[i],
-                        [&](TreeNode* root) { ret_p.push_back(root->val); });
-        std::vector<int> ptr_p;
-        InOrderTraverse(&node,
-                        [&](TreeNode* node) { ptr_p.push_back(node->val); });
-        EXPECT_EQ(ret_p, ptr_p);
-        i++;
+  int i = 0;
+  for (auto& node : expected) {
+    std::vector<int> ret_p;
+    InOrderTraverse(ret[i],
+                    [&](TreeNode* root) { ret_p.push_back(root->val); });
+    std::vector<int> ptr_p;
+    InOrderTraverse(&node, [&](TreeNode* node) { ptr_p.push_back(node->val); });
+    EXPECT_EQ(ret_p, ptr_p);
+    i++;
     }
 }
 

@@ -35,27 +35,27 @@ class Solution {
 };
 
 TEST(number_of_1_bits, t1) {
-    uint32_t n = 11;  // 00000000000000000000000000001011;
-    int expected = 3;
-    Solution s;
-    int ret = s.HammingWeight(n);
-    EXPECT_EQ(ret, expected);
+  uint32_t const n = 11;  // 00000000000000000000000000001011;
+  int const expected = 3;
+  Solution s;
+  int const ret = s.HammingWeight(n);
+  EXPECT_EQ(ret, expected);
 }
 
 TEST(number_of_1_bits, t2) {
-    uint32_t n = 128;  //  00000000000000000000000010000000;
-    int expected = 1;
-    Solution s;
-    int ret = s.HammingWeight(n);
-    EXPECT_EQ(ret, expected);
+  uint32_t const n = 128;  //  00000000000000000000000010000000;
+  int const expected = 1;
+  Solution s;
+  int const ret = s.HammingWeight(n);
+  EXPECT_EQ(ret, expected);
 }
 
 TEST(number_of_1_bits, t3) {
-    uint32_t n = 4294967293;  // 11111111111111111111111111111101;
-    int expected = 31;
-    Solution s;
-    int ret = s.HammingWeight(n);
-    EXPECT_EQ(ret, expected);
+  uint32_t const n = 4294967293;  // 11111111111111111111111111111101;
+  int const expected = 31;
+  Solution s;
+  int const ret = s.HammingWeight(n);
+  EXPECT_EQ(ret, expected);
 }
 
 }  // namespace

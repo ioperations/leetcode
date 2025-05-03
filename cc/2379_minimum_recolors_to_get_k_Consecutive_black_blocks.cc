@@ -20,75 +20,75 @@ using namespace std;
 
 class Solution {
    public:
-    int minimumRecolors(string blocks, int k) {
-        /*
-         * n == blocks.length
-         * 1 <= n <= 100
-         * blocks[i] is either 'W' or 'B'.
-         * 1 <= k <= n
-         */
+    int MinimumRecolors(string blocks, int k) {
+      /*
+       * n == blocks.length
+       * 1 <= n <= 100
+       * blocks[i] is either 'W' or 'B'.
+       * 1 <= k <= n
+       */
 
-        auto size = blocks.size();
-        int whiteSize = 0;
-        for (int i = 0; i < k; i++) {
-            if (blocks[i] == 'W') {
-                whiteSize++;
-            }
+      auto size = blocks.size();
+      int white_size = 0;
+      for (int i = 0; i < k; i++) {
+        if (blocks[i] == 'W') {
+          white_size++;
+        }
+      }
+
+      int ret = white_size;
+      for (int i = k; i < size; i++) {
+        if (blocks[i] == 'W') {
+          white_size++;
         }
 
-        int ret = whiteSize;
-        for (int i = k; i < size; i++) {
-            if (blocks[i] == 'W') {
-                whiteSize++;
-            }
-
-            if (blocks[i - k] == 'W') {
-                whiteSize--;
-            }
-
-            ret = min(ret, whiteSize);
+        if (blocks[i - k] == 'W') {
+          white_size--;
         }
 
-        return ret;
+        ret = min(ret, white_size);
+      }
+
+      return ret;
     }
 };
 
 #include <gtest/gtest.h>
 
 TEST(t0, t1) {
-    string blocks = "WBBWWBBWBW";
-    int k = 7;
-    int Output = 3;
-    Solution sl;
-    auto ret = sl.minimumRecolors(blocks, k);
-    EXPECT_EQ(ret, Output);
-    // Explanation:
-    // One way to achieve 7 consecutive black blocks is to recolor the 0th, 3rd,
-    // and 4th blocks so that blocks = "BBBBBBBWBW". It can be shown that there
-    // is no way to achieve 7 consecutive black blocks in less than 3
-    // operations. Therefore, we return 3.
+  string const blocks = "WBBWWBBWBW";
+  int const k = 7;
+  int const output = 3;
+  Solution sl;
+  auto ret = sl.MinimumRecolors(blocks, k);
+  EXPECT_EQ(ret, output);
+  // Explanation:
+  // One way to achieve 7 consecutive black blocks is to recolor the 0th, 3rd,
+  // and 4th blocks so that blocks = "BBBBBBBWBW". It can be shown that there
+  // is no way to achieve 7 consecutive black blocks in less than 3
+  // operations. Therefore, we return 3.
 }
 
 TEST(t0, t2) {
-    string blocks = "WBWBBBW";
-    int k = 2;
-    int Output = 0;
-    Solution sl;
-    auto ret = sl.minimumRecolors(blocks, k);
-    EXPECT_EQ(ret, Output);
-    // Explanation:
-    // No changes need to be made, since 2 consecutive black blocks already
-    // exist.
-    // Therefore, we return 0.
+  string const blocks = "WBWBBBW";
+  int const k = 2;
+  int const output = 0;
+  Solution sl;
+  auto ret = sl.MinimumRecolors(blocks, k);
+  EXPECT_EQ(ret, output);
+  // Explanation:
+  // No changes need to be made, since 2 consecutive black blocks already
+  // exist.
+  // Therefore, we return 0.
 }
 
 TEST(t0, t3) {
-    string blocks = "BWBBWW";
-    int k = 6;
-    int Output = 3;
-    Solution sl;
-    auto ret = sl.minimumRecolors(blocks, k);
-    EXPECT_EQ(ret, Output);
+  string const blocks = "BWBBWW";
+  int const k = 6;
+  int const output = 3;
+  Solution sl;
+  auto ret = sl.MinimumRecolors(blocks, k);
+  EXPECT_EQ(ret, output);
 }
 
 int main(int argc, char* argv[]) {

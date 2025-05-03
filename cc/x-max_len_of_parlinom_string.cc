@@ -45,10 +45,10 @@ int MaxRet(const char* str, int str_len) {
     int last = std::numeric_limits<int>::min();
 
     for (int i = 0; i < str_len; i++) {
-        int s1 = maxbetween(i, i);
-        int s2 = maxbetween(i, i + 1);
-        int tmp = std::max(s1, s2);
-        last = std::max(tmp, last);
+      int const s1 = maxbetween(i, i);
+      int const s2 = maxbetween(i, i + 1);
+      int const tmp = std::max(s1, s2);
+      last = std::max(tmp, last);
     }
 
     return last;

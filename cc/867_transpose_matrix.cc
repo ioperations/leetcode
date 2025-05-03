@@ -16,14 +16,13 @@ namespace {
 class Solution {
    public:
     vector<vector<int>> Transpose(vector<vector<int>>& matrix) {
-        int n = matrix.size();
-        int m = matrix[0].size();
-        vector<vector<int>> res(m, vector<int>(n, 0));  // matrix creation
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < m; j++) {
-                res[j][i] =
-                    matrix[i][j];  // filling the matrix in transpose form
-            }
+      int const n = matrix.size();
+      int const m = matrix[0].size();
+      vector<vector<int>> res(m, vector<int>(n, 0));  // matrix creation
+      for (int i = 0; i < n; i++) {
+        for (int j = 0; j < m; j++) {
+          res[j][i] = matrix[i][j];  // filling the matrix in transpose form
+        }
         }
         return res;
     }
@@ -31,7 +30,7 @@ class Solution {
 
 TEST(transpose_matrix, t1) {
     vector<vector<int>> matrix = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
-    vector<vector<int>> output = {{1, 4, 7}, {2, 5, 8}, {3, 6, 9}};
+    vector<vector<int>> const output = {{1, 4, 7}, {2, 5, 8}, {3, 6, 9}};
     Solution sl;
     auto ret = sl.Transpose(matrix);
     EXPECT_EQ(ret, output);
@@ -39,7 +38,7 @@ TEST(transpose_matrix, t1) {
 
 TEST(transpose_matrix, t2) {
     vector<vector<int>> matrix = {{1, 2, 3}, {4, 5, 6}};
-    vector<vector<int>> output = {{1, 4}, {2, 5}, {3, 6}};
+    vector<vector<int>> const output = {{1, 4}, {2, 5}, {3, 6}};
     Solution sl;
     auto ret = sl.Transpose(matrix);
     EXPECT_EQ(ret, output);

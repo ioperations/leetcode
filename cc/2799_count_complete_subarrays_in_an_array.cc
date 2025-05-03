@@ -12,20 +12,20 @@ using namespace std;
 
 class Solution {
    public:
-    int countCompleteSubarrays(vector<int>& nums) {
-        /*
-         * 1 <= nums.length <= 1000
-         * 1 <= nums[i] <= 2000
-         */
-        int k = unordered_set<int>(nums.begin(), nums.end()).size(), res = 0;
-        for (int i = 0; i < nums.size(); i++) {
-            unordered_set<int> st;
-            for (int j = i; j < nums.size(); j++) {
-                st.insert(nums[j]);
-                if (st.size() == k) res++;
-            }
+    int CountCompleteSubarrays(vector<int>& nums) {
+      /*
+       * 1 <= nums.length <= 1000
+       * 1 <= nums[i] <= 2000
+       */
+      int k = unordered_set<int>(nums.begin(), nums.end()).size(), res = 0;
+      for (int i = 0; i < nums.size(); i++) {
+        unordered_set<int> st;
+        for (int j = i; j < nums.size(); j++) {
+          st.insert(nums[j]);
+          if (st.size() == k) res++;
         }
-        return res;
+      }
+      return res;
     }
 };
 
@@ -33,9 +33,9 @@ class Solution {
 
 TEST(t0, t1) {
     vector<int> nums{1, 3, 1, 2, 2};
-    int output = 4;
+    int const output = 4;
     Solution sl;
-    int ret = sl.countCompleteSubarrays(nums);
+    int const ret = sl.CountCompleteSubarrays(nums);
     EXPECT_EQ(ret, output);
     /*
      * The complete subarrays are the following: [1,3,1,2], [1,3,1,2,2], [3,1,2]
@@ -45,9 +45,9 @@ TEST(t0, t1) {
 
 TEST(t0, t2) {
     vector<int> nums{5, 5, 5, 5};
-    int output = 10;
+    int const output = 10;
     Solution sl;
-    int ret = sl.countCompleteSubarrays(nums);
+    int const ret = sl.CountCompleteSubarrays(nums);
     EXPECT_EQ(ret, output);
     /*
      * The array consists only of the integer 5, so any subarray is complete.
@@ -56,9 +56,9 @@ TEST(t0, t2) {
 }
 TEST(t0, t3) {
     vector<int> nums{1898, 370, 822, 1659, 1360, 128, 370, 360, 261, 1898};
-    int output = 4;
+    int const output = 4;
     Solution sl;
-    int ret = sl.countCompleteSubarrays(nums);
+    int const ret = sl.CountCompleteSubarrays(nums);
     EXPECT_EQ(ret, output);
 }
 

@@ -12,59 +12,57 @@ then pi < pj. Return nums after the rearrangement.
 
 */
 
-#include <queue>
-#include <utility>
 #include <vector>
 using namespace std;
 
 class Solution {
    public:
-    vector<int> pivotArray(vector<int>& nums, int pivot) {
-        vector<int> left;
-        vector<int> middle;
-        vector<int> right;
-        for (auto& n : nums) {
-            if (n < pivot) {
-                left.push_back(n);
-            } else if (n == pivot) {
-                middle.push_back(n);
-            } else {
-                right.push_back(n);
-            }
+    vector<int> PivotArray(vector<int>& nums, int pivot) {
+      vector<int> left;
+      vector<int> middle;
+      vector<int> right;
+      for (auto& n : nums) {
+        if (n < pivot) {
+          left.push_back(n);
+        } else if (n == pivot) {
+          middle.push_back(n);
+        } else {
+          right.push_back(n);
         }
-        for (auto& q : middle) {
-            left.push_back(q);
-        }
+      }
+      for (auto& q : middle) {
+        left.push_back(q);
+      }
 
-        for (auto& q : right) {
-            left.push_back(q);
-        }
+      for (auto& q : right) {
+        left.push_back(q);
+      }
 
-        return left;
+      return left;
     }
 
-    vector<int> pivotArrayV2(vector<int>& nums, int pivot) {
-        vector<int> result(nums.size(), 0);
-        int left = 0, right = nums.size() - 1;
+    vector<int> PivotArrayV2(vector<int>& nums, int pivot) {
+      vector<int> result(nums.size(), 0);
+      int left = 0, right = nums.size() - 1;
 
-        for (int i = 0, j = nums.size() - 1; i < nums.size(); ++i, --j) {
-            if (nums[i] < pivot) {
-                result[left] = nums[i];
-                left++;
-            }
-
-            if (nums[j] > pivot) {
-                result[right] = nums[j];
-                right--;
-            }
+      for (int i = 0, j = nums.size() - 1; i < nums.size(); ++i, --j) {
+        if (nums[i] < pivot) {
+          result[left] = nums[i];
+          left++;
         }
 
-        while (left <= right) {
-            result[left] = pivot;
-            left++;
+        if (nums[j] > pivot) {
+          result[right] = nums[j];
+          right--;
         }
+      }
 
-        return result;
+      while (left <= right) {
+        result[left] = pivot;
+        left++;
+      }
+
+      return result;
     }
 };
 
@@ -72,13 +70,13 @@ class Solution {
 
 TEST(t0, t1) {
     vector<int> nums = {9, 12, 5, 10, 14, 3, 10};
-    int pivot = 10;
-    vector<int> output = {9, 5, 3, 10, 10, 12, 14};
+    int const pivot = 10;
+    vector<int> const output = {9, 5, 3, 10, 10, 12, 14};
     Solution sl;
-    auto ret = sl.pivotArray(nums, pivot);
+    auto ret = sl.PivotArray(nums, pivot);
     EXPECT_EQ(ret, output);
 
-    ret = sl.pivotArrayV2(nums, pivot);
+    ret = sl.PivotArrayV2(nums, pivot);
     EXPECT_EQ(ret, output);
     // Explanation:
     // The elements 9, 5, and 3 are less than the pivot so they are on the left
@@ -91,13 +89,13 @@ TEST(t0, t1) {
 
 TEST(t0, t2) {
     vector<int> nums = {-3, 4, 3, 2};
-    int pivot = 2;
-    vector<int> output = {-3, 2, 4, 3};
+    int const pivot = 2;
+    vector<int> const output = {-3, 2, 4, 3};
     Solution sl;
-    auto ret = sl.pivotArray(nums, pivot);
+    auto ret = sl.PivotArray(nums, pivot);
     EXPECT_EQ(ret, output);
 
-    ret = sl.pivotArrayV2(nums, pivot);
+    ret = sl.PivotArrayV2(nums, pivot);
     EXPECT_EQ(ret, output);
     // Explanation:
     // The element -3 is less than the pivot so it is on the left side of the

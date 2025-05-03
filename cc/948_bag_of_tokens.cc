@@ -45,10 +45,10 @@ class Solution {
     }
 
     int BagOfTokensScore(vector<int>& tokens, int power) {
-        int n = tokens.size();
-        vector<vector<int>> dp(n, vector<int>(n, -1));
-        sort(tokens.begin(), tokens.end());
-        return Recursion(tokens, power, 0, tokens.size() - 1, dp);
+      int const n = tokens.size();
+      vector<vector<int>> dp(n, vector<int>(n, -1));
+      sort(tokens.begin(), tokens.end());
+      return Recursion(tokens, power, 0, tokens.size() - 1, dp);
     }
 
     int BagOfTokensScoreV1(vector<int>& tokens, int power) {
@@ -68,16 +68,16 @@ class Solution {
                 if (current_score >= 1) {
                     /// 可以对i节点采用token face down 的操作
                     visited.emplace(i);
-                    int v1 = fun(visited, current_power + tokens[i],
-                                 current_score - 1);
+                    int const v1 = fun(visited, current_power + tokens[i],
+                                       current_score - 1);
                     max = std::max(max, v1);
                     visited.erase(i);
                 }
                 if (current_power >= tokens[i]) {
                     /// 可以对i节点采用token face up的操作
                     visited.emplace(i);
-                    int v2 = fun(visited, current_power - tokens[i],
-                                 current_score + 1);
+                    int const v2 = fun(visited, current_power - tokens[i],
+                                       current_score + 1);
                     max = std::max(max, v2);
                     visited.erase(i);
                 }
@@ -92,21 +92,21 @@ class Solution {
 
 TEST(bag_of_tokens, t1) {
     vector<int> tokens = {100};
-    int power = 50;
+    int const power = 50;
     Solution sl;
-    int output = 0;
+    int const output = 0;
     // Explanation: Playing the only token in the bag is impossible because you
     // either have too little power or too little score.*/
-    int ret = sl.BagOfTokensScore(tokens, power);
+    int const ret = sl.BagOfTokensScore(tokens, power);
     EXPECT_EQ(ret, output);
 }
 
 TEST(bag_of_tokens, t2) {
     vector<int> tokens = {100, 200};
-    int power = 150;
+    int const power = 150;
     Solution sl;
-    int output = 1;
-    int ret = sl.BagOfTokensScore(tokens, power);
+    int const output = 1;
+    int const ret = sl.BagOfTokensScore(tokens, power);
     // Play the 0th token (100) face up, your power becomes 50 and score
     // becomes 1.
     // There is no need to play the 1st token since you cannot play it face up
@@ -116,10 +116,10 @@ TEST(bag_of_tokens, t2) {
 
 TEST(bag_of_tokens, t3) {
     vector<int> tokens = {100, 200, 300, 400};
-    int power = 200;
+    int const power = 200;
     Solution sl;
-    int output = 2;
-    int ret = sl.BagOfTokensScoreV1(tokens, power);
+    int const output = 2;
+    int const ret = sl.BagOfTokensScoreV1(tokens, power);
 
     /*Play the tokens in this order to get a score of 2:
     1. Play the 0th token (100) face up, your power becomes 100 and score
@@ -136,11 +136,11 @@ TEST(bag_of_tokens, t3) {
 
 TEST(bag_of_tokens_v2, t3) {
     vector<int> tokens = {100, 200, 300, 400, 500, 600, 700, 800, 900, 1000};
-    int power = 200;
+    int const power = 200;
     Solution sl;
-    int output = 4;
-    int ret = sl.BagOfTokensScore(tokens, power);
-    int ret1 = sl.BagOfTokensScoreV1(tokens, power);
+    int const output = 4;
+    int const ret = sl.BagOfTokensScore(tokens, power);
+    int const ret1 = sl.BagOfTokensScoreV1(tokens, power);
 
     /*Play the tokens in this order to get a score of 2:
     1. Play the 0th token (100) face up, your power becomes 100 and score
@@ -157,26 +157,26 @@ TEST(bag_of_tokens_v2, t3) {
 }
 static void BenchmarkTwoArrayDpv1(benchmark::State& state) {
     vector<int> tokens = {100, 200, 300, 400, 500, 600, 700, 800, 900, 1000};
-    int power = 200;
+    int const power = 200;
     Solution sl;
-    int output = 4;
+    int const output = 4;
 
     for (auto _ : state) {
-        int ret = sl.BagOfTokensScore(tokens, power);
-        EXPECT_EQ(output, ret);
+      int const ret = sl.BagOfTokensScore(tokens, power);
+      EXPECT_EQ(output, ret);
     }
 }
 BENCHMARK(BenchmarkTwoArrayDpv1);
 
 static void BenchmarkMyImplementation(benchmark::State& state) {
     vector<int> tokens = {100, 200, 300, 400, 500, 600, 700, 800, 900, 1000};
-    int power = 200;
+    int const power = 200;
     Solution sl;
-    int output = 4;
+    int const output = 4;
 
     for (auto _ : state) {
-        int ret = sl.BagOfTokensScoreV1(tokens, power);
-        EXPECT_EQ(output, ret);
+      int const ret = sl.BagOfTokensScoreV1(tokens, power);
+      EXPECT_EQ(output, ret);
     }
 }
 BENCHMARK(BenchmarkMyImplementation);

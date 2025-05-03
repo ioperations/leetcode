@@ -42,20 +42,20 @@ class FindElements {
    public:
     FindElements(TreeNode* root) { Gen(root, 0); }
 
-    bool find(int target) { return s.count(target) > 0; }
+    bool Find(int target) { return m_s.count(target) > 0; }
 
    private:
     void Gen(TreeNode* root, int v) {
-        s.emplace(v);
+      m_s.emplace(v);
 
-        if (root->left) {
-            Gen(root->left, 2 * v + 1);
+      if (root->left) {
+        Gen(root->left, 2 * v + 1);
         }
         if (root->right) {
             Gen(root->right, 2 * v + 2);
         }
     }
-    std::set<int> s;
+    std::set<int> m_s;
 };
 
 /**
@@ -74,12 +74,12 @@ TEST(t0, t1) {
     // Output
     // [null,false,true]
     // Explanation
-    auto root = Tree::ConstructBinaryTree(
+    auto *root = Tree::ConstructBinaryTree(
         std::vector<std::optional<int>>{-1, null, -1});
-    FindElements findElements(root);
-    auto ret = findElements.find(1);  // return False
+    FindElements find_elements(root);
+    auto ret = find_elements.Find(1);  // return False
     EXPECT_FALSE(ret);
-    ret = findElements.find(2);  // return True
+    ret = find_elements.Find(2);  // return True
     EXPECT_TRUE(ret);
     Tree::FreeTreeNode(root);
 }
@@ -90,14 +90,14 @@ TEST(t0, t2) {
     // Output
     // [null,false,true]
     // Explanation
-    auto root = Tree::ConstructBinaryTree(
+    auto *root = Tree::ConstructBinaryTree(
         std::vector<std::optional<int>>{-1, -1, -1, -1, -1});
-    FindElements findElements(root);
-    auto ret = findElements.find(1);  // return False
+    FindElements find_elements(root);
+    auto ret = find_elements.Find(1);  // return False
     EXPECT_TRUE(ret);
-    ret = findElements.find(3);  // return True
+    ret = find_elements.Find(3);  // return True
     EXPECT_TRUE(ret);
-    ret = findElements.find(5);  // return True
+    ret = find_elements.Find(5);  // return True
     EXPECT_FALSE(ret);
     Tree::FreeTreeNode(root);
 }
@@ -108,21 +108,21 @@ TEST(t0, t3) {
     // Output
     // [null,false,true]
     // Explanation
-    auto root = Tree::ConstructBinaryTree(
+    auto *root = Tree::ConstructBinaryTree(
         std::vector<std::optional<int>>{-1, null, -1});
     {
-        auto root2 =
-            Tree::ConstructBinaryTree(std::vector<std::optional<int>>{-1, -1});
-        root->right->left = root2;
+      auto *root2 =
+          Tree::ConstructBinaryTree(std::vector<std::optional<int>>{-1, -1});
+      root->right->left = root2;
     }
-    FindElements findElements(root);
-    auto ret = findElements.find(2);  // return False
+    FindElements find_elements(root);
+    auto ret = find_elements.Find(2);  // return False
     EXPECT_TRUE(ret);
-    ret = findElements.find(3);  // return True
+    ret = find_elements.Find(3);  // return True
     EXPECT_FALSE(ret);
-    ret = findElements.find(4);  // return True
+    ret = find_elements.Find(4);  // return True
     EXPECT_FALSE(ret);
-    ret = findElements.find(5);  // return True
+    ret = find_elements.Find(5);  // return True
     EXPECT_TRUE(ret);
     Tree::FreeTreeNode(root);
 }

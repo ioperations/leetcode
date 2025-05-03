@@ -19,6 +19,7 @@ The given node will always be the first node with val = 1. You must return the
 copy of the given node as a reference to the cloned graph.
 */
 
+#include <functional>
 #include <map>
 #include <memory>
 #include <queue>
@@ -30,80 +31,72 @@ copy of the given node as a reference to the cloned graph.
 using namespace std;
 
 // Definition for a Node.
-#include <stddef.h>
+#include <cstddef>
 
 namespace {
 class Node {
    public:
     int val;
     vector<Node*> neighbors;
-    Node() {
-        val = 0;
-        neighbors = vector<Node*>();
-    }
-    Node(int my_val) {
-        val = my_val;
-        neighbors = vector<Node*>();
-    }
-    Node(int my_val, vector<Node*> my_neighbors) {
-        val = my_val;
-        neighbors = my_neighbors;
-    }
+    Node() : val(0) { neighbors = vector<Node*>(); }
+    Node(int my_val) : val(my_val) { neighbors = vector<Node*>(); }
+    Node(int my_val, vector<Node*> my_neighbors)
+        : val(my_val), neighbors(my_neighbors) {}
 };
 
 class Solution {
    public:
-    unordered_map<int, Node*> track;
+    unordered_map<int, Node*> m_track;
 
     Node* CloneGraph(Node* node) {
         // node is nullptr then graph is empty
         if (node == nullptr) return nullptr;
 
         // return node object from track if already created
-        if (track.count(node->val)) return track[node->val];
+        if (m_track.count(node->val)) return m_track[node->val];
 
         // create new node from node value
         Node* n_node = new Node(node->val);
 
         // store new node object in track
-        track[node->val] = n_node;
+        m_track[node->val] = n_node;
 
         // add neighbor node objects of current node in to new node's neighbor
         // from DFS call
-        for (int i = 0; i < node->neighbors.size(); i++) {
-            n_node->neighbors.push_back(CloneGraph(node->neighbors[i]));
+        for (auto& neighbor : node->neighbors) {
+          n_node->neighbors.push_back(CloneGraph(neighbor));
         }
 
         // return new node object
         return n_node;
     }
 
-    unordered_map<Node*, shared_ptr<Node>> visited;
+    unordered_map<Node*, shared_ptr<Node>> m_visited;
 
     Node* CloneGraphV2(Node* node) {
         if (node == nullptr) {
             return nullptr;
         }
 
-        visited.clear();
+        m_visited.clear();
         queue<Node*> q;
         q.push(node);
-        visited[node] = make_shared<Node>(node->val);
+        m_visited[node] = make_shared<Node>(node->val);
 
         while (!q.empty()) {
             auto* current = q.front();
             q.pop();
 
             for (auto* v : current->neighbors) {
-                if (visited.find(v) == visited.end()) {
-                    visited[v] = make_shared<Node>(v->val);
-                    q.push(v);
-                }
-                visited[current]->neighbors.push_back(visited[v].get());
+              if (m_visited.find(v) == m_visited.end()) {
+                m_visited[v] = make_shared<Node>(v->val);
+                q.push(v);
+              }
+              m_visited[current]->neighbors.push_back(m_visited[v].get());
             }
         }
 
-        return visited[node].get();
+        return m_visited[node].get();
     }
 };
 

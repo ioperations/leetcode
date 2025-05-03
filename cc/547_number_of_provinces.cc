@@ -28,12 +28,12 @@ class Solution {
     int FindCircleNum(vector<vector<int>>& is_connected) {
         if ((int)is_connected.size() == 1) return 1;
 
-        int is_connected_size = is_connected.size();
+        int const is_connected_size = is_connected.size();
         vector<vector<int>> visited(is_connected.size());
         int provinces = 0;
         for (int i = 0; i < is_connected_size; i++) {
-            vector<int> row_size(is_connected_size);
-            visited[i] = row_size;
+          vector<int> const row_size(is_connected_size);
+          visited[i] = row_size;
         }
 
         for (int i = 0; i < (int)is_connected.size(); i++) {
@@ -74,7 +74,7 @@ TEST(number_of_provinces, t1) {
         |___|
     */
     Solution sl;
-    int ret = sl.FindCircleNum(v);
+    int const ret = sl.FindCircleNum(v);
     EXPECT_EQ(ret, 2);
 }
 
@@ -91,7 +91,7 @@ TEST(number_of_provinces, t2) {
     */
 
     Solution sl;
-    int ret = sl.FindCircleNum(v);
+    int const ret = sl.FindCircleNum(v);
     EXPECT_EQ(ret, 3);
 }
 

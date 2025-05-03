@@ -13,9 +13,8 @@
     The test cases are generated so that the answer fits in a 32-bit integer.
 */
 
-#include <limits.h>
-
 #include <algorithm>
+#include <climits>
 #include <limits>
 #include <numeric>
 #include <vector>
@@ -28,22 +27,22 @@ namespace {
 class Solution {
    public:
     int MaxRotateFunction(vector<int>& nums) {
-        int size = nums.size();
+      int const size = nums.size();
 
-        int tmp = std::numeric_limits<int>::min();
-        for (int i = 0; i < size; i++) {
-            int tmp_sum = 0;
-            for (int j = 0; j < size; j++) {
-                tmp_sum += j * nums[j];
-            }
-            tmp = max(tmp_sum, tmp);
-            int z = nums.back();
-            nums.pop_back();
-            nums.insert(nums.begin(), z);
+      int tmp = std::numeric_limits<int>::min();
+      for (int i = 0; i < size; i++) {
+        int tmp_sum = 0;
+        for (int j = 0; j < size; j++) {
+          tmp_sum += j * nums[j];
+        }
+        tmp = max(tmp_sum, tmp);
+        int const z = nums.back();
+        nums.pop_back();
+        nums.insert(nums.begin(), z);
         }
         // return tmp;
 
-        int n = nums.size();
+        int const n = nums.size();
 
         // sum of all element in nums except the first one because it will be
         // multiplied by 0
@@ -75,10 +74,10 @@ class Solution {
 
 TEST(rotate_function, t1) {
     std::vector<int> nums{4, 3, 2, 6};
-    int output = 26;
+    int const output = 26;
 
     Solution sl;
-    int ret = sl.MaxRotateFunction(nums);
+    int const ret = sl.MaxRotateFunction(nums);
     /*
     F(0) = (0 * 4) + (1 * 3) + (2 * 2) + (3 * 6) = 0 + 3 + 4 + 18 = 25
     F(1) = (0 * 6) + (1 * 4) + (2 * 3) + (3 * 2) = 0 + 4 + 6 + 6 = 16
@@ -91,10 +90,10 @@ TEST(rotate_function, t1) {
 
 TEST(rotate_function, t2) {
     std::vector<int> nums{100};
-    int output = 0;
+    int const output = 0;
 
     Solution sl;
-    int ret = sl.MaxRotateFunction(nums);
+    int const ret = sl.MaxRotateFunction(nums);
     EXPECT_EQ(ret, output);
 }
 

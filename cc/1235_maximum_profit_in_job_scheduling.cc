@@ -41,7 +41,7 @@ class Solution {
         int res = 0;
         for (int i = start_time.size() - 1; i >= 0; i--) {
             auto iter = time_profit.lower_bound(end_time[i]);
-            int val =
+            int const val =
                 (iter == time_profit.end() ? 0 : iter->second) + profit[i];
             time_profit[start_time[i]] = max(time_profit[start_time[i]], val);
             time_profit[start_time[i]] = max(time_profit[start_time[i]], res);
@@ -54,20 +54,20 @@ class Solution {
 TEST(maximum_profit_in_job_scheduling, t1) {
     vector<int> start_time = {1, 2, 3, 3}, end_time = {3, 4, 5, 6},
                 profit = {50, 10, 40, 70};
-    int output = 120;
+    int const output = 120;
     /*
     Explanation: The subset chosen is the first and fourth job.
     Time range [1-3]+[3-6] , we get profit of 120 = 50 + 70.
     */
     Solution sl;
-    int ret = sl.JobScheduling(start_time, end_time, profit);
+    int const ret = sl.JobScheduling(start_time, end_time, profit);
     EXPECT_EQ(ret, output);
 }
 
 TEST(maximum_profit_in_job_scheduling, t2) {
     vector<int> start_time = {1, 2, 3, 4, 6}, end_time = {3, 5, 10, 6, 9},
                 profit = {20, 20, 100, 70, 60};
-    int output = 150;
+    int const output = 150;
     // Explanation: The subset chosen is the first, fourth and fifth job.
     // Profit obtained 150 = 20 + 70 + 60.
     /*
@@ -75,14 +75,14 @@ TEST(maximum_profit_in_job_scheduling, t2) {
     Time range [1-3]+[3-6] , we get profit of 120 = 50 + 70.
     */
     Solution sl;
-    int ret = sl.JobScheduling(start_time, end_time, profit);
+    int const ret = sl.JobScheduling(start_time, end_time, profit);
     EXPECT_EQ(ret, output);
 }
 
 TEST(maximum_profit_in_job_scheduling, t3) {
     vector<int> start_time = {1, 1, 1}, end_time = {2, 3, 4},
                 profit = {5, 6, 4};
-    int output = 6;
+    int const output = 6;
     // Explanation: The subset chosen is the first, fourth and fifth job.
     // Profit obtained 150 = 20 + 70 + 60.
     /*
@@ -90,7 +90,7 @@ TEST(maximum_profit_in_job_scheduling, t3) {
     Time range [1-3]+[3-6] , we get profit of 120 = 50 + 70.
     */
     Solution sl;
-    int ret = sl.JobScheduling(start_time, end_time, profit);
+    int const ret = sl.JobScheduling(start_time, end_time, profit);
     EXPECT_EQ(ret, output);
 }
 

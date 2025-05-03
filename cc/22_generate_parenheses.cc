@@ -72,30 +72,30 @@ class Solution {
 };
 
 TEST(generate_parenheses, t1) {
-    int n = 3;
-    std::vector<string> expected = {"((()))", "(()())", "(())()", "()(())",
-                                    "()()()"};
-    std::set<string> expected_set(expected.begin(), expected.end());
-    Solution sl;
-    auto ret = sl.GenerateParenthesis(n);
+  int const n = 3;
+  std::vector<string> expected = {"((()))", "(()())", "(())()", "()(())",
+                                  "()()()"};
+  std::set<string> const expected_set(expected.begin(), expected.end());
+  Solution sl;
+  auto ret = sl.GenerateParenthesis(n);
 
-    std::set<string> ret_set(ret.begin(), ret.end());
+  std::set<string> const ret_set(ret.begin(), ret.end());
 
-    EXPECT_EQ(ret_set, expected_set);
+  EXPECT_EQ(ret_set, expected_set);
 }
 
 TEST(generate_parenheses, t2) {
-    int n = 1;
-    std::vector<string> expected = {
-        "()",
-    };
-    std::set<string> expected_set(expected.begin(), expected.end());
-    Solution sl;
-    auto ret = sl.GenerateParenthesis(n);
+  int const n = 1;
+  std::vector<string> expected = {
+      "()",
+  };
+  std::set<string> const expected_set(expected.begin(), expected.end());
+  Solution sl;
+  auto ret = sl.GenerateParenthesis(n);
 
-    std::set<string> ret_set(ret.begin(), ret.end());
+  std::set<string> const ret_set(ret.begin(), ret.end());
 
-    EXPECT_EQ(ret_set, expected_set);
+  EXPECT_EQ(ret_set, expected_set);
 }
 
 }  // namespace

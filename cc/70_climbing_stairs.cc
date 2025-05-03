@@ -62,7 +62,7 @@ class SolutionV2 {
 
 TEST(climbing_stairs, t1) {
     Solution sl;
-    int ret = sl.ClimbStairs(2);
+    int const ret = sl.ClimbStairs(2);
 
     /*
         There are two ways to climb to the top.
@@ -74,7 +74,7 @@ TEST(climbing_stairs, t1) {
 
 TEST(climbing_stairs_v2, t1) {
     SolutionV2 sl;
-    int ret = sl.ClimbStairs(2);
+    int const ret = sl.ClimbStairs(2);
 
     /*
         There are two ways to climb to the top.
@@ -86,7 +86,7 @@ TEST(climbing_stairs_v2, t1) {
 
 TEST(climbing_stairs, t2) {
     Solution sl;
-    int ret = sl.ClimbStairs(3);
+    int const ret = sl.ClimbStairs(3);
 
     /*
         There are three ways to climb to the top.
@@ -99,7 +99,7 @@ TEST(climbing_stairs, t2) {
 
 TEST(climbing_stairs_v2, t2) {
     SolutionV2 sl;
-    int ret = sl.ClimbStairs(3);
+    int const ret = sl.ClimbStairs(3);
 
     /*
         There are three ways to climb to the top.

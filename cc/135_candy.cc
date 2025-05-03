@@ -22,14 +22,14 @@ namespace {
 class Solution {
    public:
     int Candy(vector<int>& ratings) {
-        int n = ratings.size();
-        if (n == 1) return 1;
-        vector<int> candies(n, 1);
+      int const n = ratings.size();
+      if (n == 1) return 1;
+      vector<int> candies(n, 1);
 
-        for (int i = 1; i < n; i++) {
-            if (ratings[i] > ratings[i - 1]) {
-                candies[i] += candies[i - 1];
-            }
+      for (int i = 1; i < n; i++) {
+        if (ratings[i] > ratings[i - 1]) {
+          candies[i] += candies[i - 1];
+        }
         }
 
         for (int i = n - 2; i > -1; i--) {
@@ -49,9 +49,9 @@ class Solution {
 
 TEST(candy, t1) {
     vector<int> ratings{1, 0, 2};
-    int output = 5;
+    int const output = 5;
     Solution sl;
-    int ret = sl.Candy(ratings);
+    int const ret = sl.Candy(ratings);
     /*
      *  You can allocate to the first, second and third child with 2, 1, 2
      *  candies respectively.
@@ -61,9 +61,9 @@ TEST(candy, t1) {
 
 TEST(candy, t2) {
     vector<int> ratings{1, 2, 2};
-    int output = 4;
+    int const output = 4;
     Solution sl;
-    int ret = sl.Candy(ratings);
+    int const ret = sl.Candy(ratings);
     /*
         You can allocate to the first, second and third child with 1, 2, 1
        candies respectively. The third child gets 1 candy because it satisfies

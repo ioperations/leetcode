@@ -19,38 +19,38 @@ using namespace std;
 
 namespace {
 class Solution {
-    std::map<char, int> map;
+  std::map<char, int> m_map;
 
-   public:
-    bool IsAlienSorted(vector<string>& words, string order) {
-        int i = 0;
-        for (auto& ptr : order) {
-            map[ptr] = i;
-            i++;
+ public:
+  bool IsAlienSorted(vector<string>& words, string order) {
+    int i = 0;
+    for (auto& ptr : order) {
+      m_map[ptr] = i;
+      i++;
+    }
+
+    int const size = words.size();
+    for (int i = 0; i < size; i++) {
+      for (int j = i + 1; j < size; j++) {
+        if (Greather(words[i], words[j])) {
+          return false;
         }
+      }
+    }
 
-        int size = words.size();
-        for (int i = 0; i < size; i++) {
-            for (int j = i + 1; j < size; j++) {
-                if (Greather(words[i], words[j])) {
-                    return false;
-                }
-            }
-        }
-
-        return true;
+    return true;
     }
 
     bool Greather(string& a, string& b) {
-        int size_a = a.size();
-        int size_b = b.size();
-        for (int i = 0; i < size_a && i < size_b; i++) {
-            if (map[a[i]] > map[b[i]]) {
-                return true;
-            }
-            if (map[a[i]] < map[b[i]]) {
-                return false;
-            }
+      int const size_a = a.size();
+      int const size_b = b.size();
+      for (int i = 0; i < size_a && i < size_b; i++) {
+        if (m_map[a[i]] > m_map[b[i]]) {
+          return true;
+        }
+        if (m_map[a[i]] < m_map[b[i]]) {
+          return false;
+        }
         }
         return size_a > size_b;
     }
@@ -58,18 +58,18 @@ class Solution {
 
 TEST(verifying_an_alien_dictionary, t1) {
     vector<string> words = {"hello", "leetcode"};
-    string order = "hlabcdefgijkmnopqrstuvwxyz";
+    string const order = "hlabcdefgijkmnopqrstuvwxyz";
     Solution sl;
-    int ret = sl.IsAlienSorted(words, order);
+    int const ret = sl.IsAlienSorted(words, order);
     // As 'h' comes before 'l' in this language, then the sequence is sorted.
     EXPECT_EQ(true, ret);
 }
 
 TEST(verifying_an_alien_dictionary, t2) {
     vector<string> words = {"word", "world", "row"};
-    string order = "worldabcefghijkmnpqstuvxyz";
+    string const order = "worldabcefghijkmnpqstuvxyz";
     Solution sl;
-    int ret = sl.IsAlienSorted(words, order);
+    int const ret = sl.IsAlienSorted(words, order);
     // As 'd' comes after 'l' in this language, then words[0] > words[1], hence
     // the sequence is unsorted.
     EXPECT_EQ(false, ret);
@@ -77,9 +77,9 @@ TEST(verifying_an_alien_dictionary, t2) {
 
 TEST(verifying_an_alien_dictionary, t3) {
     vector<string> words = {"apple", "app"};
-    string order = "abcdefghijklmnopqrstuvwxyz";
+    string const order = "abcdefghijklmnopqrstuvwxyz";
     Solution sl;
-    int ret = sl.IsAlienSorted(words, order);
+    int const ret = sl.IsAlienSorted(words, order);
     // The first three characters "app" match, and the second string is shorter
     // (in size.) According to lexicographical rules "apple" > "app", because
     // 'l' > '∅', where '∅' is defined as the blank character which is less than

@@ -15,8 +15,8 @@ prefix) Returns true if there is a previously inserted string word that has the
 prefix prefix, and false otherwise.*/
 
 #include <benchmark/benchmark.h>
-#include <stddef.h>
 
+#include <cstddef>
 #include <map>
 #include <string>
 #include <vector>
@@ -31,36 +31,33 @@ class Trie {
    private:
     class TrieNode {
        public:
-        vector<TrieNode*> child;
+        vector<TrieNode*> m_child;
         bool is_end;
-        TrieNode() {
-            child.resize(26, nullptr);
-            is_end = false;
-        }
-        ~TrieNode() { child.clear(); }
+        TrieNode() : is_end(false) { m_child.resize(26, nullptr); }
+        ~TrieNode() { m_child.clear(); }
     };
     TrieNode* root;
 
     void DeleteTrieNode(TrieNode* root) {
         if (root != nullptr) {
-            for (auto& ptr : root->child) {
-                DeleteTrieNode(ptr);
-            }
+          for (auto& ptr : root->m_child) {
+            DeleteTrieNode(ptr);
+          }
             delete root;
         }
     }
 
    public:
-    Trie() { root = new TrieNode(); }
+    Trie() : root(new TrieNode()) {}
     ~Trie() { DeleteTrieNode(root); }
 
     void Insert(string word) {
         TrieNode* c = root;
         for (auto x : word) {
-            if (c->child[x - 'a'] == nullptr) {
-                c->child[x - 'a'] = new TrieNode();
-            }
-            c = c->child[x - 'a'];
+          if (c->m_child[x - 'a'] == nullptr) {
+            c->m_child[x - 'a'] = new TrieNode();
+          }
+          c = c->m_child[x - 'a'];
         }
         c->is_end = true;
     }
@@ -68,10 +65,10 @@ class Trie {
     bool Search(string word) {
         TrieNode* c = root;
         for (auto x : word) {
-            if (c->child[x - 'a'] == nullptr) {
-                return false;
-            }
-            c = c->child[x - 'a'];
+          if (c->m_child[x - 'a'] == nullptr) {
+            return false;
+          }
+          c = c->m_child[x - 'a'];
         }
         return c->is_end;
     }
@@ -79,10 +76,10 @@ class Trie {
     bool StartsWith(string prefix) {
         TrieNode* c = root;
         for (auto x : prefix) {
-            if (c->child[x - 'a'] == nullptr) {
-                return false;
-            }
-            c = c->child[x - 'a'];
+          if (c->m_child[x - 'a'] == nullptr) {
+            return false;
+          }
+          c = c->m_child[x - 'a'];
         }
 
         return true;
@@ -96,51 +93,51 @@ class TrieV1 {
     // startsWith.
 
     struct Tree {
-        std::map<char, Tree> map;
-        bool end;
-        ~Tree() { map.clear(); }
+      std::map<char, Tree> m_map;
+      bool m_end{};
+      ~Tree() { m_map.clear(); }
     };
 
-    Tree root;
+    Tree m_root;
 
    public:
-    TrieV1() {}
+    TrieV1() = default;
 
     void Insert(string word) {
         // pass
-        Tree* z = &root;
-        for (int i = 0; i < (int)word.size(); i++) {
-            auto& t = z->map[word[i]];
-            z = &t;
+        Tree* z = &m_root;
+        for (char i : word) {
+          auto& t = z->m_map[i];
+          z = &t;
         }
-        z->end = true;
+        z->m_end = true;
     }
 
     bool Search(string word) {
-        Tree* z = &root;
-        for (int i = 0; i < (int)word.size(); i++) {
-            auto t = z->map.find(word[i]);
-            if (t != z->map.end()) {
-                auto& t = z->map[word[i]];
-                z = &t;
-            } else {
-                return false;
-            }
+      Tree* z = &m_root;
+      for (char i : word) {
+        auto t = z->m_map.find(i);
+        if (t != z->m_map.end()) {
+          auto& t = z->m_map[i];
+          z = &t;
+        } else {
+          return false;
         }
-        return z->end;
+      }
+      return z->m_end;
     }
 
     bool StartsWith(string prefix) {
-        Tree* z = &root;
-        for (int i = 0; i < (int)prefix.size(); i++) {
-            auto t = z->map.find(prefix[i]);
-            if (t != z->map.end()) {
-                auto& t = z->map[prefix[i]];
-                z = &t;
-            } else {
-                return false;
-            }
+      Tree* z = &m_root;
+      for (char i : prefix) {
+        auto t = z->m_map.find(i);
+        if (t != z->m_map.end()) {
+          auto& t = z->m_map[i];
+          z = &t;
+        } else {
+          return false;
         }
+      }
 
         return true;
     }
@@ -160,7 +157,7 @@ TEST(implement_trie, t1) {
     //    [[], ["apple"], ["apple"], ["app"], ["app"], ["app"], ["app"]]
     //    Output [null, null, true, false, true, null, true]
 
-    bool ret;
+    bool ret = false;
     Trie* trie = new Trie();
     trie->Insert("apple");
     ret = trie->Search("apple");  // return True
@@ -181,8 +178,8 @@ TEST(implement_trie_v2, t1) {
     //    [[], ["apple"], ["apple"], ["app"], ["app"], ["app"], ["app"]]
     //    Output [null, null, true, false, true, null, true]
 
-    bool ret;
-    TrieV1* trie = new TrieV1();
+    bool ret = false;
+    auto* trie = new TrieV1();
     trie->Insert("apple");
     ret = trie->Search("apple");  // return True
 
@@ -203,38 +200,38 @@ TEST(implement_trie_v2, t1) {
 
 void BenchMarkOther(benchmark::State& state) {
     for (auto _ : state) {
-        bool ret;
-        Trie* trie = new Trie();
-        trie->Insert("apple");
-        ret = trie->Search("apple");  // return True
-        EXPECT_EQ(ret, true);
-        ret = trie->Search("app");  // return False
-        EXPECT_EQ(ret, false);
-        ret = trie->StartsWith("app");  // return True
-        EXPECT_EQ(ret, true);
-        trie->Insert("app");
-        ret = trie->Search("app");  // return True
-        EXPECT_EQ(ret, true);
-        delete trie;
+      bool ret = false;
+      Trie* trie = new Trie();
+      trie->Insert("apple");
+      ret = trie->Search("apple");  // return True
+      EXPECT_EQ(ret, true);
+      ret = trie->Search("app");  // return False
+      EXPECT_EQ(ret, false);
+      ret = trie->StartsWith("app");  // return True
+      EXPECT_EQ(ret, true);
+      trie->Insert("app");
+      ret = trie->Search("app");  // return True
+      EXPECT_EQ(ret, true);
+      delete trie;
     }
 }
 BENCHMARK(BenchMarkOther);
 
 void BenchMarkMyImpl(benchmark::State& state) {
     for (auto _ : state) {
-        bool ret;
-        TrieV1* trie = new TrieV1();
-        trie->Insert("apple");
-        ret = trie->Search("apple");  // return True
-        EXPECT_EQ(ret, true);
-        ret = trie->Search("app");  // return False
-        EXPECT_EQ(ret, false);
-        ret = trie->StartsWith("app");  // return True
-        EXPECT_EQ(ret, true);
-        trie->Insert("app");
-        ret = trie->Search("app");  // return True
-        EXPECT_EQ(ret, true);
-        delete trie;
+      bool ret = false;
+      auto* trie = new TrieV1();
+      trie->Insert("apple");
+      ret = trie->Search("apple");  // return True
+      EXPECT_EQ(ret, true);
+      ret = trie->Search("app");  // return False
+      EXPECT_EQ(ret, false);
+      ret = trie->StartsWith("app");  // return True
+      EXPECT_EQ(ret, true);
+      trie->Insert("app");
+      ret = trie->Search("app");  // return True
+      EXPECT_EQ(ret, true);
+      delete trie;
     }
 }
 BENCHMARK(BenchMarkMyImpl);

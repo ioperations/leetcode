@@ -43,7 +43,7 @@ class Solution {
            distance we can traverse by using exactly i number of fuel stops.
            */
 
-        int n = stations.size();
+        int const n = stations.size();
 
         vector<long long> dp(n + 1);
 
@@ -104,27 +104,27 @@ class Solution {
 TEST(minimal_number_of_refueling_stops, t1) {
     int target = 1, start_fuel = 1;
     vector<vector<int>> stations = {};
-    int output = 0;
+    int const output = 0;
     // Explanation: We can reach the target without refueling.
     Solution sl;
-    int ret = sl.MinRefuelStops(target, start_fuel, stations);
+    int const ret = sl.MinRefuelStops(target, start_fuel, stations);
     EXPECT_EQ(ret, output);
 }
 
 TEST(minimal_number_of_refueling_stops, t2) {
     int target = 100, start_fuel = 0;
     vector<vector<int>> stations = {{10, 100}};
-    int output = -1;
+    int const output = -1;
     // We can not reach the target (or even the first gas station).
     Solution sl;
-    int ret = sl.MinRefuelStops(target, start_fuel, stations);
+    int const ret = sl.MinRefuelStops(target, start_fuel, stations);
     EXPECT_EQ(ret, output);
 }
 
 TEST(minimal_number_of_refueling_stops, t3) {
     int target = 100, start_fuel = 10;
     vector<vector<int>> stations = {{10, 60}, {20, 30}, {30, 30}, {60, 40}};
-    int output = 2;
+    int const output = 2;
     /* We start with 10 liters of fuel.
     We drive to position 10, expending 10 liters of fuel.  We refuel from 0
     liters to 60 liters of gas. Then, we drive from position 10 to position 60
@@ -133,7 +133,7 @@ TEST(minimal_number_of_refueling_stops, t3) {
     the way, so we return 2.
     */
     Solution sl;
-    int ret = sl.MinRefuelStops(target, start_fuel, stations);
+    int const ret = sl.MinRefuelStops(target, start_fuel, stations);
     EXPECT_EQ(ret, output);
 }
 

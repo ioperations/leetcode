@@ -45,37 +45,37 @@ class Solution {
 };
 
 TEST(binary_tree_right_side_view, t1) {
-    vector<optional<int>> root = {
-        1, 2, 3, std::optional<int>(), 5, std::optional<int>(), 4};
-    TreeNode<int>* node = ConstructBinaryTree(root);
-    Solution sl;
-    auto ret = sl.RightSideView(node);
-    vector<int> output = {1, 3, 4};
-    EXPECT_EQ(ret, output);
+  vector<optional<int>> const root = {
+      1, 2, 3, std::optional<int>(), 5, std::optional<int>(), 4};
+  TreeNode<int>* node = ConstructBinaryTree(root);
+  Solution sl;
+  auto ret = sl.RightSideView(node);
+  vector<int> const output = {1, 3, 4};
+  EXPECT_EQ(ret, output);
 
-    FreeTreeNode(node);
+  FreeTreeNode(node);
 }
 
 TEST(binary_tree_right_side_view, t2) {
-    vector<optional<int>> root = {1, std::optional<int>(), 3};
-    TreeNode<int>* node = ConstructBinaryTree(root);
-    Solution sl;
-    auto ret = sl.RightSideView(node);
-    vector<int> output = {1, 3};
-    EXPECT_EQ(ret, output);
+  vector<optional<int>> const root = {1, std::optional<int>(), 3};
+  TreeNode<int>* node = ConstructBinaryTree(root);
+  Solution sl;
+  auto ret = sl.RightSideView(node);
+  vector<int> const output = {1, 3};
+  EXPECT_EQ(ret, output);
 
-    FreeTreeNode(node);
+  FreeTreeNode(node);
 }
 
 TEST(binary_tree_right_side_view, t3) {
-    vector<optional<int>> root = {};
-    TreeNode<int>* node = ConstructBinaryTree(root);
-    Solution sl;
-    auto ret = sl.RightSideView(node);
-    vector<int> output = {};
-    EXPECT_EQ(ret, output);
+  vector<optional<int>> const root = {};
+  TreeNode<int>* node = ConstructBinaryTree(root);
+  Solution sl;
+  auto ret = sl.RightSideView(node);
+  vector<int> const output = {};
+  EXPECT_EQ(ret, output);
 
-    FreeTreeNode(node);
+  FreeTreeNode(node);
 }
 
 }  // namespace

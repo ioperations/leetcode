@@ -27,13 +27,13 @@ class Solution {
         int low = 0;
         int high = matrix.size();
         while (low < high) {
-            int mid = low + (high - low) / 2;
+          int const mid = low + (high - low) / 2;
 
-            if (matrix[mid].size()) {
-                if (matrix[low][0] == target) {
-                    return true;
-                }
-                (matrix[mid][0] > target) ? (high = mid) : (low = mid + 1);
+          if (matrix[mid].size()) {
+            if (matrix[low][0] == target) {
+              return true;
+            }
+            (matrix[mid][0] > target) ? (high = mid) : (low = mid + 1);
             } else {
                 high--;
             }
@@ -48,9 +48,9 @@ class Solution {
         high = matrix[first_dimension].size();
 
         while (low < high) {
-            int mid = low + (high - low) / 2;
-            if (matrix[first_dimension][mid] == target) {
-                return true;
+          int const mid = low + (high - low) / 2;
+          if (matrix[first_dimension][mid] == target) {
+            return true;
             }
             (matrix[first_dimension][mid] > target) ? (high = mid)
                                                     : (low = mid + 1);
@@ -65,12 +65,12 @@ class Solution {
             col = cols - 1;
 
         while (row < rows && col > -1) {
-            int cur = matrix[row][col];
-            if (cur == target) return true;
-            if (target > cur)
-                row++;
-            else
-                col--;
+          int const cur = matrix[row][col];
+          if (cur == target) return true;
+          if (target > cur)
+            row++;
+          else
+            col--;
         }
 
         return false;

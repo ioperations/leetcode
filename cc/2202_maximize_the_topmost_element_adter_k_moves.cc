@@ -43,10 +43,10 @@ class Solution {
 
 TEST(maximize_the_topmost_element_adter_k_moves, t1) {
     std::vector<int> nums{5, 2, 2, 4, 0, 6};
-    int k = 4;
-    int output = 5;
+    int const k = 4;
+    int const output = 5;
     Solution sl;
-    int ret = sl.MaximumTop(nums, k);
+    int const ret = sl.MaximumTop(nums, k);
     /*One of the ways we can end with 5 at the top of the pile after 4 moves is
     as follows:
     - Step 1: Remove the topmost element = 5. The pile becomes [2,2,4,0,6].
@@ -61,10 +61,10 @@ TEST(maximize_the_topmost_element_adter_k_moves, t1) {
 
 TEST(maximize_the_topmost_element_adter_k_moves, t2) {
     std::vector<int> nums{2};
-    int k = 1;
-    int output = -1;
+    int const k = 1;
+    int const output = -1;
     Solution sl;
-    int ret = sl.MaximumTop(nums, k);
+    int const ret = sl.MaximumTop(nums, k);
     /* In the first move, our only option is to pop the topmost element of the
     pile. Since it is not possible to obtain a non-empty pile after one move, we
     return -1.*/
@@ -73,10 +73,10 @@ TEST(maximize_the_topmost_element_adter_k_moves, t2) {
 
 TEST(maximize_the_topmost_element_adter_k_moves, t3) {
     std::vector<int> nums{99, 95, 68, 24, 18};
-    int k = 69;
-    int output = 99;
+    int const k = 69;
+    int const output = 99;
     Solution sl;
-    int ret = sl.MaximumTop(nums, k);
+    int const ret = sl.MaximumTop(nums, k);
     /* In the first move, our only option is to pop the topmost element of the
     pile. Since it is not possible to obtain a non-empty pile after one move, we
     return -1.*/

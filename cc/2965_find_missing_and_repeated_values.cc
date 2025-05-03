@@ -16,31 +16,31 @@ using namespace std;
 
 class Solution {
    public:
-    vector<int> findMissingAndRepeatedValues(vector<vector<int>>& grid) {
-        auto size = grid.size();
-        int all = (size * size) * (size * size + 1) / 2;
-        int sum = 0;
+    vector<int> FindMissingAndRepeatedValues(vector<vector<int>>& grid) {
+      auto size = grid.size();
+      int const all = (size * size) * (size * size + 1) / 2;
+      int sum = 0;
 
-        unordered_set<int> set;
-        set.reserve(size * size);
-        bool record = true;
-        int v = 0;
+      unordered_set<int> set;
+      set.reserve(size * size);
+      bool record = true;
+      int v = 0;
 
-        for (auto& layer1 : grid) {
-            for (auto& layer2 : layer1) {
-                if (set.count(layer2) > 0) {
-                    v = layer2;
-                    record = false;
-                }
+      for (auto& layer1 : grid) {
+        for (auto& layer2 : layer1) {
+          if (set.count(layer2) > 0) {
+            v = layer2;
+            record = false;
+          }
 
-                sum += layer2;
-                if (record) {
-                    set.emplace(layer2);
-                }
-            }
+          sum += layer2;
+          if (record) {
+            set.emplace(layer2);
+          }
         }
+      }
 
-        return {v, all - (sum - v)};
+      return {v, all - (sum - v)};
     }
 };
 
@@ -48,23 +48,23 @@ class Solution {
 
 TEST(t0, t1) {
     vector<vector<int>> grid = {{1, 3}, {2, 2}};
-    std::vector<int> output{2, 4};
+    std::vector<int> const output{2, 4};
     Solution sl;
-    auto ret = sl.findMissingAndRepeatedValues(grid);
+    auto ret = sl.FindMissingAndRepeatedValues(grid);
     // Number 2 is repeated and number 4 is missing so the answer is [2,4].
     EXPECT_EQ(ret, output);
 }
 
 TEST(t0, t2) {
     vector<vector<int>> grid = {{9, 1, 7}, {8, 9, 2}, {3, 4, 6}};
-    std::vector<int> output{
+    std::vector<int> const output{
         9,
         5,
     };
     // Number 9 is repeated and number 5 is missing so the answer is [9,5].
 
     Solution sl;
-    auto ret = sl.findMissingAndRepeatedValues(grid);
+    auto ret = sl.FindMissingAndRepeatedValues(grid);
     EXPECT_EQ(ret, output);
 }
 

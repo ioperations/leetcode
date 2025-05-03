@@ -47,20 +47,20 @@ class Solution {
 
         */
         auto bubble_sort = [&](vector<void*>& arr, int n) {
-            int i, j;
-            for (i = 0; i < n - 1; i++)
-                for (j = 0; j < n - i - 1; j++)
-                    if (*(int*)arr[j] > *(int*)arr[j + 1]) {
-                        int tmp = *(int*)arr[j];
-                        *(int*)arr[j] = *(int*)arr[j + 1];
-                        *(int*)arr[j + 1] = tmp;
-                    }
+          int i = 0, j = 0;
+          for (i = 0; i < n - 1; i++)
+            for (j = 0; j < n - i - 1; j++)
+              if (*(int*)arr[j] > *(int*)arr[j + 1]) {
+                int const tmp = *(int*)arr[j];
+                *(int*)arr[j] = *(int*)arr[j + 1];
+                *(int*)arr[j + 1] = tmp;
+              }
         };
 
         // 行
-        int row = mat.size();
+        int const row = mat.size();
         // 列
-        int column = mat[0].size();
+        int const column = mat[0].size();
 
         for (int i = row - 1, j = 0; i >= row || j < column;) {
             // pass
@@ -90,7 +90,8 @@ class Solution {
 
 TEST(sort_the_matrix_diagonally, t1) {
     vector<vector<int>> mat = {{3, 3, 1, 1}, {2, 2, 1, 2}, {1, 1, 1, 2}};
-    vector<vector<int>> expected = {{1, 1, 1, 1}, {1, 2, 2, 2}, {1, 2, 3, 3}};
+    vector<vector<int>> const expected = {
+        {1, 1, 1, 1}, {1, 2, 2, 2}, {1, 2, 3, 3}};
     Solution sl;
     auto ret = sl.DiagonalSort(mat);
     EXPECT_EQ(ret, expected);
@@ -102,11 +103,11 @@ TEST(sort_the_matrix_diagonally, t2) {
                                {75, 31, 36, 44, 58, 8},
                                {22, 27, 33, 25, 68, 4},
                                {84, 28, 14, 11, 5, 50}};
-    vector<vector<int>> expected = {{5, 17, 4, 1, 52, 7},
-                                    {11, 11, 25, 45, 8, 69},
-                                    {14, 23, 25, 44, 58, 15},
-                                    {22, 27, 31, 36, 50, 66},
-                                    {84, 28, 75, 33, 55, 68}};
+    vector<vector<int>> const expected = {{5, 17, 4, 1, 52, 7},
+                                          {11, 11, 25, 45, 8, 69},
+                                          {14, 23, 25, 44, 58, 15},
+                                          {22, 27, 31, 36, 50, 66},
+                                          {84, 28, 75, 33, 55, 68}};
     Solution sl;
     auto ret = sl.DiagonalSort(mat);
     EXPECT_EQ(ret, expected);

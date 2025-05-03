@@ -19,12 +19,12 @@ namespace {
 template <typename T>
 class Solution {
    public:
-    TreeNode<T>* prev = nullptr;
-    TreeNode<T>* first = nullptr;
-    TreeNode<T>* second = nullptr;
+    TreeNode<T>* m_prev = nullptr;
+    TreeNode<T>* m_first = nullptr;
+    TreeNode<T>* m_second = nullptr;
     void RecoverTree(TreeNode<T>* root) {
         Inorder(root);
-        std::swap(first->val, second->val);
+        std::swap(m_first->val, m_second->val);
     }
 
     void Inorder(TreeNode<T>* root) {
@@ -32,13 +32,13 @@ class Solution {
 
         Inorder(root->left);
 
-        if (prev != nullptr && root->val < prev->val) {
-            if (first == nullptr) {
-                first = prev;
-            }
-            second = root;
+        if (m_prev != nullptr && root->val < m_prev->val) {
+          if (m_first == nullptr) {
+            m_first = m_prev;
+          }
+          m_second = root;
         }
-        prev = root;
+        m_prev = root;
         Inorder(root->right);
     }
 };
@@ -50,17 +50,17 @@ using namespace std;
 
 TEST(recover_binary_search_tree, t1) {
 #define null optional<int>()
-    vector<optional<int>> root = {1, 3, null, null, 2};
-    vector<optional<int>> output = {3, 1, null, null, 2};
-    // Explanation: 3 cannot be a left child of 1 because 3 > 1. Swapping 1
-    // and 3 makes the BST valid.
-    vector<int> in;
-    {
-        auto* input = ConstructBinaryTree(root);
-        Solution<int> sl;
-        sl.RecoverTree(input);
-        BfsSearch(input, in);
-        FreeTreeNode(input);
+  vector<optional<int>> const root = {1, 3, null, null, 2};
+  vector<optional<int>> const output = {3, 1, null, null, 2};
+  // Explanation: 3 cannot be a left child of 1 because 3 > 1. Swapping 1
+  // and 3 makes the BST valid.
+  vector<int> in;
+  {
+    auto* input = ConstructBinaryTree(root);
+    Solution<int> sl;
+    sl.RecoverTree(input);
+    BfsSearch(input, in);
+    FreeTreeNode(input);
     }
 
     vector<int> ou;
@@ -74,18 +74,18 @@ TEST(recover_binary_search_tree, t1) {
 
 TEST(recover_binary_search_tree, t2) {
 #define null optional<int>()
-    vector<optional<int>> root = {3, 1, 4, null, null, 2};
-    vector<optional<int>> output = {2, 1, 4, null, null, 3};
-    // 2 cannot be in the right subtree of 3 because 2 < 3. Swapping 2 and 3
-    // makes the BST valid.
+  vector<optional<int>> const root = {3, 1, 4, null, null, 2};
+  vector<optional<int>> const output = {2, 1, 4, null, null, 3};
+  // 2 cannot be in the right subtree of 3 because 2 < 3. Swapping 2 and 3
+  // makes the BST valid.
 
-    vector<int> in;
-    {
-        auto* input = ConstructBinaryTree(root);
-        Solution<int> sl;
-        sl.RecoverTree(input);
-        BfsSearch(input, in);
-        FreeTreeNode(input);
+  vector<int> in;
+  {
+    auto* input = ConstructBinaryTree(root);
+    Solution<int> sl;
+    sl.RecoverTree(input);
+    BfsSearch(input, in);
+    FreeTreeNode(input);
     }
 
     vector<int> ou;

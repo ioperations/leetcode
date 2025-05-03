@@ -53,33 +53,30 @@ class Node {
     Node* bottom_left;
     Node* bottom_right;
 
-    Node() {
-        val = false;
-        is_leaf = false;
-        top_left = nullptr;
-        top_right = nullptr;
-        bottom_left = nullptr;
-        bottom_right = nullptr;
-    }
+    Node()
+        : val(false),
+          is_leaf(false),
+          top_left(nullptr),
+          top_right(nullptr),
+          bottom_left(nullptr),
+          bottom_right(nullptr) {}
 
-    Node(bool n_val, bool n_is_leaf) {
-        val = n_val;
-        is_leaf = n_is_leaf;
-        top_left = nullptr;
-        top_right = nullptr;
-        bottom_left = nullptr;
-        bottom_right = nullptr;
-    }
+    Node(bool n_val, bool n_is_leaf)
+        : val(n_val),
+          is_leaf(n_is_leaf),
+          top_left(nullptr),
+          top_right(nullptr),
+          bottom_left(nullptr),
+          bottom_right(nullptr) {}
 
     Node(bool n_val, bool n_is_leaf, Node* n_top_left, Node* n_top_rightt,
-         Node* n_bottom_left, Node* n_bottom_rightt) {
-        val = n_val;
-        is_leaf = n_is_leaf;
-        top_left = n_top_left;
-        top_right = n_top_rightt;
-        bottom_left = n_bottom_left;
-        bottom_right = n_bottom_rightt;
-    }
+         Node* n_bottom_left, Node* n_bottom_rightt)
+        : val(n_val),
+          is_leaf(n_is_leaf),
+          top_left(n_top_left),
+          top_right(n_top_rightt),
+          bottom_left(n_bottom_left),
+          bottom_right(n_bottom_rightt) {}
 };
 #include <vector>
 
@@ -93,7 +90,7 @@ class Solution {
             if (len == 1) {
                 return new Node(grid[i][j], true);
             }
-            int size = len / 2;
+            int const size = len / 2;
             auto* top_left = fun(i, j, size);
             auto* top_right = fun(i, j + size, size);
             auto* bottom_left = fun(i + size, j, size);
@@ -103,12 +100,12 @@ class Solution {
                 if ((top_left->val == top_right->val) &&
                     (top_left->val == bottom_left->val) &&
                     (bottom_right->val == top_left->val)) {
-                    int val = top_left->val;
-                    delete top_left;
-                    delete top_right;
-                    delete bottom_right;
-                    delete bottom_left;
-                    return new Node(val, true);
+                  int const val = top_left->val;
+                  delete top_left;
+                  delete top_right;
+                  delete bottom_right;
+                  delete bottom_left;
+                  return new Node(val, true);
                 }
             }
             return new Node(true, false, top_left, top_right, bottom_left,
@@ -135,13 +132,13 @@ vector<optional<vector<int>>> FlattenQuadTree(Node* n) {
             ret.push_back(null);
         } else {
             if (n->is_leaf) {
-                ret.push_back(vector<int>{n->is_leaf, n->val});
+              ret.emplace_back(vector<int>{n->is_leaf, n->val});
             } else {
-                ret.push_back(vector<int>{n->is_leaf, n->val});
-                q.push(n->top_left);
-                q.push(n->top_right);
-                q.push(n->bottom_left);
-                q.push(n->bottom_right);
+              ret.emplace_back(vector<int>{n->is_leaf, n->val});
+              q.push(n->top_left);
+              q.push(n->top_right);
+              q.push(n->bottom_left);
+              q.push(n->bottom_right);
             }
             delete n;
         }
@@ -153,7 +150,7 @@ vector<optional<vector<int>>> FlattenQuadTree(Node* n) {
 TEST(construct_quad_tree, t1) {
     vector<vector<int>> grid =
         vector<vector<int>>{vector<int>{0, 1}, vector<int>{1, 0}};
-    vector<optional<vector<int>>> output = vector<optional<vector<int>>>{
+    vector<optional<vector<int>>> const output = vector<optional<vector<int>>>{
         // clang-format off
         vector<int>{0, 1},
         vector<int>{1, 0},
@@ -185,7 +182,7 @@ TEST(construct_quad_tree, t2) {
         {1, 1, 1, 1, 0, 0, 0, 0},
         // clang-format on
     };
-    vector<optional<vector<int>>> output = vector<optional<vector<int>>>{
+    vector<optional<vector<int>>> const output = vector<optional<vector<int>>>{
         // clang-format off
         vector<int>{0, 1},
         vector<int>{1, 1},

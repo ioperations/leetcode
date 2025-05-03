@@ -22,11 +22,11 @@ namespace {
 class Solution {
    public:
     int CountVowelPermutation(int n) {
-        int mod = 1e9 + 7;
-        vector<vector<int>> dp(n, vector<int>(5, 0));
-        int ans = 0;
-        for (int i = 0; i < 5; i++) {
-            dp[0][i] = 1;
+      int const mod = 1e9 + 7;
+      vector<vector<int>> dp(n, vector<int>(5, 0));
+      int ans = 0;
+      for (int i = 0; i < 5; i++) {
+        dp[0][i] = 1;
         }
         for (int i = 1; i < n; i++) {
             dp[i][0] = (dp[i - 1][1]) % mod;
@@ -45,32 +45,32 @@ class Solution {
 };
 
 TEST(count_vowels_permutation, t1) {
-    int n = 1;
-    int output = 5;
+  int const n = 1;
+  int const output = 5;
 
-    // Explanation: All possible strings are: "a", "e", "i" , "o" and "u".
-    Solution sl;
-    int ret = sl.CountVowelPermutation(n);
-    EXPECT_EQ(ret, output);
+  // Explanation: All possible strings are: "a", "e", "i" , "o" and "u".
+  Solution sl;
+  int const ret = sl.CountVowelPermutation(n);
+  EXPECT_EQ(ret, output);
 }
 
 TEST(count_vowels_permutation, t2) {
-    int n = 2;
-    int output = 10;
+  int const n = 2;
+  int const output = 10;
 
-    // All possible strings are: "ae", "ea", "ei", "ia", "ie", "io", "iu", "oi",
-    // "ou" and "ua".
-    Solution sl;
-    int ret = sl.CountVowelPermutation(n);
-    EXPECT_EQ(ret, output);
+  // All possible strings are: "ae", "ea", "ei", "ia", "ie", "io", "iu", "oi",
+  // "ou" and "ua".
+  Solution sl;
+  int const ret = sl.CountVowelPermutation(n);
+  EXPECT_EQ(ret, output);
 }
 
 TEST(count_vowels_permutation, t3) {
-    int n = 5;
-    int output = 68;
+  int const n = 5;
+  int const output = 68;
 
-    Solution sl;
-    int ret = sl.CountVowelPermutation(n);
-    EXPECT_EQ(ret, output);
+  Solution sl;
+  int const ret = sl.CountVowelPermutation(n);
+  EXPECT_EQ(ret, output);
 }
 }  // namespace

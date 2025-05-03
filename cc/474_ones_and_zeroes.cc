@@ -30,8 +30,8 @@ class Solution {
 
         for (int i = 0; i < (int)strings.size(); i++) {
             string now = strings[i];
-            int zeros = count(now.begin(), now.end(), '0');
-            int ones = count(now.begin(), now.end(), '1');
+            int const zeros = count(now.begin(), now.end(), '0');
+            int const ones = count(now.begin(), now.end(), '1');
 
             for (int j = 0; j <= m; j++) {
                 for (int k = 0; k <= n; k++) {
@@ -56,9 +56,9 @@ class Solution {
         for (auto& ptr : strs) {
             // int first = std::count(ptr.begin(), ptr.end(), [](const char c) {
             // return c == '1'; });
-            int first = 0;
-            int second = ptr.size() - first;
-            strs_count.push_back(make_pair(first, second));
+            int const first = 0;
+            int const second = ptr.size() - first;
+            strs_count.emplace_back(first, second);
         }
 
         return 0;
@@ -68,7 +68,7 @@ class Solution {
 TEST(ones_and_zeroes, t1) {
     vector<string> strs = {"10", "0001", "111001", "1", "0"};
     int m = 5, n = 3;
-    int output = 4;
+    int const output = 4;
     // Explanation: The largest subset with at most 5 0's and 3 1's is {"10",
     // "0001", "1", "0"}, so the answer is 4. Other valid but smaller subsets
     // include {"0001", "1"} and {"10", "1", "0"}. {"111001"} is an invalid
@@ -76,17 +76,17 @@ TEST(ones_and_zeroes, t1) {
     // 2:
 
     Solution sl;
-    int ret = sl.FindMaxForm(strs, m, n);
+    int const ret = sl.FindMaxForm(strs, m, n);
     EXPECT_EQ(ret, output);
 }
 
 TEST(ones_and_zeroes, t2) {
     vector<string> strs = {"10", "0", "1"};
     int m = 1, n = 1;
-    int output = 2;
+    int const output = 2;
     // Explanation: The largest subset is {"0", "1"}, so the answer is 2.
     Solution sl;
-    int ret = sl.FindMaxForm(strs, m, n);
+    int const ret = sl.FindMaxForm(strs, m, n);
     EXPECT_EQ(ret, output);
 }
 

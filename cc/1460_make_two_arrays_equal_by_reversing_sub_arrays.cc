@@ -30,10 +30,10 @@ class Solution {
 
 TEST(make_two_arrays_equal_by_reversing_sub_arrays, t1) {
     std::vector<int> target = {1, 2, 3, 4}, arr = {2, 4, 1, 3};
-    bool output = true;
+    bool const output = true;
 
     Solution sl;
-    bool ret = sl.CanBeEqual(target, arr);
+    bool const ret = sl.CanBeEqual(target, arr);
 
     EXPECT_EQ(ret, output);
     /*
@@ -47,20 +47,20 @@ TEST(make_two_arrays_equal_by_reversing_sub_arrays, t1) {
 
 TEST(make_two_arrays_equal_by_reversing_sub_arrays, t2) {
     std::vector<int> target = {7}, arr = {7};
-    bool output = true;
+    bool const output = true;
 
     Solution sl;
-    bool ret = sl.CanBeEqual(target, arr);
+    bool const ret = sl.CanBeEqual(target, arr);
 
     EXPECT_EQ(ret, output);
 }
 
 TEST(make_two_arrays_equal_by_reversing_sub_arrays, t3) {
     std::vector<int> target = {3, 7, 9}, arr = {3, 7, 11};
-    bool output = false;
+    bool const output = false;
 
     Solution sl;
-    bool ret = sl.CanBeEqual(target, arr);
+    bool const ret = sl.CanBeEqual(target, arr);
 
     EXPECT_EQ(ret, output);
 
