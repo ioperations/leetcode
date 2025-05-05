@@ -11,7 +11,7 @@ env:
 
 jobs:
   cc-test:
-    name: cc unit test
+    name: cangjie unit test
     runs-on: ubuntu-latest
     container: ${{ matrix.container }}
     timeout-minutes: 45
