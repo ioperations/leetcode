@@ -1,0 +1,13 @@
+[dependencies]
+
+[package]
+  cjc-version = "0.53.18"
+  compile-option = ""
+  description = "nothing here"
+  link-option = ""
+  name = "leetcode"
+  output-type = "executable"
+  src-dir = "cj/src"
+  target-dir = "target"
+  version = "1.0.0"
+  package-configuration = {}

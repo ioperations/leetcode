@@ -14,3 +14,5 @@
 
 Cargo.lock
 .DS_Store
+/cjpm.lock 
+/.vscode/cjpm_build_args.json
