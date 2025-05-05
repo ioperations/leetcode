@@ -38,8 +38,3 @@ func TestLru(t *testing.T) {
 		t.Errorf("not equal")
 	}
 }
-
-func TestMain(t *testing.M) {
-	t.Run()
-	os.Exit(0)
-}
