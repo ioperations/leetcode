@@ -1,6 +1,6 @@
 package leetcode;
 
-func add( a: Int16, b : Int16) : Int16 {
+func add( a: Int32, b : Int32) : Int32 {
     return a + b ;
 }
 
