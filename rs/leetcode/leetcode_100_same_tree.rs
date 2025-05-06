@@ -7,8 +7,8 @@ struct Solution;
 impl Solution {
     #[allow(unused)]
     fn is_same_tree<T>(
-        p: &Option<Rc<RefCell<TreeNode<T>>>>,
-        q: &Option<Rc<RefCell<TreeNode<T>>>>,
+        p: Option<&Rc<RefCell<TreeNode<T>>>>,
+        q: Option<&Rc<RefCell<TreeNode<T>>>>,
     ) -> bool
     where
         T: std::cmp::PartialEq,
@@ -20,8 +20,13 @@ impl Solution {
         if let (Some(p), Some(q)) = (p, q) {
             let ok = q.borrow().val == p.borrow().val;
 
-            ok && Self::is_same_tree(&p.borrow().left, &q.borrow().left)
-                && Self::is_same_tree(&p.borrow().right, &q.borrow().right)
+            ok && Self::is_same_tree(
+                p.borrow().left.as_ref(),
+                q.borrow().left.as_ref(),
+            ) && Self::is_same_tree(
+                p.borrow().right.as_ref(),
+                q.borrow().right.as_ref(),
+            )
         } else {
             false
         }
@@ -54,7 +59,7 @@ mod tests {
             .to_vec();
         let tree1 = build_binary_tree(&p);
         let tree2 = build_binary_tree(&q);
-        let ret = Solution::is_same_tree(&tree1, &tree2);
+        let ret = Solution::is_same_tree(tree1.as_ref(), tree2.as_ref());
         assert!(ret);
     }
 
@@ -79,7 +84,7 @@ mod tests {
             .to_vec();
         let tree1 = build_binary_tree(&p);
         let tree2 = build_binary_tree(&q);
-        let ret = Solution::is_same_tree(&tree1, &tree2);
+        let ret = Solution::is_same_tree(tree1.as_ref(), tree2.as_ref());
         assert!(ret);
     }
 
@@ -104,7 +109,7 @@ mod tests {
             .to_vec();
         let tree1 = build_binary_tree(&p);
         let tree2 = build_binary_tree(&q);
-        let ret = Solution::is_same_tree(&tree1, &tree2);
+        let ret = Solution::is_same_tree(tree1.as_ref(), tree2.as_ref());
         assert!(!ret);
     }
 }
