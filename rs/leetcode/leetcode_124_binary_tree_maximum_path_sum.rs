@@ -15,13 +15,13 @@ struct Solution;
 
 impl Solution {
     #[allow(unused)]
-    pub fn max_path_sum(root: &Option<Rc<RefCell<TreeNode<i32>>>>) -> i32 {
+    pub fn max_path_sum(root: Option<&Rc<RefCell<TreeNode<i32>>>>) -> i32 {
         fn helper(
-            root: &Option<Rc<RefCell<TreeNode<i32>>>>,
+            root: Option<&Rc<RefCell<TreeNode<i32>>>>,
         ) -> (Option<i32>, Option<i32>) {
             if let Some(v) = root {
-                let left = helper(&v.borrow().left);
-                let right = helper(&v.borrow().right);
+                let left = helper(v.borrow().left.as_ref());
+                let right = helper(v.borrow().right.as_ref());
                 let z = v.borrow().val;
                 return match (left, right) {
                     ((Some(l), Some(v)), (Some(r), Some(v2))) => {
@@ -65,7 +65,7 @@ mod tests {
         let root = [1, 2, 3].map(Some);
         let output = 6;
         let root = build_binary_tree(&root);
-        let ret = Solution::max_path_sum(&root);
+        let ret = Solution::max_path_sum(root.as_ref());
         assert_eq!(ret, output);
         // Explanation: The optimal path is 2 -> 1 -> 3 with a path sum of 2 + 1
         // + 3 = 6.
@@ -82,7 +82,7 @@ mod tests {
         });
         let output = 42;
         let root = build_binary_tree(&root);
-        let ret = Solution::max_path_sum(&root);
+        let ret = Solution::max_path_sum(root.as_ref());
         assert_eq!(ret, output);
         // The optimal path is 15 -> 20 -> 7 with a path sum of 15 + 20 + 7 =
         // 42.
@@ -99,7 +99,7 @@ mod tests {
         });
         let output = -3;
         let root = build_binary_tree(&root);
-        let ret = Solution::max_path_sum(&root);
+        let ret = Solution::max_path_sum(root.as_ref());
         assert_eq!(ret, output);
     }
 
@@ -114,7 +114,7 @@ mod tests {
         });
         let output = 2;
         let root = build_binary_tree(&root);
-        let ret = Solution::max_path_sum(&root);
+        let ret = Solution::max_path_sum(root.as_ref());
         assert_eq!(ret, output);
     }
 
@@ -129,7 +129,7 @@ mod tests {
         });
         let output = 10;
         let root = build_binary_tree(&root);
-        let ret = Solution::max_path_sum(&root);
+        let ret = Solution::max_path_sum(root.as_ref());
         assert_eq!(ret, output);
     }
 
@@ -144,7 +144,7 @@ mod tests {
         });
         let output = 5;
         let root = build_binary_tree(&root);
-        let ret = Solution::max_path_sum(&root);
+        let ret = Solution::max_path_sum(root.as_ref());
         assert_eq!(ret, output);
     }
 
@@ -159,7 +159,7 @@ mod tests {
         });
         let output = 11;
         let root = build_binary_tree(&root);
-        let ret = Solution::max_path_sum(&root);
+        let ret = Solution::max_path_sum(root.as_ref());
         assert_eq!(ret, output);
     }
 
@@ -174,7 +174,7 @@ mod tests {
         });
         let output = 6;
         let root = build_binary_tree(&root);
-        let ret = Solution::max_path_sum(&root);
+        let ret = Solution::max_path_sum(root.as_ref());
         assert_eq!(ret, output);
     }
 }
