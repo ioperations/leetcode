@@ -13,7 +13,7 @@ struct Solution;
 
 impl Solution {
     #[allow(unused)]
-    pub fn max_product(root: &Option<Rc<RefCell<TreeNode<i32>>>>) -> i32 {
+    pub fn max_product(root: Option<&Rc<RefCell<TreeNode<i32>>>>) -> i32 {
         // The number of nodes in the tree is in the range [2, 5 * 104].
         // 1 <= Node.val <= 104
         let mod_math = 1_000_000_000 + 7;
@@ -23,15 +23,21 @@ impl Solution {
         (max_product % mod_math) as i32
     }
     fn get_max_product(
-        node: &Option<Rc<RefCell<TreeNode<i32>>>>,
+        node: Option<&Rc<RefCell<TreeNode<i32>>>>,
         max_product: &mut i64,
         sum: i64,
     ) -> i64 {
         if let Some(n) = node {
-            let left =
-                Self::get_max_product(&n.borrow().left, max_product, sum);
-            let right =
-                Self::get_max_product(&n.borrow().right, max_product, sum);
+            let left = Self::get_max_product(
+                n.borrow().left.as_ref(),
+                max_product,
+                sum,
+            );
+            let right = Self::get_max_product(
+                n.borrow().right.as_ref(),
+                max_product,
+                sum,
+            );
             let cur_sum = left + right + n.borrow().val as i64;
             let product = cur_sum * (sum - cur_sum);
             if product > *max_product {
@@ -42,10 +48,10 @@ impl Solution {
             0
         }
     }
-    fn get_sum(node: &Option<Rc<RefCell<TreeNode<i32>>>>) -> i64 {
+    fn get_sum(node: Option<&Rc<RefCell<TreeNode<i32>>>>) -> i64 {
         if let Some(n) = node {
-            let left = Self::get_sum(&n.borrow().left);
-            let right = Self::get_sum(&n.borrow().right);
+            let left = Self::get_sum(n.borrow().left.as_ref());
+            let right = Self::get_sum(n.borrow().right.as_ref());
             left + right + n.borrow().val as i64
         } else {
             0
@@ -63,7 +69,7 @@ mod tests {
         let root = [1, 2, 3, 4, 5, 6].map(Some);
         let root = build_binary_tree(&root);
         let output = 110;
-        let ret = Solution::max_product(&root);
+        let ret = Solution::max_product(root.as_ref());
         assert_eq!(ret, output);
         // Explanation: Remove the red edge and get 2 binary trees with sum 11
         // and 10. Their product is 110 (11*10)
@@ -80,7 +86,7 @@ mod tests {
         });
         let root = build_binary_tree(&root);
         let output = 90;
-        let ret = Solution::max_product(&root);
+        let ret = Solution::max_product(root.as_ref());
         assert_eq!(ret, output);
         // Remove the red edge and get 2 binary trees with sum 15 and 6.Their
         // product is 90 (15*6)
