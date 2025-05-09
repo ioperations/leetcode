@@ -9,7 +9,7 @@ impl Solution {
     // path from root to X there are no nodes with a value greater than X.
     // Return the number of good nodes in the binary tree.
     #[allow(unused)]
-    fn good_nodes(r: &Option<Rc<RefCell<TreeNode<i32>>>>) -> i32 {
+    fn good_nodes(r: Option<&Rc<RefCell<TreeNode<i32>>>>) -> i32 {
         if let Some(n) = r {
             let mut count = 0;
             let val = n.as_ref().borrow().val;
@@ -47,7 +47,7 @@ mod tests {
         let root =
             vec![Some(3), Some(1), Some(4), Some(3), None, Some(1), Some(5)];
         let tree = build_binary_tree(&root);
-        let ret = Solution::good_nodes(&tree);
+        let ret = Solution::good_nodes(tree.as_ref());
         assert_eq!(ret, 4);
     }
 
@@ -55,7 +55,7 @@ mod tests {
     fn case2_test() {
         let root = vec![Some(3), Some(3), None, Some(4), Some(2)];
         let tree = build_binary_tree(&root);
-        let ret = Solution::good_nodes(&tree);
+        let ret = Solution::good_nodes(tree.as_ref());
         assert_eq!(ret, 3);
     }
 
@@ -63,7 +63,7 @@ mod tests {
     fn case3_test() {
         let root = vec![Some(1)];
         let tree = build_binary_tree(&root);
-        let ret = Solution::good_nodes(&tree);
+        let ret = Solution::good_nodes(tree.as_ref());
         assert_eq!(ret, 1);
     }
 
@@ -71,7 +71,7 @@ mod tests {
     fn case4_test() {
         let root = vec![Some(9), None, Some(3), Some(6)];
         let tree = build_binary_tree(&root);
-        let ret = Solution::good_nodes(&tree);
+        let ret = Solution::good_nodes(tree.as_ref());
         assert_eq!(ret, 1);
     }
 }
