@@ -165,9 +165,9 @@ mod test {
 
     #[test]
     fn case0_test() {
-        let mut list1: Option<Box<ListNode<_>>> =
+        let mut list1 =
             build_list_from_vec(&[1, 4, 5]);
-        let mut list2: Option<Box<ListNode<_>>> =
+        let mut list2 =
             build_list_from_vec(&[1, 3, 4]);
 
         let output = [1, 1, 3, 4, 4, 5];
