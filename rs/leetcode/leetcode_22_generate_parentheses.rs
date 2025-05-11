@@ -34,11 +34,22 @@ mod tests {
 
     use super::*;
 
+    pub trait ToHashSet {
+        fn into_hash_set(self) -> HashSet<String>;
+    }
+
+    impl ToHashSet for Vec<String>
+    {
+        fn into_hash_set(self) -> HashSet<String> {
+            self.into_iter().collect()
+        }
+    }
+
     #[test]
     fn case1_test() {
         let n = 3;
         let ret = Solution::generate_parenthesis(n);
-        let ret = ret.into_iter().collect::<HashSet<String>>();
+        let ret = ret.into_hash_set();
         let expect: Vec<String> = vec![
             "((()))".into(),
             "(()())".into(),
@@ -46,7 +57,7 @@ mod tests {
             "()(())".into(),
             "()()()".into(),
         ];
-        let expect = expect.into_iter().collect::<HashSet<String>>();
+        let expect = expect.into_hash_set();
 
         assert_eq!(ret, expect);
     }
@@ -55,9 +66,9 @@ mod tests {
     fn case2_test() {
         let n = 1;
         let ret = Solution::generate_parenthesis(n);
-        let ret = ret.into_iter().collect::<HashSet<String>>();
+        let ret = ret.into_hash_set();
         let expect: Vec<String> = vec!["()".into()];
-        let expect = expect.into_iter().collect::<HashSet<String>>();
+        let expect = expect.into_hash_set();
 
         assert_eq!(ret, expect);
     }
