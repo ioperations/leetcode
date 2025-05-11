@@ -42,9 +42,19 @@ mod test {
 
     use super::*;
 
+    pub trait WrapSome<T> {
+        fn wrap_some(self) -> Vec<Option<T>>;
+    }
+
+    impl<T> WrapSome<T> for Vec<T> {
+        fn wrap_some(self) -> Vec<Option<T>> {
+            self.into_iter().map(Some).collect()
+        }
+    }
+
     #[test]
     fn case0_test() {
-        let root: Vec<_> = [1].into_iter().map(Some).collect();
+        let root: Vec<_> = vec![1].wrap_some();
         let root = build_binary_tree(&root);
         let output = 1;
         let ret = Solution::sum_numbers(&root);
@@ -57,7 +67,7 @@ mod test {
 
     #[test]
     fn case1_test() {
-        let root: Vec<_> = [1, 2, 3].into_iter().map(Some).collect();
+        let root: Vec<_> = vec![1, 2, 3].wrap_some();
         let root = build_binary_tree(&root);
         let output = 25;
         let ret = Solution::sum_numbers(&root);
@@ -70,7 +80,7 @@ mod test {
 
     #[test]
     fn case2_test() {
-        let root: Vec<_> = [4, 9, 0, 5, 1].into_iter().map(Some).collect();
+        let root: Vec<_> = vec![4, 9, 0, 5, 1].wrap_some();
         let root = build_binary_tree(&root);
         let output = 1026;
         let ret = Solution::sum_numbers(&root);
