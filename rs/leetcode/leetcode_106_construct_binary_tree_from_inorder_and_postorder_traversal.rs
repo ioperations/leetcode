@@ -89,17 +89,26 @@ mod test {
     use super::super::leetcode_binary_tree::expect_binary_tree;
 
     use super::*;
+    const NULL: i32 = -2;
+
+    pub trait IntoOption<T> {
+        fn into_option(self) -> Vec<Option<T>>;
+    }
+
+    impl<const N: usize> IntoOption<i32> for [i32; N] {
+        fn into_option(self) -> Vec<Option<i32>> {
+            self.into_iter()
+                .map(|i| if i == NULL { None } else { Some(i) })
+                .collect()
+        }
+    }
 
     #[test]
     fn case1_test() {
         let inorder = [9, 3, 15, 20, 7];
         let postorder = [9, 15, 7, 20, 3];
         let ret = Solution::build_tree(&inorder, postorder.into());
-        let null = -1;
-        let output: Vec<_> = [3, 9, 20, 15, 7]
-            .into_iter()
-            .map(|i| if i == null { None } else { Some(i) })
-            .collect();
+        let output: Vec<_> = [3, 9, 20, 15, 7].into_option();
         expect_binary_tree(&output, &ret);
     }
 
@@ -108,11 +117,7 @@ mod test {
         let inorder = [-1];
         let postorder = [-1];
         let ret = Solution::build_tree(&inorder, postorder.into());
-        let null = -2;
-        let output: Vec<_> = [-1]
-            .into_iter()
-            .map(|i| if i == null { None } else { Some(i) })
-            .collect();
+        let output: Vec<_> = [-1].into_option();
         expect_binary_tree(&output, &ret);
     }
 }
