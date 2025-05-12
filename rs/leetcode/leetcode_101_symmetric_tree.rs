@@ -14,9 +14,8 @@ impl Solution {
         T: Copy + std::cmp::PartialEq,
     {
         /// expect binary tree equal to input
-        fn flatten_binary_tree<T>(
+        fn flatten_binary_tree<T, const LEFT_TO_RIGHT: bool>(
             root: Option<Rc<RefCell<TreeNode<T>>>>,
-            left_to_right: bool,
         ) -> Vec<Option<T>>
         where
             T: std::cmp::PartialEq + Copy,
@@ -29,7 +28,7 @@ impl Solution {
                 let n1 = q.pop_front().unwrap();
                 if let Some(n) = &n1 {
                     ret.push(Some(n.as_ref().borrow().val));
-                    if left_to_right {
+                    if LEFT_TO_RIGHT {
                         q.push_back(n.as_ref().borrow_mut().left.take());
                         q.push_back(n.as_ref().borrow_mut().right.take());
                     } else {
@@ -51,11 +50,11 @@ impl Solution {
         }
 
         if let Some(v) = root {
-            let left =
-                flatten_binary_tree(v.as_ref().borrow_mut().left.take(), true);
-            let right = flatten_binary_tree(
+            let left = flatten_binary_tree::<T, true>(
+                v.as_ref().borrow_mut().left.take(),
+            );
+            let right = flatten_binary_tree::<T, false>(
                 v.as_ref().borrow_mut().right.take(),
-                false,
             );
             return left == right;
         }
