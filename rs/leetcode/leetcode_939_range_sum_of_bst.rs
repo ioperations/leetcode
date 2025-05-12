@@ -11,7 +11,7 @@ struct Solution;
 impl Solution {
     #[allow(unused)]
     pub fn range_sum_bst(
-        root: &Option<Rc<RefCell<TreeNode<i32>>>>,
+        root: Option<&Rc<RefCell<TreeNode<i32>>>>,
         low: i32,
         high: i32,
     ) -> i32 {
@@ -20,13 +20,13 @@ impl Solution {
             Some(node) => {
                 let node = node.borrow();
                 if high < node.val {
-                    Self::range_sum_bst(&node.left, low, high)
+                    Self::range_sum_bst(node.left.as_ref(), low, high)
                 } else if node.val < low {
-                    Self::range_sum_bst(&node.right, low, high)
+                    Self::range_sum_bst(node.right.as_ref(), low, high)
                 } else {
-                    Self::range_sum_bst(&node.left, low, high)
+                    Self::range_sum_bst(node.left.as_ref(), low, high)
                         + node.val
-                        + Self::range_sum_bst(&node.right, low, high)
+                        + Self::range_sum_bst(node.right.as_ref(), low, high)
                 }
             }
         }
@@ -61,7 +61,7 @@ impl Solution {
 
     #[allow(unused)]
     pub fn range_sum_bst_v1(
-        root: &Option<Rc<RefCell<TreeNode<i32>>>>,
+        root: Option<&Rc<RefCell<TreeNode<i32>>>>,
         low: i32,
         high: i32,
     ) -> i32 {
@@ -77,22 +77,28 @@ impl Solution {
                 if head_value <= low {
                     return extra
                         + Self::range_sum_bst_v1(
-                            &head.borrow().right,
+                            head.borrow().right.as_ref(),
                             low,
                             high,
                         );
                 } else if head_value >= high {
                     return extra
                         + Self::range_sum_bst_v1(
-                            &head.borrow().left,
+                            head.borrow().left.as_ref(),
                             low,
                             high,
                         );
                 }
-                let left =
-                    Self::range_sum_bst_v1(&head.borrow().left, low, high);
-                let right =
-                    Self::range_sum_bst_v1(&head.borrow().right, low, high);
+                let left = Self::range_sum_bst_v1(
+                    head.borrow().left.as_ref(),
+                    low,
+                    high,
+                );
+                let right = Self::range_sum_bst_v1(
+                    head.borrow().right.as_ref(),
+                    low,
+                    high,
+                );
                 left + right + head_value
             }
             None => 0,
@@ -124,7 +130,7 @@ mod tests_rec {
             })
             .collect::<Vec<Option<i32>>>();
         let root = build_binary_tree(&root);
-        let ret = Solution::range_sum_bst(&root, low, high);
+        let ret = Solution::range_sum_bst(root.as_ref(), low, high);
         assert_eq!(ret, output);
     }
 
@@ -145,7 +151,7 @@ mod tests_rec {
             })
             .collect::<Vec<Option<i32>>>();
         let root = build_binary_tree(&root);
-        let ret = Solution::range_sum_bst(&root, low, high);
+        let ret = Solution::range_sum_bst(root.as_ref(), low, high);
         assert_eq!(ret, output);
     }
     #[bench]
@@ -166,7 +172,7 @@ mod tests_rec {
             .collect::<Vec<Option<i32>>>();
         b.iter(|| {
             let root = build_binary_tree(&root);
-            let ret = Solution::range_sum_bst(&root, low, high);
+            let ret = Solution::range_sum_bst(root.as_ref(), low, high);
             assert_eq!(ret, output);
         });
     }
@@ -196,7 +202,7 @@ mod tests_v1 {
             })
             .collect::<Vec<Option<i32>>>();
         let root = build_binary_tree(&root);
-        let ret = Solution::range_sum_bst_v1(&root, low, high);
+        let ret = Solution::range_sum_bst_v1(root.as_ref(), low, high);
         assert_eq!(ret, output);
     }
 
@@ -217,7 +223,7 @@ mod tests_v1 {
             })
             .collect::<Vec<Option<i32>>>();
         let root = build_binary_tree(&root);
-        let ret = Solution::range_sum_bst_v1(&root, low, high);
+        let ret = Solution::range_sum_bst_v1(root.as_ref(), low, high);
         assert_eq!(ret, output);
     }
 
@@ -239,7 +245,7 @@ mod tests_v1 {
             .collect::<Vec<Option<i32>>>();
         b.iter(|| {
             let root = build_binary_tree(&root);
-            let ret = Solution::range_sum_bst_v1(&root, low, high);
+            let ret = Solution::range_sum_bst_v1(root.as_ref(), low, high);
             assert_eq!(ret, output);
         });
     }
