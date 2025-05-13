@@ -3,8 +3,8 @@ struct Solution;
 
 #[allow(unused)]
 impl Solution {
-    pub fn length_after_transformations(s: String, t: i32) -> i32 {
-        let z = 1000_000_007;
+    pub fn length_after_transformations(s: &str, t: i32) -> i32 {
+        let divided_by = 1_000_000_007;
         let mut counts = [0; 26];
         for &c in s.as_bytes() {
             counts[(c - b'a') as usize] += 1;
@@ -13,15 +13,14 @@ impl Solution {
         for _ in 0..t {
             let j = i;
             i = (i + 25) % 26;
-            counts[j] = (counts[j] + counts[i]) % z;
+            counts[j] = (counts[j] + counts[i]) % divided_by;
         }
         let mut ans = 0;
         for cnt in counts {
-            ans = (ans + cnt) % z;
+            ans = (ans + cnt) % divided_by;
         }
         ans
     }
-
 }
 
 #[cfg(test)]
@@ -30,7 +29,7 @@ mod test {
 
     #[test]
     fn test_case1() {
-        let s = "abc".to_string();
+        let s = "abc";
         let t = 3;
         let result = Solution::length_after_transformations(s, t);
         assert_eq!(result, 3);
@@ -38,9 +37,9 @@ mod test {
 
     #[test]
     fn test_case2() {
-        let s = "a".to_string();
+        let s = "a";
         let t = 1;
         let result = Solution::length_after_transformations(s, t);
         assert_eq!(result, 1);
     }
-}   
+}
