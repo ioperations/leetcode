@@ -4,6 +4,7 @@
 // given array.
 
 use std::collections::HashSet;
+
 #[allow(unused)]
 struct Solution;
 
@@ -47,6 +48,28 @@ impl Solution {
 mod tests {
     use super::*;
 
+    pub trait ToString {
+        fn to_vec_str(&self) -> Vec<String>;
+        fn to_hash_str(&self) -> HashSet<String>;
+    }
+
+    impl<T, const N: usize> ToString for [T; N]
+    where
+        T: std::string::ToString,
+    {
+        fn to_vec_str(&self) -> Vec<String> {
+            self.into_iter()
+                .map(std::string::ToString::to_string)
+                .collect::<Vec<String>>()
+        }
+
+        fn to_hash_str(&self) -> HashSet<String> {
+            self.into_iter()
+                .map(std::string::ToString::to_string)
+                .collect::<HashSet<String>>()
+        }
+    }
+
     #[test]
     fn case1_test() {
         let words = [
@@ -59,13 +82,9 @@ mod tests {
             "rat",
             "ratcatdogcat",
         ]
-        .into_iter()
-        .map(std::string::ToString::to_string)
-        .collect::<Vec<String>>();
-        let output = ["catsdogcats", "dogcatsdog", "ratcatdogcat"]
-            .into_iter()
-            .map(std::string::ToString::to_string)
-            .collect::<HashSet<String>>();
+        .to_vec_str();
+        let output =
+            ["catsdogcats", "dogcatsdog", "ratcatdogcat"].to_hash_str();
         // Explanation: "catsdogcats" can be concatenated by "cats", "dog" and
         // "cats"; "dogcatsdog" can be concatenated by "dog", "cats" and
         // "dog"; "ratcatdogcat" can be concatenated by "rat", "cat",
@@ -77,14 +96,8 @@ mod tests {
 
     #[test]
     fn case2_test() {
-        let words = ["cat", "dog", "catdog"]
-            .into_iter()
-            .map(std::string::ToString::to_string)
-            .collect::<Vec<String>>();
-        let output = ["catdog"]
-            .into_iter()
-            .map(std::string::ToString::to_string)
-            .collect::<HashSet<String>>();
+        let words = ["cat", "dog", "catdog"].to_vec_str();
+        let output = ["catdog"].to_hash_str();
         // Explanation: "catsdogcats" can be concatenated by "cats", "dog" and
         // "cats"; "dogcatsdog" can be concatenated by "dog", "cats" and
         // "dog"; "ratcatdogcat" can be concatenated by "rat", "cat",
