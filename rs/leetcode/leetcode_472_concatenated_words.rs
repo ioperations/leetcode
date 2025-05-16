@@ -70,6 +70,18 @@ mod tests {
         }
     }
 
+    impl ToString for Vec<String> {
+        fn to_vec_str(&self) -> Vec<String> {
+            self.clone()
+        }
+
+        fn to_hash_str(&self) -> HashSet<String> {
+            self.into_iter()
+                .map(std::string::String::to_string)
+                .collect::<HashSet<String>>()
+        }
+    }
+
     #[test]
     fn case1_test() {
         let words = [
@@ -90,7 +102,7 @@ mod tests {
         // "dog"; "ratcatdogcat" can be concatenated by "rat", "cat",
         // "dog" and "cat".
         let ret = Solution::find_all_concatenated_words_in_a_dict(&words);
-        let ret = ret.into_iter().collect::<HashSet<String>>();
+        let ret = ret.to_hash_str();
         assert_eq!(output, ret);
     }
 
@@ -103,7 +115,7 @@ mod tests {
         // "dog"; "ratcatdogcat" can be concatenated by "rat", "cat",
         // "dog" and "cat".
         let ret = Solution::find_all_concatenated_words_in_a_dict(&words);
-        let ret = ret.into_iter().collect::<HashSet<String>>();
+        let ret = ret.to_hash_str();
         assert_eq!(output, ret);
     }
 }
