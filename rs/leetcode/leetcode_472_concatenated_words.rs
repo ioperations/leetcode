@@ -50,6 +50,9 @@ mod tests {
 
     pub trait ToString {
         fn to_vec_str(&self) -> Vec<String>;
+    }
+
+    pub trait ToHashSet {
         fn to_hash_str(&self) -> HashSet<String>;
     }
 
@@ -62,7 +65,12 @@ mod tests {
                 .map(std::string::ToString::to_string)
                 .collect::<Vec<String>>()
         }
+    }
 
+    impl<T, const N: usize> ToHashSet for [T; N]
+    where
+        T: std::string::ToString,
+    {
         fn to_hash_str(&self) -> HashSet<String> {
             self.into_iter()
                 .map(std::string::ToString::to_string)
@@ -70,11 +78,7 @@ mod tests {
         }
     }
 
-    impl ToString for Vec<String> {
-        fn to_vec_str(&self) -> Vec<String> {
-            self.clone()
-        }
-
+    impl ToHashSet for Vec<String> {
         fn to_hash_str(&self) -> HashSet<String> {
             self.into_iter()
                 .map(std::string::String::to_string)
