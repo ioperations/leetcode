@@ -55,11 +55,11 @@ where
     let mut ret: ListNode<T> = ListNode::new(Default::default());
 
     for i in node.iter().rev() {
-        let thisnode = Box::new(ListNode {
+        let node = Box::new(ListNode {
             val: *i,
             next: ret.next.take(),
         });
-        ret.next = Some(thisnode);
+        ret.next = Some(node);
     }
     ret.next
 }
