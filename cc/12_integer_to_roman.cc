@@ -30,6 +30,7 @@ Given an integer, convert it to a roman numeral.
 
  */
 
+#include <array>
 #include <string>
 
 #include "gtest/gtest.h"
@@ -43,12 +44,13 @@ class Solution {
         int const normal[] = {1000, 900, 500, 400, 100, 90, 50,
                               40,   10,  9,   5,   4,   1};
         int const size = sizeof(normal) / sizeof(int);
-        string const roman[] = {"M",  "CM", "D",  "CD", "C",  "XC", "L",
-                                "XL", "X",  "IX", "V",  "IV", "I"};
+        static const std::array<std::string, 13> roman[] = {
+            "M",  "CM", "D",  "CD", "C",  "XC", "L",
+            "XL", "X",  "IX", "V",  "IV", "I"};
         string res;
         for (int i = 0; i < size; i++) {
             while (num >= normal[i]) {
-                res.append(roman[i]);
+                res.push_back(roman[i]);
                 num -= normal[i];
             }
         }
