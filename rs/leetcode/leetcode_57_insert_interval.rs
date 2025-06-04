@@ -1,6 +1,6 @@
 // You are given an array of non-overlapping intervals intervals where
-// intervals[i] = [starti, endi] represent the start and the end of the ith interval
-// and intervals is sorted in ascending order by starti.
+// intervals[i] = [starti, endi] represent the start and the end of the ith
+// interval and intervals is sorted in ascending order by starti.
 // You are also given an interval newInterval = [start, end] that
 // represents the start and end of another interval.
 // Insert newInterval into intervals such that intervals is still sorted
@@ -13,7 +13,10 @@ struct Solution;
 
 impl Solution {
     #[allow(unused)]
-    pub fn insert(intervals: &[Vec<i32>], new_interval: Vec<i32>) -> Vec<Vec<i32>> {
+    pub fn insert(
+        intervals: &[Vec<i32>],
+        new_interval: Vec<i32>,
+    ) -> Vec<Vec<i32>> {
         let mut answer: Vec<Vec<i32>> = Vec::with_capacity(intervals.len() + 1);
         let mut i = 0;
         while i < intervals.len() && intervals[i][1] < new_interval[0] {

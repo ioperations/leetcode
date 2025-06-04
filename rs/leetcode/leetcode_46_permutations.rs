@@ -3,11 +3,12 @@
 
 #[allow(unused)]
 struct Solution;
+type Ret = Vec<Vec<i32>>;
 
 impl Solution {
     #[allow(unused)]
-    pub fn permute(nums: &[i32]) -> Vec<Vec<i32>> {
-        fn backtrack(nums: &[i32], sub: &[i32], res: &mut Vec<Vec<i32>>) {
+    pub fn permute(nums: &[i32]) -> Ret {
+        fn backtrack(nums: &[i32], sub: &[i32], res: &mut Ret) {
             if nums.is_empty() {
                 res.push(sub.to_vec());
                 return;
