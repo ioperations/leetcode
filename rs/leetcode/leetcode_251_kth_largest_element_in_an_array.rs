@@ -20,7 +20,9 @@ impl Solution {
         let k = k as usize;
         let mut minheap = BinaryHeap::with_capacity(k);
 
-        nums.into_iter().for_each(|i| minheap.push(Reverse(i)));
+        for i in nums {
+            minheap.push(Reverse(i));
+        }
         while minheap.len() > k {
             minheap.pop();
         }
