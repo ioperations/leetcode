@@ -22,7 +22,7 @@ struct Solution;
 impl Solution {
     #[allow(unused)]
     pub fn can_be_valid(s: &str, locked: &str) -> bool {
-        if (s.len() % 2 != 0) {
+        if (!s.len().is_multiple_of(2)) {
             return false;
         }
         Self::scan(s, locked, '(', ')') && Self::scan(s, locked, ')', '(')
