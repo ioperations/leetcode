@@ -14,6 +14,7 @@ struct TreeNode {
     TreeNode(T x) : val(x), left(nullptr), right(nullptr) {}
     TreeNode(T x, TreeNode* left, TreeNode* right)
         : val(x), left(left), right(right) {}
+    virtual ~TreeNode() = default;
 };
 
 template <typename T>

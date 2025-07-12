@@ -8,35 +8,33 @@
 #include <queue>
 #include <vector>
 
+#include "datastruct_base.hh"
 #include "gtest/gtest.h"
 
 using namespace std;
 
 //* Definition for a binary tree node.
-struct TreeNode {
-    int m_val;
-    TreeNode* m_left;
-    TreeNode* m_right;
+struct TreeNode : public Tree::TreeNode<int> {
     bool m_deleted = false;
-    TreeNode() : m_val(0), m_left(nullptr), m_right(nullptr) {}
-    TreeNode(int x) : m_val(x), m_left(nullptr), m_right(nullptr) {}
+    TreeNode() : Tree::TreeNode<int>() {}
+    TreeNode(int x) : Tree::TreeNode<int>(x) {}
     TreeNode(int x, TreeNode* left, TreeNode* right)
-        : m_val(x), m_left(left), m_right(right) {}
+        : Tree::TreeNode<int>(x, left, right) {}
 };
 
 namespace {
 class Solution {
    public:
-    int Height(TreeNode* root) {
+    int Height(Tree::TreeNode<int>* root) {
         if (!root) return 0;
-        return std::max(Height(root->m_left), Height(root->m_right)) + 1;
+        return std::max(Height(root->left), Height(root->right)) + 1;
     }
     int m_sum = 0;
-    int SumAtK(TreeNode* root, int k) {
+    int SumAtK(Tree::TreeNode<int>* root, int k) {
         if (!root) return m_sum;
-        if (k == 0 && root->m_val != -1) m_sum = m_sum + root->m_val;
-        SumAtK(root->m_left, k - 1);
-        SumAtK(root->m_right, k - 1);
+        if (k == 0 && root->val != -1) m_sum = m_sum + root->val;
+        SumAtK(root->left, k - 1);
+        SumAtK(root->right, k - 1);
         return m_sum;
     }
 
@@ -51,7 +49,7 @@ class SolutionV2 {
    public:
     int DeepestLeavesSum(TreeNode* root) {
         if (!root) return 0;
-        queue<TreeNode*> q;
+        queue<Tree::TreeNode<int>*> q;
         q.push(root);
         q.push(nullptr);
         int sum = 0;
@@ -63,9 +61,9 @@ class SolutionV2 {
                 sum = 0;
                 continue;
             }
-            sum += curr->m_val;
-            if (curr->m_left) q.push(curr->m_left);
-            if (curr->m_right) q.push(curr->m_right);
+            sum += curr->val;
+            if (curr->left) q.push(curr->left);
+            if (curr->right) q.push(curr->right);
         }
         return sum;
     }
@@ -75,8 +73,8 @@ class SolutionV2 {
 
 TreeNode* NewNode(int data) {
     auto* node = new TreeNode;
-    node->m_val = data;
-    node->m_left = node->m_right = nullptr;
+    node->val = data;
+    node->left = node->right = nullptr;
     return node;
 }
 
@@ -89,10 +87,10 @@ TreeNode* InsertLevelOrder(vector<int>& arr, int i) {
         TreeNode* root = temp;
 
         // insert left child
-        root->m_left = InsertLevelOrder(arr, 2 * i + 1);
+        root->left = InsertLevelOrder(arr, 2 * i + 1);
 
         // insert right child
-        root->m_right = InsertLevelOrder(arr, 2 * i + 2);
+        root->right = InsertLevelOrder(arr, 2 * i + 2);
 
         if (arr[i] == -1) {
             root->m_deleted = true;
@@ -107,8 +105,8 @@ TreeNode* InsertLevelOrder(vector<int>& arr, int i) {
 void FreeTreeNode(TreeNode* root) {
     if (root == nullptr) return;
 
-    FreeTreeNode(root->m_left);
-    FreeTreeNode(root->m_right);
+    FreeTreeNode(dynamic_cast<TreeNode*>(root->left));
+    FreeTreeNode(dynamic_cast<TreeNode*>(root->right));
 
     delete root;
 }
