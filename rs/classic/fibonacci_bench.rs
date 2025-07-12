@@ -65,7 +65,7 @@ mod tests {
     #[bench]
     fn bench_simd_sync(b: &mut test::Bencher) {
         let value: u32 = (0..BENCH_SIZE).into_par_iter().map(fibonacci).reduce(
-            || (0_u32),
+            || 0_u32,
             |acc, e| {
                 if let Some(res) = acc.checked_add(e) {
                     res
@@ -78,7 +78,7 @@ mod tests {
 
         b.iter(|| {
             let res = (0..BENCH_SIZE).into_par_iter().map(fibonacci).reduce(
-                || (0_u32),
+                || 0_u32,
                 |acc, e| {
                     if let Some(res) = acc.checked_add(e) {
                         res
