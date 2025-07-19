@@ -198,11 +198,11 @@ class SolutionV2 {
              vector<vector<bool>>& visited, const string& word) {
         // int step[4][2] = {{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
 
-        stack<vector<int>> stack;
+        stack<std::array<int, 4>> stack;
         stack.push({i, j, 0, 0});
 
         while (!stack.empty()) {
-            auto top = stack.top();
+            const auto& top = stack.top();
             const int i = top[0];
             const int j = top[1];
             const int pos = top[2];
