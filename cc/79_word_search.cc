@@ -10,6 +10,7 @@ adjacent cells are horizontally or vertically neighboring. The same letter cell
 may not be used more than once.
 */
 
+#include <array>
 #include <cstddef>
 #include <map>
 #include <set>
