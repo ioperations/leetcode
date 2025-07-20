@@ -16,6 +16,7 @@ may not be used more than once.
 #include <set>
 #include <stack>
 #include <string>
+#include <string_view>
 #include <utility>
 #include <vector>
 
@@ -136,7 +137,8 @@ class Solution {
     }
 
    private:
-    string m_s;
+    vector<char> m_s;
+    int m_expect_size = 0;
     int m_row{}, m_col{}, m_index = 0, m_dir[5] = {1, 0, -1, 0, 1};
     bool m_decision = false;
 
@@ -150,23 +152,27 @@ class Solution {
         if (m_index >= (int)word.size()) return;   // base-case
         if (word[m_index] != board[i][j]) return;  // search pruning
 
-        m_s.push_back(board[i][j]);  // make move
+        m_s[m_index] = board[i][j];  // make move
         board[i][j] = '?';
         m_index++;
 
-        if (m_s == word) m_decision = true;  // record solution
+        if (m_index == m_expect_size &&
+            std::string_view(m_s.data(), m_index) == word)
+            m_decision = true;  // record solution
 
         for (int k = 0; k < 4; k++)  // backtrack
             if (IsSafe(i + m_dir[k], j + m_dir[k + 1]))
                 Backtrack(i + m_dir[k], j + m_dir[k + 1], board, word);
 
-        board[i][j] = m_s.back();  // undo move
-        m_s.pop_back();
+        board[i][j] = m_s[m_index - 1];  // undo move
+        // m_s.pop_back();
         m_index--;
     }
 
     bool Exist(vector<vector<char>>& board, const string& word) {
         // apply dfs from all starting characters in board
+        m_expect_size = word.size();
+        m_s.resize(m_expect_size);
         m_row = board.size(), m_col = board[0].size();
         for (int i = 0; i < m_row; i++)
             for (int j = 0; j < m_col; j++)
