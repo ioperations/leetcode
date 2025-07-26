@@ -157,12 +157,15 @@ class Solution {
         m_index++;
 
         if (m_index == m_expect_size &&
-            std::string_view(m_s.data(), m_index) == word)
+            std::string_view(m_s.data(), m_index) == word) {
             m_decision = true;  // record solution
+        }
 
-        for (int k = 0; k < 4; k++)  // backtrack
-            if (IsSafe(i + m_dir[k], j + m_dir[k + 1]))
+        for (int k = 0; k < 4; k++)  { // backtrack
+            if (IsSafe(i + m_dir[k], j + m_dir[k + 1])) {
                 Backtrack(i + m_dir[k], j + m_dir[k + 1], board, word);
+            }
+        }
 
         board[i][j] = m_s[m_index - 1];  // undo move
         // m_s.pop_back();
@@ -174,12 +177,13 @@ class Solution {
         m_expect_size = word.size();
         m_s.resize(m_expect_size);
         m_row = board.size(), m_col = board[0].size();
-        for (int i = 0; i < m_row; i++)
-            for (int j = 0; j < m_col; j++)
+        for (int i = 0; i < m_row; i++) {
+            for (int j = 0; j < m_col; j++) {
                 if (board[i][j] == word[0]) {
                     Backtrack(i, j, board, word);
                 }
-
+            }
+        }
         return m_decision;
     }
 };
