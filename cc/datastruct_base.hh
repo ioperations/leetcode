@@ -109,6 +109,7 @@ inline void FreeTreeNode(TreeNode<T>* root) {
     FreeTreeNode(root->right);
 
     delete root;
+    root = nullptr;
 }
 
 template <typename T>
