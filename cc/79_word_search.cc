@@ -161,7 +161,7 @@ class Solution {
             m_decision = true;  // record solution
         }
 
-        for (int k = 0; k < 4; k++)  { // backtrack
+        for (int k = 0; k < 4; k++) {
             if (IsSafe(i + m_dir[k], j + m_dir[k + 1])) {
                 Backtrack(i + m_dir[k], j + m_dir[k + 1], board, word);
             }
