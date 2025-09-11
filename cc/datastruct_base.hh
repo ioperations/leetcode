@@ -145,7 +145,7 @@ void BfsSearchV1(TreeNode<T>* root, std::vector<std::optional<int>>& vec) {
             q.push(tmp->right);
             vec.push_back(tmp->val);
         } else {
-            vec.emplace_back(std::optional<int>());
+            vec.emplace_back();
         }
     }
 
