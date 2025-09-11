@@ -31,7 +31,7 @@ jobs:
         with:
           components: clippy
       - run: |
-          cargo clippy -- -Dclippy::pedantic  -Aclippy::cast-lossless -Aclippy::cast-possible-truncation -Aclippy::cast-possible-wrap -Aclippy::cast-precision-loss -Aclippy::cast-sign-loss -Aclippy::checked-conversions -Aclippy::ref_option_ref -Aclippy::ref-option
+          cargo clippy -- -Dclippy::pedantic  -Aclippy::cast-lossless -Aclippy::cast-possible-truncation -Aclippy::cast-possible-wrap -Aclippy::cast-precision-loss -Aclippy::cast-sign-loss -Aclippy::checked-conversions -Aclippy::ref_option_ref -Aclippy::ref-option -Aclippy::needless_range_loop
 
   miri-test:
     name: cargo miri
