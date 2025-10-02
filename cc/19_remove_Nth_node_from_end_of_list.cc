@@ -17,47 +17,36 @@ namespace {
 class Solution {
    public:
     ListNode* RemoveNthFromEnd(ListNode* head, int n) {
+        return RemoveNthFromEndV2(head, n);
+    }
+
+    ListNode* RemoveNthFromEndV2(ListNode* head, int n) {
         if (head == nullptr) {
             return nullptr;
         }
 
         ListNode* slow = head;
         ListNode* fast = head;
-
-        int i = 0;
-        while (fast != nullptr && i < n) {
+        for (int i = 0; fast && i < n + 1; ++i) {
             fast = fast->next;
-            if (fast == nullptr) {
-                if (i == n - 1) {
-                    ListNode* tmp = head;
-                    ListNode* ret = tmp->next;
-
-                    delete tmp;
-                    return ret;
-                }
-                return head;
-            }
-            i++;
         }
 
-        if (fast) {
+        while (fast) {
             fast = fast->next;
-
-            while (fast != nullptr) {
-                fast = fast->next;
-                slow = slow->next;
-            }
-
-            {
-                ListNode* tmp = slow->next;
-                slow->next = slow->next->next;
-
-                delete tmp;
-            }
-            return head;
+            slow = slow->next;
         }
-        delete slow;
-        return nullptr;
+
+        ListNode* tmp = nullptr;
+        if (slow->next) {
+            tmp = slow->next;
+            slow->next = slow->next->next;
+            delete tmp;
+        } else {
+            delete slow;
+            return nullptr;
+        }
+
+        return head;
     }
 };
 
