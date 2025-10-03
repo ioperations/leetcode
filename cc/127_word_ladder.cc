@@ -47,7 +47,7 @@ class Solution {
             // traverse all nodes of current level
             // bcz we are not going to use depth array
             while (qsize--) {
-                const string& curr = q.front();
+                string curr = q.front();
                 q.pop();
                 for (int i = 0; i < (int)curr.length(); i++) {
                     string tmp = curr;
