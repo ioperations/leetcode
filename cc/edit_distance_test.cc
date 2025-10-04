@@ -36,11 +36,6 @@ class Solution {
     int MinDistanceV2(const std::string& word1, const std::string& word2) {
         int const n1 = word1.size();
         int const n2 = word2.size();
-        std::vector<std::vector<int>> cache;
-        cache.resize(n1);
-        for (auto& prt : cache) {
-            prt.resize(n2);
-        }
 
         if (n1 == 0 || n2 == 0) {
             return n1 + n2;
