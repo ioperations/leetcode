@@ -102,6 +102,7 @@ class Codec {
 #include <vector>
 
 using namespace std;
+#define null std::nullopt
 
 TEST(construtTest, t1) {
     std::vector<std::optional<int>> const input{
@@ -128,7 +129,6 @@ TEST(memleak, t0) {
 }
 
 TEST(serialize_and_deserialize_binary_tree, t1) {
-#define null optional<int>()
     std::vector<optional<int>> const input{1, 2, 3, null, null, 4, 5};
     std::vector<int> const output = {1, 2, 3, 4, 5};
 

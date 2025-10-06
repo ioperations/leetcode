@@ -97,7 +97,7 @@ TEST(symmetric_tree, t2) {
              |___|   |___|   |___|    |___|
     */
 
-#define null std::optional<int>()
+#define null std::nullopt
     std::vector<std::optional<int>> const data{1, 2, 2, null, 3, null, 3};
     TreeNode* root = Tree::ConstructBinaryTree(data);
     Solution sl;

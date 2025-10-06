@@ -73,7 +73,7 @@ class Solution {
 
 #include <optional>
 
-#define null std::optional<int>()
+#define null std::nullopt
 
 /// 从vec当中构造链表
 Node* ConstructNode(std::vector<std::vector<std::optional<int>>>& vec) {

@@ -101,7 +101,7 @@ class Solution {
 
 using namespace std;
 
-#define null optional<int>()
+#define null std::nullopt
 
 TEST(memleak, t1) {
     std::vector<int> const v{7, 4, 3, 6, 19};

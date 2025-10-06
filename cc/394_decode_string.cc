@@ -84,7 +84,7 @@ using namespace Tree;
 #include <vector>
 
 TEST(decode_string, t4) {
-#define null std::optional<int>()
+#define null std::nullopt
     std::vector<int> const values{1, 2, 3, 4, 5, 6, 7};
     TreeNode<int>* n = ConstructTree<int>(values);
     FreeTreeNode<int>(n);

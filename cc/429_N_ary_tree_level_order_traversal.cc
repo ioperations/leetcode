@@ -83,8 +83,6 @@ Node* ConstructNode(vector<optional<int>>& elements) {
 
     int index = 2;
     while (index < size) {
-        // todo
-
         Node* tmp = q.front();
         while (index < size && elements[index].has_value()) {
             Node* local_tmp = new Node(elements[index].value());
@@ -107,10 +105,9 @@ void FreeNode(Node* n) {
 
     delete n;
 }
+#define null std::nullopt
 
 TEST(N_ary_tree_level_order_traversal, t1) {
-#define null \
-    optional<int> {}
     vector<optional<int>> root = {1, null, 3, 2, 4, null, 5, 6};
     const vector<vector<int>> output = {{1}, {3, 2, 4}, {5, 6}};
 
@@ -122,8 +119,6 @@ TEST(N_ary_tree_level_order_traversal, t1) {
 }
 
 TEST(N_ary_tree_level_order_traversal, t2) {
-#define null \
-    optional<int> {}
     vector<optional<int>> root = {
         1, null, 2,    3,    4,  5,    null, null, 6,  7,    null, 8, null,
         9, 10,   null, null, 11, null, 12,   null, 13, null, null, 14};

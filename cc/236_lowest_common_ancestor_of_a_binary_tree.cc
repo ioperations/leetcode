@@ -40,9 +40,9 @@ class Solution {
 #include <vector>
 
 using namespace std;
+#define null std::nullopt
 
 TEST(lowest_common_ancestor_of_a_binary_tree, t1) {
-#define null optional<int>()
     vector<optional<int>> const root = {3, 5, 1, 6, 2, 0, 8, null, null, 7, 4};
     int p = 5, q = 1;
     int const output = 3;
@@ -57,7 +57,6 @@ TEST(lowest_common_ancestor_of_a_binary_tree, t1) {
 }
 
 TEST(lowest_common_ancestor_of_a_binary_tree, t2) {
-#define null optional<int>()
     vector<optional<int>> const root = {3, 5, 1, 6, 2, 0, 8, null, null, 7, 4};
     int p = 5, q = 4;
     int const output = 5;
@@ -72,7 +71,6 @@ TEST(lowest_common_ancestor_of_a_binary_tree, t2) {
 }
 
 TEST(lowest_common_ancestor_of_a_binary_tree, t3) {
-#define null optional<int>()
     vector<optional<int>> const root = {1, 2};
     int p = 1, q = 2;
     int const output = 1;

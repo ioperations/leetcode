@@ -42,9 +42,9 @@ using namespace std;
 #include <vector>
 
 using namespace std;
+#define null std::nullopt
 
 TEST(count_good_nodes_in_binary_tree, t1) {
-#define null optional<int>()
     vector<optional<int>> const root = {3, 1, 4, 3, null, 1, 5};
     int const output = 4;
     auto* node = ConstructBinaryTree(root);
@@ -61,7 +61,6 @@ TEST(count_good_nodes_in_binary_tree, t1) {
 }
 
 TEST(count_good_nodes_in_binary_tree, t2) {
-#define null optional<int>()
     vector<optional<int>> const root = {3, 3, null, 4, 2};
     int const output = 3;
     auto* node = ConstructBinaryTree(root);
@@ -73,7 +72,6 @@ TEST(count_good_nodes_in_binary_tree, t2) {
 }
 
 TEST(count_good_nodes_in_binary_tree, t3) {
-#define null optional<int>()
     vector<optional<int>> const root = {1};
     int const output = 1;
     auto* node = ConstructBinaryTree(root);
@@ -85,7 +83,6 @@ TEST(count_good_nodes_in_binary_tree, t3) {
 }
 
 TEST(count_good_nodes_in_binary_tree, t4) {
-#define null optional<int>()
     vector<optional<int>> const root = {9, null, 3, 6};
     /*
      *

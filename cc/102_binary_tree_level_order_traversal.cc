@@ -68,8 +68,7 @@ class Solution {
 
 using namespace std;
 
-#define null \
-    optional<int> {}
+#define null std::nullopt
 
 TEST(binary_tree_level_order_traversal, t1) {
     vector<optional<int>> const root = {3, 9, 20, null, null, 15, 7};

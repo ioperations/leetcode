@@ -118,7 +118,7 @@ class Solution {
 
 using namespace std;
 
-#define null optional<int>()
+#define null std::nullopt
 TEST(pseudo_palindromic_paths_in_a_binary_tree, t1) {
     /*
                              _______

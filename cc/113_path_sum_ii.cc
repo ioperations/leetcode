@@ -58,7 +58,7 @@ class Solution {
     }
 };
 
-#define null optional<int>()
+#define null std::nullopt
 
 TEST(path_sum_ii, t1) {
     vector<optional<int>> const root = {5, 4, 8,    11,   null, 13, 4,

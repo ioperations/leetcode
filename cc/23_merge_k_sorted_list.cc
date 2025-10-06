@@ -169,8 +169,8 @@ class Solution {
         int first = true;
 
         while (true) {
-            MyListNode* candidate =
-                nullptr;  // 所以现在的问题是怎样确定这个candidate
+            // 所以现在的问题是怎样确定这个candidate
+            MyListNode* candidate = nullptr;
             const int val = std::numeric_limits<int>::max();
             for (auto& cur_cursor : cursors) {
                 if (cur_cursor == nullptr) {
