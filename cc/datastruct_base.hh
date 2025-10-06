@@ -2,6 +2,7 @@
 #include <iostream>
 #include <optional>
 #include <queue>
+#include <vector>
 
 namespace Tree {
 
@@ -240,12 +241,14 @@ ListNode<T>* ConstructList(const std::vector<T>& elements) {
  */
 template <typename T>
 void FreeList(ListNode<T>* list) {
-    if (list == nullptr) {
-        return;
+    std::vector<ListNode<T>*> tmp;
+    while (list) {
+        tmp.push_back(list);
+        list = list->next;
     }
-    FreeList(list->next);
-    delete list;
-    list = nullptr;
+    for (auto& ptr : tmp) {
+        delete ptr;
+    }
 }
 
 }  // namespace List
