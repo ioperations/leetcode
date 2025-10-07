@@ -132,7 +132,7 @@ class Solution {
     }
 };
 
-#define null optional<int>()
+#define null std::nullopt
 
 using namespace std;
 

@@ -53,8 +53,7 @@ class Solution {
     }
 };
 
-#define null \
-    optional<int> {}
+#define null std::nullopt
 
 vector<Node*> ConstructTreeNode(Node* z1, vector<int>& z) {
     for (auto& ptr : z) {

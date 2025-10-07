@@ -66,7 +66,7 @@ class FindElements {
 
 #include <gtest/gtest.h>
 
-#define null std::optional<int>()
+#define null std::nullopt
 
 TEST(t0, t1) {
     //     ["FindElements","find","find"]

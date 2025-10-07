@@ -116,7 +116,7 @@ class Solution {
     }
 };
 
-#define null optional<vector<int>>()
+#define null std::nullopt
 
 vector<optional<vector<int>>> FlattenQuadTree(Node* n) {
     // pass
@@ -126,10 +126,9 @@ vector<optional<vector<int>>> FlattenQuadTree(Node* n) {
     while (q.size()) {
         auto* n = q.front();
         if (n == nullptr) {
-            ret.push_back(null);
-            ret.push_back(null);
-            ret.push_back(null);
-            ret.push_back(null);
+            for (int i = 0; i < 4; i++) {
+                ret.emplace_back(null);
+            }
         } else {
             if (n->m_is_leaf) {
                 ret.emplace_back(vector<int>{n->m_is_leaf, n->m_val});

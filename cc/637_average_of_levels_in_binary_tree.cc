@@ -61,7 +61,8 @@ class Solution {
 
 using namespace std;
 
-#define null optional<int>()
+#define null std::nullopt
+
 TEST(average_of_levels_in_binary_tree, t1) {
     vector<optional<int>> const root = {3, 9, 20, null, null, 15, 7};
     vector<double> output = {3.00000, 14.50000, 11.00000};

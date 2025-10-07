@@ -33,7 +33,7 @@ class Solution {
 };
 
 using namespace std;
-#define null optional<int>()
+#define null std::nullopt
 
 TEST(binary_tree_pruning, t1) {
     vector<optional<int>> const root = {1, null, 0, 0, 1};

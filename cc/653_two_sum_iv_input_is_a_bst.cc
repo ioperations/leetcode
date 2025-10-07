@@ -63,7 +63,7 @@ class Solution {
 
 using namespace std;
 
-#define null optional<int>()
+#define null std::nullopt
 
 TEST(two_sum_iv_input_is_a_bst, t1) {
     vector<optional<int>> const root = {5, 3, 6, 2, 4, null, 7};

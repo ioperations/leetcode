@@ -127,9 +127,10 @@ std::vector<vector<optional<int>>> Flattern(vector<TreeNode*>& vec) {
     return ret;
 }
 
+#define null std::nullopt
+
 TEST(unique_binary_search_tree_ii, t1) {
     int const n = 3;
-#define null optional<int>()
     vector<vector<optional<int>>> output = {{1, null, 2, null, 3},
                                             {1, null, 3, 2},
                                             {2, 1, 3},
@@ -151,7 +152,6 @@ TEST(unique_binary_search_tree_ii, t1) {
 
 TEST(unique_binary_search_tree_ii, t2) {
     int const n = 1;
-#define null optional<int>()
     vector<vector<optional<int>>> output = {{1}};
     Solution sl;
     auto ret = sl.GenerateTrees(n);
