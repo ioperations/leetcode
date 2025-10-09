@@ -27,7 +27,8 @@ using namespace std;
 
 namespace {
 class NestedInteger {
-    bool is_integer = true;
+   private:
+    bool m_is_integer = true;
     int m_val{};
     vector<NestedInteger> m_vec;
 
@@ -40,7 +41,7 @@ class NestedInteger {
 
     // Return true if this NestedInteger holds a single integer, rather than a
     // nested list.
-    [[nodiscard]] bool IsInteger() const { return is_integer; }
+    [[nodiscard]] bool IsInteger() const { return m_is_integer; }
 
     // Return the single integer that this NestedInteger holds, if it holds a
     // single integer The result is undefined if this NestedInteger holds a
@@ -51,14 +52,14 @@ class NestedInteger {
     void SetInteger(int value) {
         m_vec.clear();
         m_val = value;
-        is_integer = true;
+        m_is_integer = true;
     }
 
     // Set this NestedInteger to hold a nested list and adds a nested integer to
     // it.
     void Add(const NestedInteger& ni) {
-        m_vec.push_back(ni);
-        is_integer = false;
+        m_vec.emplace_back(ni);
+        m_is_integer = false;
     }
 
     // Return the nested list that this NestedInteger holds, if it holds a
@@ -95,8 +96,7 @@ class Solution {
             }
         }
 
-        NestedInteger result = stk.top().GetList().front();
-        return result;
+        return stk.top().GetList().front();
     }
 
     NestedInteger DeserializeV1(string s) {
