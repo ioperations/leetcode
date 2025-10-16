@@ -84,7 +84,8 @@ class Solution {
 
 #include <gtest/gtest.h>
 
-static void PreOrder(TreeNode* node, string& out, int depth = 0) {
+namespace {
+void PreOrder(TreeNode* node, string& out, int depth = 0) {
     if (depth == 0) {
         out.clear();
     }
@@ -98,6 +99,7 @@ static void PreOrder(TreeNode* node, string& out, int depth = 0) {
     PreOrder(node->left, out, depth + 1);
     PreOrder(node->right, out, depth + 1);
 }
+}  // namespace
 
 #define null std::nullopt
 
