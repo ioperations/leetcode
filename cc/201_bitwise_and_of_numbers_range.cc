@@ -58,8 +58,8 @@ TEST(bitwise_and_of_numbers_range, t4) {
 }
 
 void BenchMarkSeqBitAnd(benchmark::State& state) {
+    Solution s;
     for (auto _ : state) {
-        Solution s;
         const int left = 1, right = 200000;
         const int ret = s.RangeBitwiseAnd(left, right);
 
@@ -69,8 +69,8 @@ void BenchMarkSeqBitAnd(benchmark::State& state) {
 BENCHMARK(BenchMarkSeqBitAnd);
 
 void BenchMarkWise(benchmark::State& state) {
+    Solution s;
     for (auto _ : state) {
-        Solution s;
         const int left = 1, right = 200000;
         const int ret = s.RangeBitwiseAndV2(left, right);
 
