@@ -40,15 +40,9 @@ class Solution {
             return nullptr;
         }
 
-        auto* n = new TreeNode(now.m_value);
-
         m_index++;
-        auto* z = Build(current_index + 1);
-        n->left = z;
-        auto* q = Build(current_index + 1);
-        n->right = q;
-
-        return n;
+        return new TreeNode(now.m_value, Build(current_index + 1),
+                            Build(current_index + 1));
     }
 
    private:
