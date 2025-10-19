@@ -9,6 +9,8 @@ Two binary trees are considered the same if they are structurally identical, and
 the nodes have the same value.
 */
 
+#include <queue>
+#include <tuple>
 #include <vector>
 
 // * Definition for a binary tree node.
@@ -22,21 +24,36 @@ class Solution {
     template <typename T>
     bool IsSameTree(TreeNode<T>* p, TreeNode<T>* q) {
         // pass
+        return SameTreeByLevel(p, q);
+    }
 
-        if (p == nullptr && q == nullptr) {
-            return true;
+    template <typename T>
+    bool SameTreeByLevel(TreeNode<T>* p, TreeNode<T>* q) {
+        std::queue<std::tuple<TreeNode<T>*, TreeNode<T>*>> queue;
+
+        queue.emplace(p, q);
+
+        while (!queue.empty()) {
+            auto [p, q] = queue.front();
+            queue.pop();
+
+            if (p == nullptr && q == nullptr) {
+                continue;
+            }
+            if (p == nullptr && q != nullptr) {
+                return false;
+            }
+            if (p != nullptr && q == nullptr) {
+                return false;
+            }
+
+            if (p->val != q->val) {
+                return false;
+            }
+            queue.emplace(p->left, q->left);
+            queue.emplace(p->right, q->right);
         }
-        if (p == nullptr && q != nullptr) {
-            return false;
-        }
-        if (p != nullptr && q == nullptr) {
-            return false;
-        }
-        if (p->val == q->val) {
-            return IsSameTree(p->left, q->left) &&
-                   IsSameTree(p->right, q->right);
-        }
-        return false;
+        return true;
     }
 };
 
