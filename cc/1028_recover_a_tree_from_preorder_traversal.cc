@@ -41,8 +41,9 @@ class Solution {
         }
 
         m_index++;
-        return new TreeNode(now.m_value, Build(current_index + 1),
-                            Build(current_index + 1));
+        auto* left = Build(current_index + 1);
+        auto* right = Build(current_index + 1);
+        return new TreeNode(now.m_value, left, right);
     }
 
    private:
