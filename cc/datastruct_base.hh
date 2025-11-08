@@ -241,13 +241,10 @@ ListNode<T>* ConstructList(const std::vector<T>& elements) {
  */
 template <typename T>
 void FreeList(ListNode<T>* list) {
-    std::vector<ListNode<T>*> tmp;
     while (list) {
-        tmp.push_back(list);
+        auto* tmp = list;
         list = list->next;
-    }
-    for (auto& ptr : tmp) {
-        delete ptr;
+        delete tmp;
     }
 }
 
