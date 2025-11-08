@@ -253,9 +253,13 @@ void FreeList(ListNode<T>* list) {
 template <typename Func>
 class ScopeGuard {
    public:
-    ScopeGuard(Func f) : f(f) {}
-    ~ScopeGuard() { f(); }
+    ScopeGuard(const ScopeGuard&) = delete;
+    ScopeGuard(ScopeGuard&&) = delete;
+    ScopeGuard& operator=(const ScopeGuard&) = delete;
+    ScopeGuard& operator=(ScopeGuard&&) = delete;
+    ScopeGuard(Func f) : m_f(f) {}
+    ~ScopeGuard() { m_f(); }
 
    private:
-    Func f;
+    Func m_f;
 };
