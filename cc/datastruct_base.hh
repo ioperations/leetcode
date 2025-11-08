@@ -12,6 +12,10 @@ struct TreeNode {
     TreeNode* left;
     TreeNode* right;
     TreeNode() : val(T()), left(nullptr), right(nullptr) {}
+    TreeNode(const TreeNode&) = default;
+    TreeNode(TreeNode&&) = delete;
+    TreeNode& operator=(const TreeNode&) = delete;
+    TreeNode& operator=(TreeNode&&) = delete;
     TreeNode(T x) : val(x), left(nullptr), right(nullptr) {}
     TreeNode(T x, TreeNode* left, TreeNode* right)
         : val(x), left(left), right(right) {}
@@ -56,7 +60,7 @@ TreeNode<T>* ConstructTree(const std::vector<T>& elements) {
         return nullptr;
     }
 
-    TreeNode<T>* root = new TreeNode<T>(elements[0]);
+    auto* root = new TreeNode<T>(elements[0]);
 
     for (int i = 1; i < (int)elements.size(); i++) {
         root = AddToRoot(root, elements[i]);
@@ -161,18 +165,19 @@ void BfsSearchV1(TreeNode<T>* root, std::vector<std::optional<int>>& vec) {
 
 template <typename T>
 void PrintBt(const std::string& prefix, const TreeNode<T>* node, bool is_left) {
-    if (node != nullptr) {
-        std::cout << prefix;
-
-        std::cout << (is_left ? "├──" : "└──");
-
-        // print the value of the node
-        std::cout << node->val << std::endl;
-
-        // enter the next tree level - left and right branch
-        PrintBt(prefix + (is_left ? "│   " : "    "), node->left, true);
-        PrintBt(prefix + (is_left ? "│   " : "    "), node->right, false);
+    if (node == nullptr) {
+        return;
     }
+    std::cout << prefix;
+
+    std::cout << (is_left ? "├──" : "└──");
+
+    // print the value of the node
+    std::cout << node->val << std::endl;
+
+    // enter the next tree level - left and right branch
+    PrintBt(prefix + (is_left ? "│   " : "    "), node->left, true);
+    PrintBt(prefix + (is_left ? "│   " : "    "), node->right, false);
 }
 
 template <typename T>
