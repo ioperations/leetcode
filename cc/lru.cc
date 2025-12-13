@@ -9,30 +9,6 @@
 
 namespace {
 
-template <typename T>
-class Optional {
-   public:
-    Optional() : m_value() {}
-    [[maybe_unused]] Optional(T v) : m_has_value(true), m_value(v) {}
-    operator bool() { return m_has_value; }
-    operator T() {
-        if (!m_has_value) {
-            throw std::exception();
-        }
-        return m_value;
-    }
-    bool operator==(const int v) const {
-        if (m_has_value) {
-            return m_value == v;
-        }
-        return false;
-    }
-
-   private:
-    bool m_has_value = false;
-    T m_value;
-};
-
 template <typename K, typename V>
 class LRUCache final {
    public:
@@ -53,13 +29,13 @@ class LRUCache final {
         }
     }
 
-    Optional<V> Get(const K& key) {
+    std::optional<V> Get(const K& key) {
         if (m_map.find(key) != m_map.end()) {
             DelNode(m_map[key]);
             AddToFirstNode(m_map[key]);
             return m_map[key]->m_value;
         }
-        return Optional<V>();
+        return std::nullopt;
     }
 
     void Set(const K& key, const V& value) {

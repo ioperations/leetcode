@@ -57,8 +57,7 @@ class Solution {
                 }
             }
         }
-        if (stack.size()) return false;
-        return true;
+        return stack.empty();
     }
 };
 
