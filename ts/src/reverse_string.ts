@@ -1,9 +1,9 @@
 
 export default function reverseString(s: string): string {
-    let res = '';
-    if (s.length === 0) {
-        return res;
+    const len: number = s.length;
+    if (len === 0) {
+        return '';
     }
 
-    return s[s.length - 1] + reverseString(s.substring(0, s.length - 1));
+    return s[len - 1] + reverseString(s.substring(0, len - 1));
 }
