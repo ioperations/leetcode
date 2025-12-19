@@ -42,8 +42,8 @@ class Solution {
         while (!fill_values.empty()) {
             steps++;
 
-            int const size = fill_values.size();
-            for (int i = 0; i < size; i++) {
+            size_t const size = fill_values.size();
+            for (size_t i = 0; i < size; i++) {
                 pair<int, int> const coord = fill_values.front();
                 fill_values.pop();
 

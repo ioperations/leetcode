@@ -8,6 +8,7 @@
  */
 
 #include <algorithm>
+#include <cstddef>
 #include <string>
 #include <vector>
 
@@ -21,8 +22,8 @@ class Solution {
          * str1 and str2 consist of lowercase English letters.
          */
 
-        int const m = str1.length();
-        int const n = str2.length();
+        size_t const m = str1.length();
+        size_t const n = str2.length();
         vector<vector<int>> dp(m + 1, vector<int>(n + 1, 0));
 
         // Fill the dp table
@@ -38,7 +39,7 @@ class Solution {
 
         // Step 2: Construct the shortest common supersequence
         // Start from the bottom right of the dp table
-        int i = m, j = n;
+        std::size_t i = m, j = n;
         string result = "";
 
         while (i > 0 && j > 0) {

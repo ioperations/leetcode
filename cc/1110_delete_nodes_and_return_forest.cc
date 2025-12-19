@@ -56,7 +56,8 @@ class Solution {
     }
 };
 
-void InOrderTraverse(TreeNode* node, function<void(TreeNode*)> func) {
+template <typename Func>
+void InOrderTraverse(TreeNode* node, Func&& func) {
     if (node == nullptr) {
         return;
     }
