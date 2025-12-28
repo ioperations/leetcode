@@ -14,7 +14,7 @@ struct IsIterator<T, std::void_t<decltype(std::begin(std::declval<T&>())),
 
 template <typename T, typename Func>
 void DfsForEach(T&& list_or_item, Func func) {
-    if constexpr (IsIterator<std::decay_t<T>>::value) {
+    if constexpr (IsIterator<T>::value || !std::is_same_v<std::string, T>) {
         for (auto& item : list_or_item) {
             DfsForEach(item, func);
         }
