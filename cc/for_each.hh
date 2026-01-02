@@ -4,6 +4,8 @@
 #include <type_traits>
 #include <utility>
 
+using namespace std;
+
 template <typename T, typename = void>
 struct IsIterator : std::false_type {};
 
