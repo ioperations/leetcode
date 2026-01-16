@@ -1,4 +1,4 @@
-package leetcode;
+package cj;
 
 import std.unittest.*;
 
