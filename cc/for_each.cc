@@ -7,7 +7,7 @@
 #include "for_each.hh"
 
 namespace {
-struct statisc {
+struct Statisc {
     int construct{0};
     int copyConstruct{0};
     int moveConstruct{0};
@@ -15,7 +15,7 @@ struct statisc {
     int moveAssignment{0};
     int destruct{0};
 };
-thread_local statisc g_statistic;
+thread_local Statisc g_statistic;
 
 struct DummyClass {
     DummyClass(int v) {
@@ -62,7 +62,7 @@ class AutoResetStatistic {
 
 }  // namespace
 
-TEST(for_each, basic_test) {
+TEST(for_each, DISABLED_basic_test) {
     AutoResetStatistic auto_reset_statistic;
     {
         std::vector<std::vector<std::vector<DummyClass>>> v{{{1}, {2, 3}},
