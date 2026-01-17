@@ -1,0 +1,26 @@
+name: typescript
+
+# Run this workflow every time a new commit pushed to your repository
+on:
+  push:
+  pull_request:
+  schedule: [cron: "40 1 * * *"]
+
+env:
+  RUSTFLAGS: -Dwarnings
+
+jobs:
+  cc-test:
+    name: cc unit test
+    runs-on: ubuntu-latest
+    container: ${{ matrix.container }}
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - run: sudo apt update && sudo apt install nodejs npm
+      - run: sudo npm install -g typescript
+      - run: |
+          cd ts
+          npm install
+          npm run test
+          
