@@ -40,10 +40,7 @@ class Solution {
             if (p == nullptr && q == nullptr) {
                 continue;
             }
-            if (p == nullptr && q != nullptr) {
-                return false;
-            }
-            if (p != nullptr && q == nullptr) {
+            if (p == nullptr || q == nullptr) {
                 return false;
             }
 
