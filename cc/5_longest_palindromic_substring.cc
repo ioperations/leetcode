@@ -36,7 +36,7 @@ class Solution {
 
    private:
     std::string_view Palindrome(const std::string_view& s, size_t l, size_t r) {
-        while (l >= 0 && r < s.length() && s[l] == s[r]) {
+        while (r < s.length() && s[l] == s[r]) {
             l--;
             r++;
         }
@@ -78,3 +78,5 @@ TEST(longest_palindromic_substring, t4) {
     EXPECT_EQ(ret, "bb");
 }
 }  // namespace
+
+
