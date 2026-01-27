@@ -28,7 +28,7 @@ class Solution {
         std::set<int> ret;
         do {
             std::string tmp = "";
-            for (auto ptr : words) {
+            for (const auto& ptr : words) {
                 tmp += ptr;
             }
             auto ret1 = AllSubString(s, tmp);

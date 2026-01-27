@@ -22,7 +22,7 @@ class Solution {
    public:
     vector<vector<string>> GroupAnagrams(vector<string>& strs) {
         unordered_map<string, vector<string>> mapp;
-        for (auto str : strs) {
+        for (const auto& str : strs) {
             string st = str;
             sort(st.begin(), st.end());
             mapp[st].push_back(str);

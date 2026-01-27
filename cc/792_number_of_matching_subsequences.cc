@@ -59,12 +59,12 @@ class Solution {
             i++;
         }
 
-        for (auto word : words) {  // for each word
+        for (const auto& word : words) {  // for each word
             int prev_index = -1;   // initialize upper_bound to -1
             count++;  // first we will consider it as valid subsequence, then we
                       // prove it is correct or not. If it is not, then don't
                       // worry, we are going to decrement the count later
-            for (auto c : word) {  // for each character in the word
+            for (const auto& c : word) {  // for each character in the word
                 auto it = upper_bound(
                     ump[c].begin(), ump[c].end(),
                     prev_index);  // take upper_bound of prevIndex, this is the

@@ -26,7 +26,7 @@ class Solution {
         unordered_map<string, int> umap;
         for (string const& s : words) umap[s]++;
         priority_queue<pair<int, string>> pq;
-        for (auto it : umap) {
+        for (const auto& it : umap) {
             // minus sign used to build min heap
             pq.emplace(-it.second, it.first);
             if ((int)pq.size() > k) pq.pop();

@@ -39,7 +39,7 @@ class Solution {
         if (src == dest && m_unmp.find(src) != m_unmp.end())
             return 1;  // if we reached destionation and  destionation string
                        // actually present in the graph
-        for (auto it : m_unmp[src]) {
+        for (const auto& it : m_unmp[src]) {
             if (m_visited.find(it.first) != m_visited.end()) continue;
             double const d = Dfs(it.first, dest);
             if (d > 0)

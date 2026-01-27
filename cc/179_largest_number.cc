@@ -29,7 +29,7 @@ class Solution {
         }
         sort(v.begin(), v.end(), Comp);
         string ans = "";
-        for (auto x : v) {
+        for (const auto& x : v) {
             ans += x;
         }
         // boundary case when the given vector has only zero elements
