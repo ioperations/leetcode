@@ -28,7 +28,7 @@ class Solution {
             mapp[st].push_back(str);
         }
         vector<vector<string>> ans;
-        for (auto x : mapp) {
+        for (const auto& x : mapp) {
             ans.push_back(x.second);
         }
         return ans;
