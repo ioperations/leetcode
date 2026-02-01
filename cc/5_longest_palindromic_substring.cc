@@ -36,6 +36,13 @@ class Solution {
 
    private:
     std::string_view Palindrome(const std::string_view& s, size_t l, size_t r) {
+        const char* sql =
+            R"(SELECT * FROM users WHERE ID = :ID and NAME = :NAME order by NAME limit 1)";  // should be hilight by treesitter to filetype sql
+        (void)sql;
+
+        const char* regex = R"(^+\\s+$)";
+        (void)regex;
+
         while (r < s.length() && s[l] == s[r]) {
             l--;
             r++;
@@ -78,5 +85,3 @@ TEST(longest_palindromic_substring, t4) {
     EXPECT_EQ(ret, "bb");
 }
 }  // namespace
-
-
