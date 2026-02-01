@@ -14,11 +14,10 @@
 namespace {
 class Solution {
    public:
+    /**
+    *  中心扩展算法
+    */
     std::string LongestPalindrome(const std::string& s) {
-        /**
-         *  中心扩展算法
-         */
-
         if (s.length() < 2) {
             return s;
         }
