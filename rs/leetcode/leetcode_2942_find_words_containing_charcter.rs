@@ -49,7 +49,7 @@ mod test {
     fn test_3() {
         let words = ["abc", "bcd", "aaaa", "cbc"];
         let x = 'z';
-        let output = vec![];
+        let output: Vec<i32> = vec![];
         let ret = Solution::find_words_containing(words.iter().as_slice(), x);
         assert_eq!(ret, output);
     }
