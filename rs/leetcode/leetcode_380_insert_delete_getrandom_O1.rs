@@ -10,7 +10,7 @@
 // called). Each element must have the same probability of being returned.
 // You must implement the functions of the class such that each function works
 // in average O(1) time complexity.
-use rand::{rng, Rng};
+use rand::{rng, RngExt};
 
 use std::cell::RefCell;
 use std::collections::HashMap;

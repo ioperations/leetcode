@@ -17,7 +17,7 @@ path="rs/lib.rs"
 tokio = { version = "1", features = ["full"] }
 backtrace = "0.3"
 automod = "1.0"
-rand = "0.9"
+rand = "0.10"
 actix = "0.13"
 futures = "0.3"
 rayon = "1.8"
