@@ -6,12 +6,14 @@ import random
 MOVE_UP = "\033[F"      # Move cursor to the beginning of the previous line
 CLEAR_LINE = "\033[K"   # Clear the current line
 
-def draw_progress_bar(label, percent, width=30):
+
+def draw_progress_bar(label: str, percent: int, width: int = 30) -> str:
     """Creates a string representing a single vertex/progress bar."""
     filled_length = int(width * percent // 100)
     bar = "█" * filled_length + "-" * (width - filled_length)
     status = "DONE" if percent >= 100 else f"{percent:3}%"
     return f"{label:<15} [{bar}] {status}"
+
 
 def simulate_docker_pull():
     # Our "Vertices" (Initial state)
@@ -33,15 +35,18 @@ def simulate_docker_pull():
         for layer in layers:
             # 2. Update the progress logic
             if layer["progress"] < 100:
-                layer["progress"] = min(100, layer["progress"] + layer["speed"] * random.uniform(0.5, 2.0))
-            
+                layer["progress"] = min(
+                    100, layer["progress"] + layer["speed"] * random.uniform(0.5, 2.0))
+
             # 3. Clear the line and draw the updated vertex
-            sys.stdout.write(CLEAR_LINE + draw_progress_bar(layer["id"], int(layer["progress"])) + "\n")
-        
+            sys.stdout.write(
+                CLEAR_LINE + draw_progress_bar(layer["id"], int(layer["progress"])) + "\n")
+
         sys.stdout.flush()
         time.sleep(0.1)
 
     print("\nDownload complete. Image is up to date.")
+
 
 if __name__ == "__main__":
     simulate_docker_pull()
