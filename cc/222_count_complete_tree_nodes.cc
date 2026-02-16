@@ -46,7 +46,7 @@ using namespace std;
 TEST(count_complete_tree_nodes, t1) {
     vector<optional<int>> const root = {1, 2, 3, 4, 5, 6};
     int const output = 6;
-    auto* const node = ConstructBinaryTree(root);
+    auto* node = ConstructBinaryTree(root);
     Solution sl;
     int const ret = sl.CountNodes(node);
     EXPECT_EQ(ret, output);
@@ -56,7 +56,7 @@ TEST(count_complete_tree_nodes, t1) {
 TEST(count_complete_tree_nodes, t2) {
     vector<optional<int>> const root = {};
     int const output = 0;
-    auto* const node = ConstructBinaryTree(root);
+    auto* node = ConstructBinaryTree(root);
     Solution sl;
     int const ret = sl.CountNodes(node);
     EXPECT_EQ(ret, output);
@@ -66,7 +66,7 @@ TEST(count_complete_tree_nodes, t2) {
 TEST(count_complete_tree_nodes, t3) {
     vector<optional<int>> const root = {1};
     int const output = 1;
-    auto* const node = ConstructBinaryTree(root);
+    auto* node = ConstructBinaryTree(root);
     Solution sl;
     int const ret = sl.CountNodes(node);
     EXPECT_EQ(ret, output);

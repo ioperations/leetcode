@@ -107,7 +107,7 @@ TreeNode<T>* ConstructBinaryTree(const std::vector<std::optional<T>>& data) {
 }
 
 template <typename T>
-inline void FreeTreeNode(TreeNode<T>* root) {
+inline void FreeTreeNode(TreeNode<T>*& root) {
     if (root == nullptr) return;
 
     FreeTreeNode(root->left);
