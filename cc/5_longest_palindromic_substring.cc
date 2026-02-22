@@ -18,13 +18,14 @@ class Solution {
      *  中心扩展算法
      */
     std::string LongestPalindrome(const std::string& s) {
-        if (s.length() < 2) {
+        const int len = static_cast<int>(s.length());
+        if (len < 2) {
             return s;
         }
 
         std::string_view res = "";
         auto const sv = std::string_view(s.c_str(), s.length());
-        for (size_t i = 0; i < s.length() - 1; i++) {
+        for (int i = 0; i < len - 1; i++) {
             auto s1 = Palindrome(sv, i, i);
             auto s2 = Palindrome(sv, i, i + 1);
             res = res.length() > s1.length() ? res : s1;
@@ -34,7 +35,7 @@ class Solution {
     }
 
    private:
-    std::string_view Palindrome(const std::string_view& s, size_t l, size_t r) {
+    std::string_view Palindrome(const std::string_view& s, int l, int r) {
         const char* sql =
             R"(SELECT * FROM users WHERE ID = :ID and NAME = :NAME order by NAME limit 1)";  // should be highlight by treesitter to filetype sql
         (void)sql;
@@ -42,7 +43,7 @@ class Solution {
         const char* regex = R"(^+\\s+$)";
         (void)regex;
 
-        while (r < s.length() && s[l] == s[r]) {
+        while (l >= 0 && r < s.length() && s[l] == s[r]) {
             l--;
             r++;
         }
