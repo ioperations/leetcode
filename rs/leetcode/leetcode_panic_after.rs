@@ -18,7 +18,7 @@ where
         Ok(()) => handle.join().expect("Thread panicked"),
         err @ Err(_) => {
             err.err();
-            panic!("Thread took too long",)
+            panic!("Thread took too long")
         }
     }
 }
