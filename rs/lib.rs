@@ -1,4 +1,3 @@
-// #![feature(generic_associated_types)]
 #![feature(test)]
 
 #[cfg(test)]
