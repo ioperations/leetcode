@@ -33,3 +33,35 @@ class Solution {
 };
 
 }  // namespace
+
+#include "gtest/gtest.h"
+
+TEST(longest_substring, t1) {
+    Solution sl;
+    int const ret = sl.LengthOfLongestSubstring("abcabcbb");
+    EXPECT_EQ(ret, 3);
+}
+
+TEST(longest_substring, t2) {
+    Solution sl;
+    int const ret = sl.LengthOfLongestSubstring("bbbbb");
+    EXPECT_EQ(ret, 1);
+}
+
+TEST(longest_substring, t3) {
+    Solution sl;
+    int const ret = sl.LengthOfLongestSubstring("pwwkew");
+    EXPECT_EQ(ret, 3);
+}
+
+TEST(longest_substring, t4) {
+    Solution sl;
+    int const ret = sl.LengthOfLongestSubstring("");
+    EXPECT_EQ(ret, 0);
+}
+
+TEST(longest_substring, t5) {
+    Solution sl;
+    int const ret = sl.LengthOfLongestSubstring("au");
+    EXPECT_EQ(ret, 2);
+}

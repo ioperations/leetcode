@@ -19,10 +19,12 @@ The given node will always be the first node with val = 1. You must return the
 copy of the given node as a reference to the cloned graph.
 */
 
+#include <algorithm>
 #include <functional>
 #include <map>
 #include <memory>
 #include <queue>
+#include <set>
 #include <unordered_map>
 #include <utility>
 #include <vector>
@@ -152,7 +154,47 @@ auto FreeGraph(Node* node) -> void {
 }
 
 void CheckEqual(Node* node, std::vector<std::vector<int>>& adj_list) {
-    // TODO:: to implemen
+    if (node == nullptr && adj_list.empty()) return;
+    if (node == nullptr) {
+        EXPECT_FALSE(adj_list.empty());
+        return;
+    }
+    if (adj_list.empty()) {
+        EXPECT_TRUE(false);
+        return;
+    }
+
+    std::map<int, std::vector<int>> cloned_adj;
+    std::queue<Node*> q;
+    std::set<int> visited;
+
+    q.push(node);
+    visited.insert(node->m_val);
+
+    while (!q.empty()) {
+        Node* curr = q.front();
+        q.pop();
+
+        std::vector<int> neighbors;
+        for (auto* n : curr->m_neighbors) {
+            neighbors.push_back(n->m_val);
+            if (visited.find(n->m_val) == visited.end()) {
+                q.push(n);
+                visited.insert(n->m_val);
+            }
+        }
+        cloned_adj[curr->m_val] = neighbors;
+    }
+
+    EXPECT_EQ(cloned_adj.size(), adj_list.size());
+    for (size_t i = 0; i < adj_list.size(); i++) {
+        auto it = cloned_adj.find(i + 1);
+        EXPECT_TRUE(it != cloned_adj.end());
+        std::vector<int> expected = adj_list[i];
+        std::sort(it->second.begin(), it->second.end());
+        std::sort(expected.begin(), expected.end());
+        EXPECT_EQ(it->second, expected);
+    }
 }
 
 TEST(clone_graph, t1) {
@@ -162,9 +204,9 @@ TEST(clone_graph, t1) {
     Node* node = BuildNode(adj_list);
     Solution sl;
     auto* ret = sl.CloneGraph(node);
+    CheckEqual(ret, adj_list);
     FreeGraph(node);
     FreeGraph(ret);
-    CheckEqual(ret, adj_list);
     // Explanation: There are 4 nodes in the graph.
     // 1st node (val = 1)'s neighbors are 2nd node (val = 2) and 4th node (val =
     // 4). 2nd node (val = 2)'s neighbors are 1st node (val = 1) and 3rd node
@@ -178,9 +220,9 @@ TEST(clone_graph, t2) {
     Node* node = BuildNode(adj_list);
     Solution sl;
     auto* ret = sl.CloneGraph(node);
+    CheckEqual(ret, adj_list);
     FreeGraph(node);
     FreeGraph(ret);
-    CheckEqual(ret, adj_list);
     /*Note that the input contains one empty list. The graph consists of only
      * one node with val = 1 and it does not have any neighbors*/
 }
@@ -190,9 +232,9 @@ TEST(clone_graph, t3) {
     Node* node = BuildNode(adj_list);
     Solution sl;
     auto* ret = sl.CloneGraph(node);
+    CheckEqual(ret, adj_list);
     FreeGraph(node);
     FreeGraph(ret);
-    CheckEqual(ret, adj_list);
     /*This an empty graph, it does not have any nodes.*/
 }
 
@@ -203,14 +245,10 @@ TEST(clone_graph_v2, t1) {
     Node* node = BuildNode(adj_list);
     Solution sl;
     auto* ret = sl.CloneGraphV2(node);
-    FreeGraph(node);
     CheckEqual(ret, adj_list);
-    // Explanation: There are 4 nodes in the graph.
-    // 1st node (val = 1)'s neighbors are 2nd node (val = 2) and 4th node (val =
-    // 4). 2nd node (val = 2)'s neighbors are 1st node (val = 1) and 3rd node
-    // (val = 3). 3rd node (val = 3)'s neighbors are 2nd node (val = 2) and 4th
-    // node (val = 4). 4th node (val = 4)'s neighbors are 1st node (val = 1) and
-    // 3rd node (val = 3).
+    FreeGraph(node);
+    // Note: CloneGraphV2 uses shared_ptr, so ret is auto-managed, don't
+    // FreeGraph(ret)
 }
 
 TEST(clone_graph_v2, t2) {
@@ -218,10 +256,8 @@ TEST(clone_graph_v2, t2) {
     Node* node = BuildNode(adj_list);
     Solution sl;
     auto* ret = sl.CloneGraphV2(node);
-    FreeGraph(node);
     CheckEqual(ret, adj_list);
-    /*Note that the input contains one empty list. The graph consists of only
-     * one node with val = 1 and it does not have any neighbors*/
+    FreeGraph(node);
 }
 
 TEST(clone_graph_v2, t3) {
@@ -229,9 +265,8 @@ TEST(clone_graph_v2, t3) {
     Node* node = BuildNode(adj_list);
     Solution sl;
     auto* ret = sl.CloneGraphV2(node);
-    FreeGraph(node);
     CheckEqual(ret, adj_list);
-    /*This an empty graph, it does not have any nodes.*/
+    FreeGraph(node);
 }
 
 }  // namespace
