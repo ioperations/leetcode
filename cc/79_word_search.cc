@@ -253,6 +253,46 @@ class SolutionV2 {
     }
 };
 
+class SolutionV3 {
+   public:
+    bool Exist(vector<vector<char>>& board, const string& word) {
+        if (board.empty() || word.empty()) return false;
+        m = board.size();
+        n = board[0].size();
+        if ((int)word.size() > m * n) return false;
+
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                if (board[i][j] == word[0]) {
+                    vector<vector<bool>> visited(m, vector<bool>(n, false));
+                    if (Dfs(i, j, 0, board, visited, word)) return true;
+                }
+            }
+        }
+        return false;
+    }
+
+   private:
+    int m, n;
+    int dirs[5] = {0, 1, 0, -1, 0};
+
+    bool Dfs(int i, int j, int pos, vector<vector<char>>& board,
+             vector<vector<bool>>& visited, const string& word) {
+        if (pos == (int)word.size()) return true;
+        if (i < 0 || j < 0 || i >= m || j >= n) return false;
+        if (visited[i][j] || board[i][j] != word[pos]) return false;
+
+        visited[i][j] = true;
+        for (int k = 0; k < 4; k++) {
+            if (Dfs(i + dirs[k], j + dirs[k + 1], pos + 1, board, visited,
+                    word))
+                return true;
+        }
+        visited[i][j] = false;
+        return false;
+    }
+};
+
 TEST(word_search, t1) {
     /*
          ___ ___ ___ ___
@@ -394,3 +434,46 @@ int main(int argc, char* argv[]) {
     return RUN_ALL_TESTS();
 }
 #endif
+
+#include <benchmark/benchmark.h>
+
+static void BenchMark_Solution(benchmark::State& state) {
+    std::vector<std::vector<char>> board = {
+        {'A', 'A', 'A', 'A', 'A', 'A'}, {'A', 'A', 'A', 'A', 'A', 'A'},
+        {'A', 'A', 'A', 'A', 'A', 'A'}, {'A', 'A', 'A', 'A', 'A', 'A'},
+        {'A', 'A', 'A', 'A', 'A', 'A'}, {'A', 'A', 'A', 'A', 'A', 'A'}};
+    const std::string word = "AAAAAAAAAAAAAAB";
+    for (auto _ : state) {
+        Solution s;
+        s.Exist(board, word);
+    }
+}
+BENCHMARK(BenchMark_Solution);
+
+static void BenchMark_SolutionV2(benchmark::State& state) {
+    std::vector<std::vector<char>> board = {
+        {'A', 'A', 'A', 'A', 'A', 'A'}, {'A', 'A', 'A', 'A', 'A', 'A'},
+        {'A', 'A', 'A', 'A', 'A', 'A'}, {'A', 'A', 'A', 'A', 'A', 'A'},
+        {'A', 'A', 'A', 'A', 'A', 'A'}, {'A', 'A', 'A', 'A', 'A', 'A'}};
+    const std::string word = "AAAAAAAAAAAAAAB";
+    for (auto _ : state) {
+        SolutionV2 s;
+        s.Exist(board, word);
+    }
+}
+BENCHMARK(BenchMark_SolutionV2);
+
+static void BenchMark_SolutionV3(benchmark::State& state) {
+    std::vector<std::vector<char>> board = {
+        {'A', 'A', 'A', 'A', 'A', 'A'}, {'A', 'A', 'A', 'A', 'A', 'A'},
+        {'A', 'A', 'A', 'A', 'A', 'A'}, {'A', 'A', 'A', 'A', 'A', 'A'},
+        {'A', 'A', 'A', 'A', 'A', 'A'}, {'A', 'A', 'A', 'A', 'A', 'A'}};
+    const std::string word = "AAAAAAAAAAAAAAB";
+    for (auto _ : state) {
+        SolutionV3 s;
+        s.Exist(board, word);
+    }
+}
+BENCHMARK(BenchMark_SolutionV3);
+
+BENCHMARK_MAIN();
