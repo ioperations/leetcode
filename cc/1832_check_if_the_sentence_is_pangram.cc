@@ -23,10 +23,7 @@ namespace {
 class Solution {
    public:
     bool CheckIfPangram(string& sentence) {
-        std::set<char> s;
-        for (auto& ptr : sentence) {
-            s.emplace(ptr);
-        }
+        std::set<char> s(sentence.begin(), sentence.end());
         return s.size() == 26;
     }
     bool CheckIfPangramV2(string& sentence) {
