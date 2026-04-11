@@ -7,7 +7,7 @@ import {
 import { createRoot, useTimeline } from "@opentui/react";
 import { useEffect, useMemo, useState } from "react";
 import { createColors, createFrames } from "./spinner";
-import "opentui-spinner/react"
+import "opentui-spinner/react";
 
 type Stats = {
   cpu: number;
@@ -57,23 +57,10 @@ function App() {
         // enableFading: false,
         minAlpha: 0.3,
       }),
-    }
-  }, [])
+    };
+  }, []);
 
   useEffect(() => {
-    timeline.add(
-      {
-        width,
-      },
-      {
-        width: 50,
-        duration: 2000,
-        ease: "inBounce",
-        onUpdate: (animation) => {
-          setWidth(animation.targets[0].width);
-        },
-      },
-    );
     timeline.add(
       stats,
       {
@@ -100,8 +87,17 @@ function App() {
 
   return (
     <>
-      <box style={{ width, backgroundColor: "#6a5acd" }} />
-      <input placeholder="type here..." onInput={setText} />
+      <box />
+      <box
+        style={{
+          marginTop: 1,
+        }}
+        border={true}
+        borderStyle="single"
+        borderColor="#4a4a4a"
+      >
+        <input placeholder="type here..." onInput={setText} focused={true} />
+      </box>
       <text visible={!!text}>{text}</text>
       <markdown content={text} syntaxStyle={Style} />
       <box
@@ -120,7 +116,7 @@ function App() {
           <box key={stat.key}>
             <box flexDirection="row" justifyContent="space-between">
               <text>{stat.name}</text>
-              <text attributes={TextAttributes.DIM | TextAttributes.UNDERLINE }>
+              <text attributes={TextAttributes.DIM | TextAttributes.UNDERLINE}>
                 {Math.round(stats[stat.key as keyof Stats])}%
               </text>
             </box>
@@ -136,7 +132,11 @@ function App() {
           </box>
         ))}
       </box>
-      <spinner color={spinnerDef.color} frames={spinnerDef.frames} interval={40} />
+      <spinner
+        color={spinnerDef.color}
+        frames={spinnerDef.frames}
+        interval={40}
+      />
     </>
   );
 }
