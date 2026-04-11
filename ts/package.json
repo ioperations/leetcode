@@ -6,7 +6,7 @@
   "scripts": {
     "build": "tsc",
     "test": "vitest run",
-    "test:watch": "vitest",
+    "test:watch": "vitest"
   },
   "keywords": [],
   "author": "",
