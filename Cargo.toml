@@ -21,10 +21,10 @@ rand = "0.10"
 actix = "0.13"
 futures = "0.3"
 rayon = "1.8"
-hashbrown = "0.16"
+hashbrown = "0.17"
 tracing = "0.1"
 tracing-subscriber = { version = "0.3"}
-ctor = "0.8"
+ctor = "0.9"
 
 [profile.release]
 debug = true
