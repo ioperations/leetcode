@@ -3,9 +3,7 @@ import logo from "./logo.svg";
 import "./App.css";
 import { LineChart, Line, XAxis, CartesianGrid, YAxis } from "recharts";
 
-// #region Sample data
-
-function App() {
+const App = () =>  {
   const data = [
     {
       name: "A",
@@ -52,8 +50,8 @@ function App() {
         <LineChart
           style={{
             width: "100%",
-            aspectRatio: 1.618,
-            maxWidth: 800,
+            aspectRatio: 2.118,
+            maxWidth: 1200,
             margin: "auto",
           }}
           responsive
