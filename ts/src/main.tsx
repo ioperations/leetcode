@@ -17,8 +17,8 @@ type Stats = {
 };
 
 function App() {
-  const [width, setWidth] = useState(0);
   const [text, setText] = useState("");
+  const [displaySystemMonitor, setDisplay] = useState(true);
 
   const [stats, setAnimatedStats] = useState<Stats>({
     cpu: 0,
@@ -41,7 +41,7 @@ function App() {
   });
 
   const spinnerDef = useMemo(() => {
-    const color = RGBA.fromHex("#6a5acd"); // slate blue
+    const color = RGBA.fromHex("#f8f090"); // slate blue
     return {
       frames: createFrames({
         color,
@@ -73,6 +73,11 @@ function App() {
         onUpdate: (values) => {
           setAnimatedStats({ ...values.targets[0] });
         },
+        onComplete: () => {
+          setInterval(() => {
+            setDisplay(false);
+          }, 2000);
+        },
       },
       0,
     );
@@ -100,38 +105,43 @@ function App() {
       </box>
       <text visible={!!text}>{text}</text>
       <markdown content={text} syntaxStyle={Style} />
-      <box
-        title="System Monitor"
-        style={{
-          margin: 1,
-          padding: 1,
-          border: true,
-          marginLeft: 2,
-          marginRight: 2,
-          borderStyle: "single",
-          borderColor: "#4a4a4a",
-        }}
-      >
-        {statsMap.map((stat) => (
-          <box key={stat.key}>
-            <box flexDirection="row" justifyContent="space-between">
-              <text>{stat.name}</text>
-              <text attributes={TextAttributes.DIM | TextAttributes.UNDERLINE}>
-                {Math.round(stats[stat.key as keyof Stats])}%
-              </text>
+
+      {displaySystemMonitor && (
+        <box
+          title="System Monitor"
+          style={{
+            margin: 1,
+            padding: 1,
+            border: true,
+            marginLeft: 2,
+            marginRight: 2,
+            borderStyle: "single",
+            borderColor: "#4a4a4a",
+          }}
+        >
+          {statsMap.map((stat) => (
+            <box key={stat.key}>
+              <box flexDirection="row" justifyContent="space-between">
+                <text>{stat.name}</text>
+                <text
+                  attributes={TextAttributes.DIM | TextAttributes.UNDERLINE}
+                >
+                  {Math.round(stats[stat.key as keyof Stats])}%
+                </text>
+              </box>
+              <box style={{ backgroundColor: "#333333" }}>
+                <box
+                  style={{
+                    width: `${stats[stat.key as keyof Stats]}%`,
+                    height: 1,
+                    backgroundColor: stat.color,
+                  }}
+                />
+              </box>
             </box>
-            <box style={{ backgroundColor: "#333333" }}>
-              <box
-                style={{
-                  width: `${stats[stat.key as keyof Stats]}%`,
-                  height: 1,
-                  backgroundColor: stat.color,
-                }}
-              />
-            </box>
-          </box>
-        ))}
-      </box>
+          ))}
+        </box>
+      )}
       <spinner
         color={spinnerDef.color}
         frames={spinnerDef.frames}
