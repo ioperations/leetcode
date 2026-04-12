@@ -1,34 +1,90 @@
 import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
-import { LineChart, Line, XAxis, Tooltip, CartesianGrid, YAxis } from "recharts";
+import { LineChart, Line, XAxis, CartesianGrid, YAxis } from "recharts";
+
+// #region Sample data
 
 function App() {
   const data = [
-    { time: "2025 01", uv: 1600, pv: 5400, amt: 5400 },
-    { time: "2025 02", uv: 3900, pv: 4567, amt: 5400 },
-    { time: "2025 03", uv: 1700, pv: 1398, amt: 5400 },
-    { time: "2025 04", uv: 8978, pv: 3908, amt: 5400 },
-    { time: "2025 05", uv: 1589, pv: 4800, amt: 5400 },
-    { time: "2025 06", uv: 1239, pv: 3800, amt: 5400 },
-    { time: "2025 07", uv: 3349, pv: 4300, amt: 5400 },
+    {
+      name: "A",
+      uv: 400,
+      pv: 240,
+      amt: 2400,
+    },
+    {
+      name: "B",
+      uv: 300,
+      pv: 456,
+      amt: 2400,
+    },
+    {
+      name: "C",
+      uv: 300,
+      pv: 139,
+      amt: 2400,
+    },
+    {
+      name: "D",
+      uv: 200,
+      pv: 980,
+      amt: 2400,
+    },
+    {
+      name: "E",
+      uv: 278,
+      pv: 390,
+      amt: 2400,
+    },
+    {
+      name: "F",
+      uv: 189,
+      pv: 480,
+      amt: 2400,
+    },
   ];
 
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <div className="charts">
-          <LineChart width={1600} height={300} data={data}>
-            <XAxis dataKey="time" padding={{left:20, right: 30}}/>
-            <YAxis padding={{ top: 10, bottom: 10 }} />
-            <Tooltip />
-            <CartesianGrid  />
-            <Line type="monotone" dataKey="uv" stroke="#ff7300" />
-            <Line type="monotone" dataKey="pv" stroke="#387908" />
-            <Line type="monotone" dataKey="amt" stroke="#880908" />
-          </LineChart>
-        </div>
+        <LineChart
+          style={{
+            width: "100%",
+            aspectRatio: 1.618,
+            maxWidth: 800,
+            margin: "auto",
+          }}
+          responsive
+          data={data}
+        >
+          <CartesianGrid stroke="var(--color-border-3)" strokeDasharray="5 5" />
+          <XAxis dataKey="name" stroke="var(--color-text-3)" />
+          <YAxis width="auto" stroke="var(--color-text-3)" />
+          <Line
+            type="monotone"
+            dataKey="uv"
+            stroke="var(--color-chart-1)"
+            dot={{
+              fill: "var(--color-surface-base)",
+            }}
+            activeDot={{
+              stroke: "var(--color-surface-base)",
+            }}
+          />
+          <Line
+            type="monotone"
+            dataKey="pv"
+            stroke="var(--color-chart-2)"
+            dot={{
+              fill: "var(--color-surface-base)",
+            }}
+            activeDot={{
+              stroke: "var(--color-surface-base)",
+            }}
+          />
+        </LineChart>
       </header>
     </div>
   );
