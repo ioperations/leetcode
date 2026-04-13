@@ -19,6 +19,7 @@ type Stats = {
 
 function App() {
   const [text, setText] = useState("");
+  const [markdownContent, setMarkdownContent] = useState("");
   const [displaySystemMonitor, setDisplay] = useState(true);
 
   const [stats, setAnimatedStats] = useState<Stats>({
@@ -119,6 +120,40 @@ function App() {
     );
   }, []);
 
+  useEffect(() => {
+    var i = 0;
+    setInterval(() => {
+      var content = `# Markdown Stream Test
+- hello world
+- test
+> **italic cubic**
+## cpp + rust Solution for leetcode online judge
+
+#### cpp dependency
+
+- gtest and google-benchmark
+  - and every solution should contain with at least all leetcode test case
+  - maybe contain benchmarks for my implementation and others'
+
+#### rust dependency
+
+- rand
+- tokio together with syn quote ...
+
+![img](./flamegraph.svg)
+
+- recent learning
+- ![sequence diagram](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/ioperations/leetcode/refs/heads/master/LEARN.iuml) 
+`;
+      var t = content.length;
+      var index = i % t;
+      content = content.substring(0, index);
+      setMarkdownContent(content);
+
+      i++;
+    }, 100);
+  }, []);
+
   const statsMap = [
     { name: "CPU", key: "cpu", color: "#6a5acd" },
     { name: "Memory", key: "memory", color: "#4682b4" },
@@ -139,8 +174,9 @@ function App() {
       >
         <input placeholder="type here..." onInput={setText} focused={true} />
       </box>
-      <text visible={!!text}>{text}</text>
-      <markdown content={text} syntaxStyle={Style} />
+      <scrollbox width={`${100}%`} height={`${50}%`} border borderStyle="single" >
+        <markdown streaming={true} content={markdownContent} syntaxStyle={Style}  />
+      </scrollbox>
 
       {displaySystemMonitor && (
         <box
