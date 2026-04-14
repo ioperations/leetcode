@@ -18,9 +18,10 @@ type Stats = {
 };
 
 function App() {
-  const [text, setText] = useState("");
+  const [textX, setText] = useState("");
   const [markdownContent, setMarkdownContent] = useState("");
   const [displaySystemMonitor, setDisplay] = useState(true);
+  const [i, setI] = useState(0);
 
   const [stats, setAnimatedStats] = useState<Stats>({
     cpu: 0,
@@ -121,9 +122,14 @@ function App() {
   }, []);
 
   useEffect(() => {
-    var i = 0;
-    setInterval(() => {
-      var content = `# Markdown Stream Test
+    var interval = setInterval(() => {
+      var content =
+        `# Markdown Stream Test
+
+~` +
+        textX +
+        `~
+
 - hello world
 - test
 > **italic cubic**
@@ -150,9 +156,10 @@ function App() {
       content = content.substring(0, index);
       setMarkdownContent(content);
 
-      i++;
+      setI(i + 1);
     }, 100);
-  }, []);
+    return () => clearInterval(interval);
+  }, [textX, i]);
 
   const statsMap = [
     { name: "CPU", key: "cpu", color: "#6a5acd" },
@@ -174,8 +181,17 @@ function App() {
       >
         <input placeholder="type here..." onInput={setText} focused={true} />
       </box>
-      <scrollbox width={`${100}%`} height={`${50}%`} border borderStyle="single" >
-        <markdown streaming={true} content={markdownContent} syntaxStyle={Style}  />
+      <scrollbox
+        width={`${100}%`}
+        height={`${50}%`}
+        border
+        borderStyle="single"
+      >
+        <markdown
+          streaming={true}
+          content={markdownContent}
+          syntaxStyle={Style}
+        />
       </scrollbox>
 
       {displaySystemMonitor && (
