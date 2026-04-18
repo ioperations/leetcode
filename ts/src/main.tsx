@@ -170,14 +170,14 @@ function App() {
 
   return (
     <>
-      <box />
       <box
+        paddingLeft={2}
         style={{
           marginTop: 1,
         }}
-        border={true}
-        borderStyle="single"
-        borderColor="#4a4a4a"
+        border={["left"]}
+        borderStyle="heavy"
+        borderColor="purple"
       >
         <input placeholder="type here..." onInput={setText} focused={true} />
       </box>
