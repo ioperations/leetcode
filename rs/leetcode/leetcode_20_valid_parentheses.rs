@@ -17,8 +17,12 @@ impl Solution {
         // s consists of parentheses only '()[]{}'.
         let mut stack = vec![];
         for i in s.bytes() {
-            if [b'{', b'[', b'('].contains(&i) {
-                stack.push(i);
+            let t = b"{[(".iter().find(|&&x| {
+                x == i
+            });
+
+            if let Some(p) = t {
+                stack.push(p);
             } else {
                 let Some(v) = stack.pop() else { return false };
                 match v {

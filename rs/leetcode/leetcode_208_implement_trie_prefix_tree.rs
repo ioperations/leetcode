@@ -72,6 +72,7 @@ impl Trie {
         self.search_node(prefix).is_some()
     }
 
+    #[allow(clippy::question_mark)]
     #[allow(unused)]
     fn search_node(&self, prefix: &str) -> Option<&TrieNode> {
         let mut curr: &TrieNode = &self.head;
