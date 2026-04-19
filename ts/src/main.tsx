@@ -4,6 +4,7 @@ import {
   RGBA,
   parseColor,
   TextAttributes,
+  TextareaRenderable,
 } from "@opentui/core";
 import { createRoot, useTimeline } from "@opentui/react";
 import { useEffect, useMemo, useState } from "react";
@@ -168,24 +169,18 @@ function App() {
     { name: "Disk", key: "disk", color: "#daa520" },
   ];
 
+  let input: TextareaRenderable;
+  useEffect(() => {
+    input?.focus();
+  });
   return (
     <>
-      <box
-        paddingLeft={2}
-        style={{
-          marginTop: 1,
-        }}
-        border={["left"]}
-        borderStyle="heavy"
-        borderColor="purple"
-      >
-        <input placeholder="type here..." onInput={setText} focused={true} />
-      </box>
       <scrollbox
         width={`${100}%`}
-        height={`${50}%`}
         border
         borderStyle="single"
+        stickyStart="bottom"
+        stickyScroll={true}
       >
         <markdown
           streaming={true}
@@ -230,6 +225,31 @@ function App() {
           ))}
         </box>
       )}
+      <box
+        paddingLeft={2}
+        style={{
+          marginTop: 1,
+        }}
+        border={["left"]}
+        borderStyle="heavy"
+        borderColor="purple"
+        paddingRight={2}
+        paddingTop={1}
+        flexShrink={0}
+        flexGrow={1}
+        maxHeight={6}
+      >
+        <textarea
+          height={3}
+          placeholder="type here..."
+          ref={(e: TextareaRenderable) => {
+            input = e;
+          }}
+          onContentChange={() => {
+            setText(input.plainText);
+          }}
+        />
+      </box>
       <spinner
         color={spinnerDef.color}
         frames={spinnerDef.frames}
