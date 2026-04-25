@@ -1,4 +1,3 @@
-import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import { LineChart, Line, XAxis, CartesianGrid, YAxis } from "recharts";
@@ -47,6 +46,9 @@ const App = () =>  {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
+        <h1 className="text-3xl font-bold underline" >
+          Demo TailwindCss Text
+        </h1>
         <LineChart
           style={{
             width: "100%",
