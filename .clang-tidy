@@ -33,6 +33,10 @@ CheckOptions:
     value: '1'
   - key:   google-readability-function-size.StatementThreshold
     value: '800'
+  - key:   google-readability-function-size.LineThreshold
+    value: '50'
+  - key:   google-readability-function-size.ParameterThreshold
+    value: '5'
   - key:   google-readability-namespace-comments.ShortNamespaceLines
     value: '10'
   - key:   google-readability-namespace-comments.SpacesBeforeComments
