@@ -21,43 +21,43 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    bool IsValid(string s) {
-        std::stack<char> stack;
-        for (auto& ptr : s) {
-            if (ptr == '(' || ptr == '[' || ptr == '{') {
-                stack.push(ptr);
-            } else {
-                if (stack.empty()) {
-                    return false;
-                }
-                switch (ptr) {
-                    case ']': {
-                        if (stack.top() == '[') {
-                            stack.pop();
-                            break;
-                        }
-                        return false;
-                    }
-                    case ')': {
-                        if (stack.top() == '(') {
-                            stack.pop();
-                            break;
-                        }
-                        return false;
-                    }
-                    case '}': {
-                        if (stack.top() == '{') {
-                            stack.pop();
-                            break;
-                        }
-                        return false;
-                    }
-                    default:
-                        break;
-                }
+    bool IsValid(const string& s) {
+      std::stack<char> stack;
+      for (auto& ptr : s) {
+        if (ptr == '(' || ptr == '[' || ptr == '{') {
+          stack.push(ptr);
+        } else {
+          if (stack.empty()) {
+            return false;
+          }
+          switch (ptr) {
+            case ']': {
+              if (stack.top() == '[') {
+                stack.pop();
+                break;
+              }
+              return false;
             }
+            case ')': {
+              if (stack.top() == '(') {
+                stack.pop();
+                break;
+              }
+              return false;
+            }
+            case '}': {
+              if (stack.top() == '{') {
+                stack.pop();
+                break;
+              }
+              return false;
+            }
+            default:
+              break;
+          }
         }
-        return stack.empty();
+      }
+      return stack.empty();
     }
 };
 

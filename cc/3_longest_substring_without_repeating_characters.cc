@@ -19,14 +19,14 @@ class Solution {
         if (n == 0) return 0;
         for (j = 0; j < n; j++) {
             m[s[j]]++;
-            if ((int)m.size() == j - i + 1) {
-                ans = std::max(ans, j - i + 1);
-            } else if ((int)m.size() < j - i + 1) {
-                while ((int)m.size() < j - i + 1) {
-                    m[s[i]]--;
-                    if (m[s[i]] == 0) m.erase(s[i]);
-                    i++;
-                }
+            if (static_cast<int>(m.size()) == j - i + 1) {
+              ans = std::max(ans, j - i + 1);
+            } else if (static_cast<int>(m.size()) < j - i + 1) {
+              while (static_cast<int>(m.size()) < j - i + 1) {
+                m[s[i]]--;
+                if (m[s[i]] == 0) m.erase(s[i]);
+                i++;
+              }
             }
         }
         return ans;
