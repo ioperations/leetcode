@@ -53,15 +53,15 @@ class Solution {
                                 word2.substr(1, word2.size()), cache);
         }
 
-        int const remove =
+        int remove =
             1 + EditDistance(word1.substr(1, word1.size()), word2, cache);
-        int const replace =
+        int replace =
             1 + EditDistance(word1.substr(1, word1.size()),
                              word2.substr(1, word2.size()), cache);
-        int const insert =
+        int insert =
             1 + EditDistance(word1, word2.substr(1, word2.size()), cache);
 
-        int const ret = std::min({remove, replace, insert});
+        int ret = std::min({remove, replace, insert});
         cache[std::make_pair(word1, word2)] = ret;
         return ret;
     }
@@ -105,8 +105,8 @@ class Solution {
                     dp[i][j] = 0 + dp[i - 1][j - 1];
                 else {
                     int mn = 1 + dp[i - 1][j];
-                    if (1 + dp[i][j - 1] < mn) mn = 1 + dp[i][j - 1];
-                    if (1 + dp[i - 1][j - 1] < mn) mn = 1 + dp[i - 1][j - 1];
+                    if (1 + dp[i][j - 1] < mn) { mn = 1 + dp[i][j - 1]; }
+                    if (1 + dp[i - 1][j - 1] < mn) { mn = 1 + dp[i - 1][j - 1]; }
                     dp[i][j] = mn;
                 }
             }

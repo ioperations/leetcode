@@ -44,7 +44,8 @@ class BSTIterator {
     BSTIterator(TreeNode<T>* root) : m_pt(root) { PushStack(m_pt); }
 
     int next() {
-        TreeNode<T>* temp = m_s.top();
+        TreeNode<T>* temp = nullptr;
+        temp = m_s.top();
         m_s.pop();
         PushStack(temp->right);
         return temp->val;

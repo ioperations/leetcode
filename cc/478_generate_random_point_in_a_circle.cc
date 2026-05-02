@@ -36,7 +36,8 @@ class Solution {
 
     vector<double> RandPoint() {
         double const length = sqrt(Random()) * radius;
-        double const angle = Random() * 2 * M_PI;
+        double angle = 0.0;
+        angle = Random() * 2 * M_PI;
         double x_rand = x_center + length * cos(angle),
                y_rand = y_center + length * sin(angle);
         return {x_rand, y_rand};

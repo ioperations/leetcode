@@ -69,7 +69,8 @@ class Solution {
             auto& curr = queries[i];
             int const index = curr[0];
             if (!(table[index] == 0)) {
-                int const c = table[index];
+                int c = 0;
+                c = table[index];
                 hm[c]--;
                 if (hm[c] == 0) {
                     hm.erase(c);

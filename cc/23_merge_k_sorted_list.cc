@@ -66,9 +66,9 @@ class LoserTree {
     }
 
     int GetMin() {
-        const int ans = (*this->m_base)[m_ls[0]];
+        int ans = (*this->m_base)[m_ls[0]];
         // modify_fa_idx为ls的下标
-        const int leaves_idx = this->m_leaves_ls_st + m_ls[0];
+        int leaves_idx = this->m_leaves_ls_st + m_ls[0];
         (*this->m_base)[this->m_ls[leaves_idx]] = inf;
         this->Sort(leaves_idx >> 1, this->m_ls[0]);
         return ans;
@@ -88,6 +88,8 @@ class LoserTree {
         this->m_ls[0] = winner_idx;
     }
 };
+
+}  // namespace
 
 class Solution {
    public:
@@ -164,7 +166,7 @@ class Solution {
 
         int first = true;
 
-        const int val = std::numeric_limits<int>::max();
+        int val = std::numeric_limits<int>::max();
         while (true) {
             // 所以现在的问题是怎样确定这个candidate
             MyListNode* candidate = nullptr;
@@ -198,6 +200,7 @@ class Solution {
     }
 };
 
+namespace {
 TEST(Memleak, t1) {
     auto* n1 = new MyListNode(1);
     auto* n2 = new MyListNode(3);

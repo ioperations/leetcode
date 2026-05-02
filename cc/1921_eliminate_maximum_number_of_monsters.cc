@@ -40,13 +40,14 @@ class Solution {
         priority_queue<int, vector<int>, std::greater<> > queue;
         for (int i = 0; i < len; i++) {
             queue.emplace((dist[i] % speed[i] == 0) ? dist[i] / speed[i]
-                                                    : dist[i] / speed[i] + 1);
+                                            : dist[i] / speed[i] + 1);
         }
 
         int ret = 0;
         int i = 0;
         while (queue.size()) {
-            int const val = queue.top();
+            int val = 0;
+            val = queue.top();
             queue.pop();
             if (i < val) {
                 ret++;

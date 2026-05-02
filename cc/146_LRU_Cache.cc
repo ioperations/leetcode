@@ -47,7 +47,8 @@ class LRUCache {
 
     [[nodiscard]] int Get(int key) {
         if (m_map.find(key) != m_map.end()) {
-            CacheNode* p = m_map[key];
+            CacheNode* p = nullptr;
+            p = m_map[key];
             DetachNode(p);
             AddFristNode(p);
             return (m_map[key]->m_value);

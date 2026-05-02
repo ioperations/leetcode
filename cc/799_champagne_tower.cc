@@ -33,7 +33,8 @@ class Solution {
             vector<double> next(i + 2, 0);
             for (int j = 0; j <= i; j++) {
                 if (row[j] <= 1) continue;
-                double const excess = (row[j] - 1) / 2.0;
+                double excess = 0.0;
+                excess = (row[j] - 1) / 2.0;
                 next[j] += excess;
                 next[j + 1] += excess;
             }

@@ -33,7 +33,8 @@ class Solution {
             }
         }
         while (z.size()) {
-            int const d = z.top();
+            int d = 0;
+            d = z.top();
 
             s[d] = num.front();
             num.pop();

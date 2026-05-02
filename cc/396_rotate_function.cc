@@ -29,7 +29,7 @@ class Solution {
     int MaxRotateFunction(vector<int>& nums) {
         int const size = nums.size();
 
-        int tmp = std::numeric_limits<int>::min();
+        int tmp = std::numeric_limits<int>::min();  // NOLINT(cppcoreguidelines-init-variables)
         for (int i = 0; i < size; i++) {
             int tmp_sum = 0;
             for (int j = 0; j < size; j++) {

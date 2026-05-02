@@ -80,10 +80,10 @@ class Solution {
     int Mark(vector<vector<int>>& grid, int x, int y, int m, int n) {
         if (x < 0 || x >= m || y < 0 || y >= n || grid[x][y] != 1) return 0;
         grid[x][y] = 2;
-        const int a = Mark(grid, x + 1, y, m, n);
-        const int b = Mark(grid, x, y + 1, m, n);
-        const int c = Mark(grid, x - 1, y, m, n);
-        const int d = Mark(grid, x, y - 1, m, n);
+        int a = Mark(grid, x + 1, y, m, n);
+        int b = Mark(grid, x, y + 1, m, n);
+        int c = Mark(grid, x - 1, y, m, n);
+        int d = Mark(grid, x, y - 1, m, n);
         return 1 + a + b + c + d;
     }
     int MaxAreaOfIsland(vector<vector<int>>& grid) {
@@ -92,7 +92,7 @@ class Solution {
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
                 if (grid[i][j] == 1) {
-                    const int area = Mark(grid, i, j, m, n);
+                    int area = Mark(grid, i, j, m, n);
                     max_area = max(max_area, area);
                 }
             }

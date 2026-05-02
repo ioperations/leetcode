@@ -198,7 +198,7 @@ class BrowserHistorySysV2 {
     struct Node* m_p_currnet;
     struct Node* m_p_head;
     struct Node* m_p_end;
-    int current_size;
+    int current_size = 0;
 
     int capability;
 };

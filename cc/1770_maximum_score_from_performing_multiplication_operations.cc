@@ -47,8 +47,9 @@ class Solution {
         if (m >= static_cast<int>(mul.size())) return 0;
         if (dp[i][j] != INT_MIN) return dp[i][j];
         int const idx = nums.size() - j - 1;
-        int const l = nums[idx] * mul[m] + Dfs(i, j + 1, dp, nums, mul, m + 1);
-        int const r = nums[i] * mul[m] + Dfs(i + 1, j, dp, nums, mul, m + 1);
+        int l = 0, r = 0;
+        l = nums[idx] * mul[m] + Dfs(i, j + 1, dp, nums, mul, m + 1);
+        r = nums[i] * mul[m] + Dfs(i + 1, j, dp, nums, mul, m + 1);
         return dp[i][j] = max(l, r);
     }
 

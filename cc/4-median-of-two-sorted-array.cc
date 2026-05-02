@@ -19,7 +19,8 @@ class Solution {
         clock_t start = 0, end = 0;
 
         start = clock();
-        double tmp = ImplV1(nums1, nums2);
+        double tmp = 0.0;
+        tmp = ImplV1(nums1, nums2);
         end = clock();
         std::cout << "v1 const time " << end - start << std::endl;
 
