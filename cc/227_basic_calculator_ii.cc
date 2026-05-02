@@ -23,7 +23,7 @@ class Solution {
    public:
     int Calculate(string s) {
         int i = 0;
-        for (int j = 0; j < (int)s.size(); j++) {
+        for (int j = 0; j < static_cast<int>(s.size()); j++) {
             if (s[j] != ' ') {
                 s[i++] = s[j];
             }
@@ -43,7 +43,7 @@ class Solution {
                 j++;
                 while (s[j] <= '9' and s[j] >= '0') {
                     nextval *= 10;
-                    nextval += (int)(s[j] - '0');
+                    nextval += static_cast<int>(s[j] - '0');
                     j++;
                 }
                 j--;

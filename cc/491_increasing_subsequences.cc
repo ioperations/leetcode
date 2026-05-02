@@ -21,9 +21,9 @@ namespace {
 class Solution {
     void Dfs(int i, vector<int>& v, vector<int>& nums, set<vector<int>>& s) {
         if (v.size() >= 2) s.insert(v);
-        if (i == (int)nums.size()) return;
+        if (i == static_cast<int>(nums.size())) return;
 
-        for (int j = i; j < (int)nums.size(); j++) {
+        for (int j = i; j < static_cast<int>(nums.size()); j++) {
             if (v.size() && v.back() > nums[j]) continue;
             v.push_back(nums[j]);
             Dfs(j + 1, v, nums, s);

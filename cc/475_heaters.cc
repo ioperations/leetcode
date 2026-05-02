@@ -25,7 +25,7 @@ class Solution {
    public:
     bool IsValid(int radius, vector<int>& houses, vector<int>& heaters) {
         int i = 0, j = 0;
-        while (i < (int)houses.size() && j < (int)heaters.size()) {
+        while (i < static_cast<int>(houses.size()) && j < static_cast<int>(heaters.size())) {
             if (houses[i] >= (heaters[j] - radius) &&
                 houses[i] <= (heaters[j] + radius)) {
                 i++;
@@ -36,7 +36,7 @@ class Solution {
             }
         }
 
-        return i == (int)houses.size();
+        return i == static_cast<int>(houses.size());
     }
 
     int FindRadius(vector<int>& houses, vector<int>& heaters) {

@@ -34,13 +34,13 @@ class Solution {
         int index = 0;
 
         // push element before overlap
-        while (index < (int)intervals.size() && start > intervals[index][1]) {
+        while (index < static_cast<int>(intervals.size()) && start > intervals[index][1]) {
             ans.push_back(intervals[index]);
             index++;
         }
 
         // merge overlap
-        while (index < (int)intervals.size() && end >= intervals[index][0]) {
+        while (index < static_cast<int>(intervals.size()) && end >= intervals[index][0]) {
             start = min(start, intervals[index][0]);
             end = max(end, intervals[index][1]);
             index++;
@@ -48,7 +48,7 @@ class Solution {
         ans.push_back({start, end});
 
         // push element after overlap
-        while (index < (int)intervals.size()) {
+        while (index < static_cast<int>(intervals.size())) {
             ans.push_back(intervals[index]);
             index++;
         }

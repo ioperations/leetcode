@@ -31,7 +31,7 @@ class Solution {
             if (x == 0) st.push_back(s);
             return;
         }
-        for (int i = 0; i < (int)s.length(); i++) {
+        for (int i = 0; i < static_cast<int>(s.length()); i++) {
             string const left = s.substr(0, i);
             string const right = s.substr(i + 1);
             Helper(left + right, minrem - 1, st);
@@ -40,7 +40,7 @@ class Solution {
 
     int Removals(string s) {
         stack<char> st;
-        for (int i = 0; i < (int)s.length(); i++) {
+        for (int i = 0; i < static_cast<int>(s.length()); i++) {
             if (s[i] == '(') {
                 st.push(s[i]);
             } else if (s[i] == ')') {

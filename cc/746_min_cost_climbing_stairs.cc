@@ -24,20 +24,20 @@ class Solution {
    public:
     int MinCostClimbingStairs(vector<int>& cost) {
         // pass
-        if ((int)cost.size() == 0) {
+        if (static_cast<int>(cost.size()) == 0) {
             return 0;
         }
-        if ((int)cost.size() == 1) {
+        if (static_cast<int>(cost.size()) == 1) {
             return cost[0];
         }
 
         std::map<int, int> cache;
 
         function<int(int)> fun = [&](int now) -> int {
-            if (now == (int)(cost.size() - 1)) {
+            if (now == static_cast<int>(cost.size() - 1)) {
                 return cost.back();
             }
-            if (now >= (int)(cost.size())) {
+            if (now >= static_cast<int>(cost.size())) {
                 return 0;
             }
 

@@ -40,7 +40,7 @@ class Solution {
                 return nums.size() - 1;
             }
         }
-        for (int i = 1; i < (int)nums.size() - 1; i++) {
+        for (int i = 1; i < static_cast<int>(nums.size()) - 1; i++) {
             if (nums[i] > nums[i - 1] && nums[i] > nums[i + 1]) {
                 return i;
             }
@@ -72,7 +72,7 @@ class Solution {
                 low = mid + 1;
                 // if we are at the end we can compare with last second element
                 // only
-            } else if (mid == (int)nums.size() - 1) {
+            } else if (mid == static_cast<int>(nums.size()) - 1) {
                 if (nums[mid] > nums[mid - 1]) return mid;
                 high = mid - 1;
             } else {

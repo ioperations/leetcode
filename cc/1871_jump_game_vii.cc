@@ -28,14 +28,14 @@ class Solution {
         // pass
         if (s[s.size() - 1] != '0') return false;
         vector<int> list;
-        for (int i = 0; i < (int)s.size(); i++)
+        for (int i = 0; i < static_cast<int>(s.size()); i++)
             if (s[i] == '0') list.push_back(i);
         queue<pair<int, int>> q;
         q.emplace(0, 0);
-        for (int i = 0; i < (int)list.size(); i++) {
+        for (int i = 0; i < static_cast<int>(list.size()); i++) {
             if (q.empty()) return false;
             if (list[i] >= q.front().first && list[i] <= q.front().second) {
-                if (list[i] == (int)s.size() - 1) return true;
+                if (list[i] == static_cast<int>(s.size()) - 1) return true;
                 q.emplace(list[i] + min_jump, list[i] + max_jump);
             } else {
                 if (list[i] > q.front().second) q.pop(), i--;

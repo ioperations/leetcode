@@ -67,8 +67,8 @@ class Solution {
 
         if (q.size()) {
             std::string str = BuildAliagnToLeft(q);
-            if ((int)str.size() < max_width) {
-                for (int i = (int)str.size(); i < max_width; i++) {
+            if (static_cast<int>(str.size()) < max_width) {
+                for (int i = static_cast<int>(str.size()); i < max_width; i++) {
                     str += " ";
                 }
             }
