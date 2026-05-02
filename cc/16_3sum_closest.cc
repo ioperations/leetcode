@@ -24,7 +24,7 @@ class Solution {
     int ThreeSum(std::vector<int>& nums, int target) {
         auto t = nums;
         std::sort(t.begin(), t.end());
-        int ret = std::numeric_limits<int>::max();
+        int ret{std::numeric_limits<int>::max()};
         int ret_ret = 0;
         do {
             const int tmp = t[0] + t[1] + t[2];
@@ -42,7 +42,7 @@ class Solution {
         int i = 0, j = 0, k = 0;
         sort(nums.begin(), nums.end());
         const int n = nums.size();
-        int diff = std::numeric_limits<int>::max();
+        int diff{std::numeric_limits<int>::max()};
         int sum = 0;
         for (i = 0; i < n; i++) {
             j = i + 1;

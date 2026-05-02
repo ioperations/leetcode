@@ -66,9 +66,9 @@ class LoserTree {
     }
 
     int GetMin() {
-        int ans = (*this->m_base)[m_ls[0]];
+        int ans{(*this->m_base)[m_ls[0]]};
         // modify_fa_idx为ls的下标
-        int leaves_idx = this->m_leaves_ls_st + m_ls[0];
+        int leaves_idx{this->m_leaves_ls_st + m_ls[0]};
         (*this->m_base)[this->m_ls[leaves_idx]] = inf;
         this->Sort(leaves_idx >> 1, this->m_ls[0]);
         return ans;
@@ -166,7 +166,7 @@ class Solution {
 
         int first = true;
 
-        int val = std::numeric_limits<int>::max();
+        int val{std::numeric_limits<int>::max()};
         while (true) {
             // 所以现在的问题是怎样确定这个candidate
             MyListNode* candidate = nullptr;

@@ -39,15 +39,15 @@ class FrontMiddleBackQueue {
 
     void PushMiddle(int val) {
         deque<int> q1;
-        int const size = m_q.size() / 2;
+        int const size = static_cast<int>(m_q.size() / 2);
         for (int i = 0; i < size; i++) {
-            int const val = m_q.front();
+            int const val{m_q.front()};
             m_q.pop_front();
             q1.push_back(val);
         }
         m_q.push_front(val);
         while (!q1.empty()) {
-            int const val = q1.back();
+            int const val{q1.back()};
             q1.pop_back();
             m_q.push_front(val);
         }
@@ -57,13 +57,13 @@ class FrontMiddleBackQueue {
 
     int PopFront() {
         if (m_q.empty()) return -1;
-        int const val = m_q.front();
+        int const val{m_q.front()};
         m_q.pop_front();
         return val;
     }
 
     int PopMiddle() {
-        int size = m_q.size();
+        int size = static_cast<int>(m_q.size());
         if (m_q.empty() || size < size / 2) return -1;
 
         if (size % 2 == 0) {
@@ -73,15 +73,15 @@ class FrontMiddleBackQueue {
         }
         deque<int> q1;
         for (int i = 0; i < size; i++) {
-            int const val = m_q.front();
+            int const val{m_q.front()};
             m_q.pop_front();
             q1.push_back(val);
         }
-        int const t = m_q.front();
+        int const t{m_q.front()};
         m_q.pop_front();
 
         while (!q1.empty()) {
-            int const val = q1.back();
+            int const val{q1.back()};
             q1.pop_back();
             m_q.push_front(val);
         }

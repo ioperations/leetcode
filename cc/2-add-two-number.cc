@@ -78,7 +78,7 @@ class Solution {
 
 ListNode* CreateList(const std::vector<int>& vals) {
     if (vals.empty()) return nullptr;
-    ListNode* head = new ListNode(vals[0]);
+    auto* head = new ListNode(vals[0]);
     ListNode* curr = head;
     for (size_t i = 1; i < vals.size(); i++) {
         curr->next = new ListNode(vals[i]);
@@ -109,8 +109,8 @@ void FreeList(ListNode* head) {
 #include "gtest/gtest.h"
 
 TEST(AddTwoNumbers, t1) {
-    ListNode* l1 = CreateList({2, 4, 3});
-    ListNode* l2 = CreateList({5, 6, 4});
+    auto* l1 = CreateList({2, 4, 3});
+    auto* l2 = CreateList({5, 6, 4});
     Solution sl;
     ListNode* result = sl.AddTwoNumbers(l1, l2);
     std::vector<int> expected = {7, 0, 8};
@@ -121,8 +121,8 @@ TEST(AddTwoNumbers, t1) {
 }
 
 TEST(AddTwoNumbers, t2) {
-    ListNode* l1 = CreateList({0});
-    ListNode* l2 = CreateList({0});
+    auto* l1 = CreateList({0});
+    auto* l2 = CreateList({0});
     Solution sl;
     ListNode* result = sl.AddTwoNumbers(l1, l2);
     std::vector<int> expected = {0};
@@ -133,8 +133,8 @@ TEST(AddTwoNumbers, t2) {
 }
 
 TEST(AddTwoNumbers, t3) {
-    ListNode* l1 = CreateList({9, 9, 9, 9, 9, 9, 9});
-    ListNode* l2 = CreateList({1});
+    auto* l1 = CreateList({9, 9, 9, 9, 9, 9, 9});
+    auto* l2 = CreateList({1});
     Solution sl;
     ListNode* result = sl.AddTwoNumbers(l1, l2);
     std::vector<int> expected = {0, 0, 0, 0, 0, 0, 0, 1};

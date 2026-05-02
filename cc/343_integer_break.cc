@@ -20,7 +20,7 @@ class Solution {
         dp[0] = 0;
         dp[1] = 1;
         for (int i = 2; i <= n; i++) {
-            int maxi = INT_MIN;
+            int maxi{INT_MIN};
             for (int j = i - 1; j > 0; j--) {
                 maxi = std::max(maxi, dp[j] * (i - j));
                 maxi = std::max(maxi, (j) * (i - j));
