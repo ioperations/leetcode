@@ -58,10 +58,11 @@ class Solution {
                     right = mid - 1;
                 }
             } else {
-                if (nums[mid] > target || target > nums[right])
+                if (nums[mid] > target || target > nums[right]) {
                     right = mid - 1;
-                else
+                } else {
                     left = mid + 1;
+                }
             }
         }
         return -1;

@@ -26,9 +26,9 @@ class Solution {
         // s[i] is either '0' or '1'.
         // 1 <= k <= 20
 
-        if ((int)s.size() < k) return false;
+        if (static_cast<int>(s.size()) < k) return false;
         unordered_set<string> st;
-        for (int i = 0; i <= (int)s.size() - k; i++) st.insert(s.substr(i, k));
+        for (int i = 0; i <= static_cast<int>(s.size()) - k; i++) st.insert(s.substr(i, k));
         return st.size() == pow(2, k);
     }
 };

@@ -53,7 +53,7 @@ class Solution {
     vector<double> CalcEquation(vector<vector<string>>& eq,
                                 vector<double>& values,
                                 vector<vector<string>>& queries) {
-        for (int i = 0; i < (int)values.size();
+        for (int i = 0; i < static_cast<int>(values.size());
              i++)  // this loop is for creating graph
         {
             m_unmp[eq[i][0]].insert({eq[i][1], values[i]});

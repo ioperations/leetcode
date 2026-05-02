@@ -28,7 +28,7 @@ class Solution {
             return;
         }
 
-        for (int j = i; j < (int)arr.size(); j++) {
+        for (int j = i; j < static_cast<int>(arr.size()); j++) {
             if (j > i && arr[j] == arr[j - 1]) continue;
             if (arr[j] > target) break;
             v.push_back(arr[j]);

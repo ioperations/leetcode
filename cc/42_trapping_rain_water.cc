@@ -42,24 +42,19 @@ class Solution {
         while (left <= right) {
             // handling left ptr
             if (height[left] <= height[right]) {
-                if (height[left] >= leftmax)
+                if (height[left] >= leftmax) {
                     leftmax = height[left];
-
-                else
+                } else {
                     res += leftmax - height[left];
-
+                }
                 left++;
-
-            }
-
-            // handling right ptr
-            else {
-                if (height[right] >= rightmax)
+            } else {
+                // handling right ptr
+                if (height[right] >= rightmax) {
                     rightmax = height[right];
-
-                else
+                } else {
                     res += rightmax - height[right];
-
+                }
                 right--;
             }
         }

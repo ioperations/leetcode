@@ -35,13 +35,14 @@ class Solution {
 
             for (int j = 0; j <= m; j++) {
                 for (int k = 0; k <= n; k++) {
-                    if (i == 0 || (j == 0 && k == 0))
+                    if (i == 0 || (j == 0 && k == 0)) {
                         arr[i][j][k] = 0;
-                    else if (zeros <= j && ones <= k) {
+                    } else if (zeros <= j && ones <= k) {
                         arr[i][j][k] = max(1 + arr[i - 1][j - zeros][k - ones],
                                            arr[i - 1][j][k]);
-                    } else
+                    } else {
                         arr[i][j][k] = arr[i - 1][j][k];
+                    }
                 }
             }
         }

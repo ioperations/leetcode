@@ -33,7 +33,7 @@ class Solution {
 
         for (auto rit = heights.rbegin(); rit != heights.rend(); ++rit) {
             sort(rit->second.begin(), rit->second.end());
-            for (int i = 0; i < (int)rit->second.size(); i++)
+            for (int i = 0; i < static_cast<int>(rit->second.size()); i++)
                 ans.insert(ans.begin() + rit->second[i],
                            {rit->first, rit->second[i]});
         }

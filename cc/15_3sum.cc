@@ -53,11 +53,11 @@ class Solution {
             while (front < back) {
                 int const sum = nums[front] + nums[back];
 
-                if (sum < target)
+                if (sum < target) {
                     front++;
-                else if (sum > target)
+                } else if (sum > target) {
                     back--;
-                else {
+                } else {
                     vector<int> temp = {nums[i], nums[front], nums[back]};
                     res.push_back(temp);
 

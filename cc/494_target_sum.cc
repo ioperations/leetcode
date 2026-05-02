@@ -40,7 +40,7 @@ class Solution {
 
     void Backtrack(vector<int>& nums, int target, int index, int& count,
                    int& sum) {
-        if (index == (int)nums.size()) {
+        if (index == static_cast<int>(nums.size())) {
             if (target == sum) count++;
         } else {
             int temp_add = sum + nums[index];

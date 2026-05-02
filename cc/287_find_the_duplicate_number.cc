@@ -33,10 +33,11 @@ class Solution {
                 if (k <= mid) count++;
             }
 
-            if (count <= mid)
+            if (count <= mid) {
                 min = mid + 1;
-            else
+            } else {
                 max = mid;
+            }
         }
         return min;
     }

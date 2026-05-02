@@ -41,7 +41,7 @@ class Solution {
     int LengthOfLis(vector<int>& nums) {
         vector<int> ans;
         ans.push_back(nums[0]);
-        for (int i = 1; i < (int)nums.size(); i++) {
+        for (int i = 1; i < static_cast<int>(nums.size()); i++) {
             int const ele = nums[i];
             if (ele > ans.back()) {
                 ans.push_back(ele);
@@ -49,7 +49,7 @@ class Solution {
             }
             int const idx =
                 lower_bound(ans.begin(), ans.end(), ele) - ans.begin();
-            if (idx == (int)ans.size()) continue;
+            if (idx == static_cast<int>(ans.size())) continue;
             ans[idx] = ele;
         }
         return ans.size();

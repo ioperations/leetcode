@@ -130,7 +130,7 @@ class Solution {
             }
         }
 
-        if (word_it == (int)word.size()) {
+        if (word_it == static_cast<int>(word.size())) {
             return true;
         }
         return false;
@@ -222,8 +222,9 @@ class SolutionV2 {
             stack.pop();
             stack.push({i, j, pos, dir + 1});
 
-            if (pos == (int)word.size() - 1 && word[pos] == board[i][j])
+            if (pos == static_cast<int>(word.size()) - 1 && word[pos] == board[i][j]) {
                 return true;
+            }
 
             if (word[pos] != board[i][j]) {
                 stack.pop();
