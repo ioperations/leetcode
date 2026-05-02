@@ -103,19 +103,18 @@ class Solution {
     }
 
     MyListNode* MergeTwoLists(MyListNode* a, MyListNode* b) {
-        if ((!a) || (!b)) return a ? a : b;
-        MyListNode head, *tail = &head, *a_ptr = a, *b_ptr = b;
-        while (a_ptr && b_ptr) {
-            if (a_ptr->val < b_ptr->val) {
-                tail->next = a_ptr;
-                a_ptr = a_ptr->next;
+        MyListNode head, *tail = &head;
+        while (a && b) {
+            if (a->val < b->val) {
+                tail->next = a;
+                a = a->next;
             } else {
-                tail->next = b_ptr;
-                b_ptr = b_ptr->next;
+                tail->next = b;
+                b = b->next;
             }
             tail = tail->next;
         }
-        tail->next = (a_ptr ? a_ptr : b_ptr);
+        tail->next = (a ? a : b);
         return head.next;
     }
 
