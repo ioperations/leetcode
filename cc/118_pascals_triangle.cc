@@ -30,7 +30,7 @@ class Solution {
             r.push_back(0);
 
             vector<int> next;
-            next.reserve((int)r.size());
+            next.reserve(static_cast<int>(r.size()));
             for (int i = 0; i < static_cast<int>(r.size()); i++) {
               next.push_back((i == 0 ? 0 : r[i - 1]) + r[i]);
             }

@@ -31,8 +31,9 @@ class Solution {
     bool Able(string s, string t) {
         if (s.length() != t.length()) return false;
         int c = 0;
-        for (int i = 0; i < static_cast<int>(s.length()); i++)
+        for (int i = 0; i < static_cast<int>(s.length()); i++) {
           c += (s[i] != t[i]);
+        }
         return c == 1;
     }
     void Bfs(vector<vector<int>>& g, vector<vector<int>>& parent, int n, int sr,
@@ -100,7 +101,7 @@ class Solution {
       ShortestPaths(paths, path, parent, ds);
       for (auto u : paths) {
         vector<string> now;
-        now.reserve((int)u.size() - 1);
+        now.reserve(static_cast<int>(u.size()) - 1);
         for (int i = 0; i < static_cast<int>(u.size()) - 1; i++) {
           now.push_back(word_list[u[i]]);
         }

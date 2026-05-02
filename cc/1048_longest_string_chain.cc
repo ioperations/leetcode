@@ -21,6 +21,7 @@ given list of words.*/
 #include <vector>
 
 #include "gtest/gtest.h"
+#include "llvm/ADT/STLExtras.h"
 
 using namespace std;
 
@@ -29,14 +30,16 @@ class Solution {
    public:
     bool Check(const string& a, const string& b) {
         int cnt = 0, idx = 0;
-        for (int i = 0; i < (int)a.size() && idx < (int)b.size(); i++, idx++) {
-            if (a[i] != b[idx]) {
-                cnt++;
-                i--;
-            }
-            if (cnt > 1) {
-                return false;
-            }
+        for (int i = 0;
+             i < static_cast<int>(a.size()) && idx < static_cast<int>(b.size());
+             i++, idx++) {
+          if (a[i] != b[idx]) {
+            cnt++;
+            i--;
+          }
+          if (cnt > 1) {
+            return false;
+          }
         }
         return cnt <= 1;
     }
@@ -47,18 +50,18 @@ class Solution {
              [](const string& s1, const string& s2) {
                  return s1.length() < s2.length();
              });
-        for (int i = 0; i < (int)words.size(); i++) {
-            for (int j = i - 1;
-                 j >= 0 && words[j].size() + 1 >= words[i].size(); j--) {
-                if (words[j].size() == words[i].size() - 1) {
-                    if (Check(words[j], words[i])) {
-                        dp[i] = max(dp[j] + 1, dp[i]);
-                    }
-                }
+        for (int i = 0; i < static_cast<int>(words.size()); i++) {
+          for (int j = i - 1; j >= 0 && words[j].size() + 1 >= words[i].size();
+               j--) {
+            if (words[j].size() == words[i].size() - 1) {
+              if (Check(words[j], words[i])) {
+                dp[i] = max(dp[j] + 1, dp[i]);
+              }
             }
+          }
         }
 
-        ans = *max_element(dp.begin(), dp.end());
+        ans = *llvm::max_element(dp);
         return ans;
     }
 };
