@@ -21,7 +21,6 @@ given list of words.*/
 #include <vector>
 
 #include "gtest/gtest.h"
-#include "llvm/ADT/STLExtras.h"
 
 using namespace std;
 
@@ -61,7 +60,7 @@ class Solution {
           }
         }
 
-        ans = *llvm::max_element(dp);
+        ans = *std::max_element(dp.begin(), dp.end());
         return ans;
     }
 };
