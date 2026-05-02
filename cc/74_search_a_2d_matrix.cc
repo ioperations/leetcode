@@ -67,10 +67,11 @@ class Solution {
         while (row < rows && col > -1) {
             int const cur = matrix[row][col];
             if (cur == target) return true;
-            if (target > cur)
+            if (target > cur) {
                 row++;
-            else
+            } else {
                 col--;
+            }
         }
 
         return false;

@@ -38,14 +38,18 @@ class Solution {
             // checking if there is a queen in the same column
             if (board[i][col] == 'Q') return false;
             // checking if there is a queen in the same diagonal (left to right)
-            if (row - i >= 0 && col - i >= 0 && board[row - i][col - i] == 'Q')
+            if (row - i >= 0 && col - i >= 0 && board[row - i][col - i] == 'Q') {
                 return false;
-            if (row - i >= 0 && col + i < n && board[row - i][col + i] == 'Q')
+            }
+            if (row - i >= 0 && col + i < n && board[row - i][col + i] == 'Q') {
                 return false;
-            if (row + i < n && col - i >= 0 && board[row + i][col - i] == 'Q')
+            }
+            if (row + i < n && col - i >= 0 && board[row + i][col - i] == 'Q') {
                 return false;
-            if (row + i < n && col + i < n && board[row + i][col + i] == 'Q')
+            }
+            if (row + i < n && col + i < n && board[row + i][col + i] == 'Q') {
                 return false;
+            }
         }
         return true;
     }

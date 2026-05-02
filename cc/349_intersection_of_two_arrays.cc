@@ -32,8 +32,9 @@ class Solution {
                 j++;
             } else if (nums1[i] > nums2[j]) {
                 j++;
-            } else
+            } else {
                 i++;
+            }
         }
 
         return {ret.begin(), ret.end()};
