@@ -293,7 +293,7 @@ class SolutionV3 {
     }
 };
 
-TEST(word_search, t1) {
+TEST(wordV, t1) {
     /*
          ___ ___ ___ ___
         | A | B | C | E |
@@ -311,7 +311,7 @@ TEST(word_search, t1) {
     EXPECT_EQ(ret, true);
 }
 
-TEST(word_search_v2, t1) {
+TEST(wordsearchV2, t1) {
     /*
          ___ ___ ___ ___
         | A | B | C | E |
@@ -329,7 +329,7 @@ TEST(word_search_v2, t1) {
     EXPECT_EQ(ret, true);
 }
 
-TEST(word_search, t2) {
+TEST(wordV, t2) {
     /*
          ___ ___ ___ ___
         | A | B | C | E |
@@ -348,7 +348,7 @@ TEST(word_search, t2) {
     EXPECT_EQ(ret, true);
 }
 
-TEST(word_search_v2, t2) {
+TEST(wordsearchV2, t2) {
     /*
          ___ ___ ___ ___
         | A | B | C | E |
@@ -366,7 +366,7 @@ TEST(word_search_v2, t2) {
     const bool ret = s.Exist(board, word);
     EXPECT_EQ(ret, true);
 }
-TEST(word_search, t3) {
+TEST(wordV, t3) {
     /*
          ___ ___ ___ ___
         | A | B | C | E |
@@ -384,7 +384,7 @@ TEST(word_search, t3) {
     const bool ret = s.Exist(board, word);
     EXPECT_EQ(ret, false);
 }
-TEST(word_search_v2, t3) {
+TEST(wordsearchV2, t3) {
     /*
          ___ ___ ___ ___
         | A | B | C | E |
@@ -403,7 +403,7 @@ TEST(word_search_v2, t3) {
     EXPECT_EQ(ret, false);
 }
 
-TEST(word_search, t4) {
+TEST(wordV, t4) {
     std::vector<vector<char>> board =
 
         {{'A', 'A', 'A', 'A', 'A', 'A'}, {'A', 'A', 'A', 'A', 'A', 'A'},
@@ -414,7 +414,7 @@ TEST(word_search, t4) {
     const bool ret = s.Exist(board, word);
     EXPECT_EQ(ret, false);
 }
-TEST(word_search_v2, t4) {
+TEST(wordsearchV2, t4) {
     std::vector<vector<char>> board =
 
         {{'A', 'A', 'A', 'A', 'A', 'A'}, {'A', 'A', 'A', 'A', 'A', 'A'},

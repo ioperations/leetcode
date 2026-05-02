@@ -29,7 +29,7 @@ class Solution {
     }
 };
 
-TEST(monotonous_stack, t1) {
+TEST(monotonousV, t1) {
     std::vector<int> nums{1, 2, 3, 4, 5, 6};
     Solution sl;
     std::vector<int> const output{1, 2, 3, 4, 5, -1};
@@ -37,7 +37,7 @@ TEST(monotonous_stack, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(monotonous_stack, t2) {
+TEST(monotonousV, t2) {
     std::vector<int> nums{6, 5, 4, 3, 2, 1};
     Solution sl;
     std::vector<int> const output{-1, -1, -1, -1, -1, -1};
@@ -45,7 +45,7 @@ TEST(monotonous_stack, t2) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(monotonous_stack, t3) {
+TEST(monotonousV, t3) {
     std::vector<int> nums{1, 9, 2, 4, 3, 1};
     Solution sl;
     std::vector<int> const output{1, -1, 3, -1, -1, -1};

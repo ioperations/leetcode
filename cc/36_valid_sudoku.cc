@@ -58,7 +58,7 @@ class Solution {
     }
 };
 
-TEST(valid_sudoku, t1) {
+TEST(validV, t1) {
     vector<vector<char>> board = {
         {'5', '3', '.', '.', '7', '.', '.', '.', '.'},
         {'6', '.', '.', '1', '9', '5', '.', '.', '.'},
@@ -76,7 +76,7 @@ TEST(valid_sudoku, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(valid_sudoku, t2) {
+TEST(validV, t2) {
     vector<vector<char>> board = {
         {'8', '3', '.', '.', '7', '.', '.', '.', '.'},
         {'6', '.', '.', '1', '9', '5', '.', '.', '.'},

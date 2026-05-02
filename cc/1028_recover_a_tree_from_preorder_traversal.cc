@@ -23,11 +23,11 @@ using namespace std;
 
 class Solution {
    public:
-    TreeNode* RecoverFromPreorder(string traversal) {
-        // The number of nodes in the original tree is in the range [1, 1000].
-        // 1 <= Node.val <= 109
-        Tranverse(traversal);
-        return Build();
+    TreeNode* RecoverFromPreorder(const string& traversal) {
+      // The number of nodes in the original tree is in the range [1, 1000].
+      // 1 <= Node.val <= 109
+      Tranverse(traversal);
+      return Build();
     }
 
     TreeNode* Build(int current_index = 0) {

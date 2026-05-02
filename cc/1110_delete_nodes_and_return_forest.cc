@@ -14,7 +14,6 @@ in any order.
 */
 
 #include <array>
-#include <functional>
 #include <optional>
 #include <unordered_set>
 #include <vector>

@@ -97,7 +97,7 @@ bool Solution::SolveSudoku(vector<vector<char>>& board) {
     return ret;
 }
 
-TEST(sudoku_solver, t1) {
+TEST(sudokuV, t1) {
     vector<vector<char>> board = {
         {'5', '3', '.', '.', '7', '.', '.', '.', '.'},
         {'6', '.', '.', '1', '9', '5', '.', '.', '.'},

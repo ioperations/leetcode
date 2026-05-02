@@ -56,7 +56,7 @@ class Solution {
     }
 };
 
-TEST(_matrix, t1) {
+TEST(V, t1) {
     std::vector<std::vector<int>> mat = {{0, 0, 0}, {0, 1, 0}, {0, 0, 0}};
     std::vector<std::vector<int>> const output = {
         {0, 0, 0}, {0, 1, 0}, {0, 0, 0}};
@@ -65,7 +65,7 @@ TEST(_matrix, t1) {
     EXPECT_EQ(output, ret);
 }
 
-TEST(_matrix, t2) {
+TEST(V, t2) {
     std::vector<std::vector<int>> mat = {{0, 0, 0}, {0, 1, 0}, {1, 1, 1}};
 
     std::vector<std::vector<int>> const output = {

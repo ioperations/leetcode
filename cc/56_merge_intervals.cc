@@ -43,7 +43,7 @@ class Solution {
     }
 };
 
-TEST(merge_intervals, t1) {
+TEST(mergeV, t1) {
     std::vector<std::vector<int>> intervals = {
         {1, 3}, {2, 6}, {8, 10}, {15, 18}};
     std::vector<std::vector<int>> const output = {{1, 6}, {8, 10}, {15, 18}};
@@ -65,7 +65,7 @@ TEST(merge_intervals, t1) {
     // [1,6].
 }
 
-TEST(merge_intervals, t2) {
+TEST(mergeV, t2) {
     std::vector<std::vector<int>> intervals = {{1, 4}, {4, 5}};
 
     // Explanation: Intervals [1,4] and [4,5] are considered overlapping.
@@ -84,7 +84,7 @@ TEST(merge_intervals, t2) {
     // [1,6].
 }
 
-TEST(merge_intervals, t3) {
+TEST(mergeV, t3) {
     std::vector<std::vector<int>> intervals = {{1, 4}, {2, 3}};
 
     // Explanation: Intervals [1,4] and [4,5] are considered overlapping.

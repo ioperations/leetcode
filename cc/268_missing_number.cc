@@ -27,7 +27,7 @@ class Solution {
     }
 };
 
-TEST(missing_number, t0) {
+TEST(missingV, t0) {
     std::vector<int> nums = {1};
     int const output = 0;
     // Explanation: n = 3 since there are 3 numbers, so all numbers are in the
@@ -39,7 +39,7 @@ TEST(missing_number, t0) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(missing_number, t1) {
+TEST(missingV, t1) {
     std::vector<int> nums = {3, 0, 1};
     int const output = 2;
     // Explanation: n = 3 since there are 3 numbers, so all numbers are in the
@@ -51,7 +51,7 @@ TEST(missing_number, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(missing_number, t2) {
+TEST(missingV, t2) {
     std::vector<int> nums = {0, 1};
     int const output = 2;
 
@@ -63,7 +63,7 @@ TEST(missing_number, t2) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(missing_number, t3) {
+TEST(missingV, t3) {
     std::vector<int> nums = {9, 6, 4, 2, 3, 5, 7, 0, 1};
     int const output = 8;
 

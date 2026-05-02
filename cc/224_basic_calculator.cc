@@ -285,7 +285,7 @@ class SolutionV3 {
     }
 };
 
-TEST(basic_calculator, t1) {
+TEST(basicV, t1) {
     const std::string s = "1+1";
 
     SolutionV2 sl;
@@ -294,7 +294,7 @@ TEST(basic_calculator, t1) {
     EXPECT_EQ(ret, 2);
 }
 
-TEST(basic_calculator, t2) {
+TEST(basicV, t2) {
     const std::string s = "2-1+2";
 
     SolutionV2 sl;
@@ -303,7 +303,7 @@ TEST(basic_calculator, t2) {
     EXPECT_EQ(ret, 3);
 }
 
-TEST(basic_calculator, t3) {
+TEST(basicV, t3) {
     const std::string s = "(1+(4+5+2)-3)+(6+8)";
 
     SolutionV2 sl;
@@ -312,7 +312,7 @@ TEST(basic_calculator, t3) {
     EXPECT_EQ(ret, 23);
 }
 
-TEST(basic_calculator_v2, t1) {
+TEST(basiccalculatorV2, t1) {
     const std::string s = "1+1";
 
     SolutionV3 sl;
@@ -321,7 +321,7 @@ TEST(basic_calculator_v2, t1) {
     EXPECT_EQ(ret, 2);
 }
 
-TEST(basic_calculator_v2, t2) {
+TEST(basiccalculatorV2, t2) {
     const std::string s = "2-1+2";
 
     SolutionV3 sl;
@@ -330,7 +330,7 @@ TEST(basic_calculator_v2, t2) {
     EXPECT_EQ(ret, 3);
 }
 
-TEST(basic_calculator_v2, t3) {
+TEST(basiccalculatorV2, t3) {
     const std::string s = "(1+(4+5+2)-3)+(6+8)";
 
     SolutionV3 sl;

@@ -54,7 +54,7 @@ class Solution {
 
 #include <set>
 
-TEST(permutations_ii, t1) {
+TEST(permutationsV, t1) {
     std::vector<int> nums = {1, 1, 2};
     vector<vector<int>> output = {{1, 1, 2}, {1, 2, 1}, {2, 1, 1}};
 
@@ -66,7 +66,7 @@ TEST(permutations_ii, t1) {
     EXPECT_EQ(ret_set, output_set);
 }
 
-TEST(permutations_ii_v2, t1) {
+TEST(permutationsiiV2, t1) {
     std::vector<int> nums = {1, 1, 2};
     vector<vector<int>> output = {{1, 1, 2}, {1, 2, 1}, {2, 1, 1}};
 
@@ -78,7 +78,7 @@ TEST(permutations_ii_v2, t1) {
     EXPECT_EQ(ret_set, output_set);
 }
 
-TEST(permutations_ii, t2) {
+TEST(permutationsV, t2) {
     std::vector<int> nums = {1, 2, 3};
     vector<vector<int>> output = {{1, 2, 3}, {1, 3, 2}, {2, 1, 3},
                                   {2, 3, 1}, {3, 1, 2}, {3, 2, 1}};
@@ -91,7 +91,7 @@ TEST(permutations_ii, t2) {
     EXPECT_EQ(ret_set, output_set);
 }
 
-TEST(permutations_ii_v2, t2) {
+TEST(permutationsiiV2, t2) {
     std::vector<int> nums = {1, 2, 3};
     vector<vector<int>> output = {{1, 2, 3}, {1, 3, 2}, {2, 1, 3},
                                   {2, 3, 1}, {3, 1, 2}, {3, 2, 1}};

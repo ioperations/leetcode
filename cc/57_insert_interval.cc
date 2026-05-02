@@ -83,7 +83,7 @@ class Solution {
     }
 };
 
-TEST(insert_interval, t1) {
+TEST(insertV, t1) {
     vector<vector<int>> intervals = {{1, 3}, {6, 9}};
     vector<int> new_interval = {2, 5};
     vector<vector<int>> const output = {{1, 5}, {6, 9}};
@@ -93,7 +93,7 @@ TEST(insert_interval, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(insert_interval, t2) {
+TEST(insertV, t2) {
     vector<vector<int>> intervals = {{1, 2}, {3, 5}, {6, 7}, {8, 10}, {12, 16}};
     vector<int> new_interval = {4, 8};
     vector<vector<int>> const output = {{1, 2}, {3, 10}, {12, 16}};

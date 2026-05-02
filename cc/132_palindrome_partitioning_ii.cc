@@ -11,6 +11,7 @@
 #include <climits>
 #include <string>
 #include <unordered_map>
+#include <utility>
 
 #include "gtest/gtest.h"
 
@@ -21,7 +22,7 @@ class Solution {
    public:
     int MinCut(string s) {
         unordered_map<string, int> mp;
-        return MinCut(s, mp) - 1;
+        return MinCut(std::move(s), mp) - 1;
     }
     int MinCut(string s, unordered_map<string, int>& mp) {
         if (s.size() == 0) return 0;
@@ -30,9 +31,9 @@ class Solution {
 
         string tmp;
         int ans = INT_MAX;
-        for (int i = 0; i < (int)s.size(); i++) {
-            tmp += s[i];
-            if (Palindrome(tmp)) ans = min(ans, MinCut(s.substr(i + 1), mp));
+        for (int i = 0; i < static_cast<int>(s.size()); i++) {
+          tmp += s[i];
+          if (Palindrome(tmp)) ans = min(ans, MinCut(s.substr(i + 1), mp));
         }
 
         return mp[s] = ans + 1;
@@ -40,8 +41,9 @@ class Solution {
 
     bool Palindrome(string& s) {
         int i = 0, j = s.size() - 1;
-        while (i < j)
-            if (s[i++] != s[j--]) return false;
+        while (i < j) {
+          if (s[i++] != s[j--]) return false;
+        }
 
         return true;
     }

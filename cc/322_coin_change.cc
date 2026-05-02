@@ -107,7 +107,7 @@ class Solution {
     }
 };
 
-TEST(coin_change, t1) {
+TEST(coinV, t1) {
     std::vector<int> coins = {1, 2, 5};
     int const amount = 11;
     int const output = 3;
@@ -117,7 +117,7 @@ TEST(coin_change, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(coin_change, t2) {
+TEST(coinV, t2) {
     std::vector<int> coins = {2};
     int const amount = 3;
     int const output = -1;
@@ -127,7 +127,7 @@ TEST(coin_change, t2) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(coin_change, t3) {
+TEST(coinV, t3) {
     std::vector<int> coins = {1};
     int const amount = 0;
     int const output = 0;

@@ -56,9 +56,10 @@ class Solution {
         {
             path.push_back(true);
             DFS(current->left, path, target, found);  // recurse
-            if (!found)  // If the target has been found, keep the path
-                         // constant.
-                path.pop_back();
+            if (!found) {  // If the target has been found, keep the path
+                           // constant.
+              path.pop_back();
+            }
         }
 
         if (current->right && found == false) {
@@ -74,10 +75,11 @@ class Solution {
     TreeNode<T>* GetCopyNode(deque<bool>& path, TreeNode<T>* current) {
         while (!path.empty()) {
             // Now iterating from the opposite side of the queue.
-            if (path.front())  // True == left
-                current = current->left;
-            else  // False == right
-                current = current->right;
+            if (path.front()) {  // True == left
+              current = current->left;
+            } else {  // False == right
+              current = current->right;
+            }
             path.pop_front();
         }
         return current;

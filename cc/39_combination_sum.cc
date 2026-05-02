@@ -81,7 +81,7 @@ class Solution {
     }
 };
 
-TEST(combination_sum, t1) {
+TEST(combinationV, t1) {
     std::vector<int> candidates = {2, 3, 6, 7};
     int const target = 7;
 
@@ -91,7 +91,7 @@ TEST(combination_sum, t1) {
     EXPECT_EQ(ret, (std::vector<std::vector<int>>{{2, 2, 3}, {7}}));
 }
 
-TEST(combination_sum, t2) {
+TEST(combinationV, t2) {
     std::vector<int> candidates = {2, 3, 5};
     int const target = 8;
 
@@ -103,7 +103,7 @@ TEST(combination_sum, t2) {
         (std::vector<std::vector<int>>{{{2, 2, 2, 2}, {2, 3, 3}, {3, 5}}}));
 }
 
-TEST(combination_sum, t3) {
+TEST(combinationV, t3) {
     std::vector<int> candidates = {2};
 
     int const target = 1;

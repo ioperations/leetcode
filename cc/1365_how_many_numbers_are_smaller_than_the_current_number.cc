@@ -20,10 +20,10 @@ class Solution {
         vector<int> s(101, -1);
         vector<int> f = nums;
         sort(nums.begin(), nums.end());
-        for (int i = 0; i < (int)nums.size(); i++) {
-            if (s[nums[i]] == -1) {
-                s[nums[i]] = i;
-            }
+        for (int i = 0; i < static_cast<int>(nums.size()); i++) {
+          if (s[nums[i]] == -1) {
+            s[nums[i]] = i;
+          }
         }
         for (int& i : f) {
             i = s[i];

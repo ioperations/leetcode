@@ -58,7 +58,7 @@ class Solution {
     }
 };
 
-TEST(magical_string, t1) {
+TEST(magicalV, t1) {
     int const n = 6;
     int const expected = 3;
     // Explanation: The first 6 elements of magical string s is "122112" and it
@@ -69,7 +69,7 @@ TEST(magical_string, t1) {
     EXPECT_EQ(ret, expected);
 }
 
-TEST(magical_string, t2) {
+TEST(magicalV, t2) {
     int const n = 1;
     int const expected = 1;
 
@@ -78,7 +78,7 @@ TEST(magical_string, t2) {
     EXPECT_EQ(ret, expected);
 }
 
-TEST(magical_string, t3) {
+TEST(magicalV, t3) {
     int const n = 36;
     int const expected = 18;
     // Explanation: The first 6 elements of magical string s is "122112" and it
@@ -89,7 +89,7 @@ TEST(magical_string, t3) {
     EXPECT_EQ(ret, expected);
 }
 
-TEST(magical_string, t4) {
+TEST(magicalV, t4) {
     int const n = 37;
     int const expected = 19;
     // Explanation: The first 6 elements of magical string s is "122112" and it
@@ -99,7 +99,7 @@ TEST(magical_string, t4) {
     int const ret = s.MagicalString(n);
     EXPECT_EQ(ret, expected);
 }
-TEST(magical_string, t5) {
+TEST(magicalV, t5) {
     int const n = 38;
     int const expected = 19;
     // Explanation: The first 6 elements of magical string s is "122112" and it
@@ -110,7 +110,7 @@ TEST(magical_string, t5) {
     EXPECT_EQ(ret, expected);
 }
 
-TEST(magical_string, t6) {
+TEST(magicalV, t6) {
     int const n = 9758;
     int const expected = 4874;
     // Explanation: The first 6 elements of magical string s is "122112" and it

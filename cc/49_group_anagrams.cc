@@ -37,7 +37,7 @@ class Solution {
 
 #include <set>
 
-TEST(group_anagrams, t1) {
+TEST(groupV, t1) {
     vector<string> strs{"eat", "tea", "tan", "ate", "nat", "bat"};
     std::vector<vector<string>> output{
         {"bat"}, {"tan", "nat"}, {"eat", "tea", "ate"}};
@@ -48,7 +48,7 @@ TEST(group_anagrams, t1) {
     EXPECT_EQ(output, ret);
 }
 
-TEST(group_anagrams, t2) {
+TEST(groupV, t2) {
     vector<string> strs{""};
     std::vector<vector<string>> output{{""}};
 
@@ -59,7 +59,7 @@ TEST(group_anagrams, t2) {
     EXPECT_EQ(ret_set, out_set);
 }
 
-TEST(group_anagrams, t3) {
+TEST(groupV, t3) {
     vector<string> strs{"a"};
     std::vector<vector<string>> output{{"a"}};
 

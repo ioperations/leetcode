@@ -59,8 +59,8 @@ class Solution {
                 for (auto& ptr : arr[i]) {
                     visisted[ptr]--;
                 }
-                for (int j = 0; j < (int)arr[i].size(); j++) {
-                    pre.pop_back();
+                for (int j = 0; j < static_cast<int>(arr[i].size()); j++) {
+                  pre.pop_back();
                 }
             }
             /// do not take current element as the last pre output

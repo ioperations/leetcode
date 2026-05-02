@@ -92,70 +92,70 @@ class Solution {
     }
 };
 
-TEST(reverse_integer, t1) {
+TEST(reverseV, t1) {
     Solution s;
     auto ret = s.Reverse(100);
 
     EXPECT_EQ(ret, 1);
 }
 
-TEST(reverse_integer_v2, t1) {
+TEST(reverseIntegerV2, t1) {
     Solution s;
     auto ret = s.ReverseV1(100);
 
     EXPECT_EQ(ret, 1);
 }
 
-TEST(reverse_integer, t2) {
+TEST(reverseV, t2) {
     Solution s;
     auto ret = s.Reverse(-101);
 
     EXPECT_EQ(ret, -101);
 }
 
-TEST(reverse_integer_v2, t2) {
+TEST(reverseIntegerV2, t2) {
     Solution s;
     auto ret = s.ReverseV1(-101);
 
     EXPECT_EQ(ret, -101);
 }
 
-TEST(reverse_integer, t3) {
+TEST(reverseV, t3) {
     Solution s;
     auto ret = s.Reverse(1534236469);
 
     EXPECT_EQ(ret, 0);
 }
 
-TEST(reverse_integer_v2, t3) {
+TEST(reverseIntegerV2, t3) {
     Solution s;
     auto ret = s.ReverseV1(1534236469);
 
     EXPECT_EQ(ret, 0);
 }
 
-TEST(reverse_integer, t4) {
+TEST(reverseV, t4) {
     Solution s;
     auto ret = s.Reverse(-2147483412);
 
     EXPECT_EQ(ret, -2143847412);
 }
 
-TEST(reverse_integer, t5) {
+TEST(reverseV, t5) {
     Solution s;
     auto ret = s.Reverse(-2147483648);
 
     EXPECT_EQ(ret, 0);
 }
 
-TEST(reverse_integer_v2, t4) {
+TEST(reverseIntegerV2, t4) {
     Solution s;
     auto ret = s.ReverseV1(-2147483412);
 
     EXPECT_EQ(ret, -2143847412);
 }
 
-TEST(reverse_integer_v2, t5) {
+TEST(reverseIntegerV2, t5) {
     Solution s;
     auto ret = s.ReverseV1(-2147483648);
 

@@ -54,7 +54,7 @@ class Solution {
     int HammingDistanceV2(int x, int y) { return HammingWeight(x ^ y); }
 };
 
-TEST(hamming_distance, t1) {
+TEST(hammingV, t1) {
     int x = 1, y = 4;
     int const output = 2;
     // Explanation:
@@ -71,7 +71,7 @@ TEST(hamming_distance, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(hamming_distance, t2) {
+TEST(hammingV, t2) {
     int x = 3, y = 1;
     int const output = 1;
     // Explanation:

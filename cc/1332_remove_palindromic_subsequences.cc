@@ -29,8 +29,8 @@ class Solution {
     int RemovePalindromeSub(string s) {
         // pass
         int const end = s.length() - 1;
-        for (int i = 0; end > i && i < (int)s.length(); i++) {
-            if (s[i] != s[end - i]) return 2;
+        for (int i = 0; end > i && i < static_cast<int>(s.length()); i++) {
+          if (s[i] != s[end - i]) return 2;
         }
         return 1;
     }

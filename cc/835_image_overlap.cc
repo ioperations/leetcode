@@ -56,7 +56,7 @@ class Solution {
     }
 };
 
-TEST(image_overlap, t1) {
+TEST(imageV, t1) {
     vector<vector<int>> img1 = {{1, 1, 0}, {0, 1, 0}, {0, 1, 0}},
                         img2 = {{0, 0, 0}, {0, 1, 1}, {0, 0, 1}};
     int const output = 3;
@@ -67,7 +67,7 @@ TEST(image_overlap, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(image_overlap, t2) {
+TEST(imageV, t2) {
     vector<vector<int>> img1 = {{1}}, img2 = {{1}};
     int const output = 1;
     Solution sl;
@@ -75,7 +75,7 @@ TEST(image_overlap, t2) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(image_overlap, t3) {
+TEST(imageV, t3) {
     vector<vector<int>> img1 = {{0}}, img2 = {{0}};
     int const output = 0;
     Solution sl;

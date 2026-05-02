@@ -72,7 +72,7 @@ class Solution {
     }
 };
 
-TEST(rotate_function, t1) {
+TEST(rotateV, t1) {
     std::vector<int> nums{4, 3, 2, 6};
     int const output = 26;
 
@@ -88,7 +88,7 @@ TEST(rotate_function, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(rotate_function, t2) {
+TEST(rotateV, t2) {
     std::vector<int> nums{100};
     int const output = 0;
 

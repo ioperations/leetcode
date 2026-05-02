@@ -71,7 +71,7 @@ class Solution {
     }
 };
 
-TEST(roate_image, t1) {
+TEST(roateV, t1) {
     std::vector<std::vector<int>> matrix = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
     const std::vector<std::vector<int>> expected = {
         {7, 4, 1}, {8, 5, 2}, {9, 6, 3}};
@@ -82,7 +82,7 @@ TEST(roate_image, t1) {
     EXPECT_EQ(matrix, expected);
 }
 
-TEST(roate_image, t2) {
+TEST(roateV, t2) {
     std::vector<std::vector<int>> matrix = {
         {5, 1, 9, 11}, {2, 4, 8, 10}, {13, 3, 6, 7}, {15, 14, 12, 16}};
     const std::vector<std::vector<int>> expected = {

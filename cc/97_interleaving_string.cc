@@ -103,7 +103,7 @@ class Solution {
     }
 };
 
-TEST(interleaving_string, t1) {
+TEST(interleavingV, t1) {
     string string1 = "aabcc", s2 = "dbbca", s3 = "aadbbcbcac";
     bool const output = true;
 
@@ -115,7 +115,7 @@ TEST(interleaving_string, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(interleaving_string, t2) {
+TEST(interleavingV, t2) {
     string string1 = "", s2 = "", s3 = "";
     bool const output = true;
 

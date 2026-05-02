@@ -37,7 +37,7 @@ class Solution {
     }
 };
 
-TEST(mirror_reflection, t1) {
+TEST(mirrorV, t1) {
     int p = 2, q = 1;
     int const output = 2;
     // Explanation: The ray meets receptor 2 the first time it gets reflected
@@ -48,7 +48,7 @@ TEST(mirror_reflection, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(mirror_reflection, t2) {
+TEST(mirrorV, t2) {
     int p = 3, q = 1;
     int const output = 1;
     Solution sl;

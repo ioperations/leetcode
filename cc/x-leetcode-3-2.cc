@@ -36,31 +36,31 @@ class Solution {
 
 #include "gtest/gtest.h"
 
-TEST(longest_substring, t1) {
+TEST(longestV, t1) {
     Solution sl;
     int const ret = sl.LengthOfLongestSubstring("abcabcbb");
     EXPECT_EQ(ret, 3);
 }
 
-TEST(longest_substring, t2) {
+TEST(longestV, t2) {
     Solution sl;
     int const ret = sl.LengthOfLongestSubstring("bbbbb");
     EXPECT_EQ(ret, 1);
 }
 
-TEST(longest_substring, t3) {
+TEST(longestV, t3) {
     Solution sl;
     int const ret = sl.LengthOfLongestSubstring("pwwkew");
     EXPECT_EQ(ret, 3);
 }
 
-TEST(longest_substring, t4) {
+TEST(longestV, t4) {
     Solution sl;
     int const ret = sl.LengthOfLongestSubstring("");
     EXPECT_EQ(ret, 0);
 }
 
-TEST(longest_substring, t5) {
+TEST(longestV, t5) {
     Solution sl;
     int const ret = sl.LengthOfLongestSubstring("au");
     EXPECT_EQ(ret, 2);

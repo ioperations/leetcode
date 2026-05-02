@@ -55,7 +55,7 @@ class Solution {
     }
 };
 
-TEST(house_robber, t1) {
+TEST(houseV, t1) {
     std::vector<int> nums{1, 2, 3, 1};
     int const output = 4;
     Solution sl;
@@ -66,7 +66,7 @@ TEST(house_robber, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(house_robber, t2) {
+TEST(houseV, t2) {
     std::vector<int> nums{2, 7, 9, 3, 1};
     int const output = 12;
     Solution sl;
@@ -76,7 +76,7 @@ TEST(house_robber, t2) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(house_robber, t3) {
+TEST(houseV, t3) {
     std::vector<int> nums{1, 1, 1};
     int const output = 2;
     Solution sl;

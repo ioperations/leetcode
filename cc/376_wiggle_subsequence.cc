@@ -44,7 +44,7 @@ class Solution {
     }
 };
 
-TEST(wiggle_subsequence, t1) {
+TEST(wiggleV, t1) {
     // pass
     vector<int> nums = {1, 7, 4, 9, 2, 5};
     int const output = 6;
@@ -55,7 +55,7 @@ TEST(wiggle_subsequence, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(wiggle_subsequence, t2) {
+TEST(wiggleV, t2) {
     // pass
     vector<int> nums = {1, 17, 5, 10, 13, 15, 10, 5, 16, 8};
     int const output = 7;
@@ -67,7 +67,7 @@ TEST(wiggle_subsequence, t2) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(wiggle_subsequence, t3) {
+TEST(wiggleV, t3) {
     // pass
     vector<int> nums = {1, 2, 3, 4, 5, 6, 7, 8, 9};
     int const output = 2;

@@ -238,7 +238,7 @@ class Solution {
     }
 };
 
-TEST(palindrome_path, t1) {
+TEST(palindromeV, t1) {
     vector<string> words = {"abcd", "dcba", "lls", "s", "sssll"};
     vector<vector<int>> output = {{0, 1}, {1, 0}, {3, 2}, {2, 4}};
     // Explanation: The palindromes are
@@ -260,7 +260,7 @@ TEST(palindrome_path, t1) {
     EXPECT_EQ(ret_set2, output_set);
 }
 
-TEST(palindrome_path, t2) {
+TEST(palindromeV, t2) {
     vector<string> words = {"bat", "tab", "cat"};
     vector<vector<int>> output = {{0, 1}, {1, 0}};
     // Explanation: The palindromes are

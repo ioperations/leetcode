@@ -81,7 +81,7 @@ class PeekingIterator : public Iterator {
     [[nodiscard]] bool hasNext() const { return (m_next_val != 0); }
 };
 
-TEST(peeking_iterator, t1) {
+TEST(peekingV, t1) {
     // Input ["PeekingIterator", "next", "peek", "next", "next", "hasNext"]
     // [[[1, 2, 3]], [], [], [], [], []]
     // Output [null, 1, 2, 2, 3, false]
@@ -109,7 +109,7 @@ TEST(peeking_iterator, t1) {
     delete peeking_iterator;
 }
 
-TEST(peeking_iterator, t2) {
+TEST(peekingV, t2) {
     // Input ["PeekingIterator", "next", "peek", "next", "next", "hasNext"]
     // [[[1, 2, 3]], [], [], [], [], []]
     // Output [null, 1, 2, 2, 3, false]

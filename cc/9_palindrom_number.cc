@@ -23,21 +23,21 @@ class Solution {
     }
 };
 
-TEST(palindrom_number, t1) {
+TEST(palindromV, t1) {
     Solution s;
 
     bool const ret = s.IsPalindrome(121);
     EXPECT_EQ(ret, true);
 }
 
-TEST(palindrom_number, t2) {
+TEST(palindromV, t2) {
     Solution s;
 
     const bool ret = s.IsPalindrome(-121);
     EXPECT_EQ(ret, false);
 }
 
-TEST(palindrom_number, t3) {
+TEST(palindromV, t3) {
     Solution s;
 
     const bool ret = s.IsPalindrome(10);

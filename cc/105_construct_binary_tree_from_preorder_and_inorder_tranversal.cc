@@ -37,8 +37,9 @@ class Solution {
     template <typename T>
     TreeNode<T>* BuildTree(vector<T>& preorder, vector<T>& inorder) {
         unordered_map<int, int> inorder_map;
-        for (int i = 0; i < (int)inorder.size(); i++)
-            inorder_map[inorder[i]] = i;
+        for (int i = 0; i < (int)inorder.size(); i++) {
+          inorder_map[inorder[i]] = i;
+        }
 
         return Build(preorder, 0, preorder.size() - 1, inorder_map, 0,
                      inorder.size() - 1);

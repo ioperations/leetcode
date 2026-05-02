@@ -77,7 +77,7 @@ class Solution {
 
 using namespace std;
 
-TEST(n_queue, t1) {
+TEST(nV, t1) {
     // pass
     int const n = 4;
     vector<vector<string>> output = {{".Q..", "...Q", "Q...", "..Q."},
@@ -92,7 +92,7 @@ TEST(n_queue, t1) {
     // shown above
 }
 
-TEST(n_queue, t2) {
+TEST(nV, t2) {
     // pass
     int const n = 1;
     vector<vector<string>> output = {{"Q"}};

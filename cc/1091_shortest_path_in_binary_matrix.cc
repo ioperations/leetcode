@@ -12,6 +12,7 @@ All the adjacent cells of the path are 8-directionally connected (i.e., they are
 different and they share an edge or a corner).
 The length of a clear path is the number of visited cells of this path.*/
 
+#include <cstddef>
 #include <queue>
 #include <utility>
 #include <vector>
@@ -24,8 +25,8 @@ namespace {
 class Solution {
    private:
     bool InBoundsAndClear(vector<vector<int>>& grid, int i, int j) {
-        return i >= 0 && i < (int)grid.size() && j >= 0 &&
-               j < (int)grid.at(i).size() && grid.at(i).at(j) == 0;
+      return i >= 0 && i < static_cast<int>(grid.size()) && j >= 0 &&
+             j < static_cast<int>(grid.at(i).size()) && grid.at(i).at(j) == 0;
     }
 
    public:
@@ -49,9 +50,10 @@ class Solution {
 
                 int x = coord.first, y = coord.second;
 
-                if (x == (int)grid.size() - 1 &&
-                    y == (int)grid.at(x).size() - 1)
-                    return steps;
+                if (x == static_cast<int>(grid.size()) - 1 &&
+                    y == static_cast<int>(grid.at(x).size()) - 1) {
+                  return steps;
+                }
 
                 for (vector<int>& dir : dirs) {
                     int new_x = x + dir.at(0), new_y = y + dir.at(1);

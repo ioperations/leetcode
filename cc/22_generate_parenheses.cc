@@ -71,7 +71,7 @@ class Solution {
     }
 };
 
-TEST(generate_parenheses, t1) {
+TEST(generateV, t1) {
     int const n = 3;
     std::vector<string> expected = {"((()))", "(()())", "(())()", "()(())",
                                     "()()()"};
@@ -84,7 +84,7 @@ TEST(generate_parenheses, t1) {
     EXPECT_EQ(ret_set, expected_set);
 }
 
-TEST(generate_parenheses, t2) {
+TEST(generateV, t2) {
     int const n = 1;
     std::vector<string> expected = {
         "()",

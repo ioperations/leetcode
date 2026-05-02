@@ -28,15 +28,15 @@ class Solution {
         if (n < k) return s;
 
         stack<pair<char, int>> stk;
-        for (int i = 0; i < (int)n; ++i) {
-            if (stk.empty() || stk.top().first != s[i])
-                stk.emplace(s[i], 1);
-            else {
-                auto prev = stk.top();
-                stk.pop();
-                stk.emplace(s[i], prev.second + 1);
-            }
-            if (stk.top().second == k) stk.pop();
+        for (int i = 0; i < n; ++i) {
+          if (stk.empty() || stk.top().first != s[i]) {
+            stk.emplace(s[i], 1);
+          } else {
+            auto prev = stk.top();
+            stk.pop();
+            stk.emplace(s[i], prev.second + 1);
+          }
+          if (stk.top().second == k) stk.pop();
         }
 
         string ans = "";

@@ -14,7 +14,8 @@ class Solution {
         for (size_t i = 0; i < nums.size(); ++i) {
             for (size_t j = i + 1; j < nums.size(); j++) {
                 if (nums[i] + nums[j] == target) {
-                    return std::vector<int>{(int)i, (int)j};
+                  return std::vector<int>{static_cast<int>(i),
+                                          static_cast<int>(j)};
                 }
             }
         }
@@ -25,7 +26,7 @@ class Solution {
    private:
 };
 
-TEST(two_sum_v2, t1) {
+TEST(twosumV2, t1) {
     Solution s;
     std::vector<int> nums{2, 7, 11, 15};
     int const target = 9;
@@ -33,7 +34,7 @@ TEST(two_sum_v2, t1) {
     EXPECT_EQ(ret, (std::vector<int>{0, 1}));
 }
 
-TEST(two_sum_v2, t2) {
+TEST(twosumV2, t2) {
     Solution s;
     std::vector<int> nums{3, 2, 4};
     int const target = 6;
@@ -41,7 +42,7 @@ TEST(two_sum_v2, t2) {
     EXPECT_EQ(ret, (std::vector<int>{1, 2}));
 }
 
-TEST(two_sum_v2, t3) {
+TEST(twosumV2, t3) {
     Solution s;
     std::vector<int> nums{3, 3};
     int const target = 6;

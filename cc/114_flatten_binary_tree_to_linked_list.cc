@@ -112,8 +112,8 @@ TreeNode* ConstructTree(const std::vector<int>& elements) {
 
     auto* root = new TreeNode(elements[0]);
 
-    for (int i = 1; i < (int)elements.size(); i++) {
-        root = AddToRoot(root, elements[i]);
+    for (int i = 1; i < static_cast<int>(elements.size()); i++) {
+      root = AddToRoot(root, elements[i]);
     }
 
     return root;
@@ -130,13 +130,13 @@ void FreeRoot(TreeNode* root) {
 }
 
 void ExpectEqRight(TreeNode* const root, const std::vector<int>& elements) {
-    TreeNode* n = root;
-    int i = 0;
-    while (n != nullptr) {
-        EXPECT_EQ(n->val, elements[i]);
-        i++;
-        n = n->right;
-    }
+  TreeNode const* n = root;
+  int i = 0;
+  while (n != nullptr) {
+    EXPECT_EQ(n->val, elements[i]);
+    i++;
+    n = n->right;
+  }
     EXPECT_EQ(i, elements.size());
 }
 

@@ -54,10 +54,10 @@ class Solution {
             // we only need to choose at most k engineers
             // hence if the queue size is greater than k
             // we need to remove a candidate
-            if ((int)pq.size() > k) {
-                // who to remove? of course the one with smallest speed
-                speed_sum -= pq.top();
-                pq.pop();
+            if (static_cast<int>(pq.size()) > k) {
+              // who to remove? of course the one with smallest speed
+              speed_sum -= pq.top();
+              pq.pop();
             }
             // a team is formed now, calculate the performance
             ans = max(ans, speed_sum * e);

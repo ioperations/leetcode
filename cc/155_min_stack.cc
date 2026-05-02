@@ -36,7 +36,7 @@ class MinStack {
     int GetMin() { return m_v.back().second; }
 };
 
-TEST(min_stack, t1) {
+TEST(minV, t1) {
     MinStack min_stack;
     min_stack.Push(-2);
     min_stack.Push(0);

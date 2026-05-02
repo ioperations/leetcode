@@ -71,7 +71,7 @@ class SolutionV {
     }
 };
 
-TEST(gas_station, t1) {
+TEST(gasV, t1) {
     std::vector<int> gas = {1, 2, 3, 4, 5}, cost = {3, 4, 5, 1, 2};
     int const expected = 3;
     // Start at station 3 (index 3) and fill up with 4 unit of gas. Your tank =
@@ -86,7 +86,7 @@ TEST(gas_station, t1) {
     EXPECT_EQ(ret, expected);
 }
 
-TEST(gas_station, t2) {
+TEST(gasV, t2) {
     std::vector<int> gas = {2, 3, 4}, cost = {3, 4, 3};
     int const expected = -1;
     // Start at station 3 (index 3) and fill up with 4 unit of gas. Your tank =

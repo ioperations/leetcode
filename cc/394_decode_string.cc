@@ -56,7 +56,7 @@ class Solution {
     }
 };
 
-TEST(decode_string, t1) {
+TEST(decodeV, t1) {
     string const s = "3[a]2[bc]";
     string const out = "aaabcbc";
     Solution sl;
@@ -64,7 +64,7 @@ TEST(decode_string, t1) {
     EXPECT_EQ(ret, out);
 }
 
-TEST(decode_string, t2) {
+TEST(decodeV, t2) {
     string const s = "3[a2[c]]";
     string const out = "accaccacc";
     Solution sl;
@@ -72,7 +72,7 @@ TEST(decode_string, t2) {
     EXPECT_EQ(ret, out);
 }
 
-TEST(decode_string, t3) {
+TEST(decodeV, t3) {
     string const s = "2[abc]3[cd]ef";
     string const out = "abcabccdcdcdef";
     Solution sl;
@@ -85,7 +85,7 @@ using namespace Tree;
 
 #define null std::nullopt
 
-TEST(decode_string, t4) {
+TEST(decodeV, t4) {
     std::vector<int> const values{1, 2, 3, 4, 5, 6, 7};
     TreeNode<int>* n = ConstructTree<int>(values);
     FreeTreeNode<int>(n);

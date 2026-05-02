@@ -45,7 +45,7 @@ class Solution {
     }
 };
 
-TEST(unique_paths, t1) {
+TEST(uniqueV, t1) {
     int m = 3, n = 7;
     int const output = 28;
     Solution sl;
@@ -53,7 +53,7 @@ TEST(unique_paths, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(unique_paths, t2) {
+TEST(uniqueV, t2) {
     int m = 3, n = 2;
     int const output = 3;
     Solution sl;

@@ -14,21 +14,21 @@ using namespace std;
 
 class Solution {
    public:
-    int NumTilePossibilities(string tiles) {
-        // 1 <= tiles.length <= 7
-        // tiles consists of uppercase English letters.
+    int NumTilePossibilities(const string& tiles) {
+      // 1 <= tiles.length <= 7
+      // tiles consists of uppercase English letters.
 
-        m_s = tiles;
-        m_size = tiles.size();
-        for (int i = 0; i < m_size; i++) {
-            m_visiable.push_back(true);
-        }
+      m_s = tiles;
+      m_size = tiles.size();
+      for (int i = 0; i < m_size; i++) {
+        m_visiable.push_back(true);
+      }
 
-        int ret = 0;
-        string s;
-        Gen(s, ret);
+      int ret = 0;
+      string s;
+      Gen(s, ret);
 
-        return ret;
+      return ret;
     }
 
     void Gen(string& str, int& num, bool allow_end = false) {

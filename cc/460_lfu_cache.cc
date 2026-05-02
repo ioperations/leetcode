@@ -143,7 +143,7 @@ class LFUCache<K, int> {
     LFUCacheImpl<K, int> m_impl;
 };
 
-TEST(lfu_cache, t1) {
+TEST(lfuV, t1) {
     LFUCache<int, int> lfu(2);
     lfu.Put(1, 1);         // cache=[1,_], cnt(1)=1
     lfu.Put(2, 2);         // cache=[2,1], cnt(2)=1, cnt(1)=1
@@ -166,7 +166,7 @@ TEST(lfu_cache, t1) {
     EXPECT_EQ(ret, 4);  // cache=[4,3], cnt(4)=2, cnt(3)=3
 }
 
-TEST(lfu_cache, t2) {
+TEST(lfuV, t2) {
     LFUCache<int, int> lfu(3);
     lfu.Put(1, 1);         // cache=[1,_], cnt(1)=1
     lfu.Put(2, 2);         // cache=[2,1], cnt(2)=1, cnt(1)=1
@@ -189,7 +189,7 @@ TEST(lfu_cache, t2) {
     EXPECT_EQ(ret, 4);   // cache=[4,3], cnt(4)=2, cnt(3)=3
 }
 
-TEST(lfu_cache, t3) {
+TEST(lfuV, t3) {
     LFUCacheImpl<int, std::string> lfu(2);
     lfu.Put(1, "1");        // cache=[1,_], cnt(1)=1
     lfu.Put(2, "2");        // cache=[2,1], cnt(2)=1, cnt(1)=1

@@ -29,7 +29,7 @@ class Solution {
     }
 };
 
-TEST(transpose_matrix, t1) {
+TEST(transposeV, t1) {
     vector<vector<int>> matrix = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
     vector<vector<int>> const output = {{1, 4, 7}, {2, 5, 8}, {3, 6, 9}};
     Solution sl;
@@ -37,7 +37,7 @@ TEST(transpose_matrix, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(transpose_matrix, t2) {
+TEST(transposeV, t2) {
     vector<vector<int>> matrix = {{1, 2, 3}, {4, 5, 6}};
     vector<vector<int>> const output = {{1, 4}, {2, 5}, {3, 6}};
     Solution sl;

@@ -31,7 +31,8 @@ class Solution {
     bool Able(string s, string t) {
         if (s.length() != t.length()) return false;
         int c = 0;
-        for (int i = 0; i < (int)s.length(); i++) c += (s[i] != t[i]);
+        for (int i = 0; i < static_cast<int>(s.length()); i++)
+          c += (s[i] != t[i]);
         return c == 1;
     }
     void Bfs(vector<vector<int>>& g, vector<vector<int>>& parent, int n, int sr,
@@ -50,8 +51,9 @@ class Solution {
                     q.push(u);
                     parent[u].clear();
                     parent[u].push_back(x);
-                } else if (dist[u] == dist[x] + 1)
-                    parent[u].push_back(x);
+                } else if (dist[u] == dist[x] + 1) {
+                  parent[u].push_back(x);
+                }
             }
         }
     }
@@ -67,41 +69,46 @@ class Solution {
             path.pop_back();
         }
     }
-    vector<vector<string>> FindLadders(string begin_wordd, string end_word,
+    vector<vector<string>> FindLadders(const string& begin_wordd,
+                                       const string& end_word,
                                        vector<string>& word_list) {
-        int n = word_list.size(), sr = -1, ds = -1;
-        vector<vector<string>> ans;
-        for (int i = 0; i < n; i++) {
-            if (word_list[i] == begin_wordd) sr = i;
-            if (word_list[i] == end_word) ds = i;
+      int n = word_list.size(), sr = -1, ds = -1;
+      vector<vector<string>> ans;
+      for (int i = 0; i < n; i++) {
+        if (word_list[i] == begin_wordd) sr = i;
+        if (word_list[i] == end_word) ds = i;
+      }
+      if (ds == -1) return ans;
+      if (sr == -1) {
+        word_list.emplace(word_list.begin(), begin_wordd);
+        sr = 0;
+        ds++;
+        n++;
+      }
+      vector<vector<int>> g(n, vector<int>()), paths;
+      vector<vector<int>> parent(n, vector<int>());
+      vector<int> path;
+      for (int i = 0; i < n - 1; i++) {
+        for (int j = i + 1; j < n; j++) {
+          if (Able(word_list[i], word_list[j])) {
+            g[i].push_back(j);
+            g[j].push_back(i);
+          }
         }
-        if (ds == -1) return ans;
-        if (sr == -1) {
-            word_list.emplace(word_list.begin(), begin_wordd);
-            sr = 0;
-            ds++;
-            n++;
+      }
+      Bfs(g, parent, n, sr, ds);
+      ShortestPaths(paths, path, parent, ds);
+      for (auto u : paths) {
+        vector<string> now;
+        now.reserve((int)u.size() - 1);
+        for (int i = 0; i < static_cast<int>(u.size()) - 1; i++) {
+          now.push_back(word_list[u[i]]);
         }
-        vector<vector<int>> g(n, vector<int>()), paths;
-        vector<vector<int>> parent(n, vector<int>());
-        vector<int> path;
-        for (int i = 0; i < n - 1; i++)
-            for (int j = i + 1; j < n; j++)
-                if (Able(word_list[i], word_list[j])) {
-                    g[i].push_back(j);
-                    g[j].push_back(i);
-                }
-        Bfs(g, parent, n, sr, ds);
-        ShortestPaths(paths, path, parent, ds);
-        for (auto u : paths) {
-            vector<string> now;
-            for (int i = 0; i < (int)u.size() - 1; i++)
-                now.push_back(word_list[u[i]]);
-            reverse(now.begin(), now.end());
-            now.push_back(word_list[ds]);
-            ans.push_back(now);
-        }
-        return ans;
+        reverse(now.begin(), now.end());
+        now.push_back(word_list[ds]);
+        ans.push_back(now);
+      }
+      return ans;
     }
 };
 

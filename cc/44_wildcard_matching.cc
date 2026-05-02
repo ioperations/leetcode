@@ -53,21 +53,21 @@ class Solution {
     }
 };
 
-TEST(wildcard_matching, t1) {
+TEST(wildcardV, t1) {
     std::string s = "aa", p = "a";
     Solution sl;
     bool const ret = sl.IsMatch(s, p);
     EXPECT_EQ(ret, false);
 }
 
-TEST(wildcard_matching, t2) {
+TEST(wildcardV, t2) {
     std::string s = "aa", p = "*";
     Solution sl;
     bool const ret = sl.IsMatch(s, p);
     EXPECT_EQ(ret, true);
 }
 
-TEST(wildcard_matching, t3) {
+TEST(wildcardV, t3) {
     std::string s = "cb", p = "?a";
     Solution sl;
     bool const ret = sl.IsMatch(s, p);

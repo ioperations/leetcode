@@ -32,7 +32,7 @@ class Solution {
     }
 };
 
-TEST(fibonacci_number, t1) {
+TEST(fibonacciV, t1) {
     int const n = 2;
     int const out = 1;
     Solution sl;
@@ -40,7 +40,7 @@ TEST(fibonacci_number, t1) {
     EXPECT_EQ(ret, out);
 }
 
-TEST(fibonacci_number, t2) {
+TEST(fibonacciV, t2) {
     int const n = 3;
     int const out = 2;
     Solution sl;
@@ -48,7 +48,7 @@ TEST(fibonacci_number, t2) {
     EXPECT_EQ(ret, out);
 }
 
-TEST(fibonacci_number, t3) {
+TEST(fibonacciV, t3) {
     int const n = 4;
     int const out = 3;
     Solution sl;

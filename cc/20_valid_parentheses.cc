@@ -61,7 +61,7 @@ class Solution {
     }
 };
 
-TEST(valid_parentheses, t1) {
+TEST(validV, t1) {
     string const s = "()";
     bool const output = true;
 
@@ -70,7 +70,7 @@ TEST(valid_parentheses, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(valid_parentheses, t2) {
+TEST(validV, t2) {
     string const s = "()[]{}";
     bool const output = true;
 
@@ -79,7 +79,7 @@ TEST(valid_parentheses, t2) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(valid_parentheses, t3) {
+TEST(validV, t3) {
     string const s = "(]";
 
     bool const output = false;
@@ -89,14 +89,14 @@ TEST(valid_parentheses, t3) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(valid_parentheses, t4) {
+TEST(validV, t4) {
     string const s = "([)]";
     Solution sl;
     bool const ret = sl.IsValid(s);
     EXPECT_EQ(ret, false);
 }
 
-TEST(valid_parentheses, t5) {
+TEST(validV, t5) {
     string const s = "{[]}";
     Solution sl;
     bool const ret = sl.IsValid(s);

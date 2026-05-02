@@ -50,7 +50,7 @@ class Solution {
     }
 };
 
-TEST(valid_palindrome, t1) {
+TEST(validV, t1) {
     string const s = "A man, a plan, a canal: Panama";
     bool const output = true;
     // Explanation: "amanaplanacanalpanama" is a palindrome.
@@ -59,7 +59,7 @@ TEST(valid_palindrome, t1) {
     bool const ret = sl.IsPalindrome(s);
     EXPECT_EQ(ret, output);
 }
-TEST(valid_palindrome, t2) {
+TEST(validV, t2) {
     string const s = "race a car";
     bool const output = false;
     //  "raceacar" is not a palindrome.
@@ -69,7 +69,7 @@ TEST(valid_palindrome, t2) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(valid_palindrome, t3) {
+TEST(validV, t3) {
     string const s = " ";
     bool const output = true;
     // Explanation: s is an empty string "" after removing non-alphanumeric
@@ -82,7 +82,7 @@ TEST(valid_palindrome, t3) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(valid_palindrome, t4) {
+TEST(validV, t4) {
     string const s = "0P";
     bool const output = false;
 

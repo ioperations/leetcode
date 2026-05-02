@@ -98,8 +98,8 @@ TEST(t0, t1) {
 
 TEST(t0, t2) {
     string const str1 = "aaaaaaaa";
-    string const str2 = str1;
-    string const output = str1;
+    string const& str2 = str1;
+    string const& output = str1;
     /*
         str1 = "abac" is a subsequence of "cabac" because we can delete the
     first "c". str2 = "cab" is a subsequence of "cabac" because we can delete

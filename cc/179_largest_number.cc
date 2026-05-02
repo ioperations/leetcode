@@ -42,7 +42,7 @@ class Solution {
     }
 };
 
-TEST(largest_number, t1) {
+TEST(largestV, t1) {
     std::vector<int> nums = {10, 2};
     string const output = "210";
 
@@ -52,7 +52,7 @@ TEST(largest_number, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(largest_number, t2) {
+TEST(largestV, t2) {
     std::vector<int> nums = {3, 30, 34, 5, 9};
     string const output = "9534330";
 

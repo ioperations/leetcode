@@ -64,7 +64,7 @@ class Solution {
     }
 };
 
-TEST(palindromic_substrings, t1) {
+TEST(palindromicV, t1) {
     string const s = "abc";
     int const output = 3;
     // Explanation: Three palindromic strings: "a", "b", "c".
@@ -74,7 +74,7 @@ TEST(palindromic_substrings, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(palindromic_substrings, t2) {
+TEST(palindromicV, t2) {
     string const s = "aaa";
     int const output = 6;
     // Explanation: Six palindromic strings: "a", "a", "a", "aa", "aa", "aaa".
@@ -84,7 +84,7 @@ TEST(palindromic_substrings, t2) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(palindromic_substrings_v2, t1) {
+TEST(palindromicsubstringsV2, t1) {
     string const s = "abc";
     int const output = 3;
     // Explanation: Three palindromic strings: "a", "b", "c".
@@ -94,7 +94,7 @@ TEST(palindromic_substrings_v2, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(palindromic_substrings_v2, t2) {
+TEST(palindromicsubstringsV2, t2) {
     string const s = "aaa";
     int const output = 6;
     // Explanation: Six palindromic strings: "a", "a", "a", "aa", "aa", "aaa".

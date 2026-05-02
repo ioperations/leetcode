@@ -36,22 +36,22 @@ class Solution {
         for (auto& ptr : s) {
             stack.push(ptr);
 
-            if ((int)stack.size() >= k) {
-                for (int i = 0; i < k; i++) {
-                    v.push_back(stack.top());
-                    stack.pop();
-                }
+            if (static_cast<int>(stack.size()) >= k) {
+              for (int i = 0; i < k; i++) {
+                v.push_back(stack.top());
+                stack.pop();
+              }
 
-                // if all Elements in v is equal
-                // then continue;
-                // else
-                // pop these pack
-                if (!AllEuqual(v)) {
-                    for (auto it = v.rbegin(); it != v.rend(); ++it) {
-                        stack.push(*it);
-                    }
+              // if all Elements in v is equal
+              // then continue;
+              // else
+              // pop these pack
+              if (!AllEuqual(v)) {
+                for (auto it = v.rbegin(); it != v.rend(); ++it) {
+                  stack.push(*it);
                 }
-                v.clear();
+              }
+              v.clear();
             }
         }
 
@@ -89,17 +89,18 @@ class SolutionV2 {
 
     string RemoveDuplicatesV2(const string& s, int k) {
         stack<Node> st;  // stack to save character and count
-        for (int i = 0; i < (int)s.length(); i++) {
-            if (st.empty())
-                st.push({s[i], 1});
-            else {
-                if (st.top().m_c == s[i])
-                    st.top().m_cnt++;
-                else
-                    st.push({s[i], 1});
+        for (int i = 0; i < static_cast<int>(s.length()); i++) {
+          if (st.empty()) {
+            st.push({s[i], 1});
+          } else {
+            if (st.top().m_c == s[i]) {
+              st.top().m_cnt++;
+            } else {
+              st.push({s[i], 1});
             }
+          }
 
-            if (st.top().m_cnt == k) st.pop();  // if make k len characters
+          if (st.top().m_cnt == k) st.pop();  // if make k len characters
         }
 
         // make a sentence from stack
@@ -120,13 +121,13 @@ class SolutionV2 {
 
         stack<pair<char, int>> stk;
         for (int i = 0; i < n; ++i) {
-            if (stk.empty() || stk.top().first != s[i])
-                stk.emplace(s[i], 1);
-            else {
-                auto prev = stk.top();
-                stk.pop();
-                stk.emplace(s[i], prev.second + 1);
-            }
+          if (stk.empty() || stk.top().first != s[i]) {
+            stk.emplace(s[i], 1);
+          } else {
+            auto prev = stk.top();
+            stk.pop();
+            stk.emplace(s[i], prev.second + 1);
+          }
             if (stk.top().second == k) stk.pop();
         }
 

@@ -41,7 +41,7 @@ class Solution {
         Node n;
         Node* start = &n;
         Node* node_child = start;
-        Node* node = root;
+        Node const* node = root;
 
         while (node != nullptr) {
             while (node != nullptr) {  // Connect node child

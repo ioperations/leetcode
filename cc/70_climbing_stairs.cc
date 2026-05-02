@@ -60,7 +60,7 @@ class SolutionV2 {
     }
 };
 
-TEST(climbing_stairs, t1) {
+TEST(climbingV, t1) {
     Solution sl;
     int const ret = sl.ClimbStairs(2);
 
@@ -72,7 +72,7 @@ TEST(climbing_stairs, t1) {
     EXPECT_EQ(ret, 2);
 }
 
-TEST(climbing_stairs_v2, t1) {
+TEST(climbingstairsV2, t1) {
     SolutionV2 sl;
     int const ret = sl.ClimbStairs(2);
 
@@ -84,7 +84,7 @@ TEST(climbing_stairs_v2, t1) {
     EXPECT_EQ(ret, 2);
 }
 
-TEST(climbing_stairs, t2) {
+TEST(climbingV, t2) {
     Solution sl;
     int const ret = sl.ClimbStairs(3);
 
@@ -97,7 +97,7 @@ TEST(climbing_stairs, t2) {
     EXPECT_EQ(ret, 3);
 }
 
-TEST(climbing_stairs_v2, t2) {
+TEST(climbingstairsV2, t2) {
     SolutionV2 sl;
     int const ret = sl.ClimbStairs(3);
 

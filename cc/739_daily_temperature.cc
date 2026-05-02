@@ -36,7 +36,7 @@ class Solution {
     }
 };
 
-TEST(daily_temperature, t1) {
+TEST(dailyV, t1) {
     std::vector<int> temperatures{73, 74, 75, 71, 69, 72, 76, 73};
     vector<int> const output{1, 1, 4, 2, 1, 1, 0, 0};
     Solution sl;
@@ -44,7 +44,7 @@ TEST(daily_temperature, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(daily_temperature, t2) {
+TEST(dailyV, t2) {
     std::vector<int> temperatures{30, 40, 50, 60};
     vector<int> const output{1, 1, 1, 0};
     Solution sl;
@@ -52,7 +52,7 @@ TEST(daily_temperature, t2) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(daily_temperature, t3) {
+TEST(dailyV, t3) {
     std::vector<int> temperatures{30, 60, 90};
     vector<int> const output{1, 1, 0};
     Solution sl;

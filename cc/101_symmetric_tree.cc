@@ -35,36 +35,37 @@ class Solution {
             return false;
         }
 
-        for (int i = 0; i < (int)p.size(); i++) {
-            if (p[i] != q[i]) {
-                return false;
-            }
+        for (int i = 0; i < static_cast<int>(p.size()); i++) {
+          if (p[i] != q[i]) {
+            return false;
+          }
         }
 
         return true;
     }
 
     template <bool from_left_to_right>
-    void Inorder(TreeNode* root, std::function<void(const TreeNode*)> fun) {
-        if (root == nullptr) {
-            return;
-        }
+    void Inorder(TreeNode* root,
+                 const std::function<void(const TreeNode*)>& fun) {
+      if (root == nullptr) {
+        return;
+      }
 
-        if constexpr (from_left_to_right) {
-            Inorder<from_left_to_right>(root->left, fun);
-            fun(root);
-            Inorder<from_left_to_right>(root->right, fun);
-        } else {
-            Inorder<from_left_to_right>(root->right, fun);
-            fun(root);
-            Inorder<from_left_to_right>(root->left, fun);
-        }
+      if constexpr (from_left_to_right) {
+        Inorder<from_left_to_right>(root->left, fun);
+        fun(root);
+        Inorder<from_left_to_right>(root->right, fun);
+      } else {
+        Inorder<from_left_to_right>(root->right, fun);
+        fun(root);
+        Inorder<from_left_to_right>(root->left, fun);
+      }
     }
 };
 
 #define null std::nullopt
 
-TEST(symmetric_tree, t1) {
+TEST(symmetricV, t1) {
     /*
                           ___
                          | 1 |
@@ -86,7 +87,7 @@ TEST(symmetric_tree, t1) {
     Tree::FreeTreeNode(root);
 }
 
-TEST(symmetric_tree, t2) {
+TEST(symmetricV, t2) {
     /*
                           ___
                          | 1 |

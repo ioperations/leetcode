@@ -102,7 +102,7 @@ class SolutionV2 {
     };
 };
 
-TEST(reverse_pairs, t1) {
+TEST(reverseV, t1) {
     std::vector<int> nums = {1, 3, 2, 3, 1};
     int const expected = 2;
 
@@ -111,7 +111,7 @@ TEST(reverse_pairs, t1) {
     EXPECT_EQ(ret, expected);
 }
 
-TEST(reverse_pairs_v2, t1) {
+TEST(reversepairsV2, t1) {
     std::vector<int> nums = {1, 3, 2, 3, 1};
     int const expected = 2;
 
@@ -120,7 +120,7 @@ TEST(reverse_pairs_v2, t1) {
     EXPECT_EQ(ret, expected);
 }
 
-TEST(reverse_pairs, t2) {
+TEST(reverseV, t2) {
     std::vector<int> nums = {2, 4, 3, 5, 1};
     int const expected = 3;
 
@@ -129,7 +129,7 @@ TEST(reverse_pairs, t2) {
     EXPECT_EQ(ret, expected);
 }
 
-TEST(reverse_pairs_v2, t2) {
+TEST(reversepairsV2, t2) {
     std::vector<int> nums = {2, 4, 3, 5, 1};
     int const expected = 3;
 
@@ -138,7 +138,7 @@ TEST(reverse_pairs_v2, t2) {
     EXPECT_EQ(ret, expected);
 }
 
-TEST(reverse_pairs, t3) {
+TEST(reverseV, t3) {
     std::vector<int> nums = {2147483647, 2147483647, 2147483647,
                              2147483647, 2147483647, 2147483647};
     int const expected = 0;
@@ -147,7 +147,7 @@ TEST(reverse_pairs, t3) {
     int const ret = sl.ReversePairs(nums);
     EXPECT_EQ(ret, expected);
 }
-TEST(reverse_pairs_v2, t3) {
+TEST(reversepairsV2, t3) {
     std::vector<int> nums = {2147483647, 2147483647, 2147483647,
                              2147483647, 2147483647, 2147483647};
     int const expected = 0;

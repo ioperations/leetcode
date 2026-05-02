@@ -24,19 +24,19 @@ class Solution {
         if (root == nullptr) return ret;
 
         AddToRet(root, ret, 0);
-        for (int i = 1; i < (int)ret.size(); i += 2) {
-            reverse(ret[i].begin(), ret[i].end());
+        for (int i = 1; i < static_cast<int>(ret.size()); i += 2) {
+          reverse(ret[i].begin(), ret[i].end());
         }
         return ret;
     }
 
     void AddToRet(TreeNode* root, vector<vector<int>>& ret, int n = 0) {
         if (root) {
-            if ((int)ret.size() <= n) ret.resize(n + 1);
-            ret[n].push_back(root->val);
+          if (static_cast<int>(ret.size()) <= n) ret.resize(n + 1);
+          ret[n].push_back(root->val);
 
-            AddToRet(root->left, ret, n + 1);
-            AddToRet(root->right, ret, n + 1);
+          AddToRet(root->left, ret, n + 1);
+          AddToRet(root->right, ret, n + 1);
         }
     }
 };

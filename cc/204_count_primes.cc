@@ -23,7 +23,7 @@ class Solution {
     }
 };
 
-TEST(count_primes, t1) {
+TEST(countV, t1) {
     int const n = 10;
     int const output = 4;
     // Explanation: There are 4 prime numbers less than 10, they are 2, 3, 5, 7.
@@ -32,7 +32,7 @@ TEST(count_primes, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(count_primes, t2) {
+TEST(countV, t2) {
     int const n = 0;
     int const output = 0;
     Solution sl;
@@ -40,7 +40,7 @@ TEST(count_primes, t2) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(count_primes, t3) {
+TEST(countV, t3) {
     int const n = 1;
     int const output = 0;
     Solution sl;

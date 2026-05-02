@@ -38,7 +38,7 @@ class Solution {
     }
 };
 
-TEST(reverse_string, t1) {
+TEST(reverseV, t1) {
     std::vector<char> s = {'h', 'e', 'l', 'l', 'o'};
     std::vector<char> const output = {'o', 'l', 'l', 'e', 'h'
 
@@ -53,7 +53,7 @@ TEST(reverse_string, t1) {
     sl.ReverseStringV2(s);
     EXPECT_EQ(s, output);
 }
-TEST(reverse_string, t2) {
+TEST(reverseV, t2) {
     std::vector<char> s = {'H', 'a', 'n', 'n', 'a', 'h'};
     std::vector<char> const output = {'h', 'a', 'n', 'n', 'a', 'H'};
     Solution sl;

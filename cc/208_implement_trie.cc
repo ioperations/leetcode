@@ -151,7 +151,7 @@ class TrieV1 {
  * bool param_3 = obj->startsWith(prefix);
  */
 
-TEST(implement_trie, t1) {
+TEST(implementV, t1) {
     //    ["Trie", "insert", "search", "search", "startsWith", "insert",
     //    "search"]
     //    [[], ["apple"], ["apple"], ["app"], ["app"], ["app"], ["app"]]
@@ -172,7 +172,7 @@ TEST(implement_trie, t1) {
     delete trie;
 }
 
-TEST(implement_trie_v2, t1) {
+TEST(implementtrieV2, t1) {
     //    ["Trie", "insert", "search", "search", "startsWith", "insert",
     //    "search"]
     //    [[], ["apple"], ["apple"], ["app"], ["app"], ["app"], ["app"]]

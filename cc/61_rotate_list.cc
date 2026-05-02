@@ -108,7 +108,7 @@ void ExpectEqList(ListNode* const head, const std::vector<int>& elements) {
     EXPECT_EQ(i, elements.size());
 }
 
-TEST(rotate_list, t1) {
+TEST(rotateV, t1) {
     std::vector<int> const v{1, 2, 3, 4, 5};
     int const k = 2;
     std::vector<int> const output{4, 5, 1, 2, 3};
@@ -119,7 +119,7 @@ TEST(rotate_list, t1) {
     List::FreeList(head);
 };
 
-TEST(rotate_list, t2) {
+TEST(rotateV, t2) {
     std::vector<int> const v{0, 1, 2};
     int const k = 4;
     std::vector<int> const output{2, 0, 1};
@@ -130,7 +130,7 @@ TEST(rotate_list, t2) {
     List::FreeList(head);
 };
 
-TEST(rotate_list, t3) {
+TEST(rotateV, t3) {
     std::vector<int> const v{1, 2};
     int const k = 1;
     std::vector<int> const output{2, 1};
@@ -141,7 +141,7 @@ TEST(rotate_list, t3) {
     List::FreeList(head);
 };
 
-TEST(rotate_list, t4) {
+TEST(rotateV, t4) {
     std::vector<int> const v{1, 2};
     int const k = 1;
     std::vector<int> const output{2, 1};
@@ -152,7 +152,7 @@ TEST(rotate_list, t4) {
     List::FreeList(head);
 };
 
-TEST(rotate_list, t5) {
+TEST(rotateV, t5) {
     std::vector<int> const v{};
     int const k = 1;
     std::vector<int> const output{};
@@ -163,7 +163,7 @@ TEST(rotate_list, t5) {
     List::FreeList(head);
 };
 
-TEST(rotate_list, t6) {
+TEST(rotateV, t6) {
     std::vector<int> const v{1, 2, 3};
     int const k = 2000000000;
     std::vector<int> const output{2, 3, 1};
@@ -174,7 +174,7 @@ TEST(rotate_list, t6) {
     List::FreeList(head);
 };
 
-TEST(rotate_list, t7) {
+TEST(rotateV, t7) {
     std::vector<int> const v{1, 2};
     int const k = 2;
     std::vector<int> const output{1, 2};
@@ -185,7 +185,7 @@ TEST(rotate_list, t7) {
     List::FreeList(head);
 };
 
-TEST(rotate_list, t8) {
+TEST(rotateV, t8) {
     std::vector<int> const v{1, 2, 3};
     int const k = 3;
     std::vector<int> const output{1, 2, 3};
@@ -196,7 +196,7 @@ TEST(rotate_list, t8) {
     List::FreeList(head);
 }
 
-TEST(rotate_list, t9) {
+TEST(rotateV, t9) {
     std::vector<int> const v{1, 2, 3, 4, 5};
     int const k = 10;
     std::vector<int> const output{1, 2, 3, 4, 5};

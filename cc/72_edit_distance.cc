@@ -116,7 +116,7 @@ class Solution {
     }
 };
 
-TEST(edit_distance_v2, t2) {
+TEST(editdistanceV2, t2) {
     std::string word1 = "intention", word2 = "execution";
     int const output = 5;
     Solution s;
@@ -125,7 +125,7 @@ TEST(edit_distance_v2, t2) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(edit_distance_v2, t3) {
+TEST(editdistanceV2, t3) {
     std::string word1 = "horse", word2 = "ros";
 
     int const output = 3;
@@ -135,7 +135,7 @@ TEST(edit_distance_v2, t3) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(edit_distance_v2, t4) {
+TEST(editdistanceV2, t4) {
     std::string word1 = "dinitrophenylhydrazine",
                 word2 = "acetylphenylhydrazine";
 
@@ -146,7 +146,7 @@ TEST(edit_distance_v2, t4) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(edit_distance_v3, t2) {
+TEST(editdistanceV3, t2) {
     std::string word1 = "intention", word2 = "execution";
     int const output = 5;
     Solution s;
@@ -154,7 +154,7 @@ TEST(edit_distance_v3, t2) {
     int const ret = s.MinDistanceV3(word1, word2);
     EXPECT_EQ(ret, output);
 }
-TEST(edit_distance_v4, t3) {
+TEST(editdistanceV4, t3) {
     std::string word1 = "horse", word2 = "ros";
 
     int const output = 3;
@@ -163,7 +163,7 @@ TEST(edit_distance_v4, t3) {
     int const ret = s.MinDistanceV3(word1, word2);
     EXPECT_EQ(ret, output);
 }
-TEST(edit_distance_v4, t4) {
+TEST(editdistanceV4, t4) {
     std::string word1 = "dinitrophenylhydrazine",
                 word2 = "acetylphenylhydrazine";
 

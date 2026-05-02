@@ -113,7 +113,7 @@ TEST(base, t1) {
     EXPECT_EQ(expected, z);
 }
 
-TEST(reverse_bits, t1) {
+TEST(reverseV, t1) {
     std::string const input = "00000010100101000001111010011100";
     uint32_t const n = ConstructUint32T(input);  //
     uint32_t const expected = 964176192;  //( 00111001011110000010100101000000)
@@ -126,7 +126,7 @@ TEST(reverse_bits, t1) {
     EXPECT_EQ(ret_str, output_expected);
 }
 
-TEST(reverse_bits, t2) {
+TEST(reverseV, t2) {
     uint32_t const n = ConstructUint32T("11111111111111111111111111111101");  //
     uint32_t const expected = 3221225471;  // (10111111111111111111111111111111)
 

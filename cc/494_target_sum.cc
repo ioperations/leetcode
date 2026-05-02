@@ -51,7 +51,7 @@ class Solution {
     }
 };
 
-TEST(target_sum, t1) {
+TEST(targetV, t1) {
     std::vector<int> nums = {1, 1, 1, 1, 1};
     int const target = 3;
 
@@ -68,7 +68,7 @@ TEST(target_sum, t1) {
     EXPECT_EQ(ret, 5);
 }
 
-TEST(target_sum, t2) {
+TEST(targetV, t2) {
     std::vector<int> nums = {1};
     int const target = 1;
 

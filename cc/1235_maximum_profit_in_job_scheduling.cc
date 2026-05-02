@@ -20,8 +20,9 @@ class Solution {
     void SortByStartTime(vector<int>& start_time, vector<int>& end_time,
                          vector<int>& profit) {
         vector<vector<int>> tmp;
+        tmp.reserve(start_time.size());
         for (int i = 0; i < start_time.size(); i++) {
-            tmp.push_back({start_time[i], end_time[i], profit[i]});
+          tmp.push_back({start_time[i], end_time[i], profit[i]});
         }
         sort(tmp.begin(), tmp.end());
         for (int i = 0; i < start_time.size(); i++) {

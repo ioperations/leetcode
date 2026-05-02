@@ -106,7 +106,7 @@ class SolutionV2 {
     }
 };
 
-TEST(simplify_path, t1) {
+TEST(simplifyV, t1) {
     std::string const path = "/home/";
     std::string const output = "/home";
     // Explanation : Note that there is no trailing slash after the last
@@ -117,7 +117,7 @@ TEST(simplify_path, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(simplify_path, t2) {
+TEST(simplifyV, t2) {
     std::string const path = "/../";
     std::string const output = "/";
     // Explanation: Going one level up from the root directory is a no-op, as
@@ -127,7 +127,7 @@ TEST(simplify_path, t2) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(simplify_path, t3) {
+TEST(simplifyV, t3) {
     std::string const path = "/home//foo/";
     std::string const output = "/home/foo";
     // Explanation: In the canonical path, multiple consecutive slashes are
@@ -137,7 +137,7 @@ TEST(simplify_path, t3) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(simplify_path_v2, t1) {
+TEST(simplifypathV2, t1) {
     std::string const path = "/home/";
     std::string const output = "/home";
     // Explanation : Note that there is no trailing slash after the last
@@ -148,7 +148,7 @@ TEST(simplify_path_v2, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(simplify_path_v2, t2) {
+TEST(simplifypathV2, t2) {
     std::string const path = "/../";
     std::string const output = "/";
     // Explanation: Going one level up from the root directory is a no-op, as
@@ -158,7 +158,7 @@ TEST(simplify_path_v2, t2) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(simplify_path_v2, t3) {
+TEST(simplifypathV2, t3) {
     std::string const path = "/home//foo/";
     std::string const output = "/home/foo";
     // Explanation: In the canonical path, multiple consecutive slashes are

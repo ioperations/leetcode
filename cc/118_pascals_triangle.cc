@@ -30,8 +30,10 @@ class Solution {
             r.push_back(0);
 
             vector<int> next;
-            for (int i = 0; i < (int)r.size(); i++)
-                next.push_back((i == 0 ? 0 : r[i - 1]) + r[i]);
+            next.reserve((int)r.size());
+            for (int i = 0; i < static_cast<int>(r.size()); i++) {
+              next.push_back((i == 0 ? 0 : r[i - 1]) + r[i]);
+            }
 
             r.pop_back();
             ret.push_back(next);
@@ -41,7 +43,7 @@ class Solution {
     }
 };
 
-TEST(pascals_triangle, t1) {
+TEST(pascalsV, t1) {
     int const num_rows = 5;
     std::vector<std::vector<int>> output = {
         {1}, {1, 1}, {1, 2, 1}, {1, 3, 3, 1}, {1, 4, 6, 4, 1}};
@@ -54,7 +56,7 @@ TEST(pascals_triangle, t1) {
     EXPECT_EQ(ret_set, output_set);
 }
 
-TEST(pascals_triangle, t2) {
+TEST(pascalsV, t2) {
     int const num_rows = 1;
     std::vector<std::vector<int>> output = {{1}};
 
