@@ -34,7 +34,6 @@ order.
 #include <vector>
 
 #include "gtest/gtest.h"
-#include "llvm/ADT/STLExtras.h"
 
 using namespace std;
 
@@ -55,8 +54,8 @@ class UndergroundSystem {
     }
 
     void CheckOut(int id, const string& station_name, int t) {
-      auto it = llvm::find_if(
-          m_wait, [&](const std::pair<int, Node>& n) { return id == n.first; });
+      auto it = std::find_if(
+          m_wait.begin(), m_wait.end(), [&](const std::pair<int, Node>& n) { return id == n.first; });
       if (it == m_wait.end()) return;
       Node const n = it->second;
       std::string const s =
@@ -75,7 +74,7 @@ class UndergroundSystem {
           start_station < end_station ? start_station : end_station;
       double sum = 0;
       auto& z = m_already[make_pair(s, d)];
-      llvm::for_each(z, [&](int n) { sum += n; });
+      std::for_each(z.begin(), z.end(), [&](int n) { sum += n; });
 
       return z.size() ? sum / z.size() : 0;
     }
