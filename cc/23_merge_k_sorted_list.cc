@@ -3,7 +3,6 @@
 // https://pvs-studio.com
 
 #include <cmath>
-#include <cstddef>
 #include <limits>
 #include <queue>
 #include <utility>
@@ -156,9 +155,7 @@ class Solution {
     ///* 听说用最小堆,还可以用败者树
     MyListNode* MergeKLists(vector<MyListNode*>& lists) {
         // 我们记录这一路 走到了什么位置
-        std::vector<MyListNode*> cursors;
-
-        cursors = lists;
+        std::vector<MyListNode*> cursors = lists;
 
         // 对于每一路我们拿出值最小的那个值(这个node !=
         // nullptr)，并将这一路的游标向右移动一格
@@ -168,10 +165,10 @@ class Solution {
 
         int first = true;
 
+        const int val = std::numeric_limits<int>::max();
         while (true) {
             // 所以现在的问题是怎样确定这个candidate
             MyListNode* candidate = nullptr;
-            const int val = std::numeric_limits<int>::max();
             for (auto& cur_cursor : cursors) {
                 if (cur_cursor == nullptr) {
                     continue;
