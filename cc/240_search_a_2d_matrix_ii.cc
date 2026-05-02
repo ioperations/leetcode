@@ -22,10 +22,11 @@ class Solution {
         while (l < r) {
             int const mid = l + (r - l) / 2;
             if (row[mid] == target) return true;
-            if (row[mid] > target)
+            if (row[mid] > target) {
                 r = mid;
-            else
+            } else {
                 l = mid + 1;
+            }
         }
         return false;
     }

@@ -25,8 +25,8 @@ class Solution {
     vector<vector<int>> PalindromePairs(vector<string>& words) {
         vector<vector<int>> ret;
 
-        for (int i = 0; i < (int)words.size() - 1; i++) {
-            for (int j = i + 1; j < (int)words.size(); j++) {
+        for (int i = 0; i < static_cast<int>(words.size()) - 1; i++) {
+            for (int j = i + 1; j < static_cast<int>(words.size()); j++) {
                 if (IsPalindromePairs(words, i, j)) {
                     ret.push_back({i, j});
                 }

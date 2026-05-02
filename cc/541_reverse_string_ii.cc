@@ -26,7 +26,7 @@ class Solution {
     string ReverseStr(string s, int k) {
         // pass
 
-        for (int i = 0; i < (int)s.size(); i += 2 * k) {
+        for (int i = 0; i < static_cast<int>(s.size()); i += 2 * k) {
             ReverseStr(s, i, i + k - 1);
         }
 
@@ -34,17 +34,18 @@ class Solution {
     }
 
     string ReverseStrV2(std::string s, int k) {
-        if (k >= (int)s.length()) {
+        if (k >= static_cast<int>(s.length())) {
             reverse(s.begin(), s.end());
             return s;
         }
         int q = 0;
-        for (int i = 0; i < (int)s.length(); i += k) {
+        for (int i = 0; i < static_cast<int>(s.length()); i += k) {
             if (q % 2 == 0) {
-                if (i + k < (int)s.length())
+                if (i + k < static_cast<int>(s.length())) {
                     reverse(s.begin() + i, s.begin() + i + k);
-                else
+                } else {
                     reverse(s.begin() + i, s.end());
+                }
             }
             q++;
         }
@@ -52,16 +53,16 @@ class Solution {
     }
 
     void ReverseStr(string& s, int start, int end) {
-        if (start >= (int)s.size()) {
+        if (start >= static_cast<int>(s.size())) {
             return;
         }
         // pass
         std::stack<char> stack;
-        for (int i = start; i < (end + 1) && i < (int)s.size(); i++) {
+        for (int i = start; i < (end + 1) && i < static_cast<int>(s.size()); i++) {
             stack.push(s[i]);
         }
 
-        for (int i = start; i < end + 1 && i < (int)s.size(); i++) {
+        for (int i = start; i < end + 1 && i < static_cast<int>(s.size()); i++) {
             s[i] = stack.top();
             stack.pop();
         }

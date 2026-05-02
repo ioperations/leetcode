@@ -30,7 +30,7 @@ class Solution {
         while (n--) n_digits *= 10;
         unsigned long candidate = 0, max_offset = 0;
         long i = 0, j = 0;
-        for (i = 1; i < (int)n_digits; i += 2) {
+        for (i = 1; i < static_cast<int>(n_digits); i += 2) {
             // int cnt = 0;
             if (!((n_digits - i) % 11)) {
                 unsigned long start = 0;

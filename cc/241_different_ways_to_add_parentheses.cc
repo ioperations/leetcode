@@ -23,7 +23,7 @@ class Solution {
    public:
     vector<int> DiffWaysToCompute(string str) {
         vector<int> ans;
-        for (int i = 0; i < (int)str.size(); i++) {
+        for (int i = 0; i < static_cast<int>(str.size()); i++) {
             if (str[i] == '+' || str[i] == '-' || str[i] == '*') {
                 vector<int> const left = DiffWaysToCompute(str.substr(0, i));
                 vector<int> const right = DiffWaysToCompute(str.substr(i + 1));

@@ -60,7 +60,7 @@ class Solution {
     int FurthestBuilding2(vector<int>& heights, int bricks, int ladders) {
         int total_count = 0;
         priority_queue<int> max_heap;
-        for (int i = 0; i < (int)heights.size() - 1; i++) {
+        for (int i = 0; i < static_cast<int>(heights.size()) - 1; i++) {
             // If height of next building is smaller jump on it
             if (heights[i] >= heights[i + 1]) {
                 continue;

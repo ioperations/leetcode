@@ -44,7 +44,7 @@ class Solution {
 
             int ret = -1;
 
-            for (int i = (int)coins.size() - 1; i >= 0; i--) {
+            for (int i = static_cast<int>(coins.size()) - 1; i >= 0; i--) {
                 if (coins[i] <= a) {
                     int const tmp = fun(a - coins[i]);
                     cache[a - coins[i]] = tmp;

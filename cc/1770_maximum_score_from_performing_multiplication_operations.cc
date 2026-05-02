@@ -44,7 +44,7 @@ class Solution {
 
     int Dfs(int i, int j, vector<vector<int>>& dp, vector<int>& nums,
             vector<int>& mul, int m) {
-        if (m >= (int)mul.size()) return 0;
+        if (m >= static_cast<int>(mul.size())) return 0;
         if (dp[i][j] != INT_MIN) return dp[i][j];
         int const idx = nums.size() - j - 1;
         int const l = nums[idx] * mul[m] + Dfs(i, j + 1, dp, nums, mul, m + 1);

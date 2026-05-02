@@ -58,12 +58,12 @@ class Solution {
                                         // them, but can only complete with a
                                         // pill. Needs to be in descending order
 
-        while (t < (int)tasks.size()) {
-            while (w < (int)workers.size() && workers[w] == -1)
+        while (t < static_cast<int>(tasks.size())) {
+            while (w < static_cast<int>(workers.size()) && workers[w] == -1)
                 w++;  // Find next worker that has not already been processed
 
-            if (w >= (int)workers
-                         .size())  // If we've run out of workers, look to see
+            if (w >= static_cast<int>(workers
+                         .size()))  // If we've run out of workers, look to see
                                    // if any in the queue can solve the task.
             {
                 if (!workers_q.empty() && workers_q.top() > tasks[t]) {

@@ -23,12 +23,12 @@ class Solution {
    public:
     void Solve(vector<vector<char> >& v, vector<string>& ans, string digits,
                int pos, string s) {
-        if (pos == (int)digits.size()) {
+        if (pos == static_cast<int>(digits.size())) {
             if (s != "") ans.push_back(s);
             return;
         }
         const int temp = digits[pos] - '0';
-        for (int i = 0; i < (int)v[temp].size(); i++) {
+        for (int i = 0; i < static_cast<int>(v[temp].size()); i++) {
             s.push_back(v[temp][i]);
             Solve(v, ans, digits, pos + 1, s);
             s.pop_back();

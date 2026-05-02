@@ -59,8 +59,8 @@ Space Complexity: O(1), constant space.
     }
     int KthSmallestV2(vector<vector<int>>& matrix, int k) {
         priority_queue<int, vector<int>, greater<>> pq;
-        for (int i = 0; i < (int)matrix.size(); i++) {
-            for (int j = 0; j < (int)matrix.size(); j++) {
+        for (int i = 0; i < static_cast<int>(matrix.size()); i++) {
+            for (int j = 0; j < static_cast<int>(matrix.size()); j++) {
                 pq.push(matrix[i][j]);
             }
         }

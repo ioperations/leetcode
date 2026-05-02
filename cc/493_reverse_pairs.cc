@@ -24,8 +24,8 @@ class Solution {
         // pass
 
         int count = 0;
-        for (int i = 0; i < (int)nums.size(); i++) {
-            for (int j = i + 1; j < (int)nums.size(); j++) {
+        for (int i = 0; i < static_cast<int>(nums.size()); i++) {
+            for (int j = i + 1; j < static_cast<int>(nums.size()); j++) {
                 if (nums[i] / 2 > nums[j]) {
                     count++;
                 }

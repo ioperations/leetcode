@@ -107,8 +107,8 @@ class Solution {
         // pass
 
         vector<int> z(matrix.size() * matrix.size(), 0);
-        for (int i = 0; i < (int)matrix.size(); i++) {
-            for (int j = 0; j < (int)matrix.size(); j++) {
+        for (int i = 0; i < static_cast<int>(matrix.size()); i++) {
+            for (int j = 0; j < static_cast<int>(matrix.size()); j++) {
                 z[i + j] = matrix[i][j];
             }
         }

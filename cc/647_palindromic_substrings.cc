@@ -19,9 +19,9 @@ namespace {
 class Solution {
    public:
     int CountSubstrings(string s) {
-        int count = s.size();
-        for (int i = 0; i < (int)s.size(); i++) {
-            for (int j = i + 1; j < (int)s.size(); j++) {
+        int count = static_cast<int>(s.size());
+        for (int i = 0; i < static_cast<int>(s.size()); i++) {
+            for (int j = i + 1; j < static_cast<int>(s.size()); j++) {
                 if (IsParlindromic(s, i, j)) {
                     count++;
                 }

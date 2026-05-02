@@ -47,7 +47,7 @@ class Solution {
             return map[tuple];
         };
 
-        return fun(0, (int)(card_points.size() - 1), k);
+        return fun(0, static_cast<int>(card_points.size() - 1), k);
     }
     int MaxScoreV2(vector<int>& card_points, int k) {
         long long const sum =
@@ -68,7 +68,7 @@ class Solution {
                 window_sum -= left;
             }
             if (r - l == window_size) {
-                ans = max(ans, (int)(sum - window_sum));
+                ans = max(ans, static_cast<int>(sum - window_sum));
             }
         }
         return ans;

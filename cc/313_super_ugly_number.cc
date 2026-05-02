@@ -22,7 +22,7 @@ class Solution {
         vector<int> dp(n2, 0);
         vector<long long> ans{1};
 
-        while ((int)ans.size() < n) {
+        while (static_cast<int>(ans.size()) < n) {
             int mn = 0;
             for (int i = 0; i < n2; i++)
                 if (ans[dp[i]] * primes[i] < ans[dp[mn]] * primes[mn]) mn = i;

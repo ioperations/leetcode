@@ -28,11 +28,11 @@ class Solution {
     int FindPairs(vector<int>& nums, int k) {
         sort(nums.begin(), nums.end());
         int ret = 0;
-        for (int i = 0; i < (int)nums.size(); i++) {
+        for (int i = 0; i < static_cast<int>(nums.size()); i++) {
             if (binary_search(nums.begin() + i + 1, nums.end(), k + nums[i])) {
                 ret++;
             }
-            while (i + 1 < (int)nums.size() && nums[i + 1] == nums[i]) {
+            while (i + 1 < static_cast<int>(nums.size()) && nums[i + 1] == nums[i]) {
                 i++;
             }
         }

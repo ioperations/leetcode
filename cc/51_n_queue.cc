@@ -59,14 +59,14 @@ class Solution {
         // Base condition.
         // We reached the last row, so we have a solution so we add it to the
         // solution vector
-        if (row == (int)size(board)) {
+        if (row == static_cast<int>(size(board))) {
             m_sols.push_back(board);
             return;
         }
         // Try placing a queen on each column for a given row.
         // Explore next row by placing Q at each valid column for the current
         // row
-        for (int col = 0; col < (int)size(board); col++) {
+        for (int col = 0; col < static_cast<int>(size(board)); col++) {
             if (IsSafe(board, row, col)) {
                 board[row][col] = 'Q';  // Queen placed on a valid cell
                 Solve(board, row + 1);  // Exploring next row

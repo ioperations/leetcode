@@ -41,7 +41,7 @@ class Solution {
 
         int popped = INT_MIN;
 
-        for (int i = 0; i < (int)nums.size(); i++) {
+        for (int i = 0; i < static_cast<int>(nums.size()); i++) {
             auto a = nums[i];
             if ((v >> i & 1) || a == popped) continue;
             perm.push_back(a);

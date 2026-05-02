@@ -26,11 +26,11 @@ class Solution {
         unordered_map<string, int> pos;
         vector<string> ans;
         int min_sum = INT_MAX;
-        for (int i = 0; i < (int)list1.size(); i++) {
+        for (int i = 0; i < static_cast<int>(list1.size()); i++) {
             string const key = list1[i];
             pos[key] = i + 1;
         }
-        for (int i = 0; i < (int)list2.size(); i++) {
+        for (int i = 0; i < static_cast<int>(list2.size()); i++) {
             string const st = list2[i];
             if (pos[st] > 0) {
                 int const sum = i + 1 + pos[st];
