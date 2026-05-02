@@ -75,7 +75,7 @@ class Solution {
     }
 };
 
-TEST(stamping_the_sequence, t1) {
+TEST(StampingTheSequence, t1) {
     string stamp = "abc", target = "ababc";
     vector<int> const output = {0, 2};
     /*Explanation: Initially s = "?????".
@@ -88,7 +88,7 @@ TEST(stamping_the_sequence, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(stamping_the_sequence, t2) {
+TEST(StampingTheSequence, t2) {
     string stamp = "abca", target = "aabcaca";
     vector<int> const output = {0, 3, 1};
     /*Explanation: Initially s = "???????".

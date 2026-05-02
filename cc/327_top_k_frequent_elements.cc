@@ -68,7 +68,7 @@ class Solution {
     }
 };
 
-TEST(top_k_frequent_elements, t1) {
+TEST(TopKFrequentElements, t1) {
     std::vector<int> nums = {1, 1, 1, 2, 2, 3};
     int const k = 2;
     std::vector<int> const output = {1, 2};
@@ -79,7 +79,7 @@ TEST(top_k_frequent_elements, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(top_k_frequent_elements_v2, t1) {
+TEST(TopKFrequentElementsV2, t1) {
     std::vector<int> nums = {1, 1, 1, 2, 2, 3};
     int const k = 2;
     std::vector<int> const output = {1, 2};
@@ -90,7 +90,7 @@ TEST(top_k_frequent_elements_v2, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(top_k_frequent_elements, t2) {
+TEST(TopKFrequentElements, t2) {
     std::vector<int> nums = {1};
     int const k = 1;
     std::vector<int> const output = {1};
@@ -101,7 +101,7 @@ TEST(top_k_frequent_elements, t2) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(top_k_frequent_elements_v2, t2) {
+TEST(TopKFrequentElementsV2, t2) {
     std::vector<int> nums = {1};
     int const k = 1;
     std::vector<int> const output = {1};

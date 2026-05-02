@@ -54,7 +54,7 @@ class Solution {
     }
 };
 
-TEST(memleak, t0) {
+TEST(Memleak, t0) {
     std::vector<int> p = {1, 2, 3}, q = {1, 2, 3};
 
     auto* root = ConstructTree(p);

@@ -33,28 +33,28 @@ class Solution {
     }
 };
 
-TEST(longest_substring_without_repeating_characters_v3, t2) {
+TEST(LongestSubstringWithoutRepeatingCharactersV3, t2) {
     std::string const s("bbbbb");
     Solution sss;
     int const ret = sss.LengthOfLongestSubstring(s);
     EXPECT_EQ(1, ret);
 }
 
-TEST(longest_substring_without_repeating_characters_v2, t2) {
+TEST(LongestSubstringWithoutRepeatingCharactersV2, t2) {
     std::string const s("abcabcbb");
     Solution sss;
     int const ret = sss.LengthOfLongestSubstring(s);
     EXPECT_EQ(3, ret);
 }
 
-TEST(longest_substring_without_repeating_characters_v2, t2ss) {
+TEST(LongestSubstringWithoutRepeatingCharactersV2, t2ss) {
     std::string const s("");
     Solution sss;
     int const ret = sss.LengthOfLongestSubstring(s);
     EXPECT_EQ(0, ret);
 }
 
-TEST(t1sss, t2ss) {
+TEST(T1sss, t2ss) {
     std::string const s("pwwkew");
     Solution sss;
     int const ret = sss.LengthOfLongestSubstring(s);

@@ -46,13 +46,13 @@ class Solution {
     }
 };
 
-TEST(memleak, t1) {
+TEST(Memleak, t1) {
     ListNode* head = ConstructList(std::vector<int>{3, 2, 0, -4});
 
     FreeList(head);
 }
 
-TEST(linked_list_cycle, t1) {
+TEST(LinkedListCycle, t1) {
     /*
              ___       ___         ___       ___
             | 3 |---->| 2 |------>| 0 |---->|-4 |------|
@@ -84,7 +84,7 @@ TEST(linked_list_cycle, t1) {
     FreeList(head);
 }
 
-TEST(linked_list_cycle, t2) {
+TEST(LinkedListCycle, t2) {
     /*
          ___       ___
         | 1 |---->| 2 |------|
@@ -114,7 +114,7 @@ TEST(linked_list_cycle, t2) {
     FreeList(head);
 }
 
-TEST(linked_list_cycle, t3) {
+TEST(LinkedListCycle, t3) {
     /*
          ___
         | 1 |
@@ -131,7 +131,7 @@ TEST(linked_list_cycle, t3) {
     FreeList(head);
 }
 
-TEST(linked_list_cycle, t4) {
+TEST(LinkedListCycle, t4) {
     ListNode* head = ConstructList(std::vector<int>{});
 
     Solution s;

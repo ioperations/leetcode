@@ -45,7 +45,7 @@ class Solution {
     }
 };
 
-TEST(maximum_area_of_a_piece_of_cake_after_horizontal_and_vertical_cuts, t1) {
+TEST(MaximumAreaOfAPieceOfCakeAfterHorizontalAndVerticalCuts, t1) {
     int h = 5, w = 4;
     vector<int> horizontal_cuts = {1, 2, 4};
     vector<int> vertical_cuts = {1, 3};
@@ -58,7 +58,7 @@ TEST(maximum_area_of_a_piece_of_cake_after_horizontal_and_vertical_cuts, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(maximum_area_of_a_piece_of_cake_after_horizontal_and_vertical_cuts, t2) {
+TEST(MaximumAreaOfAPieceOfCakeAfterHorizontalAndVerticalCuts, t2) {
     int h = 5, w = 4;
     vector<int> horizontal_cuts = {3, 1};
     vector<int> vertical_cuts = {1};
@@ -71,7 +71,7 @@ TEST(maximum_area_of_a_piece_of_cake_after_horizontal_and_vertical_cuts, t2) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(maximum_area_of_a_piece_of_cake_after_horizontal_and_vertical_cuts, t3) {
+TEST(MaximumAreaOfAPieceOfCakeAfterHorizontalAndVerticalCuts, t3) {
     int h = 5, w = 4;
     vector<int> horizontal_cuts = {3};
     vector<int> vertical_cuts = {3};

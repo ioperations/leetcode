@@ -115,7 +115,7 @@ class NumArray {
     }
 };
 
-TEST(range_sum_query_mutable, t1) {
+TEST(RangeSumQueryMutable, t1) {
     /**
      * Your NumArray object will be instantiated and called as such:
      * NumArray* obj = new NumArray(nums);

@@ -34,31 +34,31 @@ class Solution {
     }
 };
 
-TEST(r1, t2) {
+TEST(R1, t2) {
     std::string const in("abcabcbb");
     Solution slu;
     int const ret = slu.LengthOfLongestSubstring(in);
     EXPECT_EQ(ret, 3);
 }
-TEST(r1, t3) {
+TEST(R1, t3) {
     std::string const in("bbbbbb");
     Solution slu;
     int const ret = slu.LengthOfLongestSubstring(in);
     EXPECT_EQ(ret, 1);
 }
-TEST(r1, t4) {
+TEST(R1, t4) {
     std::string const in("pwwwkew");
     Solution slu;
     int const ret = slu.LengthOfLongestSubstring(in);
     EXPECT_EQ(ret, 3);
 }
-TEST(r1, t5) {
+TEST(R1, t5) {
     std::string const in("");
     Solution slu;
     int const ret = slu.LengthOfLongestSubstring(in);
     EXPECT_EQ(ret, 0);
 }
-TEST(r2, t2) {
+TEST(R2, t2) {
     std::string const in("aab");
     Solution slu;
     int const ret = slu.LengthOfLongestSubstring(in);

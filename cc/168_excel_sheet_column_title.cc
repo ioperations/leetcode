@@ -31,31 +31,31 @@ class Solution {
     }
 };
 
-TEST(excel_sheet_column_title, t1) {
+TEST(ExcelSheetColumnTitle, t1) {
     Solution s;
     auto ret = s.ConvertToTitle(1);
     EXPECT_EQ(ret, "A");
 }
 
-TEST(excel_sheet_column_title, t2) {
+TEST(ExcelSheetColumnTitle, t2) {
     Solution s;
     auto ret = s.ConvertToTitle(26);
     EXPECT_EQ(ret, "Z");
 }
 
-TEST(excel_sheet_column_title, t3) {
+TEST(ExcelSheetColumnTitle, t3) {
     Solution s;
     auto ret = s.ConvertToTitle(28);
     EXPECT_EQ(ret, "AB");
 }
 
-TEST(excel_sheet_column_title, t4) {
+TEST(ExcelSheetColumnTitle, t4) {
     Solution s;
     auto ret = s.ConvertToTitle(27);
     EXPECT_EQ(ret, "AA");
 }
 
-TEST(excel_sheet_column_title, t5) {
+TEST(ExcelSheetColumnTitle, t5) {
     Solution s;
     auto ret = s.ConvertToTitle(701);
     EXPECT_EQ(ret, "ZY");

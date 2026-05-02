@@ -101,7 +101,7 @@ class Solution {
     }
 };
 
-TEST(minimal_number_of_refueling_stops, t1) {
+TEST(MinimalNumberOfRefuelingStops, t1) {
     int target = 1, start_fuel = 1;
     vector<vector<int>> stations = {};
     int const output = 0;
@@ -111,7 +111,7 @@ TEST(minimal_number_of_refueling_stops, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(minimal_number_of_refueling_stops, t2) {
+TEST(MinimalNumberOfRefuelingStops, t2) {
     int target = 100, start_fuel = 0;
     vector<vector<int>> stations = {{10, 100}};
     int const output = -1;
@@ -121,7 +121,7 @@ TEST(minimal_number_of_refueling_stops, t2) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(minimal_number_of_refueling_stops, t3) {
+TEST(MinimalNumberOfRefuelingStops, t3) {
     int target = 100, start_fuel = 10;
     vector<vector<int>> stations = {{10, 60}, {20, 30}, {30, 30}, {60, 40}};
     int const output = 2;

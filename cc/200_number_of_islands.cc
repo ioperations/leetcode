@@ -150,7 +150,7 @@ class Solution {
     }
 };
 
-TEST(number_of_islands, t1) {
+TEST(NumberOfIslands, t1) {
     std::vector<std::vector<char>> grid = {{'1', '1', '1', '1', '0'},
                                            {'1', '1', '0', '1', '0'},
                                            {'1', '1', '0', '0', '0'},
@@ -162,7 +162,7 @@ TEST(number_of_islands, t1) {
     EXPECT_EQ(ret, expected);
 }
 
-TEST(number_of_islands_v2, t1) {
+TEST(NumberOfIslandsV2, t1) {
     std::vector<std::vector<char>> grid = {{'1', '1', '1', '1', '0'},
                                            {'1', '1', '0', '1', '0'},
                                            {'1', '1', '0', '0', '0'},
@@ -174,7 +174,7 @@ TEST(number_of_islands_v2, t1) {
     EXPECT_EQ(ret, expected);
 }
 
-TEST(number_of_islands, t2) {
+TEST(NumberOfIslands, t2) {
     std::vector<std::vector<char>> grid = {{'1', '1', '0', '0', '0'},
                                            {'1', '1', '0', '0', '0'},
                                            {'0', '0', '1', '0', '0'},
@@ -186,7 +186,7 @@ TEST(number_of_islands, t2) {
     EXPECT_EQ(ret, expected);
 }
 
-TEST(number_of_islands_v2, t2) {
+TEST(NumberOfIslandsV2, t2) {
     std::vector<std::vector<char>> grid = {{'1', '1', '0', '0', '0'},
                                            {'1', '1', '0', '0', '0'},
                                            {'0', '0', '1', '0', '0'},

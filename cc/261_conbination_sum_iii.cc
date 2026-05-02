@@ -41,7 +41,7 @@ class Solution {
     }
 };
 
-TEST(conbination_sum_iii, t1) {
+TEST(ConbinationSumIii, t1) {
     int k = 3, n = 7;
     std::vector<vector<int>> const output = {{1, 2, 4}};
 
@@ -53,7 +53,7 @@ TEST(conbination_sum_iii, t1) {
     /* 1 + 2 + 4 = 7 */
     /* There are no other valid combinations. */
 }
-TEST(conbination_sum_iii, t2) {
+TEST(ConbinationSumIii, t2) {
     int k = 3, n = 9;
     std::vector<vector<int>> const output = {{1, 2, 6}, {1, 3, 5}, {2, 3, 4}};
     Solution sl;
@@ -67,7 +67,7 @@ TEST(conbination_sum_iii, t2) {
     /* There are no other valid combinations. */
 }
 
-TEST(conbination_sum_iii, t3) {
+TEST(ConbinationSumIii, t3) {
     int k = 4, n = 1;
     std::vector<vector<int>> const output = {};
     Solution sl;

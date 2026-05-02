@@ -59,7 +59,7 @@ class Solution {
     }
 };
 
-TEST(eliminate_maximum_number_of_monsters, t1) {
+TEST(EliminateMaximumNumberOfMonsters, t1) {
     vector<int> dist = {1, 3, 4}, speed = {1, 1, 1};
     int const output = 3;
     // Explanation:
@@ -73,7 +73,7 @@ TEST(eliminate_maximum_number_of_monsters, t1) {
     EXPECT_EQ(output, ret);
 }
 
-TEST(eliminate_maximum_number_of_monsters, t2) {
+TEST(EliminateMaximumNumberOfMonsters, t2) {
     vector<int> dist = {1, 1, 2, 3}, speed = {1, 1, 1, 1};
     int const output = 1;
     // Explanation:
@@ -86,7 +86,7 @@ TEST(eliminate_maximum_number_of_monsters, t2) {
     EXPECT_EQ(output, ret);
 }
 
-TEST(eliminate_maximum_number_of_monsters, t3) {
+TEST(EliminateMaximumNumberOfMonsters, t3) {
     vector<int> dist = {3, 2, 4}, speed = {5, 3, 2};
     int const output = 1;
     // Explanation:

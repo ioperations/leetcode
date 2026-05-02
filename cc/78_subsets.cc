@@ -71,7 +71,7 @@ class SolutionV1 {
     }
 };
 
-TEST(subsets, t1) {
+TEST(Subsets, t1) {
     std::vector<int> input{1, 2, 3};
     std::vector<vector<int>> out{{},  {1},    {2},    {1, 2},
                                  {3}, {1, 3}, {2, 3}, {1, 2, 3}};
@@ -83,7 +83,7 @@ TEST(subsets, t1) {
     EXPECT_EQ(out_set, ret_set);
 }
 
-TEST(subsets, t2) {
+TEST(Subsets, t2) {
     std::vector<int> input{0};
     std::vector<vector<int>> out{{}, {0}};
 

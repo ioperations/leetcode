@@ -56,7 +56,7 @@ class Solution {
     }
 };
 
-TEST(verifying_an_alien_dictionary, t1) {
+TEST(VerifyingAnAlienDictionary, t1) {
     vector<string> words = {"hello", "leetcode"};
     string const order = "hlabcdefgijkmnopqrstuvwxyz";
     Solution sl;
@@ -65,7 +65,7 @@ TEST(verifying_an_alien_dictionary, t1) {
     EXPECT_EQ(true, ret);
 }
 
-TEST(verifying_an_alien_dictionary, t2) {
+TEST(VerifyingAnAlienDictionary, t2) {
     vector<string> words = {"word", "world", "row"};
     string const order = "worldabcefghijkmnpqstuvxyz";
     Solution sl;
@@ -75,7 +75,7 @@ TEST(verifying_an_alien_dictionary, t2) {
     EXPECT_EQ(false, ret);
 }
 
-TEST(verifying_an_alien_dictionary, t3) {
+TEST(VerifyingAnAlienDictionary, t3) {
     vector<string> words = {"apple", "app"};
     string const order = "abcdefghijklmnopqrstuvwxyz";
     Solution sl;

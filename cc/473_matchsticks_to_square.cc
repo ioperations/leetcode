@@ -63,7 +63,7 @@ class Solution {
     }
 };
 
-TEST(matchsticks_to_square, t1) {
+TEST(MatchsticksToSquare, t1) {
     vector<int> matchsticks = {1, 1, 2, 2, 2};
     bool const output = true;
     // Explanation: You can form a square with length 2, one side of the square
@@ -73,7 +73,7 @@ TEST(matchsticks_to_square, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(matchsticks_to_square, t2) {
+TEST(MatchsticksToSquare, t2) {
     vector<int> matchsticks = {3, 3, 3, 3, 4};
     bool const output = false;
     // You cannot find a way to form a square with all the matchsticks.

@@ -203,7 +203,7 @@ class BrowserHistorySysV2 {
     int capability;
 };
 
-TEST(design_browser_history_v2, t1) {
+TEST(DesignBrowserHistoryV2, t1) {
     BrowserHistorySysV2 br("w3.huawei.com", 10);
     int ret = br.Visit("google.com");
     EXPECT_EQ(2, ret);
@@ -228,7 +228,7 @@ TEST(design_browser_history_v2, t1) {
     EXPECT_EQ(3, ret);
 }
 
-TEST(design_browser_history_v2, t2) {
+TEST(DesignBrowserHistoryV2, t2) {
     BrowserHistorySysV2 br("www.huawei.com", 3);
     int ret = br.Visit("w3.huawei.com");
     EXPECT_EQ(2, ret);
@@ -253,7 +253,7 @@ TEST(design_browser_history_v2, t2) {
  * string param_3 = obj->forward(steps);
  */
 
-TEST(design_browser_history, t1) {
+TEST(DesignBrowserHistory, t1) {
     // Explanation:
     auto* browser_history = new BrowserHistory("leetcode.com");
     // You are in "leetcode.com". Visit "google.com"
@@ -281,7 +281,7 @@ TEST(design_browser_history, t1) {
     delete browser_history;
 }
 
-TEST(design_browser_history, t2) {
+TEST(DesignBrowserHistory, t2) {
     // Input:
     // ["BrowserHistory","visit","visit","visit","back","back","forward","visit","forward","back","back"]
     // [["leetcode.com"],["google.com"],["facebook.com"],["youtube.com"],[1],[1],[1],["linkedin.com"],[2],[2],[7]]

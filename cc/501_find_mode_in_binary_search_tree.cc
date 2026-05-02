@@ -67,7 +67,7 @@ class Solution {
     }
 };
 
-TEST(find_mode_in_binary_search_tree, t1) {
+TEST(FindModeInBinarySearchTree, t1) {
     std::vector<int> const root = {1, 2, 2};
     std::vector<int> const output{2};
 
@@ -81,7 +81,7 @@ TEST(find_mode_in_binary_search_tree, t1) {
     Tree::FreeTreeNode(node);
 }
 
-TEST(find_mode_in_binary_search_tree, t2) {
+TEST(FindModeInBinarySearchTree, t2) {
     std::vector<int> const root = {1};
     std::vector<int> const output{1};
 

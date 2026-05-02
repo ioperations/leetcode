@@ -54,27 +54,27 @@ int MaxRet(const char* str, int str_len) {
     return last;
 }
 
-TEST(x_max_len_of_parlinom_string_v2, t2) {
+TEST(XMaxLenOfParlinomStringV2, t2) {
     const char* s1 = "abcba";
     EXPECT_EQ(MaxRet(s1, strlen(s1)), 5);
 }
 
-TEST(x_max_len_of_parlinom_string_v2, t3) {
+TEST(XMaxLenOfParlinomStringV2, t3) {
     const char* s1 = "bcba";
     EXPECT_EQ(MaxRet(s1, strlen(s1)), 3);
 }
 
-TEST(x_max_len_of_parlinom_string_v2, t4) {
+TEST(XMaxLenOfParlinomStringV2, t4) {
     const char* s1 = "zabcba";
     EXPECT_EQ(MaxRet(s1, strlen(s1)), 5);
 }
 
-TEST(x_max_len_of_parlinom_string_v2, t1) {
+TEST(XMaxLenOfParlinomStringV2, t1) {
     const char* s1 = "00000";
     EXPECT_EQ(MaxRet(s1, strlen(s1)), 5);
 }
 
-TEST(x_max_len_of_parlinom_string_v2, t0) {
+TEST(XMaxLenOfParlinomStringV2, t0) {
     const char* s1 = "5432345";
     EXPECT_EQ(MaxRet(s1, strlen(s1)), 7);
 }

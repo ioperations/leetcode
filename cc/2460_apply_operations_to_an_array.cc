@@ -44,7 +44,7 @@ class Solution {
 
 #include <gtest/gtest.h>
 
-TEST(t0, t1) {
+TEST(T0, t1) {
     vector<int> nums{1, 2, 2, 1, 1, 0};
     vector<int> const output{1, 4, 2, 0, 0, 0};
 
@@ -53,7 +53,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t2) {
+TEST(T0, t2) {
     vector<int> nums{0, 1};
     vector<int> const output{1, 0};
 
@@ -62,7 +62,7 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t3) {
+TEST(T0, t3) {
     vector<int> nums{328, 0, 0, 0, 93,  43, 802, 802, 0,
                      580, 0, 0, 0, 973, 0,  0,   774};
     vector<int> const output{328, 93, 43, 1604, 580, 973, 774, 0, 0,

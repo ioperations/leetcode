@@ -30,7 +30,7 @@ class Solution {
 
 #include <gtest/gtest.h>
 
-TEST(t0, t1) {
+TEST(T0, t1) {
     vector<int> nums = {3, 2, 3, 2, 2, 2};
     bool const output = true;
     Solution sl;
@@ -42,7 +42,7 @@ TEST(t0, t1) {
     // will satisfy all the conditions.
 }
 
-TEST(t0, t2) {
+TEST(T0, t2) {
     vector<int> nums = {1, 2, 3, 4};
     bool const output = false;
     Solution sl;

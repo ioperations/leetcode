@@ -33,7 +33,7 @@ class Solution {
     }
 };
 
-TEST(check_if_a_string_contains_all_binary_codes_of_size_k, t1) {
+TEST(CheckIfAStringContainsAllBinaryCodesOfSizeK, t1) {
     string const s = "00110110";
     int const k = 2;
     bool const output = true;
@@ -45,7 +45,7 @@ TEST(check_if_a_string_contains_all_binary_codes_of_size_k, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(check_if_a_string_contains_all_binary_codes_of_size_k, t2) {
+TEST(CheckIfAStringContainsAllBinaryCodesOfSizeK, t2) {
     string const s = "0110";
     int const k = 1;
     bool const output = true;
@@ -56,7 +56,7 @@ TEST(check_if_a_string_contains_all_binary_codes_of_size_k, t2) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(check_if_a_string_contains_all_binary_codes_of_size_k, t3) {
+TEST(CheckIfAStringContainsAllBinaryCodesOfSizeK, t3) {
     string const s = "0110";
     int const k = 2;
     bool const output = false;

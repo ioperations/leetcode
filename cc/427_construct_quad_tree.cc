@@ -146,7 +146,7 @@ vector<optional<vector<int>>> FlattenQuadTree(Node* n) {
     return ret;
 }
 
-TEST(construct_quad_tree, t1) {
+TEST(ConstructQuadTree, t1) {
     vector<vector<int>> grid =
         vector<vector<int>>{vector<int>{0, 1}, vector<int>{1, 0}};
     vector<optional<vector<int>>> const output = vector<optional<vector<int>>>{
@@ -168,7 +168,7 @@ TEST(construct_quad_tree, t1) {
     EXPECT_EQ(flattern, output);
 }
 
-TEST(construct_quad_tree, t2) {
+TEST(ConstructQuadTree, t2) {
     vector<vector<int>> grid = vector<vector<int>>{
         // clang-format off
         {1, 1, 1, 1, 0, 0, 0, 0},

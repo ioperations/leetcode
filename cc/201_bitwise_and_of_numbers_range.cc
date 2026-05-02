@@ -33,24 +33,24 @@ class Solution {
     }
 };
 
-TEST(bitwise_and_of_numbers_range, t1) {
+TEST(BitwiseAndOfNumbersRange, t1) {
     Solution s;
     const int ret = s.RangeBitwiseAnd(5, 7);
     EXPECT_EQ(ret, 4);
 }
-TEST(bitwise_and_of_numbers_range, t2) {
+TEST(BitwiseAndOfNumbersRange, t2) {
     Solution s;
     const int ret = s.RangeBitwiseAnd(0, 0);
     EXPECT_EQ(ret, 0);
 }
 
-TEST(bitwise_and_of_numbers_range, t3) {
+TEST(BitwiseAndOfNumbersRange, t3) {
     Solution s;
     const int left = 1, right = 2147483647;
     const int ret = s.RangeBitwiseAndV2(left, right);
     EXPECT_EQ(ret, 0);
 }
-TEST(bitwise_and_of_numbers_range, t4) {
+TEST(BitwiseAndOfNumbersRange, t4) {
     Solution s;
     const int left = 1, right = 2;
     const int ret = s.RangeBitwiseAnd(left, right);

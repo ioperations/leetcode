@@ -37,7 +37,7 @@ class Solution {
     }
 };
 
-TEST(check_if_the_sentence_is_pangram, t1) {
+TEST(CheckIfTheSentenceIsPangram, t1) {
     string sentence = "thequickbrownfoxjumpsoverthelazydog";
     bool const output = true;
     // Explanation: sentence contains at least one of every letter of the
@@ -47,7 +47,7 @@ TEST(check_if_the_sentence_is_pangram, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(check_if_the_sentence_is_pangram, t2) {
+TEST(CheckIfTheSentenceIsPangram, t2) {
     string sentence = "leetcode";
     bool const output = false;
     Solution sl;
@@ -55,7 +55,7 @@ TEST(check_if_the_sentence_is_pangram, t2) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(check_if_the_sentence_is_pangram_v2, t1) {
+TEST(CheckIfTheSentenceIsPangramV2, t1) {
     string sentence = "thequickbrownfoxjumpsoverthelazydog";
     bool const output = true;
     // Explanation: sentence contains at least one of every letter of the
@@ -65,7 +65,7 @@ TEST(check_if_the_sentence_is_pangram_v2, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(check_if_the_sentence_is_pangram_v2, t2) {
+TEST(CheckIfTheSentenceIsPangramV2, t2) {
     string sentence = "leetcode";
     bool const output = false;
     Solution sl;

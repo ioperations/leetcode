@@ -28,7 +28,7 @@ class Solution {
     }
 };
 
-TEST(make_two_arrays_equal_by_reversing_sub_arrays, t1) {
+TEST(MakeTwoArraysEqualByReversingSubArrays, t1) {
     std::vector<int> target = {1, 2, 3, 4}, arr = {2, 4, 1, 3};
     bool const output = true;
 
@@ -45,7 +45,7 @@ TEST(make_two_arrays_equal_by_reversing_sub_arrays, t1) {
     to do so.*/
 }
 
-TEST(make_two_arrays_equal_by_reversing_sub_arrays, t2) {
+TEST(MakeTwoArraysEqualByReversingSubArrays, t2) {
     std::vector<int> target = {7}, arr = {7};
     bool const output = true;
 
@@ -55,7 +55,7 @@ TEST(make_two_arrays_equal_by_reversing_sub_arrays, t2) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(make_two_arrays_equal_by_reversing_sub_arrays, t3) {
+TEST(MakeTwoArraysEqualByReversingSubArrays, t3) {
     std::vector<int> target = {3, 7, 9}, arr = {3, 7, 11};
     bool const output = false;
 

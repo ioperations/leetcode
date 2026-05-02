@@ -53,7 +53,7 @@ class Solution {
     }
 };
 
-TEST(min_cost_climbing_stairs, t1) {
+TEST(MinCostClimbingStairs, t1) {
     std::vector<int> v{10, 15, 20};
 
     int const expected = 15;
@@ -68,7 +68,7 @@ TEST(min_cost_climbing_stairs, t1) {
     EXPECT_EQ(ret, expected);
 }
 
-TEST(min_cost_climbing_stairs, t2) {
+TEST(MinCostClimbingStairs, t2) {
     std::vector<int> v{1, 100, 1, 1, 1, 100, 1, 1, 100, 1};
 
     int const expected = 6;

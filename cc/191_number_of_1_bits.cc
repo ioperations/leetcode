@@ -34,7 +34,7 @@ class Solution {
     }
 };
 
-TEST(number_of_1_bits, t1) {
+TEST(NumberOf1Bits, t1) {
     uint32_t const n = 11;  // 00000000000000000000000000001011;
     int const expected = 3;
     Solution s;
@@ -42,7 +42,7 @@ TEST(number_of_1_bits, t1) {
     EXPECT_EQ(ret, expected);
 }
 
-TEST(number_of_1_bits, t2) {
+TEST(NumberOf1Bits, t2) {
     uint32_t const n = 128;  //  00000000000000000000000010000000;
     int const expected = 1;
     Solution s;
@@ -50,7 +50,7 @@ TEST(number_of_1_bits, t2) {
     EXPECT_EQ(ret, expected);
 }
 
-TEST(number_of_1_bits, t3) {
+TEST(NumberOf1Bits, t3) {
     uint32_t const n = 4294967293;  // 11111111111111111111111111111101;
     int const expected = 31;
     Solution s;

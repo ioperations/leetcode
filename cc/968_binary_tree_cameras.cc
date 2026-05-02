@@ -45,7 +45,7 @@ class Solution {
 #define null std::nullopt
 using namespace std;
 
-TEST(binary_tree_cameras, t1) {
+TEST(BinaryTreeCameras, t1) {
     std::vector<optional<int>> const v{0, 0, null, 0, 0};
     int const out = 1;
     auto* n = ConstructBinaryTree(v);
@@ -56,7 +56,7 @@ TEST(binary_tree_cameras, t1) {
     FreeTreeNode(n);
 }
 
-TEST(binary_tree_cameras, t2) {
+TEST(BinaryTreeCameras, t2) {
     std::vector<optional<int>> const v{0, 0, null, 0, null, 0, null, null, 0};
     int const out = 2;
     auto* n = ConstructBinaryTree(v);

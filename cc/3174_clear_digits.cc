@@ -43,7 +43,7 @@ class Solution {
 
 #include <gtest/gtest.h>
 
-TEST(t0, t1) {
+TEST(T0, t1) {
     std::string const s = "abc";
 
     std::string const output = "abc";
@@ -55,7 +55,7 @@ TEST(t0, t1) {
     // There is no digit in the string.
 }
 
-TEST(t0, t2) {
+TEST(T0, t2) {
     std::string const s = "cb34";
 
     std::string const output = "";

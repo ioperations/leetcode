@@ -97,7 +97,7 @@ class SolutionV2 {
     /* data */
 };
 
-TEST(different_ways_to_add_parentheses, t1) {
+TEST(DifferentWaysToAddParentheses, t1) {
     string const expression = "2-1-1";
     vector<int> output = {0, 2};
     Solution sl;
@@ -112,7 +112,7 @@ TEST(different_ways_to_add_parentheses, t1) {
     EXPECT_EQ(ret_set, out_set);
 }
 
-TEST(different_ways_to_add_parentheses, t2) {
+TEST(DifferentWaysToAddParentheses, t2) {
     string const expression = "2*3-4*5";
     vector<int> output = {-34, -14, -10, -10, 10};
     Solution sl;
@@ -130,7 +130,7 @@ TEST(different_ways_to_add_parentheses, t2) {
     EXPECT_EQ(ret_set, out_set);
 }
 
-TEST(different_ways_to_add_parentheses_v2, t1) {
+TEST(DifferentWaysToAddParenthesesV2, t1) {
     string const expression = "2-1-1";
     vector<int> output = {0, 2};
     SolutionV2 sl;
@@ -145,7 +145,7 @@ TEST(different_ways_to_add_parentheses_v2, t1) {
     EXPECT_EQ(ret_set, out_set);
 }
 
-TEST(different_ways_to_add_parentheses_v2, t2) {
+TEST(DifferentWaysToAddParenthesesV2, t2) {
     string const expression = "2*3-4*5";
     vector<int> output = {-34, -14, -10, -10, 10};
     SolutionV2 sl;

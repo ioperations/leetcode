@@ -50,7 +50,7 @@ class Solution {
     }
 };
 
-TEST(pow__x_n__, t1) {
+TEST(PowXN, t1) {
     const double x = 2.00000;
     const int n = 10;
 
@@ -61,7 +61,7 @@ TEST(pow__x_n__, t1) {
     EXPECT_EQ(ret, expected);
 }
 
-TEST(pow__x_n__, t2) {
+TEST(PowXN, t2) {
     const double x = 2.10000;
     const int n = 3;
 
@@ -72,7 +72,7 @@ TEST(pow__x_n__, t2) {
     EXPECT_NEAR(ret, expected, 0.001);
 }
 
-TEST(pow__x_n__, t3) {
+TEST(PowXN, t3) {
     const double x = 2.00000;
     const int n = -2;
 
@@ -83,7 +83,7 @@ TEST(pow__x_n__, t3) {
     EXPECT_EQ(ret, expected);
 }
 
-TEST(pow__x_n__, t4) {
+TEST(PowXN, t4) {
     const double x = 0.00001;
     const int n = 2147483647;
 

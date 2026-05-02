@@ -70,7 +70,7 @@ using namespace std;
 
 #define null std::nullopt
 
-TEST(binary_tree_level_order_traversal, t1) {
+TEST(BinaryTreeLevelOrderTraversal, t1) {
     vector<optional<int>> const root = {3, 9, 20, null, null, 15, 7};
     vector<vector<int>> const output = {{3}, {9, 20}, {15, 7}};
     Solution sl;
@@ -80,7 +80,7 @@ TEST(binary_tree_level_order_traversal, t1) {
     FreeTreeNode(tree);
 }
 
-TEST(binary_tree_level_order_traversal, t2) {
+TEST(BinaryTreeLevelOrderTraversal, t2) {
     vector<optional<int>> const root = {1};
     vector<vector<int>> const output = {{1}};
     Solution sl;
@@ -90,7 +90,7 @@ TEST(binary_tree_level_order_traversal, t2) {
     FreeTreeNode(tree);
 }
 
-TEST(binary_tree_level_order_traversal, t3) {
+TEST(BinaryTreeLevelOrderTraversal, t3) {
     vector<optional<int>> const root = {};
     vector<vector<int>> const output = {};
     Solution sl;

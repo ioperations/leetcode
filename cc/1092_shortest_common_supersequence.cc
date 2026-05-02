@@ -80,7 +80,7 @@ class Solution {
 
 #include <gtest/gtest.h>
 
-TEST(t0, t1) {
+TEST(T0, t1) {
     string const str1 = "abac";
     string const str2 = "cab";
     string const output = "cabac";
@@ -96,7 +96,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t2) {
+TEST(T0, t2) {
     string const str1 = "aaaaaaaa";
     string const& str2 = str1;
     string const& output = str1;

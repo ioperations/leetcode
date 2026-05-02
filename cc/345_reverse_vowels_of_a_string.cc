@@ -43,7 +43,7 @@ class Solution {
     }
 };
 
-TEST(reverse_vowels_of_a_string, t1) {
+TEST(ReverseVowelsOfAString, t1) {
     std::string const s = "hello";
     std::string const output = "holle";
     Solution sl;
@@ -51,7 +51,7 @@ TEST(reverse_vowels_of_a_string, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(reverse_vowels_of_a_string, t2) {
+TEST(ReverseVowelsOfAString, t2) {
     std::string const s = "leetcode";
     std::string const output = "leotcede";
     Solution sl;

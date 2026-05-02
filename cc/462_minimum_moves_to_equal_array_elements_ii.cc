@@ -37,7 +37,7 @@ class Solution {
     }
 };
 
-TEST(minimum_moves_to_equal_array_elements_ii, t1) {
+TEST(MinimumMovesToEqualArrayElementsIi, t1) {
     vector<int> nums{1, 2, 3};
     int const output = 2;
     Solution sl;
@@ -47,7 +47,7 @@ TEST(minimum_moves_to_equal_array_elements_ii, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(minimum_moves_to_equal_array_elements_ii, t2) {
+TEST(MinimumMovesToEqualArrayElementsIi, t2) {
     vector<int> nums{1, 10, 2, 9};
     int const output = 16;
     Solution sl;

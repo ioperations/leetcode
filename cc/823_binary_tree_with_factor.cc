@@ -82,7 +82,7 @@ class Solution {
     }
 };
 
-TEST(binary_tree_with_factor, t1) {
+TEST(BinaryTreeWithFactor, t1) {
     vector<int> arr = {2, 4};
     int const output = 3;
     Solution sl;
@@ -91,7 +91,7 @@ TEST(binary_tree_with_factor, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(binary_tree_with_factor, t2) {
+TEST(BinaryTreeWithFactor, t2) {
     vector<int> arr = {2, 4, 5, 10};
     int const output = 7;
     // We can make these trees: [2], [4], [5], [10], [4, 2, 2], [10, 2, 5], [10,

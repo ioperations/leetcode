@@ -90,7 +90,7 @@ void FreeNode(Node* n) {
 
 #define null std::nullopt
 
-TEST(n_ary_tree_preorder_traversal, t1) {
+TEST(NAryTreePreorderTraversal, t1) {
     vector<optional<int>> root = {1, null, 3, 2, 4, null, 5, 6};
 
     Node* tree = ConstructNode(root);
@@ -102,7 +102,7 @@ TEST(n_ary_tree_preorder_traversal, t1) {
     FreeNode(tree);
 }
 
-TEST(n_ary_tree_preorder_traversal, t2) {
+TEST(NAryTreePreorderTraversal, t2) {
     vector<optional<int>> root = {
         1, null, 2,    3,    4,  5,    null, null, 6,  7,    null, 8, null,
         9, 10,   null, null, 11, null, 12,   null, 13, null, null, 14};

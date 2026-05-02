@@ -92,7 +92,7 @@ class Solution {
     }
 };
 
-TEST(sort_the_matrix_diagonally, t1) {
+TEST(SortTheMatrixDiagonally, t1) {
     vector<vector<int>> mat = {{3, 3, 1, 1}, {2, 2, 1, 2}, {1, 1, 1, 2}};
     vector<vector<int>> const expected = {
         {1, 1, 1, 1}, {1, 2, 2, 2}, {1, 2, 3, 3}};
@@ -101,7 +101,7 @@ TEST(sort_the_matrix_diagonally, t1) {
     EXPECT_EQ(ret, expected);
 }
 
-TEST(sort_the_matrix_diagonally, t2) {
+TEST(SortTheMatrixDiagonally, t2) {
     vector<vector<int>> mat = {{11, 25, 66, 1, 69, 7},
                                {23, 55, 17, 45, 15, 52},
                                {75, 31, 36, 44, 58, 8},

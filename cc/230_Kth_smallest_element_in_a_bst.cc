@@ -41,7 +41,7 @@ class Solution {
     }
 };
 
-TEST(Kth_smallest_element_in_a_bst, t1) {
+TEST(KthSmallestElementInABst, t1) {
     std::vector<int> const root = {3, 1, 4, 2};
     int const k = 1;
 
@@ -52,7 +52,7 @@ TEST(Kth_smallest_element_in_a_bst, t1) {
     Tree::FreeTreeNode(head);
 }
 
-TEST(Kth_smallest_element_in_a_bst, t2) {
+TEST(KthSmallestElementInABst, t2) {
     std::vector<int> const root = {5, 3, 6, 2, 4, 1};
     int const k = 3;
 

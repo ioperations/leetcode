@@ -108,7 +108,7 @@ void FreeList(ListNode* head) {
 
 #include "gtest/gtest.h"
 
-TEST(add_two_numbers, t1) {
+TEST(AddTwoNumbers, t1) {
     ListNode* l1 = CreateList({2, 4, 3});
     ListNode* l2 = CreateList({5, 6, 4});
     Solution sl;
@@ -120,7 +120,7 @@ TEST(add_two_numbers, t1) {
     FreeList(result);
 }
 
-TEST(add_two_numbers, t2) {
+TEST(AddTwoNumbers, t2) {
     ListNode* l1 = CreateList({0});
     ListNode* l2 = CreateList({0});
     Solution sl;
@@ -132,7 +132,7 @@ TEST(add_two_numbers, t2) {
     FreeList(result);
 }
 
-TEST(add_two_numbers, t3) {
+TEST(AddTwoNumbers, t3) {
     ListNode* l1 = CreateList({9, 9, 9, 9, 9, 9, 9});
     ListNode* l2 = CreateList({1});
     Solution sl;

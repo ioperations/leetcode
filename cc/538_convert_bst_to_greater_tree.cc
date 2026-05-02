@@ -103,7 +103,7 @@ std::vector<int> BFS(TreeNode* root) {
     return ret;
 }
 
-TEST(memleak, t1) {
+TEST(Memleak, t1) {
     auto* root = new TreeNode(-1);
 
     for (int i = 0; i < 100; i++) {
@@ -113,7 +113,7 @@ TEST(memleak, t1) {
     Tree::FreeTreeNode(root);
 }
 
-TEST(convert_bst_to_greater_tree, t1) {
+TEST(ConvertBstToGreaterTree, t1) {
     // root = [4,1,6,0,2,5,7,null,null,null,3,null,null,null,8]
     // Output: [4,1,6,0,2,5,7,null,null,null,3,null,null,null,8]
     auto* root = new TreeNode(4);
@@ -137,7 +137,7 @@ TEST(convert_bst_to_greater_tree, t1) {
     Tree::FreeTreeNode(root);
 }
 
-TEST(convert_bst_to_greater_tree, t2) {
+TEST(ConvertBstToGreaterTree, t2) {
     // Input: root = [0,null,1]
     // Output: [1,null,1]
 

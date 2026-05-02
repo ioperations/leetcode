@@ -80,7 +80,7 @@ class Solution {
     }
 };
 
-TEST(unique_paths_ii, t1) {
+TEST(UniquePathsIi, t1) {
     vector<vector<int>> obstacle_grid = {{0, 0, 0}, {0, 1, 0}, {0, 0, 0}};
     int const output = 2;
     // Explanation: There is one obstacle in the middle of the 3x3 grid above.
@@ -92,7 +92,7 @@ TEST(unique_paths_ii, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(unique_paths_ii, t2) {
+TEST(UniquePathsIi, t2) {
     vector<vector<int>> obstacle_grid = {{0, 1}, {0, 0}};
     int const output = 1;
     // Explanation: There is one obstacle in the middle of the 3x3 grid above.
@@ -104,7 +104,7 @@ TEST(unique_paths_ii, t2) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(unique_paths_ii_v2, t1) {
+TEST(UniquePathsIiV2, t1) {
     vector<vector<int>> obstacle_grid = {{0, 0, 0}, {0, 1, 0}, {0, 0, 0}};
     int const output = 2;
     // Explanation: There is one obstacle in the middle of the 3x3 grid above.
@@ -116,7 +116,7 @@ TEST(unique_paths_ii_v2, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(unique_paths_ii_v2, t2) {
+TEST(UniquePathsIiV2, t2) {
     vector<vector<int>> obstacle_grid = {{0, 1}, {0, 0}};
     int const output = 1;
     // Explanation: There is one obstacle in the middle of the 3x3 grid above.

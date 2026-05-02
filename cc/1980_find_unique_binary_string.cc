@@ -71,7 +71,7 @@ class Solution {
 
 #include <gtest/gtest.h>
 
-TEST(t0, t1) {
+TEST(T0, t1) {
     vector<string> nums = {"01", "10"};
     set<string> const set = {"11", "00"};
     // Explanation: "11" does not appear in nums. "00" would also be correct.
@@ -80,7 +80,7 @@ TEST(t0, t1) {
     EXPECT_TRUE(set.count(ret) > 0);
 }
 
-TEST(t0, t2) {
+TEST(T0, t2) {
     vector<string> nums = {"00", "01"};
     set<string> const set = {"11", "10"};
     // Explanation: "11" does not appear in nums. "00" would also be correct.
@@ -91,7 +91,7 @@ TEST(t0, t2) {
     EXPECT_TRUE(set.count(ret) > 0);
 }
 
-TEST(t0, t3) {
+TEST(T0, t3) {
     vector<string> nums = {"111", "011", "001"};
     set<string> const set = {"101", "000", "010", "100", "110"};
     // Explanation: "101" does not appear in nums. "000", "010", "100", and

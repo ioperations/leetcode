@@ -154,7 +154,7 @@ void FreeRoot(TreeNode* root) {
     delete root;
 }
 
-TEST(validate_binary_search_tree, t1) {
+TEST(ValidateBinarySearchTree, t1) {
     std::vector<int> const root = {2, 1, 3};
     bool const output = true;
     TreeNode* head = ConstructTree(root);
@@ -165,7 +165,7 @@ TEST(validate_binary_search_tree, t1) {
     FreeRoot(head);
 }
 
-TEST(validate_binary_search_tree, t2) {
+TEST(ValidateBinarySearchTree, t2) {
     // std::vector<int> root = {5,1,4,null,null,3,6};
     TreeNode head(5);
     TreeNode n1(1);
@@ -186,7 +186,7 @@ TEST(validate_binary_search_tree, t2) {
     // Explanation: The root node's value is 5 but its right child's value is 4.
 }
 
-TEST(validate_binary_search_tree, t3) {
+TEST(ValidateBinarySearchTree, t3) {
     // std::vector<int> root = {5,1,4,null,null,3,6};
     TreeNode head(5);
     TreeNode n1(4);

@@ -47,7 +47,7 @@ class Solution {
     }
 };
 
-TEST(candy, t1) {
+TEST(Candy, t1) {
     vector<int> ratings{1, 0, 2};
     int const output = 5;
     Solution sl;
@@ -59,7 +59,7 @@ TEST(candy, t1) {
     EXPECT_EQ(output, ret);
 }
 
-TEST(candy, t2) {
+TEST(Candy, t2) {
     vector<int> ratings{1, 2, 2};
     int const output = 4;
     Solution sl;

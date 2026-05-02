@@ -55,21 +55,21 @@ class Solution {
     }
 };
 
-TEST(maximum_nesting_depth_of_two_valid_parentheses_strings, t1) {
+TEST(MaximumNestingDepthOfTwoValidParenthesesStrings, t1) {
     Solution s;
     std::vector<int> const ret = s.MaxDepthAfterSplit("(()())");
 
     EXPECT_EQ(ret, (std::vector<int>{0, 1, 1, 1, 1, 0}));
 }
 
-TEST(maximum_nesting_depth_of_two_valid_parentheses_strings, t2) {
+TEST(MaximumNestingDepthOfTwoValidParenthesesStrings, t2) {
     Solution s;
     std::vector<int> const ret = s.MaxDepthAfterSplit("()(())()");
 
     EXPECT_EQ(ret, (std::vector<int>{0, 0, 0, 1, 1, 0, 0, 0}));
 }
 
-TEST(maximum_nesting_depth_of_two_valid_parentheses_strings, t3) {
+TEST(MaximumNestingDepthOfTwoValidParenthesesStrings, t3) {
     Solution s;
     std::vector<int> const ret = s.MaxDepthAfterSplit("()(()())()()()()()(())");
 

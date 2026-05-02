@@ -84,7 +84,7 @@ class Solution {
     }
 };
 
-TEST(merge_two_sorted_list, t1) {
+TEST(MergeTwoSortedList, t1) {
     ListNode* s1 = List::ConstructList(std::vector<int>{1, 2, 4});
 
     ListNode* l1 = List::ConstructList(std::vector<int>{1, 3, 4});
@@ -102,7 +102,7 @@ TEST(merge_two_sorted_list, t1) {
 
     List::FreeList(it_2);
 }
-TEST(merge_two_sorted_list_v2, t1) {
+TEST(MergeTwoSortedListV2, t1) {
     ListNode* s1 = List::ConstructList(std::vector<int>{1, 2, 4});
 
     ListNode* l1 = List::ConstructList(std::vector<int>{1, 3, 4});
@@ -121,7 +121,7 @@ TEST(merge_two_sorted_list_v2, t1) {
     List::FreeList(it_2);
 }
 
-TEST(merge_two_sorted_list, t3) {
+TEST(MergeTwoSortedList, t3) {
     ListNode l1;
     l1.val = 0;
 
@@ -132,7 +132,7 @@ TEST(merge_two_sorted_list, t3) {
     EXPECT_EQ(it->next, nullptr);
 }
 
-TEST(merge_two_sorted_list, t2) {
+TEST(MergeTwoSortedList, t2) {
     Solution sl;
     auto* it = sl.MergeTwoLists(nullptr, nullptr);
 

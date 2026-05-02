@@ -55,7 +55,7 @@ class Solution {
     }
 };
 
-TEST(k_diff_pairs_in_an_array, t1) {
+TEST(KDiffPairsInAnArray, t1) {
     vector<int> nums = {3, 1, 4, 1, 5};
     int const k = 2;
     int const output = 2;
@@ -71,7 +71,7 @@ TEST(k_diff_pairs_in_an_array, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(k_diff_pairs_in_an_array, t2) {
+TEST(KDiffPairsInAnArray, t2) {
     vector<int> nums = {1, 2, 3, 4, 5};
     int const k = 1;
     int const output = 4;
@@ -87,7 +87,7 @@ TEST(k_diff_pairs_in_an_array, t2) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(k_diff_pairs_in_an_array, t3) {
+TEST(KDiffPairsInAnArray, t3) {
     vector<int> nums = {1, 3, 1, 5, 4};
     int const k = 0;
     int const output = 1;

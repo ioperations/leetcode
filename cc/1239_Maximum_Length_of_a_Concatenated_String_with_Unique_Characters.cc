@@ -99,7 +99,7 @@ class Solution {
     }
 };
 
-TEST(Maximum_Length_of_a_Concatenated_String_with_Unique_Characters, t1) {
+TEST(MaximumLengthOfAConcatenatedStringWithUniqueCharacters, t1) {
     vector<string> arr = {"un", "iq", "ue"};
     int const output = 4;
     /*Explanation: All the valid concatenations are:
@@ -116,7 +116,7 @@ TEST(Maximum_Length_of_a_Concatenated_String_with_Unique_Characters, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(Maximum_Length_of_a_Concatenated_String_with_Unique_Characters, t2) {
+TEST(MaximumLengthOfAConcatenatedStringWithUniqueCharacters, t2) {
     vector<string> arr = {"cha", "r", "act", "ers"};
     int const output = 6;
     /*
@@ -128,7 +128,7 @@ TEST(Maximum_Length_of_a_Concatenated_String_with_Unique_Characters, t2) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(Maximum_Length_of_a_Concatenated_String_with_Unique_Characters, t3) {
+TEST(MaximumLengthOfAConcatenatedStringWithUniqueCharacters, t3) {
     vector<string> arr = {"abcdefghijklmnopqrstuvwxyz"};
     int const output = 26;
     // Explanation: The only string in arr has all 26 characters.};
@@ -137,7 +137,7 @@ TEST(Maximum_Length_of_a_Concatenated_String_with_Unique_Characters, t3) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(Maximum_Length_of_a_Concatenated_String_with_Unique_Characters_v2, t1) {
+TEST(MaximumLengthOfAConcatenatedStringWithUniqueCharactersV2, t1) {
     vector<string> arr = {"un", "iq", "ue"};
     int const output = 4;
     /*Explanation: All the valid concatenations are:
@@ -154,7 +154,7 @@ TEST(Maximum_Length_of_a_Concatenated_String_with_Unique_Characters_v2, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(Maximum_Length_of_a_Concatenated_String_with_Unique_Characters_v2, t2) {
+TEST(MaximumLengthOfAConcatenatedStringWithUniqueCharactersV2, t2) {
     vector<string> arr = {"cha", "r", "act", "ers"};
     int const output = 6;
     /*
@@ -166,7 +166,7 @@ TEST(Maximum_Length_of_a_Concatenated_String_with_Unique_Characters_v2, t2) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(Maximum_Length_of_a_Concatenated_String_with_Unique_Characters_v2, t3) {
+TEST(MaximumLengthOfAConcatenatedStringWithUniqueCharactersV2, t3) {
     vector<string> arr = {"abcdefghijklmnopqrstuvwxyz"};
     int const output = 26;
     // Explanation: The only string in arr has all 26 characters.};

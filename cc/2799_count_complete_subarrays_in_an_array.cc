@@ -31,7 +31,7 @@ class Solution {
 
 #include <gtest/gtest.h>
 
-TEST(t0, t1) {
+TEST(T0, t1) {
     vector<int> nums{1, 3, 1, 2, 2};
     int const output = 4;
     Solution sl;
@@ -43,7 +43,7 @@ TEST(t0, t1) {
      */
 }
 
-TEST(t0, t2) {
+TEST(T0, t2) {
     vector<int> nums{5, 5, 5, 5};
     int const output = 10;
     Solution sl;
@@ -54,7 +54,7 @@ TEST(t0, t2) {
      * The number of subarrays that we can choose is 10.
      */
 }
-TEST(t0, t3) {
+TEST(T0, t3) {
     vector<int> nums{1898, 370, 822, 1659, 1360, 128, 370, 360, 261, 1898};
     int const output = 4;
     Solution sl;

@@ -111,7 +111,7 @@ class Solution {
 
 #include "gtest/gtest.h"
 
-TEST(t0, t1) {
+TEST(T0, t1) {
     vector<vector<int>> edges = {{1, 2}, {1, 3}, {2, 3}};
     vector<int> const output = {2, 3};
     Solution sl;
@@ -119,7 +119,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t2) {
+TEST(T0, t2) {
     vector<vector<int>> edges = {{1, 2}, {2, 3}, {3, 4}, {1, 4}, {1, 5}};
     vector<int> const output = {1, 4};
     Solution sl;
@@ -127,7 +127,7 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t3) {
+TEST(T0, t3) {
     vector<vector<int>> edges = {{1, 2}, {1, 3}, {2, 3}};
     vector<int> const output = {2, 3};
     Solution sl;

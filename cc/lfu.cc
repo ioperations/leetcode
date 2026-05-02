@@ -97,7 +97,7 @@ std::optional<V> LfuCache<K, V>::Get(const K& key) {
     return std::optional<V>();
 }
 
-TEST(lfu, t1) {
+TEST(Lfu, t1) {
     LfuCache<int, int> lfu(2);
     lfu.Set(1, 1);
     lfu.Set(2, 2);

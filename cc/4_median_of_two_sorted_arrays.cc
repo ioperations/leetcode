@@ -48,7 +48,7 @@ class Solution {
    private:
 };
 
-TEST(median_of_two_sorted_arrays, t1) {
+TEST(MedianOfTwoSortedArrays, t1) {
     Solution s;
     std::vector<int> nums1{1, 3};
     std::vector<int> nums2{2};
@@ -56,7 +56,7 @@ TEST(median_of_two_sorted_arrays, t1) {
     EXPECT_DOUBLE_EQ(ret, 2);
 }
 
-TEST(median_of_two_sorted_arrays, t2) {
+TEST(MedianOfTwoSortedArrays, t2) {
     Solution s;
     std::vector<int> nums1{1, 2};
     std::vector<int> nums2{3, 4};

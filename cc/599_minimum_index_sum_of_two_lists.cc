@@ -47,7 +47,7 @@ class Solution {
     }
 };
 
-TEST(minimum_index_sum_of_two_lists, t1) {
+TEST(MinimumIndexSumOfTwoLists, t1) {
     vector<string> list1 = {"Shogun", "Tapioca Express", "Burger King", "KFC"};
     vector<string> list2 = {"Piatti", "The Grill at Torrey Pines",
                             "Hungry Hunter Steakhouse", "Shogun"};
@@ -58,7 +58,7 @@ TEST(minimum_index_sum_of_two_lists, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(minimum_index_sum_of_two_lists, t2) {
+TEST(MinimumIndexSumOfTwoLists, t2) {
     vector<string> list1 = {"Shogun", "Tapioca Express", "Burger King", "KFC"};
     vector<string> list2 = {"KFC", "Shogun", "Burger King"};
     vector<string> const output = {"Shogun"};

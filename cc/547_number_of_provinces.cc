@@ -62,7 +62,7 @@ class Solution {
     }
 };
 
-TEST(number_of_provinces, t1) {
+TEST(NumberOfProvinces, t1) {
     std::vector<vector<int>> v{{1, 1, 0}, {1, 1, 0}, {0, 0, 1}};
     /*
      ___     ___
@@ -78,7 +78,7 @@ TEST(number_of_provinces, t1) {
     EXPECT_EQ(ret, 2);
 }
 
-TEST(number_of_provinces, t2) {
+TEST(NumberOfProvinces, t2) {
     std::vector<vector<int>> v{{1, 0, 0}, {0, 1, 0}, {0, 0, 1}};
     /*
      ___     ___

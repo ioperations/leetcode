@@ -29,7 +29,7 @@ class Solution {
     }
 };
 
-TEST(base_7, t1) {
+TEST(Base7, t1) {
     int const num = 100;
     string const output = "202";
     Solution sl;
@@ -37,7 +37,7 @@ TEST(base_7, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(base_7, t2) {
+TEST(Base7, t2) {
     int const num = -7;
     string const output = "-10";
     Solution sl;

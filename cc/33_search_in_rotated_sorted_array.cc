@@ -68,7 +68,7 @@ class Solution {
     }
 };
 
-TEST(search_in_rotated_sorted_array, t1) {
+TEST(SearchInRotatedSortedArray, t1) {
     std::vector<int> nums = {4, 5, 6, 7, 0, 1, 2};
     int const target = 0;
     int const output = 4;
@@ -77,7 +77,7 @@ TEST(search_in_rotated_sorted_array, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(search_in_rotated_sorted_array, t2) {
+TEST(SearchInRotatedSortedArray, t2) {
     std::vector<int> nums = {4, 5, 6, 7, 0, 1, 2};
     int const target = 3;
     int const output = -1;
@@ -86,7 +86,7 @@ TEST(search_in_rotated_sorted_array, t2) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(search_in_rotated_sorted_array, t3) {
+TEST(SearchInRotatedSortedArray, t3) {
     std::vector<int> nums = {1};
     int const target = 0;
     int const output = -1;

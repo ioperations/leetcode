@@ -90,7 +90,7 @@ class Solution {
     }
 };
 
-TEST(count_of_smaller_numbers_after_self, t1) {
+TEST(CountOfSmallerNumbersAfterSelf, t1) {
     vector<int> nums{5, 2, 6, 1};
     vector<int> const output{2, 1, 1, 0};
     Solution sl;
@@ -103,7 +103,7 @@ TEST(count_of_smaller_numbers_after_self, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(count_of_smaller_numbers_after_self, t2) {
+TEST(CountOfSmallerNumbersAfterSelf, t2) {
     vector<int> nums{-1};
     vector<int> const output{0};
     Solution sl;
@@ -111,7 +111,7 @@ TEST(count_of_smaller_numbers_after_self, t2) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(count_of_smaller_numbers_after_self, t3) {
+TEST(CountOfSmallerNumbersAfterSelf, t3) {
     vector<int> nums{-1, -1};
     vector<int> const output{0, 0};
     Solution sl;

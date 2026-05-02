@@ -52,7 +52,7 @@ class Solution {
     }
 };
 
-TEST(increasing_triplet_subsequence, t1) {
+TEST(IncreasingTripletSubsequence, t1) {
     vector<int> nums = {1, 2, 3, 4, 5};
     bool const output = true;
     // Explanation: Any triplet where i < j < k is valid.
@@ -61,7 +61,7 @@ TEST(increasing_triplet_subsequence, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(increasing_triplet_subsequence, t2) {
+TEST(IncreasingTripletSubsequence, t2) {
     vector<int> nums = {5, 4, 3, 2, 1};
     bool const output = false;
     // No triplet exists.
@@ -70,7 +70,7 @@ TEST(increasing_triplet_subsequence, t2) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(increasing_triplet_subsequence, t3) {
+TEST(IncreasingTripletSubsequence, t3) {
     vector<int> nums = {2, 1, 5, 0, 4, 6};
     bool const output = true;
     // The triplet (3, 4, 5) is valid because nums[3] == 0 < nums[4] == 4 <

@@ -43,7 +43,7 @@ class Solution {
 };
 #include <gtest/gtest.h>
 
-TEST(t0, t1) {
+TEST(T0, t1) {
     vector<int> nums = {2, 11, 10, 1, 3};
     int const k = 10;
     int const output = 2;
@@ -59,7 +59,7 @@ TEST(t0, t1) {
     // are greater than or equal to 10.
 }
 
-TEST(t0, t2) {
+TEST(T0, t2) {
     vector<int> nums = {1, 1, 2, 4, 9};
     int const k = 20;
     int const output = 4;
@@ -77,7 +77,7 @@ TEST(t0, t2) {
       */
 }
 
-TEST(t0, t3) {
+TEST(T0, t3) {
     vector<int> nums = {999999999, 999999999, 999999999};
     int const k = 1000000000;
     int const output = 2;

@@ -40,7 +40,7 @@ class Solution {
     }
 };
 
-TEST(contains_duplicate_ii, t1) {
+TEST(ContainsDuplicateIi, t1) {
     std::vector<int> const nums = {1, 2, 3, 1};
     int const k = 3;
     bool const output = true;
@@ -50,7 +50,7 @@ TEST(contains_duplicate_ii, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(contains_duplicate_ii, t2) {
+TEST(ContainsDuplicateIi, t2) {
     std::vector<int> const nums = {1, 0, 1, 1};
     int const k = 1;
     bool const output = true;
@@ -60,7 +60,7 @@ TEST(contains_duplicate_ii, t2) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(contains_duplicate_ii, t3) {
+TEST(ContainsDuplicateIi, t3) {
     std::vector<int> const nums = {1, 2, 3, 1, 2, 3};
     int const k = 2;
     bool const output = false;
@@ -70,7 +70,7 @@ TEST(contains_duplicate_ii, t3) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(contains_duplicate_ii_v2, t1) {
+TEST(ContainsDuplicateIiV2, t1) {
     std::vector<int> const nums = {1, 2, 3, 1};
     int const k = 3;
     bool const output = true;
@@ -80,7 +80,7 @@ TEST(contains_duplicate_ii_v2, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(contains_duplicate_ii_v2, t2) {
+TEST(ContainsDuplicateIiV2, t2) {
     std::vector<int> const nums = {1, 0, 1, 1};
     int const k = 1;
     bool const output = true;
@@ -90,7 +90,7 @@ TEST(contains_duplicate_ii_v2, t2) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(contains_duplicate_ii_v2, t3) {
+TEST(ContainsDuplicateIiV2, t3) {
     std::vector<int> const nums = {1, 2, 3, 1, 2, 3};
     int const k = 2;
     bool const output = false;

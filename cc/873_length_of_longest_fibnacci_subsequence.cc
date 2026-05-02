@@ -96,7 +96,7 @@ class Solution {
     }
 };
 
-TEST(length_of_longest_fibnacci_subsequence, t1) {
+TEST(LengthOfLongestFibnacciSubsequence, t1) {
     std::vector<int> arr{1, 2, 3, 4, 5, 6, 7, 8};
     int const out = 5;
     Solution sl;
@@ -105,7 +105,7 @@ TEST(length_of_longest_fibnacci_subsequence, t1) {
     EXPECT_EQ(ret, out);
 }
 
-TEST(length_of_longest_fibnacci_subsequence, t2) {
+TEST(LengthOfLongestFibnacciSubsequence, t2) {
     std::vector<int> arr{1, 3, 7, 11, 12, 14, 18};
     int const out = 3;
     Solution sl;
@@ -115,7 +115,7 @@ TEST(length_of_longest_fibnacci_subsequence, t2) {
     EXPECT_EQ(ret, out);
 }
 
-TEST(length_of_longest_fibnacci_subsequence, t3) {
+TEST(LengthOfLongestFibnacciSubsequence, t3) {
     std::vector<int> arr{2, 4, 7, 8, 9, 10, 14, 15, 18, 23, 32, 50};
     // 4 10 14 18 32
     int const out = 5;

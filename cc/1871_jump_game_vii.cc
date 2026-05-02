@@ -45,7 +45,7 @@ class Solution {
     }
 };
 
-TEST(jump_game_vii, t1) {
+TEST(JumpGameVii, t1) {
     string const s = "011010";
     int min_jump = 2, max_jump = 3;
     bool const output = true;
@@ -56,7 +56,7 @@ TEST(jump_game_vii, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(jump_game_vii, t2) {
+TEST(JumpGameVii, t2) {
     string const s = "01101110";
     int min_jump = 2, max_jump = 3;
     bool const output = false;

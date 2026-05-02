@@ -75,7 +75,7 @@ class Solution {
     }
 };
 
-TEST(maximum_points_you_can_obtain_from_cards, t1) {
+TEST(MaximumPointsYouCanObtainFromCards, t1) {
     vector<int> card_points = {1, 2, 3, 4, 5, 6, 1};
     int const k = 3;
     int const output = 12;
@@ -88,7 +88,7 @@ TEST(maximum_points_you_can_obtain_from_cards, t1) {
     // score of 1 + 6 + 5 = 12.
 }
 
-TEST(maximum_points_you_can_obtain_from_cards, t2) {
+TEST(MaximumPointsYouCanObtainFromCards, t2) {
     vector<int> card_points = {2, 2, 2};
     int const k = 2;
     int const output = 4;
@@ -98,7 +98,7 @@ TEST(maximum_points_you_can_obtain_from_cards, t2) {
     // Regardless of which two cards you take, your score will always be 4.
 }
 
-TEST(maximum_points_you_can_obtain_from_cards, t3) {
+TEST(MaximumPointsYouCanObtainFromCards, t3) {
     vector<int> card_points = {9, 7, 7, 9, 7, 7, 9};
     int const k = 7;
     int const output = 55;
@@ -109,7 +109,7 @@ TEST(maximum_points_you_can_obtain_from_cards, t3) {
     // cards.
 }
 
-TEST(maximum_points_you_can_obtain_from_cards_v2, t1) {
+TEST(MaximumPointsYouCanObtainFromCardsV2, t1) {
     vector<int> card_points = {1, 2, 3, 4, 5, 6, 1};
     int const k = 3;
     int const output = 12;
@@ -122,7 +122,7 @@ TEST(maximum_points_you_can_obtain_from_cards_v2, t1) {
     // score of 1 + 6 + 5 = 12.
 }
 
-TEST(maximum_points_you_can_obtain_from_cards_v2, t2) {
+TEST(MaximumPointsYouCanObtainFromCardsV2, t2) {
     vector<int> card_points = {2, 2, 2};
     int const k = 2;
     int const output = 4;
@@ -132,7 +132,7 @@ TEST(maximum_points_you_can_obtain_from_cards_v2, t2) {
     // Regardless of which two cards you take, your score will always be 4.
 }
 
-TEST(maximum_points_you_can_obtain_from_cards_v2, t3) {
+TEST(MaximumPointsYouCanObtainFromCardsV2, t3) {
     vector<int> card_points = {9, 7, 7, 9, 7, 7, 9};
     int const k = 7;
     int const output = 55;

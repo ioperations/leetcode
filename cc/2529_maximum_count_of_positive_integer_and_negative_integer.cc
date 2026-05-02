@@ -31,7 +31,7 @@ class Solution {
 
 #include <gtest/gtest.h>
 
-TEST(t0, t1) {
+TEST(T0, t1) {
     std::vector<int> nums{-2, -1, -1, 1, 2, 3};
     int const output = 3;
     Solution sl;
@@ -41,7 +41,7 @@ TEST(t0, t1) {
     // among them is 3.
 }
 
-TEST(t0, t2) {
+TEST(T0, t2) {
     std::vector<int> nums{-3, -2, -1, 0, 0, 1, 2};
     int const output = 3;
     Solution sl;
@@ -51,7 +51,7 @@ TEST(t0, t2) {
     // among them is 3.
 }
 
-TEST(t0, t3) {
+TEST(T0, t3) {
     std::vector<int> nums{5, 20, 66, 1314};
     int const output = 4;
     Solution sl;

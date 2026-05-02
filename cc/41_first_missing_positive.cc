@@ -62,21 +62,21 @@ class Solution {
     }
 };
 
-TEST(first_missing_positive, t1) {
+TEST(FirstMissingPositive, t1) {
     std::vector<int> nums = {1, 2, 0};
     Solution s;
     int const ret = s.FirstMissingPositive(nums);
     EXPECT_EQ(ret, 3);
 }
 
-TEST(first_missing_positive, t2) {
+TEST(FirstMissingPositive, t2) {
     std::vector<int> nums = {3, 4, -1, 1};
     Solution s;
     int const ret = s.FirstMissingPositive(nums);
     EXPECT_EQ(ret, 2);
 }
 
-TEST(first_missing_positive, t3) {
+TEST(FirstMissingPositive, t3) {
     std::vector<int> nums = {7, 8, 9, 11, 12};
     Solution s;
     int const ret = s.FirstMissingPositive(nums);

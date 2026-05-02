@@ -102,7 +102,7 @@ void FreeNode(Node* n) {
 
 #define null std::nullopt
 
-TEST(n_ary_tree_postorder_traversal, t1) {
+TEST(NAryTreePostorderTraversal, t1) {
     vector<optional<int>> root = {1, null, 3, 2, 4, null, 5, 6};
     const vector<int> output = {5, 6, 3, 2, 4, 1};
     Solution sl;
@@ -112,7 +112,7 @@ TEST(n_ary_tree_postorder_traversal, t1) {
     FreeNode(tree);
 }
 
-TEST(n_ary_tree_postorder_traversal, t2) {
+TEST(NAryTreePostorderTraversal, t2) {
     vector<optional<int>> root = {
         1, null, 2,    3,    4,  5,    null, null, 6,  7,    null, 8, null,
         9, 10,   null, null, 11, null, 12,   null, 13, null, null, 14};

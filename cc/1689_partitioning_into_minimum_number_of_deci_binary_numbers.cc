@@ -39,7 +39,7 @@ class Solution {
     }
 };
 
-TEST(partitioning_into_minimum_number_of_deci_binary_numbers, t1) {
+TEST(PartitioningIntoMinimumNumberOfDeciBinaryNumbers, t1) {
     string const n = "32";
     int const output = 3;
     Solution sl;
@@ -48,7 +48,7 @@ TEST(partitioning_into_minimum_number_of_deci_binary_numbers, t1) {
     // Explanation: 10 + 11 + 11 = 32;
 }
 
-TEST(partitioning_into_minimum_number_of_deci_binary_numbers, t2) {
+TEST(PartitioningIntoMinimumNumberOfDeciBinaryNumbers, t2) {
     string const n = "38273";
     int const output = 8;
     Solution sl;
@@ -57,7 +57,7 @@ TEST(partitioning_into_minimum_number_of_deci_binary_numbers, t2) {
     // Explanation: 10 + 11 + 11 = 32;
 }
 
-TEST(partitioning_into_minimum_number_of_deci_binary_numbers, t3) {
+TEST(PartitioningIntoMinimumNumberOfDeciBinaryNumbers, t3) {
     string const n = "27346209830709182346";
     int const output = 9;
     Solution sl;

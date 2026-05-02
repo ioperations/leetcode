@@ -136,7 +136,7 @@ class Solution {
 
 using namespace std;
 
-TEST(vertical_order_traversal_of_a_binary_tree, t1) {
+TEST(VerticalOrderTraversalOfABinaryTree, t1) {
     vector<optional<int>> const root = {3, 9, 20, null, null, 15, 7};
     vector<vector<int>> const output = {{9}, {3, 15}, {20}, {7}};
     auto* node = ConstructBinaryTree(root);
@@ -152,7 +152,7 @@ TEST(vertical_order_traversal_of_a_binary_tree, t1) {
     FreeTreeNode(node);
 }
 
-TEST(vertical_order_traversal_of_a_binary_tree, t2) {
+TEST(VerticalOrderTraversalOfABinaryTree, t2) {
     vector<optional<int>> const root = {1, 2, 3, 4, 5, 6, 7};
     vector<vector<int>> const output = {{4}, {2}, {1, 5, 6}, {3}, {7}};
     auto* node = ConstructBinaryTree(root);
@@ -169,7 +169,7 @@ TEST(vertical_order_traversal_of_a_binary_tree, t2) {
     EXPECT_EQ(ret, output);
     FreeTreeNode(node);
 }
-TEST(vertical_order_traversal_of_a_binary_tree, t3) {
+TEST(VerticalOrderTraversalOfABinaryTree, t3) {
     vector<optional<int>> const root = {1, 2, 3, 4, 6, 5, 7};
     vector<vector<int>> const output = {{4}, {2}, {1, 5, 6}, {3}, {7}};
     auto* node = ConstructBinaryTree(root);

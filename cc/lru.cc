@@ -92,7 +92,7 @@ class LRUCache final {
     int m_capability;
 };
 
-TEST(lru, t1) {
+TEST(Lru, t1) {
     LRUCache<int, int> lru(3);
     lru.Set(10, 10);
     lru.Set(0, 0);

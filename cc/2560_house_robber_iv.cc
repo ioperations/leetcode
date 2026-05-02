@@ -85,7 +85,7 @@ class Solution {
 
 #include <gtest/gtest.h>
 
-TEST(t0, t1) {
+TEST(T0, t1) {
     vector<int> nums{2, 3, 5, 9};
     int const k = 2;
     int const output = 5;
@@ -103,7 +103,7 @@ TEST(t0, t1) {
      */
 }
 
-TEST(t0, t2) {
+TEST(T0, t2) {
     vector<int> nums{2, 7, 9, 3, 1};
     int const k = 2;
     int const output = 2;
@@ -117,7 +117,7 @@ TEST(t0, t2) {
      */
 }
 
-// TEST(t0, t3) {
+// TEST(T0, t3) {
 //     vector<int> nums{5038, 3053, 2825, 3638, 4648, 3259, 4948, 4248, 4940,
 //     2834,
 //                      109,  5224, 5097, 4708, 2162, 3438, 4152, 4134, 551,

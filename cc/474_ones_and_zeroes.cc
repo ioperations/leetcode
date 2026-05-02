@@ -65,7 +65,7 @@ class Solution {
     }
 };
 
-TEST(ones_and_zeroes, t1) {
+TEST(OnesAndZeroes, t1) {
     vector<string> strs = {"10", "0001", "111001", "1", "0"};
     int m = 5, n = 3;
     int const output = 4;
@@ -80,7 +80,7 @@ TEST(ones_and_zeroes, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(ones_and_zeroes, t2) {
+TEST(OnesAndZeroes, t2) {
     vector<string> strs = {"10", "0", "1"};
     int m = 1, n = 1;
     int const output = 2;

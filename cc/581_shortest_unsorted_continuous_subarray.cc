@@ -41,7 +41,7 @@ class Solution {
     }
 };
 
-TEST(shortest_unsorted_continuous_subarray, t1) {
+TEST(ShortestUnsortedContinuousSubarray, t1) {
     std::vector<int> v{2, 6, 4, 8, 10, 9, 15};
     int const expected = 5;
     // You need to sort [6, 4, 8, 10, 9] in ascending
@@ -53,7 +53,7 @@ TEST(shortest_unsorted_continuous_subarray, t1) {
     EXPECT_EQ(ret, expected);
 }
 
-TEST(shortest_unsorted_continuous_subarray, t2) {
+TEST(ShortestUnsortedContinuousSubarray, t2) {
     std::vector<int> v{1, 2, 3, 4};
     int const expected = 0;
     Solution sl;

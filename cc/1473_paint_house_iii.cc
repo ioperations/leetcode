@@ -78,7 +78,7 @@ class Solution {
     }
 };
 
-TEST(paint_house_iii, t1) {
+TEST(PaintHouseIii, t1) {
     vector<int> houses = {0, 0, 0, 0, 0};
     vector<vector<int>> cost = {{1, 10}, {10, 1}, {10, 1}, {1, 10}, {5, 1}};
     int m = 5, n = 2, target = 3;
@@ -91,7 +91,7 @@ TEST(paint_house_iii, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(paint_house_iii, t2) {
+TEST(PaintHouseIii, t2) {
     vector<int> houses = {0, 2, 1, 2, 0};
     vector<vector<int>> cost = {{1, 10}, {10, 1}, {10, 1}, {1, 10}, {5, 1}};
     int m = 5, n = 2, target = 3;
@@ -104,7 +104,7 @@ TEST(paint_house_iii, t2) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(paint_house_iii, t3) {
+TEST(PaintHouseIii, t3) {
     vector<int> houses = {3, 1, 2, 3};
     vector<vector<int>> cost = {{1, 1, 1}, {1, 1, 1}, {1, 1, 1}, {1, 1, 1}};
     int m = 4, n = 3, target = 3;

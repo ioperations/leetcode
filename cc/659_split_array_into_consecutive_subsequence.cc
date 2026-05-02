@@ -83,7 +83,7 @@ class Solution {
     }
 };
 
-TEST(split_array_into_consecutive_subsequence, t1) {
+TEST(SplitArrayIntoConsecutiveSubsequence, t1) {
     vector<int> nums = {1, 2, 3, 3, 4, 5};
     bool const output = true;
     Solution sl;
@@ -94,7 +94,7 @@ TEST(split_array_into_consecutive_subsequence, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(split_array_into_consecutive_subsequence, t2) {
+TEST(SplitArrayIntoConsecutiveSubsequence, t2) {
     vector<int> nums = {1, 2, 3, 3, 4, 4, 5, 5};
     bool const output = true;
     Solution sl;
@@ -104,7 +104,7 @@ TEST(split_array_into_consecutive_subsequence, t2) {
     [1,2,3,3,4,4,5,5] --> 3, 4, 5*/
     EXPECT_EQ(ret, output);
 }
-TEST(split_array_into_consecutive_subsequence, t3) {
+TEST(SplitArrayIntoConsecutiveSubsequence, t3) {
     vector<int> nums = {1, 2, 3, 4, 4, 5};
     bool const output = false;
     Solution sl;

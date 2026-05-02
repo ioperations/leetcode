@@ -81,7 +81,7 @@ class Solution {
     }
 };
 
-TEST(satisfiablility_of_equality_equations, t1) {
+TEST(SatisfiablilityOfEqualityEquations, t1) {
     vector<string> equations = {"a==b", "b!=a"};
     bool const output = false;
     // Explanation: If we assign say, a = 1 and b = 1, then the first equation
@@ -92,7 +92,7 @@ TEST(satisfiablility_of_equality_equations, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(satisfiablility_of_equality_equations, t2) {
+TEST(SatisfiablilityOfEqualityEquations, t2) {
     vector<string> equations = {"b==a", "a==b"};
     bool const output = true;
     // Explanation: We could assign a = 1 and b = 1 to satisfy both equations.

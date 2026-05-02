@@ -122,7 +122,7 @@ TEST(construtTest, t1) {
     FreeTreeNode(ret);
 }
 
-TEST(memleak, t0) {
+TEST(Memleak, t0) {
     std::vector<optional<int>> const input{};
     std::vector<int> const output = {};
 
@@ -133,7 +133,7 @@ TEST(memleak, t0) {
 
 #define null std::nullopt
 
-TEST(serialize_and_deserialize_binary_tree_2, t1) {
+TEST(SerializeAndDeserializeBinaryTree2, t1) {
     std::vector<optional<int>> const input{1, 2, 3, null, null, 4, 5};
     std::vector<int> const output = {1, 2, 3, 4, 5};
 
@@ -156,7 +156,7 @@ TEST(serialize_and_deserialize_binary_tree_2, t1) {
     FreeTreeNode(ret);
 }
 
-TEST(serialize_and_deserialize_binary_tree_2, t2) {
+TEST(SerializeAndDeserializeBinaryTree2, t2) {
     std::vector<optional<int>> const input(10, optional<int>());
     std::vector<int> const output = {};
 

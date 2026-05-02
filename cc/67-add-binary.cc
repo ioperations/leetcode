@@ -45,7 +45,7 @@ class Solution {
     string m_ret = "";
 };
 
-TEST(_add_binaryv2, t0) {
+TEST(AddBinaryv2, t0) {
     string const s = "1111";
     string const b = "10101";
 
@@ -55,7 +55,7 @@ TEST(_add_binaryv2, t0) {
     EXPECT_EQ(ret, "100100");
 }
 
-TEST(_add_binaryv2, t1) {
+TEST(AddBinaryv2, t1) {
     string const s = "11";
     string const b = "1";
 

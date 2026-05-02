@@ -66,7 +66,7 @@ class BSTIterator {
 
 #include <vector>
 
-TEST(binary_search_tree_iterator, t1) {
+TEST(BinarySearchTreeIterator, t1) {
     TreeNode<int>* root = ConstructTree(std::vector<int>{1, 2, 4, 5, 6});
 
     auto* it = new BSTIterator(root);
@@ -78,7 +78,7 @@ TEST(binary_search_tree_iterator, t1) {
     FreeTreeNode(root);
 }
 
-TEST(binary_search_tree_iterator, t2) {
+TEST(BinarySearchTreeIterator, t2) {
     TreeNode<int>* root = ConstructTree(std::vector<int>{7, 3, 15, 9, 20});
 
     auto* it = new BSTIterator(root);

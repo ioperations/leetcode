@@ -69,7 +69,7 @@ class Solution {
     }
 };
 
-TEST(reverse_words_in_a_string_iii, t1) {
+TEST(ReverseWordsInAStringIii, t1) {
     string const s = "Let's take LeetCode contest";
     string const output = "s'teL ekat edoCteeL tsetnoc";
     Solution sl;
@@ -77,7 +77,7 @@ TEST(reverse_words_in_a_string_iii, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(reverse_words_in_a_string_iii, t2) {
+TEST(ReverseWordsInAStringIii, t2) {
     string const s = "God Ding";
     string const output = "doG gniD";
     Solution sl;

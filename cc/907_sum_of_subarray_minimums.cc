@@ -54,7 +54,7 @@ class Solution {
     }
 };
 
-TEST(sum_of_subarray_minimums, t1) {
+TEST(SumOfSubarrayMinimums, t1) {
     std::vector<int> arr{3, 1, 2, 4};
     int const output = 17;
     Solution sl;
@@ -64,7 +64,7 @@ TEST(sum_of_subarray_minimums, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(sum_of_subarray_minimums, t2) {
+TEST(SumOfSubarrayMinimums, t2) {
     std::vector<int> arr{11, 81, 94, 43, 3};
     int const output = 444;
     Solution sl;
@@ -72,7 +72,7 @@ TEST(sum_of_subarray_minimums, t2) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(sum_of_subarray_minimums, t3) {
+TEST(SumOfSubarrayMinimums, t3) {
     std::vector<int> arr{
         29959, 29867, 29822, 29704, 29676, 29650, 29577, 29488, 29286, 29255,
         29232, 29207, 29071, 29034, 28925, 28849, 28731, 28693, 28624, 28606,

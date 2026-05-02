@@ -66,7 +66,7 @@ void InOrderTraverse(TreeNode* node, Func&& func) {
     InOrderTraverse(node->right, func);
 }
 
-TEST(t, t1) {
+TEST(T, t1) {
     auto* binary_tree = Tree::ConstructBinaryTree(
         std::vector<std::optional<int>>{1, 2, 3, 4, 5, 6, 7});
     vector<TreeNode*> to_free;

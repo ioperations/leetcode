@@ -91,7 +91,7 @@ class SolutionV2 {
 };
 #include <gtest/gtest.h>
 
-TEST(t0, t1) {
+TEST(T0, t1) {
     string s1 = "bank", s2 = "kanb";
     bool const output = true;
     // Explanation : For example, swap the first character with the last
@@ -104,7 +104,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t2) {
+TEST(T0, t2) {
     string s1 = "attack", s2 = "defend";
     auto output = false;
     // Explanation : It is impossible to make them equal with one string swap
@@ -116,7 +116,7 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t3) {
+TEST(T0, t3) {
     string s1 = "kelb", s2 = "kelb";
     bool const output = true;
     // Explanation: The two strings are already equal, so no string swap

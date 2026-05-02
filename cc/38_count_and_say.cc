@@ -51,7 +51,7 @@ class Solution {
     }
 };
 
-TEST(count_and_say, t1) {
+TEST(CountAndSay, t1) {
     int const n = 4;
     std::string const output = "1211";
     Solution s;
@@ -64,7 +64,7 @@ TEST(count_and_say, t1) {
     // countAndSay(4) = say "21" = one 2 + one 1 = "12" + "11" = "1211"
 }
 
-TEST(count_and_say, t2) {
+TEST(CountAndSay, t2) {
     int const n = 1;
     std::string const output = "1";
     Solution s;

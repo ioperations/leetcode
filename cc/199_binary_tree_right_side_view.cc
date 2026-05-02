@@ -44,7 +44,7 @@ class Solution {
     }
 };
 
-TEST(binary_tree_right_side_view, t1) {
+TEST(BinaryTreeRightSideView, t1) {
     vector<optional<int>> const root = {
         1, 2, 3, std::optional<int>(), 5, std::optional<int>(), 4};
     TreeNode<int>* node = ConstructBinaryTree(root);
@@ -56,7 +56,7 @@ TEST(binary_tree_right_side_view, t1) {
     FreeTreeNode(node);
 }
 
-TEST(binary_tree_right_side_view, t2) {
+TEST(BinaryTreeRightSideView, t2) {
     vector<optional<int>> const root = {1, std::optional<int>(), 3};
     TreeNode<int>* node = ConstructBinaryTree(root);
     Solution sl;
@@ -67,7 +67,7 @@ TEST(binary_tree_right_side_view, t2) {
     FreeTreeNode(node);
 }
 
-TEST(binary_tree_right_side_view, t3) {
+TEST(BinaryTreeRightSideView, t3) {
     vector<optional<int>> const root = {};
     TreeNode<int>* node = ConstructBinaryTree(root);
     Solution sl;

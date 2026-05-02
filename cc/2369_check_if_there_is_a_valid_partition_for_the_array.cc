@@ -78,7 +78,7 @@ class Solution {
     std::map<int, bool> m_cache;
 };
 
-TEST(check_if_there_is_a_valid_partition_for_the_array, t1) {
+TEST(CheckIfThereIsAValidPartitionForTheArray, t1) {
     vector<int> nums = {4, 4, 4, 5, 6};
     bool const output = true;
     // Explanation: The array can be partitioned into the subarrays [4,4] and
@@ -88,7 +88,7 @@ TEST(check_if_there_is_a_valid_partition_for_the_array, t1) {
     EXPECT_EQ(output, ret);
 }
 
-TEST(check_if_there_is_a_valid_partition_for_the_array, t2) {
+TEST(CheckIfThereIsAValidPartitionForTheArray, t2) {
     vector<int> nums = {1, 1, 1, 2};
     bool const output = false;
     // There is no valid partition for this array.

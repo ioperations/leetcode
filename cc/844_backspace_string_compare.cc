@@ -47,7 +47,7 @@ class Solution {
     }
 };
 
-TEST(backspace_string_compare, t1) {
+TEST(BackspaceStringCompare, t1) {
     std::string s = "ab#c", t = "ad#c";
     bool const expected = true;
 
@@ -56,7 +56,7 @@ TEST(backspace_string_compare, t1) {
     EXPECT_EQ(ret, expected);
     // Explanation: Both s and t become "ac".
 }
-TEST(backspace_string_compare, t2) {
+TEST(BackspaceStringCompare, t2) {
     std::string s = "ab##", t = "c#d#";
     bool const expected = true;
 
@@ -66,7 +66,7 @@ TEST(backspace_string_compare, t2) {
     // Explanation: Both s and t become "ac".
 }
 
-TEST(backspace_string_compare, t3) {
+TEST(BackspaceStringCompare, t3) {
     std::string s = "a#c", t = "b";
     bool const expected = false;
 

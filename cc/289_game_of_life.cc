@@ -94,7 +94,7 @@ class Solution {
     }
 };
 
-TEST(game_of_life, t1) {
+TEST(GameOfLife, t1) {
     // pass
     std::vector<std::vector<int>> board = {
         {0, 1, 0}, {0, 0, 1}, {1, 1, 1}, {0, 0, 0}};
@@ -106,7 +106,7 @@ TEST(game_of_life, t1) {
     EXPECT_EQ(board, expected);
 }
 
-TEST(game_of_life, t2) {
+TEST(GameOfLife, t2) {
     // pass
     std::vector<std::vector<int>> board = {{1, 1}, {1, 0}};
     std::vector<std::vector<int>> const expected = {{1, 1}, {1, 1}};

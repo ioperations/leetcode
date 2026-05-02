@@ -197,7 +197,7 @@ void CheckEqual(Node* node, std::vector<std::vector<int>>& adj_list) {
     }
 }
 
-TEST(clone_graph, t1) {
+TEST(CloneGraph, t1) {
     std::vector<std::vector<int>> adj_list = {
         std::vector<int>{2, 4}, std::vector<int>{1, 3}, std::vector<int>{2, 4},
         std::vector<int>{1, 3}};
@@ -215,7 +215,7 @@ TEST(clone_graph, t1) {
     // 3rd node (val = 3).
 }
 
-TEST(clone_graph, t2) {
+TEST(CloneGraph, t2) {
     std::vector<std::vector<int>> adj_list = {std::vector<int>{}};
     Node* node = BuildNode(adj_list);
     Solution sl;
@@ -227,7 +227,7 @@ TEST(clone_graph, t2) {
      * one node with val = 1 and it does not have any neighbors*/
 }
 
-TEST(clone_graph, t3) {
+TEST(CloneGraph, t3) {
     std::vector<std::vector<int>> adj_list = {};
     Node* node = BuildNode(adj_list);
     Solution sl;
@@ -238,7 +238,7 @@ TEST(clone_graph, t3) {
     /*This an empty graph, it does not have any nodes.*/
 }
 
-TEST(clone_graph_v2, t1) {
+TEST(CloneGraphV2, t1) {
     std::vector<std::vector<int>> adj_list = {
         std::vector<int>{2, 4}, std::vector<int>{1, 3}, std::vector<int>{2, 4},
         std::vector<int>{1, 3}};
@@ -251,7 +251,7 @@ TEST(clone_graph_v2, t1) {
     // FreeGraph(ret)
 }
 
-TEST(clone_graph_v2, t2) {
+TEST(CloneGraphV2, t2) {
     std::vector<std::vector<int>> adj_list = {std::vector<int>{}};
     Node* node = BuildNode(adj_list);
     Solution sl;
@@ -260,7 +260,7 @@ TEST(clone_graph_v2, t2) {
     FreeGraph(node);
 }
 
-TEST(clone_graph_v2, t3) {
+TEST(CloneGraphV2, t3) {
     std::vector<std::vector<int>> adj_list = {};
     Node* node = BuildNode(adj_list);
     Solution sl;

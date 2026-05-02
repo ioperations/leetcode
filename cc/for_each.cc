@@ -62,7 +62,7 @@ class AutoResetStatistic {
 
 }  // namespace
 
-TEST(forV, DISABLED_basic_test) {
+TEST(forV, DISABLEDBasicTest) {
     AutoResetStatistic auto_reset_statistic;
     {
         std::vector<std::vector<std::vector<DummyClass>>> v{{{1}, {2, 3}},

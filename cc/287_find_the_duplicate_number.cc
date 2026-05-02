@@ -55,7 +55,7 @@ class Solution {
     }
 };
 
-TEST(find_the_duplicate_number, t1) {
+TEST(FindTheDuplicateNumber, t1) {
     std::vector<int> v{1, 3, 4, 2, 2};
 
     int const i = 2;
@@ -64,7 +64,7 @@ TEST(find_the_duplicate_number, t1) {
     EXPECT_EQ(ret, i);
 }
 
-TEST(find_the_duplicate_number, t2) {
+TEST(FindTheDuplicateNumber, t2) {
     std::vector<int> v{3, 1, 3, 4, 2};
 
     int const i = 3;
@@ -73,7 +73,7 @@ TEST(find_the_duplicate_number, t2) {
     EXPECT_EQ(ret, i);
 }
 
-TEST(find_the_duplicate_number_v2, t1) {
+TEST(FindTheDuplicateNumberV2, t1) {
     std::vector<int> v{1, 3, 4, 2, 2};
 
     int const i = 2;
@@ -82,7 +82,7 @@ TEST(find_the_duplicate_number_v2, t1) {
     EXPECT_EQ(ret, i);
 }
 
-TEST(find_the_duplicate_number_v2, t2) {
+TEST(FindTheDuplicateNumberV2, t2) {
     std::vector<int> v{3, 1, 3, 4, 2};
 
     int const i = 3;

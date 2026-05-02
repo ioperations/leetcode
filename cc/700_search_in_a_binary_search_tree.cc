@@ -35,7 +35,7 @@ class Solution {
     }
 };
 
-TEST(search_in_a_binary_search_tree, t1) {
+TEST(SearchInABinarySearchTree, t1) {
     std::vector<int> const v{4, 2, 7, 1, 3};
     int const val = 2;
     std::vector<int> const expected{2, 1, 3};
@@ -48,7 +48,7 @@ TEST(search_in_a_binary_search_tree, t1) {
     FreeTreeNode(node);
 }
 
-TEST(search_in_a_binary_search_tree, t2) {
+TEST(SearchInABinarySearchTree, t2) {
     std::vector<int> const v{4, 2, 7, 1, 3};
     int const val = 5;
     std::vector<int> const expected{};

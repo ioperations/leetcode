@@ -49,7 +49,7 @@ class Obj2 : public Father<Obj2> {
 
 #include <iostream>
 
-TEST(t0, t1) {
+TEST(T0, t1) {
     testing::internal::CaptureStdout();
     Obj1 obj1;
     obj1.Interface();

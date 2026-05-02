@@ -25,7 +25,7 @@ class Solution {
     }
 };
 
-TEST(power_of_three, t1) {
+TEST(PowerOfThree, t1) {
     int const n = 27;
     bool const expected = true;
 
@@ -34,7 +34,7 @@ TEST(power_of_three, t1) {
     EXPECT_EQ(ret, expected);
 }
 
-TEST(power_of_three, t2) {
+TEST(PowerOfThree, t2) {
     int const n = 0;
     bool const expected = false;
 
@@ -42,7 +42,7 @@ TEST(power_of_three, t2) {
     bool const ret = sl.IsPowerOfThree(n);
     EXPECT_EQ(ret, expected);
 }
-TEST(power_of_three, t3) {
+TEST(PowerOfThree, t3) {
     int const n = 9;
     bool const expected = true;
 

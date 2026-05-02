@@ -42,7 +42,7 @@ class Solution {
     }
 };
 
-TEST(next_greater_element_ii, t1) {
+TEST(NextGreaterElementIi, t1) {
     vector<int> nums = {1, 2, 1};
     vector<int> const output = {2, -1, 2};
     Solution sl;
@@ -54,7 +54,7 @@ TEST(next_greater_element_ii, t1) {
     // also 2.
 }
 
-TEST(next_greater_element_ii, t2) {
+TEST(NextGreaterElementIi, t2) {
     vector<int> nums = {1, 2, 3, 4, 3};
     vector<int> const output = {2, 3, 4, -1, 4};
     Solution sl;

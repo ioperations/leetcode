@@ -51,7 +51,7 @@ class Solution {
     }
 };
 
-TEST(editdistance, t0) {
+TEST(Editdistance, t0) {
     std::string const a("abc");
     std::string const b("Abc");
 
@@ -60,7 +60,7 @@ TEST(editdistance, t0) {
 
     EXPECT_EQ(ret, 1);
 }
-TEST(editdistance, t1) {
+TEST(Editdistance, t1) {
     std::string const a("ab");
     std::string const b("Abc");
 

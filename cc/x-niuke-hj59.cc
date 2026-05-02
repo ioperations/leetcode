@@ -20,14 +20,14 @@ void Process(std::string str) {
     }
 }
 
-TEST(ta, t2) {
+TEST(Ta, t2) {
     std::string const ss("aabb");
     testing::internal::CaptureStdout();
     Process(ss);
     std::string const out = testing::internal::GetCapturedStdout();
     EXPECT_EQ(out, std::string("-1\n"));
 }
-TEST(x_niuke_hjv2, t2) {
+TEST(XNiukeHjv2, t2) {
     std::string const ss("asdfasdfo");
     testing::internal::CaptureStdout();
     Process(ss);

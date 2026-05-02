@@ -115,7 +115,7 @@ TreeNode* ConstructTreeNode(std::vector<int>& arr) {
     return InsertLevelOrder(arr, 0);
 }
 
-TEST(deepest_leaves_sum, t1) {
+TEST(DeepestLeavesSum, t1) {
     vector<int> vec = {1, 2, 3, 4, 5, null, 6, 7, null, null, null, null, 8};
 
     TreeNode* root = ConstructTreeNode(vec);
@@ -128,7 +128,7 @@ TEST(deepest_leaves_sum, t1) {
     FreeTreeNode(root);
 };
 
-TEST(deepest_leaves_sum, t2) {
+TEST(DeepestLeavesSum, t2) {
     vector<int> vec = {6, 7, 8, 2, 7, 1, 3, 9, null, 1, 4, null, null, null, 5};
 
     TreeNode* root = ConstructTreeNode(vec);

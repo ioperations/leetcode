@@ -34,7 +34,7 @@ class Solution {
     vector<vector<int>> ImplV1(vector<vector<int>>& graph) { return {{}}; }
 };
 
-TEST(_all_path_from_src_to_dstv2, t2) {
+TEST(AllPathFromSrcToDstv2, t2) {
     Solution const n;
 
     (void)n;

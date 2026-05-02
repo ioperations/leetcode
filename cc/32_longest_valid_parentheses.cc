@@ -36,7 +36,7 @@ class Solution {
     }
 };
 
-TEST(longest_valid_parentheses, t1) {
+TEST(LongestValidParentheses, t1) {
     string const s = "(()";
     int const output = 2;
     // Explanation: The longest valid parentheses substring is "()".
@@ -46,7 +46,7 @@ TEST(longest_valid_parentheses, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(longest_valid_parentheses, t2) {
+TEST(LongestValidParentheses, t2) {
     string const s = ")()())";
     int const output = 4;
     // Explanation: The longest valid parentheses substring is "()()".
@@ -55,7 +55,7 @@ TEST(longest_valid_parentheses, t2) {
     int const ret = sl.LongestValidParentheses(s);
     EXPECT_EQ(ret, output);
 }
-TEST(longest_valid_parentheses, t3) {
+TEST(LongestValidParentheses, t3) {
     string const s = "";
     int const output = 0;
 

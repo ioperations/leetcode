@@ -71,21 +71,21 @@ class Solution {
     const int m_mod = 1000000007;
 };
 
-TEST(number_of_music_playlists, t1) {
+TEST(NumberOfMusicPlaylists, t1) {
     Solution s;
     // There are 6 possible playlists: [1, 2, 3], [1, 3, 2], [2, 1, 3], [2, 3,
     // 1], [3, 1, 2], and [3, 2, 1].
     EXPECT_EQ(s.NumMusicPlaylists(3, 3, 1), 6);
 }
 
-TEST(number_of_music_playlists, t2) {
+TEST(NumberOfMusicPlaylists, t2) {
     Solution s;
     // There are 6 possible playlists: [1, 1, 2], [1, 2, 1], [2, 1, 1], [2, 2,
     // 1], [2, 1, 2], and [1, 2, 2].
     EXPECT_EQ(s.NumMusicPlaylists(2, 3, 0), 6);
 }
 
-TEST(number_of_music_playlists, t3) {
+TEST(NumberOfMusicPlaylists, t3) {
     Solution s;
     // There are 2 possible playlists: [1, 2, 1] and [2, 1, 2].
     EXPECT_EQ(s.NumMusicPlaylists(2, 3, 1), 2);

@@ -53,7 +53,7 @@ class Solution {
 
 #include <gtest/gtest.h>
 
-TEST(t0, t1) {
+TEST(T0, t1) {
     int n = 1, k = 3;
     string const output = "c";
     Solution sl;
@@ -63,7 +63,7 @@ TEST(t0, t1) {
     // third string is "c".
 }
 
-TEST(t0, t2) {
+TEST(T0, t2) {
     int n = 1, k = 4;
     string const output = "";
     Solution sl;
@@ -71,7 +71,7 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
     //  There are only 3 happy strings of length 1.
 }
-TEST(t0, t3) {
+TEST(T0, t3) {
     int n = 3, k = 9;
     string const output = "cab";
     Solution sl;

@@ -92,7 +92,7 @@ class Solution {
     }
 };
 
-TEST(minimium_window_substring, t1) {
+TEST(MinimiumWindowSubstring, t1) {
     string const s = "ADOBECODEBANC";
     string const t = "ABC";
     string const output = "BANC";
@@ -104,7 +104,7 @@ TEST(minimium_window_substring, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(minimium_window_substring, t2) {
+TEST(MinimiumWindowSubstring, t2) {
     string const s = "a";
     string const t = "a";
     string const output = "a";
@@ -116,7 +116,7 @@ TEST(minimium_window_substring, t2) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(minimium_window_substring, t3) {
+TEST(MinimiumWindowSubstring, t3) {
     string const s = "a";
     string const t = "aa";
     string const output = "";

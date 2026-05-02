@@ -113,7 +113,7 @@ class Solution {
     }
 };
 
-TEST(word_ladder_ii, t1) {
+TEST(WordLadderIi, t1) {
     string begin_word = "hit", end_word = "cog";
     vector<string> word_list = {"hot", "dot", "dog", "lot", "log", "cog"};
     vector<vector<string>> output = {{"hit", "hot", "dot", "dog", "cog"},
@@ -128,7 +128,7 @@ TEST(word_ladder_ii, t1) {
     EXPECT_EQ(set, output_set);
 }
 
-TEST(word_ladder_ii, t2) {
+TEST(WordLadderIi, t2) {
     string begin_word = "hit", end_word = "cog";
     vector<string> word_list = {"hot", "dot", "dog", "lot", "log"};
     vector<vector<string>> const output = {};
@@ -139,7 +139,7 @@ TEST(word_ladder_ii, t2) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(word_ladder_ii, t3) {
+TEST(WordLadderIi, t3) {
     string begin_word = "aaaaa", end_word = "ggggg";
     vector<string> word_list = {
         "aaaaa", "caaaa", "cbaaa", "daaaa", "dbaaa", "eaaaa", "ebaaa", "faaaa",

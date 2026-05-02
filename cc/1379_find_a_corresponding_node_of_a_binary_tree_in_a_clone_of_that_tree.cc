@@ -105,7 +105,7 @@ using namespace std;
 
 #define null std::nullopt
 
-TEST(memleak, t1) {
+TEST(Memleak, t1) {
     std::vector<int> const v{7, 4, 3, 6, 19};
 
     auto* head = ConstructRight(v);
@@ -122,7 +122,7 @@ TEST(memleak, t1) {
     FreeTreeNode(head2);
 }
 
-TEST(find_a_corresponding_node_of_a_binary_tree_in_a_clone_of_that_tree, t1) {
+TEST(FindACorrespondingNodeOfABinaryTreeInACloneOfThatTree, t1) {
     std::vector<optional<int>> const v{7, 4, 3, null, null, 6, 19};
 
     auto* head = ConstructBinaryTree(v);
@@ -137,7 +137,7 @@ TEST(find_a_corresponding_node_of_a_binary_tree_in_a_clone_of_that_tree, t1) {
     FreeTreeNode(head2);
 }
 
-TEST(find_a_corresponding_node_of_a_binary_tree_in_a_clone_of_that_tree, t2) {
+TEST(FindACorrespondingNodeOfABinaryTreeInACloneOfThatTree, t2) {
     std::vector<optional<int>> const v{7};
 
     auto* head = ConstructBinaryTree(v);
@@ -153,7 +153,7 @@ TEST(find_a_corresponding_node_of_a_binary_tree_in_a_clone_of_that_tree, t2) {
     FreeTreeNode(head2);
 }
 
-TEST(find_a_corresponding_node_of_a_binary_tree_in_a_clone_of_that_tree, t3) {
+TEST(FindACorrespondingNodeOfABinaryTreeInACloneOfThatTree, t3) {
     std::vector<optional<int>> const v{8,    null, 6,    null, 5,    null, 4,
                                        null, 3,    null, 2,    null, 1};
 

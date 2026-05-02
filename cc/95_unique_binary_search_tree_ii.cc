@@ -129,7 +129,7 @@ std::vector<vector<optional<int>>> Flattern(vector<TreeNode*>& vec) {
 
 #define null std::nullopt
 
-TEST(unique_binary_search_tree_ii, t1) {
+TEST(UniqueBinarySearchTreeIi, t1) {
     int const n = 3;
     vector<vector<optional<int>>> output = {{1, null, 2, null, 3},
                                             {1, null, 3, 2},
@@ -150,7 +150,7 @@ TEST(unique_binary_search_tree_ii, t1) {
     }
 }
 
-TEST(unique_binary_search_tree_ii, t2) {
+TEST(UniqueBinarySearchTreeIi, t2) {
     int const n = 1;
     vector<vector<optional<int>>> output = {{1}};
     Solution sl;

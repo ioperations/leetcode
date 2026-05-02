@@ -144,7 +144,7 @@ class SolutionV2 {
     }
 };
 
-TEST(remove_all_duplicates_in_string_ii, t1) {
+TEST(RemoveAllDuplicatesInStringIi, t1) {
     string const s = "abcd";
     int const k = 2;
     Solution sl;
@@ -152,7 +152,7 @@ TEST(remove_all_duplicates_in_string_ii, t1) {
     EXPECT_EQ(ret, "abcd");
 }
 
-TEST(remove_all_duplicates_in_string_ii, t2) {
+TEST(RemoveAllDuplicatesInStringIi, t2) {
     string const s = "deeedbbcccbdaa";
     int const k = 3;
     Solution sl;
@@ -160,7 +160,7 @@ TEST(remove_all_duplicates_in_string_ii, t2) {
     EXPECT_EQ(ret, "aa");
 }
 
-TEST(remove_all_duplicates_in_string_ii, t3) {
+TEST(RemoveAllDuplicatesInStringIi, t3) {
     string const s = "pbbcggttciiippooaais";
     int const k = 2;
     Solution sl;

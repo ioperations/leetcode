@@ -72,7 +72,7 @@ class Solution {
     }
 };
 
-TEST(Kth_smallest_instructions, t1) {
+TEST(KthSmallestInstructions, t1) {
     std::vector<int> destination = {2, 3};
     int const k = 1;
     string const output = "HHHVV";
@@ -86,7 +86,7 @@ TEST(Kth_smallest_instructions, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(Kth_smallest_instructions, t2) {
+TEST(KthSmallestInstructions, t2) {
     std::vector<int> destination = {2, 3};
     int const k = 2;
     string const output = "HHVHV";
@@ -96,7 +96,7 @@ TEST(Kth_smallest_instructions, t2) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(Kth_smallest_instructions, t3) {
+TEST(KthSmallestInstructions, t3) {
     std::vector<int> destination = {2, 3};
     int const k = 3;
     string const output = "HHVVH";

@@ -142,7 +142,7 @@ void Flattern(const NestedInteger& n, vector<int>& ret) {
     }
 }
 
-TEST(base, t0) {
+TEST(Base, t0) {
     const NestedInteger tmp(1);
 
     vector<int> vec;

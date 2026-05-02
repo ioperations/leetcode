@@ -109,21 +109,21 @@ class Solution {
     }
 };
 
-TEST(t, t1) {
+TEST(T, t1) {
     // Explanation: 99 x 91 = 9009, 9009 % 1337 = 987
     Solution s;
     const bool ret = s.IsPalindrome("9009");
     EXPECT_EQ(ret, true);
 }
 
-TEST(t, t2) {
+TEST(T, t2) {
     // Explanation: 99 x 91 = 9009, 9009 % 1337 = 987
     Solution s;
     const bool ret = s.IsPalindrome("000");
     EXPECT_EQ(ret, true);
 }
 
-TEST(largest_palindrome_product, t1) {
+TEST(LargestPalindromeProduct, t1) {
     const int n = 2;
     const int expected = 987;
     // Explanation: 99 x 91 = 9009, 9009 % 1337 = 987
@@ -132,7 +132,7 @@ TEST(largest_palindrome_product, t1) {
     EXPECT_EQ(ret, expected);
 }
 
-TEST(largest_palindrome_product, t2) {
+TEST(LargestPalindromeProduct, t2) {
     const int n = 1;
     const int expected = 9;
     Solution s;

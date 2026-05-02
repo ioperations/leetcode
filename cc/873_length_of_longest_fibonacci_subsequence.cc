@@ -66,7 +66,7 @@ class Solution {
 
 #include <gtest/gtest.h>
 
-TEST(t0, t1) {
+TEST(T0, t1) {
     vector<int> arr = {1, 2, 3, 4, 5, 6, 7, 8};
     int const output = 5;
     Solution sl;
@@ -75,7 +75,7 @@ TEST(t0, t1) {
     // Explanation: The longest subsequence that is fibonacci-like: [1,2,3,5,8].
 }
 
-TEST(t0, t2) {
+TEST(T0, t2) {
     vector<int> arr = {1, 3, 7, 11, 12, 14, 18};
     int const output = 3;
     Solution sl;
@@ -84,7 +84,7 @@ TEST(t0, t2) {
     // The longest subsequence that is fibonacci-like: [1,11,12], [3,11,14] or
 }
 
-TEST(t0, t3) {
+TEST(T0, t3) {
     vector<int> arr = {2392, 2545, 2666, 5043, 5090, 5869, 6978, 7293, 7795};
     int const output = 0;
     Solution sl;

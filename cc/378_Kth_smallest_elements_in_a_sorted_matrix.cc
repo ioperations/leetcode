@@ -119,7 +119,7 @@ class Solution {
     }
 };
 
-TEST(Kth_smallest_elements_in_a_sorted_matrix, t1) {
+TEST(KthSmallestElementsInASortedMatrix, t1) {
     vector<vector<int>> const matrix = {{1, 5, 9}, {10, 11, 13}, {12, 13, 15}};
     int const k = 8;
     int const expected = 13;
@@ -130,7 +130,7 @@ TEST(Kth_smallest_elements_in_a_sorted_matrix, t1) {
     EXPECT_EQ(ret, expected);
 }
 
-TEST(Kth_smallest_elements_in_a_sorted_matrix_v2, t1) {
+TEST(KthSmallestElementsInASortedMatrixV2, t1) {
     vector<vector<int>> matrix = {{1, 5, 9}, {10, 11, 13}, {12, 13, 15}};
     int const k = 8;
     int const expected = 13;
@@ -141,7 +141,7 @@ TEST(Kth_smallest_elements_in_a_sorted_matrix_v2, t1) {
     EXPECT_EQ(ret, expected);
 }
 
-TEST(Kth_smallest_elements_in_a_sorted_matrix_v3, t1) {
+TEST(KthSmallestElementsInASortedMatrixV3, t1) {
     vector<vector<int>> matrix = {{1, 5, 9}, {10, 11, 13}, {12, 13, 15}};
     int const k = 8;
     int const expected = 13;
@@ -152,7 +152,7 @@ TEST(Kth_smallest_elements_in_a_sorted_matrix_v3, t1) {
     EXPECT_EQ(ret, expected);
 }
 
-TEST(Kth_smallest_elements_in_a_sorted_matrix, t2) {
+TEST(KthSmallestElementsInASortedMatrix, t2) {
     vector<vector<int>> const matrix = {{-5}};
     int const k = 1;
     int const expected = -5;
@@ -163,7 +163,7 @@ TEST(Kth_smallest_elements_in_a_sorted_matrix, t2) {
     EXPECT_EQ(ret, expected);
 }
 
-TEST(Kth_smallest_elements_in_a_sorted_matrix_v2, t2) {
+TEST(KthSmallestElementsInASortedMatrixV2, t2) {
     vector<vector<int>> matrix = {{-5}};
     int const k = 1;
     int const expected = -5;
@@ -173,7 +173,7 @@ TEST(Kth_smallest_elements_in_a_sorted_matrix_v2, t2) {
     int const ret = sl.KthSmallestOn2(matrix, k);
     EXPECT_EQ(ret, expected);
 }
-TEST(Kth_smallest_elements_in_a_sorted_matrix_v3, t2) {
+TEST(KthSmallestElementsInASortedMatrixV3, t2) {
     vector<vector<int>> matrix = {{-5}};
     int const k = 1;
     int const expected = -5;

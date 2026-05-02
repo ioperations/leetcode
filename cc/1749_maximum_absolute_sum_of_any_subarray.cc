@@ -50,7 +50,7 @@ class Solution {
 
 #include <gtest/gtest.h>
 
-TEST(t0, t1) {
+TEST(T0, t1) {
     vector<int> nums = {1, -3, 2, 3, -4};
     int const output = 5;
     // Explanation: The subarray [2,3] has absolute sum = abs(2+3) = abs(5) = 5.
@@ -59,7 +59,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t2) {
+TEST(T0, t2) {
     vector<int> nums = {2, -5, 1, -4, 3, -2};
     int const output = 8;
     //  The subarray [-5,1,-4] has absolute sum = abs(-5+1-4) = abs(-8) = 8.

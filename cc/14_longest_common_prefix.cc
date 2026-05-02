@@ -56,7 +56,7 @@ class Solution {
     }
 };
 
-TEST(longest_common_prefix, t1) {
+TEST(LongestCommonPrefix, t1) {
     std::vector<std::string> strs = {"flower", "flow", "flight"};
     const std::string output = "fl";
 
@@ -66,7 +66,7 @@ TEST(longest_common_prefix, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(longest_common_prefix, t2) {
+TEST(LongestCommonPrefix, t2) {
     std::vector<std::string> strs = {"dog", "racecar", "car"};
     const std::string output = "";
 

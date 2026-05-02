@@ -101,7 +101,7 @@ class NestedIterator {
  * while (i.hasNext()) cout << i.next();
  */
 
-TEST(flatten_nested_list_iterator, t1) {
+TEST(FlattenNestedListIterator, t1) {
     // vector<NestedInteger> nestedList = {{1,1},2,{1,1}};
 
     NestedInteger i1(1);
@@ -120,7 +120,7 @@ TEST(flatten_nested_list_iterator, t1) {
     EXPECT_EQ(n.GetList().size(), 3);
 };
 
-TEST(flatten_nested_list_iterator, t2) {
+TEST(FlattenNestedListIterator, t2) {
     // vector<NestedInteger> nestedList = {{1,1},2,{1,1}};
 
     NestedInteger i1(1);

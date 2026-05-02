@@ -36,7 +36,7 @@ class Solution {
     }
 };
 
-TEST(check_if_two_arrays_are_equivalent, t1) {
+TEST(CheckIfTwoArraysAreEquivalent, t1) {
     vector<string> word1 = {"ab", "c"}, word2 = {"a", "bc"};
     bool const output = true;
     /*
@@ -50,7 +50,7 @@ TEST(check_if_two_arrays_are_equivalent, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(check_if_two_arrays_are_equivalent, t2) {
+TEST(CheckIfTwoArraysAreEquivalent, t2) {
     vector<string> word1 = {"a", "cb"}, word2 = {"ab", "c"};
     bool const output = false;
     Solution sl;
@@ -58,7 +58,7 @@ TEST(check_if_two_arrays_are_equivalent, t2) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(check_if_two_arrays_are_equivalent, t3) {
+TEST(CheckIfTwoArraysAreEquivalent, t3) {
     vector<string> word1 = {"abc", "d", "defg"}, word2 = {"abcddefg"};
     bool const output = true;
     Solution sl;

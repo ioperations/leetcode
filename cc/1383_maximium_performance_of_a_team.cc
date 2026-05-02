@@ -105,7 +105,7 @@ class Solution {
     }
 };
 
-TEST(maximium_performance_of_a_team, t1) {
+TEST(MaximiumPerformanceOfATeam, t1) {
     int const n = 6;
     vector<int> speed = {2, 10, 3, 1, 5, 8}, efficiency = {5, 4, 3, 9, 7, 2};
     int const k = 2;
@@ -123,7 +123,7 @@ TEST(maximium_performance_of_a_team, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(maximium_performance_of_a_team, t2) {
+TEST(MaximiumPerformanceOfATeam, t2) {
     int const n = 6;
     vector<int> speed = {2, 10, 3, 1, 5, 8}, efficiency = {5, 4, 3, 9, 7, 2};
     int const k = 3;
@@ -139,7 +139,7 @@ TEST(maximium_performance_of_a_team, t2) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(maximium_performance_of_a_team, t3) {
+TEST(MaximiumPerformanceOfATeam, t3) {
     int const n = 6;
     vector<int> speed = {2, 10, 3, 1, 5, 8}, efficiency = {5, 4, 3, 9, 7, 2};
     int const k = 4;

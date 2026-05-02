@@ -91,7 +91,7 @@ void ExpectEqList(ListNode* const head, const std::vector<int>& elements) {
     EXPECT_EQ(i, elements.size());
 }
 
-TEST(memleak, t0) {
+TEST(Memleak, t0) {
     std::vector<int> const head = {1, 2, 3, 4, 5};
     ListNode* root = List::ConstructList(head);
 
@@ -101,7 +101,7 @@ TEST(memleak, t0) {
     List::FreeList(root);
 }
 
-TEST(reverse_nodes_in_k_group, t0) {
+TEST(ReverseNodesInKGroup, t0) {
     std::vector<int> const head = {1, 2, 3, 4, 5};
     int const k = 2;
     ListNode* root = List::ConstructList(head);
@@ -115,7 +115,7 @@ TEST(reverse_nodes_in_k_group, t0) {
     List::FreeList(root);
 }
 
-TEST(reverse_nodes_in_k_group, t1) {
+TEST(ReverseNodesInKGroup, t1) {
     std::vector<int> const head = {1, 2, 3, 4, 5};
     int const k = 3;
     std::vector<int> const expect = {3, 2, 1, 4, 5};
@@ -130,7 +130,7 @@ TEST(reverse_nodes_in_k_group, t1) {
     List::FreeList(root);
 }
 
-TEST(reverse_nodes_in_k_group, t2) {
+TEST(ReverseNodesInKGroup, t2) {
     std::vector<int> const head = {1, 2, 3, 4, 5};
     int const k = 1;
     std::vector<int> const expect = {1, 2, 3, 4, 5};

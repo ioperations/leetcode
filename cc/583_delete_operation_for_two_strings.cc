@@ -47,7 +47,7 @@ class Solution {
     }
 };
 
-TEST(delete_operation_for_two_strings, t1) {
+TEST(DeleteOperationForTwoStrings, t1) {
     string word1 = "sea", word2 = "eat";
     int const output = 2;
     // Explanation: You need one step to make "sea" to "ea" and another step to
@@ -58,7 +58,7 @@ TEST(delete_operation_for_two_strings, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(delete_operation_for_two_strings, t2) {
+TEST(DeleteOperationForTwoStrings, t2) {
     string word1 = "leetcode", word2 = "etco";
     int const output = 4;
 

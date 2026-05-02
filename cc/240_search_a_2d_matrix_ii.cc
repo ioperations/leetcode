@@ -55,7 +55,7 @@ class Solution {
     }
 };
 
-TEST(search_a_2d_matrix_ii, t1) {
+TEST(SearchA2dMatrixIi, t1) {
     vector<vector<int>> matrix = {{1, 4, 7, 11, 15},
                                   {2, 5, 8, 12, 19},
                                   {3, 6, 9, 16, 22},
@@ -69,7 +69,7 @@ TEST(search_a_2d_matrix_ii, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(search_a_2d_matrix_ii, t2) {
+TEST(SearchA2dMatrixIi, t2) {
     vector<vector<int>> matrix = {{1, 4, 7, 11, 15},
                                   {2, 5, 8, 12, 19},
                                   {3, 6, 9, 16, 22},

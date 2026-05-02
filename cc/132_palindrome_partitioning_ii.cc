@@ -49,7 +49,7 @@ class Solution {
     }
 };
 
-TEST(palindrome_partitioning_ii, t1) {
+TEST(PalindromePartitioningIi, t1) {
     std::string const s = "aab";
 
     int const i = 1;
@@ -58,7 +58,7 @@ TEST(palindrome_partitioning_ii, t1) {
     EXPECT_EQ(ret, i);
 }
 
-TEST(palindrome_partitioning_ii, t2) {
+TEST(PalindromePartitioningIi, t2) {
     std::string const s = "a";
 
     int const i = 0;
@@ -67,7 +67,7 @@ TEST(palindrome_partitioning_ii, t2) {
     EXPECT_EQ(ret, i);
 }
 
-TEST(palindrome_partitioning_ii, t3) {
+TEST(PalindromePartitioningIi, t3) {
     std::string const s = "ab";
 
     int const i = 1;

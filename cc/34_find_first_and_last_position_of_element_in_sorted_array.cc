@@ -37,7 +37,7 @@ class Solution {
     }
 };
 
-TEST(find_first_and_last_position_of_element_in_sorted_array, t1) {
+TEST(FindFirstAndLastPositionOfElementInSortedArray, t1) {
     vector<int> elements{5, 7, 7, 8, 8, 10};
     Solution sl;
     auto ret = sl.SearchRange(elements, 8);
@@ -45,7 +45,7 @@ TEST(find_first_and_last_position_of_element_in_sorted_array, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(find_first_and_last_position_of_element_in_sorted_array, t2) {
+TEST(FindFirstAndLastPositionOfElementInSortedArray, t2) {
     vector<int> elements{5, 7, 7, 8, 8, 10};
     Solution sl;
     auto ret = sl.SearchRange(elements, 6);
@@ -53,7 +53,7 @@ TEST(find_first_and_last_position_of_element_in_sorted_array, t2) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(find_first_and_last_position_of_element_in_sorted_array, t3) {
+TEST(FindFirstAndLastPositionOfElementInSortedArray, t3) {
     vector<int> elements{};
     Solution sl;
     auto ret = sl.SearchRange(elements, 0);

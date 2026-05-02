@@ -40,7 +40,7 @@ class Solution {
     }
 };
 
-TEST(intersection_of_two_arrays, t1) {
+TEST(IntersectionOfTwoArrays, t1) {
     std::vector<int> v{1, 2, 2, 1};
     std::vector<int> v2{2, 2};
     Solution sl;
@@ -48,7 +48,7 @@ TEST(intersection_of_two_arrays, t1) {
     EXPECT_EQ(ret, std::vector<int>{2});
 }
 
-TEST(intersection_of_two_arrays, t2) {
+TEST(IntersectionOfTwoArrays, t2) {
     std::vector<int> v{4, 9, 5};
     std::vector<int> v2{9, 4, 9, 8, 4};
     Solution sl;

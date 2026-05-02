@@ -48,7 +48,7 @@ class Solution {
     }
 };
 
-TEST(brak_a_palindrome, t1) {
+TEST(BrakAPalindrome, t1) {
     string const palindrome = "abccba";
     string const output = "aaccba";
     // Explanation: There are many ways to make "abccba" not a palindrome, such
@@ -59,7 +59,7 @@ TEST(brak_a_palindrome, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(brak_a_palindrome, t2) {
+TEST(BrakAPalindrome, t2) {
     string const palindrome = "a";
     string const output = "";
     // There is no way to replace a single character to make "a" not a
@@ -69,7 +69,7 @@ TEST(brak_a_palindrome, t2) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(brak_a_palindrome, t3) {
+TEST(BrakAPalindrome, t3) {
     string const palindrome = "aa";
     string const output = "ab";
     // There is no way to replace a single character to make "a" not a

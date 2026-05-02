@@ -51,7 +51,7 @@ class Solution {
     }
 };
 
-TEST(merge_sorted_array, t1) {
+TEST(MergeSortedArray, t1) {
     std::vector<int> nums1 = {1, 2, 3, 0, 0, 0};
     int const m = 3;
     std::vector<int> nums2 = {2, 5, 6};
@@ -63,7 +63,7 @@ TEST(merge_sorted_array, t1) {
     EXPECT_EQ(nums1, (std::vector<int>{1, 2, 2, 3, 5, 6}));
 }
 
-TEST(merge_sorted_array, t2) {
+TEST(MergeSortedArray, t2) {
     std::vector<int> nums1 = {1};
     int const m = 1;
     std::vector<int> nums2 = {};
@@ -75,7 +75,7 @@ TEST(merge_sorted_array, t2) {
     EXPECT_EQ(nums1, (std::vector<int>{1}));
 }
 
-TEST(merge_sorted_array, t3) {
+TEST(MergeSortedArray, t3) {
     std::vector<int> nums1 = {0};
     int const m = 0;
     std::vector<int> nums2 = {1};

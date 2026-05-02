@@ -119,7 +119,7 @@ class MedianFinder {
 // };
 // END: Time Limit Exceeded
 
-TEST(find_median_from_data_stream, t1) {
+TEST(FindMedianFromDataStream, t1) {
     MedianFinder mf;
     double result = 0.0;
     mf.AddNum(1);

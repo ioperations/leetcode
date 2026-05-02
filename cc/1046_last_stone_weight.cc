@@ -46,7 +46,7 @@ class Solution {
     }
 };
 
-TEST(last_stone_weight, t1) {
+TEST(LastStoneWeight, t1) {
     // Input:
     // stones = [ 2, 7, 4, 1, 8, 1 ] Output : 1 Explanation
     // : We combine 7 and
@@ -62,7 +62,7 @@ TEST(last_stone_weight, t1) {
     EXPECT_EQ(ret, 1);
 }
 
-TEST(last_stone_weight, t2) {
+TEST(LastStoneWeight, t2) {
     std::vector<int> stones{1};
     Solution s;
     int const ret = s.LastStoneWeight(stones);

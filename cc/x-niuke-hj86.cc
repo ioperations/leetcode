@@ -33,8 +33,8 @@ int Func(int number) {
     return max;
 }
 
-TEST(x_niuke_hjv2, t1) { EXPECT_EQ(Func(5), 1); }
-TEST(x_niuke_hjv2, t2) { EXPECT_EQ(Func(3), 2); }
-TEST(x_niuke_hjv2, t4) { EXPECT_EQ(Func(110), 3); }
-TEST(x_niuke_hjv2, t5) { EXPECT_EQ(Func(126), 6); }
+TEST(XNiukeHjv2, t1) { EXPECT_EQ(Func(5), 1); }
+TEST(XNiukeHjv2, t2) { EXPECT_EQ(Func(3), 2); }
+TEST(XNiukeHjv2, t4) { EXPECT_EQ(Func(110), 3); }
+TEST(XNiukeHjv2, t5) { EXPECT_EQ(Func(126), 6); }
 }  // namespace

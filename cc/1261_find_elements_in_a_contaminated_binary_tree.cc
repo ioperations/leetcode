@@ -68,7 +68,7 @@ class FindElements {
 
 #define null std::nullopt
 
-TEST(t0, t1) {
+TEST(T0, t1) {
     //     ["FindElements","find","find"]
     // [[[-1,null,-1]],[1],[2]]
     // Output
@@ -84,7 +84,7 @@ TEST(t0, t1) {
     Tree::FreeTreeNode(root);
 }
 
-TEST(t0, t2) {
+TEST(T0, t2) {
     //     ["FindElements","find","find"]
     // [[[-1,null,-1]],[1],[2]]
     // Output
@@ -102,7 +102,7 @@ TEST(t0, t2) {
     Tree::FreeTreeNode(root);
 }
 
-TEST(t0, t3) {
+TEST(T0, t3) {
     //     ["FindElements","find","find"]
     // [[[-1,null,-1]],[1],[2]]
     // Output

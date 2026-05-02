@@ -32,7 +32,7 @@ class Solution {
     }
 };
 
-TEST(linked_list_random_node, t1) {
+TEST(LinkedListRandomNode, t1) {
     std::vector<int> rt{1, 2, 3};
     ListNode* head = List::ConstructList(rt);
     auto* s = new Solution(head);

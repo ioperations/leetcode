@@ -119,7 +119,7 @@ class Solution {
 using namespace std;
 
 #define null std::nullopt
-TEST(pseudo_palindromic_paths_in_a_binary_tree, t1) {
+TEST(PseudoPalindromicPathsInABinaryTree, t1) {
     /*
                              _______
                              |     |
@@ -152,7 +152,7 @@ TEST(pseudo_palindromic_paths_in_a_binary_tree, t1) {
     FreeTreeNode(node);
 }
 
-TEST(pseudo_palindromic_paths_in_a_binary_tree, t2) {
+TEST(PseudoPalindromicPathsInABinaryTree, t2) {
     std::vector<optional<int>> const root = {2,    1,    1,    1,    3, null,
                                              null, null, null, null, 1};
     /*
@@ -190,7 +190,7 @@ TEST(pseudo_palindromic_paths_in_a_binary_tree, t2) {
     FreeTreeNode(node);
 }
 
-TEST(pseudo_palindromic_paths_in_a_binary_tree, t3) {
+TEST(PseudoPalindromicPathsInABinaryTree, t3) {
     std::vector<optional<int>> const root = {9};
     int const output = 1;
     auto* node = ConstructBinaryTree(root);
@@ -201,7 +201,7 @@ TEST(pseudo_palindromic_paths_in_a_binary_tree, t3) {
     FreeTreeNode(node);
 }
 
-TEST(pseudo_palindromic_paths_in_a_binary_tree_v2, t1) {
+TEST(PseudoPalindromicPathsInABinaryTreeV2, t1) {
     /*
                              _______
                              |     |
@@ -234,7 +234,7 @@ TEST(pseudo_palindromic_paths_in_a_binary_tree_v2, t1) {
     FreeTreeNode(node);
 }
 
-TEST(pseudo_palindromic_paths_in_a_binary_tree_v2, t2) {
+TEST(PseudoPalindromicPathsInABinaryTreeV2, t2) {
     std::vector<optional<int>> const root = {2,    1,    1,    1,    3, null,
                                              null, null, null, null, 1};
     /*
@@ -272,7 +272,7 @@ TEST(pseudo_palindromic_paths_in_a_binary_tree_v2, t2) {
     FreeTreeNode(node);
 }
 
-TEST(pseudo_palindromic_paths_in_a_binary_tree_v2, t3) {
+TEST(PseudoPalindromicPathsInABinaryTreeV2, t3) {
     std::vector<optional<int>> const root = {9};
     int const output = 1;
     auto* node = ConstructBinaryTree(root);

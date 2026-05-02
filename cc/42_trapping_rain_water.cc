@@ -68,7 +68,7 @@ class Solution {
     }
 };
 
-TEST(trapping_rain_water, t1) {
+TEST(TrappingRainWater, t1) {
     std::vector<int> height = {0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1};
     int const expected = 6;
 
@@ -77,7 +77,7 @@ TEST(trapping_rain_water, t1) {
 
     EXPECT_EQ(ret, expected);
 }
-TEST(trapping_rain_water, t2) {
+TEST(TrappingRainWater, t2) {
     std::vector<int> height = {4, 2, 0, 3, 2, 5};
     int const expected = 9;
 

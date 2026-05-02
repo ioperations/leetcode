@@ -32,7 +32,7 @@ class Solution {
     bool RepeatedSubstringPattern(string s) { return PrefixFunction(s); }
 };
 
-TEST(repeated_substring_pattern, t1) {
+TEST(RepeatedSubstringPattern, t1) {
     string const s = "abab";
     bool const output = true;
     Solution sl;
@@ -41,7 +41,7 @@ TEST(repeated_substring_pattern, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(repeated_substring_pattern, t2) {
+TEST(RepeatedSubstringPattern, t2) {
     string const s = "aba";
     bool const output = false;
     Solution sl;
@@ -50,7 +50,7 @@ TEST(repeated_substring_pattern, t2) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(repeated_substring_pattern, t3) {
+TEST(RepeatedSubstringPattern, t3) {
     string const s = "abcabcabcabc";
     bool const output = true;
     Solution sl;

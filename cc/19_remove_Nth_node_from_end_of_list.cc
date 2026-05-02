@@ -62,7 +62,7 @@ void ExpectEqList(ListNode* const head, const std::vector<int>& elements) {
     EXPECT_EQ(i, elements.size());
 }
 
-TEST(remove_Nth_node_from_end_of_list, t1) {
+TEST(RemoveNthNodeFromEndOfList, t1) {
     const std::vector<int> v{1, 2, 3, 4, 5};
     const int n = 2;
 
@@ -73,7 +73,7 @@ TEST(remove_Nth_node_from_end_of_list, t1) {
     List::FreeList(head);
 }
 
-TEST(remove_Nth_node_from_end_of_list, t2) {
+TEST(RemoveNthNodeFromEndOfList, t2) {
     const std::vector<int> v{1};
     const int n = 1;
 
@@ -84,7 +84,7 @@ TEST(remove_Nth_node_from_end_of_list, t2) {
     List::FreeList(head);
 }
 
-TEST(remove_Nth_node_from_end_of_list, t3) {
+TEST(RemoveNthNodeFromEndOfList, t3) {
     const std::vector<int> v{1, 2};
     const int n = 1;
 

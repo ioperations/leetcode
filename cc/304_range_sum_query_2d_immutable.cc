@@ -76,7 +76,7 @@ class NumMatrixV1 {
  * int param_1 = obj->sumRegion(row1,col1,row2,col2);
  */
 
-TEST(range_sum_query_2d_immutable, t1) {
+TEST(RangeSumQuery2dImmutable, t1) {
     // ["NumMatrix", "sumRegion", "sumRegion", "sumRegion"]
     vector<vector<int>> input = {{3, 0, 1, 4, 2},
                                  {5, 6, 3, 2, 1},
@@ -104,7 +104,7 @@ TEST(range_sum_query_2d_immutable, t1) {
     // blue rectangle)
 }
 
-TEST(range_sum_query_2d_immutable, t2) {
+TEST(RangeSumQuery2dImmutable, t2) {
     // ["NumMatrix", "sumRegion", "sumRegion", "sumRegion"]
     vector<vector<int>> input = {{3, 0, 1, 4, 2},
                                  {5, 6, 3, 2, 1},

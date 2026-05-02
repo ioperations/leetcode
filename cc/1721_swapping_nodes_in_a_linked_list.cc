@@ -56,13 +56,13 @@ void ExpectEqList(ListNode* const head, const std::vector<int>& elements) {
     }
     EXPECT_EQ(i, elements.size());
 }
-TEST(memleak, t1) {
+TEST(Memleak, t1) {
     ListNode* head = List::ConstructList(std::vector<int>{3, 2, 0, -4});
 
     List::FreeList(head);
 }
 
-TEST(swapping_nodes_in_a_linked_list, t1) {
+TEST(SwappingNodesInALinkedList, t1) {
     std::vector<int> const v{1, 2, 3, 4, 5};
     int const k = 2;
 
@@ -74,7 +74,7 @@ TEST(swapping_nodes_in_a_linked_list, t1) {
     List::FreeList(head);
 }
 
-TEST(swapping_nodes_in_a_linked_list, t2) {
+TEST(SwappingNodesInALinkedList, t2) {
     std::vector<int> const v{7, 9, 6, 6, 7, 8, 3, 0, 9, 5};
     int const k = 5;
 
@@ -86,7 +86,7 @@ TEST(swapping_nodes_in_a_linked_list, t2) {
     List::FreeList(head);
 }
 
-TEST(swapping_nodes_in_a_linked_list, t3) {
+TEST(SwappingNodesInALinkedList, t3) {
     std::vector<int> const v{1, 2};
     int const k = 1;
 
@@ -98,7 +98,7 @@ TEST(swapping_nodes_in_a_linked_list, t3) {
     List::FreeList(head);
 }
 
-TEST(swapping_nodes_in_a_linked_list, t4) {
+TEST(SwappingNodesInALinkedList, t4) {
     std::vector<int> const v{1, 2};
     int const k = 2;
 

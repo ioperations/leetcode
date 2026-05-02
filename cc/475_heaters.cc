@@ -62,7 +62,7 @@ class Solution {
     }
 };
 
-TEST(heaters, t1) {
+TEST(Heaters, t1) {
     vector<int> houses = {1, 2, 3};
     vector<int> heaters = {2};
     int const output = 1;
@@ -73,7 +73,7 @@ TEST(heaters, t1) {
     EXPECT_EQ(ret, output);
 };
 
-TEST(heaters, t2) {
+TEST(Heaters, t2) {
     vector<int> houses = {1, 2, 3, 4};
     vector<int> heaters = {1, 4};
     int const output = 1;
@@ -84,7 +84,7 @@ TEST(heaters, t2) {
     EXPECT_EQ(ret, output);
 };
 
-TEST(heaters, t3) {
+TEST(Heaters, t3) {
     vector<int> houses = {1, 5};
     vector<int> heaters = {2};
     int const output = 3;

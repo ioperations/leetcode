@@ -102,7 +102,7 @@ class Solution {
     }
 };
 
-TEST(network_delay_time, t1) {
+TEST(NetworkDelayTime, t1) {
     vector<vector<int>> times = {{2, 1, 1}, {2, 3, 1}, {3, 4, 1}};
     int n = 4, k = 2;
     int const output = 2;
@@ -115,7 +115,7 @@ TEST(network_delay_time, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(network_delay_time, t2) {
+TEST(NetworkDelayTime, t2) {
     vector<vector<int>> times = {{1, 2, 1}};
     int n = 2, k = 1;
     int const output = 1;
@@ -127,7 +127,7 @@ TEST(network_delay_time, t2) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(network_delay_time, t3) {
+TEST(NetworkDelayTime, t3) {
     vector<vector<int>> times = {{1, 2, 1}};
     int n = 2, k = 2;
     int const output = -1;

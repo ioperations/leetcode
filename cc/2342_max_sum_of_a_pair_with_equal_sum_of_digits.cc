@@ -50,7 +50,7 @@ class Solution {
 
 #include <gtest/gtest.h>
 
-TEST(t0, t1) {
+TEST(T0, t1) {
     vector<int> nums{18, 43, 36, 13, 7};
     int const output = 54;
     Solution sl;
@@ -63,7 +63,7 @@ TEST(t0, t1) {
     // 43 + 7 = 50. So the maximum sum that we can obtain is 54.
 }
 
-TEST(t0, t2) {
+TEST(T0, t2) {
     vector<int> nums{10, 12, 19, 14};
     int const output = -1;
     Solution sl;

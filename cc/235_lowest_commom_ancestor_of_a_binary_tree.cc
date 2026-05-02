@@ -99,7 +99,7 @@ TreeNode* FindTreeNode(TreeNode* root, int val) {
     return FindTreeNode(root->right, val);
 }
 
-TEST(lowest_commom_ancestor_of_a_binary_tree, t1) {
+TEST(LowestCommomAncestorOfABinaryTree, t1) {
     /**
                   ___
                  | 3 |
@@ -133,7 +133,7 @@ TEST(lowest_commom_ancestor_of_a_binary_tree, t1) {
     FreeRoot(root);
 }
 
-TEST(lowest_commom_ancestor_of_a_binary_tree, t2) {
+TEST(LowestCommomAncestorOfABinaryTree, t2) {
     /**
                   ___
                  | 3 |
@@ -168,7 +168,7 @@ TEST(lowest_commom_ancestor_of_a_binary_tree, t2) {
     FreeRoot(root);
 }
 
-TEST(lowest_commom_ancestor_of_a_binary_tree, t3) {
+TEST(LowestCommomAncestorOfABinaryTree, t3) {
     /**
                   ___
                  | 1 |

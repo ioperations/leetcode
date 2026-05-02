@@ -50,28 +50,28 @@ class Solution {
     }
 };
 
-TEST(string_to_integer_v2, t2) {
+TEST(StringToIntegerV2, t2) {
     const std::string s = "42";
     Solution sl;
     const int ret = sl.MyAtoi(s);
     EXPECT_EQ(42, ret);
 }
 
-TEST(string_to_integer_v3, t2) {
+TEST(StringToIntegerV3, t2) {
     const std::string s = "    -42";
     Solution sl;
     const int ret = sl.MyAtoi(s);
     EXPECT_EQ(-42, ret);
 }
 
-TEST(string_to_integer_v4, t2) {
+TEST(StringToIntegerV4, t2) {
     const std::string s = "4193 with words";
     Solution sl;
     const int ret = sl.MyAtoi(s);
     EXPECT_EQ(4193, ret);
 }
 
-TEST(t4, t2) {
+TEST(T4, t2) {
     const std::string s = "words with 987";
     Solution sl;
     const int ret = sl.MyAtoi(s);

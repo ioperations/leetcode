@@ -64,7 +64,7 @@ class Solution {
 
 #include <gtest/gtest.h>
 
-TEST(t0, t1) {
+TEST(T0, t1) {
     std::vector<int> nums = {2, 3, 4, 6};
     int const output = 8;
     Solution sl;
@@ -78,7 +78,7 @@ TEST(t0, t1) {
      */
 }
 
-TEST(t0, t2) {
+TEST(T0, t2) {
     std::vector<int> nums = {1, 2, 4, 5, 10};
     int const output = 16;
     Solution sl;

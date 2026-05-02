@@ -105,7 +105,7 @@ class Solution {
     }
 };
 
-TEST(palindrome_linked_list, t1) {
+TEST(PalindromeLinkedList, t1) {
     ListNode* head = List::ConstructList(std::vector<int>{1, 2, 2, 1});
 
     Solution s;
@@ -115,7 +115,7 @@ TEST(palindrome_linked_list, t1) {
     List::FreeList(head);
 }
 
-TEST(palindrome_linked_list_v2, t1) {
+TEST(PalindromeLinkedListV2, t1) {
     ListNode head(1);
     ListNode head2(2);
     ListNode head3(2);
@@ -129,7 +129,7 @@ TEST(palindrome_linked_list_v2, t1) {
     EXPECT_EQ(ret, true);
 }
 
-TEST(palindrome_linked_list, t2) {
+TEST(PalindromeLinkedList, t2) {
     ListNode* head = List::ConstructList(std::vector<int>{1, 2});
 
     Solution s;
@@ -139,7 +139,7 @@ TEST(palindrome_linked_list, t2) {
     List::FreeList(head);
 }
 
-TEST(palindrome_linked_list_v2, t2) {
+TEST(PalindromeLinkedListV2, t2) {
     ListNode head(1);
     ListNode head2(2);
     head.next = &head2;

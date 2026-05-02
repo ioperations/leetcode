@@ -37,7 +37,7 @@ class Solution {
     }
 };
 
-TEST(unique_binary_search_tree, t1) {
+TEST(UniqueBinarySearchTree, t1) {
     int const n = 3;
     int const out = 5;
     Solution sl;
@@ -45,7 +45,7 @@ TEST(unique_binary_search_tree, t1) {
     EXPECT_EQ(ret, out);
 }
 
-TEST(unique_binary_search_tree, t2) {
+TEST(UniqueBinarySearchTree, t2) {
     int const n = 1;
     int const out = 1;
     Solution sl;
@@ -53,7 +53,7 @@ TEST(unique_binary_search_tree, t2) {
     EXPECT_EQ(ret, out);
 }
 
-TEST(unique_binary_search_tree, t3) {
+TEST(UniqueBinarySearchTree, t3) {
     vector<int> test_case{1,       1,        2,         5,         14,
                           42,      132,      429,       1430,      4862,
                           16796,   58786,    208012,    742900,    2674440,

@@ -76,7 +76,7 @@ class Solution {
 
 #include <gtest/gtest.h>
 
-TEST(t0, t1) {
+TEST(T0, t1) {
     string const pattern = "IIIDIDDD";
 
     string const output = "123549876";
@@ -92,7 +92,7 @@ TEST(t0, t1) {
     // because the digit '1' is used more than once.
 }
 
-TEST(t0, t2) {
+TEST(T0, t2) {
     string const pattern = "DDD";
 
     string const output = "4321";

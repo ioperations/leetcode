@@ -55,7 +55,7 @@ class Solution {
 
 #include <gtest/gtest.h>
 
-TEST(t0, t1) {
+TEST(T0, t1) {
     string const blocks = "WBBWWBBWBW";
     int const k = 7;
     int const output = 3;
@@ -69,7 +69,7 @@ TEST(t0, t1) {
     // operations. Therefore, we return 3.
 }
 
-TEST(t0, t2) {
+TEST(T0, t2) {
     string const blocks = "WBWBBBW";
     int const k = 2;
     int const output = 0;
@@ -82,7 +82,7 @@ TEST(t0, t2) {
     // Therefore, we return 0.
 }
 
-TEST(t0, t3) {
+TEST(T0, t3) {
     string const blocks = "BWBBWW";
     int const k = 6;
     int const output = 3;

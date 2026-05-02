@@ -73,7 +73,7 @@ class Solution {
 
 #include <gtest/gtest.h>
 
-TEST(t0, t1) {
+TEST(T0, t1) {
     string s = "daabcbaabcbc", part = "abc";
     string const output = "dab";
     Solution sl;
@@ -87,7 +87,7 @@ TEST(t0, t1) {
     //
 }
 
-TEST(t0, t2) {
+TEST(T0, t2) {
     string s = "axxxxyyyyb", part = "xy";
     string const output = "ab";
     Solution sl;

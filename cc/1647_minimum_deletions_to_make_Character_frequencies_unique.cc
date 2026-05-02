@@ -91,7 +91,7 @@ class Solution {
     }
 };
 
-TEST(minimum_deletions_to_make_Character_frequencies_unique, t1) {
+TEST(MinimumDeletionsToMakeCharacterFrequenciesUnique, t1) {
     string const s = "aab";
     int const out = 0;
     Solution sl;
@@ -100,7 +100,7 @@ TEST(minimum_deletions_to_make_Character_frequencies_unique, t1) {
     EXPECT_EQ(ret, out);
 }
 
-TEST(minimum_deletions_to_make_Character_frequencies_unique, t2) {
+TEST(MinimumDeletionsToMakeCharacterFrequenciesUnique, t2) {
     string const s = "aaabbbcc";
     int const out = 2;
     Solution sl;
@@ -111,7 +111,7 @@ TEST(minimum_deletions_to_make_Character_frequencies_unique, t2) {
     EXPECT_EQ(ret, out);
 }
 
-TEST(minimum_deletions_to_make_Character_frequencies_unique, t3) {
+TEST(MinimumDeletionsToMakeCharacterFrequenciesUnique, t3) {
     string const s = "ceabaacb";
     int const out = 2;
     Solution sl;

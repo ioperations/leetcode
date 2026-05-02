@@ -42,7 +42,7 @@ class Solution {
     }
 };
 
-TEST(longest_consecutive_sequence, t1) {
+TEST(LongestConsecutiveSequence, t1) {
     vector<int> nums = {100, 4, 200, 1, 3, 2};
     int const output = 4;
 
@@ -53,7 +53,7 @@ TEST(longest_consecutive_sequence, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(longest_consecutive_sequence, t2) {
+TEST(LongestConsecutiveSequence, t2) {
     vector<int> nums = {0, 3, 7, 2, 5, 8, 4, 6, 0, 1};
     int const output = 9;
 

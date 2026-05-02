@@ -44,7 +44,7 @@ class Solution {
     }
 };
 
-TEST(remove_duplicates_from_sorted_arary_ii, t1) {
+TEST(RemoveDuplicatesFromSortedAraryIi, t1) {
     vector<int> nums = {1, 1, 1, 2, 2, 3};
     int const output = 5;
     vector<int> ret_expected = {1, 1, 2, 2, 3};
@@ -65,7 +65,7 @@ TEST(remove_duplicates_from_sorted_arary_ii, t1) {
     }
 }
 
-TEST(remove_duplicates_from_sorted_arary_ii, t2) {
+TEST(RemoveDuplicatesFromSortedAraryIi, t2) {
     vector<int> nums = {0, 0, 1, 1, 1, 1, 2, 3, 3};
     int const output = 7;
     vector<int> ret_expected = {0, 0, 1, 1, 2, 3, 3};

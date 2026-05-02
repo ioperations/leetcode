@@ -50,7 +50,7 @@ struct StackGrowth {
     }
 };
 
-TEST(t0, t1) {
+TEST(T0, t1) {
     StackGrowth stack_growth;
 
     stack_growth.append("TEST");

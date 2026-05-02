@@ -65,7 +65,7 @@ using namespace std;
 
 #define null std::nullopt
 
-TEST(two_sum_iv_input_is_a_bst, t1) {
+TEST(TwoSumIvInputIsABst, t1) {
     vector<optional<int>> const root = {5, 3, 6, 2, 4, null, 7};
     int const k = 9;
     bool const output = true;
@@ -76,7 +76,7 @@ TEST(two_sum_iv_input_is_a_bst, t1) {
     FreeTreeNode(node);
 }
 
-TEST(two_sum_iv_input_is_a_bst, t2) {
+TEST(TwoSumIvInputIsABst, t2) {
     vector<optional<int>> const root = {5, 3, 6, 2, 4, null, 7};
     int const k = 28;
     bool const output = false;

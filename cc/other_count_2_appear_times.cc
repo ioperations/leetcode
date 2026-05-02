@@ -27,7 +27,7 @@ class Solution {
     /* data */
 };
 
-TEST(other_count_2_appear_times, t1) {
+TEST(OtherCount2AppearTimes, t1) {
     int const left = 1;
     int const right = 22;
     int const output = 6;

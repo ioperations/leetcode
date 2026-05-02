@@ -94,7 +94,7 @@ class Solution {
 
 #include <gtest/gtest.h>
 
-TEST(t0, t1) {
+TEST(T0, t1) {
     int const n = 3;
     std::vector<int> const output = {3, 1, 2, 3, 2};
     // Explanation: [2,3,2,1,3] is also a valid sequence, but [3,1,2,3,2] is the
@@ -105,7 +105,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t2) {
+TEST(T0, t2) {
     int const n = 5;
     std::vector<int> const output = {5, 3, 1, 4, 3, 5, 2, 4, 2};
     // Explanation: [2,3,2,1,3] is also a valid sequence, but [3,1,2,3,2] is the
@@ -116,7 +116,7 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t3) {
+TEST(T0, t3) {
     int const n = 6;
     std::vector<int> const output = {6, 4, 2, 5, 2, 4, 6, 3, 5, 1, 3};
 

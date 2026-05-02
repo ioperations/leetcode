@@ -65,7 +65,7 @@ class Solution {
     }
 };
 
-TEST(_substringwith_concatenation_of_all_words, t1) {
+TEST(SubstringWithConcatenationOfAllWords, t1) {
     auto* s = new Solution();
     const std::string str = "wordgoodgoodgoodbestword";
     std::vector<std::string> words{"word", "good", "best", "word"};
@@ -78,7 +78,7 @@ TEST(_substringwith_concatenation_of_all_words, t1) {
     delete s;
 }
 
-TEST(_substringwith_concatenation_of_all_words, t2) {
+TEST(SubstringWithConcatenationOfAllWords, t2) {
     Solution s;
     const std::string str = "barfoofoobarthefoobarman";
     std::vector<std::string> words{"bar", "foo", "the"};
@@ -89,7 +89,7 @@ TEST(_substringwith_concatenation_of_all_words, t2) {
     EXPECT_EQ(retset, expect);
 }
 
-TEST(_substringwith_concatenation_of_all_words, t3) {
+TEST(SubstringWithConcatenationOfAllWords, t3) {
     Solution s;
     const std::string str = "barfoothefoobarman";
     std::vector<std::string> words{"bar", "foo"};
@@ -100,7 +100,7 @@ TEST(_substringwith_concatenation_of_all_words, t3) {
     EXPECT_EQ(retset, expect);
 }
 
-TEST(_substringwith_concatenation_of_all_words, t4) {
+TEST(SubstringWithConcatenationOfAllWords, t4) {
     Solution s;
     const std::string str = "foobarfoobar";
     std::vector<std::string> words{"bar", "foo"};
@@ -111,7 +111,7 @@ TEST(_substringwith_concatenation_of_all_words, t4) {
     EXPECT_EQ(retset, expect);
 }
 
-TEST(_substringwith_concatenation_of_all_words, t5) {
+TEST(SubstringWithConcatenationOfAllWords, t5) {
     Solution s;
     const std::string str = "aaaaaaaaaaaaaa";
     std::vector<std::string> words{"aa", "aa"};

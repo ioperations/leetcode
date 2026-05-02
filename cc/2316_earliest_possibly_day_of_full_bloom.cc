@@ -91,7 +91,7 @@ class Solution {
     }
 };
 
-TEST(earliest_possibly_day_of_full_bloom, t1) {
+TEST(EarliestPossiblyDayOfFullBloom, t1) {
     vector<int> plant_time = {1, 4, 3}, grow_time = {2, 3, 1};
     int const output = 9;
     /*
@@ -110,7 +110,7 @@ TEST(earliest_possibly_day_of_full_bloom, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(earliest_possibly_day_of_full_bloom, t2) {
+TEST(EarliestPossiblyDayOfFullBloom, t2) {
     vector<int> plant_time = {1, 2, 3, 2}, grow_time = {2, 1, 2, 1};
     int const output = 9;
     /*
@@ -130,7 +130,7 @@ TEST(earliest_possibly_day_of_full_bloom, t2) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(earliest_possibly_day_of_full_bloom, t3) {
+TEST(EarliestPossiblyDayOfFullBloom, t3) {
     vector<int> plant_time = {1}, grow_time = {1};
     int const output = 2;
     /*

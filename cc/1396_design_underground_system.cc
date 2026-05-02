@@ -144,7 +144,7 @@ class Solution2 {
  * double param_3 = obj->getAverageTime(startStation,endStation);
  */
 
-TEST(design_underground_system, t1) {
+TEST(DesignUndergroundSystem, t1) {
     /*
 Input
     ["UndergroundSystem","checkIn","checkIn","checkIn","checkOut","checkOut",
@@ -209,7 +209,7 @@ undergroundSystem.getAverageTime("Leyton", "Waterloo");
     delete rgs;
 }
 
-TEST(design_underground_system, t2) {
+TEST(DesignUndergroundSystem, t2) {
     auto* rgs = new Solution2();
 
     rgs->CheckIn(10, "Leyton", 3);
@@ -236,7 +236,7 @@ TEST(design_underground_system, t2) {
     delete rgs;
 }
 
-TEST(design_underground_system, t3) {
+TEST(DesignUndergroundSystem, t3) {
     auto* rgs = new Solution2();
 
     rgs->CheckIn(1, "Leeds", 3);

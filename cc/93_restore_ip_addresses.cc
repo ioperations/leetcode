@@ -70,7 +70,7 @@ class Solution {
     }
 };
 
-TEST(restore_ip_addresses, t1) {
+TEST(RestoreIpAddresses, t1) {
     string const s = "25525511135";
     std::vector<string> output{"255.255.11.135", "255.255.111.35"};
     Solution sl;
@@ -80,7 +80,7 @@ TEST(restore_ip_addresses, t1) {
     EXPECT_EQ(out_set, ret_set);
 }
 
-TEST(restore_ip_addresses, t2) {
+TEST(RestoreIpAddresses, t2) {
     string const s = "0000";
     std::vector<string> output{"0.0.0.0"};
     Solution sl;
@@ -90,7 +90,7 @@ TEST(restore_ip_addresses, t2) {
     EXPECT_EQ(out_set, ret_set);
 }
 
-TEST(restore_ip_addresses, t3) {
+TEST(RestoreIpAddresses, t3) {
     string const s = "101023";
     std::vector<string> output{"1.0.10.23", "1.0.102.3", "10.1.0.23",
                                "10.10.2.3", "101.0.2.3"};

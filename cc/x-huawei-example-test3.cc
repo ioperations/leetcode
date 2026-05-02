@@ -31,7 +31,7 @@ void Processing(std::string s) {
     std::cout << ret << std::endl;
 }
 
-TEST(x_huawei_example_testv2, t2) {
+TEST(XHuaweiExampleTestv2, t2) {
     std::string const s = "0xA";
     testing::internal::CaptureStdout();
     Processing(s);
@@ -40,7 +40,7 @@ TEST(x_huawei_example_testv2, t2) {
     EXPECT_EQ(ret, std::string("10\n"));
 }
 
-TEST(x_huawei_example_testv3, t2) {
+TEST(XHuaweiExampleTestv3, t2) {
     std::string const s = "0xF";
     testing::internal::CaptureStdout();
     Processing(s);
@@ -49,7 +49,7 @@ TEST(x_huawei_example_testv3, t2) {
     EXPECT_EQ(ret, std::string("15\n"));
 }
 
-TEST(x_huawei_example_testv4, t1) {
+TEST(XHuaweiExampleTestv4, t1) {
     std::string const s = "0xFF";
     testing::internal::CaptureStdout();
     Processing(s);
@@ -58,7 +58,7 @@ TEST(x_huawei_example_testv4, t1) {
     EXPECT_EQ(ret, std::string("255\n"));
 }
 
-TEST(x_huawei_example_test3, t2) {
+TEST(XHuaweiExampleTest3, t2) {
     std::string const s = "0xAA";
     testing::internal::CaptureStdout();
     Processing(s);

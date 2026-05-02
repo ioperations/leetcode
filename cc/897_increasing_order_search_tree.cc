@@ -97,7 +97,7 @@ std::vector<int> BFS(TreeNode* root) {
     return ret;
 }
 
-TEST(memleak, t1) {
+TEST(Memleak, t1) {
     auto* root = new TreeNode(-1);
 
     for (int i = 0; i < 100; i++) {
@@ -106,7 +106,7 @@ TEST(memleak, t1) {
 
     Tree::FreeTreeNode(root);
 }
-TEST(increasing_order_search_tree, t1) {
+TEST(IncreasingOrderSearchTree, t1) {
     auto* root = new TreeNode(5);
 
     root = AddToRoot(root, (std::vector<int>{3, 6, 2, 4, 8, 1, 7, 9}));
@@ -118,7 +118,7 @@ TEST(increasing_order_search_tree, t1) {
     Tree::FreeTreeNode(root);
 }
 
-TEST(increasing_order_search_tree, t2) {
+TEST(IncreasingOrderSearchTree, t2) {
     auto* root = new TreeNode(5);
 
     root = AddToRoot(root, (std::vector<int>{1, 7}));

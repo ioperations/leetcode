@@ -98,7 +98,7 @@ void PreOrder(TreeNode* node, string& out, int depth = 0) {
 
 #define null std::nullopt
 
-TEST(t0, t0) {
+TEST(T0, t0) {
     auto* root = Tree::ConstructBinaryTree(
         std::vector<std::optional<int>>{1, 2, 5, 3, 4, 6, 7});
 
@@ -116,7 +116,7 @@ TEST(t0, t0) {
     Tree::FreeTreeNode(root);
 }
 
-TEST(t1, t1) {
+TEST(T1, t1) {
     auto* root = new TreeNode(1);
     {
         auto* left = Tree::ConstructBinaryTree(
@@ -142,7 +142,7 @@ TEST(t1, t1) {
     Tree::FreeTreeNode(root);
 }
 
-TEST(t2, t2) {
+TEST(T2, t2) {
     auto* root = new TreeNode(1);
     {
         auto* sub = Tree::ConstructBinaryTree(

@@ -46,7 +46,7 @@ class Solution {
 
 #include <gtest/gtest.h>
 
-TEST(t0, t1) {
+TEST(T0, t1) {
     vector<vector<int>> grid = {{1, 3}, {2, 2}};
     std::vector<int> const output{2, 4};
     Solution sl;
@@ -55,7 +55,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t2) {
+TEST(T0, t2) {
     vector<vector<int>> grid = {{9, 1, 7}, {8, 9, 2}, {3, 4, 6}};
     std::vector<int> const output{
         9,

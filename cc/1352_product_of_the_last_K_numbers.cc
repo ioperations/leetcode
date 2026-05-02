@@ -53,7 +53,7 @@ class ProductOfNumbers {
 
 #include <gtest/gtest.h>
 
-TEST(t0, t1) {
+TEST(T0, t1) {
     //     ["ProductOfNumbers","add","add","add","add","add","getProduct","getProduct","getProduct","add","getProduct"]
     // [[],[3],[0],[2],[5],[4],[2],[3],[4],[8],[2]]
     //

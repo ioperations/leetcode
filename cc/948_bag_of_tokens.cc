@@ -90,7 +90,7 @@ class Solution {
     }
 };
 
-TEST(bag_of_tokens, t1) {
+TEST(BagOfTokens, t1) {
     vector<int> tokens = {100};
     int const power = 50;
     Solution sl;
@@ -101,7 +101,7 @@ TEST(bag_of_tokens, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(bag_of_tokens, t2) {
+TEST(BagOfTokens, t2) {
     vector<int> tokens = {100, 200};
     int const power = 150;
     Solution sl;
@@ -114,7 +114,7 @@ TEST(bag_of_tokens, t2) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(bag_of_tokens, t3) {
+TEST(BagOfTokens, t3) {
     vector<int> tokens = {100, 200, 300, 400};
     int const power = 200;
     Solution sl;
@@ -134,7 +134,7 @@ TEST(bag_of_tokens, t3) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(bag_of_tokens_v2, t3) {
+TEST(BagOfTokensV2, t3) {
     vector<int> tokens = {100, 200, 300, 400, 500, 600, 700, 800, 900, 1000};
     int const power = 200;
     Solution sl;

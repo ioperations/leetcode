@@ -74,7 +74,7 @@ void ExpectEqList(ListNode* const head, const std::vector<int>& elements) {
 
 using namespace std;
 
-TEST(delete_the_middle_node_of_a_linked_list, t1) {
+TEST(DeleteTheMiddleNodeOfALinkedList, t1) {
     vector<int> const head = {1, 3, 4, 7, 1, 2, 6};
     vector<int> const output = {1, 3, 4, 1, 2, 6};
     /*
@@ -91,7 +91,7 @@ TEST(delete_the_middle_node_of_a_linked_list, t1) {
     List::FreeList(list);
 }
 
-TEST(delete_the_middle_node_of_a_linked_list, t2) {
+TEST(DeleteTheMiddleNodeOfALinkedList, t2) {
     vector<int> const head = {1, 2, 3, 4};
     vector<int> const output = {1, 2, 4};
     /*
@@ -107,7 +107,7 @@ TEST(delete_the_middle_node_of_a_linked_list, t2) {
     List::FreeList(list);
 }
 
-TEST(delete_the_middle_node_of_a_linked_list, t3) {
+TEST(DeleteTheMiddleNodeOfALinkedList, t3) {
     vector<int> const head = {2, 1};
     vector<int> const output = {2};
     /*

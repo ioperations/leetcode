@@ -54,7 +54,7 @@ using namespace std;
 
 #define null std::nullopt
 
-TEST(construct_string_from_binary_tree, t1) {
+TEST(ConstructStringFromBinaryTree, t1) {
     /*
                           _________
                           |       |
@@ -87,7 +87,7 @@ TEST(construct_string_from_binary_tree, t1) {
 
     FreeTreeNode(node);
 }
-TEST(construct_string_from_binary_tree, t2) {
+TEST(ConstructStringFromBinaryTree, t2) {
     vector<optional<int>> const root = {1, 2, 3, null, 4};
 
     /*

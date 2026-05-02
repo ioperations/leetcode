@@ -85,7 +85,7 @@ class Solution {
     }
 };
 
-TEST(number_of_matching_subsequences, t1) {
+TEST(NumberOfMatchingSubsequences, t1) {
     string const s = "abcde";
     vector<string> words = {"a", "bb", "acd", "ace"};
     int const output = 3;
@@ -96,7 +96,7 @@ TEST(number_of_matching_subsequences, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(number_of_matching_subsequences, t2) {
+TEST(NumberOfMatchingSubsequences, t2) {
     string const s = "dsahjpjauf";
     vector<string> words = {"ahjpjau", "ja", "ahbwzgqnuk", "tnmlanowax"};
     int const output = 2;

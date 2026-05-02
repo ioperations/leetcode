@@ -96,7 +96,7 @@ class FrontMiddleBackQueue {
     }
 };
 
-TEST(design_front_middle_back_queue, t1) {
+TEST(DesignFrontMiddleBackQueue, t1) {
     auto* q = new FrontMiddleBackQueue();
     q->PushFront(1);          // [1]
     q->PushBack(2);           // [1, 2]

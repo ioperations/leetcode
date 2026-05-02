@@ -84,7 +84,7 @@ class Solution {
     }
 };
 
-TEST(find_duplicate_file_in_system, t1) {
+TEST(FindDuplicateFileInSystem, t1) {
     vector<string> paths = {"root/a 1.txt(abcd) 2.txt(efgh)",
                             "root/c 3.txt(abcd)", "root/c/d 4.txt(efgh)",
                             "root 4.txt(efgh)"};
@@ -101,7 +101,7 @@ TEST(find_duplicate_file_in_system, t1) {
     EXPECT_EQ(ret_set, output_set);
 }
 
-TEST(find_duplicate_file_in_system, t2) {
+TEST(FindDuplicateFileInSystem, t2) {
     vector<string> paths = {"root/a 1.txt(abcd) 2.txt(efgh)",
                             "root/c 3.txt(abcd)", "root/c/d 4.txt(efgh)"};
     vector<vector<string>> output = {{"root/a/2.txt", "root/c/d/4.txt"},

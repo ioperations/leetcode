@@ -52,7 +52,7 @@ class Solution {
     }
 };
 
-TEST(longest_palindromic_substring, t1) {
+TEST(LongestPalindromicSubstring, t1) {
     std::string const s("babad");
     Solution sl;
 
@@ -61,7 +61,7 @@ TEST(longest_palindromic_substring, t1) {
     EXPECT_TRUE(ret == "bab" || ret == "aba");
 }
 
-TEST(longest_palindromic_substring, t2) {
+TEST(LongestPalindromicSubstring, t2) {
     std::string const s("cbbd");
     Solution sl;
 
@@ -69,7 +69,7 @@ TEST(longest_palindromic_substring, t2) {
     EXPECT_EQ(ret, "bb");
 }
 
-TEST(longest_palindromic_substring, t3) {
+TEST(LongestPalindromicSubstring, t3) {
     std::string const s("ac");
     Solution sl;
 
@@ -77,7 +77,7 @@ TEST(longest_palindromic_substring, t3) {
     EXPECT_TRUE(ret == "a" || ret == "c");
 }
 
-TEST(longest_palindromic_substring, t4) {
+TEST(LongestPalindromicSubstring, t4) {
     std::string const s("cbbd");
     Solution sl;
 

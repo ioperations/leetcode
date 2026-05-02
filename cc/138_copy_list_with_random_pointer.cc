@@ -136,7 +136,7 @@ std::vector<std::vector<std::optional<int>>> RestoreNode(Node* node) {
     return ret;
 }
 
-TEST(base, t1) {
+TEST(Base, t1) {
     std::vector<std::vector<std::optional<int>>> head =
         std::vector<std::vector<std::optional<int>>>{
             {7, null}, {13, 0}, {11, 4}, {10, 2}, {1, 0}};
@@ -148,7 +148,7 @@ TEST(base, t1) {
     EXPECT_EQ(output, vec);
 }
 
-TEST(copy_list_with_random_pointer, t1) {
+TEST(CopyListWithRandomPointer, t1) {
     std::vector<std::vector<std::optional<int>>> head =
         std::vector<std::vector<std::optional<int>>>{
             {7, null}, {13, 0}, {11, 4}, {10, 2}, {1, 0}};
@@ -163,7 +163,7 @@ TEST(copy_list_with_random_pointer, t1) {
     EXPECT_EQ(output, vec);
 }
 
-TEST(copy_list_with_random_pointer, t2) {
+TEST(CopyListWithRandomPointer, t2) {
     std::vector<std::vector<std::optional<int>>> head =
         std::vector<std::vector<std::optional<int>>>{{1, 1}, {2, 1}};
     std::vector<std::vector<std::optional<int>>> const output =
@@ -176,7 +176,7 @@ TEST(copy_list_with_random_pointer, t2) {
     EXPECT_EQ(output, vec);
 }
 
-TEST(copy_list_with_random_pointer, t3) {
+TEST(CopyListWithRandomPointer, t3) {
     std::vector<std::vector<std::optional<int>>> head =
         std::vector<std::vector<std::optional<int>>>{
             {3, null}, {3, 0}, {3, null}};

@@ -55,7 +55,7 @@ class Solution {
     map<tuple<int, int, int>, int> m_cache;
 };
 
-TEST(hourse_robber_ii, t1) {
+TEST(HourseRobberIi, t1) {
     vector<int> nums = {2, 3, 2};
     int const output = 3;
     // Explanation : You cannot rob house 1(money = 2) and
@@ -66,7 +66,7 @@ TEST(hourse_robber_ii, t1) {
     EXPECT_EQ(output, ret);
 }
 
-TEST(hourse_robber_ii, t2) {
+TEST(HourseRobberIi, t2) {
     vector<int> nums = {1, 2, 3, 1};
     int const output = 4;
     // Rob house 1 (money = 1) and then rob house 3 (money = 3).
@@ -77,7 +77,7 @@ TEST(hourse_robber_ii, t2) {
     EXPECT_EQ(output, ret);
 }
 
-TEST(hourse_robber_ii, t3) {
+TEST(HourseRobberIi, t3) {
     vector<int> nums = {
         1,
         2,

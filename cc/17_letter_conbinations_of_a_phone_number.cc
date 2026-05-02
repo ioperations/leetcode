@@ -51,7 +51,7 @@ class Solution {
     // clang-format on
 };
 
-TEST(letter_conbinations_of_a_phone_number, t1) {
+TEST(LetterConbinationsOfAPhoneNumber, t1) {
     vector<string> expected = {"ad", "ae", "af", "bd", "be",
                                "bf", "cd", "ce", "cf"};
 
@@ -65,7 +65,7 @@ TEST(letter_conbinations_of_a_phone_number, t1) {
     EXPECT_EQ(ret_set, expected_set);
 }
 
-TEST(letter_conbinations_of_a_phone_number, t2) {
+TEST(LetterConbinationsOfAPhoneNumber, t2) {
     vector<string> expected = {};
 
     string const digits = "";
@@ -78,7 +78,7 @@ TEST(letter_conbinations_of_a_phone_number, t2) {
     EXPECT_EQ(ret_set, expected_set);
 }
 
-TEST(letter_conbinations_of_a_phone_number, t3) {
+TEST(LetterConbinationsOfAPhoneNumber, t3) {
     vector<string> expected = {"a", "b", "c"};
 
     string const digits = "2";

@@ -39,7 +39,7 @@ class Solution {
     }
 };
 
-TEST(convert_a_number_to_hexidecimal, t1) {
+TEST(ConvertANumberToHexidecimal, t1) {
     int const num = 26;
     std::string const output = "1a";
 
@@ -47,7 +47,7 @@ TEST(convert_a_number_to_hexidecimal, t1) {
     auto ret = s.ToHex(num);
     EXPECT_EQ(ret, output);
 }
-TEST(convert_a_number_to_hexidecimal, t2) {
+TEST(ConvertANumberToHexidecimal, t2) {
     int const num = -1;
 
     std::string const output = "ffffffff";

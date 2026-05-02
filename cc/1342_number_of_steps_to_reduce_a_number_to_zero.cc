@@ -25,7 +25,7 @@ class Solution {
     }
 };
 
-TEST(number_of_steps_to_reduce_a_number_to_zero, t1) {
+TEST(NumberOfStepsToReduceANumberToZero, t1) {
     int const num = 14;
     int const output = 6;
     // Explanation:
@@ -42,7 +42,7 @@ TEST(number_of_steps_to_reduce_a_number_to_zero, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(number_of_steps_to_reduce_a_number_to_zero, t2) {
+TEST(NumberOfStepsToReduceANumberToZero, t2) {
     int const num = 8;
     int const output = 4;
     // Explanation:
@@ -57,7 +57,7 @@ TEST(number_of_steps_to_reduce_a_number_to_zero, t2) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(number_of_steps_to_reduce_a_number_to_zero, t3) {
+TEST(NumberOfStepsToReduceANumberToZero, t3) {
     int const num = 123;
     int const output = 12;
 

@@ -82,7 +82,7 @@ class Solution {
     }
 };
 
-TEST(basic_calculator_ii, t1) {
+TEST(BasicCalculatorIi, t1) {
     string const s = "3+2*2";
     int const output = 7;
     Solution sl;
@@ -90,7 +90,7 @@ TEST(basic_calculator_ii, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(basic_calculator_ii, t2) {
+TEST(BasicCalculatorIi, t2) {
     string const s = " 3/2 ";
     int const output = 1;
     Solution sl;
@@ -98,7 +98,7 @@ TEST(basic_calculator_ii, t2) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(basic_calculator_ii, t3) {
+TEST(BasicCalculatorIi, t3) {
     string const s = " 3+5 / 2 ";
     int const output = 5;
     Solution sl;

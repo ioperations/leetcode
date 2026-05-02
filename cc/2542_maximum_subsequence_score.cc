@@ -61,7 +61,7 @@ class Solution {
     }
 };
 
-TEST(maximum_subsequence_score, t1) {
+TEST(MaximumSubsequenceScore, t1) {
     vector<int> nums1 = {1, 3, 3, 2};
     vector<int> nums2 = {2, 1, 3, 4};
     int const k = 3;
@@ -81,7 +81,7 @@ TEST(maximum_subsequence_score, t1) {
     // = 8. Therefore, we return the max score, which is 12.
 }
 
-TEST(maximum_subsequence_score, t2) {
+TEST(MaximumSubsequenceScore, t2) {
     vector<int> nums1 = {4, 2, 3, 1, 1};
     vector<int> nums2 = {7, 5, 10, 9, 6};
     int const k = 1;
@@ -96,7 +96,7 @@ TEST(maximum_subsequence_score, t2) {
 
 /*
 // timeout
-TEST(maximum_subsequence_score, t3) {
+TEST(MaximumSubsequenceScore, t3) {
     vector<int> nums1 = {93,   463,  179,  2488, 619,  2006, 1561, 137,  53,
                          1765, 2304, 1459, 1768, 450,  1938, 2054, 466,  331,
                          670,  1830, 1550, 1534, 2164, 1280, 2277, 2312, 1509,

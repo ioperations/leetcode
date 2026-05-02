@@ -42,7 +42,7 @@ class Solution {
     }
 };
 
-TEST(n_queue_II, t1) {
+TEST(NQueueII, t1) {
     int const n = 4;
     int const ret = 2;
     Solution sl;
@@ -51,7 +51,7 @@ TEST(n_queue_II, t1) {
     EXPECT_EQ(ret, out);
 }
 
-TEST(n_queue_II, t2) {
+TEST(NQueueII, t2) {
     int const n = 1;
     int const ret = 1;
     Solution sl;

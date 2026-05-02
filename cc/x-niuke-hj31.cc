@@ -46,7 +46,7 @@ void ReverseOutPutAllWords(const char* s, int len) {
     std::cout << ret2 << std::endl;
 }
 
-TEST(x_niuke_hjv2, t2) {
+TEST(XNiukeHjv2, t2) {
     testing::internal::CaptureStdout();
     std::string const s("i am a student");
 
@@ -56,7 +56,7 @@ TEST(x_niuke_hjv2, t2) {
     EXPECT_EQ(out, std::string("student a am i\n"));
 }
 
-TEST(x_niuke_hjv3, t2) {
+TEST(XNiukeHjv3, t2) {
     testing::internal::CaptureStdout();
     std::string const s("$bo*y gi!r#l");
 

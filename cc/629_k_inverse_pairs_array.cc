@@ -54,7 +54,7 @@ class Solution {
     }
 };
 
-TEST(k_inverse_pairs_array, t1) {
+TEST(KInversePairsArray, t1) {
     const int n = 3;
     const int k = 0;
     const int output = 1;
@@ -65,7 +65,7 @@ TEST(k_inverse_pairs_array, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(k_inverse_pairs_array, t2) {
+TEST(KInversePairsArray, t2) {
     const int n = 3, k = 1;
     const int output = 2;
     // Explanation: The array [1,3,2] and [2,1,3] have exactly 1 inverse pair.

@@ -83,7 +83,7 @@ static auto init = []() {
 
 #include <gtest/gtest.h>
 
-TEST(t0, t1) {
+TEST(T0, t1) {
     string word = "aeioqq";
     int const k = 1;
     int const output = 0;
@@ -92,7 +92,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t2) {
+TEST(T0, t2) {
     string word = "aeiou";
     int const k = 0;
     int const output = 1;
@@ -103,7 +103,7 @@ TEST(t0, t2) {
     // word[0..4], which is "aeiou".
 }
 
-TEST(t0, t3) {
+TEST(T0, t3) {
     string word = "ieaouqqieaouqq";
     int const k = 1;
     int const output = 3;

@@ -194,14 +194,14 @@ class WordFilterMy {
     }
 };
 
-TEST(prefix_and_suffix_search, t1) {
+TEST(PrefixAndSuffixSearch, t1) {
     std::vector<string> words{"apple"};
     WordFilter obj(words);
     int const ret = obj.F("a", "e");
     EXPECT_EQ(ret, 0);
 }
 
-TEST(prefix_and_suffix_search, t2) {
+TEST(PrefixAndSuffixSearch, t2) {
     std::vector<string> words{
         "cabaabaaaa", "ccbcababac", "bacaabccba", "bcbbcbacaa", "abcaccbcaa",
         "accabaccaa", "cabcbbbcca", "ababccabcb", "caccbbcbab", "bccbacbcba"};

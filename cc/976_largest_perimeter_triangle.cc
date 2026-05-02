@@ -25,7 +25,7 @@ class Solution {
     }
 };
 
-TEST(largest_perimeter_triangle, t1) {
+TEST(LargestPerimeterTriangle, t1) {
     vector<int> nums = {2, 1, 2};
     int const output = 5;
     Solution sl;
@@ -33,7 +33,7 @@ TEST(largest_perimeter_triangle, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(largest_perimeter_triangle, t2) {
+TEST(LargestPerimeterTriangle, t2) {
     vector<int> nums = {1, 2, 1};
     int const output = 0;
     Solution sl;

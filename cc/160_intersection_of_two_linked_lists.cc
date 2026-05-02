@@ -91,7 +91,7 @@ class Solution {
     }
 };
 
-TEST(intersection_of_two_linked_lists, t1) {
+TEST(IntersectionOfTwoLinkedLists, t1) {
     // intersectVal = 8, listA = [4,1,8,4,5], listB = [5,6,1,8,4,5], skipA = 2,
     // skipB = 3
     // Output: Intersected at '8'
@@ -136,7 +136,7 @@ TEST(intersection_of_two_linked_lists, t1) {
     List::FreeList(second);
 }
 
-TEST(intersection_of_two_linked_lists, t2) {
+TEST(IntersectionOfTwoLinkedLists, t2) {
     // intersectVal = 8, listA = [4,1,8,4,5], listB = [5,6,1,8,4,5], skipA = 2,
     // skipB = 3
     // Output: Intersected at '8'
@@ -182,7 +182,7 @@ TEST(intersection_of_two_linked_lists, t2) {
     List::FreeList(second);
 }
 
-TEST(intersection_of_two_linked_lists, t3) {
+TEST(IntersectionOfTwoLinkedLists, t3) {
     // intersectVal = 8, listA = [4,1,8,4,5], listB = [5,6,1,8,4,5], skipA = 2,
     // skipB = 3
     // Output: Intersected at '8'

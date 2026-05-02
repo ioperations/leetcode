@@ -46,7 +46,7 @@ class Solution {
     }
 };
 
-TEST(maximum_units_on_a_truck, t1) {
+TEST(MaximumUnitsOnATruck, t1) {
     vector<vector<int>> box_types = {{1, 3}, {2, 2}, {3, 1}};
     int const truck_size = 4;
     int const output = 8;
@@ -62,7 +62,7 @@ TEST(maximum_units_on_a_truck, t1) {
     // (1 * 1) = 8.
 }
 
-TEST(maximum_units_on_a_truck, t2) {
+TEST(MaximumUnitsOnATruck, t2) {
     vector<vector<int>> box_types = {{5, 10}, {2, 5}, {4, 7}, {3, 9}};
     int const truck_size = 10;
     int const output = 91;

@@ -41,7 +41,7 @@ class Solution {
     }
 };
 
-TEST(the_number_of_weak_characters_in_the_game, t1) {
+TEST(TheNumberOfWeakCharactersInTheGame, t1) {
     std::vector<vector<int>> properties = {{5, 5}, {6, 3}, {3, 6}};
     int const output = 0;
     // Explanation: No character has strictly greater attack and defense than
@@ -51,7 +51,7 @@ TEST(the_number_of_weak_characters_in_the_game, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(the_number_of_weak_characters_in_the_game, t2) {
+TEST(TheNumberOfWeakCharactersInTheGame, t2) {
     std::vector<vector<int>> properties = {{2, 2}, {3, 3}};
     int const output = 1;
     // The first character is weak because the second character has a strictly
@@ -61,7 +61,7 @@ TEST(the_number_of_weak_characters_in_the_game, t2) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(the_number_of_weak_characters_in_the_game, t3) {
+TEST(TheNumberOfWeakCharactersInTheGame, t3) {
     std::vector<vector<int>> properties = {{1, 5}, {10, 4}, {4, 3}};
     int const output = 1;
     // Explanation: The third character is weak because the second character has
@@ -70,7 +70,7 @@ TEST(the_number_of_weak_characters_in_the_game, t3) {
     int const ret = sl.NumberOfWeakCharacters(properties);
     EXPECT_EQ(ret, output);
 }
-TEST(the_number_of_weak_characters_in_the_game, t4) {
+TEST(TheNumberOfWeakCharactersInTheGame, t4) {
     std::vector<vector<int>> properties = {{1, 1}, {2, 1}, {2, 2}, {1, 2}};
     int const output = 1;
     // Explanation: The third character is weak because the second character has

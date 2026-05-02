@@ -152,7 +152,7 @@ class SolutionV2 {
     }
 };
 
-TEST(search_suggestions_system, t1) {
+TEST(SearchSuggestionsSystem, t1) {
     vector<string> const products = {"mobile", "mouse", "moneypot", "monitor",
                                      "mousepad"};
     string const search_word = "mouse";
@@ -168,7 +168,7 @@ TEST(search_suggestions_system, t1) {
     EXPECT_EQ(ret, out);
 }
 
-TEST(search_suggestions_system, t2) {
+TEST(SearchSuggestionsSystem, t2) {
     vector<string> const products = {"havana"};
     string const search_word = "havana";
 
@@ -181,7 +181,7 @@ TEST(search_suggestions_system, t2) {
     EXPECT_EQ(ret, out);
 }
 
-TEST(search_suggestions_system, t3) {
+TEST(SearchSuggestionsSystem, t3) {
     vector<string> const products = {"bags", "baggage", "banner", "box",
                                      "cloths"};
     string const search_word = "bags";
@@ -196,7 +196,7 @@ TEST(search_suggestions_system, t3) {
     EXPECT_EQ(ret, out);
 }
 
-TEST(search_suggestions_system_v2, t1) {
+TEST(SearchSuggestionsSystemV2, t1) {
     vector<string> products = {"mobile", "mouse", "moneypot", "monitor",
                                "mousepad"};
     string const search_word = "mouse";
@@ -212,7 +212,7 @@ TEST(search_suggestions_system_v2, t1) {
     EXPECT_EQ(ret, out);
 }
 
-TEST(search_suggestions_system_v2, t2) {
+TEST(SearchSuggestionsSystemV2, t2) {
     vector<string> products = {"havana"};
     string const search_word = "havana";
 
@@ -225,7 +225,7 @@ TEST(search_suggestions_system_v2, t2) {
     EXPECT_EQ(ret, out);
 }
 
-TEST(search_suggestions_system_v2, t3) {
+TEST(SearchSuggestionsSystemV2, t3) {
     vector<string> products = {"bags", "baggage", "banner", "box", "cloths"};
     string const search_word = "bags";
 

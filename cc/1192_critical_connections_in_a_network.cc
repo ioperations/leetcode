@@ -58,7 +58,7 @@ class Solution {
     }
 };
 
-TEST(critical_connections_in_a_network, t1) {
+TEST(CriticalConnectionsInANetwork, t1) {
     int const n = 4;
     std::vector<vector<int>> connections = {{0, 1}, {1, 2}, {2, 0}, {1, 3}};
     std::vector<vector<int>> const output = {{1, 3}};
@@ -70,7 +70,7 @@ TEST(critical_connections_in_a_network, t1) {
 
     // Explanation : [[ 3, 1 ]] is also accepted.
 }
-TEST(critical_connections_in_a_network, t2) {
+TEST(CriticalConnectionsInANetwork, t2) {
     int const n = 2;
     std::vector<vector<int>> connections = {{0, 1}};
     std::vector<vector<int>> const output = {{0, 1}};

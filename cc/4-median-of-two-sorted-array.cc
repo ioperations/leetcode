@@ -153,7 +153,7 @@ class Solution {
     }
 };
 
-TEST(_median_of_two_sorted_arrayv2, t2) {
+TEST(MedianOfTwoSortedArrayv2, t2) {
     Solution n;
 
     vector<int> n1{1, 2, 3, 4, 5};

@@ -68,7 +68,7 @@ class Solution {
     }
 };
 
-TEST(max_number_of_k_sum_pairs, t1) {
+TEST(MaxNumberOfKSumPairs, t1) {
     std::vector<int> nums = {1, 2, 3, 4};
     int const k = 5;
     int const output = 2;
@@ -84,7 +84,7 @@ TEST(max_number_of_k_sum_pairs, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(max_number_of_k_sum_pairs_v2, t1) {
+TEST(MaxNumberOfKSumPairsV2, t1) {
     std::vector<int> nums = {1, 2, 3, 4};
     int const k = 5;
     int const output = 2;
@@ -100,7 +100,7 @@ TEST(max_number_of_k_sum_pairs_v2, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(max_number_of_k_sum_pairs_v3, t1) {
+TEST(MaxNumberOfKSumPairsV3, t1) {
     std::vector<int> nums = {1, 2, 3, 4};
     int const k = 5;
     int const output = 2;
@@ -116,7 +116,7 @@ TEST(max_number_of_k_sum_pairs_v3, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(max_number_of_k_sum_pairs, t2) {
+TEST(MaxNumberOfKSumPairs, t2) {
     std::vector<int> nums = {3, 1, 3, 4, 3};
     int const k = 6;
     int const output = 1;
@@ -131,7 +131,7 @@ TEST(max_number_of_k_sum_pairs, t2) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(max_number_of_k_sum_pairs_v2, t2) {
+TEST(MaxNumberOfKSumPairsV2, t2) {
     std::vector<int> nums = {3, 1, 3, 4, 3};
     int const k = 6;
     int const output = 1;
@@ -146,7 +146,7 @@ TEST(max_number_of_k_sum_pairs_v2, t2) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(max_number_of_k_sum_pairs_v3, t2) {
+TEST(MaxNumberOfKSumPairsV3, t2) {
     std::vector<int> nums = {3, 1, 3, 4, 3};
     int const k = 6;
     int const output = 1;

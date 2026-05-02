@@ -83,7 +83,7 @@ class MyLinkedList {
     }
 };
 
-TEST(design_linked_list, t1) {
+TEST(DesignLinkedList, t1) {
     auto* my_linked_list = new MyLinkedList();
     my_linked_list->AddAtHead(1);
     my_linked_list->AddAtTail(3);

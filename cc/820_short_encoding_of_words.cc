@@ -100,7 +100,7 @@ class Solution {
     }
 };
 
-TEST(short_encoding_of_words, t1) {
+TEST(ShortEncodingOfWords, t1) {
     vector<string> words = {"time", "me", "bell"};
     int const output = 10;
     Solution sl;
@@ -115,7 +115,7 @@ underlined in "time#bell#"
     EXPECT_EQ(ret, output);
 }
 
-TEST(short_encoding_of_words, t2) {
+TEST(ShortEncodingOfWords, t2) {
     vector<string> words = {"t"};
     int const output = 2;
     Solution sl;

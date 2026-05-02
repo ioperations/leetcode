@@ -41,14 +41,14 @@ class Solution {
 
 using namespace std;
 
-TEST(memleak, t0) {
+TEST(Memleak, t0) {
     vector<optional<int>> const elements{
         3, 9, 20, optional<int>(), optional<int>(), 15, 7};
     auto* binary_tree = ConstructBinaryTree(elements);
     FreeTreeNode(binary_tree);
 }
 
-TEST(maximum_depth_of_binary_tree, t1) {
+TEST(MaximumDepthOfBinaryTree, t1) {
     vector<optional<int>> const elements{
         3, 9, 20, optional<int>(), optional<int>(), 15, 7};
     auto* binary_tree = ConstructBinaryTree(elements);
@@ -58,7 +58,7 @@ TEST(maximum_depth_of_binary_tree, t1) {
     FreeTreeNode(binary_tree);
 }
 
-TEST(maximum_depth_of_binary_tree, t2) {
+TEST(MaximumDepthOfBinaryTree, t2) {
     vector<optional<int>> const elements{1, optional<int>(), 2};
     auto* binary_tree = ConstructBinaryTree(elements);
     Solution sl;

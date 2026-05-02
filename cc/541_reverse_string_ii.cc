@@ -68,7 +68,7 @@ class Solution {
     }
 };
 
-TEST(reverse_string_ii, t1) {
+TEST(ReverseStringIi, t1) {
     std::string const s = "abcdefg";
     int const k = 2;
     std::string const output = "bacdfeg";
@@ -77,7 +77,7 @@ TEST(reverse_string_ii, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(reverse_string_ii_v2, t1) {
+TEST(ReverseStringIiV2, t1) {
     std::string const s = "abcdefg";
     int const k = 2;
     std::string const output = "bacdfeg";
@@ -86,7 +86,7 @@ TEST(reverse_string_ii_v2, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(reverse_string_ii, t2) {
+TEST(ReverseStringIi, t2) {
     std::string const s = "abcd";
     int const k = 2;
     std::string const output = "bacd";
@@ -95,7 +95,7 @@ TEST(reverse_string_ii, t2) {
 
     EXPECT_EQ(ret, output);
 }
-TEST(reverse_string_ii_v2, t2) {
+TEST(ReverseStringIiV2, t2) {
     std::string const s = "abcd";
     int const k = 2;
     std::string const output = "bacd";

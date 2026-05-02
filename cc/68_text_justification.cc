@@ -133,14 +133,14 @@ class Solution {
     }
 };
 
-TEST(test, t0) {
+TEST(Test, t0) {
     Solution s;
     auto ret = s.SaperateEvenly(11, 3);
 
     EXPECT_EQ(ret, (std::vector<int>{4, 4, 3}));
 }
 
-TEST(test, t1) {
+TEST(Test, t1) {
     Solution s;
     std::queue<std::string> q;
     q.emplace("hello");
@@ -151,7 +151,7 @@ TEST(test, t1) {
     EXPECT_EQ(ret, "hello world i");
 }
 
-TEST(test, t2) {
+TEST(Test, t2) {
     Solution s;
     std::queue<std::string> q;
     q.emplace("hello");

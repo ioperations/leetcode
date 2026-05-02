@@ -86,7 +86,7 @@ class Solution {
 
 #include <gtest/gtest.h>
 
-TEST(t0, t1) {
+TEST(T0, t1) {
     int const limit = 4;
     vector<vector<int>> queries = {{1, 4}, {2, 5}, {1, 3}, {3, 4}};
 
@@ -107,7 +107,7 @@ TEST(t0, t1) {
       */
 }
 
-TEST(t0, t2) {
+TEST(T0, t2) {
     int const limit = 5;
     vector<vector<int>> queries = {{0, 1}, {1, 2}, {2, 2}, {3, 4}, {4, 5}};
 

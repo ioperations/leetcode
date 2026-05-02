@@ -119,7 +119,7 @@ class Solution {
     }
 };
 
-TEST(sum, t1) {
+TEST(Sum, t1) {
     std::vector<int> nums = {-1, 0, 1, 2, -1, -4};
     const std::vector<std::vector<int>> expected = {{-1, -1, 2}, {-1, 0, 1}};
     const std::vector<std::vector<int>> expected1 = {{-1, 0, 1}, {-1, -1, 2}};
@@ -128,7 +128,7 @@ TEST(sum, t1) {
     // EXPECT_TRUE(ret == expected || ret == expected1);
 }
 
-TEST(sum, t2) {
+TEST(Sum, t2) {
     std::vector<int> nums = {};
     const std::vector<std::vector<int>> expected = {};
     Solution s;
@@ -136,7 +136,7 @@ TEST(sum, t2) {
     // EXPECT_EQ(ret, expected);
 }
 
-TEST(sum, t3) {
+TEST(Sum, t3) {
     std::vector<int> nums = {0};
     const std::vector<std::vector<int>> expected = {};
     Solution s;

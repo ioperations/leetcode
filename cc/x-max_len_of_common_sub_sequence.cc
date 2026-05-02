@@ -40,7 +40,7 @@ int MaxSubStringLengthOfTwoString(const char* s1, int s1_len, const char* s2,
     return dp_fun(s1_len - 1, s2_len - 1);
 }
 
-TEST(t1j, t2) {
+TEST(T1j, t2) {
     const char* s1 = "hello";
     const char* s2 = "hell";
     int const ret =
@@ -48,7 +48,7 @@ TEST(t1j, t2) {
     EXPECT_EQ(ret, 4);
 }
 
-TEST(t1j, t3) {
+TEST(T1j, t3) {
     const char* s1 = "hllo";
     const char* s2 = "hell";
     int const ret =
@@ -56,7 +56,7 @@ TEST(t1j, t3) {
     EXPECT_EQ(ret, 3);
 }
 
-TEST(t1j, t4) {
+TEST(T1j, t4) {
     const char* s1 = "abcd";
     const char* s2 = "defg";
     int const ret =
@@ -64,7 +64,7 @@ TEST(t1j, t4) {
     EXPECT_EQ(ret, 1);
 }
 
-TEST(t1j, t5) {
+TEST(T1j, t5) {
     const char* s1 = "abch";
     const char* s2 = "defg";
     int const ret =

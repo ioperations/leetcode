@@ -44,7 +44,7 @@ class Solution {
     }
 };
 
-TEST(count_vowels_permutation, t1) {
+TEST(CountVowelsPermutation, t1) {
     int const n = 1;
     int const output = 5;
 
@@ -54,7 +54,7 @@ TEST(count_vowels_permutation, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(count_vowels_permutation, t2) {
+TEST(CountVowelsPermutation, t2) {
     int const n = 2;
     int const output = 10;
 
@@ -65,7 +65,7 @@ TEST(count_vowels_permutation, t2) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(count_vowels_permutation, t3) {
+TEST(CountVowelsPermutation, t3) {
     int const n = 5;
     int const output = 68;
 

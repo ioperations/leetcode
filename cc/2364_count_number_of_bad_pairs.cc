@@ -30,7 +30,7 @@ class Solution {
 
 #include <gtest/gtest.h>
 
-TEST(t0, t1) {
+TEST(T0, t1) {
     vector<int> nums = {4, 1, 3, 3};
     int const output = 5;
     Solution sl;
@@ -46,7 +46,7 @@ TEST(t0, t1) {
      */
 }
 
-TEST(t0, t2) {
+TEST(T0, t2) {
     vector<int> nums = {1, 2, 3, 4, 5};
     int const output = 0;
     Solution sl;

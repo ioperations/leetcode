@@ -78,7 +78,7 @@ class Solution {
     }
 };
 
-TEST(predict_the_winnner, t1) {
+TEST(PredictTheWinnner, t1) {
     std::vector<int> nums = {1, 5, 2};
     bool const expected = false;
     /* Explanation: Initially, player 1 can choose between 1 and 2.
@@ -97,7 +97,7 @@ TEST(predict_the_winnner, t1) {
     EXPECT_EQ(ret, expected);
 }
 
-TEST(predict_the_winnner, t2) {
+TEST(PredictTheWinnner, t2) {
     std::vector<int> nums = {1, 5, 233, 7};
     bool const expected = true;
     /*  Player 1 first chooses 1.

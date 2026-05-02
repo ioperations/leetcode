@@ -170,7 +170,7 @@ class Solution {
     }
 };
 
-TEST(path_with_minimium_effort, t1) {
+TEST(PathWithMinimiumEffort, t1) {
     /*
          ___ ___ ___
         | 1 | 2 | 2 |
@@ -192,7 +192,7 @@ TEST(path_with_minimium_effort, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(path_with_minimium_effort, t2) {
+TEST(PathWithMinimiumEffort, t2) {
     vector<vector<int>> heights = {{1, 2, 3}, {3, 8, 4}, {5, 3, 5}};
     int const output = 1;
     /*
@@ -214,7 +214,7 @@ TEST(path_with_minimium_effort, t2) {
     int const ret = s.MinimumEffortPath(heights);
     EXPECT_EQ(ret, output);
 }
-TEST(path_with_minimium_effort, t3) {
+TEST(PathWithMinimiumEffort, t3) {
     vector<vector<int>> heights = {{1, 2, 1, 1, 1},
                                    {1, 2, 1, 2, 1},
                                    {1, 2, 1, 2, 1},

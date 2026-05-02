@@ -42,7 +42,7 @@ class Solution {
 using namespace std;
 #define null std::nullopt
 
-TEST(lowest_common_ancestor_of_a_binary_tree, t1) {
+TEST(LowestCommonAncestorOfABinaryTree, t1) {
     vector<optional<int>> const root = {3, 5, 1, 6, 2, 0, 8, null, null, 7, 4};
     int p = 5, q = 1;
     int const output = 3;
@@ -56,7 +56,7 @@ TEST(lowest_common_ancestor_of_a_binary_tree, t1) {
     FreeTreeNode(node);
 }
 
-TEST(lowest_common_ancestor_of_a_binary_tree, t2) {
+TEST(LowestCommonAncestorOfABinaryTree, t2) {
     vector<optional<int>> const root = {3, 5, 1, 6, 2, 0, 8, null, null, 7, 4};
     int p = 5, q = 4;
     int const output = 5;
@@ -70,7 +70,7 @@ TEST(lowest_common_ancestor_of_a_binary_tree, t2) {
     FreeTreeNode(node);
 }
 
-TEST(lowest_common_ancestor_of_a_binary_tree, t3) {
+TEST(LowestCommonAncestorOfABinaryTree, t3) {
     vector<optional<int>> const root = {1, 2};
     int p = 1, q = 2;
     int const output = 1;

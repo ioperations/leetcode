@@ -45,7 +45,7 @@ class Solution {
 
 #include <set>
 
-TEST(combinations, t1) {
+TEST(Combinations, t1) {
     int const n = 4;
     int const k = 2;
     vector<vector<int>> o{
@@ -58,7 +58,7 @@ TEST(combinations, t1) {
     set<vector<int>> const ret_set(ret.begin(), ret.end());
     EXPECT_EQ(ret_set, o_set);
 }
-TEST(combinations, t2) {
+TEST(Combinations, t2) {
     int const n = 1;
     int const k = 1;
     vector<vector<int>> o{{1}};

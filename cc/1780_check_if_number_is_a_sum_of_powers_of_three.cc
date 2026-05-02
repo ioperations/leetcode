@@ -48,21 +48,21 @@ class Solution {
 
 #include <gtest/gtest.h>
 
-TEST(t0, t1) {
+TEST(T0, t1) {
     int const n = 12;
     Solution sl;
     auto ret = sl.CheckPowersOfThree(n);
     EXPECT_EQ(true, ret);
 }
 
-TEST(t0, t2) {
+TEST(T0, t2) {
     int const n = 91;
     Solution sl;
     auto ret = sl.CheckPowersOfThree(n);
     EXPECT_EQ(true, ret);
 }
 
-TEST(t0, t3) {
+TEST(T0, t3) {
     int const n = 21;
     Solution sl;
     auto ret = sl.CheckPowersOfThree(n);

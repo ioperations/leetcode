@@ -60,7 +60,7 @@ class Solution {
     }
 };
 
-TEST(two_sum_ii_input_arrary_is_sorted, t1) {
+TEST(TwoSumIiInputArraryIsSorted, t1) {
     vector<int> numbers = {2, 7, 11, 15};
     int const target = 9;
     vector<int> const output = {1, 2};
@@ -71,7 +71,7 @@ TEST(two_sum_ii_input_arrary_is_sorted, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(two_sum_ii_input_arrary_is_sorted, t2) {
+TEST(TwoSumIiInputArraryIsSorted, t2) {
     vector<int> numbers = {2, 3, 4};
     int const target = 6;
     vector<int> const output = {1, 3};
@@ -82,7 +82,7 @@ TEST(two_sum_ii_input_arrary_is_sorted, t2) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(two_sum_ii_input_arrary_is_sorted, t3) {
+TEST(TwoSumIiInputArraryIsSorted, t3) {
     vector<int> numbers = {-1, 0};
     int const target = -1;
     vector<int> const output = {1, 2};
@@ -93,7 +93,7 @@ TEST(two_sum_ii_input_arrary_is_sorted, t3) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(two_sum_ii_input_arrary_is_sorted, t4) {
+TEST(TwoSumIiInputArraryIsSorted, t4) {
     vector<int> numbers = {3, 24, 50, 79, 88, 150, 345};
     int const target = 200;
     vector<int> const output = {3, 6};

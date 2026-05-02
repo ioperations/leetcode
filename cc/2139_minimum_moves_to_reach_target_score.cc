@@ -70,7 +70,7 @@ class Solution {
     }
 };
 
-TEST(minimum_moves_to_reach_target_score, t1) {
+TEST(MinimumMovesToReachTargetScore, t1) {
     int const target = 19;
     int const max_double = 2;
     int const ret = 7;
@@ -86,7 +86,7 @@ TEST(minimum_moves_to_reach_target_score, t1) {
     EXPECT_EQ(ret, out);
 }
 
-TEST(minimum_moves_to_reach_target_score, t2) {
+TEST(MinimumMovesToReachTargetScore, t2) {
     int const target = 10;
     int const max_double = 4;
     int const ret = 4;
@@ -102,7 +102,7 @@ TEST(minimum_moves_to_reach_target_score, t2) {
     EXPECT_EQ(ret, out);
 }
 
-TEST(minimum_moves_to_reach_target_score, t3) {
+TEST(MinimumMovesToReachTargetScore, t3) {
     int const target = 5;
     int const max_double = 0;
     int const ret = 4;
@@ -111,7 +111,7 @@ TEST(minimum_moves_to_reach_target_score, t3) {
     EXPECT_EQ(ret, out);
 }
 
-TEST(minimum_moves_to_reach_target_score, t4) {
+TEST(MinimumMovesToReachTargetScore, t4) {
     int const target = 766972377;
     int const max_double = 92;
     int const ret = 45;

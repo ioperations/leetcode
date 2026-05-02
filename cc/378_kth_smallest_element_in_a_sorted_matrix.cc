@@ -72,7 +72,7 @@ Space Complexity: O(1), constant space.
     }
 };
 
-TEST(kth_smallest_element_in_a_sorted_matrix, t1) {
+TEST(KthSmallestElementInASortedMatrix, t1) {
     vector<vector<int>> matrix = {{1, 5, 9}, {10, 11, 13}, {12, 13, 15}};
     int const k = 8;
     int const output = 13;
@@ -83,7 +83,7 @@ TEST(kth_smallest_element_in_a_sorted_matrix, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(kth_smallest_element_in_a_sorted_matrix, t2) {
+TEST(KthSmallestElementInASortedMatrix, t2) {
     vector<vector<int>> matrix = {{-5}};
     int const k = 1;
     int const output = -5;
@@ -92,7 +92,7 @@ TEST(kth_smallest_element_in_a_sorted_matrix, t2) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(kth_smallest_element_in_a_sorted_matrix_v2, t1) {
+TEST(KthSmallestElementInASortedMatrixV2, t1) {
     vector<vector<int>> matrix = {{1, 5, 9}, {10, 11, 13}, {12, 13, 15}};
     int const k = 8;
     int const output = 13;
@@ -103,7 +103,7 @@ TEST(kth_smallest_element_in_a_sorted_matrix_v2, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(kth_smallest_element_in_a_sorted_matrix_v2, t2) {
+TEST(KthSmallestElementInASortedMatrixV2, t2) {
     vector<vector<int>> matrix = {{-5}};
     int const k = 1;
     int const output = -5;

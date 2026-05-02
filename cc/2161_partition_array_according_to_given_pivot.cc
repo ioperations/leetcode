@@ -68,7 +68,7 @@ class Solution {
 
 #include <gtest/gtest.h>
 
-TEST(t0, t1) {
+TEST(T0, t1) {
     vector<int> nums = {9, 12, 5, 10, 14, 3, 10};
     int const pivot = 10;
     vector<int> const output = {9, 5, 3, 10, 10, 12, 14};
@@ -87,7 +87,7 @@ TEST(t0, t1) {
     //
 }
 
-TEST(t0, t2) {
+TEST(T0, t2) {
     vector<int> nums = {-3, 4, 3, 2};
     int const pivot = 2;
     vector<int> const output = {-3, 2, 4, 3};

@@ -73,7 +73,7 @@ class Solution {
     }
 };
 
-TEST(minimium_operations_to_reduce_x_to_zero, t1) {
+TEST(MinimiumOperationsToReduceXToZero, t1) {
     vector<int> nums = {1, 1, 4, 2, 3};
     int const x = 5;
     int const output = 2;
@@ -84,7 +84,7 @@ TEST(minimium_operations_to_reduce_x_to_zero, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(minimium_operations_to_reduce_x_to_zero, t2) {
+TEST(MinimiumOperationsToReduceXToZero, t2) {
     vector<int> nums = {5, 6, 7, 8, 9};
     int const x = 4;
     int const output = -1;
@@ -95,7 +95,7 @@ TEST(minimium_operations_to_reduce_x_to_zero, t2) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(minimium_operations_to_reduce_x_to_zero, t3) {
+TEST(MinimiumOperationsToReduceXToZero, t3) {
     vector<int> nums = {3, 2, 20, 1, 1, 3};
     int const x = 10;
     int const output = 5;

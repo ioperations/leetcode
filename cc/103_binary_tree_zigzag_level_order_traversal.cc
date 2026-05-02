@@ -41,14 +41,14 @@ class Solution {
     }
 };
 
-TEST(memleak, t0) {
+TEST(Memleak, t0) {
     vector<optional<int>> const elements{
         3, 9, 20, optional<int>(), optional<int>(), 15, 7};
     auto* binary_tree = Tree::ConstructBinaryTree(elements);
     Tree::FreeTreeNode(binary_tree);
 }
 
-TEST(binary_tree_zigzag_level_order_traversal, t1) {
+TEST(BinaryTreeZigzagLevelOrderTraversal, t1) {
     vector<optional<int>> const elements{
         3, 9, 20, optional<int>(), optional<int>(), 15, 7};
     auto* binary_tree = Tree::ConstructBinaryTree(elements);
@@ -60,7 +60,7 @@ TEST(binary_tree_zigzag_level_order_traversal, t1) {
     Tree::FreeTreeNode(binary_tree);
 }
 
-TEST(binary_tree_zigzag_level_order_traversal, t2) {
+TEST(BinaryTreeZigzagLevelOrderTraversal, t2) {
     vector<optional<int>> const elements{1};
     auto* binary_tree = Tree::ConstructBinaryTree(elements);
 
@@ -71,7 +71,7 @@ TEST(binary_tree_zigzag_level_order_traversal, t2) {
     Tree::FreeTreeNode(binary_tree);
 }
 
-TEST(binary_tree_zigzag_level_order_traversal, t3) {
+TEST(BinaryTreeZigzagLevelOrderTraversal, t3) {
     vector<optional<int>> const elements{};
     auto* binary_tree = Tree::ConstructBinaryTree(elements);
 

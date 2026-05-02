@@ -40,7 +40,7 @@ class Solution {
 
 #include <gtest/gtest.h>
 
-TEST(t0, t1) {
+TEST(T0, t1) {
     vector<int> colors = {0, 1, 0, 1, 0};
     int const k = 3;
     int const output = 3;
@@ -49,7 +49,7 @@ TEST(t0, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t2) {
+TEST(T0, t2) {
     vector<int> colors = {0, 1, 0, 0, 1, 0, 1};
     int const k = 6;
     int const output = 2;
@@ -58,7 +58,7 @@ TEST(t0, t2) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(t0, t3) {
+TEST(T0, t3) {
     vector<int> colors = {1, 1, 0, 1};
     int const k = 4;
     int const output = 0;

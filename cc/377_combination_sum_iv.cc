@@ -73,7 +73,7 @@ class Solution {
     }
 };
 
-TEST(combination_sum_iv, t1) {
+TEST(CombinationSumIv, t1) {
     vector<int> nums = {1, 2, 3};
     int const target = 4;
     Solution sl;
@@ -93,7 +93,7 @@ TEST(combination_sum_iv, t1) {
     EXPECT_EQ(ret, 7);
 }
 
-TEST(combination_sum_iv, t2) {
+TEST(CombinationSumIv, t2) {
     vector<int> nums = {9};
     int const target = 3;
     Solution sl;
@@ -102,7 +102,7 @@ TEST(combination_sum_iv, t2) {
     EXPECT_EQ(ret, 0);
 }
 
-TEST(combination_sum_iv_v2, t1) {
+TEST(CombinationSumIvV2, t1) {
     vector<int> nums = {1, 2, 3};
     int const target = 4;
     Solution sl;
@@ -122,7 +122,7 @@ TEST(combination_sum_iv_v2, t1) {
     EXPECT_EQ(ret, 7);
 }
 
-TEST(combination_sum_iv_v2, t2) {
+TEST(CombinationSumIvV2, t2) {
     vector<int> nums = {9};
     int const target = 3;
     Solution sl;
@@ -131,7 +131,7 @@ TEST(combination_sum_iv_v2, t2) {
     EXPECT_EQ(ret, 0);
 }
 
-TEST(combination_sum_iv_v3, t1) {
+TEST(CombinationSumIvV3, t1) {
     vector<int> nums = {1, 2, 3};
     int const target = 4;
     Solution sl;
@@ -151,7 +151,7 @@ TEST(combination_sum_iv_v3, t1) {
     EXPECT_EQ(ret, 7);
 }
 
-TEST(combination_sum_iv_v3, t2) {
+TEST(CombinationSumIvV3, t2) {
     vector<int> nums = {9};
     int const target = 3;
     Solution sl;

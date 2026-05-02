@@ -50,7 +50,7 @@ class Solution {
     }
 };
 
-TEST(concatenation_of_consecutive_binary_numbers_v2, t0) {
+TEST(ConcatenationOfConsecutiveBinaryNumbersV2, t0) {
     int const n = 10;
     Solution sl;
     std::string const ret = sl.DemicalToBinary(n);
@@ -58,7 +58,7 @@ TEST(concatenation_of_consecutive_binary_numbers_v2, t0) {
     EXPECT_EQ(ret, std::string("1010"));
 }
 
-TEST(concatenation_of_consecutive_binary_numbers, t1) {
+TEST(ConcatenationOfConsecutiveBinaryNumbers, t1) {
     int const n = 1;
     int const output = 1;
     Solution sl;
@@ -71,7 +71,7 @@ TEST(concatenation_of_consecutive_binary_numbers, t1) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(concatenation_of_consecutive_binary_numbers, t2) {
+TEST(ConcatenationOfConsecutiveBinaryNumbers, t2) {
     int const n = 3;
     int const output = 27;
     Solution sl;
@@ -89,7 +89,7 @@ TEST(concatenation_of_consecutive_binary_numbers, t2) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(concatenation_of_consecutive_binary_numbers, t3) {
+TEST(ConcatenationOfConsecutiveBinaryNumbers, t3) {
     int const n = 12;
     int const output = 505379714;
     std::string const expected_str = "1101110010111011110001001101010111100";

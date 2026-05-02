@@ -81,7 +81,7 @@ class SolutionV2 {
     }
 };
 
-TEST(sort_array_by_parity, t1) {
+TEST(SortArrayByParity, t1) {
     std::vector<int> nums = {3, 1, 2, 4};
     std::set<std::vector<int>> const output = {
         {4, 2, 3, 1}, {2, 4, 1, 3}, {4, 2, 1, 3}, {2, 4, 3, 1}};
@@ -91,7 +91,7 @@ TEST(sort_array_by_parity, t1) {
     EXPECT_TRUE(output.count(ret) == true);
 }
 
-TEST(sort_array_by_parity_v2, t1) {
+TEST(SortArrayByParityV2, t1) {
     std::vector<int> nums = {3, 1, 2, 4};
     std::set<std::vector<int>> const output = {
         {4, 2, 3, 1}, {2, 4, 1, 3}, {4, 2, 1, 3}, {2, 4, 3, 1}};
@@ -101,7 +101,7 @@ TEST(sort_array_by_parity_v2, t1) {
     EXPECT_TRUE(output.count(ret) == true);
 }
 
-TEST(sort_array_by_parity, t2) {
+TEST(SortArrayByParity, t2) {
     std::vector<int> nums = {0};
     std::vector<int> const output = {0};
     Solution sl;
@@ -110,7 +110,7 @@ TEST(sort_array_by_parity, t2) {
     EXPECT_EQ(ret, output);
 }
 
-TEST(sort_array_by_parity_v2, t2) {
+TEST(SortArrayByParityV2, t2) {
     std::vector<int> nums = {0};
     std::vector<int> const output = {0};
     SolutionV2 sl;

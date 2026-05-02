@@ -84,7 +84,7 @@ void FreeRoot(TreeNode* root) {
     delete root;
 }
 
-TEST(sum_of_left_leaves, t1) {
+TEST(SumOfLeftLeaves, t1) {
     const std::vector<int> elements = {7, 3, 20, 15, 9};
     TreeNode* root = ConstructTree(elements);
     Solution s;
@@ -94,7 +94,7 @@ TEST(sum_of_left_leaves, t1) {
     FreeRoot(root);
 }
 
-TEST(sum_of_left_leaves, t3) {
+TEST(SumOfLeftLeaves, t3) {
     const std::vector<int> elements = {1, 2, 3, 4, 5};
     TreeNode* root = ConstructTree(elements);
     Solution s;
@@ -104,7 +104,7 @@ TEST(sum_of_left_leaves, t3) {
     FreeRoot(root);
 }
 
-TEST(sum_of_left_leaves, t2) {
+TEST(SumOfLeftLeaves, t2) {
     const std::vector<int> elements = {1};
     TreeNode* root = ConstructTree(elements);
     Solution s;

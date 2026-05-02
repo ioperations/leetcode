@@ -83,7 +83,7 @@ class Solution {
 };
 
 #include <gtest/gtest.h>
-TEST(t0, t0) {
+TEST(T0, t0) {
     int const n = 1296;
 
     Solution sl;
@@ -93,7 +93,7 @@ TEST(t0, t0) {
     EXPECT_EQ(ret, expect);
 }
 
-TEST(t0, t1) {
+TEST(T0, t1) {
     int const n = 10;
     int const output = 182;
 
@@ -110,7 +110,7 @@ TEST(t0, t1) {
     // 100 = 182
 }
 
-TEST(t0, t2) {
+TEST(T0, t2) {
     int const n = 37;
     int const output = 1478;
 
@@ -126,7 +126,7 @@ TEST(t0, t2) {
     // Hence, the punishment number of 37 is 1 + 81 + 100 + 1296 = 1478
 }
 
-TEST(t0, t3) {
+TEST(T0, t3) {
     // FIXME: timeout
     int const n = 1000;
     int const output = 10804657;

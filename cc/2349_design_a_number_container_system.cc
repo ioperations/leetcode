@@ -99,7 +99,7 @@ class NumberContainersV2 {
 
 #include <gtest/gtest.h>
 
-TEST(t0, t1) {
+TEST(T0, t1) {
     // ["NumberContainers", "find", "change", "change", "change", "change",
     // "find", "change", "find"]
     // [[], [10], [2, 10], [1, 10], [3, 10], [5, 10], [10], [1, 20], [10]]
@@ -148,7 +148,7 @@ TEST(t0, t1) {
     */
 }
 
-TEST(t1, t1) {
+TEST(T1, t1) {
     // ["NumberContainers", "find", "change", "change", "change", "change",
     // "find", "change", "find"]
     // [[], [10], [2, 10], [1, 10], [3, 10], [5, 10], [10], [1, 20], [10]]

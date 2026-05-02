@@ -93,19 +93,19 @@ class Solution {
     }
 };
 
-TEST(base, tp) {
+TEST(Base, tp) {
     EXPECT_EQ(2 << 1, 4);
     EXPECT_EQ(2 << 0, 2);
 }
 
-TEST(base, t0) {
+TEST(Base, t0) {
     std::string const z = "00000000000000000000000000000001";
     uint32_t const n = ConstructUint32T(z);           //
     std::string const expected = ConstructString(n);  //(
     EXPECT_EQ(expected, z);
 }
 
-TEST(base, t1) {
+TEST(Base, t1) {
     std::string const z = "00000010100101000001111010011100";
     uint32_t const n = ConstructUint32T(z);  //
 

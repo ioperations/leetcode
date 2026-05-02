@@ -32,21 +32,21 @@ class Solution {
     }
 };
 
-TEST(first_unique_character_in_a_string, t1) {
+TEST(FirstUniqueCharacterInAString, t1) {
     string const s = "leetcode";
     Solution sl;
     int const ret = sl.FirstUniqChar(s);
     EXPECT_EQ(ret, 0);
 }
 
-TEST(first_unique_character_in_a_string, t2) {
+TEST(FirstUniqueCharacterInAString, t2) {
     string const s = "loveleetcode";
     Solution sl;
     int const ret = sl.FirstUniqChar(s);
     EXPECT_EQ(ret, 2);
 }
 
-TEST(first_unique_character_in_a_string, t3) {
+TEST(FirstUniqueCharacterInAString, t3) {
     string const s = "aabb";
     Solution sl;
     int const ret = sl.FirstUniqChar(s);

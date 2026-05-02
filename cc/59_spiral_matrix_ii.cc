@@ -127,7 +127,7 @@ class Solution {
     }
 };
 
-TEST(spiral_matrix_ii, t0) {
+TEST(SpiralMatrixIi, t0) {
     int const n = 3;
 
     std::vector<std::vector<int>> const expected = {
@@ -137,7 +137,7 @@ TEST(spiral_matrix_ii, t0) {
     EXPECT_EQ(ret, expected);
 }
 
-TEST(spiral_matrix_ii, t1) {
+TEST(SpiralMatrixIi, t1) {
     int const n = 1;
     std::vector<std::vector<int>> const expected = {{1}};
     Solution s;
