@@ -18,7 +18,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    string ConvertToTitle(int column_number) {
+    string ConvertToTitle(int column_number) const {
         string str = "";
 
         while (column_number--) {
@@ -32,31 +32,31 @@ class Solution {
 };
 
 TEST(ExcelSheetColumnTitle, t1) {
-    Solution s;
+    Solution const s;
     auto ret = s.ConvertToTitle(1);
     EXPECT_EQ(ret, "A");
 }
 
 TEST(ExcelSheetColumnTitle, t2) {
-    Solution s;
+    Solution const s;
     auto ret = s.ConvertToTitle(26);
     EXPECT_EQ(ret, "Z");
 }
 
 TEST(ExcelSheetColumnTitle, t3) {
-    Solution s;
+    Solution const s;
     auto ret = s.ConvertToTitle(28);
     EXPECT_EQ(ret, "AB");
 }
 
 TEST(ExcelSheetColumnTitle, t4) {
-    Solution s;
+    Solution const s;
     auto ret = s.ConvertToTitle(27);
     EXPECT_EQ(ret, "AA");
 }
 
 TEST(ExcelSheetColumnTitle, t5) {
-    Solution s;
+    Solution const s;
     auto ret = s.ConvertToTitle(701);
     EXPECT_EQ(ret, "ZY");
 }

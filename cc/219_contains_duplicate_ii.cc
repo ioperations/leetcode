@@ -18,7 +18,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    bool ContainsNearbyDuplicate(const vector<int>& nums, int k) {
+    bool ContainsNearbyDuplicate(const vector<int>& nums, int k) const {
         int const size = nums.size();
         for (int i = 0; i < size; i++) {
             for (int j = i + 1; (j < size) && ((j - i) <= k); j++) {
@@ -27,7 +27,7 @@ class Solution {
         }
         return false;
     }
-    bool ContainsNearbyDuplicateV2(const vector<int>& nums, int k) {
+    bool ContainsNearbyDuplicateV2(const vector<int>& nums, int k) const {
         unordered_map<int, int> map;
         int const n = nums.size();
         for (int i = 0; i < n; i++) {
@@ -45,7 +45,7 @@ TEST(ContainsDuplicateIi, t1) {
     int const k = 3;
     bool const output = true;
 
-    Solution sl;
+    Solution const sl;
     bool const ret = sl.ContainsNearbyDuplicate(nums, k);
     EXPECT_EQ(ret, output);
 }
@@ -55,7 +55,7 @@ TEST(ContainsDuplicateIi, t2) {
     int const k = 1;
     bool const output = true;
 
-    Solution sl;
+    Solution const sl;
     bool const ret = sl.ContainsNearbyDuplicate(nums, k);
     EXPECT_EQ(ret, output);
 }
@@ -65,7 +65,7 @@ TEST(ContainsDuplicateIi, t3) {
     int const k = 2;
     bool const output = false;
 
-    Solution sl;
+    Solution const sl;
     bool const ret = sl.ContainsNearbyDuplicate(nums, k);
     EXPECT_EQ(ret, output);
 }
@@ -75,7 +75,7 @@ TEST(ContainsDuplicateIiV2, t1) {
     int const k = 3;
     bool const output = true;
 
-    Solution sl;
+    Solution const sl;
     bool const ret = sl.ContainsNearbyDuplicateV2(nums, k);
     EXPECT_EQ(ret, output);
 }
@@ -85,7 +85,7 @@ TEST(ContainsDuplicateIiV2, t2) {
     int const k = 1;
     bool const output = true;
 
-    Solution sl;
+    Solution const sl;
     bool const ret = sl.ContainsNearbyDuplicateV2(nums, k);
     EXPECT_EQ(ret, output);
 }
@@ -95,7 +95,7 @@ TEST(ContainsDuplicateIiV2, t3) {
     int const k = 2;
     bool const output = false;
 
-    Solution sl;
+    Solution const sl;
     bool const ret = sl.ContainsNearbyDuplicateV2(nums, k);
     EXPECT_EQ(ret, output);
 }

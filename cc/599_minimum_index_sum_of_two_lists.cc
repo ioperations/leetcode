@@ -22,7 +22,7 @@ namespace {
 class Solution {
    public:
     vector<string> FindRestaurant(vector<string>& list1,
-                                  vector<string>& list2) {
+                                  vector<string>& list2) const {
         unordered_map<string, int> pos;
         vector<string> ans;
         int min_sum{INT_MAX};
@@ -53,7 +53,7 @@ TEST(MinimumIndexSumOfTwoLists, t1) {
                             "Hungry Hunter Steakhouse", "Shogun"};
     vector<string> const output = {"Shogun"};
     // Explanation: The only restaurant they both like is "Shogun".
-    Solution sl;
+    Solution const sl;
     auto ret = sl.FindRestaurant(list1, list2);
     EXPECT_EQ(ret, output);
 }
@@ -64,7 +64,7 @@ TEST(MinimumIndexSumOfTwoLists, t2) {
     vector<string> const output = {"Shogun"};
     // The restaurant they both like and have the least index sum is "Shogun"
     // with index sum 1 (0+1).
-    Solution sl;
+    Solution const sl;
     auto ret = sl.FindRestaurant(list1, list2);
     EXPECT_EQ(ret, output);
 }

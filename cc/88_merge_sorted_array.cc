@@ -25,7 +25,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    void Merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
+    void Merge(vector<int>& nums1, int m, vector<int>& nums2, int n) const {
         // pass
         vector<int> numz = nums1;
 
@@ -57,7 +57,7 @@ TEST(MergeSortedArray, t1) {
     std::vector<int> nums2 = {2, 5, 6};
     int const n = 3;
 
-    Solution s;
+    Solution const s;
     s.Merge(nums1, m, nums2, n);
 
     EXPECT_EQ(nums1, (std::vector<int>{1, 2, 2, 3, 5, 6}));
@@ -69,7 +69,7 @@ TEST(MergeSortedArray, t2) {
     std::vector<int> nums2 = {};
     int const n = 0;
 
-    Solution s;
+    Solution const s;
     s.Merge(nums1, m, nums2, n);
 
     EXPECT_EQ(nums1, (std::vector<int>{1}));
@@ -81,7 +81,7 @@ TEST(MergeSortedArray, t3) {
     std::vector<int> nums2 = {1};
     int const n = 1;
 
-    Solution s;
+    Solution const s;
     s.Merge(nums1, m, nums2, n);
 
     EXPECT_EQ(nums1, (std::vector<int>{1}));

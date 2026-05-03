@@ -27,7 +27,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    bool Check(const string& a, const string& b) {
+    bool Check(const string& a, const string& b) const {
         int cnt = 0, idx = 0;
         for (int i = 0;
              i < static_cast<int>(a.size()) && idx < static_cast<int>(b.size());
@@ -42,7 +42,7 @@ class Solution {
         }
         return cnt <= 1;
     }
-    int LongestStrChain(vector<string>& words) {
+    int LongestStrChain(vector<string>& words) const {
         int ans = 1;
         vector<int> dp(words.size(), 1);
         sort(words.begin(), words.end(),
@@ -69,7 +69,7 @@ TEST(LongestStringChain, t1) {
     vector<string> words = {"a", "b", "ba", "bca", "bda", "bdca"};
     int const output = 4;
     // Explanation: One of the longest word chains is ["a","ba","bda","bdca"].
-    Solution sl;
+    Solution const sl;
     int const ret = sl.LongestStrChain(words);
     EXPECT_EQ(ret, output);
 }
@@ -79,7 +79,7 @@ TEST(LongestStringChain, t2) {
     int const output = 5;
     // All the words can be put in a word chain ["xb", "xbc", "cxbc", "pcxbc",
     // "pcxbcf"].
-    Solution sl;
+    Solution const sl;
     int const ret = sl.LongestStrChain(words);
     EXPECT_EQ(ret, output);
 }
@@ -90,7 +90,7 @@ TEST(LongestStringChain, t3) {
     // The trivial word chain ["abcd"] is one of the longest word chains.
     // ["abcd","dbqca"] is not a valid word chain because the ordering of the
     // letters is changed.
-    Solution sl;
+    Solution const sl;
     int const ret = sl.LongestStrChain(words);
     EXPECT_EQ(ret, output);
 }

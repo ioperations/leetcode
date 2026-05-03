@@ -14,7 +14,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    int MissingNumber(vector<int>& nums) {
+    int MissingNumber(vector<int>& nums) const {
         int sum = 0;
 
         int max = 0;
@@ -34,7 +34,7 @@ TEST(missingV, t0) {
     // range [0,3]. 2 is the missing number in the range since it does not
     // appear in nums.
 
-    Solution sl;
+    Solution const sl;
     int const ret = sl.MissingNumber(nums);
     EXPECT_EQ(ret, output);
 }
@@ -46,7 +46,7 @@ TEST(missingV, t1) {
     // range [0,3]. 2 is the missing number in the range since it does not
     // appear in nums.
 
-    Solution sl;
+    Solution const sl;
     int const ret = sl.MissingNumber(nums);
     EXPECT_EQ(ret, output);
 }
@@ -58,7 +58,7 @@ TEST(missingV, t2) {
     // n = 2 since there are 2 numbers, so all numbers are in the range [0,2]. 2
     // is the missing number in the range since it does not appear in nums.
 
-    Solution sl;
+    Solution const sl;
     int const ret = sl.MissingNumber(nums);
     EXPECT_EQ(ret, output);
 }
@@ -70,7 +70,7 @@ TEST(missingV, t3) {
     // n = 9 since there are 9 numbers, so all numbers are in the range [0,9]. 8
     // is the missing number in the range since it does not appear in nums.
 
-    Solution sl;
+    Solution const sl;
     int const ret = sl.MissingNumber(nums);
     EXPECT_EQ(ret, output);
 }

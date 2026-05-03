@@ -24,13 +24,13 @@ using namespace std;
 namespace {
 class Solution {
    private:
-    bool InBoundsAndClear(vector<vector<int>>& grid, int i, int j) {
+    bool InBoundsAndClear(vector<vector<int>>& grid, int i, int j) const {
       return i >= 0 && i < static_cast<int>(grid.size()) && j >= 0 &&
              j < static_cast<int>(grid.at(i).size()) && grid.at(i).at(j) == 0;
     }
 
    public:
-    int ShortestPathBinaryMatrix(vector<vector<int>>& grid) {
+    int ShortestPathBinaryMatrix(vector<vector<int>>& grid) const {
         if (grid.at(0).at(0) == 1) return -1;  // path is blocked from the start
 
         vector<vector<int>> dirs = {{-1, 0},  {1, 0},  {0, -1}, {0, 1},
@@ -77,7 +77,7 @@ TEST(ShortestPathInBinaryMatrix, t1) {
     std::vector<vector<int>> v{{0, 1}, {1, 0}};
     int const expected = 2;
 
-    Solution sl;
+    Solution const sl;
     int const ret = sl.ShortestPathBinaryMatrix(v);
     EXPECT_EQ(ret, expected);
 }
@@ -86,7 +86,7 @@ TEST(ShortestPathInBinaryMatrix, t2) {
     std::vector<vector<int>> v{{0, 0, 0}, {1, 1, 0}, {1, 1, 0}};
     int const expected = 4;
 
-    Solution sl;
+    Solution const sl;
     int const ret = sl.ShortestPathBinaryMatrix(v);
     EXPECT_EQ(ret, expected);
 }
@@ -94,7 +94,7 @@ TEST(ShortestPathInBinaryMatrix, t3) {
     std::vector<vector<int>> v{{1, 0, 0}, {1, 1, 0}, {1, 1, 0}};
     int const expected = -1;
 
-    Solution sl;
+    Solution const sl;
     int const ret = sl.ShortestPathBinaryMatrix(v);
     EXPECT_EQ(ret, expected);
 }

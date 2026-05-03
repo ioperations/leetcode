@@ -22,7 +22,7 @@ namespace {
 class Solution {
    public:
     bool static Comp(string a, string b) { return a + b > b + a; }
-    string LargestNumber(vector<int>& nums) {
+    string LargestNumber(vector<int>& nums) const {
         vector<string> v;
         for (auto x : nums) {
             v.push_back(to_string(x));
@@ -46,7 +46,7 @@ TEST(largestV, t1) {
     std::vector<int> nums = {10, 2};
     string const output = "210";
 
-    Solution sl;
+    Solution const sl;
 
     string const ret = sl.LargestNumber(nums);
     EXPECT_EQ(ret, output);
@@ -56,7 +56,7 @@ TEST(largestV, t2) {
     std::vector<int> nums = {3, 30, 34, 5, 9};
     string const output = "9534330";
 
-    Solution sl;
+    Solution const sl;
 
     string const ret = sl.LargestNumber(nums);
     EXPECT_EQ(ret, output);

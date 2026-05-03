@@ -25,7 +25,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    int FindPairs(vector<int>& nums, int k) {
+    int FindPairs(vector<int>& nums, int k) const {
         sort(nums.begin(), nums.end());
         int ret = 0;
         for (int i = 0; i < static_cast<int>(nums.size()); i++) {
@@ -39,7 +39,7 @@ class Solution {
         return ret;
     }
 
-    int FindPairsV1(vector<int>& nums, int k) {
+    int FindPairsV1(vector<int>& nums, int k) const {
         sort(nums.begin(), nums.end());
         int prev = INT_MIN, ret = 0, n = nums.size();
         for (int i = 0; i < n; ++i) {
@@ -63,7 +63,7 @@ TEST(KDiffPairsInAnArray, t1) {
     // Although we have two 1s in the input, we should only return the number of
     // unique pairs.
 
-    Solution sl;
+    Solution const sl;
     int ret = sl.FindPairs(nums, k);
     EXPECT_EQ(ret, output);
 
@@ -78,7 +78,7 @@ TEST(KDiffPairsInAnArray, t2) {
     // There are four 1-diff pairs in the array, (1, 2), (2, 3), (3, 4) and (4,
     // 5).
 
-    Solution sl;
+    Solution const sl;
     int ret = sl.FindPairs(nums, k);
 
     EXPECT_EQ(ret, output);
@@ -93,7 +93,7 @@ TEST(KDiffPairsInAnArray, t3) {
     int const output = 1;
     // There is one 0-diff pair in the array, (1, 1).
 
-    Solution sl;
+    Solution const sl;
     int ret = sl.FindPairs(nums, k);
     EXPECT_EQ(ret, output);
 

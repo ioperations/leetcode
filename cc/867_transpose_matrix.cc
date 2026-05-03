@@ -15,7 +15,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    vector<vector<int>> Transpose(vector<vector<int>>& matrix) {
+    vector<vector<int>> Transpose(vector<vector<int>>& matrix) const {
         int const n = matrix.size();
         int const m = matrix[0].size();
         vector<vector<int>> res(m, vector<int>(n, 0));  // matrix creation
@@ -32,7 +32,7 @@ class Solution {
 TEST(transposeV, t1) {
     vector<vector<int>> matrix = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
     vector<vector<int>> const output = {{1, 4, 7}, {2, 5, 8}, {3, 6, 9}};
-    Solution sl;
+    Solution const sl;
     auto ret = sl.Transpose(matrix);
     EXPECT_EQ(ret, output);
 }
@@ -40,7 +40,7 @@ TEST(transposeV, t1) {
 TEST(transposeV, t2) {
     vector<vector<int>> matrix = {{1, 2, 3}, {4, 5, 6}};
     vector<vector<int>> const output = {{1, 4}, {2, 5}, {3, 6}};
-    Solution sl;
+    Solution const sl;
     auto ret = sl.Transpose(matrix);
     EXPECT_EQ(ret, output);
 }

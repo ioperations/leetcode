@@ -19,7 +19,7 @@ using namespace std;
 
 namespace {
 class Solution {
-    void Dfs(int i, vector<int>& v, vector<int>& nums, set<vector<int>>& s) {
+    void Dfs(int i, vector<int>& v, vector<int>& nums, set<vector<int>>& s) const {
         if (v.size() >= 2) s.insert(v);
         if (i == static_cast<int>(nums.size())) return;
 
@@ -32,7 +32,7 @@ class Solution {
     }
 
    public:
-    vector<vector<int>> FindSubsequences(vector<int>& nums) {
+    vector<vector<int>> FindSubsequences(vector<int>& nums) const {
         set<vector<int>> s;
         vector<int> v;
         Dfs(0, v, nums, s);
@@ -47,7 +47,7 @@ TEST(increasingV, t1) {
     vector<vector<int>> const output = {{4, 6},    {4, 6, 7}, {4, 6, 7, 7},
                                         {4, 7},    {4, 7, 7}, {6, 7},
                                         {6, 7, 7}, {7, 7}};
-    Solution sl;
+    Solution const sl;
     auto ret = sl.FindSubsequences(nums);
     EXPECT_EQ(ret, output);
 }
@@ -56,7 +56,7 @@ TEST(increasingV, t2) {
     vector<int> nums = {4, 4, 3, 2, 1};
     vector<vector<int>> const output = {{4, 4}};
 
-    Solution sl;
+    Solution const sl;
     auto ret = sl.FindSubsequences(nums);
     EXPECT_EQ(ret, output);
 }

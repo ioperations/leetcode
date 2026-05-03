@@ -12,7 +12,7 @@ namespace {
 
 class Solution {
    public:
-    int LengthOfLongestSubstring(std::string s) {
+    int LengthOfLongestSubstring(std::string s) const {
         int const n = s.size();
         int ans = std::numeric_limits<int>::min(), i = 0, j = 0;
         std::unordered_map<char, int> m;
@@ -35,28 +35,28 @@ class Solution {
 
 TEST(LongestSubstringWithoutRepeatingCharactersV3, t2) {
     std::string const s("bbbbb");
-    Solution sss;
+    Solution const sss;
     int const ret = sss.LengthOfLongestSubstring(s);
     EXPECT_EQ(1, ret);
 }
 
 TEST(LongestSubstringWithoutRepeatingCharactersV2, t2) {
     std::string const s("abcabcbb");
-    Solution sss;
+    Solution const sss;
     int const ret = sss.LengthOfLongestSubstring(s);
     EXPECT_EQ(3, ret);
 }
 
 TEST(LongestSubstringWithoutRepeatingCharactersV2, t2ss) {
     std::string const s("");
-    Solution sss;
+    Solution const sss;
     int const ret = sss.LengthOfLongestSubstring(s);
     EXPECT_EQ(0, ret);
 }
 
 TEST(T1sss, t2ss) {
     std::string const s("pwwkew");
-    Solution sss;
+    Solution const sss;
     int const ret = sss.LengthOfLongestSubstring(s);
     EXPECT_EQ(3, ret);
 }

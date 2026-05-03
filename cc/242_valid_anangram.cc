@@ -19,7 +19,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    bool IsAnagram(string s, string t) {
+    bool IsAnagram(string s, string t) const {
         sort(s.begin(), s.end());
         sort(t.begin(), t.end());
         return s == t;
@@ -29,7 +29,7 @@ class Solution {
 TEST(validV, t1) {
     string s = "anagram", t = "nagaram";
     bool const output = true;
-    Solution sl;
+    Solution const sl;
     bool const ret = sl.IsAnagram(s, t);
     EXPECT_EQ(ret, output);
 }
@@ -37,7 +37,7 @@ TEST(validV, t1) {
 TEST(validV, t2) {
     string s = "rat", t = "car";
     bool const output = false;
-    Solution sl;
+    Solution const sl;
     bool const ret = sl.IsAnagram(s, t);
     EXPECT_EQ(ret, output);
 }

@@ -21,7 +21,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    bool IsValid(const string& s) {
+    bool IsValid(const string& s) const {
       std::stack<char> stack;
       for (auto& ptr : s) {
         if (ptr == '(' || ptr == '[' || ptr == '{') {
@@ -65,7 +65,7 @@ TEST(validV, t1) {
     string const s = "()";
     bool const output = true;
 
-    Solution sl;
+    Solution const sl;
     bool const ret = sl.IsValid(s);
     EXPECT_EQ(ret, output);
 }
@@ -74,7 +74,7 @@ TEST(validV, t2) {
     string const s = "()[]{}";
     bool const output = true;
 
-    Solution sl;
+    Solution const sl;
     bool const ret = sl.IsValid(s);
     EXPECT_EQ(ret, output);
 }
@@ -84,21 +84,21 @@ TEST(validV, t3) {
 
     bool const output = false;
 
-    Solution sl;
+    Solution const sl;
     bool const ret = sl.IsValid(s);
     EXPECT_EQ(ret, output);
 }
 
 TEST(validV, t4) {
     string const s = "([)]";
-    Solution sl;
+    Solution const sl;
     bool const ret = sl.IsValid(s);
     EXPECT_EQ(ret, false);
 }
 
 TEST(validV, t5) {
     string const s = "{[]}";
-    Solution sl;
+    Solution const sl;
     bool const ret = sl.IsValid(s);
     EXPECT_EQ(ret, true);
 }

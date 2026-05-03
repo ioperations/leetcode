@@ -17,7 +17,7 @@ class Solution {
     /**
      *  中心扩展算法
      */
-    std::string LongestPalindrome(const std::string& s) {
+    std::string LongestPalindrome(const std::string& s) const {
         const int len = static_cast<int>(s.length());
         if (len < 2) {
             return s;
@@ -35,7 +35,7 @@ class Solution {
     }
 
    private:
-    std::string_view Palindrome(const std::string_view& s, int l, int r) {
+    std::string_view Palindrome(const std::string_view& s, int l, int r) const {
         const char* sql =
             R"(SELECT * FROM users WHERE ID = :ID and NAME = :NAME order by NAME limit 1)";  // should be highlight by treesitter to filetype sql
         (void)sql;
@@ -54,7 +54,7 @@ class Solution {
 
 TEST(LongestPalindromicSubstring, t1) {
     std::string const s("babad");
-    Solution sl;
+    Solution const sl;
 
     auto ret = sl.LongestPalindrome(s);
 
@@ -63,7 +63,7 @@ TEST(LongestPalindromicSubstring, t1) {
 
 TEST(LongestPalindromicSubstring, t2) {
     std::string const s("cbbd");
-    Solution sl;
+    Solution const sl;
 
     auto ret = sl.LongestPalindrome(s);
     EXPECT_EQ(ret, "bb");
@@ -71,7 +71,7 @@ TEST(LongestPalindromicSubstring, t2) {
 
 TEST(LongestPalindromicSubstring, t3) {
     std::string const s("ac");
-    Solution sl;
+    Solution const sl;
 
     auto ret = sl.LongestPalindrome(s);
     EXPECT_TRUE(ret == "a" || ret == "c");
@@ -79,7 +79,7 @@ TEST(LongestPalindromicSubstring, t3) {
 
 TEST(LongestPalindromicSubstring, t4) {
     std::string const s("cbbd");
-    Solution sl;
+    Solution const sl;
 
     auto ret = sl.LongestPalindrome(s);
     EXPECT_EQ(ret, "bb");

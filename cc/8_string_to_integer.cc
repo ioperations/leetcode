@@ -27,7 +27,7 @@ integers less than -231 should be clamped to -231, and integers greater than 231
 namespace {
 class Solution {
    public:
-    int MyAtoi(const std::string& s) {
+    int MyAtoi(const std::string& s) const {
         const bool fill = false;
         int ret = 0;
 
@@ -52,28 +52,28 @@ class Solution {
 
 TEST(StringToIntegerV2, t2) {
     const std::string s = "42";
-    Solution sl;
+    Solution const sl;
     const int ret = sl.MyAtoi(s);
     EXPECT_EQ(42, ret);
 }
 
 TEST(StringToIntegerV3, t2) {
     const std::string s = "    -42";
-    Solution sl;
+    Solution const sl;
     const int ret = sl.MyAtoi(s);
     EXPECT_EQ(-42, ret);
 }
 
 TEST(StringToIntegerV4, t2) {
     const std::string s = "4193 with words";
-    Solution sl;
+    Solution const sl;
     const int ret = sl.MyAtoi(s);
     EXPECT_EQ(4193, ret);
 }
 
 TEST(T4, t2) {
     const std::string s = "words with 987";
-    Solution sl;
+    Solution const sl;
     const int ret = sl.MyAtoi(s);
     EXPECT_EQ(987, ret);
 }

@@ -20,7 +20,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    std::string ToStr(int num) {
+    std::string ToStr(int num) const {
         std::string ret = "";
 
         while (num) {
@@ -30,7 +30,7 @@ class Solution {
         }
         return ret;
     }
-    string Multiply(string num1, string num2) {
+    string Multiply(string num1, string num2) const {
         if (num1 == "0" || num2 == "0") {
             return "0";
         }
@@ -58,7 +58,7 @@ TEST(multiplyV, t1) {
     std::string num1 = "2", num2 = "3";
     std::string const expected = "6";
 
-    Solution s;
+    Solution const s;
     auto ret = s.Multiply(num1, num2);
     EXPECT_EQ(ret, expected);
 }
@@ -67,7 +67,7 @@ TEST(multiplyV, t2) {
     std::string num1 = "123", num2 = "456";
     std::string const expected = "56088";
 
-    Solution s;
+    Solution const s;
     auto ret = s.Multiply(num1, num2);
     EXPECT_EQ(ret, expected);
 }
@@ -75,7 +75,7 @@ TEST(multiplyV, t3) {
     std::string num1 = "123456789", num2 = "987654321";
     std::string const expected = "121932631112635269";
 
-    Solution s;
+    Solution const s;
     auto ret = s.Multiply(num1, num2);
     EXPECT_EQ(ret, expected);
 }
@@ -83,7 +83,7 @@ TEST(multiplyV, t4) {
     std::string num1 = "498828660196", num2 = "840477629533";
     std::string const expected = "419254329864656431168468";
 
-    Solution s;
+    Solution const s;
     auto ret = s.Multiply(num1, num2);
     EXPECT_EQ(ret, expected);
 }

@@ -18,12 +18,12 @@ You must do this by modifying the input array in-place with O(1) extra memory.
 namespace {
 class Solution {
    public:
-    void ReverseString(std::vector<char>& s) {
+    void ReverseString(std::vector<char>& s) const {
         // pass
         std::reverse(s.begin(), s.end());
     }
 
-    void ReverseStringV2(std::vector<char>& s) {
+    void ReverseStringV2(std::vector<char>& s) const {
         std::stack<char> sk;
         for (auto& ptr : s) {
             sk.push(ptr);
@@ -43,7 +43,7 @@ TEST(reverseV, t1) {
     std::vector<char> const output = {'o', 'l', 'l', 'e', 'h'
 
     };
-    Solution sl;
+    Solution const sl;
     sl.ReverseString(s);
 
     EXPECT_EQ(s, output);
@@ -56,7 +56,7 @@ TEST(reverseV, t1) {
 TEST(reverseV, t2) {
     std::vector<char> s = {'H', 'a', 'n', 'n', 'a', 'h'};
     std::vector<char> const output = {'h', 'a', 'n', 'n', 'a', 'H'};
-    Solution sl;
+    Solution const sl;
     sl.ReverseString(s);
 
     EXPECT_EQ(s, output);

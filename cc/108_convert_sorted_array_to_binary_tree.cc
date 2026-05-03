@@ -21,11 +21,11 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    TreeNode* SortedArrayToBst(std::vector<int>& nums) {
+    TreeNode* SortedArrayToBst(std::vector<int>& nums) const {
         return Helper(nums, 0, nums.size() - 1);
     }
 
-    TreeNode* Helper(vector<int>& nums, int start, int end) {
+    TreeNode* Helper(vector<int>& nums, int start, int end) const {
         if (start > end) return nullptr;
         int const mid = start + (end - start) / 2;
         auto* bs_ttree = new TreeNode(nums[mid]);
@@ -50,7 +50,7 @@ TEST(ConvertSortedArrayToBinaryTree, t1) {
                                               {0, -10, 5, -3, 9}};
     // Explanation: [0,-10,5,null,-3,null,9] is also accepted:
 
-    Solution sl;
+    Solution const sl;
     std::vector<int> v{-10, -3, 0, 5, 9};
     TreeNode* root = sl.SortedArrayToBst(v);
 

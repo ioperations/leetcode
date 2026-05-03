@@ -22,7 +22,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    int MinCostClimbingStairs(vector<int>& cost) {
+    int MinCostClimbingStairs(vector<int>& cost) const {
         // pass
         if (static_cast<int>(cost.size()) == 0) {
             return 0;
@@ -63,7 +63,7 @@ TEST(MinCostClimbingStairs, t1) {
         The total cost is 15.
     */
 
-    Solution sl;
+    Solution const sl;
     int const ret = sl.MinCostClimbingStairs(v);
     EXPECT_EQ(ret, expected);
 }
@@ -81,7 +81,7 @@ TEST(MinCostClimbingStairs, t2) {
         - Pay 1 and climb two steps to reach index 9.
         - Pay 1 and climb one step to reach the top .
     */
-    Solution sl;
+    Solution const sl;
     int const ret = sl.MinCostClimbingStairs(v);
     EXPECT_EQ(ret, expected);
 }

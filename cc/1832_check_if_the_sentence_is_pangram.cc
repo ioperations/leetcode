@@ -22,11 +22,11 @@ namespace {
 
 class Solution {
    public:
-    bool CheckIfPangram(string& sentence) {
+    bool CheckIfPangram(string& sentence) const {
         std::set<char> s(sentence.begin(), sentence.end());
         return s.size() == 26;
     }
-    bool CheckIfPangramV2(string& sentence) {
+    bool CheckIfPangramV2(string& sentence) const {
         int const max = (1 << 26) - 1;
         int temp = 0;
         for (auto& ptr : sentence) {
@@ -42,7 +42,7 @@ TEST(CheckIfTheSentenceIsPangram, t1) {
     bool const output = true;
     // Explanation: sentence contains at least one of every letter of the
     // English alphabet.
-    Solution sl;
+    Solution const sl;
     bool const ret = sl.CheckIfPangram(sentence);
     EXPECT_EQ(ret, output);
 }
@@ -50,7 +50,7 @@ TEST(CheckIfTheSentenceIsPangram, t1) {
 TEST(CheckIfTheSentenceIsPangram, t2) {
     string sentence = "leetcode";
     bool const output = false;
-    Solution sl;
+    Solution const sl;
     bool const ret = sl.CheckIfPangram(sentence);
     EXPECT_EQ(ret, output);
 }
@@ -60,7 +60,7 @@ TEST(CheckIfTheSentenceIsPangramV2, t1) {
     bool const output = true;
     // Explanation: sentence contains at least one of every letter of the
     // English alphabet.
-    Solution sl;
+    Solution const sl;
     bool const ret = sl.CheckIfPangramV2(sentence);
     EXPECT_EQ(ret, output);
 }
@@ -68,7 +68,7 @@ TEST(CheckIfTheSentenceIsPangramV2, t1) {
 TEST(CheckIfTheSentenceIsPangramV2, t2) {
     string sentence = "leetcode";
     bool const output = false;
-    Solution sl;
+    Solution const sl;
     bool const ret = sl.CheckIfPangramV2(sentence);
     EXPECT_EQ(ret, output);
 }
@@ -79,7 +79,7 @@ static void BenchMarkV1(benchmark::State& state) {
         bool const output = true;
         // Explanation: sentence contains at least one of every letter of the
         // English alphabet.
-        Solution sl;
+        Solution const sl;
         bool const ret = sl.CheckIfPangram(sentence);
         EXPECT_EQ(ret, output);
     }
@@ -92,7 +92,7 @@ static void BenchMarkV2(benchmark::State& state) {
         bool const output = true;
         // Explanation: sentence contains at least one of every letter of the
         // English alphabet.
-        Solution sl;
+        Solution const sl;
         bool const ret = sl.CheckIfPangramV2(sentence);
         EXPECT_EQ(ret, output);
     }

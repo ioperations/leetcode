@@ -18,7 +18,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    vector<vector<int>> Generate(int num_rows) {
+    vector<vector<int>> Generate(int num_rows) const {
         // 1 <= num_rows <= 30
         vector<vector<int>> ret;
         ret.push_back({1});
@@ -49,7 +49,7 @@ TEST(pascalsV, t1) {
         {1}, {1, 1}, {1, 2, 1}, {1, 3, 3, 1}, {1, 4, 6, 4, 1}};
 
     std::set<vector<int>> const output_set(output.begin(), output.end());
-    Solution sl;
+    Solution const sl;
     auto ret = sl.Generate(num_rows);
     std::set<vector<int>> const ret_set(ret.begin(), ret.end());
 
@@ -61,7 +61,7 @@ TEST(pascalsV, t2) {
     std::vector<std::vector<int>> output = {{1}};
 
     std::set<vector<int>> const output_set(output.begin(), output.end());
-    Solution sl;
+    Solution const sl;
     auto ret = sl.Generate(num_rows);
     std::set<vector<int>> const ret_set(ret.begin(), ret.end());
 

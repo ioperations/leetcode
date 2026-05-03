@@ -16,7 +16,7 @@ using namespace std;
 
 class Solution {
    public:
-    string RemoveOccurrences(string s, string part) {
+    string RemoveOccurrences(string s, string part) const {
         // FIXME: not effciency
         /**
          * 1 <= s.length <= 1000
@@ -55,7 +55,7 @@ class Solution {
         return ret;
     }
 
-    void Remove(vector<bool>& exists, int index, int len) {
+    void Remove(vector<bool>& exists, int index, int len) const {
         auto size = exists.size();
         int count = 0;
         for (int i = index; i < size; i++) {
@@ -76,7 +76,7 @@ class Solution {
 TEST(T0, t1) {
     string s = "daabcbaabcbc", part = "abc";
     string const output = "dab";
-    Solution sl;
+    Solution const sl;
     auto ret = sl.RemoveOccurrences(s, part);
     EXPECT_EQ(ret, output);
     // Explanation: The following operations are done:
@@ -90,7 +90,7 @@ TEST(T0, t1) {
 TEST(T0, t2) {
     string s = "axxxxyyyyb", part = "xy";
     string const output = "ab";
-    Solution sl;
+    Solution const sl;
     auto ret = sl.RemoveOccurrences(s, part);
     EXPECT_EQ(ret, output);
     // Explanation:

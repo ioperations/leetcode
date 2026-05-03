@@ -8,7 +8,7 @@
 namespace {
 class Solution {
    public:
-    std::string CountAndSay(int n) {
+    std::string CountAndSay(int n) const {
         std::string ret = "1";
         for (int i = 0; i < (n - 1); i++) {
             CountAndSay(ret);
@@ -16,7 +16,7 @@ class Solution {
         return ret;
     }
 
-    void CountAndSay(std::string& s) {
+    void CountAndSay(std::string& s) const {
         // pass
 
         char last = '0';
@@ -54,7 +54,7 @@ class Solution {
 TEST(CountAndSay, t1) {
     int const n = 4;
     std::string const output = "1211";
-    Solution s;
+    Solution const s;
     auto ret = s.CountAndSay(n);
 
     EXPECT_EQ(ret, output);
@@ -67,7 +67,7 @@ TEST(CountAndSay, t1) {
 TEST(CountAndSay, t2) {
     int const n = 1;
     std::string const output = "1";
-    Solution s;
+    Solution const s;
     auto ret = s.CountAndSay(n);
 
     EXPECT_EQ(ret, output);

@@ -18,7 +18,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    vector<vector<int>> Merge(vector<vector<int>>& intervals) {
+    vector<vector<int>> Merge(vector<vector<int>>& intervals) const {
         std::vector<std::vector<int>> ret = intervals;
         sort(ret.begin(), ret.end(),
              [](const std::vector<int>& a, const std::vector<int>& b) {
@@ -48,7 +48,7 @@ TEST(mergeV, t1) {
         {1, 3}, {2, 6}, {8, 10}, {15, 18}};
     std::vector<std::vector<int>> const output = {{1, 6}, {8, 10}, {15, 18}};
 
-    Solution sl;
+    Solution const sl;
     auto ret = sl.Merge(intervals);
 
     for (auto& ptr : ret) {
@@ -71,7 +71,7 @@ TEST(mergeV, t2) {
     // Explanation: Intervals [1,4] and [4,5] are considered overlapping.
     std::vector<std::vector<int>> const output = {{1, 5}};
 
-    Solution sl;
+    Solution const sl;
     auto ret = sl.Merge(intervals);
 
     for (auto& ptr : ret) {
@@ -90,7 +90,7 @@ TEST(mergeV, t3) {
     // Explanation: Intervals [1,4] and [4,5] are considered overlapping.
     std::vector<std::vector<int>> const output = {{1, 4}};
 
-    Solution sl;
+    Solution const sl;
     auto ret = sl.Merge(intervals);
 
     for (auto& ptr : ret) {

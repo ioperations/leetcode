@@ -18,7 +18,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    std::string ReverseVowels(std::string s) {
+    std::string ReverseVowels(std::string s) const {
         // pass
         std::stack<int> z;
         std::queue<char> num;
@@ -46,7 +46,7 @@ class Solution {
 TEST(ReverseVowelsOfAString, t1) {
     std::string const s = "hello";
     std::string const output = "holle";
-    Solution sl;
+    Solution const sl;
     auto ret = sl.ReverseVowels(s);
     EXPECT_EQ(ret, output);
 }
@@ -54,7 +54,7 @@ TEST(ReverseVowelsOfAString, t1) {
 TEST(ReverseVowelsOfAString, t2) {
     std::string const s = "leetcode";
     std::string const output = "leotcede";
-    Solution sl;
+    Solution const sl;
     auto ret = sl.ReverseVowels(s);
     EXPECT_EQ(ret, output);
 }

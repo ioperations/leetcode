@@ -20,7 +20,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    int MaxOperations(vector<int>& nums, int sum) {
+    int MaxOperations(vector<int>& nums, int sum) const {
         // pass
         unordered_map<int, int> freq;
         for (int const e : nums) freq[e]++;
@@ -38,7 +38,7 @@ class Solution {
         return ans;
     }
 
-    int MaxOperationsV2(vector<int>& nums, int k) {
+    int MaxOperationsV2(vector<int>& nums, int k) const {
         unordered_map<int, int> freq;
         int ans = 0;
         for (auto cur : nums) {
@@ -52,7 +52,7 @@ class Solution {
         return ans;
     }
 
-    int MaxOperationsV3(vector<int>& nums, int k) {
+    int MaxOperationsV3(vector<int>& nums, int k) const {
         unordered_map<int, int> freq;
         int ans = 0;
         for (auto cur : nums) {
@@ -79,7 +79,7 @@ TEST(MaxNumberOfKSumPairs, t1) {
         - Remove numbers 2 and 3, then nums = []
         There are no more pairs that sum up to 5, hence a total of 2 operations.
     */
-    Solution sl;
+    Solution const sl;
     int const ret = sl.MaxOperations(nums, k);
     EXPECT_EQ(ret, output);
 }
@@ -95,7 +95,7 @@ TEST(MaxNumberOfKSumPairsV2, t1) {
         - Remove numbers 2 and 3, then nums = []
         There are no more pairs that sum up to 5, hence a total of 2 operations.
     */
-    Solution sl;
+    Solution const sl;
     int const ret = sl.MaxOperationsV2(nums, k);
     EXPECT_EQ(ret, output);
 }
@@ -111,7 +111,7 @@ TEST(MaxNumberOfKSumPairsV3, t1) {
         - Remove numbers 2 and 3, then nums = []
         There are no more pairs that sum up to 5, hence a total of 2 operations.
     */
-    Solution sl;
+    Solution const sl;
     int const ret = sl.MaxOperationsV3(nums, k);
     EXPECT_EQ(ret, output);
 }
@@ -126,7 +126,7 @@ TEST(MaxNumberOfKSumPairs, t2) {
         - Remove the first two 3's, then nums = [1,4,3]
         There are no more pairs that sum up to 6, hence a total of 1 operation.
     */
-    Solution sl;
+    Solution const sl;
     int const ret = sl.MaxOperations(nums, k);
     EXPECT_EQ(ret, output);
 }
@@ -141,7 +141,7 @@ TEST(MaxNumberOfKSumPairsV2, t2) {
         - Remove the first two 3's, then nums = [1,4,3]
         There are no more pairs that sum up to 6, hence a total of 1 operation.
     */
-    Solution sl;
+    Solution const sl;
     int const ret = sl.MaxOperationsV2(nums, k);
     EXPECT_EQ(ret, output);
 }
@@ -156,7 +156,7 @@ TEST(MaxNumberOfKSumPairsV3, t2) {
         - Remove the first two 3's, then nums = [1,4,3]
         There are no more pairs that sum up to 6, hence a total of 1 operation.
     */
-    Solution sl;
+    Solution const sl;
     int const ret = sl.MaxOperationsV3(nums, k);
     EXPECT_EQ(ret, output);
 }

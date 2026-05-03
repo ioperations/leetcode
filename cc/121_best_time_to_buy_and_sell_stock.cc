@@ -21,7 +21,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    int MaxProfit(vector<int>& prices) {
+    int MaxProfit(vector<int>& prices) const {
         // pass
 
         int max = 0;
@@ -34,7 +34,7 @@ class Solution {
         return max;
     }
 
-    int MaxProfitV2(vector<int>& prices) {
+    int MaxProfitV2(vector<int>& prices) const {
         int max_price = -1;
         int max_profit = 0;
         for (int i = prices.size() - 1; i >= 0; i--) {
@@ -53,7 +53,7 @@ TEST(BestTimeToBuyAndSellStock, t1) {
     // profit = 6-1 = 5. Note that buying on day 2 and selling on day 1 is not
     // allowed because you must buy before you sell.
 
-    Solution s;
+    Solution const s;
     int const ret = s.MaxProfit(prices);
 
     EXPECT_EQ(ret, expected);
@@ -63,7 +63,7 @@ TEST(BestTimeToBuyAndSellStock, t2) {
     std::vector<int> prices = {7, 6, 4, 3, 1};
     int const expected = 0;
     // In this case, no transactions are done and the max profit = 0.
-    Solution s;
+    Solution const s;
     int const ret = s.MaxProfit(prices);
 
     EXPECT_EQ(ret, expected);

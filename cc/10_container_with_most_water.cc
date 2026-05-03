@@ -11,7 +11,7 @@ namespace {
 
 class Solution {
    public:
-    int MaxArea(std::vector<int>& height) {
+    int MaxArea(std::vector<int>& height) const {
         size_t ret = 0;
         size_t i = 0;
         size_t j = height.size() - 1;
@@ -28,7 +28,7 @@ class Solution {
         return ret;
     }
 
-    int MaxAreaV2(std::vector<int>& height) {
+    int MaxAreaV2(std::vector<int>& height) const {
         size_t l = 0;
         size_t h = height.size() - 1;
         size_t max_area = 0;
@@ -47,28 +47,28 @@ class Solution {
 };
 
 TEST(ContainerWithMostWater, t1) {
-    Solution s;
+    Solution const s;
     std::vector<int> height{1, 1};
     int const ret = s.MaxAreaV2(height);
     EXPECT_EQ(ret, 1);
 }
 
 TEST(ContainerWithMostWater, t2) {
-    Solution s;
+    Solution const s;
     std::vector<int> height{1, 8, 6, 2, 5, 4, 8, 3, 7};
     const int ret = s.MaxAreaV2(height);
     EXPECT_EQ(ret, 49);
 }
 
 TEST(ContainerWithMostWaterV2, t1) {
-    Solution s;
+    Solution const s;
     std::vector<int> height{1, 1};
     const int ret = s.MaxAreaV2(height);
     EXPECT_EQ(ret, 1);
 }
 
 TEST(ContainerWithMostWaterV2, t2) {
-    Solution s;
+    Solution const s;
     std::vector<int> height{1, 8, 6, 2, 5, 4, 8, 3, 7};
     const int ret = s.MaxAreaV2(height);
     EXPECT_EQ(ret, 49);
