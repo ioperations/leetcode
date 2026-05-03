@@ -31,7 +31,8 @@ class Solution {
     vector<vector<vector<int>>> m_mem;
     int Solve(vector<int>& houses, vector<vector<int>>& cost, int target,
               int index, int p) {
-        int m = houses.size(), n = cost[0].size();
+        int const m = static_cast<int>(houses.size());
+        int const n = static_cast<int>(cost.at(0).size());
         if (index == m) {
             if (target == 0) {
                 return 0;
@@ -41,10 +42,10 @@ class Solution {
         if (target < 0) {
             return INT_MAX;
         }
-        if (m_mem[index][p][target] != -1) {
-            return m_mem[index][p][target];
+        if (m_mem.at(index).at(p).at(target) != -1) {
+            return m_mem.at(index).at(p).at(target);
         }
-        if (houses[index] == 0) {
+        if (houses.at(index) == 0) {
             int min_cost = INT_MAX;
             for (int color = 1; color <= n; color++) {
                 int ans = 0;
@@ -54,18 +55,18 @@ class Solution {
                     ans = Solve(houses, cost, target - 1, index + 1, color);
                 }
                 if (ans != INT_MAX) {
-                    ans += cost[index][color - 1];
+                    ans += cost.at(index).at(color - 1);
                 }
                 min_cost = min(min_cost, ans);
             }
-            return m_mem[index][p][target] = min_cost;
+            return m_mem.at(index).at(p).at(target) = min_cost;
         }
-        if (houses[index] == p) {
-            return m_mem[index][p][target] =
+        if (houses.at(index) == p) {
+            return m_mem.at(index).at(p).at(target) =
                        Solve(houses, cost, target, index + 1, p);
         }
-        return m_mem[index][p][target] =
-                   Solve(houses, cost, target - 1, index + 1, houses[index]);
+        return m_mem.at(index).at(p).at(target) =
+                   Solve(houses, cost, target - 1, index + 1, houses.at(index));
     }
 
    public:
@@ -81,7 +82,7 @@ class Solution {
 TEST(PaintHouseIii, t1) {
     vector<int> houses = {0, 0, 0, 0, 0};
     vector<vector<int>> cost = {{1, 10}, {10, 1}, {10, 1}, {1, 10}, {5, 1}};
-    int m = 5, n = 2, target = 3;
+    int const m = 5, n = 2, target = 3;
     int const output = 9;
     Solution sl;
     int const ret = sl.MinCost(houses, cost, m, n, target);
@@ -94,7 +95,7 @@ TEST(PaintHouseIii, t1) {
 TEST(PaintHouseIii, t2) {
     vector<int> houses = {0, 2, 1, 2, 0};
     vector<vector<int>> cost = {{1, 10}, {10, 1}, {10, 1}, {1, 10}, {5, 1}};
-    int m = 5, n = 2, target = 3;
+    int const m = 5, n = 2, target = 3;
     int const output = 11;
     Solution sl;
     int const ret = sl.MinCost(houses, cost, m, n, target);
@@ -107,7 +108,7 @@ TEST(PaintHouseIii, t2) {
 TEST(PaintHouseIii, t3) {
     vector<int> houses = {3, 1, 2, 3};
     vector<vector<int>> cost = {{1, 1, 1}, {1, 1, 1}, {1, 1, 1}, {1, 1, 1}};
-    int m = 4, n = 3, target = 3;
+    int const m = 4, n = 3, target = 3;
     int const output = -1;
     Solution sl;
     int const ret = sl.MinCost(houses, cost, m, n, target);
