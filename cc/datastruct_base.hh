@@ -1,4 +1,5 @@
 #pragma once
+#include <cstddef>
 #include <iostream>
 #include <optional>
 #include <queue>
@@ -62,7 +63,7 @@ TreeNode<T>* ConstructTree(const std::vector<T>& elements) {
 
     auto* root = new TreeNode<T>(elements[0]);
 
-    for (int i = 1; i < (int)elements.size(); i++) {
+    for (std::size_t i = 1; i < elements.size(); i++) {
         root = AddToRoot(root, elements[i]);
     }
 
@@ -78,8 +79,8 @@ TreeNode<T>* ConstructBinaryTree(const std::vector<std::optional<T>>& data) {
     std::queue<TreeNode<T>*> q;
     q.push(root);
 
-    int i = 1;
-    const int datasize = (int)data.size();
+    std::size_t i = 1;
+    const std::size_t datasize = data.size();
 
     while (!q.empty() && i < datasize) {
         TreeNode<T>* cur = q.front();
