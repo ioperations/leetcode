@@ -26,10 +26,10 @@ class Solution {
         int count = 0;
         for (int i = 0; i < static_cast<int>(nums.size()); i++) {
             for (int j = i + 1; j < static_cast<int>(nums.size()); j++) {
-                if (nums[i] / 2 > nums[j]) {
+                if (nums.at(i) / 2 > nums.at(j)) {
                     count++;
                 }
-                if (nums[i] / 2 == nums[j] && nums[i] % 2 == 1) {
+                if (nums.at(i) / 2 == nums.at(j) && nums.at(i) % 2 == 1) {
                     count++;
                 }
             }

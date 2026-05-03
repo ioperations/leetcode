@@ -25,8 +25,8 @@ class Solution {
     void SortColors(std::vector<int>& nums) {
         for (std::size_t i = 0; i < nums.size(); i++) {
             for (std::size_t j = i + 1; j < nums.size(); j++) {
-                if (nums[i] > nums[j]) {
-                    std::swap(nums[i], nums[j]);
+                if (nums.at(i) > nums.at(j)) {
+                    std::swap(nums.at(i), nums.at(j));
                 }
             }
         }
@@ -37,16 +37,16 @@ class Solution {
 
         int i = low, j = mid + 1, k = 0;
         while (i <= mid && j <= high) {
-            if (nums[i] <= nums[j]) {
-                temp[k++] = nums[i++];
+            if (nums.at(i) <= nums.at(j)) {
+                temp[k++] = nums.at(i++);
             } else
-                temp[k++] = nums[j++];
+                temp[k++] = nums.at(j++);
         }
         while (i <= mid) {
-            temp[k++] = nums[i++];
+            temp[k++] = nums.at(i++);
         }
         while (j <= high) {
-            temp[k++] = nums[j++];
+            temp[k++] = nums.at(j++);
         }
 
         for (int i = low, k = 0; i <= high; i++, k++) {
@@ -54,7 +54,7 @@ class Solution {
         }
     }
     void SortColorsV2(std::vector<int>& nums) {
-        MergeSort(nums, 0, nums.size() - 1);
+        MergeSort(nums, 0, static_cast<int>(nums.size()) - 1);
     }
     void MergeSort(std::vector<int>& nums, int low, int high) {
         if (low >= high) {

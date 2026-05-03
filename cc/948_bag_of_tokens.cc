@@ -32,27 +32,27 @@ class Solution {
    public:
     int Recursion(vector<int>& tokens, int power, int start, int end,
                   vector<vector<int>>& dp) {
-        if (start > end || power < tokens[start]) return 0;
+        if (start > end || power < tokens.at(start)) return 0;
         int take = 0, nottake = 0;
-        if (dp[start][end] != -1) return dp[start][end];
-        if (power >= tokens[start])
+        if (dp.at(start).at(end) != -1) return dp.at(start).at(end);
+        if (power >= tokens.at(start))
             take = 1 +
-                   Recursion(tokens, power - tokens[start], start + 1, end, dp);
-        if (power >= tokens[start])
-            nottake = Recursion(tokens, power - tokens[start] + tokens[end],
+                   Recursion(tokens, power - tokens.at(start), start + 1, end, dp);
+        if (power >= tokens.at(start))
+            nottake = Recursion(tokens, power - tokens.at(start) + tokens.at(end),
                                 start + 1, end - 1, dp);
         return dp[start][end] = max(take, nottake);
     }
 
     int BagOfTokensScore(vector<int>& tokens, int power) {
-        int const n = tokens.size();
+        int const n = static_cast<int>(tokens.size());
         vector<vector<int>> dp(n, vector<int>(n, -1));
         sort(tokens.begin(), tokens.end());
-        return Recursion(tokens, power, 0, tokens.size() - 1, dp);
+        return Recursion(tokens, power, 0, static_cast<int>(tokens.size()) - 1, dp);
     }
 
     int BagOfTokensScoreV1(vector<int>& tokens, int power) {
-        int size = tokens.size();
+        int size = static_cast<int>(tokens.size());
 
         /// @param visited 当前已经访问过的节点
         /// @param current_power 当前拥有的power值
@@ -68,15 +68,15 @@ class Solution {
                 if (current_score >= 1) {
                     /// 可以对i节点采用token face down 的操作
                     visited.emplace(i);
-                    int const v1 = fun(visited, current_power + tokens[i],
+                    int const v1 = fun(visited, current_power + tokens.at(i),
                                        current_score - 1);
                     max = std::max(max, v1);
                     visited.erase(i);
                 }
-                if (current_power >= tokens[i]) {
+                if (current_power >= tokens.at(i)) {
                     /// 可以对i节点采用token face up的操作
                     visited.emplace(i);
-                    int const v2 = fun(visited, current_power - tokens[i],
+                    int const v2 = fun(visited, current_power - tokens.at(i),
                                        current_score + 1);
                     max = std::max(max, v2);
                     visited.erase(i);

@@ -19,11 +19,11 @@ namespace {
 class Solution {
    public:
     vector<int> CountSmaller(vector<int>& nums) {
-        int const size = nums.size();
+        int const size = static_cast<int>(nums.size());
         vector<int> ret(size, 0);
         for (int i = 0; i < size; i++) {
             for (int j = i + 1; j < size; j++) {
-                if (nums[j] < nums[i]) {
+                if (nums.at(j) < nums.at(i)) {
                     ret[i]++;
                 }
             }
@@ -44,8 +44,8 @@ class Solution {
         // to 2. now arr[i]=5 is checked with arr[j]=3, cnt is incremented to 3.
         // we come out of the while loop as j=end+1
         while (i <= mid && j <= end) {
-            if (arr[i].first <= arr[j].first) {
-                count[arr[i].second] += cnt;
+            if (arr.at(i).first <= arr.at(j).first) {
+                count[arr.at(i).second] += cnt;
                 tmp[k++] = arr[i++];
             } else {
                 cnt++;
@@ -59,7 +59,7 @@ class Solution {
             // if arr[i]=5 is bigger than 3 elements from the right, arr[i]=6
             // and if there were even more elements present, they all would have
             // been greater than 3(no of elements on the right!)
-            count[arr[i].second] += cnt;
+            count[arr.at(i).second] += cnt;
             tmp[k++] = arr[i++];
         }
         while (j <= end) tmp[k++] = arr[j++];
@@ -78,10 +78,10 @@ class Solution {
     }
 
     vector<int> CountSmallerV1(vector<int>& nums) {
-        int const n = nums.size();
+        int const n = static_cast<int>(nums.size());
 
         vector<pair<int, int>> arr(n);
-        for (int i = 0; i < n; i++) arr[i] = make_pair(nums[i], i);
+        for (int i = 0; i < n; i++) arr[i] = make_pair(nums.at(i), i);
 
         vector<int> count(n, 0);
         MergeSort(count, arr, 0, n - 1);

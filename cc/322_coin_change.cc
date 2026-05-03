@@ -39,15 +39,15 @@ class Solution {
                 return 0;
             }
             if (cache.count(a)) {
-                return cache[a];
+                return cache.at(a);
             }
 
             int ret = -1;
 
             for (int i = static_cast<int>(coins.size()) - 1; i >= 0; i--) {
-                if (coins[i] <= a) {
-                    int const tmp = fun(a - coins[i]);
-                    cache[a - coins[i]] = tmp;
+                if (coins.at(i) <= a) {
+                    int const tmp = fun(a - coins.at(i));
+                    cache[a - coins.at(i)] = tmp;
 
                     if (tmp != -1) {
                         ret = 1 + (ret == -1 ? tmp : std::min(ret - 1, tmp));
@@ -66,16 +66,16 @@ class Solution {
     int CoinChangeV1(vector<int>& coins, int amount) {
         vector<int> h((amount + 1), INT_MAX - 1);
         h[0] = 0;
-        for (int i = 0; i < (int)h.size(); i++) {
+        for (int i = 0; i < static_cast<int>(h.size()); i++) {
             for (int const coin : coins) {
                 if (i >= coin) h[i] = min(h[i], 1 + h[i - coin]);
             }
         }
-        return (h[h.size() - 1] < INT_MAX - 1) ? h[h.size() - 1] : -1;
+        return (h.at(h.size() - 1) < INT_MAX - 1) ? h.at(h.size() - 1) : -1;
     }
 
     int CoinChangeV2(vector<int>& arr, int sum) {
-        int const n = arr.size();
+        int const n = static_cast<int>(arr.size());
 
         vector<vector<int>> dp(n + 1, vector<int>(sum + 1));
 
@@ -84,16 +84,17 @@ class Solution {
         for (int i = 0; i < sum + 1; i++) dp[0][i] = INT_MAX - 1;
 
         for (int i = 1; i <= sum; i++) {
-            if (i % arr[0] == 0)
-                dp[1][i] = i / arr[0];
-            else
+            if (i % arr.at(0) == 0) {
+                dp[1][i] = i / arr.at(0);
+            } else {
                 dp[1][i] = INT_MAX - 1;
+            }
         }
 
         for (int i = 1; i <= n; i++) {
             for (int j = 1; j <= sum; j++) {
-                if (arr[i - 1] <= j)
-                    dp[i][j] = min(dp[i - 1][j], dp[i][j - arr[i - 1]] + 1);
+                if (arr.at(i - 1) <= j)
+                    dp[i][j] = min(dp[i - 1][j], dp[i][j - arr.at(i - 1)] + 1);
                 else
                     dp[i][j] = dp[i - 1][j];
             }

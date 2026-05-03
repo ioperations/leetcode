@@ -44,8 +44,8 @@ class Solution {
    public:
     void GameOfLife(vector<vector<int>>& board) {
         auto z = board;
-        int const m = board.size();
-        int const n = board[0].size();
+        int const m = static_cast<int>(board.size());
+        int const n = static_cast<int>(board.at(0).size());
 
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
@@ -56,39 +56,39 @@ class Solution {
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
                 if (i > 0 && j > 0) {  // 左上
-                    z[i - 1][j - 1] += board[i][j];
+                    z[i - 1][j - 1] += board.at(i).at(j);
                 }
                 if (i > 0) {  // 上
-                    z[i - 1][j] += board[i][j];
+                    z[i - 1][j] += board.at(i).at(j);
                 }
                 if (i > 0 && j < n - 1) {  // 右上
-                    z[i - 1][j + 1] += board[i][j];
+                    z[i - 1][j + 1] += board.at(i).at(j);
                 }
                 if (j > 0) {  // 左边
-                    z[i][j - 1] += board[i][j];
+                    z[i][j - 1] += board.at(i).at(j);
                 }
                 if (j < n - 1) {  // 右边
-                    z[i][j + 1] += board[i][j];
+                    z[i][j + 1] += board.at(i).at(j);
                 }
 
                 if (i < m - 1 && j > 0) {  // 左下
-                    z[i + 1][j - 1] += board[i][j];
+                    z[i + 1][j - 1] += board.at(i).at(j);
                 }
                 if (i < m - 1) {  // 下
-                    z[i + 1][j] += board[i][j];
+                    z[i + 1][j] += board.at(i).at(j);
                 }
                 if (i < m - 1 && j < n - 1) {  // 右下
-                    z[i + 1][j + 1] += board[i][j];
+                    z[i + 1][j + 1] += board.at(i).at(j);
                 }
             }
         }
 
-        int const live_next[] = {0, 0, 1, 1, 0, 0, 0, 0, 0};
+        std::array<int, 9> const live_next = {0, 0, 1, 1, 0, 0, 0, 0, 0};
 
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
                 board[i][j] =
-                    board[i][j] ? (live_next[z[i][j]]) : (z[i][j] == 3 ? 1 : 0);
+                    board.at(i).at(j) ? (live_next.at(z[i][j])) : (z[i][j] == 3 ? 1 : 0);
             }
         }
     }

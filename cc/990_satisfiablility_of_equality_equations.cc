@@ -60,18 +60,18 @@ class Solution {
         DSU obj;
         for (const auto& it : equations) {
             // first unify all the elements which are equal
-            if (it[1] == '=') {
-                int const x = it[0] - 'a';
-                int const y = it[3] - 'a';
+            if (it.at(1) == '=') {
+                int const x = it.at(0) - 'a';
+                int const y = it.at(3) - 'a';
                 obj.Unionn(x, y);
             }
         }
         for (const auto& it : equations) {
             // Find parents, if they are equal means we can't give them
             // different numbers, so return false.
-            if (it[1] == '!') {
-                int const x = obj.FindParent(it[0] - 'a');
-                int const y = obj.FindParent(it[3] - 'a');
+            if (it.at(1) == '!') {
+                int const x = obj.FindParent(it.at(0) - 'a');
+                int const y = obj.FindParent(it.at(3) - 'a');
                 if (x == y) {
                     return false;
                 }

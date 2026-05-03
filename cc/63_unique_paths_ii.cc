@@ -29,19 +29,21 @@ namespace {
 class Solution {
    public:
     int UniquePathsWithObstacles(vector<vector<int>>& obstacle_grid) {
-        int m = obstacle_grid.size(), n = obstacle_grid[0].size();
-        if (obstacle_grid[0][0] == 1) return 0;
+        int const m = static_cast<int>(obstacle_grid.size()), n = static_cast<int>(obstacle_grid.at(0).size());
+        if (obstacle_grid.at(0).at(0) == 1) return 0;
         vector<vector<int>> dp(m, vector<int>(n, 0));
         dp[0][0] = 1;
 
-        for (int i = 1; i < m; i++)
-            dp[i][0] = obstacle_grid[i][0] == 0 && dp[i - 1][0] == 1 ? 1 : 0;
-        for (int i = 1; i < n; i++)
-            dp[0][i] = obstacle_grid[0][i] == 0 && dp[0][i - 1] == 1 ? 1 : 0;
+        for (int i = 1; i < m; i++) {
+            dp[i][0] = obstacle_grid.at(i).at(0) == 0 && dp[i - 1][0] == 1 ? 1 : 0;
+        }
+        for (int i = 1; i < n; i++) {
+            dp[0][i] = obstacle_grid.at(0).at(i) == 0 && dp[0][i - 1] == 1 ? 1 : 0;
+        }
 
         for (int i = 1; i < m; i++) {
             for (int j = 1; j < n; j++) {
-                if (obstacle_grid[i][j] == 0) {
+                if (obstacle_grid.at(i).at(j) == 0) {
                     dp[i][j] = dp[i - 1][j] + dp[i][j - 1];
                 } else {
                     dp[i][j] = 0;
@@ -53,11 +55,11 @@ class Solution {
     }
 
     int UniquePathsWithObstaclesV1(vector<vector<int>>& obstacle_grid) {
-        int m = obstacle_grid.size(), n = obstacle_grid[0].size();
+        int const m = static_cast<int>(obstacle_grid.size()), n = static_cast<int>(obstacle_grid.at(0).size());
         vector<vector<int>> grid(m, vector<int>(n, 0));
         queue<pair<int, int>> q;
         vector<pair<int, int>> const dirs = {make_pair(0, 1), make_pair(1, 0)};
-        grid[0][0] = obstacle_grid[0][0] == 0 ? 1 : 0;
+        grid[0][0] = obstacle_grid.at(0).at(0) == 0 ? 1 : 0;
         q.emplace(0, 0);
         while (q.size() > 0) {
             pair<int, int> const cell = q.front();
@@ -66,8 +68,8 @@ class Solution {
             for (auto& p : dirs) {
                 if ((p.second + cell.second) > n - 1 ||
                     (p.first + cell.first) > m - 1 ||
-                    (obstacle_grid[p.first + cell.first]
-                                  [p.second + cell.second] == 1))
+                    (obstacle_grid.at(p.first + cell.first)
+                                  .at(p.second + cell.second) == 1))
                     continue;
                 pair<int, int> const next_cell =
                     make_pair(p.first + cell.first, p.second + cell.second);

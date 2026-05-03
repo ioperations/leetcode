@@ -23,20 +23,20 @@ class Solution {
         // 0 <= s.length, p.length <= 2000
         // s contains only lowercase English letters.
         // p contains only lowercase English letters, '?' or '*'.
-        int const m = p.length();
-        int const n = s.length();
+        int const m = static_cast<int>(p.length());
+        int const n = static_cast<int>(s.length());
 
         vector<vector<bool>> dp(m + 1, vector<bool>(n + 1, false));
         dp[0][0] = true;
 
         int st = 0;
-        while (st < m && p[st] == '*') dp[++st][0] = true;
+        while (st < m && p.at(st) == '*') dp[++st][0] = true;
 
         for (int i = 1; i <= m; i++) {
             for (int j = 1; j <= n; j++) {
-                if (p[i - 1] == s[j - 1] || p[i - 1] == '?')
+                if (p.at(i - 1) == s.at(j - 1) || p.at(i - 1) == '?')
                     dp[i][j] = dp[i - 1][j - 1];
-                else if (p[i - 1] == '*')
+                else if (p.at(i - 1) == '*')
                     dp[i][j] = dp[i][j - 1] || dp[i - 1][j];
                 else
                     dp[i][j] = false;

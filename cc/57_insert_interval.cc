@@ -29,27 +29,27 @@ class Solution {
                                vector<int>& new_interval) {
         vector<vector<int>> ans;
 
-        int start = new_interval[0], end = new_interval[1];
+        int start = new_interval.at(0), end = new_interval.at(1);
 
         int index = 0;
 
         // push element before overlap
-        while (index < static_cast<int>(intervals.size()) && start > intervals[index][1]) {
-            ans.push_back(intervals[index]);
+        while (index < static_cast<int>(intervals.size()) && start > intervals.at(index).at(1)) {
+            ans.push_back(intervals.at(index));
             index++;
         }
 
         // merge overlap
-        while (index < static_cast<int>(intervals.size()) && end >= intervals[index][0]) {
-            start = min(start, intervals[index][0]);
-            end = max(end, intervals[index][1]);
+        while (index < static_cast<int>(intervals.size()) && end >= intervals.at(index).at(0)) {
+            start = min(start, intervals.at(index).at(0));
+            end = max(end, intervals.at(index).at(1));
             index++;
         }
         ans.push_back({start, end});
 
         // push element after overlap
         while (index < static_cast<int>(intervals.size())) {
-            ans.push_back(intervals[index]);
+            ans.push_back(intervals.at(index));
             index++;
         }
 
@@ -60,20 +60,20 @@ class Solution {
                                  vector<int>& new_interval) {
         vector<vector<int>> ans;
 
-        int start = new_interval[0], end = new_interval[1];
+        int start = new_interval.at(0), end = new_interval.at(1);
 
         for (auto& interval : intervals) {
-            if (interval[1] < start || end < interval[0]) {
-                if (interval[1] < start) {  // push element before overlap
+            if (interval.at(1) < start || end < interval.at(0)) {
+                if (interval.at(1) < start) {  // push element before overlap
                     ans.push_back(interval);
                 } else {  // push element after overlap
                     ans.push_back({start, end});
-                    start = interval[0];
-                    end = interval[1];
+                    start = interval.at(0);
+                    end = interval.at(1);
                 }
             } else {  // merge overlap
-                start = min(start, interval[0]);
-                end = max(end, interval[1]);
+                start = min(start, interval.at(0));
+                end = max(end, interval.at(1));
             }
         }
 

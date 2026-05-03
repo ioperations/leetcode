@@ -28,7 +28,7 @@ namespace {
 class Solution {
    public:
     int MinDifficulty(vector<int>& job_difficulty, int d) {
-        int const n = job_difficulty.size();
+        int const n = static_cast<int>(job_difficulty.size());
         job_difficulty.insert(job_difficulty.begin(), 0);
         vector<vector<int>> dp(n + 1, vector<int>(d + 1, INT_MAX / 2));
 
@@ -36,10 +36,10 @@ class Solution {
 
         for (int i = 1; i <= n; i++) {
             for (int k = 1; k <= min(i, d); k++) {
-                int mx = job_difficulty[i];
+                int mx = job_difficulty.at(i);
 
                 for (int j = i; j >= k; j--) {
-                    mx = max(mx, job_difficulty[j]);
+                    mx = max(mx, job_difficulty.at(j));
                     // dp[i][k] = min(dp[i][k], dp[j-1][k-1] +
                     // *max_element(jobDifficulty.begin() + j,
                     // jobDifficulty.begin() + i + 1));
@@ -62,14 +62,14 @@ class Solution {
             return *max_element(begin(jobs) + start_idx, end(jobs));
         }
 
-        if (memo[start_idx][days_left] != -1) {
-            return memo[start_idx][days_left];
+        if (memo.at(start_idx).at(days_left) != -1) {
+            return memo.at(start_idx).at(days_left);
         }
 
         int state_value = std::numeric_limits<int>::max();
-        int current_max = jobs[start_idx];
+        int current_max = jobs.at(start_idx);
         for (int i = start_idx; i < static_cast<int>(jobs.size()); ++i) {
-          current_max = max(current_max, jobs[i]);
+          current_max = max(current_max, jobs.at(i));
           int const next_state_value = Dfs(jobs, i + 1, days_left - 1, memo);
           if (next_state_value == std::numeric_limits<int>::max()) {
             continue;

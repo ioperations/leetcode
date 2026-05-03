@@ -22,14 +22,14 @@ class Solution {
         std::vector<std::vector<int>> ret = intervals;
         sort(ret.begin(), ret.end(),
              [](const std::vector<int>& a, const std::vector<int>& b) {
-                 return a[0] < b[0];
+                 return a.at(0) < b.at(0);
              });
-        for (int i = 0; i < (int)ret.size() - 1; i++) {
-            if (ret[i][1] >= ret[i + 1][0]) {
+        for (int i = 0; i < static_cast<int>(ret.size()) - 1; i++) {
+            if (ret.at(i).at(1) >= ret.at(i + 1).at(0)) {
                 ret[i + 1][0] =
-                    (ret[i + 1][0] > ret[i][0]) ? ret[i][0] : ret[i + 1][0];
+                    (ret.at(i + 1).at(0) > ret.at(i).at(0)) ? ret.at(i).at(0) : ret.at(i + 1).at(0);
                 ret[i + 1][1] =
-                    (ret[i + 1][1] > ret[i][1]) ? ret[i + 1][1] : ret[i][1];
+                    (ret.at(i + 1).at(1) > ret.at(i).at(1)) ? ret.at(i + 1).at(1) : ret.at(i).at(1);
                 ret[i] = std::vector<int>{};
             }
         }

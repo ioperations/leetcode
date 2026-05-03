@@ -37,7 +37,7 @@ class Solution {
             dp[i][3] = (dp[i - 1][2] + dp[i - 1][4]) % mod;
             dp[i][4] = (dp[i - 1][0]) % mod;
         }
-        for (auto num : dp[n - 1]) {
+        for (auto num : dp.at(n - 1)) {
             ans = (ans + num) % mod;
         }
         return ans;

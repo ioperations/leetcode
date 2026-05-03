@@ -48,7 +48,7 @@ class Solution {
 
     bool ParseDigits(const string& s, int& i) {
         int j = i;
-        while (j < (int)s.size() && isdigit(s[j])) j++;
+        while (j < static_cast<int>(s.size()) && isdigit(s.at(j))) j++;
         bool ret = false;
         // j is out of bound or s[j] is not digit anymore
         if (j - i > 0)  // len of digits
@@ -60,17 +60,17 @@ class Solution {
     }
 
     bool ParseDecimal(const string& s, int& i) {
-        if (i == (int)s.size()) return false;
+        if (i == static_cast<int>(s.size())) return false;
 
         // optionally + or -
-        if (s[i] == '+' || s[i] == '-') i++;
+        if (s.at(i) == '+' || s.at(i) == '-') i++;
 
-        if (i == (int)s.size())  // end already?
+        if (i == static_cast<int>(s.size()))  // end already?
             return false;        // TODO: when false, undo side effect??
 
         if (ParseDigits(s, i)) {
-            if (i == (int)s.size()) return false;
-            if (s[i] == '.') {
+            if (i == static_cast<int>(s.size())) return false;
+            if (s.at(i) == '.') {
                 i++;
                 //  if (i==s.size())  // how to handle 46.e3 ??  conflicting
                 //  semantics
@@ -80,7 +80,7 @@ class Solution {
                                   // follow more things
                 return true;      // still true , most tricky part here !!!
             }
-        } else if (s[i] == '.') {
+        } else if (s.at(i) == '.') {
             i++;
             if (ParseDigits(s, i)) return true;  // mistake return i==s.size();
         }
@@ -90,9 +90,9 @@ class Solution {
 
     // integer may be a part of the component, followed by more things
     bool ParseInteger(const string& s, int& i) {
-        if (i == (int)s.size()) return false;
+        if (i == static_cast<int>(s.size())) return false;
         // optionally + or -
-        if (s[i] == '+' || s[i] == '-') i++;
+        if (s.at(i) == '+' || s.at(i) == '-') i++;
 
         if (ParseDigits(s, i))
             return true;  // return i==s.size(); // mistake!! = vs. == always
@@ -102,8 +102,8 @@ class Solution {
 
     // this is after decimal or integer: as optional part!!
     bool ParseExponent(const string& s, int& i) {
-        if (i == (int)s.size()) return false;
-        if (s[i] == 'e' || s[i] == 'E') {
+        if (i == static_cast<int>(s.size())) return false;
+        if (s.at(i) == 'e' || s.at(i) == 'E') {
             i++;  // mistake: forgot this!!
             if (ParseInteger(s, i))
                 return true;  // i==s.size();  // mistake; return true // here
@@ -119,14 +119,14 @@ class Solution {
         if (s.size() == 0) return false;
 
         if (ParseDecimal(s, i)) {
-            if (i == (int)s.size()) return true;
-            if (ParseExponent(s, i)) return i == (int)s.size();
+            if (i == static_cast<int>(s.size())) return true;
+            if (ParseExponent(s, i)) return i == static_cast<int>(s.size());
         }
 
         i = 0;
         if (ParseInteger(s, i)) {
-            if (i == (int)s.size()) return true;
-            if (ParseExponent(s, i)) return i == (int)s.size();
+            if (i == static_cast<int>(s.size())) return true;
+            if (ParseExponent(s, i)) return i == static_cast<int>(s.size());
         }
 
         return false;
@@ -200,17 +200,17 @@ class Solution {
         }
 
         std::pair<token_type, std::string> Next(int& cursor) {
-            if (cursor >= (int)m_s.size()) {
+            if (cursor >= static_cast<int>(m_s.size())) {
                 return make_pair(token_type::END, " ");
             }
-            char const tmp_char = m_s[cursor];
+            char const tmp_char = m_s.at(cursor);
 
             if ('0' <= tmp_char && tmp_char <= '9') {
                 std::string tmp = std::to_string(tmp_char);
                 cursor++;
                 for (size_t i = 0; i < m_s.size(); i++) {
-                    if ('0' <= m_s[cursor] && m_s[cursor] <= '9') {
-                        tmp += m_s[cursor];
+                    if ('0' <= m_s.at(cursor) && m_s.at(cursor) <= '9') {
+                        tmp += m_s.at(cursor);
                         cursor++;
                     }
                 }

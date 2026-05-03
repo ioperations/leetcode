@@ -27,7 +27,7 @@ class Solution {
         int ret{std::numeric_limits<int>::max()};
         int ret_ret = 0;
         do {
-            const int tmp = t[0] + t[1] + t[2];
+            const int tmp = t.at(0) + t.at(1) + t.at(2);
             const int distance = abs(tmp - target);
             if (distance < ret) {
                 ret = distance;
@@ -41,19 +41,19 @@ class Solution {
     int ThreeSum2(std::vector<int>& nums, int target) const {
         int i = 0, j = 0, k = 0;
         sort(nums.begin(), nums.end());
-        const int n = nums.size();
+        const int n = static_cast<int>(nums.size());
         int diff{std::numeric_limits<int>::max()};
         int sum = 0;
         for (i = 0; i < n; i++) {
             j = i + 1;
             k = n - 1;
             while (j < k) {
-                const int d = abs(target - (nums[i] + nums[j] + nums[k]));
+                const int d = abs(target - (nums.at(i) + nums.at(j) + nums.at(k)));
                 if (diff >= d) {
                     diff = d;
-                    sum = nums[i] + nums[j] + nums[k];
+                    sum = nums.at(i) + nums.at(j) + nums.at(k);
                 }
-                if ((nums[i] + nums[j] + nums[k]) <= target) {
+                if ((nums.at(i) + nums.at(j) + nums.at(k)) <= target) {
                     j = j + 1;
                 } else {
                     k = k - 1;

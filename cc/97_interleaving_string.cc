@@ -26,7 +26,7 @@ namespace {
 class Solution {
    public:
     bool Helper(const string& s1, const string& s2, const string& s3) {
-        int l1 = s1.length(), l2 = s2.length();
+        int const l1 = static_cast<int>(s1.length()), l2 = static_cast<int>(s2.length());
         vector<int> q1, q2;  // queue;
         vector<vector<int>> table(s1.length() + 1,
                                   vector<int>(s2.length() + 1, false));
@@ -37,18 +37,20 @@ class Solution {
         table[0][0] = true;
 
         while (q1.size()) {
-            int const tmp1 = q1[0], tmp2 = q2[0];
+            int const tmp1 = q1.at(0), tmp2 = q2.at(0);
             if (tmp1 == l1 && tmp2 == l2) return true;
 
-            if (tmp1 == l1)
+            if (tmp1 == l1) {
                 c1 = '0';
-            else
-                c1 = s1[tmp1];
-            if (tmp2 == l2)
+            } else {
+                c1 = s1.at(tmp1);
+            }
+            if (tmp2 == l2) {
                 c2 = '0';
-            else
-                c2 = s2[tmp2];
-            c3 = s3[tmp1 + tmp2];
+            } else {
+                c2 = s2.at(tmp2);
+            }
+            c3 = s3.at(tmp1 + tmp2);
 
             q1.erase(q1.begin());
             q2.erase(q2.begin());
@@ -81,21 +83,21 @@ class Solution {
     bool IsInterleaveV1(const string& s1, const string& s2, const string& s3) {
         if (s1 == "") return s2 == s3;
         if (s2 == "") return s1 == s3;
-        int n1 = s1.size(), n2 = s2.size(), n3 = s3.size();
+        int const n1 = static_cast<int>(s1.size()), n2 = static_cast<int>(s2.size()), n3 = static_cast<int>(s3.size());
         if (n1 + n2 != n3) return false;
         vector<vector<bool>> dp(n1 + 1, vector<bool>(n2 + 1));
 
         for (int i = 0; i <= n1; i++) {
             for (int j = 0; j <= n2; j++) {
-                if (i == 0 && j == 0)
+                if (i == 0 && j == 0) {
                     dp[i][j] = true;
-                else if (i == 0) {
-                    dp[i][j] = dp[i][j - 1] && s2[j - 1] == s3[i + j - 1];
+                } else if (i == 0) {
+                    dp[i][j] = dp[i][j - 1] && s2.at(j - 1) == s3.at(i + j - 1);
                 } else if (j == 0) {
-                    dp[i][j] = dp[i - 1][j] && s1[i - 1] == s3[i + j - 1];
+                    dp[i][j] = dp[i - 1][j] && s1.at(i - 1) == s3.at(i + j - 1);
                 } else {
-                    dp[i][j] = ((dp[i - 1][j] && s1[i - 1] == s3[i + j - 1]) ||
-                                (dp[i][j - 1] && s2[j - 1] == s3[i + j - 1]));
+                    dp[i][j] = ((dp[i - 1][j] && s1.at(i - 1) == s3.at(i + j - 1)) ||
+                                (dp[i][j - 1] && s2.at(j - 1) == s3.at(i + j - 1)));
                 }
             }
         }

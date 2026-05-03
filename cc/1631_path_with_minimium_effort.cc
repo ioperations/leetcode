@@ -42,8 +42,8 @@ class Solution {
             1 <= rows, columns <= 100
             1 <= heights[i][j] <= 106
         */
-        int m = heights.size();
-        int n = heights[0].size();
+        int const m = static_cast<int>(heights.size());
+        int const n = static_cast<int>(heights.at(0).size());
 
         // int direction[]{-2, -1, 0, 1, 2};  // 左　下　初始化　上　右
 
@@ -54,7 +54,7 @@ class Solution {
         std::function<int(int, int, int)> fun = [&](int i, int j,
                                                     int direction_t) -> int {
             if (cache.count(make_pair(i, j))) {
-                return cache[make_pair(i, j)];
+                return cache.at(make_pair(i, j));
             }
             if (visiting.count(make_pair(i, j)))
                 return std::numeric_limits<int>::max();
@@ -72,7 +72,7 @@ class Solution {
                     int const z = fun(i + 1, j, -1);
                     if (z != candidate1) {
                         candidate1 =
-                            std::max(abs(heights[i + 1][j] - heights[i][j]), z);
+                            std::max(abs(heights.at(i + 1).at(j) - heights.at(i).at(j)), z);
                     }
                 }
             }
@@ -82,7 +82,7 @@ class Solution {
                     int const z = fun(i - 1, j, 1);
                     if (z != candidate2) {
                         candidate2 =
-                            std::max(abs(heights[i - 1][j] - heights[i][j]), z);
+                            std::max(abs(heights.at(i - 1).at(j) - heights.at(i).at(j)), z);
                     }
                 }
             }
@@ -92,7 +92,7 @@ class Solution {
                     int const z = fun(i, j + 1, 2);
                     if (z != candidate3) {
                         candidate3 =
-                            std::max(abs(heights[i][j + 1] - heights[i][j]),
+                            std::max(abs(heights.at(i).at(j + 1) - heights.at(i).at(j)),
                                      fun(i, j + 1, 2));
                     }
                 }
@@ -103,7 +103,7 @@ class Solution {
                     int const z = fun(i, j - 1, -2);
                     if (z != candidate4) {
                         candidate4 =
-                            std::max(abs(heights[i][j - 1] - heights[i][j]), z);
+                            std::max(abs(heights.at(i).at(j - 1) - heights.at(i).at(j)), z);
                     }
                 }
             }
@@ -124,8 +124,8 @@ class Solution {
     }
 
     int MinimumEffortPathV2(vector<vector<int>>& heights) {
-        int const m = heights.size();
-        int const n = heights[0].size();
+        int const m = static_cast<int>(heights.size());
+        int const n = static_cast<int>(heights.at(0).size());
 
         vector<vector<int>> dp(m + 1, vector<int>(n + 1, 0));
         // int dp[m + 1][n + 1];
@@ -139,8 +139,8 @@ class Solution {
 
         queue<pair<int, int>> q;
         q.emplace(0, 0);
-        int const x[4] = {0, -1, 0, 1};
-        int const y[4] = {-1, 0, 1, 0};
+        std::array<int, 4> const x = {0, -1, 0, 1};
+        std::array<int, 4> const y = {-1, 0, 1, 0};
         pair<int, int> temp;
         int px = 0, py = 0;
 
@@ -160,8 +160,8 @@ class Solution {
 
                 dp[px][py] =
                     min(dp[px][py], max(dp[temp.first][temp.second],
-                                        abs(heights[temp.first][temp.second] -
-                                            heights[px][py])));
+                                        abs(heights.at(temp.first).at(temp.second) -
+                                            heights.at(px).at(py))));
                 q.emplace(px, py);
             }
         }

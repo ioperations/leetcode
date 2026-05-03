@@ -21,12 +21,12 @@ class Solution {
         // pass
         int ret = 0;
 
-        int const size = words.size();
+        int const size = static_cast<int>(words.size());
         for (int i = 0; i < size; i++) {
             for (int j = i + 1; j < size; j++) {
-                if (!ShareSameChar(words[i], words[j])) {
+                if (!ShareSameChar(words.at(i), words.at(j))) {
                     ret =
-                        std::max(ret, (int)(words[i].size() * words[j].size()));
+                        std::max(ret, (int)(words.at(i).size() * words.at(j).size()));
                 }
             }
         }
@@ -37,11 +37,11 @@ class Solution {
         // pass
         sort(a.begin(), a.end());
         sort(b.begin(), b.end());
-        int const c_b = b.size();
+        int const c_b = static_cast<int>(b.size());
         int i = 0;
         for (auto& ptr_a : a) {
-            while (i < c_b && b[i] <= ptr_a) {
-                if (b[i] == ptr_a) {
+            while (i < c_b && b.at(i) <= ptr_a) {
+                if (b.at(i) == ptr_a) {
                     return true;
                 }
                 i++;
@@ -54,22 +54,22 @@ class Solution {
     int MaxProduct(vector<string>& words) {
         int ans = 0;
         vector<vector<int>> dp(words.size(), vector<int>(26));
-        for (int i = 0; i < (int)words.size(); i++) {
-            for (int j = 0; j < (int)words[i].size(); j++) {
-                dp[i][words[i][j] - 'a']++;
+        for (int i = 0; i < static_cast<int>(words.size()); i++) {
+            for (int j = 0; j < static_cast<int>(words.at(i).size()); j++) {
+                dp[i][words.at(i).at(j) - 'a']++;
             }
         }
 
-        for (int i = 0; i < (int)words.size(); i++) {
-            for (int j = i + 1; j < (int)words.size(); j++) {
+        for (int i = 0; i < static_cast<int>(words.size()); i++) {
+            for (int j = i + 1; j < static_cast<int>(words.size()); j++) {
                 bool common = true;
                 for (int k = 0; k < 26; k++) {
-                    if (dp[i][k] > 0 && dp[j][k] > 0) {
+                    if (dp.at(i).at(k) > 0 && dp.at(j).at(k) > 0) {
                         common = false;
                     }
                 }
                 if (common) {
-                    int const cur = words[i].size() * words[j].size();
+                    int const cur = static_cast<int>(words.at(i).size() * words.at(j).size());
                     ans = max(ans, cur);
                 }
             }

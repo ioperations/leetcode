@@ -33,7 +33,7 @@ class Solution {
     }
     bool IsParlindromic(std::string& s, int i, int j) {
         while (i < j) {
-            if (s[i] == s[j]) {
+            if (s.at(i) == s.at(j)) {
                 i++;
                 j--;
             } else {
@@ -48,13 +48,13 @@ class Solution {
         std::size_t const n = s.size();
         if (n == 1) return 1;
         std::array<std::array<bool, 1001>, 1001> dp = {{{false}}};
-        for (int i = 0; i < n; ++i) {
+        for (int i = 0; i < static_cast<int>(n); ++i) {
             dp[i][i] = true;
             count++;
         }
         for (int i = static_cast<int>(n - 1); i >= 0; --i) {
             for (size_t j = i + 1; j < n; ++j) {
-                if (s[i] == s[j]) {
+                if (s.at(i) == s.at(j)) {
                     if (j - i == 1 || dp[i + 1][j - 1] == true) {
                         dp[i][j] = true;
                         count++;

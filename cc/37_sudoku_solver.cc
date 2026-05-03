@@ -31,17 +31,17 @@ bool Solution::Valid(vector<vector<char>>& board) {
     for (int i = 0; i < 9; i++) {
         std::set<char> rows, cols, box;
         for (int j = 0; j < 9; j++) {
-            char c = board[i][j];
+            char c = board.at(i).at(j);
             if (c != '.') {
                 if (rows.count(c)) return false;
                 rows.insert(c);
             }
-            c = board[j][i];
+            c = board.at(j).at(i);
             if (c != '.') {
                 if (cols.count(c)) return false;
                 cols.insert(c);
             }
-            c = board[3 * (i / 3) + j / 3][3 * (i % 3) + j % 3];
+            c = board.at(3 * (i / 3) + j / 3).at(3 * (i % 3) + j % 3);
             if (c != '.') {
                 if (box.count(c)) return false;
                 box.insert(c);
@@ -57,16 +57,16 @@ vector<char> Solution::GetPositionCandidate(int i, int j) {
     vector<char> candidates;
     std::set<char> used;
     for (int col = 0; col < 9; col++) {
-        if (board[i][col] != '.') used.insert(board[i][col]);
+        if (board.at(i).at(col) != '.') used.insert(board.at(i).at(col));
     }
     for (int row = 0; row < 9; row++) {
-        if (board[row][j] != '.') used.insert(board[row][j]);
+        if (board.at(row).at(j) != '.') used.insert(board.at(row).at(j));
     }
     int boxRow = 3 * (i / 3);
     int boxCol = 3 * (j / 3);
     for (int r = boxRow; r < boxRow + 3; r++) {
         for (int c = boxCol; c < boxCol + 3; c++) {
-            if (board[r][c] != '.') used.insert(board[r][c]);
+            if (board.at(r).at(c) != '.') used.insert(board.at(r).at(c));
         }
     }
     for (char d = '1'; d <= '9'; d++) {
@@ -77,7 +77,7 @@ vector<char> Solution::GetPositionCandidate(int i, int j) {
 bool Solution::SolveSudokuHelper(vector<vector<char>>& board) {
     for (int i = 0; i < 9; i++) {
         for (int j = 0; j < 9; j++) {
-            if (board[i][j] == '.') {
+            if (board.at(i).at(j) == '.') {
                 auto candidates = GetPositionCandidate(i, j);
                 for (char c : candidates) {
                     board[i][j] = c;

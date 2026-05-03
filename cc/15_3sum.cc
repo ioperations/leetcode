@@ -27,9 +27,9 @@ class Solution {
 
         for (size_t i = 0; i < nums.size(); i++) {
             for (size_t j = i + 1; j < nums.size(); j++) {
-                std::vector<int> ret1 = TwoSum(nums, j, 0 - nums[i]);
+                std::vector<int> ret1 = TwoSum(nums, j, 0 - nums.at(i));
                 if (ret1.size() == 2) {
-                    ret1.push_back(nums[i]);
+                    ret1.push_back(nums.at(i));
                     if (!HasElements(ret, ret1)) {
                         ret.push_back(ret1);
                     }
@@ -45,28 +45,28 @@ class Solution {
         sort(nums.begin(), nums.end());
 
         for (size_t i = 0; i < n; i++) {
-            size_t const target = 0 - nums[i];
+            size_t const target = 0 - nums.at(i);
 
             size_t front = i + 1;
             size_t back = n - 1;
 
             while (front < back) {
-                int const sum = nums[front] + nums[back];
+                int const sum = nums.at(front) + nums.at(back);
 
                 if (sum < target) {
                     front++;
                 } else if (sum > target) {
                     back--;
                 } else {
-                    vector<int> temp = {nums[i], nums[front], nums[back]};
+                    vector<int> temp = {nums.at(i), nums.at(front), nums.at(back)};
                     res.push_back(temp);
 
-                    while (front < back && nums[front] == temp[1]) front++;
-                    while (front < back && nums[back] == temp[2]) back--;
+                    while (front < back && nums.at(front) == temp.at(1)) front++;
+                    while (front < back && nums.at(back) == temp.at(2)) back--;
                 }
             }
 
-            while (i < n - 1 && nums[i] == nums[i + 1]) i++;
+            while (i < n - 1 && nums.at(i) == nums.at(i + 1)) i++;
         }
 
         return res;
@@ -86,18 +86,18 @@ class Solution {
     // second[0] + second[1]  + second[2]  =0
     bool Equal(const std::vector<int>& first, const std::vector<int>& second) {
         // assert(first.size() == second.size() == 3);
-        if (first[0] == second[0]) {
-            if (first[1] == second[1] || first[1] == second[2]) {
+        if (first.at(0) == second.at(0)) {
+            if (first.at(1) == second.at(1) || first.at(1) == second.at(2)) {
                 return true;
             }
         }
-        if (first[0] == second[1]) {
-            if (first[1] == second[0] || first[1] == second[2]) {
+        if (first.at(0) == second.at(1)) {
+            if (first.at(1) == second.at(0) || first.at(1) == second.at(2)) {
                 return true;
             }
         }
-        if (first[0] == second[2]) {
-            if (first[2] == second[0] || first[2] == second[1]) {
+        if (first.at(0) == second.at(2)) {
+            if (first.at(2) == second.at(0) || first.at(2) == second.at(1)) {
                 return true;
             }
         }
@@ -109,8 +109,8 @@ class Solution {
         std::vector<int> ret;
         for (size_t i = left; i < nums.size(); ++i) {
             for (size_t j = i + 1; j < nums.size(); j++) {
-                if (nums[i] + nums[j] == target) {
-                    return {nums[i], nums[j]};
+                if (nums.at(i) + nums.at(j) == target) {
+                    return {nums.at(i), nums.at(j)};
                 }
             }
         }

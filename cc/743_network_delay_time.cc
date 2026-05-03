@@ -28,7 +28,7 @@ class Solution {
     int NetworkDelayTime(vector<vector<int>>& times, int n, int k) {
         vector<vector<pair<int, int>>> adj(n + 1);
         for (auto& it : times) {
-            adj[it[0]].emplace_back(it[1], it[2]);
+            adj.at(it.at(0)).emplace_back(it.at(1), it.at(2));
         }
 
         vector<int> dist(n + 1, 1e9);
@@ -37,14 +37,14 @@ class Solution {
         queue<pair<int, int>> q;
         q.emplace(k, 0);
         while (q.size()) {
-            int sz = q.size();
+            int sz = static_cast<int>(q.size());
             while (sz--) {
                 auto [node, prev] = q.front();
                 q.pop();
-                for (auto& it : adj[node]) {
+                for (auto& it : adj.at(node)) {
                     int const curr_time = prev + it.second;
-                    if (dist[it.first] > curr_time) {
-                        dist[it.first] = curr_time;
+                    if (dist.at(it.first) > curr_time) {
+                        dist.at(it.first) = curr_time;
                         q.emplace(it.first, curr_time);
                     }
                 }
@@ -70,8 +70,8 @@ class Solution {
         dist[k] = 0;
 
         for (auto& edge : times) {
-            int u = edge[0], v = edge[1], time = edge[2];
-            graph[u].emplace_back(time, v);
+            int u = edge.at(0), v = edge.at(1), time = edge.at(2);
+            graph.at(u).emplace_back(time, v);
         }
 
         priority_queue<pa, vector<pa>, greater<>> pq;
@@ -82,10 +82,10 @@ class Solution {
 
             if (visited[current_node]) continue;
 
-            for (auto& [time, adj_current_node] : graph[current_node]) {
-                if (current_time + time < dist[adj_current_node]) {
-                    dist[adj_current_node] = current_time + time;
-                    pq.emplace(dist[adj_current_node], adj_current_node);
+            for (auto& [time, adj_current_node] : graph.at(current_node)) {
+                if (current_time + time < dist.at(adj_current_node)) {
+                    dist.at(adj_current_node) = current_time + time;
+                    pq.emplace(dist.at(adj_current_node), adj_current_node);
                 }
             }
 
@@ -94,8 +94,8 @@ class Solution {
 
         int ans = 0;
         for (int node = 1; node <= n; node++) {
-            if (dist[node] == m_max_time) return -1;
-            ans = max(ans, dist[node]);
+            if (dist.at(node) == m_max_time) return -1;
+            ans = max(ans, dist.at(node));
         }
 
         return ans;

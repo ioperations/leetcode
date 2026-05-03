@@ -41,13 +41,13 @@ class Solution {
     bool IsPalindromePairs(vector<string>& words, int i, int j) {
         // pass
 
-        string tmp = words[i] + words[j];
+        string tmp = words.at(i) + words.at(j);
 
         int begin = 0;
-        int end = tmp.size() - 1;
+        int end = static_cast<int>(tmp.size()) - 1;
 
         while (begin < end) {
-            if (tmp[begin] == tmp[end]) {
+            if (tmp.at(begin) == tmp.at(end)) {
                 begin++;
                 end--;
             } else {
@@ -85,10 +85,10 @@ class Solution {
 
     bool IsPalindrome(const string& s) {
         int i = 0;
-        int j = s.size() - 1;
+        int j = static_cast<int>(s.size()) - 1;
 
         while (i < j) {
-            if (s[i] != s[j]) {
+            if (s.at(i) != s.at(j)) {
                 return false;
             }
             ++i;
@@ -118,8 +118,8 @@ class Solution {
     void Find(TrieNode* root, string& word, int word_index) {
         // word is longer than its corresponding word.
         int index = 0;
-        while (index < (int)word.length() && root != nullptr) {
-            root = root->m_children[word[index++] - 'a'];
+        while (index < static_cast<int>(word.length()) && root != nullptr) {
+            root = root->m_children[word.at(index++) - 'a'];
             if (root != nullptr && root->m_word_index != -1) {
                 if (root->m_word_index != word_index &&
                     IsPalindrome(word.substr(index))) {
@@ -129,7 +129,7 @@ class Solution {
         }
 
         // word is shorter than its corresponding word.
-        if (index == (int)word.length()) {
+        if (index == static_cast<int>(word.length())) {
             string str;
             vector<int> long_word_indices;
             Dfs(root, long_word_indices, str);
@@ -144,14 +144,14 @@ class Solution {
         auto* root = new TrieNode();
 
         // Create Trie with reversed words
-        for (int i = 0; i < (int)words.size(); ++i) {
-            string reversed_word = words[i];
+        for (int i = 0; i < static_cast<int>(words.size()); ++i) {
+            string reversed_word = words.at(i);
             reverse(reversed_word.begin(), reversed_word.end());
             Insert(root, reversed_word, i);
         }
 
-        for (int i = 0; i < (int)words.size(); ++i) {
-            string& word = words[i];
+        for (int i = 0; i < static_cast<int>(words.size()); ++i) {
+            string& word = words.at(i);
             // word is palindrome
             if (root->m_word_index != -1 && !word.empty() &&
                 IsPalindrome(word)) {
@@ -167,10 +167,10 @@ class Solution {
    private:
     bool CheckPalindrome(string& s) {
         int left = 0;
-        int right = s.size() - 1;
+        int right = static_cast<int>(s.size()) - 1;
 
         while (left < right) {
-            if (s[left] != s[right]) {
+            if (s.at(left) != s.at(right)) {
                 return false;
             }
             left++;
@@ -185,10 +185,10 @@ class Solution {
         unordered_map<string, int> rev;
         string temp;
 
-        const int n = words.size();
+        const int n = static_cast<int>(words.size());
 
         for (int i = 0; i < n; i++) {
-            temp = words[i];
+            temp = words.at(i);
             reverse(temp.begin(), temp.end());
 
             rev[temp] = i;
@@ -198,12 +198,12 @@ class Solution {
 
         if (rev.find("") != rev.end()) {
             for (int i = 0; i < n; i++) {
-                if (rev[""] == i) {
+                if (rev.at("") == i) {
                     continue;
                 }
 
-                if (CheckPalindrome(words[i])) {
-                    ans.push_back({i, rev[""]});
+                if (CheckPalindrome(words.at(i))) {
+                    ans.push_back({i, rev.at("")});
                 }
             }
         }
@@ -211,25 +211,25 @@ class Solution {
         string left, right, word;
 
         for (int i = 0; i < n; i++) {
-            word = words[i];
+            word = words.at(i);
 
             left = "";
             right = word;
 
-            const int sz = word.size();
+            const int sz = static_cast<int>(word.size());
 
             for (int j = 0; j < sz; j++) {
-                left.push_back(word[j]);
+                left.push_back(word.at(j));
                 right.erase(0, 1);
 
-                if (rev.find(left) != rev.end() && rev[left] != i &&
+                if (rev.find(left) != rev.end() && rev.at(left) != i &&
                     CheckPalindrome(right)) {
-                    ans.push_back({i, rev[left]});
+                    ans.push_back({i, rev.at(left)});
                 }
 
-                if (rev.find(right) != rev.end() && rev[right] != i &&
+                if (rev.find(right) != rev.end() && rev.at(right) != i &&
                     CheckPalindrome(left)) {
-                    ans.push_back({rev[right], i});
+                    ans.push_back({rev.at(right), i});
                 }
             }
         }

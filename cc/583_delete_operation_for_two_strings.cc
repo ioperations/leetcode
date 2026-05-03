@@ -20,8 +20,8 @@ namespace {
 class Solution {
    public:
     int Lcs(string s, string t) {
-        int const n = s.length();
-        int const m = t.length();
+        int const n = static_cast<int>(s.length());
+        int const m = static_cast<int>(t.length());
 
         vector<vector<int>> dp(n + 1, vector<int>(m + 1, 0));
         for (int i = 0; i <= n; i++) {
@@ -29,7 +29,7 @@ class Solution {
                 if (i == 0 || j == 0) {
                     dp[i][j] = 0;
                 } else {
-                    if (s[i - 1] == t[j - 1]) {
+                    if (s.at(i - 1) == t.at(j - 1)) {
                         dp[i][j] = 1 + dp[i - 1][j - 1];
                     } else {
                         dp[i][j] = max(dp[i - 1][j], dp[i][j - 1]);
@@ -41,8 +41,8 @@ class Solution {
     }
 
     int MinDistance(string word1, string word2) {
-        int const n = word1.size();
-        int const m = word2.size();
+        int const n = static_cast<int>(word1.size());
+        int const m = static_cast<int>(word2.size());
         return n + m - 2 * Lcs(word1, word2);
     }
 };

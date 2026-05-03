@@ -83,20 +83,20 @@ class Solution {
                 return;
             }
             while (m_index < m_s.size()) {
-                if (' ' == m_s[m_index]) {
+                if (' ' == m_s.at(m_index)) {
                     m_index++;
                     continue;
                 }
-                if ('0' <= m_s[m_index] && m_s[m_index] <= '9') {
+                if ('0' <= m_s.at(m_index) && m_s.at(m_index) <= '9') {
                     val_set = true;
                     m_cur_token = NUMBER;
-                    m_val = m_val * 10 + m_s[m_index] - '0';
+                    m_val = m_val * 10 + m_s.at(m_index) - '0';
                 }
 
                 if (val_set) {
                     if ((m_index + 1) < m_s.size()) {
-                        if ('0' <= m_s[m_index + 1] &&
-                            m_s[m_index + 1] <= '9') {
+                        if ('0' <= m_s.at(m_index + 1) &&
+                            m_s.at(m_index + 1) <= '9') {
                             m_index++;
                             continue;
                         }
@@ -104,19 +104,19 @@ class Solution {
                     }
                     break;
                 }
-                if ('+' == m_s[m_index]) {
+                if ('+' == m_s.at(m_index)) {
                     m_cur_token = PLUS;
                     break;
                 }
-                if ('-' == m_s[m_index]) {
+                if ('-' == m_s.at(m_index)) {
                     m_cur_token = MINUS;
                     break;
                 }
-                if ('(' == m_s[m_index]) {
+                if ('(' == m_s.at(m_index)) {
                     m_cur_token = LEFT_PARAM;
                     break;
                 }
-                if (')' == m_s[m_index]) {
+                if (')' == m_s.at(m_index)) {
                     m_cur_token = RIGHT_PARAM;
                     break;
                 }
@@ -139,23 +139,23 @@ class Solution {
 class SolutionV2 {
    public:
     int Calculate(string s) {
-        int res = 0, sign = 1, n = s.size();
+        int res = 0, sign = 1, n = static_cast<int>(s.size());
         stack<int> stk;
         for (int i = 0; i < n; i++) {
-            const char c = s[i];
+            const char c = s.at(i);
             if (c >= '0' && c <= '9') {
                 int num = 0;
-                while (i < n && s[i] >= '0' && s[i] <= '9') {
-                    num = num * 10 + (s[i] - '0');
+                while (i < n && s.at(i) >= '0' && s.at(i) <= '9') {
+                    num = num * 10 + (s.at(i) - '0');
                     i++;
                 }
                 res += sign * num;
                 i--;
-            } else if (c == '+')
+            } else if (c == '+') {
                 sign = 1;
-            else if (c == '-')
+            } else if (c == '-') {
                 sign = -1;
-            else if (c == '(') {
+            } else if (c == '(') {
                 stk.push(res);
                 stk.push(sign);
                 res = 0;
@@ -180,8 +180,8 @@ class SolutionV3 {
         // Stack to store operators
         stack<char> ops;
 
-        for (int i = 0; i < (int)s.size(); ++i) {
-            const char ch = s[i];
+        for (int i = 0; i < static_cast<int>(s.size()); ++i) {
+            const char ch = s.at(i);
 
             // If current is space, skip it
             if (ch == ' ') continue;
@@ -191,8 +191,8 @@ class SolutionV3 {
                 // Long type to prevent integer overflow
                 long num = 0;
 
-                while (i < (int)s.size() && isdigit(s[i])) {
-                    num = num * 10 + s[i] - '0';
+                while (i < static_cast<int>(s.size()) && isdigit(s.at(i))) {
+                    num = num * 10 + s.at(i) - '0';
                     ++i;
                 }
                 nums.push(num);

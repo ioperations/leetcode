@@ -37,7 +37,7 @@ class Solution {
 
         int cnt_vow = 0;  // count different vowels in the current window
         for (int l = 0, r = 0; r < m_n; r++) {
-            int type = m_vow[word[r] - 'a'];  // Get the type
+            int type = m_vow[word.at(r) - 'a'];  // Get the type
 
             if (type < 5) {
                 last_pos[type] = r;  // last position of the vowel
@@ -48,7 +48,7 @@ class Solution {
 
             // Shrink the window if the number of consonants exceeds k
             while (freq[5] > k) {  // freq[5] tracks consonants
-                type = m_vow[word[l] - 'a'];
+                type = m_vow[word.at(l) - 'a'];
                 freq[type]--;
                 if (type < 5 && freq[type] == 0) cnt_vow--;
                 l++;  // Move left pointer
@@ -66,7 +66,7 @@ class Solution {
     long long CountOfSubstrings(string& word, int k) {
         SetType();
 
-        m_n = word.size();  // Store the length of the word
+        m_n = static_cast<int>(word.size());  // Store the length of the word
 
         // Return the number of substrings with at most k consonants minus
         // those with at most k-1 consonants

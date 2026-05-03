@@ -27,24 +27,24 @@ class Solution {
     int Recur(int i, int j) {
         if (m_dp[i][j] != -1) return m_dp[i][j];
         int val = 0;
-        if (i - 1 != -1 && m_a[i - 1][j] > m_a[i][j]) {
+        if (i - 1 != -1 && m_a.at(i - 1).at(j) > m_a.at(i).at(j)) {
             val = max(val, Recur(i - 1, j) + 1);
         }
-        if (j - 1 != -1 && m_a[i][j - 1] > m_a[i][j]) {
+        if (j - 1 != -1 && m_a.at(i).at(j - 1) > m_a.at(i).at(j)) {
             val = max(val, Recur(i, j - 1) + 1);
         }
-        if (i + 1 != m_n && m_a[i + 1][j] > m_a[i][j]) {
+        if (i + 1 != m_n && m_a.at(i + 1).at(j) > m_a.at(i).at(j)) {
             val = max(val, Recur(i + 1, j) + 1);
         }
-        if (j + 1 != m_m && m_a[i][j + 1] > m_a[i][j]) {
+        if (j + 1 != m_m && m_a.at(i).at(j + 1) > m_a.at(i).at(j)) {
             val = max(val, Recur(i, j + 1) + 1);
         }
         return m_dp[i][j] = val;
     }
     int LongestIncreasingPath(vector<vector<int>>& matrix) {
         this->m_a = matrix;
-        m_n = matrix.size();
-        m_m = matrix[0].size();
+        m_n = static_cast<int>(matrix.size());
+        m_m = static_cast<int>(matrix.at(0).size());
         int ans = 0;
         memset(m_dp, -1, sizeof(m_dp));
         for (int i = 0; i < m_n; i++) {

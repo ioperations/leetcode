@@ -34,8 +34,8 @@ class Solution {
             1 <= m, n <= 6
             1 <= word.length <= 15
         */
-        for (size_t i = 0; i < board.size(); i++) {
-            for (size_t j = 0; j < board[0].size(); j++) {
+        for (int i = 0; i < static_cast<int>(board.size()); i++) {
+            for (int j = 0; j < static_cast<int>(board.at(0).size()); j++) {
                 if (ExistV(board, i, j, word)) {
                     return true;
                 }
@@ -52,11 +52,11 @@ class Solution {
         std::map<std::pair<int, int>, std::set<std::pair<int, int>>> next;
         // 这个点已经被走过了
         vector<vector<bool>> route(board.size(),
-                                   vector<bool>(board[0].size(), false));
-        const int m = board.size();
-        const int n = board[0].size();
+                                   vector<bool>(board.at(0).size(), false));
+        const int m = static_cast<int>(board.size());
+        const int n = static_cast<int>(board.at(0).size());
 
-        if (board[x][y] == word[0]) {
+        if (board.at(x).at(y) == word.at(0)) {
             stack.emplace(x, y);
             // seen.emplace(std::make_pair(x, y));
             route[x][y] = true;
@@ -65,69 +65,69 @@ class Solution {
         }
 
         int word_it = 1;
-        while (stack.size() && word_it < (int)word.size()) {
-            // navigate to next
-            bool set = false;
+        while (stack.size() && word_it < static_cast<int>(word.size())) {
+          // navigate to next
+          bool set = false;
 
-            auto [x, y] = stack.top();
+          auto [x, y] = stack.top();
 
-            int readllyx = 0;
-            int readllyy = 0;
-            if (route[x][y] == false) {
-                if (x > 1) {
-                    if (next[make_pair(x, y)].count(make_pair(x - 1, y)) == 0 &&
-                        board[x - 1][y] == word[word_it]) {
-                        // next[make_pair(x, y)].emplace(make_pair(x - 1, y));
-                        stack.emplace(x - 1, y);
-                        set = true;
-                        word_it++;
-                        readllyx = x - 1;
-                        readllyy = y;
-                    }
-                }
-                if (x < m - 1) {
-                    if (next[make_pair(x, y)].count(make_pair(x + 1, y)) == 0 &&
-                        board[x + 1][y] == word[word_it]) {
-                        // next[make_pair(x, y)].emplace(make_pair(x + 1, y));
-                        stack.emplace(x + 1, y);
-                        set = true;
-
-                        readllyx = x + 1;
-                        readllyy = y;
-                    }
-                }
-                if (y > 1) {
-                    if (next[make_pair(x, y)].count(make_pair(x, y - 1)) == 0 &&
-                        board[x][y - 1] == word[word_it]) {
-                        // next[make_pair(x, y)].emplace(make_pair(x, y - 1));
-                        stack.emplace(x, y - 1);
-                        set = true;
-
-                        readllyx = x;
-                        readllyy = y - 1;
-                    }
-                }
-                if (y < n - 1) {
-                    if (next[make_pair(x, y)].count(make_pair(x, y + 1)) == 0 &&
-                        board[x][y + 1] == word[word_it]) {
-                        // next[make_pair(x, y)].emplace(make_pair(x, y + 1));
-                        stack.emplace(x, y + 1);
-                        set = true;
-
-                        readllyx = x;
-                        readllyy = y + 1;
-                    }
-                }
-            }
-            if (!set) {
-                stack.pop();
-                route[x][y] = true;
-                word_it--;
-            } else {
-                next[make_pair(x, y)].emplace(readllyx, readllyy);
-                // route[readllyx][readllyy] = true;
+          int readllyx = 0;
+          int readllyy = 0;
+          if (route[x][y] == false) {
+            if (x > 1) {
+              if (next[make_pair(x, y)].count(make_pair(x - 1, y)) == 0 &&
+                  board.at(x - 1).at(y) == word.at(word_it)) {
+                // next[make_pair(x, y)].emplace(make_pair(x - 1, y));
+                stack.emplace(x - 1, y);
+                set = true;
                 word_it++;
+                readllyx = x - 1;
+                readllyy = y;
+              }
             }
+            if (x < m - 1) {
+              if (next[make_pair(x, y)].count(make_pair(x + 1, y)) == 0 &&
+                  board.at(x + 1).at(y) == word.at(word_it)) {
+                // next[make_pair(x, y)].emplace(make_pair(x + 1, y));
+                stack.emplace(x + 1, y);
+                set = true;
+
+                readllyx = x + 1;
+                readllyy = y;
+              }
+            }
+            if (y > 1) {
+              if (next[make_pair(x, y)].count(make_pair(x, y - 1)) == 0 &&
+                  board.at(x).at(y - 1) == word.at(word_it)) {
+                // next[make_pair(x, y)].emplace(make_pair(x, y - 1));
+                stack.emplace(x, y - 1);
+                set = true;
+
+                readllyx = x;
+                readllyy = y - 1;
+              }
+            }
+            if (y < n - 1) {
+              if (next[make_pair(x, y)].count(make_pair(x, y + 1)) == 0 &&
+                  board.at(x).at(y + 1) == word.at(word_it)) {
+                // next[make_pair(x, y)].emplace(make_pair(x, y + 1));
+                stack.emplace(x, y + 1);
+                set = true;
+
+                readllyx = x;
+                readllyy = y + 1;
+              }
+            }
+          }
+          if (!set) {
+            stack.pop();
+            route[x][y] = true;
+            word_it--;
+          } else {
+            next[make_pair(x, y)].emplace(readllyx, readllyy);
+            // route[readllyx][readllyy] = true;
+            word_it++;
+          }
         }
 
         if (word_it == static_cast<int>(word.size())) {
@@ -139,7 +139,8 @@ class Solution {
    private:
     vector<char> m_s;
     int m_expect_size = 0;
-    int m_row{}, m_col{}, m_index = 0, m_dir[5] = {1, 0, -1, 0, 1};
+    int m_row{}, m_col{}, m_index = 0;
+    std::array<int, 5> m_dir = {1, 0, -1, 0, 1};
     bool m_decision = false;
 
    public:
@@ -149,17 +150,17 @@ class Solution {
 
     void Backtrack(int i, int j, vector<vector<char>>& board,
                    const string& word) {
-        if (m_index >= (int)word.size()) return;   // base-case
-        if (word[m_index] != board[i][j]) return;  // search pruning
+      if (m_index >= static_cast<int>(word.size())) return;  // base-case
+      if (word.at(m_index) != board.at(i).at(j)) return;              // search pruning
 
-        m_s[m_index] = board[i][j];  // make move
-        board[i][j] = '?';
-        m_index++;
+      m_s.at(m_index) = board.at(i).at(j);  // make move
+      board[i][j] = '?';
+      m_index++;
 
-        if (m_index == m_expect_size &&
-            std::string_view(m_s.data(), m_index) == word) {
-            m_decision = true;  // record solution
-        }
+      if (m_index == m_expect_size &&
+          std::string_view(m_s.data(), m_index) == word) {
+        m_decision = true;  // record solution
+      }
 
         for (int k = 0; k < 4; k++) {
             if (IsSafe(i + m_dir[k], j + m_dir[k + 1])) {
@@ -167,19 +168,19 @@ class Solution {
             }
         }
 
-        board[i][j] = m_s[m_index - 1];  // undo move
+        board[i][j] = m_s.at(m_index - 1);  // undo move
         // m_s.pop_back();
         m_index--;
     }
 
     bool Exist(vector<vector<char>>& board, const string& word) {
         // apply dfs from all starting characters in board
-        m_expect_size = word.size();
+        m_expect_size = static_cast<int>(word.size());
         m_s.resize(m_expect_size);
-        m_row = board.size(), m_col = board[0].size();
+        m_row = static_cast<int>(board.size()), m_col = static_cast<int>(board.at(0).size());
         for (int i = 0; i < m_row; i++) {
             for (int j = 0; j < m_col; j++) {
-                if (board[i][j] == word[0]) {
+                if (board.at(i).at(j) == word.at(0)) {
                     Backtrack(i, j, board, word);
                 }
             }
@@ -191,9 +192,9 @@ class Solution {
 class SolutionV2 {
    public:
     bool Exist(vector<vector<char>>& board, const string& word) {
-        const int m = board.size();
+        const int m = static_cast<int>(board.size());
         if (m == 0) return false;
-        const int n = board[0].size();
+        const int n = static_cast<int>(board.at(0).size());
 
         vector<vector<bool>> visited(m, vector<bool>(n, false));
 
@@ -209,43 +210,49 @@ class SolutionV2 {
              vector<vector<bool>>& visited, const string& word) {
         // int step[4][2] = {{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
 
-        stack<std::array<int, 4>> stack;
-        stack.push({i, j, 0, 0});
+        stack<std::array<int, 4>> st;
+        st.push({i, j, 0, 0});
 
-        while (!stack.empty()) {
-            const auto& top = stack.top();
+        while (!st.empty()) {
+            const auto& top = st.top();
             const int i = top[0];
             const int j = top[1];
             const int pos = top[2];
             const int dir = top[3];
             visited[i][j] = true;
-            stack.pop();
-            stack.push({i, j, pos, dir + 1});
+            st.pop();
+            st.push({i, j, pos, dir + 1});
 
-            if (pos == static_cast<int>(word.size()) - 1 && word[pos] == board[i][j]) {
+            if (pos == static_cast<int>(word.size()) - 1 && word.at(pos) == board.at(i).at(j)) {
                 return true;
             }
 
-            if (word[pos] != board[i][j]) {
-                stack.pop();
+            if (word.at(pos) != board.at(i).at(j)) {
+                st.pop();
                 visited[i][j] = false;
                 continue;
             }
 
             if (dir == 0) {
-                if (i - 1 >= 0 && !visited[i - 1][j])
-                    stack.push({i - 1, j, pos + 1, 0});
+              if (i - 1 >= 0 && !visited[i - 1][j]) {
+                st.push({i - 1, j, pos + 1, 0});
+              }
             } else if (dir == 1) {
-                if (j - 1 >= 0 && !visited[i][j - 1])
-                    stack.push({i, j - 1, pos + 1, 0});
+              if (j - 1 >= 0 && !visited[i][j - 1]) {
+                st.push({i, j - 1, pos + 1, 0});
+              }
             } else if (dir == 2) {
-                if (i + 1 < (int)board.size() && !visited[i + 1][j])
-                    stack.push({i + 1, j, pos + 1, 0});
+              if (i + 1 < static_cast<int>(board.size()) &&
+                  !visited[i + 1][j]) {
+                st.push({i + 1, j, pos + 1, 0});
+              }
             } else if (dir == 3) {
-                if (j + 1 < (int)board[0].size() && !visited[i][j + 1])
-                    stack.push({i, j + 1, pos + 1, 0});
+              if (j + 1 < static_cast<int>(board.at(0).size()) &&
+                  !visited[i][j + 1]) {
+                st.push({i, j + 1, pos + 1, 0});
+              }
             } else {
-                stack.pop();
+                st.pop();
                 visited[i][j] = false;
             }
         }
@@ -258,36 +265,37 @@ class SolutionV3 {
    public:
     bool Exist(vector<vector<char>>& board, const string& word) {
         if (board.empty() || word.empty()) return false;
-        m = board.size();
-        n = board[0].size();
-        if ((int)word.size() > m * n) return false;
+        m_m = static_cast<int>(board.size());
+        m_n = static_cast<int>(board.at(0).size());
+        if (static_cast<int>(word.size()) > m_m * m_n) return false;
 
-        for (int i = 0; i < m; i++) {
-            for (int j = 0; j < n; j++) {
-                if (board[i][j] == word[0]) {
-                    vector<vector<bool>> visited(m, vector<bool>(n, false));
-                    if (Dfs(i, j, 0, board, visited, word)) return true;
-                }
+        for (int i = 0; i < m_m; i++) {
+          for (int j = 0; j < m_n; j++) {
+            if (board.at(i).at(j) == word.at(0)) {
+              vector<vector<bool>> visited(m_m, vector<bool>(m_n, false));
+              if (Dfs(i, j, 0, board, visited, word)) return true;
             }
+          }
         }
         return false;
     }
 
    private:
-    int m, n;
-    int dirs[5] = {0, 1, 0, -1, 0};
+    int m_m{}, m_n{};
+    std::array<int, 5> m_dirs = {0, 1, 0, -1, 0};
 
     bool Dfs(int i, int j, int pos, vector<vector<char>>& board,
              vector<vector<bool>>& visited, const string& word) {
-        if (pos == (int)word.size()) return true;
-        if (i < 0 || j < 0 || i >= m || j >= n) return false;
-        if (visited[i][j] || board[i][j] != word[pos]) return false;
+      if (pos == static_cast<int>(word.size())) return true;
+      if (i < 0 || j < 0 || i >= m_m || j >= m_n) return false;
+      if (visited[i][j] || board.at(i).at(j) != word.at(pos)) return false;
 
-        visited[i][j] = true;
-        for (int k = 0; k < 4; k++) {
-            if (Dfs(i + dirs[k], j + dirs[k + 1], pos + 1, board, visited,
-                    word))
-                return true;
+      visited[i][j] = true;
+      for (int k = 0; k < 4; k++) {
+        if (Dfs(i + m_dirs[k], j + m_dirs[k + 1], pos + 1, board, visited,
+                word)) {
+          return true;
+        }
         }
         visited[i][j] = false;
         return false;
@@ -438,43 +446,43 @@ int main(int argc, char* argv[]) {
 
 #include <benchmark/benchmark.h>
 
-static void BenchMark_Solution(benchmark::State& state) {
-    std::vector<std::vector<char>> board = {
-        {'A', 'A', 'A', 'A', 'A', 'A'}, {'A', 'A', 'A', 'A', 'A', 'A'},
-        {'A', 'A', 'A', 'A', 'A', 'A'}, {'A', 'A', 'A', 'A', 'A', 'A'},
-        {'A', 'A', 'A', 'A', 'A', 'A'}, {'A', 'A', 'A', 'A', 'A', 'A'}};
-    const std::string word = "AAAAAAAAAAAAAAB";
-    for (auto _ : state) {
-        Solution s;
-        s.Exist(board, word);
-    }
+static void BenchMarkSolution(benchmark::State& state) {
+  std::vector<std::vector<char>> board = {
+      {'A', 'A', 'A', 'A', 'A', 'A'}, {'A', 'A', 'A', 'A', 'A', 'A'},
+      {'A', 'A', 'A', 'A', 'A', 'A'}, {'A', 'A', 'A', 'A', 'A', 'A'},
+      {'A', 'A', 'A', 'A', 'A', 'A'}, {'A', 'A', 'A', 'A', 'A', 'A'}};
+  const std::string word = "AAAAAAAAAAAAAAB";
+  for (auto _ : state) {
+    Solution s;
+    s.Exist(board, word);
+  }
 }
-BENCHMARK(BenchMark_Solution);
+BENCHMARK(BenchMarkSolution);
 
-static void BenchMark_SolutionV2(benchmark::State& state) {
-    std::vector<std::vector<char>> board = {
-        {'A', 'A', 'A', 'A', 'A', 'A'}, {'A', 'A', 'A', 'A', 'A', 'A'},
-        {'A', 'A', 'A', 'A', 'A', 'A'}, {'A', 'A', 'A', 'A', 'A', 'A'},
-        {'A', 'A', 'A', 'A', 'A', 'A'}, {'A', 'A', 'A', 'A', 'A', 'A'}};
-    const std::string word = "AAAAAAAAAAAAAAB";
-    for (auto _ : state) {
-        SolutionV2 s;
-        s.Exist(board, word);
-    }
+static void BenchMarkSolutionV2(benchmark::State& state) {
+  std::vector<std::vector<char>> board = {
+      {'A', 'A', 'A', 'A', 'A', 'A'}, {'A', 'A', 'A', 'A', 'A', 'A'},
+      {'A', 'A', 'A', 'A', 'A', 'A'}, {'A', 'A', 'A', 'A', 'A', 'A'},
+      {'A', 'A', 'A', 'A', 'A', 'A'}, {'A', 'A', 'A', 'A', 'A', 'A'}};
+  const std::string word = "AAAAAAAAAAAAAAB";
+  for (auto _ : state) {
+    SolutionV2 s;
+    s.Exist(board, word);
+  }
 }
-BENCHMARK(BenchMark_SolutionV2);
+BENCHMARK(BenchMarkSolutionV2);
 
-static void BenchMark_SolutionV3(benchmark::State& state) {
-    std::vector<std::vector<char>> board = {
-        {'A', 'A', 'A', 'A', 'A', 'A'}, {'A', 'A', 'A', 'A', 'A', 'A'},
-        {'A', 'A', 'A', 'A', 'A', 'A'}, {'A', 'A', 'A', 'A', 'A', 'A'},
-        {'A', 'A', 'A', 'A', 'A', 'A'}, {'A', 'A', 'A', 'A', 'A', 'A'}};
-    const std::string word = "AAAAAAAAAAAAAAB";
-    for (auto _ : state) {
-        SolutionV3 s;
-        s.Exist(board, word);
-    }
+static void BenchMarkSolutionV3(benchmark::State& state) {
+  std::vector<std::vector<char>> board = {
+      {'A', 'A', 'A', 'A', 'A', 'A'}, {'A', 'A', 'A', 'A', 'A', 'A'},
+      {'A', 'A', 'A', 'A', 'A', 'A'}, {'A', 'A', 'A', 'A', 'A', 'A'},
+      {'A', 'A', 'A', 'A', 'A', 'A'}, {'A', 'A', 'A', 'A', 'A', 'A'}};
+  const std::string word = "AAAAAAAAAAAAAAB";
+  for (auto _ : state) {
+    SolutionV3 s;
+    s.Exist(board, word);
+  }
 }
-BENCHMARK(BenchMark_SolutionV3);
+BENCHMARK(BenchMarkSolutionV3);
 
 BENCHMARK_MAIN();

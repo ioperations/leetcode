@@ -33,7 +33,7 @@ class Solution {
         // 1 <= n <= 300
 
         // int i = 0, j = 0;
-        int const n = matrix.size();
+        int const n = static_cast<int>(matrix.size());
 
         std::set<std::pair<int, int>> visited;
         visited.emplace(0, 0);
@@ -45,7 +45,7 @@ class Solution {
         };
         std::function<bool(pair<int, int>, pair<int, int>)> const mycompaire =
             [&matrix](pair<int, int> a, pair<int, int> b) -> bool {
-            return matrix[a.first][a.second] > matrix[b.first][b.second];
+            return matrix.at(a.first).at(a.second) > matrix.at(b.first).at(b.second);
         };
 
         std::priority_queue<pair<int, int>, std::vector<pair<int, int>>, Tt> q;
@@ -58,13 +58,13 @@ class Solution {
         }
 
         // std::function<int()> geMinAndAdvance = [&]() -> int { return 0; };
-        int ret = matrix[0][0];
+        int ret = matrix.at(0).at(0);
 
         for (int i = 1; i < k; i++) {
             // ret = getMinAndAdvance();
             auto [a, b] = q.top();
             q.pop();
-            ret = matrix[a][b];
+            ret = matrix.at(a).at(b);
             if (a < (n - 1)) {
                 if (!visited.count(make_pair(a + 1, b))) {
                     q.emplace(a + 1, b);
@@ -86,15 +86,15 @@ class Solution {
         priority_queue<pair<int, pair<int, int>>,
                        vector<pair<int, pair<int, int>>>, greater<>>
             pq;
-        int const n = matrix.size();
+        int const n = static_cast<int>(matrix.size());
         int cnt = 0;
-        for (int i = 0; i < n; i++) pq.push({matrix[i][0], {i, 0}});
+        for (int i = 0; i < n; i++) pq.push({matrix.at(i).at(0), {i, 0}});
         while (pq.size() != 0) {
             auto t = pq.top();
             pq.pop();
             int val = t.first, i = t.second.first, j = t.second.second;
             if (++cnt == k) return val;
-            if (j + 1 < n) pq.push({matrix[i][j + 1], {i, j + 1}});
+            if (j + 1 < n) pq.push({matrix.at(i).at(j + 1), {i, j + 1}});
         }
         return -1;
     }
@@ -106,15 +106,15 @@ class Solution {
     int KthSmallestOn2(vector<vector<int>>& matrix, int k) {
         // pass
 
-        vector<int> z(matrix.size() * matrix.size(), 0);
+        vector<int> z(static_cast<int>(matrix.size()) * static_cast<int>(matrix.size()), 0);
         for (int i = 0; i < static_cast<int>(matrix.size()); i++) {
             for (int j = 0; j < static_cast<int>(matrix.size()); j++) {
-                z[i + j] = matrix[i][j];
+                z.at(i + j) = matrix.at(i).at(j);
             }
         }
 
         sort(z.begin(), z.end());
-        return z[k - 1];
+        return z.at(k - 1);
         return 0;
     }
 };

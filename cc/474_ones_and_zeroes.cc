@@ -28,8 +28,8 @@ class Solution {
         vector<vector<vector<int>>> arr(
             strings.size(), vector<vector<int>>(m + 1, vector<int>(n + 1)));
 
-        for (int i = 0; i < (int)strings.size(); i++) {
-            string now = strings[i];
+        for (int i = 0; i < static_cast<int>(strings.size()); i++) {
+            string now = strings.at(i);
             int const zeros = count(now.begin(), now.end(), '0');
             int const ones = count(now.begin(), now.end(), '1');
 
@@ -47,7 +47,7 @@ class Solution {
             }
         }
 
-        return arr[strings.size() - 1][m][n];
+        return arr.at(strings.size() - 1).at(m).at(n);
     }
     int FindMaxFormV1(vector<std::string>& strs, int m, int n) {
         // pass
@@ -58,7 +58,7 @@ class Solution {
             // int first = std::count(ptr.begin(), ptr.end(), [](const char c) {
             // return c == '1'; });
             int const first = 0;
-            int const second = ptr.size() - first;
+            int const second = static_cast<int>(ptr.size()) - first;
             strs_count.emplace_back(first, second);
         }
 

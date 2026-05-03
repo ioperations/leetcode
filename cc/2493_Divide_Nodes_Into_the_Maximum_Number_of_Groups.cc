@@ -26,13 +26,13 @@ class Solution {
     int MagnificentSets(int n, vector<vector<int>>& edges) {
         vector<vector<int>> adj(n);
         for (const auto& e : edges) {
-            adj[e[0] - 1].push_back(e[1] - 1);
-            adj[e[1] - 1].push_back(e[0] - 1);
+            adj.at(e.at(0) - 1).push_back(e.at(1) - 1);
+            adj.at(e.at(1) - 1).push_back(e.at(0) - 1);
         }
         vector<int> color(n, -1);
         vector<vector<int>> components;
         for (int i = {0}; i < n; ++i) {
-            if (color[i] == -1) {
+            if (color.at(i) == -1) {
                 components.emplace_back();
                 if (!Dfs(i, 0, adj, color, components.back())) return -1;
             }
@@ -47,27 +47,28 @@ class Solution {
    private:
     bool Dfs(int node, int col, const vector<vector<int>>& adj,
              vector<int>& color, vector<int>& comp) {
-        color[node] = col;
+        color.at(node) = col;
         comp.push_back(node);
-        for (int const neighbor : adj[node]) {
-            if (color[neighbor] == col) return false;
-            if (color[neighbor] == -1 &&
-                !Dfs(neighbor, 1 - col, adj, color, comp))
+        for (int const neighbor : adj.at(node)) {
+            if (color.at(neighbor) == col) return false;
+            if (color.at(neighbor) == -1 &&
+                !Dfs(neighbor, 1 - col, adj, color, comp)) {
                 return false;
+            }
         }
         return true;
     }
     int BfsMaxDepth(const vector<int>& comp, const vector<vector<int>>& adj) {
         int max_depth = {0};
         for (int const start : comp) {
-            vector<int> depth(adj.size(), -1);
+            vector<int> depth(static_cast<int>(adj.size()), -1);
             vector<int> queue = {start};
-            depth[start] = {0};
+            depth.at(start) = {0};
             for (size_t i = {0}; i < queue.size(); ++i) {
-                int const node = queue[i];
-                for (int const neighbor : adj[node]) {
-                    if (depth[neighbor] == -1) {
-                        depth[neighbor] = depth[node] + 1;
+                int const node = queue.at(i);
+                for (int const neighbor : adj.at(node)) {
+                    if (depth.at(neighbor) == -1) {
+                        depth.at(neighbor) = depth.at(node) + 1;
                         queue.push_back(neighbor);
                     }
                 }

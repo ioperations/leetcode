@@ -30,14 +30,14 @@ namespace {
 class Solution {
    public:
     int NumIslands(vector<vector<char>>& grid) {
-        int const rows = grid.size();                // rows
-        int const cols = rows ? grid[0].size() : 0;  // cols
+        int const rows = static_cast<int>(grid.size());                // rows
+        int const cols = rows ? static_cast<int>(grid.at(0).size()) : 0;  // cols
         int islands = 0;
         vector<int> offsets{0, 1, 0, -1, 0};
         for (int i = 0; i < rows; ++i) {
             for (int j = 0; j < cols; ++j) {
                 // cout << "checking: " << i << "," << j << "\n";
-                if (grid[i][j] == '1') {
+                if (grid.at(i).at(j) == '1') {
                     ++islands;
                     // cout << "visited top: " << i << "," << j << "\n";
                     //  mark loc as visited
@@ -51,10 +51,10 @@ class Solution {
                         neighbors.pop();
                         // iterate thru offsets
                         for (size_t k = 0; k < offsets.size() - 1; k++) {
-                            int const r = p.first + offsets[k];
-                            int const c = p.second + offsets[k + 1];
+                            int const r = p.first + offsets.at(k);
+                            int const c = p.second + offsets.at(k + 1);
                             if (r >= 0 && r < rows && c >= 0 && c < cols &&
-                                grid[r][c] == '1') {
+                                grid.at(r).at(c) == '1') {
                                 // cout << "visited within: " << r << "," << c
                                 // << "\n";
                                 //  mark as visited
@@ -71,14 +71,14 @@ class Solution {
 
     // DFS
     int NumIslandsDFS(vector<vector<char>>& grid) {
-        auto rows = grid.size();
-        auto cols = grid[0].size();
+        auto rows = static_cast<int>(grid.size());
+        auto cols = static_cast<int>(grid.at(0).size());
 
         int islands = 0;
 
-        for (size_t r = 0; r < rows; ++r) {
-            for (size_t c = 0; c < cols; ++c) {
-                if (grid[r][c] == '1') {
+        for (int r = 0; r < rows; ++r) {
+            for (int c = 0; c < cols; ++c) {
+                if (grid.at(r).at(c) == '1') {
                     ++islands;
                     Dfs(grid, r, c);
                 }
@@ -87,19 +87,19 @@ class Solution {
         return islands;
     }
     void Dfs(vector<vector<char>>& grid, int r, int c) {
-        int const rows = grid.size();
-        int const cols = grid[0].size();
+        int const rows = static_cast<int>(grid.size());
+        int const cols = static_cast<int>(grid.at(0).size());
         vector<vector<int>> const offsets = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
 
         // mark 1st loc 0
         grid[r][c] = '0';
         for (auto off : offsets) {
-            int const r_x = r + off[0];
-            int const c_x = c + off[1];
+            int const r_x = r + off.at(0);
+            int const c_x = c + off.at(1);
             // cout << "r_: " << r_ << "\n";
             // cout << "c_: " << c_ << "\n";
             if (r_x >= 0 && r_x < rows && c_x >= 0 && c_x < cols &&
-                grid[r_x][c_x] == '1') {
+                grid.at(r_x).at(c_x) == '1') {
                 Dfs(grid, r_x, c_x);
             }
         }
@@ -107,12 +107,12 @@ class Solution {
 
     void DfsUsingStack(const vector<vector<char>>& grid,
                        vector<vector<bool>>& visit, int i, int j) {
-        stack<pair<int, int>> stack;
-        stack.emplace(i, j);
-        while (stack.size()) {
-            auto [i, j] = stack.top();
-            stack.pop();
-            if (i < 0 || j < 0 || i >= grid.size() || j >= grid[0].size()) {
+        stack<pair<int, int>> st;
+        st.emplace(i, j);
+        while (st.size()) {
+            auto [i, j] = st.top();
+            st.pop();
+            if (i < 0 || j < 0 || i >= static_cast<int>(grid.size()) || j >= static_cast<int>(grid.at(0).size())) {
                 continue;
             }
 
@@ -120,21 +120,21 @@ class Solution {
                 continue;
             }
             visit[i][j] = true;
-            stack.emplace(i + 1, j);
-            stack.emplace(i - 1, j);
-            stack.emplace(i, j + 1);
-            stack.emplace(i, j - 1);
+            st.emplace(i + 1, j);
+            st.emplace(i - 1, j);
+            st.emplace(i, j + 1);
+            st.emplace(i, j - 1);
         }
     }
 
     void BfsUsingQueue(const vector<vector<char>>& grid,
                        vector<vector<bool>>& visit, int i, int j) {
-        queue<pair<int, int>> queue;
-        queue.emplace(i, j);
-        while (queue.size()) {
-            auto [i, j] = queue.front();
-            queue.pop();
-            if (i < 0 || j < 0 || i >= grid.size() || j >= grid[0].size()) {
+        queue<pair<int, int>> q;
+        q.emplace(i, j);
+        while (q.size()) {
+            auto [i, j] = q.front();
+            q.pop();
+            if (i < 0 || j < 0 || i >= static_cast<int>(grid.size()) || j >= static_cast<int>(grid.at(0).size())) {
                 continue;
             }
 
@@ -142,10 +142,10 @@ class Solution {
                 continue;
             }
             visit[i][j] = true;
-            queue.emplace(i + 1, j);
-            queue.emplace(i - 1, j);
-            queue.emplace(i, j + 1);
-            queue.emplace(i, j - 1);
+            q.emplace(i + 1, j);
+            q.emplace(i - 1, j);
+            q.emplace(i, j + 1);
+            q.emplace(i, j - 1);
         }
     }
 };

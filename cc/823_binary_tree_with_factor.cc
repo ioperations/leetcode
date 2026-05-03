@@ -34,19 +34,19 @@ class Solution {
         // 表示从index对应的arr的值作为顶开始，向左走，能有多少组合
         function<int(int)> fun = [&](int index) -> int {
             // pass
-            if (m_cache.count(index)) return m_cache[index];
+            if (m_cache.count(index)) return m_cache.at(index);
             int num = 1;
             for (int i = 0; i < index; i++) {
-                if ((arr[index] % arr[i]) == 0 &&
-                    set.count(arr[index] / arr[i])) {
-                    num += fun(i) * fun(arr[index] / arr[i]);
+                if ((arr.at(index) % arr.at(i)) == 0 &&
+                    set.count(arr.at(index) / arr.at(i))) {
+                    num += fun(i) * fun(arr.at(index) / arr.at(i));
                 }
             }
             return m_cache[index] = num;
         };
 
         int ret = 0;
-        for (int i = 0; i < (int)arr.size(); i++) {
+        for (int i = 0; i < static_cast<int>(arr.size()); i++) {
             ret += fun(i);
         }
         return ret;
@@ -54,22 +54,22 @@ class Solution {
     const int m_mod = 1e9 + 7;
     int V2(vector<int>& arr) {
         sort(arr.begin(), arr.end());
-        int const n = arr.size();
+        int const n = static_cast<int>(arr.size());
 
         vector<int> dp(n, 1);
 
         for (int i = 1; i < n; i++) {
             int l = 0, r = i - 1;
             while (l <= r) {
-                if (arr[l] * 1LL * arr[r] == arr[i] * 1LL) {
+                if (arr.at(l) * 1LL * arr.at(r) == arr.at(i) * 1LL) {
                     if (l != r)
                         dp[i] = (dp[i] +
-                                 (dp[l] * 1LL * dp[r] % m_mod * 2LL % m_mod)) %
+                                 (dp.at(l) * 1LL * dp.at(r) % m_mod * 2LL % m_mod)) %
                                 m_mod;
                     else
-                        dp[i] = (dp[i] + (dp[l] * 1LL * dp[r] % m_mod)) % m_mod;
+                        dp[i] = (dp[i] + (dp.at(l) * 1LL * dp.at(r) % m_mod)) % m_mod;
                     l++, r--;
-                } else if (arr[l] * 1LL * arr[r] > arr[i] * 1LL)
+                } else if (arr.at(l) * 1LL * arr.at(r) > arr.at(i) * 1LL)
                     r--;
                 else
                     l++;

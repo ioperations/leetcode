@@ -59,19 +59,19 @@ class Solution {
                                         // pill. Needs to be in descending order
 
         while (t < static_cast<int>(tasks.size())) {
-            while (w < static_cast<int>(workers.size()) && workers[w] == -1)
+            while (w < static_cast<int>(workers.size()) && workers.at(w) == -1)
                 w++;  // Find next worker that has not already been processed
 
             if (w >= static_cast<int>(workers
                          .size()))  // If we've run out of workers, look to see
                                    // if any in the queue can solve the task.
             {
-                if (!workers_q.empty() && workers_q.top() > tasks[t]) {
+                if (!workers_q.empty() && workers_q.top() > tasks.at(t)) {
                     workers_q.pop();
                     completed_tasks++;
                 }
-            } else if (workers[w] >=
-                       tasks[t])  // If the current worker can solve the task
+            } else if (workers.at(w) >=
+                       tasks.at(t))  // If the current worker can solve the task
                                   // without a pill, use her.
             {
                 workers[w] = -1;
@@ -82,43 +82,43 @@ class Solution {
                                     // solve the task with a pill
                 {
                     // Find first worker that can't do task with pill
-                    while (wp < (int)workers.size() &&
-                           (workers[wp] == -1 ||
-                            workers[wp] + strength >= tasks[t])) {
+                    while (wp < static_cast<int>(workers.size()) &&
+                           (workers.at(wp) == -1 ||
+                            workers.at(wp) + strength >= tasks.at(t))) {
                         wp++;
                     }
 
                     // All tasks can now be completed by all workers with pill
-                    if (wp == (int)workers.size()) {
+                    if (wp == static_cast<int>(workers.size())) {
                         b_search_down = false;
-                        wp = workers.size() - 1;
+                        wp = static_cast<int>(workers.size()) - 1;
                     }
                 }
 
                 // Iterate up till we find a worker that has not been processed
                 // and can complete the task. Should be the next valid worker.
-                while (wp >= (int)workers.size() ||
-                       (wp > w && (workers[wp] == -1 ||
-                                   workers[wp] + strength < tasks[t]))) {
+                while (wp >= static_cast<int>(workers.size()) ||
+                       (wp > w && (workers.at(wp) == -1 ||
+                                   workers.at(wp) + strength < tasks.at(t)))) {
                     wp--;
                 }
 
                 // If we have equal or more workers assigned to the queue than
                 // pills, see if we can pull one out to finish this task
-                if ((int)workers_q.size() >= pills && !workers_q.empty() &&
-                    workers_q.top() >= tasks[t]) {
+                if (static_cast<int>(workers_q.size()) >= pills && !workers_q.empty() &&
+                    workers_q.top() >= tasks.at(t)) {
                     completed_tasks++;
                     workers_q.pop();
                 }
                 // Can wp worker finish the task?
-                else if (workers[wp] + strength >= tasks[t]) {
-                    workers_q.push(workers[wp]);
+                else if (workers.at(wp) + strength >= tasks.at(t)) {
+                    workers_q.push(workers.at(wp));
                     workers[wp] = -1;
                     wp += b_search_down ? -1 : 1;
                 }
                 // Even if we haven't filled queue, check to see if a worker can
                 // finish a task without a pill (task would be wasted otherwise)
-                else if (!workers_q.empty() && workers_q.top() >= tasks[t]) {
+                else if (!workers_q.empty() && workers_q.top() >= tasks.at(t)) {
                     completed_tasks++;
                     workers_q.pop();
                 }
@@ -130,7 +130,7 @@ class Solution {
         }
 
         return completed_tasks +
-               min((int)workers_q.size(),
+               min(static_cast<int>(workers_q.size()),
                    pills);  // Return number of completed tasks + number of
                             // workers in queue (i.e. number of workers than can
                             // complete a task with a pill.)

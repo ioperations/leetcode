@@ -107,10 +107,10 @@ class WordFilter {
 
 
         */
-        int const len = words.size();
+        int const len = static_cast<int>(words.size());
         for (int i = 0; i < len; i++) {
-            string const str = words[i];
-            int const n = str.size();
+            string const str = words.at(i);
+            int const n = static_cast<int>(str.size());
 
             for (int j = 0; j <= n; j++) {
                 string cur = str.substr(j) + '{' + str;

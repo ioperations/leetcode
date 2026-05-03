@@ -74,7 +74,7 @@ class Solution {
     void Build() {
       for (int i = 0; i < static_cast<int>(m_product.size()); i++) {
         Trie* t = &m_root;
-        for (auto& ptr : m_product[i]) {
+        for (auto& ptr : m_product.at(i)) {
           t = &t->m_ndoe[ptr];
           t->index_array.push_back(i);
         }
@@ -120,8 +120,8 @@ class SolutionV2 {
         vector<int> Search(const string& s) {
           TrieNode const* node = m_root;
           for (int i = 0; i < static_cast<int>(s.length()); i++) {
-            if (!node->m_links[s[i] - 'a']) return {};
-            node = node->m_links[s[i] - 'a'];
+            if (!node->m_links[s.at(i) - 'a']) return {};
+            node = node->m_links[s.at(i) - 'a'];
           }
             return node->m_idx;
         }
@@ -141,10 +141,10 @@ class SolutionV2 {
         vector<vector<string>> res(len);
 
         for (int i = 0; i < static_cast<int>(search_word.length()); i++) {
-          s += search_word[i];
+          s += search_word.at(i);
           vector<int> t = trie.Search(s);
           for (int j = 0; j < min(3, static_cast<int>(t.size())); j++) {
-            res[i].push_back(products[t[j]]);
+            res[i].push_back(products.at(t.at(j)));
           }
         }
 
