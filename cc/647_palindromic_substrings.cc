@@ -9,6 +9,8 @@ A substring is a contiguous sequence of characters within the string.*/
 
 #include <benchmark/benchmark.h>
 
+#include <array>
+#include <cstddef>
 #include <string>
 
 #include "gtest/gtest.h"
@@ -43,15 +45,15 @@ class Solution {
 
     int CountSubstringsV1(string s) {
         int count = 0;
-        int const n = s.size();
+        std::size_t const n = s.size();
         if (n == 1) return 1;
-        bool dp[1001][1001] = {{false}};
+        std::array<std::array<bool, 1001>, 1001> dp = {{{false}}};
         for (int i = 0; i < n; ++i) {
             dp[i][i] = true;
             count++;
         }
-        for (int i = n - 1; i >= 0; --i) {
-            for (int j = i + 1; j < n; ++j) {
+        for (int i = static_cast<int>(n - 1); i >= 0; --i) {
+            for (size_t j = i + 1; j < n; ++j) {
                 if (s[i] == s[j]) {
                     if (j - i == 1 || dp[i + 1][j - 1] == true) {
                         dp[i][j] = true;

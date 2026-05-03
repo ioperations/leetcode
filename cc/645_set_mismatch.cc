@@ -24,7 +24,7 @@ namespace {
 class Solution {
    public:
     vector<int> FindErrorNums(vector<int>& nums) {
-        int const n = nums.size();
+        std::size_t const n = nums.size();
         vector<int> arr(n + 1, 0);
         vector<int> vec;
 
