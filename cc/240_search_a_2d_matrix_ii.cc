@@ -33,20 +33,17 @@ class Solution {
 
     bool SearchMatrix(vector<vector<int>>& matrix, int target) {
         int i = 0;
-        int j = matrix[0].size() - 1;
+        int j = static_cast<int>(matrix.at(0).size()) - 1;
 
-        while (j >= 0 && i < (int)matrix.size()) {
-            // If it matches it will return true
-            if (matrix[i][j] == target) {
+        while (j >= 0 && i < static_cast<int>(matrix.size())) {
+            if (matrix.at(i).at(j) == target) {
                 return true;
             }
 
-            // if we find value is greater than we go to left side
-            if (matrix[i][j] > target) {
+            if (matrix.at(i).at(j) > target) {
                 j--;
             }
 
-            //  value is smaller so go to bottom side
             else {
                 i++;
             }

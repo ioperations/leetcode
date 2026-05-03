@@ -33,7 +33,7 @@ class Solution {
         stack<int> values;
         stack<char> op;
         for (int j = 0; j < i; j++) {
-            char const ch = s[j];
+            char const ch = s.at(j);
             if (ch == '+' or ch == '-') {
                 op.push(ch);
             } else if (ch == '/' or ch == '*') {
@@ -41,9 +41,9 @@ class Solution {
                 values.pop();
                 int nextval = 0;
                 j++;
-                while (s[j] <= '9' and s[j] >= '0') {
+                while (j < i && s.at(j) <= '9' and s.at(j) >= '0') {
                     nextval *= 10;
-                    nextval += static_cast<int>(s[j] - '0');
+                    nextval += static_cast<int>(s.at(j) - '0');
                     j++;
                 }
                 j--;
@@ -55,9 +55,9 @@ class Solution {
 
             } else {
                 int val = 0;
-                while (s[j] <= '9' and s[j] >= '0') {
+                while (j < i && s.at(j) <= '9' and s.at(j) >= '0') {
                     val *= 10;
-                    val += (int)(s[j] - '0');
+                    val += static_cast<int>(s.at(j) - '0');
                     j++;
                 }
                 j--;

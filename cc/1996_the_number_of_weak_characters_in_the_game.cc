@@ -23,19 +23,19 @@ using namespace std;
 namespace {
 class Solution {
     static bool Comp(vector<int>& a, vector<int>& b) {
-        if (a[0] == b[0]) return a[1] > b[1];
-        return a[0] < b[0];
+        if (a.at(0) == b.at(0)) return a.at(1) > b.at(1);
+        return a.at(0) < b.at(0);
     }
 
    public:
     int NumberOfWeakCharacters(vector<vector<int>>& properties) {
-        int const n = properties.size();
+        int const n = static_cast<int>(properties.size());
         sort(properties.begin(), properties.end(), Comp);
         int maxdef{INT_MIN};
         int count = 0;
         for (int i = n - 1; i >= 0; i--) {
-            if (properties[i][1] < maxdef) count++;
-            maxdef = max(maxdef, properties[i][1]);
+            if (properties.at(i).at(1) < maxdef) count++;
+            maxdef = max(maxdef, properties.at(i).at(1));
         }
         return count;
     }

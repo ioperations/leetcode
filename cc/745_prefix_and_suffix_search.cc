@@ -107,7 +107,7 @@ class WordFilter {
         */
         int const len = static_cast<int>(words.size());
         for (int i = 0; i < len; i++) {
-            string const str = words.at(i);
+            string const& str = words.at(i);
             int const n = static_cast<int>(str.size());
 
             for (int j = 0; j <= n; j++) {
@@ -166,7 +166,7 @@ class WordFilterMy {
         }
     }
 
-    int F(string prefix, string suffix) {
+    int F(string const& prefix, string const& suffix) {
         // pass
         PrefixTree* z = &m_root;
         for (auto& ptr : prefix) {
@@ -178,11 +178,12 @@ class WordFilterMy {
         }
         int max = -1;
 
-        int const suffix_size = suffix.size();
-        reverse(suffix.begin(), suffix.end());
+        int const suffix_size = static_cast<int>(suffix.size());
+        string s = suffix;
+        reverse(s.begin(), s.end());
         for (auto& ptr : z->m_n) {
-            if ((int)ptr.m_s.size() >= suffix_size) {
-                if (ptr.m_s.substr(0, suffix_size) == suffix) {
+            if (static_cast<int>(ptr.m_s.size()) >= suffix_size) {
+                if (ptr.m_s.substr(0, suffix_size) == s) {
                     max = std::max(max, ptr.m_index);
                 }
             }

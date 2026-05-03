@@ -62,12 +62,10 @@ class SolutionV2 {
 
         if (l1 != nullptr) {
             curr->next = l1;
-            l1 = l1->next;
         }
 
         if (l2 != nullptr) {
             curr->next = l2;
-            l2 = l2->next;
         }
 
         return ptr->next;

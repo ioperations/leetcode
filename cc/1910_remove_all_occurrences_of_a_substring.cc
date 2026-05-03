@@ -17,23 +17,17 @@ using namespace std;
 class Solution {
    public:
     string RemoveOccurrences(string s, string part) const {
-        // FIXME: not effciency
-        /**
-         * 1 <= s.length <= 1000
-         * 1 <= part.length <= 1000
-         * s and part consists of lowercase English letters.
-         */
-        size_t const size = s.size();
+        int const size = static_cast<int>(s.size());
         vector<bool> exists(size, true);
 
-        size_t const len = part.size();
+        int const len = static_cast<int>(part.size());
         for (int i = 0; i < size; i++) {
             int n = 0;
             for (int j = 0; j < len; j++) {
-                for (; (i + j + n) < size && !exists[i + j + n];) {
+                for (; (i + j + n) < size && !exists.at(i + j + n);) {
                     n++;
                 }
-                if (s[i + j + n] != part[j]) {
+                if ((i + j + n) >= size || s.at(i + j + n) != part.at(j)) {
                     break;
                 }
 
@@ -47,8 +41,8 @@ class Solution {
 
         std::string ret;
         for (int i = 0; i < size; i++) {
-            if (exists[i]) {
-                ret += s[i];
+            if (exists.at(i)) {
+                ret += s.at(i);
             }
         }
 
@@ -56,13 +50,13 @@ class Solution {
     }
 
     void Remove(vector<bool>& exists, int index, int len) const {
-        auto size = exists.size();
+        int const size = static_cast<int>(exists.size());
         int count = 0;
         for (int i = index; i < size; i++) {
-            if (!exists[i]) {
+            if (!exists.at(i)) {
                 continue;
             }
-            exists[i] = false;
+            exists.at(i) = false;
             count++;
             if (count == len) {
                 break;

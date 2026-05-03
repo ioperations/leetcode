@@ -29,15 +29,15 @@ class Solution {
         horizontal_cuts.push_back(0);
         horizontal_cuts.push_back(h);
         sort(horizontal_cuts.begin(), horizontal_cuts.end());
-        for (int i = 1; i < (int)horizontal_cuts.size(); i++) {
-            maxh = max(maxh, horizontal_cuts[i] - horizontal_cuts[i - 1]);
+        for (int i = 1; i < static_cast<int>(horizontal_cuts.size()); i++) {
+            maxh = max(maxh, horizontal_cuts.at(i) - horizontal_cuts.at(i - 1));
         }
 
         vertical_cuts.push_back(0);
         vertical_cuts.push_back(w);
         sort(vertical_cuts.begin(), vertical_cuts.end());
-        for (int i = 1; i < (int)vertical_cuts.size(); i++) {
-            maxv = max(maxv, vertical_cuts[i] - vertical_cuts[i - 1]);
+        for (int i = 1; i < static_cast<int>(vertical_cuts.size()); i++) {
+            maxv = max(maxv, vertical_cuts.at(i) - vertical_cuts.at(i - 1));
         }
         return (1LL * maxh * maxv) %
                1000000007;  // 1LL used to make the product long long or integer

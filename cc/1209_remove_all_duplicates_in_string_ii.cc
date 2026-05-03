@@ -69,10 +69,10 @@ class Solution {
         if (vec.size() == 0) {
             return true;
         }
-        const T& first = vec[0];
+        const T& first = vec.at(0);
 
-        for (int i = 1; i < (int)vec.size(); i++) {
-            if (vec[i] != first) {
+        for (int i = 1; i < static_cast<int>(vec.size()); i++) {
+            if (vec.at(i) != first) {
                 return false;
             }
         }

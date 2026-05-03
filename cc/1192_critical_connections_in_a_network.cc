@@ -31,8 +31,8 @@ class Solution {
                                             vector<vector<int>>& connections) {
         vector<vector<int>> adj(n);
         for (const auto& c : connections) {
-            adj[c[0]].push_back(c[1]);
-            adj[c[1]].push_back(c[0]);
+            adj.at(c.at(0)).push_back(c.at(1));
+            adj.at(c.at(1)).push_back(c.at(0));
         }
 
         vector<vector<int>> result;

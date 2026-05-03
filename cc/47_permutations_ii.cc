@@ -105,7 +105,7 @@ TEST(permutationsiiV2, t2) {
 }
 
 static void BenchMarkStlFunction(benchmark::State& state) {
-    for (auto _ : state) {
+    for (auto&& _ : state) {
         std::vector<int> nums = {1, 2, 3};
         vector<vector<int>> output = {{1, 2, 3}, {1, 3, 2}, {2, 1, 3},
                                       {2, 3, 1}, {3, 1, 2}, {3, 2, 1}};
@@ -121,7 +121,7 @@ static void BenchMarkStlFunction(benchmark::State& state) {
 BENCHMARK(BenchMarkStlFunction);
 
 static void BenchMarkLocalImpl(benchmark::State& state) {
-    for (auto _ : state) {
+    for (auto&& _ : state) {
         std::vector<int> nums = {1, 2, 3};
         vector<vector<int>> output = {{1, 2, 3}, {1, 3, 2}, {2, 1, 3},
                                       {2, 3, 1}, {3, 1, 2}, {3, 2, 1}};

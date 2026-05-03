@@ -23,22 +23,20 @@ namespace {
 class Solution {
    public:
     int UniquePaths(int m, int n) {
-        // pass
 
         std::vector<std::vector<int>> v(m, std::vector<int>(n, 0));
-        // int v[120][120] = {{0}};
 
         std::function<int(int, int)> fun = [&](int i, int j) -> int {
             if (i == m - 1) return 1;
             if (j == n - 1) return 1;
 
-            if (v[i][j] != 0) {
-                return v[i][j];
+            if (v.at(i).at(j) != 0) {
+                return v.at(i).at(j);
             }
 
-            v[i][j] = fun(i + 1, j) + fun(i, j + 1);
+            v.at(i).at(j) = fun(i + 1, j) + fun(i, j + 1);
 
-            return v[i][j];
+            return v.at(i).at(j);
         };
 
         return fun(0, 0);
