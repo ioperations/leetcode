@@ -7,7 +7,7 @@ use ctor::ctor;
 use tracing_subscriber::{fmt, layer::SubscriberExt, util::SubscriberInitExt};
 
 #[cfg(test)]
-#[ctor]
+#[ctor(unsafe)]
 fn register_tracing() {
     tracing_subscriber::registry().with(fmt::layer()).init();
 }
