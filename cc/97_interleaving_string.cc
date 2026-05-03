@@ -37,7 +37,7 @@ class Solution {
         table[0][0] = true;
 
         while (q1.size()) {
-            int tmp1 = q1[0], tmp2 = q2[0];
+            int const tmp1 = q1[0], tmp2 = q2[0];
             if (tmp1 == l1 && tmp2 == l2) return true;
 
             if (tmp1 == l1)

@@ -47,7 +47,7 @@ class NumberContainers {
     int Find(int number) {
         auto it = m_hm.find(number);
         if (it != m_hm.end()) {
-            int idx = std::numeric_limits<int>::max();
+            int idx{std::numeric_limits<int>::max()};
             auto& all = it->second;
             for (auto& ptr : all) {
                 if (ptr < idx) {
@@ -73,7 +73,7 @@ class NumberContainersV2 {
    public:
     void Change(int index, int number) {
         if (m_index_val.count(index)) {
-            int const prev_num = m_index_val[index];
+            int const prev_num{m_index_val[index]};
             if (prev_num == number) return;
             m_res[prev_num].push(INT_MAX);  // Lazy deletion
         }

@@ -21,8 +21,7 @@ class Solution {
    public:
     bool Makesquare(vector<int>& matchsticks) {
         std::sort(matchsticks.begin(), matchsticks.end());
-        int const sum =
-            std::accumulate(matchsticks.begin(), matchsticks.end(), 0);
+        int const sum{std::accumulate(matchsticks.begin(), matchsticks.end(), 0)};
         int const n = matchsticks.size();
 
         if (n == 0) return false;

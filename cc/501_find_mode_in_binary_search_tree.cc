@@ -35,7 +35,7 @@ class Solution {
         if (!root) return sol;
 
         map<int, int> freq;
-        int maxfreq = std::numeric_limits<int>::min();
+        int maxfreq{std::numeric_limits<int>::min()};
 
         stack<TreeNode*> myst;
         myst.push(root);

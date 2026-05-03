@@ -73,8 +73,8 @@ class Solution {
             return dp[n][k];
         }
 
-        int const ans1 = Dyp(n - 1, k, dp, sum_dp);
-        int const ans2 = SumDyp(n - 1, k - 1, dp, sum_dp);
+        int const ans1{Dyp(n - 1, k, dp, sum_dp)};
+        int const ans2{SumDyp(n - 1, k - 1, dp, sum_dp)};
 
         int const ans = ((ans1 % m_mod) + (ans2 % m_mod)) % m_mod;
         dp[n][k] = ans;

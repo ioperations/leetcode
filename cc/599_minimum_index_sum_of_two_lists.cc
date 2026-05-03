@@ -25,7 +25,7 @@ class Solution {
                                   vector<string>& list2) {
         unordered_map<string, int> pos;
         vector<string> ans;
-        int min_sum = INT_MAX;
+        int min_sum{INT_MAX};
         for (int i = 0; i < static_cast<int>(list1.size()); i++) {
             string const key = list1[i];
             pos[key] = i + 1;

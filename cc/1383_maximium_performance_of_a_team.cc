@@ -70,8 +70,8 @@ class Solution {
         // pass
         std::set<int> choose;
         auto calculate = [&](std::set<int>& list) -> int {
-            int sum = 0;
-            int min = std::numeric_limits<int>::max();
+            int sum{0};
+            int min{std::numeric_limits<int>::max()};
 
             for (auto& it : list) {
                 min = std::min(min, efficiency[it]);

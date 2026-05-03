@@ -27,8 +27,8 @@ class Solution {
         stack<int> st;
         st.push(nums[n - 1]);
         //  st.push(nums[n-2]);
-        int second = INT_MIN;
-        int third = INT_MIN;
+        int second{INT_MIN};
+        int third{INT_MIN};
         for (int i = n - 2; i >= 0; i--) {
             if (nums[i] < second) {
                 return true;
