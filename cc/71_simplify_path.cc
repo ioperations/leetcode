@@ -35,7 +35,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    string SimplifyPath(string path) {
+    string SimplifyPath(string path) const {
         // pass
         stack<string> st;
         string res;
@@ -112,7 +112,7 @@ TEST(simplifyV, t1) {
     // Explanation : Note that there is no trailing slash after the last
     // directory name.*
 
-    Solution s;
+    Solution const s;
     auto ret = s.SimplifyPath(path);
     EXPECT_EQ(ret, output);
 }
@@ -122,7 +122,7 @@ TEST(simplifyV, t2) {
     std::string const output = "/";
     // Explanation: Going one level up from the root directory is a no-op, as
     // the root level is the highest level you can go.
-    Solution s;
+    Solution const s;
     auto ret = s.SimplifyPath(path);
     EXPECT_EQ(ret, output);
 }
@@ -132,7 +132,7 @@ TEST(simplifyV, t3) {
     std::string const output = "/home/foo";
     // Explanation: In the canonical path, multiple consecutive slashes are
     // replaced by a single one.
-    Solution s;
+    Solution const s;
     auto ret = s.SimplifyPath(path);
     EXPECT_EQ(ret, output);
 }

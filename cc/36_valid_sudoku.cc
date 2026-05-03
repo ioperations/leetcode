@@ -34,7 +34,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    bool IsValidSudoku(vector<vector<char>>& board) {
+    bool IsValidSudoku(vector<vector<char>>& board) const {
         array<int, 9> rows = {};
         array<int, 9> cols = {};
         array<int, 9> boxes = {};
@@ -71,7 +71,7 @@ TEST(validV, t1) {
         {'.', '.', '.', '.', '8', '.', '.', '7', '9'}};
 
     bool const output = true;
-    Solution sl;
+    Solution const sl;
     bool const ret = sl.IsValidSudoku(board);
     EXPECT_EQ(ret, output);
 }
@@ -89,7 +89,7 @@ TEST(validV, t2) {
         {'.', '.', '.', '.', '8', '.', '.', '7', '9'}};
 
     bool const output = false;
-    Solution sl;
+    Solution const sl;
     bool const ret = sl.IsValidSudoku(board);
     EXPECT_EQ(ret, output);
 }

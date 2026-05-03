@@ -69,7 +69,7 @@ class NestedInteger {
 };
 class Solution {
    public:
-    NestedInteger Deserialize(std::string s) {
+    NestedInteger Deserialize(std::string s) const {
         const function<bool(char)> isnumber = [](char c) {
             return (c == '-') || isdigit(c);
         };
@@ -99,7 +99,7 @@ class Solution {
         return stk.top().GetList().front();
     }
 
-    NestedInteger DeserializeV1(string s) {
+    NestedInteger DeserializeV1(string s) const {
         stack<NestedInteger> stk({NestedInteger()});
         for (size_t i = 0; i < s.size(); ++i) {
             if (s[i] == '[') {
@@ -157,7 +157,7 @@ TEST(miniV, t1) {
     // Explanation: You should return a NestedInteger object which contains
     // a single integer 324.
 
-    Solution sl;
+    Solution const sl;
     auto ret = sl.Deserialize(s);
     EXPECT_EQ(ret.IsInteger(), true);
 
@@ -182,7 +182,7 @@ TEST(miniV, t2) {
     //     ii. A nested list with one element:
     //          a. An integer containing value 789
 
-    Solution sl;
+    Solution const sl;
     // Output: [123,[456,[789]]]
     auto ret = sl.Deserialize(s);
 
@@ -210,7 +210,7 @@ void BenchV1(benchmark::State& state) {
         //     ii. A nested list with one element:
         //          a. An integer containing value 789
 
-        Solution sl;
+        Solution const sl;
         // Output: [123,[456,[789]]]
         auto ret = sl.Deserialize(s);
 
@@ -234,7 +234,7 @@ void BenchV2(benchmark::State& state) {
         //     ii. A nested list with one element:
         //          a. An integer containing value 789
 
-        Solution sl;
+        Solution const sl;
         // Output: [123,[456,[789]]]
         auto ret = sl.DeserializeV1(s);
 

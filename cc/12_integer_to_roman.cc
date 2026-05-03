@@ -40,7 +40,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    string IntToRoman(int num) {
+    string IntToRoman(int num) const {
         int const normal[] = {1000, 900, 500, 400, 100, 90, 50,
                               40,   10,  9,   5,   4,   1};
         int const size = sizeof(normal) / sizeof(int);
@@ -62,7 +62,7 @@ TEST(IntegerToRoman, t1) {
     const int num = 3;
     const string output = "III";
     // Explanation: 3 is represented as 3 ones.
-    Solution sl;
+    Solution const sl;
     const string ret = sl.IntToRoman(num);
     EXPECT_EQ(ret, output);
 }
@@ -71,7 +71,7 @@ TEST(IntegerToRoman, t2) {
     const int num = 58;
     const string output = "LVIII";
     // Explanation: L = 50, V = 5, III = 3.";
-    Solution sl;
+    Solution const sl;
     const string ret = sl.IntToRoman(num);
     EXPECT_EQ(ret, output);
 }
@@ -80,7 +80,7 @@ TEST(IntegerToRoman, t3) {
     const int num = 1994;
     const string output = "MCMXCIV";
     // Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.
-    Solution sl;
+    Solution const sl;
     const string ret = sl.IntToRoman(num);
     EXPECT_EQ(ret, output);
 }

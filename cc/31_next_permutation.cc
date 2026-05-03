@@ -34,7 +34,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    void NextPermutation(vector<int>& nums) {
+    void NextPermutation(vector<int>& nums) const {
         bool flag = false;
 
         for (int i = nums.size() - 1; i > 0; i--) {
@@ -58,7 +58,7 @@ class Solution {
 TEST(nextV, t1) {
     vector<int> nums = {1, 2, 3};
     vector<int> const output = {1, 3, 2};
-    Solution sl;
+    Solution const sl;
     sl.NextPermutation(nums);
     EXPECT_EQ(nums, output);
 }
@@ -66,7 +66,7 @@ TEST(nextV, t1) {
 TEST(nextV, t2) {
     vector<int> nums = {3, 2, 1};
     vector<int> const output = {1, 2, 3};
-    Solution sl;
+    Solution const sl;
     sl.NextPermutation(nums);
     EXPECT_EQ(nums, output);
 }
@@ -74,7 +74,7 @@ TEST(nextV, t2) {
 TEST(nextV, t3) {
     vector<int> nums = {1, 1, 5};
     vector<int> const output = {1, 5, 1};
-    Solution sl;
+    Solution const sl;
     sl.NextPermutation(nums);
     EXPECT_EQ(nums, output);
 }

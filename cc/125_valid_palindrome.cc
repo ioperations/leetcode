@@ -17,13 +17,13 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    bool IsPalindrome(string s) {
+    bool IsPalindrome(string s) const {
         s = RemoveAllUNreleated(s);
         return IsPalindrome(s, 0, s.size() - 1);
         return false;
     }
 
-    string RemoveAllUNreleated(std::string& ss) {
+    string RemoveAllUNreleated(std::string& ss) const {
         std::string ret;
         for (char const s : ss) {
             if ('A' <= s && s <= 'Z') {
@@ -37,7 +37,7 @@ class Solution {
         return ret;
     }
 
-    bool IsPalindrome(string& s, int i, int j) {
+    bool IsPalindrome(string& s, int i, int j) const {
         while (i < j) {
             if (s[i] == s[j]) {
                 i++;
@@ -55,7 +55,7 @@ TEST(validV, t1) {
     bool const output = true;
     // Explanation: "amanaplanacanalpanama" is a palindrome.
 
-    Solution sl;
+    Solution const sl;
     bool const ret = sl.IsPalindrome(s);
     EXPECT_EQ(ret, output);
 }
@@ -64,7 +64,7 @@ TEST(validV, t2) {
     bool const output = false;
     //  "raceacar" is not a palindrome.
 
-    Solution sl;
+    Solution const sl;
     bool const ret = sl.IsPalindrome(s);
     EXPECT_EQ(ret, output);
 }
@@ -77,7 +77,7 @@ TEST(validV, t3) {
     // is a palindrome. bool output = false;
     //  Explanation: "amanaplanacanalpanama" is a palindrome.
 
-    Solution sl;
+    Solution const sl;
     bool const ret = sl.IsPalindrome(s);
     EXPECT_EQ(ret, output);
 }
@@ -86,7 +86,7 @@ TEST(validV, t4) {
     string const s = "0P";
     bool const output = false;
 
-    Solution sl;
+    Solution const sl;
     bool const ret = sl.IsPalindrome(s);
     EXPECT_EQ(ret, output);
 }

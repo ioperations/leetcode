@@ -9,7 +9,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    int LengthOfLastWord(string s) {
+    int LengthOfLastWord(string s) const {
         int size = 0;
         for (auto it = s.rbegin(); it < s.rend(); it++) {
             if (*it == ' ') {
@@ -30,7 +30,7 @@ TEST(LengthOfLastWord, t1) {
     std::string const s = "Hello World";
     int const output = 5;
 
-    Solution sl;
+    Solution const sl;
     int const ret = sl.LengthOfLastWord(s);
     EXPECT_EQ(ret, output);
 }
@@ -38,7 +38,7 @@ TEST(LengthOfLastWord, t1) {
 TEST(LengthOfLastWord, t2) {
     std::string const s = "   fly me   to   the moon  ";
     int const output = 4;
-    Solution sl;
+    Solution const sl;
     int const ret = sl.LengthOfLastWord(s);
     EXPECT_EQ(ret, output);
 }
@@ -46,7 +46,7 @@ TEST(LengthOfLastWord, t2) {
 TEST(LengthOfLastWord, t3) {
     std::string const s = "luffy is still joyboy";
     int const output = 6;
-    Solution sl;
+    Solution const sl;
     int const ret = sl.LengthOfLastWord(s);
     EXPECT_EQ(ret, output);
 }

@@ -13,14 +13,14 @@ namespace {
 class Solution {
    public:
     template <typename T>
-    std::vector<T> PostorderTraversal(TreeNode<T>* root) {
+    std::vector<T> PostorderTraversal(TreeNode<T>* root) const {
         std::vector<T> ret;
         Tranverse(root, ret);
         return ret;
     }
 
     template <typename T>
-    void Tranverse(TreeNode<T>* root, std::vector<T>& val) {
+    void Tranverse(TreeNode<T>* root, std::vector<T>& val) const {
         if (root == nullptr) {
             return;
         }
@@ -34,7 +34,7 @@ class Solution {
 
 TEST(BinaryTreePostorderTraversal, t1) {
     TreeNode<int>* root = ConstructTree(std::vector{1, 2, 3});
-    Solution s;
+    Solution const s;
     std::vector<int> const ret = s.PostorderTraversal(root);
 
     EXPECT_EQ(ret, (std::vector{3, 2, 1}));
@@ -43,7 +43,7 @@ TEST(BinaryTreePostorderTraversal, t1) {
 }
 TEST(BinaryTreePostorderTraversal, t2) {
     TreeNode<int>* root = ConstructTree(std::vector<int>{});
-    Solution s;
+    Solution const s;
     std::vector<int> const ret = s.PostorderTraversal(root);
 
     EXPECT_EQ(ret, std::vector<int>{});
@@ -52,7 +52,7 @@ TEST(BinaryTreePostorderTraversal, t2) {
 }
 TEST(BinaryTreePostorderTraversal, t3) {
     TreeNode<int>* root = ConstructTree(std::vector{1});
-    Solution s;
+    Solution const s;
     std::vector<int> const ret = s.PostorderTraversal(root);
 
     EXPECT_EQ(ret, std::vector{1});

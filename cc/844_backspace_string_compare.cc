@@ -19,12 +19,12 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    bool BackspaceCompare(string s, string t) {
+    bool BackspaceCompare(string s, string t) const {
         // pass
         return Real(s) == Real(t);
     }
 
-    std::string Real(std::string s) {
+    std::string Real(std::string s) const {
         std::string ret;
         std::stack<char> stack;
         for (auto& ptr : s) {
@@ -51,7 +51,7 @@ TEST(BackspaceStringCompare, t1) {
     std::string s = "ab#c", t = "ad#c";
     bool const expected = true;
 
-    Solution sl;
+    Solution const sl;
     bool const ret = sl.BackspaceCompare(s, t);
     EXPECT_EQ(ret, expected);
     // Explanation: Both s and t become "ac".
@@ -60,7 +60,7 @@ TEST(BackspaceStringCompare, t2) {
     std::string s = "ab##", t = "c#d#";
     bool const expected = true;
 
-    Solution sl;
+    Solution const sl;
     bool const ret = sl.BackspaceCompare(s, t);
     EXPECT_EQ(ret, expected);
     // Explanation: Both s and t become "ac".
@@ -70,7 +70,7 @@ TEST(BackspaceStringCompare, t3) {
     std::string s = "a#c", t = "b";
     bool const expected = false;
 
-    Solution sl;
+    Solution const sl;
     bool const ret = sl.BackspaceCompare(s, t);
     EXPECT_EQ(ret, expected);
     // Explanation: Both s and t become "ac".

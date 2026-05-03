@@ -23,7 +23,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    string RemoveDuplicates(const string& s, int k = 2) {
+    string RemoveDuplicates(const string& s, int k = 2) const {
         int const n = s.size();
         if (n < k) return s;
 
@@ -60,7 +60,7 @@ TEST(RemoveAllDuplicatesInString, t1) {
     // result of this move is that the string is "aaca", of which only "aa" is
     // possible, so the final string is "ca".
 
-    Solution sl;
+    Solution const sl;
     auto ret = sl.RemoveDuplicates(s);
     EXPECT_EQ(ret, expected);
 }
@@ -73,7 +73,7 @@ TEST(RemoveAllDuplicatesInString, t2) {
     // result of this move is that the string is "aaca", of which only "aa" is
     // possible, so the final string is "ca".
 
-    Solution sl;
+    Solution const sl;
     auto ret = sl.RemoveDuplicates(s);
     EXPECT_EQ(ret, expected);
 }

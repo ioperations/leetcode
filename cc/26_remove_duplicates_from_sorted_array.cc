@@ -48,7 +48,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    int RemoveDuplicates(vector<int>& nums) {
+    int RemoveDuplicates(vector<int>& nums) const {
         priority_queue<int, vector<int>, std::greater<>> q;
         int last = 0;
         bool last_set = false;
@@ -79,7 +79,7 @@ TEST(RemoveDuplicatesFromSortedArray, t1) {
     std::vector<int> nums = {1, 1, 2};
     int const output = 2;
     std::vector<int> nums_expected = {1, 2};
-    Solution sl;
+    Solution const sl;
     int const k = sl.RemoveDuplicates(nums);
     EXPECT_EQ(k, output);
     for (int i = 0; i < output; i++) {
@@ -90,7 +90,7 @@ TEST(RemoveDuplicatesFromSortedArray, t2) {
     std::vector<int> nums = {0, 0, 1, 1, 1, 2, 2, 3, 3, 4};
     int const output = 5;
     std::vector<int> nums_expected = {0, 1, 2, 3, 4};
-    Solution sl;
+    Solution const sl;
     int const k = sl.RemoveDuplicates(nums);
     EXPECT_EQ(k, output);
     for (int i = 0; i < output; i++) {

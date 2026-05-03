@@ -20,7 +20,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    int FirstMissingPositive(std::vector<int>& nums) {
+    int FirstMissingPositive(std::vector<int>& nums) const {
         // 1 <= nums.length <= 5 * 10^5
         // -2^31 <= nums[i] <= 2^31 - 1
         map<int, int> m;
@@ -33,7 +33,7 @@ class Solution {
 
         return 0;
     }
-    int FirstMissingPositiveV2(std::vector<int>& nums) {
+    int FirstMissingPositiveV2(std::vector<int>& nums) const {
         int const n = nums.size();
         // making all negative to zero as they are useless
         for (int i = 0; i < n; i++) {
@@ -64,21 +64,21 @@ class Solution {
 
 TEST(FirstMissingPositive, t1) {
     std::vector<int> nums = {1, 2, 0};
-    Solution s;
+    Solution const s;
     int const ret = s.FirstMissingPositive(nums);
     EXPECT_EQ(ret, 3);
 }
 
 TEST(FirstMissingPositive, t2) {
     std::vector<int> nums = {3, 4, -1, 1};
-    Solution s;
+    Solution const s;
     int const ret = s.FirstMissingPositive(nums);
     EXPECT_EQ(ret, 2);
 }
 
 TEST(FirstMissingPositive, t3) {
     std::vector<int> nums = {7, 8, 9, 11, 12};
-    Solution s;
+    Solution const s;
     int const ret = s.FirstMissingPositive(nums);
     EXPECT_EQ(ret, 1);
 }

@@ -9,7 +9,7 @@
 namespace {
 class Solution {
    public:
-    std::vector<int> TwoSum(std::vector<int>& nums, int target) {
+    std::vector<int> TwoSum(std::vector<int>& nums, int target) const {
         std::vector<int> ret;
         for (size_t i = 0; i < nums.size(); ++i) {
             for (size_t j = i + 1; j < nums.size(); j++) {
@@ -27,7 +27,7 @@ class Solution {
 };
 
 TEST(twosumV2, t1) {
-    Solution s;
+    Solution const s;
     std::vector<int> nums{2, 7, 11, 15};
     int const target = 9;
     auto ret = s.TwoSum(nums, target);
@@ -35,7 +35,7 @@ TEST(twosumV2, t1) {
 }
 
 TEST(twosumV2, t2) {
-    Solution s;
+    Solution const s;
     std::vector<int> nums{3, 2, 4};
     int const target = 6;
     auto ret = s.TwoSum(nums, target);
@@ -43,7 +43,7 @@ TEST(twosumV2, t2) {
 }
 
 TEST(twosumV2, t3) {
-    Solution s;
+    Solution const s;
     std::vector<int> nums{3, 3};
     int const target = 6;
     auto ret = s.TwoSum(nums, target);

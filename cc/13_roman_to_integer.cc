@@ -8,7 +8,7 @@
 namespace {
 class Solution {
    public:
-    int RomanToInt(const std::string& s) {
+    int RomanToInt(const std::string& s) const {
         int i = 0;
         int sum = 0;
         const int len = s.length();
@@ -37,7 +37,7 @@ class Solution {
         return sum;
     }
 
-    int Basic(char c) {
+    int Basic(char c) const {
         switch (c) {
             case 'I':
                 return 1;
@@ -68,7 +68,7 @@ class Solution {
 };
 
 TEST(RomanToInteger, t1) {
-    Solution s;
+    Solution const s;
 
     const std::string input = "III";
     const int ret = s.RomanToInt(input);
@@ -76,14 +76,14 @@ TEST(RomanToInteger, t1) {
 }
 
 TEST(RomanToInteger, t2) {
-    Solution s;
+    Solution const s;
     const std::string input = "LVIII";
     const int ret = s.RomanToInt(input);
     EXPECT_EQ(ret, 58);
 }
 
 TEST(RomanToInteger, t3) {
-    Solution s;
+    Solution const s;
     const std::string input = "MCMXCIV";
     const int ret = s.RomanToInt(input);
     EXPECT_EQ(ret, 1994);

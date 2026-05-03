@@ -21,7 +21,7 @@ namespace {
 class Solution {
    public:
     void Solve(vector<vector<int>>& ans, vector<int> temp, int ind,
-               vector<int>& nums) {
+               vector<int>& nums) const {
         int const n = nums.size();
 
         if (ind >= n) {
@@ -37,7 +37,7 @@ class Solution {
         Solve(ans, temp, ind + 1, nums);
         temp.pop_back();  // backtracking to reverse in original manner
     }
-    vector<vector<int>> Subsets(vector<int>& nums) {
+    vector<vector<int>> Subsets(vector<int>& nums) const {
         vector<vector<int>> ans;
         vector<int> const temp;
         Solve(ans, temp, 0, nums);
@@ -76,7 +76,7 @@ TEST(Subsets, t1) {
     std::vector<vector<int>> out{{},  {1},    {2},    {1, 2},
                                  {3}, {1, 3}, {2, 3}, {1, 2, 3}};
 
-    Solution sl;
+    Solution const sl;
     auto ret = sl.Subsets(input);
     set<vector<int>> const out_set(out.begin(), out.end());
     set<vector<int>> const ret_set(ret.begin(), ret.end());
@@ -87,7 +87,7 @@ TEST(Subsets, t2) {
     std::vector<int> input{0};
     std::vector<vector<int>> out{{}, {0}};
 
-    Solution sl;
+    Solution const sl;
     auto ret = sl.Subsets(input);
     set<vector<int>> const out_set(out.begin(), out.end());
     set<vector<int>> const ret_set(ret.begin(), ret.end());

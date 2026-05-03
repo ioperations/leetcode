@@ -22,7 +22,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    string ToHex(int num) {
+    string ToHex(int num) const {
         // pass
         if (num == 0) return "0";
 
@@ -43,7 +43,7 @@ TEST(ConvertANumberToHexidecimal, t1) {
     int const num = 26;
     std::string const output = "1a";
 
-    Solution s;
+    Solution const s;
     auto ret = s.ToHex(num);
     EXPECT_EQ(ret, output);
 }
@@ -52,7 +52,7 @@ TEST(ConvertANumberToHexidecimal, t2) {
 
     std::string const output = "ffffffff";
 
-    Solution s;
+    Solution const s;
     auto ret = s.ToHex(num);
     EXPECT_EQ(ret, output);
 }

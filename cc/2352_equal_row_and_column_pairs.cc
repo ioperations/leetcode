@@ -16,7 +16,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    string Mapping(vector<int>& row) {
+    string Mapping(vector<int>& row) const {
         std::string ans = "";
 
         for (int const j : row) ans += to_string(j) + "#";
@@ -24,7 +24,7 @@ class Solution {
         return ans;
     }
 
-    int EqualPairs(vector<vector<int>>& grid) {
+    int EqualPairs(vector<vector<int>>& grid) const {
         int count = 0;
         int const n = grid.size();
         unordered_map<string, int> mp;
@@ -57,7 +57,7 @@ TEST(EqualRowAndColumnPairs, t1) {
     int const output = 1;
     // Explanation: There is 1 equal row and column pair:
     // - (Row 2, Column 1): [2,7,7]
-    Solution sl;
+    Solution const sl;
     int const ret = sl.EqualPairs(grid);
     EXPECT_EQ(ret, output);
 }
@@ -77,7 +77,7 @@ TEST(EqualRowAndColumnPairs, t2) {
     // (Row 2, Column 2): [2,4,2,2]
     // (Row 3, Column 2): [2,4,2,2]
 
-    Solution sl;
+    Solution const sl;
     int const ret = sl.EqualPairs(grid);
     EXPECT_EQ(ret, output);
 }

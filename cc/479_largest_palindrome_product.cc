@@ -15,7 +15,7 @@ very large, return it modulo 1337.
 namespace {
 class Solution {
    public:
-    bool IsPalindrome(unsigned long val) {
+    bool IsPalindrome(unsigned long val) const {
         if ((val % 10) != 9) return false;
         std::string s = std::to_string(val);
         int left = 0, right = s.length() - 1;
@@ -24,7 +24,7 @@ class Solution {
         }
         return true;
     }
-    int LargestPalindrome(int n) {
+    int LargestPalindrome(int n) const {
         if (n == 1) return 9;
         unsigned long n_digits = 1;
         while (n--) n_digits *= 10;
@@ -80,7 +80,7 @@ class Solution {
         }
         return candidate % 1337;
     }
-    bool IsPalindrome(const std::string s) {
+    bool IsPalindrome(const std::string s) const {
         const int n = s.size();
 
         int left = 0;
@@ -111,14 +111,14 @@ class Solution {
 
 TEST(T, t1) {
     // Explanation: 99 x 91 = 9009, 9009 % 1337 = 987
-    Solution s;
+    Solution const s;
     const bool ret = s.IsPalindrome("9009");
     EXPECT_EQ(ret, true);
 }
 
 TEST(T, t2) {
     // Explanation: 99 x 91 = 9009, 9009 % 1337 = 987
-    Solution s;
+    Solution const s;
     const bool ret = s.IsPalindrome("000");
     EXPECT_EQ(ret, true);
 }
@@ -127,7 +127,7 @@ TEST(LargestPalindromeProduct, t1) {
     const int n = 2;
     const int expected = 987;
     // Explanation: 99 x 91 = 9009, 9009 % 1337 = 987
-    Solution s;
+    Solution const s;
     const int ret = s.LargestPalindrome(n);
     EXPECT_EQ(ret, expected);
 }
@@ -135,7 +135,7 @@ TEST(LargestPalindromeProduct, t1) {
 TEST(LargestPalindromeProduct, t2) {
     const int n = 1;
     const int expected = 9;
-    Solution s;
+    Solution const s;
     const int ret = s.LargestPalindrome(n);
     EXPECT_EQ(ret, expected);
 }

@@ -15,7 +15,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    int FirstUniqChar(string s) {
+    int FirstUniqChar(string s) const {
         unordered_map<char, pair<int, int>> m;
         int idx = s.size();
         for (int i = 0; i < (int)s.size(); i++) {
@@ -34,21 +34,21 @@ class Solution {
 
 TEST(FirstUniqueCharacterInAString, t1) {
     string const s = "leetcode";
-    Solution sl;
+    Solution const sl;
     int const ret = sl.FirstUniqChar(s);
     EXPECT_EQ(ret, 0);
 }
 
 TEST(FirstUniqueCharacterInAString, t2) {
     string const s = "loveleetcode";
-    Solution sl;
+    Solution const sl;
     int const ret = sl.FirstUniqChar(s);
     EXPECT_EQ(ret, 2);
 }
 
 TEST(FirstUniqueCharacterInAString, t3) {
     string const s = "aabb";
-    Solution sl;
+    Solution const sl;
     int const ret = sl.FirstUniqChar(s);
     EXPECT_EQ(ret, -1);
 }

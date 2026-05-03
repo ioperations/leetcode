@@ -84,7 +84,7 @@ using namespace std;
 
 class Solution {
    public:
-    Node* Construct(vector<vector<int>>& grid) {
+    Node* Construct(vector<vector<int>>& grid) const {
         std::function<Node*(int i, int j, int len)> fun =
             [&](int i, int j, int len) -> Node* {
             if (len == 1) {

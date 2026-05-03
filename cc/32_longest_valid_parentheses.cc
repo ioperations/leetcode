@@ -16,7 +16,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    int LongestValidParentheses(string s) {
+    int LongestValidParentheses(string s) const {
         stack<int> st;
         int maxi = 0;
         st.push(-1);
@@ -41,7 +41,7 @@ TEST(LongestValidParentheses, t1) {
     int const output = 2;
     // Explanation: The longest valid parentheses substring is "()".
 
-    Solution sl;
+    Solution const sl;
     int const ret = sl.LongestValidParentheses(s);
     EXPECT_EQ(ret, output);
 }
@@ -51,7 +51,7 @@ TEST(LongestValidParentheses, t2) {
     int const output = 4;
     // Explanation: The longest valid parentheses substring is "()()".
 
-    Solution sl;
+    Solution const sl;
     int const ret = sl.LongestValidParentheses(s);
     EXPECT_EQ(ret, output);
 }
@@ -59,7 +59,7 @@ TEST(LongestValidParentheses, t3) {
     string const s = "";
     int const output = 0;
 
-    Solution sl;
+    Solution const sl;
     int const ret = sl.LongestValidParentheses(s);
     EXPECT_EQ(ret, output);
 }

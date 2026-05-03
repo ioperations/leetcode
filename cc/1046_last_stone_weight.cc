@@ -23,7 +23,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    int LastStoneWeight(vector<int>& stones) {
+    int LastStoneWeight(vector<int>& stones) const {
         std::priority_queue<int> q;
         for (auto& ptr : stones) {
             q.push(ptr);
@@ -57,14 +57,14 @@ TEST(LastStoneWeight, t1) {
     // value of the last stone.
 
     std::vector<int> stones{2, 7, 4, 1, 8, 1};
-    Solution s;
+    Solution const s;
     int const ret = s.LastStoneWeight(stones);
     EXPECT_EQ(ret, 1);
 }
 
 TEST(LastStoneWeight, t2) {
     std::vector<int> stones{1};
-    Solution s;
+    Solution const s;
     int const ret = s.LastStoneWeight(stones);
     EXPECT_EQ(ret, 1);
 }
