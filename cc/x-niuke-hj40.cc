@@ -1,6 +1,8 @@
 // This is a personal academic project. Dear PVS-Studio, please check it.
 // PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
 // https://pvs-studio.com
+#include <array>
+#include <cstddef>
 #include <iostream>
 #include <string>
 
@@ -8,32 +10,33 @@
 
 namespace {
 
-enum type {
-    ENGLISH_CHAR = 0,
-    SPACE,
-    NUMBER,
-    OTHERS,
-    LENGTH,
+enum class type {
+    english_char = 0,
+    space,
+    number,
+    others,
+    length,
 };
 
 void Func(const char* s, int len) {
-    int classfy[type::LENGTH] = {0};
+    std::array<int, static_cast<size_t>(type::length)> classfy{};
+    classfy.fill(0);
 
     for (int i = 0; i < len; ++i) {
-        if (('a' <= *(s + i) && *(s + i) <= 'z') ||
-            ('A' <= *(s + i) && *(s + i) <= 'Z')) {
-            classfy[type::ENGLISH_CHAR]++;
-        } else if ('0' <= *(s + i) && *(s + i) <= '9') {
-            classfy[type::NUMBER]++;
-        } else if (' ' == *(s + i)) {
-            classfy[type::SPACE]++;
+        const char c = s[i];
+        if (('a' <= c && c <= 'z') || ('A' <= c && c <= 'Z')) {
+            classfy[static_cast<size_t>(type::english_char)]++;
+        } else if ('0' <= c && c <= '9') {
+            classfy[static_cast<size_t>(type::number)]++;
+        } else if (' ' == c) {
+            classfy[static_cast<size_t>(type::space)]++;
         } else {
-            classfy[type::OTHERS]++;
+            classfy[static_cast<size_t>(type::others)]++;
         }
     }
 
-    for (int const i : classfy) {
-        std::cout << i << std::endl;
+    for (const int i : classfy) {
+        std::cout << i << '\n';
     }
 }
 
@@ -41,7 +44,7 @@ TEST(XNiukeHjv2, t2) {
     std::string const s =
         R"(1qazxsw23 edcvfr45tgbn hy67uj m,ki89ol.\\/;p0-=\\][)";
     testing::internal::CaptureStdout();
-    Func(s.c_str(), s.size());
+    Func(s.c_str(), static_cast<int>(s.size()));
     std::string const result = testing::internal::GetCapturedStdout();
     std::string const expected("26\n3\n10\n12\n");
     EXPECT_EQ(result, expected);

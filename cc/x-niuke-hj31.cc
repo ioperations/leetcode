@@ -20,8 +20,8 @@ void ReverseOutPutAllWords(const char* s, int len) {
 
         int i = 0;
         /// 向前找到第一个word的开头
-        for (; !((('a' <= *(str + i)) && (*(str + i) <= 'z')) ||
-                 (('A' <= *(str + i)) && (*(str + i) <= 'Z')));) {
+        for (; !((('a' <= str[i]) && (str[i] <= 'z')) ||
+                 (('A' <= str[i]) && (str[i] <= 'Z')));) {
             i += 1;
         }
 
@@ -30,8 +30,8 @@ void ReverseOutPutAllWords(const char* s, int len) {
         if (i >= str_len) {
             return {""};
         }
-        for (; ('a' <= *(str + i) && *(str + i) <= 'z') ||
-               ('A' <= *(str + i) && *(str + i) <= 'Z');
+        for (; ('a' <= str[i] && str[i] <= 'z') ||
+               ('A' <= str[i] && str[i] <= 'Z');
              ++i) {
         }
         std::string const back(begin, str + i);
@@ -43,14 +43,14 @@ void ReverseOutPutAllWords(const char* s, int len) {
     /// remove the first " " in front of ret
     std::string const ret2(ret.begin() + 1, ret.end());
 
-    std::cout << ret2 << std::endl;
+    std::cout << ret2 << '\n';
 }
 
 TEST(XNiukeHjv2, t2) {
     testing::internal::CaptureStdout();
     std::string const s("i am a student");
 
-    ReverseOutPutAllWords(s.c_str(), s.size());
+    ReverseOutPutAllWords(s.c_str(), static_cast<int>(s.size()));
     std::string const out = testing::internal::GetCapturedStdout();
 
     EXPECT_EQ(out, std::string("student a am i\n"));
@@ -60,7 +60,7 @@ TEST(XNiukeHjv3, t2) {
     testing::internal::CaptureStdout();
     std::string const s("$bo*y gi!r#l");
 
-    ReverseOutPutAllWords(s.c_str(), s.size());
+    ReverseOutPutAllWords(s.c_str(), static_cast<int>(s.size()));
     std::string const out = testing::internal::GetCapturedStdout();
 
     EXPECT_EQ(out, std::string("l r gi y bo\n"));

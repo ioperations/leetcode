@@ -19,15 +19,15 @@ int Result(const string& data) {
     int num = 0;
     char flag = '+';
     stack<int> stk;
-    int const len = data.length();
+    const auto len = static_cast<int>(data.length());
     while (pos < len) {
         if (data[pos] == '(') {
-            pos++;
+            ++pos;
             num = Result(data);
         }
-        while (pos < len && isdigit(data[pos])) {
+        while (pos < len && isdigit(static_cast<unsigned char>(data[pos]))) {
             num = num * 10 + data[pos] - '0';
-            pos++;
+            ++pos;
         }
         switch (flag) {
             case '+': {
@@ -48,8 +48,10 @@ int Result(const string& data) {
             }
         }
         num = 0;
-        flag = data[pos];
-        if (data[pos] == ')') {
+        if (pos < len) {
+            flag = data[pos];
+        }
+        if (pos < len && data[pos] == ')') {
             ++pos;
             break;
         }

@@ -11,12 +11,13 @@ using namespace std;
 namespace {
 /// output the first char existing only once
 void Process(std::string str) {
-    for (int i = 0; i < (int)str.size(); i++) {
+    const int size = static_cast<int>(str.size());
+    for (int i = 0; i < size; i++) {
         if (str.find_first_of(str[i]) == str.find_last_of(str[i])) {
-            cout << str[i] << endl;
+            cout << str[i] << '\n';
             break;
         }
-        if (i == (int)str.size() - 1) cout << -1 << endl;
+        if (i == size - 1) cout << -1 << '\n';
     }
 }
 

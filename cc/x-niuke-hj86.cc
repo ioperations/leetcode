@@ -2,28 +2,26 @@
 // PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
 // https://pvs-studio.com
 #include <algorithm>
+#include <array>
 
 #include "gtest/gtest.h"
 
 namespace {
-#ifndef BYTE_LEN
-#define BYTE_LEN 8
-#endif
+
+constexpr int byte_len = 8;
 
 int Func(int number) {
     int max = 0;
 
-    const int z[] = {
+    constexpr std::array<int, byte_len> z = {
         1 << 0, 1 << 1, 1 << 2, 1 << 3, 1 << 4, 1 << 5, 1 << 6, 1 << 7,
     };
 
-    // bool last_bit_is_one = false;
     int already_lian_xu_one_length = 0;
-    for (int const i : z) {
-        bool const this_bit_is_one = (number & i) != 0;
-        // last_bit_is_one = this_bit_is_one;
+    for (const int i : z) {
+        const bool this_bit_is_one = (number & i) != 0;
         if (this_bit_is_one) {
-            already_lian_xu_one_length++;
+            ++already_lian_xu_one_length;
             max = std::max(max, already_lian_xu_one_length);
         } else {
             already_lian_xu_one_length = 0;

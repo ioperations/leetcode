@@ -8,14 +8,12 @@
 
 namespace {
 
-/// FIXME: output the result to stdout
-void Processing(std::string s) {
-    // emit the first 0x
+void Processing(const std::string& s) {
     std::string const s2(s.begin() + 2, s.end());
 
     int ret = 0;
 
-    for (auto& c : s2) {
+    for (const char c : s2) {
         int cur = 0;
         if ('A' <= c && c <= 'F') {
             cur = 10 + c - 'A';
@@ -28,7 +26,7 @@ void Processing(std::string s) {
         ret = ret * 16 + cur;
     }
 
-    std::cout << ret << std::endl;
+    std::cout << ret << '\n';
 }
 
 TEST(XHuaweiExampleTestv2, t2) {

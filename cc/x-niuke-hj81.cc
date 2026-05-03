@@ -1,7 +1,7 @@
 // This is a personal academic project. Dear PVS-Studio, please check it.
 // PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
 // https://pvs-studio.com
-#include <stddef.h>
+#include <cstddef>
 
 #include <algorithm>
 #include <iostream>
@@ -13,24 +13,25 @@
 
 namespace {
 
-void Func(std::string& less, std::string& more) {
+void Func(const std::string& less, const std::string& more) {
     bool t = true;
     std::map<int, char> less_set{};
     for (size_t i = 0; i < less.size(); ++i) {
-        less_set.emplace(i, less[i]);
+        less_set.emplace(static_cast<int>(i), less[i]);
     }
 
-    for (size_t i = 0; i < less_set.size(); ++i) {
+    const auto less_set_size = static_cast<int>(less_set.size());
+    for (int i = 0; i < less_set_size; ++i) {
         auto z = std::find_if(
             more.begin(), more.end(),
-            [&less_set, &i](const char& c) { return c == less_set[i]; });
+            [target = less_set[i]](const char& c) { return c == target; });
         if (z == std::end(more)) {
             t = false;
             break;
         }
     }
 
-    std::cout << (t ? "true" : "false") << std::endl;
+    std::cout << (t ? "true" : "false") << '\n';
 }
 
 TEST(XNiukeHjv2, t2) {
@@ -38,8 +39,8 @@ TEST(XNiukeHjv2, t2) {
     std::string le("bc");
     std::string more("abc");
     Func(le, more);
-    std::string out = testing::internal::GetCapturedStdout();
-    std::string expected = "true\n";
+    std::string const out = testing::internal::GetCapturedStdout();
+    std::string const expected = "true\n";
     EXPECT_EQ(out, expected);
 }
 
@@ -48,8 +49,8 @@ TEST(XNiukeHjv2, t3) {
     std::string le("bd");
     std::string more("abc");
     Func(le, more);
-    std::string out = testing::internal::GetCapturedStdout();
-    std::string expected = "false\n";
+    std::string const out = testing::internal::GetCapturedStdout();
+    std::string const expected = "false\n";
     EXPECT_EQ(out, expected);
 }
 

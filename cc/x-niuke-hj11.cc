@@ -12,12 +12,12 @@ std::string ReturnS(const char* s, int len) {
         return "";
     }
 
-    return ReturnS(s + 1, len - 1) + *s;
+    return ReturnS(s + 1, len - 1) + s[0];
 }
 
 TEST(XNiukeHjv2, t2) {
     std::string const s = "1516000";
-    std::string const rets = ReturnS(s.c_str(), s.size());
+    std::string const rets = ReturnS(s.c_str(), static_cast<int>(s.size()));
     EXPECT_EQ(rets, std::string("0006151"));
 }
 

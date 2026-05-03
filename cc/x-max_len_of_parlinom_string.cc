@@ -15,13 +15,6 @@
 namespace {
 
 int MaxRet(const char* str, int str_len) {
-    /*
-    for
-        对于在 0- strlen 之间的节点i ，
-            分别向左右扩展 奇数
-            在i , i+1 比较 再分别扩展
-    */
-
     auto maxbetween = [&str, str_len](int i, int j) -> int {
         if (j >= str_len) {
             return 0;
@@ -29,9 +22,9 @@ int MaxRet(const char* str, int str_len) {
         if (i < 0) {
             return 0;
         }
-        while (*(str + i) == *(str + j)) {
-            i--;
-            j++;
+        while (str[i] == str[j]) {
+            --i;
+            ++j;
             if (j >= str_len) {
                 break;
             }
@@ -56,27 +49,27 @@ int MaxRet(const char* str, int str_len) {
 
 TEST(XMaxLenOfParlinomStringV2, t2) {
     const char* s1 = "abcba";
-    EXPECT_EQ(MaxRet(s1, strlen(s1)), 5);
+    EXPECT_EQ(MaxRet(s1, static_cast<int>(std::strlen(s1))), 5);
 }
 
 TEST(XMaxLenOfParlinomStringV2, t3) {
     const char* s1 = "bcba";
-    EXPECT_EQ(MaxRet(s1, strlen(s1)), 3);
+    EXPECT_EQ(MaxRet(s1, static_cast<int>(std::strlen(s1))), 3);
 }
 
 TEST(XMaxLenOfParlinomStringV2, t4) {
     const char* s1 = "zabcba";
-    EXPECT_EQ(MaxRet(s1, strlen(s1)), 5);
+    EXPECT_EQ(MaxRet(s1, static_cast<int>(std::strlen(s1))), 5);
 }
 
 TEST(XMaxLenOfParlinomStringV2, t1) {
     const char* s1 = "00000";
-    EXPECT_EQ(MaxRet(s1, strlen(s1)), 5);
+    EXPECT_EQ(MaxRet(s1, static_cast<int>(std::strlen(s1))), 5);
 }
 
 TEST(XMaxLenOfParlinomStringV2, t0) {
     const char* s1 = "5432345";
-    EXPECT_EQ(MaxRet(s1, strlen(s1)), 7);
+    EXPECT_EQ(MaxRet(s1, static_cast<int>(std::strlen(s1))), 7);
 }
 
 }  // namespace
