@@ -28,9 +28,9 @@ namespace {
 class Solution {
    public:
     bool CanReplace(string& stamp, string& target, int pos) {
-        int const m = stamp.size();
+        int const m = static_cast<int>(stamp.size());
         for (int i = 0; i < m; i++) {
-            if (target[i + pos] != '?' and target[i + pos] != stamp[i])
+            if (target.at(i + pos) != '?' and target.at(i + pos) != stamp.at(i))
                 return false;
         }
         return true;
@@ -38,11 +38,11 @@ class Solution {
 
     int Replace(string& stamp, string& target, int pos) {
         int cnt = 0;
-        int const m = stamp.size();
+        int const m = static_cast<int>(stamp.size());
         for (int i = 0; i < m; i++) {
-            if (target[i + pos] != '?') {
+            if (target.at(i + pos) != '?') {
                 cnt++;
-                target[i + pos] = '?';
+                target.at(i + pos) = '?';
             }
         }
         return cnt;
@@ -51,7 +51,8 @@ class Solution {
     vector<int> MovesToStamp(string stamp, string target) {
         vector<int> ans;
 
-        int m = stamp.size(), n = target.size();
+        int const m = static_cast<int>(stamp.size());
+        int const n = static_cast<int>(target.size());
 
         int count = 0;
 
@@ -60,8 +61,8 @@ class Solution {
         while (count != n) {
             bool flag = false;
             for (int i = 0; i <= n - m; i++) {
-                if (!vis[i] and CanReplace(stamp, target, i)) {
-                    vis[i] = 1;
+                if (!vis.at(i) and CanReplace(stamp, target, i)) {
+                    vis.at(i) = 1;
                     count += Replace(stamp, target, i);
                     flag = true;
                     ans.push_back(i);
@@ -76,7 +77,8 @@ class Solution {
 };
 
 TEST(StampingTheSequence, t1) {
-    string stamp = "abc", target = "ababc";
+    string const stamp = "abc";
+    string const target = "ababc";
     vector<int> const output = {0, 2};
     /*Explanation: Initially s = "?????".
     - Place stamp at index 0 to get "abc??".
@@ -89,7 +91,8 @@ TEST(StampingTheSequence, t1) {
 }
 
 TEST(StampingTheSequence, t2) {
-    string stamp = "abca", target = "aabcaca";
+    string const stamp = "abca";
+    string const target = "aabcaca";
     vector<int> const output = {0, 3, 1};
     /*Explanation: Initially s = "???????".
     - Place stamp at index 3 to get "???abca".

@@ -38,19 +38,20 @@ class Solution {
         int i = low, j = mid + 1, k = 0;
         while (i <= mid && j <= high) {
             if (nums.at(i) <= nums.at(j)) {
-                temp[k++] = nums.at(i++);
-            } else
-                temp[k++] = nums.at(j++);
+                temp.at(k++) = nums.at(i++);
+            } else {
+                temp.at(k++) = nums.at(j++);
+            }
         }
         while (i <= mid) {
-            temp[k++] = nums.at(i++);
+            temp.at(k++) = nums.at(i++);
         }
         while (j <= high) {
-            temp[k++] = nums.at(j++);
+            temp.at(k++) = nums.at(j++);
         }
 
         for (int i = low, k = 0; i <= high; i++, k++) {
-            nums[i] = temp[k];
+            nums.at(i) = temp.at(k);
         }
     }
     void SortColorsV2(std::vector<int>& nums) {

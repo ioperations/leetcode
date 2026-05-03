@@ -40,10 +40,7 @@ class Solution {
 
                 for (int j = i; j >= k; j--) {
                     mx = max(mx, job_difficulty.at(j));
-                    // dp[i][k] = min(dp[i][k], dp[j-1][k-1] +
-                    // *max_element(jobDifficulty.begin() + j,
-                    // jobDifficulty.begin() + i + 1));
-                    dp[i][k] = min(dp[i][k], dp[j - 1][k - 1] + mx);
+                    dp.at(i).at(k) = min(dp.at(i).at(k), dp.at(j - 1).at(k - 1) + mx);
                 }
             }
         }
@@ -78,7 +75,7 @@ class Solution {
           state_value = min(state_value, next_state_value + current_max);
         }
 
-        memo[start_idx][days_left] = state_value;
+        memo.at(start_idx).at(days_left) = state_value;
 
         return state_value;
     }

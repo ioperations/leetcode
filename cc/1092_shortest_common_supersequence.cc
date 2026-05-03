@@ -30,9 +30,9 @@ class Solution {
         for (int i = 1; i <= static_cast<int>(m); i++) {
             for (int j = 1; j <= static_cast<int>(n); j++) {
                 if (str1.at(i - 1) == str2.at(j - 1)) {
-                    dp[i][j] = 1 + dp[i - 1][j - 1];
+                    dp.at(i).at(j) = 1 + dp.at(i - 1).at(j - 1);
                 } else {
-                    dp[i][j] = max(dp[i - 1][j], dp[i][j - 1]);
+                    dp.at(i).at(j) = max(dp.at(i - 1).at(j), dp.at(i).at(j - 1));
                 }
             }
         }
@@ -48,7 +48,7 @@ class Solution {
                 result.push_back(str1.at(i - 1));
                 i--;
                 j--;
-            } else if (dp[i - 1][j] > dp[i][j - 1]) {
+            } else if (dp.at(i - 1).at(j) > dp.at(i).at(j - 1)) {
                 // If coming from top has higher value, take character from str1
                 result.push_back(str1.at(i - 1));
                 i--;

@@ -40,30 +40,28 @@ class Solution {
         };
 
         std::map<char, int> visisted;
-        int const size = arr.size();
+        int const size = static_cast<int>(arr.size());
         function<int(std::string&, int, int)> fun = [&](std::string& pre, int i,
                                                         int result) -> int {
             if (i >= size) return result;
-            if (existed(visisted, arr[i])) {
+            if (existed(visisted, arr.at(i))) {
                 return std::max(fun(pre, i + 1, result), result);
             }
             int next = 0;
 
             {
-                /// take current element as the last pre output
-                pre += arr[i];
-                for (auto& ptr : arr[i]) {
+                pre += arr.at(i);
+                for (auto& ptr : arr.at(i)) {
                     visisted[ptr]++;
                 }
-                next = fun(pre, i + 1, result + arr[i].size());
-                for (auto& ptr : arr[i]) {
+                next = fun(pre, i + 1, result + static_cast<int>(arr.at(i).size()));
+                for (auto& ptr : arr.at(i)) {
                     visisted[ptr]--;
                 }
-                for (int j = 0; j < static_cast<int>(arr[i].size()); j++) {
+                for (int j = 0; j < static_cast<int>(arr.at(i).size()); j++) {
                   pre.pop_back();
                 }
             }
-            /// do not take current element as the last pre output
             int const next_2 = fun(pre, i + 1, result);
             return std::max(next, next_2);
         };
@@ -86,10 +84,10 @@ class Solution {
 
         vector<int> dp{0};
         for (int const i : a) {
-            int const size = dp.size();
+            int const size = static_cast<int>(dp.size());
             for (int j = 0; j < size; ++j) {
-                if (dp[j] & i) continue;
-                int const t = dp[j] | i;
+                if (dp.at(j) & i) continue;
+                int const t = dp.at(j) | i;
                 dp.push_back(t);
                 ans = max(ans, __builtin_popcount(t));
             }

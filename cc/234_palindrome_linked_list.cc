@@ -93,7 +93,7 @@ class Solution {
         }
 
         while (left >= 0) {
-            if (vec[left]->val == vec[right]->val) {
+            if (vec.at(left)->val == vec.at(right)->val) {
                 left--;
                 right++;
             } else {

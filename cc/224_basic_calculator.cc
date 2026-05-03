@@ -139,7 +139,8 @@ class Solution {
 class SolutionV2 {
    public:
     int Calculate(string s) {
-        int res = 0, sign = 1, n = static_cast<int>(s.size());
+        int res = 0, sign = 1;
+        int const n = static_cast<int>(s.size());
         stack<int> stk;
         for (int i = 0; i < n; i++) {
             const char c = s.at(i);
@@ -199,8 +200,9 @@ class SolutionV3 {
                 --i;
             }
             // If current is left bracket
-            else if (ch == '(')
+            else if (ch == '(') {
                 ops.push(ch);
+            }
 
             // If current is right bracket
             // Solve entire bracket

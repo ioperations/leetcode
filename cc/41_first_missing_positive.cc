@@ -37,7 +37,25 @@ class Solution {
         int const n = nums.size();
         // making all negative to zero as they are useless
         for (int i = 0; i < n; i++) {
-            if (nums[i] < 0) nums[i] = 0;
+            if (nums.at(i) < 0) nums.at(i) = 0;
+        }
+
+        // marking -ve for present
+        for (int i = 0; i < n; i++) {
+            int const val = abs(nums.at(i));
+            if (val >= 1 && val <= n) {
+                int const idx = val - 1;
+                if (nums.at(idx) == 0) {
+                    nums.at(idx) = -(n + 1);
+                } else if (nums.at(idx) > 0) {
+                    nums.at(idx) *= -1;
+                }
+            }
+        }
+
+        // check first missing positive number
+        for (int i = 0; i < n; i++) {
+            if (nums.at(i) >= 0) return (i + 1);
         }
 
         // maarking -ve for present

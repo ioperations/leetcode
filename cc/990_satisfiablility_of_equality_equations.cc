@@ -19,21 +19,25 @@ using namespace std;
 namespace {
 class DSU {
    public:
-    int m_rank[26]{}, m_parent[26]{};
     DSU() { MakeSet(); }
+    DSU(const DSU&) = default;
+    DSU(DSU&&) = default;
+    DSU& operator=(const DSU&) = default;
+    DSU& operator=(DSU&&) = default;
+    ~DSU() = default;
 
     void MakeSet() {
         for (int i = 0; i < 26; i++) {
-            m_parent[i] = i;
-            m_rank[i] = 0;
+            m_parent.at(i) = i;
+            m_rank.at(i) = 0;
         }
     }
 
     int FindParent(int x) {
-        if (m_parent[x] != x) {
-            m_parent[x] = FindParent(m_parent[x]);
+        if (m_parent.at(x) != x) {
+            m_parent.at(x) = FindParent(m_parent.at(x));
         }
-        return m_parent[x];
+        return m_parent.at(x);
     }
 
     void Unionn(int x, int y) {
@@ -42,16 +46,19 @@ class DSU {
         if (u == v) {
             return;
         }
-        if (m_rank[u] < m_rank[v]) {
-            m_parent[u] = v;
-        } else if (m_rank[u] > m_rank[v]) {
-            m_parent[v] = u;
+        if (m_rank.at(u) < m_rank.at(v)) {
+            m_parent.at(u) = v;
+        } else if (m_rank.at(u) > m_rank.at(v)) {
+            m_parent.at(v) = u;
         } else {
-            m_parent[u] = v;
-            m_rank[u] = m_rank[v] + 1;
+            m_parent.at(u) = v;
+            m_rank.at(u) = m_rank.at(v) + 1;
         }
     }
-    ~DSU() = default;
+
+   private:
+    std::array<int, 26> m_rank{};
+    std::array<int, 26> m_parent{};
 };
 
 class Solution {

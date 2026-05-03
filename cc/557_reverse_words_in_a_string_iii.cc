@@ -27,13 +27,13 @@ class Solution {
         int current = 0;
         int left = 0;
         int right = 0;
-        int const n = s.size();
+        int const n = static_cast<int>(s.size());
         while (current < n) {
-            while (right < n && s[right] != ' ') right++;
+            while (right < n && s.at(right) != ' ') right++;
             current = right + 1;
             right--;
             while (left < right) {
-                swap(s[left], s[right]);
+                swap(s.at(left), s.at(right));
                 left++;
                 right--;
             }
@@ -47,10 +47,10 @@ class Solution {
         string ret;
         stack<char> stack;
 
-        int const size = s.size();
+        int const size = static_cast<int>(s.size());
 
         for (int i = 0; i < size; i++) {
-            if (s[i] == ' ') {
+            if (s.at(i) == ' ') {
                 while (stack.size()) {
                     ret += stack.top();
                     stack.pop();
@@ -58,7 +58,7 @@ class Solution {
                 ret += " ";
                 continue;
             }
-            stack.push(s[i]);
+            stack.push(s.at(i));
         }
         while (stack.size()) {
             ret += stack.top();

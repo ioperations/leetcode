@@ -115,7 +115,7 @@ class BrowserHistorySysV2 {
     ~BrowserHistorySysV2() {
         Node* p = m_p_head;
         while (p != nullptr) {
-            Node* tmp = p;
+            Node* const tmp = p;
             p = p->next;
             delete tmp;
         }
@@ -188,7 +188,7 @@ class BrowserHistorySysV2 {
     }
 
     void DeleteLastNode() {
-        Node* target = m_p_end->pre;
+        Node* const target = m_p_end->pre;
         target->pre->next = target->next;
         target->next->pre = target->pre;
         delete target;

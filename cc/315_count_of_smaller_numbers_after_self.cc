@@ -81,7 +81,7 @@ class Solution {
         int const n = static_cast<int>(nums.size());
 
         vector<pair<int, int>> arr(n);
-        for (int i = 0; i < n; i++) arr[i] = make_pair(nums.at(i), i);
+        for (int i = 0; i < n; i++) arr.at(i) = make_pair(nums.at(i), i);
 
         vector<int> count(n, 0);
         MergeSort(count, arr, 0, n - 1);

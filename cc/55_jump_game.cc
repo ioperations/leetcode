@@ -46,10 +46,10 @@ class Solution {
 
     bool CanJumpV2(vector<int>& nums) {
         vector<int> dp(nums.size(), 0);
-        dp[0] = 0;
+        dp.at(0) = 0;
         for (size_t i = 1; i < nums.size(); ++i) {
-            dp[i] = max(dp[i - 1], nums[i - 1]) - 1;
-            if (dp[i] < 0) {
+            dp.at(i) = std::max(dp.at(i - 1), nums.at(i - 1)) - 1;
+            if (dp.at(i) < 0) {
                 return false;
             }
         }

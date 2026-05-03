@@ -26,9 +26,9 @@ Space Complexity: O(1), constant space.
     */
 
     int KthSmallest(vector<vector<int>>& matrix, int k) {
-        int const m = matrix.size();
-        int const n = matrix[0].size();
-        int low = matrix[0][0], high = matrix[m - 1][n - 1];
+        int const m = static_cast<int>(matrix.size());
+        int const n = static_cast<int>(matrix.at(0).size());
+        int low = matrix.at(0).at(0), high = matrix.at(m - 1).at(n - 1);
         int ans = -1;
 
         // do binary search
@@ -45,13 +45,13 @@ Space Complexity: O(1), constant space.
     }
 
     int CountLessOrEqual(vector<vector<int>>& mat, int x) {
-        int const m = mat.size();
-        int const n = mat[0].size();
+        int const m = static_cast<int>(mat.size());
+        int const n = static_cast<int>(mat.at(0).size());
         int cnt = 0;
         int c = n - 1;
 
         for (int i = 0; i < m; i++) {
-            while (c >= 0 && mat[i][c] > x) c--;
+            while (c >= 0 && mat.at(i).at(c) > x) c--;
             cnt += c + 1;
         }
 
@@ -61,7 +61,7 @@ Space Complexity: O(1), constant space.
         priority_queue<int, vector<int>, greater<>> pq;
         for (int i = 0; i < static_cast<int>(matrix.size()); i++) {
             for (int j = 0; j < static_cast<int>(matrix.size()); j++) {
-                pq.push(matrix[i][j]);
+                pq.push(matrix.at(i).at(j));
             }
         }
         while (k > 1) {

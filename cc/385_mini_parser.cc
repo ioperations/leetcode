@@ -69,6 +69,7 @@ class NestedInteger {
 };
 class Solution {
    public:
+    [[nodiscard]]
     NestedInteger Deserialize(std::string s) const {
         const function<bool(char)> isnumber = [](char c) {
             return (c == '-') || isdigit(c);
@@ -99,25 +100,26 @@ class Solution {
         return stk.top().GetList().front();
     }
 
+    [[nodiscard]]
     NestedInteger DeserializeV1(string s) const {
         stack<NestedInteger> stk({NestedInteger()});
         for (size_t i = 0; i < s.size(); ++i) {
-            if (s[i] == '[') {
+            if (s.at(i) == '[') {
                 stk.emplace();
-            } else if (s[i] == ']') {
+            } else if (s.at(i) == ']') {
                 const NestedInteger ni = stk.top();
                 stk.pop();
                 stk.top().Add(ni);
-            } else if (s[i] == ',') {
+            } else if (s.at(i) == ',') {
             } else {
                 int v = 0;
                 bool negative = false;
-                if (s[i] == '-') {
+                if (s.at(i) == '-') {
                     negative = true;
                     ++i;
                 }
-                for (; i < s.size() && '0' <= s[i] && s[i] <= '9'; ++i) {
-                    v = v * 10 + s[i] - '0';
+                for (; i < s.size() && '0' <= s.at(i) && s.at(i) <= '9'; ++i) {
+                    v = v * 10 + s.at(i) - '0';
                 }
                 if (negative) {
                     v = -v;

@@ -42,39 +42,33 @@ class NumArray {
 
     void Build(ll v, ll tl, ll tr) {
         if (tl == tr) {
-            m_segarr[v] = vp[tl];
+            m_segarr.at(v) = vp.at(tl);
             return;
         }
 
         ll const tm = (tl + tr) / 2;
-        // building tree in 2 seperate parts
         Build(2 * v, tl, tm);
         Build(2 * v + 1, tm + 1, tr);
 
-        m_segarr[v] = Combine(m_segarr[2 * v], m_segarr[2 * v + 1]);
+        m_segarr.at(v) = Combine(m_segarr.at(2 * v), m_segarr.at(2 * v + 1));
     }
 
     void Upd(ll v, ll tl, ll tr, ll ind, ll val) {
-        // that update point itself
         if (tl == ind && tr == ind) {
-            m_segarr[v] = val;
+            m_segarr.at(v) = val;
             return;
         }
 
-        // we are in wrong region we dont need to update anthing here
-        // zero overlap
         if (ind > tr || ind < tl) {
             return;
         }
 
         ll const tm = (tl + tr) / 2;
-        // now we will update both regions and after updating them we will
-        // combine them
 
         Upd(2 * v, tl, tm, ind, val);
         Upd(2 * v + 1, tm + 1, tr, ind, val);
 
-        m_segarr[v] = Combine(m_segarr[2 * v], m_segarr[2 * v + 1]);
+        m_segarr.at(v) = Combine(m_segarr.at(2 * v), m_segarr.at(2 * v + 1));
     }
 
     void Update(int index, int val) { Upd(1, 0, n - 1, index, val); }
@@ -107,7 +101,7 @@ class NumArray {
     }
 
     // 0 based indexing segment tree ..value of v always starts from 1
-    NumArray(vector<int>& a) : vp(a), n(a.size()) {
+    explicit NumArray(vector<int>& a) : vp(a), n(static_cast<int>(a.size())) {
         vp.resize(n);
 
         m_segarr.resize(4 * n);

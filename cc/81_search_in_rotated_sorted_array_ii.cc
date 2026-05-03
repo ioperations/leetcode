@@ -26,23 +26,26 @@ namespace {
 class Solution {
    public:
     bool Search(vector<int>& nums, int target) {
-        int left = 0, right = nums.size() - 1;
+        int left = 0;
+        int right = static_cast<int>(nums.size()) - 1;
         while (left <= right) {
             int const mid = (left + right) / 2;
-            if (target == nums[mid]) return true;
-            if (nums[left] == nums[mid] && nums[mid] == nums[right]) {
+            if (target == nums.at(mid)) return true;
+            if (nums.at(left) == nums.at(mid) && nums.at(mid) == nums.at(right)) {
                 left++;
                 right--;
-            } else if (nums[left] <= nums[mid]) {
-                if (target >= nums[left] && target < nums[mid])
+            } else if (nums.at(left) <= nums.at(mid)) {
+                if (target >= nums.at(left) && target < nums.at(mid)) {
                     right = mid - 1;
-                else
+                } else {
                     left = mid + 1;
+                }
             } else {
-                if (target > nums[mid] && target <= nums[right])
+                if (target > nums.at(mid) && target <= nums.at(right)) {
                     left = mid + 1;
-                else
+                } else {
                     right = mid - 1;
+                }
             }
         }
         return false;

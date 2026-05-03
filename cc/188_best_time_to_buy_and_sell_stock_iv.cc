@@ -27,25 +27,18 @@ class Solution {
         // dp[k][0] = min cost you need to spend at most k transactions
         // dp[k][1] = max profit you can achieve at most k transactions
         vector<vector<int>> dp(k + 1, vector<int>(2));
-        for (int i = 0; i <= k; i++) dp[i][0] = INT_MAX;
+        for (int i = 0; i <= k; i++) dp.at(i).at(0) = INT_MAX;
         for (auto& price : prices) {
             for (int i = 1; i <= k; i++) {
-                // price - dp[i - 1][1] is how much you need to spend
-                // i.e use the profit you earned from previous transaction to
-                // buy the stock we want to minimize it
-                dp[i][0] = min(dp[i][0], price - dp[i - 1][1]);
-                // price - dp[i][0] is how much you can achieve from previous
-                // min cost we want to maximize it
-                dp[i][1] = max(dp[i][1], price - dp[i][0]);
+                dp.at(i).at(0) = std::min(dp.at(i).at(0), price - dp.at(i - 1).at(1));
+                dp.at(i).at(1) = std::max(dp.at(i).at(1), price - dp.at(i).at(0));
             }
         }
-        // return max profit at most k transactions
-        // or you can use `return dp.back()[1];`
-        return dp[k][1];
+        return dp.at(k).at(1);
     }
 
     int MaxProfitV1(int k, vector<int>& prices) {
-        int size = prices.size();
+        int const size = static_cast<int>(prices.size());
 
         /// @param action bool Buy
         ///        action false sell
@@ -59,7 +52,7 @@ class Solution {
             // 选择采取这个动作 买/卖 今天就买/卖
             int const v2 = fun(
                 day + 1, !next_action,
-                next_action ? (value - (prices[day])) : (value + (prices[day])),
+                next_action ? (value - (prices.at(day))) : (value + (prices.at(day))),
                 next_action ? (k_times) : --k_times);
 
             return max(v1, v2);

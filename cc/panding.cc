@@ -24,7 +24,7 @@ struct StackGrowth {
     void append(const char* q) {
         auto len = strlen(q);
         memcpy(m_p + m_size, q, len);
-        m_size = m_size + len;
+        m_size = m_size + static_cast<int>(len);
 
         m_p[m_size] = '\0';
         m_type = STRING;

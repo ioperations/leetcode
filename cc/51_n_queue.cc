@@ -33,21 +33,19 @@ class Solution {
         return m_sols;
     }
     bool IsSafe(vector<string>& board, int row, int col) {
-        int const n = size(board);
+        int const n = static_cast<int>(board.size());
         for (int i = 0; i < n; i++) {
-            // checking if there is a queen in the same column
-            if (board[i][col] == 'Q') return false;
-            // checking if there is a queen in the same diagonal (left to right)
-            if (row - i >= 0 && col - i >= 0 && board[row - i][col - i] == 'Q') {
+            if (board.at(i).at(col) == 'Q') return false;
+            if (row - i >= 0 && col - i >= 0 && board.at(row - i).at(col - i) == 'Q') {
                 return false;
             }
-            if (row - i >= 0 && col + i < n && board[row - i][col + i] == 'Q') {
+            if (row - i >= 0 && col + i < n && board.at(row - i).at(col + i) == 'Q') {
                 return false;
             }
-            if (row + i < n && col - i >= 0 && board[row + i][col - i] == 'Q') {
+            if (row + i < n && col - i >= 0 && board.at(row + i).at(col - i) == 'Q') {
                 return false;
             }
-            if (row + i < n && col + i < n && board[row + i][col + i] == 'Q') {
+            if (row + i < n && col + i < n && board.at(row + i).at(col + i) == 'Q') {
                 return false;
             }
         }
@@ -68,10 +66,9 @@ class Solution {
         // row
         for (int col = 0; col < static_cast<int>(size(board)); col++) {
             if (IsSafe(board, row, col)) {
-                board[row][col] = 'Q';  // Queen placed on a valid cell
-                Solve(board, row + 1);  // Exploring next row
-                board[row][col] =
-                    '.';  // Backtracking to get all possible solutions
+                board.at(row).at(col) = 'Q';
+                Solve(board, row + 1);
+                board.at(row).at(col) = '.';
             }
         }
     }

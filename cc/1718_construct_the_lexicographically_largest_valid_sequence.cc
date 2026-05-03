@@ -57,33 +57,33 @@ class Solution {
         }
 
         for (size_t i = 0; i < value_set.size(); i++) {
-            if (!exists[i]) {
+            if (!exists.at(i)) {
                 continue;
             }
 
-            const auto value = value_set[i];
-            if (index + value >= result_size || results[index + value] != 0) {
+            const auto value = value_set.at(i);
+            if (index + value >= result_size || results.at(index + value) != 0) {
                 continue;
             }
 
-            results[index] = value;
-            results[index + value] = value;
-            exists[i] = false;
+            results.at(index) = value;
+            results.at(index + value) = value;
+            exists.at(i) = false;
 
             if (Gen(results, value_set, exists, number_one_used, index + 1,
                     fillsize + 2)) {
                 return true;
             }
 
-            results[index] = 0;
-            results[index + value] = 0;
-            exists[i] = true;
+            results.at(index) = 0;
+            results.at(index + value) = 0;
+            exists.at(i) = true;
         }
         if (number_one_used) {
             return false;
         }
 
-        results[index] = 1;
+        results.at(index) = 1;
         if (Gen(results, value_set, exists, true, index + 1, fillsize + 1)) {
             return true;
         }

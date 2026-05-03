@@ -28,58 +28,50 @@ class Solution {
           0 <= queries[i][0] <= limit
           1 <= queries[i][1] <= 109
          */
-        auto size = queries.size();
+        auto const size = queries.size();
         vector<int> ret(size, 0);
         unordered_map<int, int> hm;
         unordered_map<int, int> table;
 
         for (size_t i = 0; i < size; i++) {
-            auto& curr = queries[i];
-            int const index = curr[0];
-            if (!(table.count(index) == 0 or table[index] == 0)) {
-                int const c = table[index];
+            auto& curr = queries.at(i);
+            int const index = curr.at(0);
+            if (!(table.count(index) == 0 or table.at(index) == 0)) {
+                int const c = table.at(index);
                 hm[c]--;
                 if (hm[c] == 0) {
                     hm.erase(c);
                 }
             }
-            int const color = curr[1];
+            int const color = curr.at(1);
             hm[color]++;
             table[index] = color;
-            ret[i] = hm.size();
+            ret.at(i) = static_cast<int>(hm.size());
         }
         return ret;
     }
 
     vector<int> QueryResultsV0(int limit, vector<vector<int>>& queries) {
-        // FIXME: memory limit exceeded
-        /*
-         1 <= limit <= 109
-         1 <= n == queries.length <= 105
-         queries[i].length == 2
-         0 <= queries[i][0] <= limit
-         1 <= queries[i][1] <= 109
-         */
-        auto size = queries.size();
+        auto const size = queries.size();
         vector<int> ret(size, 0);
         unordered_map<int, int> hm;
         vector<int> table(limit + 1, 0);
 
         for (size_t i = 0; i < size; i++) {
-            auto& curr = queries[i];
-            int const index = curr[0];
-            if (!(table[index] == 0)) {
+            auto& curr = queries.at(i);
+            int const index = curr.at(0);
+            if (!(table.at(index) == 0)) {
                 int c = 0;
-                c = table[index];
+                c = table.at(index);
                 hm[c]--;
                 if (hm[c] == 0) {
                     hm.erase(c);
                 }
             }
-            int const color = curr[1];
+            int const color = curr.at(1);
             hm[color]++;
             table[index] = color;
-            ret[i] = hm.size();
+            ret.at(i) = static_cast<int>(hm.size());
         }
         return ret;
     }

@@ -20,10 +20,7 @@ namespace {
 class Solution {
    public:
     int FindDuplicate(vector<int>& nums) {
-        // pass
-        // 1 <= n <= 105
-        // nums.length == n + 1
-        int const n = nums.size();
+        int const n = static_cast<int>(nums.size());
         int min = 1, max = n - 1;
         while (min != max) {
             int const mid = (min + max) / 2;
@@ -42,15 +39,16 @@ class Solution {
         return min;
     }
     int FindDuplicateV1(vector<int>& nums) {
-        int slow = nums[0], fast = nums[nums[0]];
-        while (slow != fast) {  // detecting cycle
-            slow = nums[slow];
-            fast = nums[nums[fast]];
+        int slow = nums.at(0);
+        int fast = nums.at(nums.at(0));
+        while (slow != fast) {
+            slow = nums.at(slow);
+            fast = nums.at(nums.at(fast));
         }
         slow = 0;
-        while (slow != fast) {  // getting the duplicate number
-            slow = nums[slow];
-            fast = nums[fast];
+        while (slow != fast) {
+            slow = nums.at(slow);
+            fast = nums.at(fast);
         }
         return slow;
     }

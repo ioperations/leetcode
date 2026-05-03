@@ -33,19 +33,19 @@ class Solution {
         }
         bool ans = false;
         if (chance) {
-            ans |= Ok(nums, i + 1, j, score + nums[i], false);
-            ans |= Ok(nums, i, j - 1, score + nums[j], false);
+            ans |= Ok(nums, i + 1, j, score + nums.at(i), false);
+            ans |= Ok(nums, i, j - 1, score + nums.at(j), false);
         } else {
             ans = true;
-            ans &= Ok(nums, i + 1, j, score - nums[i], true);
-            ans &= Ok(nums, i, j - 1, score - nums[j], true);
+            ans &= Ok(nums, i + 1, j, score - nums.at(i), true);
+            ans &= Ok(nums, i, j - 1, score - nums.at(j), true);
         }
 
         return ans;
     }
 
     bool PredictTheWinner(vector<int>& nums) {
-        return Ok(nums, 0, nums.size() - 1, 0, true);
+        return Ok(nums, 0, static_cast<int>(nums.size()) - 1, 0, true);
     }
 
     int m_dp[21][21][2];
@@ -60,11 +60,11 @@ class Solution {
 
         int ans = 0;
         if (chance) {
-            ans = max(Ok(nums, i + 1, j, 1 - chance) + nums[i],
-                      Ok(nums, i, j - 1, 1 - chance) + nums[j]);
+            ans = max(Ok(nums, i + 1, j, 1 - chance) + nums.at(i),
+                      Ok(nums, i, j - 1, 1 - chance) + nums.at(j));
         } else {
-            ans = min(Ok(nums, i + 1, j, 1 - chance) - nums[i],
-                      Ok(nums, i, j - 1, 1 - chance) - nums[j]);
+            ans = min(Ok(nums, i + 1, j, 1 - chance) - nums.at(i),
+                      Ok(nums, i, j - 1, 1 - chance) - nums.at(j));
         }
 
         return m_dp[i][j][chance] = ans;
@@ -72,7 +72,7 @@ class Solution {
 
     bool PredictTheWinnerV2(vector<int>& nums) {
         memset(m_dp, -1, sizeof m_dp);
-        int const res = Ok(nums, 0, nums.size() - 1, true);
+        int const res = Ok(nums, 0, static_cast<int>(nums.size()) - 1, true);
 
         return res >= 0;
     }

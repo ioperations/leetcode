@@ -56,14 +56,14 @@ class Solution {
         }
 
         ite_new = &dummy_new;
-        ite_old = dummy_old.next;
+        Node* ite_old_dup = dummy_old.next;
         i = 0;
         while (ite_new->next != nullptr) {
-            if (ite_old->random != nullptr) {
-                ite_new->next->random = new_nodes[map[ite_old->random]];
+            if (ite_old_dup->random != nullptr) {
+                ite_new->next->random = new_nodes.at(map.at(ite_old_dup->random));
             }
             ite_new = ite_new->next;
-            ite_old = ite_old->next;
+            ite_old_dup = ite_old_dup->next;
             i++;
         }
 
@@ -82,17 +82,17 @@ Node* ConstructNode(std::vector<std::vector<std::optional<int>>>& vec) {
     std::vector<Node*> cache;
     cache.reserve(vec.size());
     for (auto& ptr : vec) {
-        ite->next = new Node(ptr[0].value());
+        ite->next = new Node(ptr.at(0).value());
         ite = ite->next;
         cache.push_back(ite);
     }
     ite = &dummy;
 
+    int const len = static_cast<int>(vec.size());
     int i = 0;
-    const int len = vec.size();
     while (ite->next != nullptr && i < len) {
-        if (vec[i][1].has_value()) {
-            ite->next->random = cache[vec[i][1].value()];
+        if (vec.at(i).at(1).has_value()) {
+            ite->next->random = cache.at(vec.at(i).at(1).value());
         }
         i++;
         ite = ite->next;
@@ -110,7 +110,7 @@ std::vector<std::vector<std::optional<int>>> RestoreNode(Node* node) {
     while (ite != nullptr) {
         map[ite] = i;
         std::vector<std::optional<int>> myret(2, std::optional<int>());
-        myret[0] = ite->m_val;
+        myret.at(0) = ite->m_val;
         ite = ite->next;
         ret.push_back(myret);
         i++;
@@ -119,7 +119,7 @@ std::vector<std::vector<std::optional<int>>> RestoreNode(Node* node) {
     i = 0;
     while (ite != nullptr) {
         if (ite->random != nullptr) {
-            ret[i][1] = map[ite->random];
+            ret.at(i).at(1) = map[ite->random];
         }
         i++;
         ite = ite->next;
@@ -127,11 +127,10 @@ std::vector<std::vector<std::optional<int>>> RestoreNode(Node* node) {
 
     ite = node;
     while (ite != nullptr) {
-        Node* now = ite;
+        Node* const now = ite;
         ite = now->next;
         delete now;
     }
-    delete ite;
 
     return ret;
 }

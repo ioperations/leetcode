@@ -15,15 +15,18 @@ very large, return it modulo 1337.
 namespace {
 class Solution {
    public:
+    [[nodiscard]]
     bool IsPalindrome(unsigned long val) const {
         if ((val % 10) != 9) return false;
         std::string s = std::to_string(val);
-        int left = 0, right = s.length() - 1;
+        int left = 0;
+        int right = static_cast<int>(s.length()) - 1;
         while (left < right) {
-            if (s[left++] != s[right--]) return false;
+            if (s.at(left++) != s.at(right--)) return false;
         }
         return true;
     }
+    [[nodiscard]]
     int LargestPalindrome(int n) const {
         if (n == 1) return 9;
         unsigned long n_digits = 1;
@@ -48,10 +51,10 @@ class Solution {
                 }
             } else {
                 unsigned long start = 0;
-                j = n_digits - n_digits / 11 * 11;
+                j = static_cast<long>(n_digits - n_digits / 11 * 11);
                 if (!(j & 1)) j += 11;
                 start = (n_digits - i) * (n_digits - j);
-                const int step = (n_digits - i) * 22;
+                const int step = static_cast<int>((n_digits - i) * 22);
                 for (; j <= i + 11; j += 22) {
                     // cnt++;
                     const unsigned long val =
@@ -67,7 +70,7 @@ class Solution {
 
             if (candidate) break;
         }
-        for (; i <= (int)max_offset; i += 2) {
+        for (; i <= static_cast<int>(max_offset); i += 2) {
             for (j = 1; j <= i; j += 2) {
                 const unsigned long val = (n_digits - i) * (n_digits - j);
                 if (val <= candidate) break;
@@ -78,10 +81,11 @@ class Solution {
                 }
             }
         }
-        return candidate % 1337;
+        return static_cast<int>(candidate % 1337);
     }
-    bool IsPalindrome(const std::string s) const {
-        const int n = s.size();
+    [[nodiscard]]
+    bool IsPalindrome(const std::string& s) const {
+        int const n = static_cast<int>(s.size());
 
         int left = 0;
         int right = 0;
@@ -94,7 +98,7 @@ class Solution {
         }
 
         while (left >= 0) {
-            if (s[left] == s[right]) {
+            if (s.at(left) == s.at(right)) {
                 left--;
                 right++;
 

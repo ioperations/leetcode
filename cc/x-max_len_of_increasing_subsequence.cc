@@ -13,18 +13,18 @@ int MaxLengthOfdijizixulie(const int* nums, int length) {
     dp.fill(1);
 
     for (int i = 0; i < length; ++i) {
-        dp[i] = 1;
+        dp.at(i) = 1;
     }
 
     for (int i = 1; i < length; ++i) {
         for (int j = 0; j < i; j++) {
             if (nums[i] < nums[j]) {
-                dp[i] = std::max({dp[i], dp[j] + 1});
+                dp.at(i) = std::max({dp.at(i), dp.at(j) + 1});
             }
         }
     }
 
-    return dp[length - 1];
+    return dp.at(length - 1);
 }
 
 int MaxLengthOf(const int* nums, int length) {
@@ -32,18 +32,18 @@ int MaxLengthOf(const int* nums, int length) {
     dp.fill(1);
 
     for (int i = 0; i < length; ++i) {
-        dp[i] = 1;
+        dp.at(i) = 1;
     }
 
     for (int i = 1; i < length; ++i) {
         for (int j = 0; j < i; j++) {
             if (nums[i] > nums[j]) {
-                dp[i] = std::max({dp[i], dp[j] + 1});
+                dp.at(i) = std::max({dp.at(i), dp.at(j) + 1});
             }
         }
     }
 
-    return dp[length - 1];
+    return dp.at(length - 1);
 }
 
 TEST(XMaxLenOfIncreasingSubsequenceV2, t2) {

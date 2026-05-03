@@ -40,18 +40,15 @@ class Solution {
         array<int, 9> boxes = {};
         for (int r = 0; r < 9; ++r) {
             for (int c = 0; c < 9; ++c) {
-                if (board[r][c] == '.') continue;
-                const int mask = 1 << (board[r][c] & 0xf);
-                // row
-                if (rows[r] & mask) return false;
-                rows[r] |= mask;
-                // col
-                if (cols[c] & mask) return false;
-                cols[c] |= mask;
-                // box
-                const int box = (r / 3) * 3 + (c / 3);
-                if (boxes[box] & mask) return false;
-                boxes[box] |= mask;
+                if (board.at(r).at(c) == '.') continue;
+                int const mask = 1 << (board.at(r).at(c) & 0xf);
+                if (rows.at(r) & mask) return false;
+                rows.at(r) |= mask;
+                if (cols.at(c) & mask) return false;
+                cols.at(c) |= mask;
+                int const box = (r / 3) * 3 + (c / 3);
+                if (boxes.at(box) & mask) return false;
+                boxes.at(box) |= mask;
             }
         }
         return true;

@@ -14,13 +14,13 @@ class Solution {
         if (target == 0) return 1;
         if (target < 0) return 0;
 
-        if (dp[target] != -1) return dp[target];
+        if (dp.at(target) != -1) return dp.at(target);
         int ans = 0;
-        for (int i = 0; i < (int)nums.size(); i++) {
-            ans += Combination(nums, target - nums[i], dp);
+        for (int i = 0; i < static_cast<int>(nums.size()); i++) {
+            ans += Combination(nums, target - nums.at(i), dp);
         }
 
-        return dp[target] = ans;
+        return dp.at(target) = ans;
     }
 
    public:
@@ -31,20 +31,17 @@ class Solution {
     int m_ans = 0;
 
     int CombinationSum4V1(vector<int>& nums, int tar) {
-        if (nums.size() == 0) return 0;
+        if (nums.empty()) return 0;
 
         vector<unsigned int> dp(tar + 1, 0);
-        dp[0] = 1;
+        dp.at(0) = 1;
 
         for (int i = 1; i < tar + 1; i++) {
             for (auto num : nums) {
-                if (i - num >= 0) dp[i] = dp[i] + dp[i - num];
+                if (i - num >= 0) dp.at(i) = dp.at(i) + dp.at(i - num);
             }
         }
-        // DP Approach
-        return dp[tar];
-
-        // BackTracking
+        return dp.at(tar);
     }
 
    public:
@@ -54,18 +51,18 @@ class Solution {
 
    private:
     int Backtrack(vector<int> nums, int tar, int index) {
-        if (index >= (int)nums.size()) return 0;
+        if (index >= static_cast<int>(nums.size())) return 0;
         if (tar == 0) return 1;
 
         int ans = 0;
 
-        for (int i = 0; i < (int)nums.size(); i++) {
-            if (tar - nums[i] >= 0) {
-                tar -= nums[i];
+        for (int i = 0; i < static_cast<int>(nums.size()); i++) {
+            if (tar - nums.at(i) >= 0) {
+                tar -= nums.at(i);
 
                 ans += Backtrack(nums, tar, i);
 
-                tar += nums[i];
+                tar += nums.at(i);
             }
         }
 

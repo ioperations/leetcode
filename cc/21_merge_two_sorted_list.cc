@@ -149,8 +149,8 @@ void Benchmakrv1(benchmark::State& state) {
     int size{static_cast<int>(t.size())};
     expected.reserve(size * 2);
     for (int i = 0; i < size; i++) {
-        expected.push_back(t[i]);
-        expected.push_back(t[i]);
+        expected.push_back(t.at(i));
+        expected.push_back(t.at(i));
     }
 
     for (auto _ : state) {
@@ -180,8 +180,8 @@ void Benchmakrv2(benchmark::State& state) {
     int size{static_cast<int>(t.size())};
     expected.reserve(size * 2);
     for (int i = 0; i < size; i++) {
-        expected.push_back(t[i]);
-        expected.push_back(t[i]);
+        expected.push_back(t.at(i));
+        expected.push_back(t.at(i));
     }
     sort(expected.begin(), expected.end());
 

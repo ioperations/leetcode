@@ -45,15 +45,15 @@ class Solution {
 
         auto parsedigit = [](const std::string& s) -> int {
             int sum = 0;
-            for (int i = 0; i < (int)s.size(); i++) {
-                if (i == 0 && s[i] == '0') {
+            for (int i = 0; i < static_cast<int>(s.size()); i++) {
+                if (i == 0 && s.at(i) == '0') {
                     if (s.size() == 1) return 0;
                     return -1;
                 }
-                if (sum > 255) return -1;  // 避免某个数字造成溢出
+                if (sum > 255) return -1;  // avoid overflow
 
-                if ('0' <= s[i] && s[i] <= '9') {
-                    sum = sum * 10 + s[i] - '0';
+                if ('0' <= s.at(i) && s.at(i) <= '9') {
+                    sum = sum * 10 + s.at(i) - '0';
                 } else {
                     return -1;
                 }
@@ -86,7 +86,7 @@ class Solution {
         int const sum = count(s.begin(), s.end(), ':');
         if (sum != 7) return false;
 
-        auto parsehex = [](const std::string& s) -> int {
+        auto parsehex = [](const std::string& s) -> bool {
             if (s.size() <= 0 || s.size() > 4) return false;
 
             for (auto& ptr : s) {

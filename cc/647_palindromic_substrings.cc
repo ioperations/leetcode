@@ -49,14 +49,14 @@ class Solution {
         if (n == 1) return 1;
         std::array<std::array<bool, 1001>, 1001> dp = {{{false}}};
         for (int i = 0; i < static_cast<int>(n); ++i) {
-            dp[i][i] = true;
+            dp.at(i).at(i) = true;
             count++;
         }
         for (int i = static_cast<int>(n - 1); i >= 0; --i) {
             for (size_t j = i + 1; j < n; ++j) {
                 if (s.at(i) == s.at(j)) {
-                    if (j - i == 1 || dp[i + 1][j - 1] == true) {
-                        dp[i][j] = true;
+                    if (j - i == 1 || dp.at(i + 1).at(j - 1) == true) {
+                        dp.at(i).at(j) = true;
                         count++;
                     }
                 }

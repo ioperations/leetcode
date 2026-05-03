@@ -22,17 +22,17 @@ class Solution {
         double tmp = 0.0;
         tmp = ImplV1(nums1, nums2);
         end = clock();
-        std::cout << "v1 const time " << end - start << std::endl;
+        std::cout << "v1 const time " << end - start << '\n';
 
         start = clock();
         tmp = ImplV2(nums1, nums2);
         end = clock();
-        std::cout << "v2 const time " << end - start << std::endl;
+        std::cout << "v2 const time " << end - start << '\n';
 
         start = clock();
         tmp = ImplV3(nums1, nums2);
         end = clock();
-        std::cout << "v3 const time " << end - start << std::endl;
+        std::cout << "v3 const time " << end - start << '\n';
         return tmp;
     }
 
@@ -112,15 +112,18 @@ class Solution {
     double ImplV3(vector<int>& nums1, vector<int>& nums2) {
         int const m = static_cast<int>(nums1.size()), n = static_cast<int>(nums2.size());
 
-        if (!m)
+        if (!m) {
             return n & 1 ? nums2.at(n / 2)
                          : (nums2.at(n / 2 - 1) + nums2.at(n / 2)) / 2.0;
-        if (!n)
+        }
+        if (!n) {
             return m & 1 ? nums1.at(m / 2)
                          : (nums1.at(m / 2 - 1) + nums1.at(m / 2)) / 2.0;
+        }
 
-        if ((m + n) & 1)
+        if ((m + n) & 1) {
             return Median(nums1, nums2, 0, m - 1, 0, n - 1, (m + n) / 2);
+        }
 
         return (Median(nums1, nums2, 0, m - 1, 0, n - 1, (m + n) / 2 - 1) +
                 Median(nums1, nums2, 0, m - 1, 0, n - 1, (m + n) / 2)) /
@@ -140,15 +143,17 @@ class Solution {
         mb = b.at(s2 + lb);
 
         if (la + lb >= tar) {
-            if (ma > mb)
+            if (ma > mb) {
                 ans = Median(a, b, s1, s1 + la - 1, s2, e2, tar);
-            else
+            } else {
                 ans = Median(a, b, s1, e1, s2, s2 + lb - 1, tar);
+            }
         } else {
-            if (ma > mb)
+            if (ma > mb) {
                 ans = Median(a, b, s1, e1, s2 + lb + 1, e2, tar - lb - 1);
-            else
+            } else {
                 ans = Median(a, b, s1 + la + 1, e1, s2, e2, tar - la - 1);
+            }
         }
         return ans;
     }
