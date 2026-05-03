@@ -11,7 +11,6 @@ may not be used more than once.
 */
 
 #include <array>
-#include <cstddef>
 #include <map>
 #include <set>
 #include <stack>
@@ -58,8 +57,7 @@ class Solution {
 
         if (board.at(x).at(y) == word.at(0)) {
             stack.emplace(x, y);
-            // seen.emplace(std::make_pair(x, y));
-            route[x][y] = true;
+            route.at(x).at(y) = true;
         } else {
             return false;
         }
@@ -73,11 +71,10 @@ class Solution {
 
           int readllyx = 0;
           int readllyy = 0;
-          if (route[x][y] == false) {
+          if (route.at(x).at(y) == false) {
             if (x > 1) {
               if (next[make_pair(x, y)].count(make_pair(x - 1, y)) == 0 &&
                   board.at(x - 1).at(y) == word.at(word_it)) {
-                // next[make_pair(x, y)].emplace(make_pair(x - 1, y));
                 stack.emplace(x - 1, y);
                 set = true;
                 word_it++;
@@ -121,11 +118,10 @@ class Solution {
           }
           if (!set) {
             stack.pop();
-            route[x][y] = true;
+            route.at(x).at(y) = true;
             word_it--;
           } else {
             next[make_pair(x, y)].emplace(readllyx, readllyy);
-            // route[readllyx][readllyy] = true;
             word_it++;
           }
         }
@@ -154,7 +150,7 @@ class Solution {
       if (word.at(m_index) != board.at(i).at(j)) return;              // search pruning
 
       m_s.at(m_index) = board.at(i).at(j);  // make move
-      board[i][j] = '?';
+      board.at(i).at(j) = '?';
       m_index++;
 
       if (m_index == m_expect_size &&
@@ -215,11 +211,11 @@ class SolutionV2 {
 
         while (!st.empty()) {
             const auto& top = st.top();
-            const int i = top[0];
-            const int j = top[1];
-            const int pos = top[2];
-            const int dir = top[3];
-            visited[i][j] = true;
+            const int i = top.at(0);
+            const int j = top.at(1);
+            const int pos = top.at(2);
+            const int dir = top.at(3);
+            visited.at(i).at(j) = true;
             st.pop();
             st.push({i, j, pos, dir + 1});
 
@@ -229,31 +225,31 @@ class SolutionV2 {
 
             if (word.at(pos) != board.at(i).at(j)) {
                 st.pop();
-                visited[i][j] = false;
+                visited.at(i).at(j) = false;
                 continue;
             }
 
             if (dir == 0) {
-              if (i - 1 >= 0 && !visited[i - 1][j]) {
+              if (i - 1 >= 0 && !visited.at(i - 1).at(j)) {
                 st.push({i - 1, j, pos + 1, 0});
               }
             } else if (dir == 1) {
-              if (j - 1 >= 0 && !visited[i][j - 1]) {
+              if (j - 1 >= 0 && !visited.at(i).at(j - 1)) {
                 st.push({i, j - 1, pos + 1, 0});
               }
             } else if (dir == 2) {
               if (i + 1 < static_cast<int>(board.size()) &&
-                  !visited[i + 1][j]) {
+                  !visited.at(i + 1).at(j)) {
                 st.push({i + 1, j, pos + 1, 0});
               }
             } else if (dir == 3) {
               if (j + 1 < static_cast<int>(board.at(0).size()) &&
-                  !visited[i][j + 1]) {
+                  !visited.at(i).at(j + 1)) {
                 st.push({i, j + 1, pos + 1, 0});
               }
             } else {
                 st.pop();
-                visited[i][j] = false;
+                visited.at(i).at(j) = false;
             }
         }
 
@@ -288,16 +284,16 @@ class SolutionV3 {
              vector<vector<bool>>& visited, const string& word) {
       if (pos == static_cast<int>(word.size())) return true;
       if (i < 0 || j < 0 || i >= m_m || j >= m_n) return false;
-      if (visited[i][j] || board.at(i).at(j) != word.at(pos)) return false;
+      if (visited.at(i).at(j) || board.at(i).at(j) != word.at(pos)) return false;
 
-      visited[i][j] = true;
+      visited.at(i).at(j) = true;
       for (int k = 0; k < 4; k++) {
-        if (Dfs(i + m_dirs[k], j + m_dirs[k + 1], pos + 1, board, visited,
+        if (Dfs(i + m_dirs.at(k), j + m_dirs.at(k + 1), pos + 1, board, visited,
                 word)) {
           return true;
         }
         }
-        visited[i][j] = false;
+        visited.at(i).at(j) = false;
         return false;
     }
 };

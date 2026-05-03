@@ -20,6 +20,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
+    [[nodiscard]]
     std::string ToStr(int num) const {
         std::string ret = "";
 
@@ -30,24 +31,25 @@ class Solution {
         }
         return ret;
     }
-    string Multiply(string num1, string num2) const {
+    [[nodiscard]]
+    std::string Multiply(std::string num1, std::string num2) const {
         if (num1 == "0" || num2 == "0") {
             return "0";
         }
         vector<int> num(num1.size() + num2.size(), 0);
-        for (int i = num1.size() - 1; i >= 0; i--) {
-            for (int j = num2.size() - 1; j >= 0; j--) {
-                num[i + j + 1] += (num1[i] - '0') * (num2[j] - '0');
-                num[i + j] += num[i + j + 1] / 10;
-                num[i + j + 1] %= 10;
+        for (int i = static_cast<int>(num1.size()) - 1; i >= 0; i--) {
+            for (int j = static_cast<int>(num2.size()) - 1; j >= 0; j--) {
+                num.at(i + j + 1) += (num1.at(i) - '0') * (num2.at(j) - '0');
+                num.at(i + j) += num.at(i + j + 1) / 10;
+                num.at(i + j + 1) %= 10;
             }
         }
 
         size_t i = 0;
-        while (i < num.size() && num[i] == 0) ++i;
+        while (i < static_cast<int>(num.size()) && num.at(i) == 0) ++i;
         string res = "";
-        while (i < num.size()) {
-            res.push_back(num[i] + '0');
+        while (i < static_cast<int>(num.size())) {
+            res.push_back(static_cast<char>(num.at(i) + '0'));
             i++;
         }
         return res;
@@ -55,7 +57,7 @@ class Solution {
 };
 
 TEST(multiplyV, t1) {
-    std::string num1 = "2", num2 = "3";
+    std::string const num1 = "2", num2 = "3";
     std::string const expected = "6";
 
     Solution const s;
@@ -64,7 +66,7 @@ TEST(multiplyV, t1) {
 }
 
 TEST(multiplyV, t2) {
-    std::string num1 = "123", num2 = "456";
+    std::string const num1 = "123", num2 = "456";
     std::string const expected = "56088";
 
     Solution const s;
@@ -72,7 +74,7 @@ TEST(multiplyV, t2) {
     EXPECT_EQ(ret, expected);
 }
 TEST(multiplyV, t3) {
-    std::string num1 = "123456789", num2 = "987654321";
+    std::string const num1 = "123456789", num2 = "987654321";
     std::string const expected = "121932631112635269";
 
     Solution const s;
@@ -80,7 +82,7 @@ TEST(multiplyV, t3) {
     EXPECT_EQ(ret, expected);
 }
 TEST(multiplyV, t4) {
-    std::string num1 = "498828660196", num2 = "840477629533";
+    std::string const num1 = "498828660196", num2 = "840477629533";
     std::string const expected = "419254329864656431168468";
 
     Solution const s;

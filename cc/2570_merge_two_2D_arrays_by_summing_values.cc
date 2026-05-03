@@ -30,31 +30,31 @@ class Solution {
 
         int i = 0, j = 0;
         for (int k = 0; k < size; k++) {
-            if (i < n1 && j < n2) {
-                if (nums1[i][0] == nums2[j][0]) {
+            if (i < static_cast<int>(n1) && j < static_cast<int>(n2)) {
+                if (nums1.at(i).at(0) == nums2.at(j).at(0)) {
                     ret.push_back(
-                        vector<int>{nums1[i][0], nums1[i][1] + nums2[j][1]});
+                        vector<int>{nums1.at(i).at(0), nums1.at(i).at(1) + nums2.at(j).at(1)});
                     i++;
                     j++;
                     continue;
                 }
-                if (nums1[i][0] < nums2[j][0]) {
-                    ret.push_back(nums1[i]);
+                if (nums1.at(i).at(0) < nums2.at(j).at(0)) {
+                    ret.push_back(nums1.at(i));
                     i++;
                     continue;
                 }
-                ret.push_back(nums2[j]);
+                ret.push_back(nums2.at(j));
                 j++;
                 continue;
             }
 
-            if (i < n1) {
-                ret.push_back(nums1[i]);
+            if (i < static_cast<int>(n1)) {
+                ret.push_back(nums1.at(i));
                 i++;
             }
 
-            if (j < n2) {
-                ret.push_back(nums2[j]);
+            if (j < static_cast<int>(n2)) {
+                ret.push_back(nums2.at(j));
                 j++;
             }
         }

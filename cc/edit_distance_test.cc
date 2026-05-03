@@ -17,20 +17,20 @@ class Solution {
         std::vector<std::vector<int>> dp(n1 + 1, std::vector<int>(n2 + 1, 0));
         // int dp[n1 + 1][n2 + 1];
 
-        for (int i = 0; i <= n1; ++i) dp[i][0] = i;
-        for (int i = 0; i <= n2; ++i) dp[0][i] = i;
+        for (int i = 0; i <= n1; ++i) dp.at(i).at(0) = i;
+        for (int i = 0; i <= n2; ++i) dp.at(0).at(i) = i;
         for (int i = 1; i <= n1; ++i) {
             for (int j = 1; j <= n2; ++j) {
                 if (word1.at(i - 1) == word2.at(j - 1)) {
-                    dp[i][j] = dp[i - 1][j - 1];
+                    dp.at(i).at(j) = dp.at(i - 1).at(j - 1);
                 } else {
-                    dp[i][j] = std::min({dp[i - 1][j - 1], dp[i - 1][j],
-                                         dp[i][j - 1]}) +
+                    dp.at(i).at(j) = std::min({dp.at(i - 1).at(j - 1), dp.at(i - 1).at(j),
+                                         dp.at(i).at(j - 1)}) +
                                1;
                 }
             }
         }
-        return dp[n1][n2];
+        return dp.at(n1).at(n2);
     }
 
     int MinDistanceV2(const std::string& word1, const std::string& word2) {

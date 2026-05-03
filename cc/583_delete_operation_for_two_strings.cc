@@ -19,7 +19,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    int Lcs(string s, string t) {
+    int Lcs(std::string s, std::string t) {
         int const n = static_cast<int>(s.length());
         int const m = static_cast<int>(t.length());
 
@@ -27,20 +27,20 @@ class Solution {
         for (int i = 0; i <= n; i++) {
             for (int j = 0; j <= m; j++) {
                 if (i == 0 || j == 0) {
-                    dp[i][j] = 0;
+                    dp.at(i).at(j) = 0;
                 } else {
                     if (s.at(i - 1) == t.at(j - 1)) {
-                        dp[i][j] = 1 + dp[i - 1][j - 1];
+                        dp.at(i).at(j) = 1 + dp.at(i - 1).at(j - 1);
                     } else {
-                        dp[i][j] = max(dp[i - 1][j], dp[i][j - 1]);
+                        dp.at(i).at(j) = max(dp.at(i - 1).at(j), dp.at(i).at(j - 1));
                     }
                 }
             }
         }
-        return dp[n][m];
+        return dp.at(n).at(m);
     }
 
-    int MinDistance(string word1, string word2) {
+    int MinDistance(std::string const word1, std::string const word2) {
         int const n = static_cast<int>(word1.size());
         int const m = static_cast<int>(word2.size());
         return n + m - 2 * Lcs(word1, word2);
@@ -48,7 +48,7 @@ class Solution {
 };
 
 TEST(DeleteOperationForTwoStrings, t1) {
-    string word1 = "sea", word2 = "eat";
+    std::string const word1 = "sea", word2 = "eat";
     int const output = 2;
     // Explanation: You need one step to make "sea" to "ea" and another step to
     // make "eat" to "ea".
@@ -59,7 +59,7 @@ TEST(DeleteOperationForTwoStrings, t1) {
 }
 
 TEST(DeleteOperationForTwoStrings, t2) {
-    string word1 = "leetcode", word2 = "etco";
+    std::string const word1 = "leetcode", word2 = "etco";
     int const output = 4;
 
     Solution sl;

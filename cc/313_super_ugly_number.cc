@@ -18,22 +18,24 @@ namespace {
 class Solution {
    public:
     int NthSuperUglyNumber(int n, vector<int>& primes) {
-        int const n2 = primes.size();
+        int const n2 = static_cast<int>(primes.size());
         vector<int> dp(n2, 0);
         vector<long long> ans{1};
 
         while (static_cast<int>(ans.size()) < n) {
             int mn = 0;
-            for (int i = 0; i < n2; i++)
-                if (ans[dp[i]] * primes[i] < ans[dp[mn]] * primes[mn]) mn = i;
+            for (int i = 0; i < n2; i++) {
+                if (ans.at(dp.at(i)) * primes.at(i) < ans.at(dp.at(mn)) * primes.at(mn)) mn = i;
+            }
 
-            ans.push_back(ans[dp[mn]] * primes[mn]);
+            ans.push_back(ans.at(dp.at(mn)) * primes.at(mn));
 
-            for (int i = 0; i < n2; i++)
-                if (ans.back() == ans[dp[i]] * primes[i]) dp[i]++;
+            for (int i = 0; i < n2; i++) {
+                if (ans.back() == ans.at(dp.at(i)) * primes.at(i)) dp.at(i)++;
+            }
         }
 
-        return ans[n - 1];
+        return static_cast<int>(ans.at(n - 1));
     }
 };
 

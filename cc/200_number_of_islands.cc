@@ -41,8 +41,9 @@ class Solution {
                     ++islands;
                     // cout << "visited top: " << i << "," << j << "\n";
                     //  mark loc as visited
-                    grid[i][j] = '0';
+grid.at(i).at(j) = '0';
                     // cout << "visited top: " << i << "," << j << "\n";
+                    //  mark loc as visited
                     queue<pair<int, int>> neighbors;  // queue for neighbors
                     neighbors.emplace(i, j);          // push loc
                     while (!neighbors.empty()) {
@@ -51,14 +52,14 @@ class Solution {
                         neighbors.pop();
                         // iterate thru offsets
                         for (size_t k = 0; k < offsets.size() - 1; k++) {
-                            int const r = p.first + offsets.at(k);
-                            int const c = p.second + offsets.at(k + 1);
+                            int const r = p.first + static_cast<int>(offsets.at(k));
+                            int const c = p.second + static_cast<int>(offsets.at(k + 1));
                             if (r >= 0 && r < rows && c >= 0 && c < cols &&
                                 grid.at(r).at(c) == '1') {
                                 // cout << "visited within: " << r << "," << c
                                 // << "\n";
                                 //  mark as visited
-                                grid[r][c] = '0';
+                                grid.at(r).at(c) = '0';
                                 neighbors.emplace(r, c);
                             }
                         }
@@ -92,7 +93,7 @@ class Solution {
         vector<vector<int>> const offsets = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
 
         // mark 1st loc 0
-        grid[r][c] = '0';
+        grid.at(r).at(c) = '0';
         for (auto off : offsets) {
             int const r_x = r + off.at(0);
             int const c_x = c + off.at(1);
@@ -116,10 +117,10 @@ class Solution {
                 continue;
             }
 
-            if (visit[i][j] || grid[i][j] == '0') {
+            if (visit.at(i).at(j) || grid.at(i).at(j) == '0') {
                 continue;
             }
-            visit[i][j] = true;
+            visit.at(i).at(j) = true;
             st.emplace(i + 1, j);
             st.emplace(i - 1, j);
             st.emplace(i, j + 1);
@@ -138,10 +139,10 @@ class Solution {
                 continue;
             }
 
-            if (visit[i][j] || grid[i][j] == '0') {
+            if (visit.at(i).at(j) || grid.at(i).at(j) == '0') {
                 continue;
             }
-            visit[i][j] = true;
+            visit.at(i).at(j) = true;
             q.emplace(i + 1, j);
             q.emplace(i - 1, j);
             q.emplace(i, j + 1);

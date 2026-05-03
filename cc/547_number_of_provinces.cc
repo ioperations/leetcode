@@ -26,20 +26,20 @@ namespace {
 class Solution {
    public:
     int FindCircleNum(vector<vector<int>>& is_connected) {
-        if ((int)is_connected.size() == 1) return 1;
+        if (static_cast<int>(is_connected.size()) == 1) return 1;
 
-        int const is_connected_size = is_connected.size();
+        int const is_connected_size = static_cast<int>(is_connected.size());
         vector<vector<int>> visited(is_connected.size());
         int provinces = 0;
         for (int i = 0; i < is_connected_size; i++) {
             vector<int> const row_size(is_connected_size);
-            visited[i] = row_size;
+            visited.at(i) = row_size;
         }
 
-        for (int i = 0; i < (int)is_connected.size(); i++) {
-            if (visited[i][0]) continue;
-            if (!visited[i][0]) {
-                visited[i][0] = 1;
+        for (int i = 0; i < static_cast<int>(is_connected.size()); i++) {
+            if (visited.at(i).at(0)) continue;
+            if (!visited.at(i).at(0)) {
+                visited.at(i).at(0) = 1;
                 DfSprovince(is_connected, visited, i, 0);
                 provinces++;
             }
@@ -50,11 +50,11 @@ class Solution {
    public:
     void DfSprovince(vector<vector<int>>& is_connected,
                      vector<vector<int>>& is_visited, int i, int j) {
-        if (j == (int)is_connected.size()) return;
-        is_visited[i][j] = 1;
+        if (j == static_cast<int>(is_connected.size())) return;
+        is_visited.at(i).at(j) = 1;
         // isVisited[i][j] = 1;
-        if (is_connected[i][j] == 1 && i != j && is_visited[j][0] == 0) {
-            is_visited[j][0] = 1;
+        if (is_connected.at(i).at(j) == 1 && i != j && is_visited.at(j).at(0) == 0) {
+            is_visited.at(j).at(0) = 1;
             DfSprovince(is_connected, is_visited, j, 0);
         }
 

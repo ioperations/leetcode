@@ -14,7 +14,7 @@ elements (including none) from arr, without changing the order of the remaining
 elements. For example, [3, 5, 8] is a subsequence of [3, 4, 5, 6, 7, 8].*/
 
 #include <algorithm>
-#include <cstring>
+#include <array>
 #include <functional>
 #include <map>
 #include <vector>
@@ -28,20 +28,20 @@ class Solution {
    public:
     int LenLongestFibSubseq(vector<int>& arr) {
         // pass
-        int size = arr.size();
+        int const size = static_cast<int>(arr.size());
         function<int(vector<int>&, int)> fun = [&](vector<int>& mem,
                                                    int index) -> int {
             // pass
-            if (index >= size) return mem.size();
+            if (index >= size) return static_cast<int>(mem.size());
             if (mem.size() <= 1) {
-                mem.push_back(arr[index]);
+                mem.push_back(arr.at(index));
             } else {
                 int const fib_1 = mem.back();
                 mem.pop_back();
                 int const fib_2 = mem.back();
                 mem.push_back(fib_1);
-                if (arr[index] == fib_1 + fib_2) {
-                    mem.push_back(arr[index]);
+                if (arr.at(index) == fib_1 + fib_2) {
+                    mem.push_back(arr.at(index));
                 }
             }
 
@@ -58,32 +58,34 @@ class Solution {
     }
     map<int, int> m_mp;
     int m_ans = 0;
-    int m_dp[1005][1005]{};
+    std::array<std::array<int, 1005>, 1005> m_dp{};
 
     int Func(int i, int j, vector<int>& v) {
-        if (m_mp.find(v[i] + v[j]) == m_mp.end()) {
+        if (m_mp.find(v.at(i) + v.at(j)) == m_mp.end()) {
             return 0;
         }
 
-        if (m_dp[i][j] != -1) {
-            return m_dp[i][j];
+        if (m_dp.at(i).at(j) != -1) {
+            return m_dp.at(i).at(j);
         }
 
-        return m_dp[i][j] = 1 + Func(j, m_mp[v[i] + v[j]], v);
+        return m_dp.at(i).at(j) = 1 + Func(j, m_mp.at(v.at(i) + v.at(j)), v);
     }
 
     int LenLongestFibSubseqV2(vector<int>& v) {
         int i = 0, j = 0;
-        memset(m_dp, -1, sizeof(m_dp));
-        int const n = v.size();
+        for (auto& row : m_dp) {
+            row.fill(-1);
+        }
+        int const n = static_cast<int>(v.size());
 
         for (i = 0; i < n; i++) {
-            m_mp[v[i]] = i;
+            m_mp[v.at(i)] = i;
         }
 
         for (i = 0; i < n - 2; i++) {
             for (j = i + 1; j < n - 1; j++) {
-                if (m_mp.find(v[i] + v[j]) != m_mp.end()) {
+                if (m_mp.find(v.at(i) + v.at(j)) != m_mp.end()) {
                     m_ans = max(m_ans, Func(i, j, v));
                 }
             }

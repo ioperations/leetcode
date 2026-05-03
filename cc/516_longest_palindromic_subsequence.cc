@@ -19,19 +19,20 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    int Lcs(string string1, string string2) {
-        int const n1 = string1.length();
-        int const n2 = string2.length();
+    int Lcs(std::string string1, std::string string2) {
+        int const n1 = static_cast<int>(string1.length());
+        int const n2 = static_cast<int>(string2.length());
         vector<vector<int>> dp(n1 + 1, vector<int>(n2 + 1, 0));
         for (int i = 0; i < n1; i++) {
             for (int j = 0; j < n2; j++) {
-                if (string1[i] == string2[j])
-                    dp[i + 1][j + 1] = dp[i][j] + 1;
-                else
-                    dp[i + 1][j + 1] = max(dp[i][j + 1], dp[i + 1][j]);
+                if (string1.at(i) == string2.at(j)) {
+                    dp.at(i + 1).at(j + 1) = dp.at(i).at(j) + 1;
+                } else {
+                    dp.at(i + 1).at(j + 1) = max(dp.at(i).at(j + 1), dp.at(i + 1).at(j));
+                }
             }
         }
-        return dp[n1][n2];
+        return dp.at(n1).at(n2);
     }
     int LongestPalindromeSubseq(string s) {
         string const k = s;

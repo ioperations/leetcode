@@ -53,28 +53,32 @@ class Solution {
         const int mask_1110 = 0xE0;   // 224
         const int mask_11110 = 0xF0;  // 240
         const int mask_11111 = 0xF8;  // 248
-        for (int i = 0, size = data.size(); i < size; ++i) {
-            if ((data[i] & mask_10) == 0) continue;
-            if ((data[i] >= mask_10 && data[i] < mask_110) ||
-                data[i] >= mask_11111)
+        for (int i = 0, size = static_cast<int>(data.size()); i < size; ++i) {
+            if ((data.at(i) & mask_10) == 0) continue;
+            if ((data.at(i) >= mask_10 && data.at(i) < mask_110) ||
+                data.at(i) >= mask_11111) {
                 return false;
-            if ((data[i] & mask_11110) == mask_11110) {
+            }
+            if ((data.at(i) & mask_11110) == mask_11110) {
                 for (int j = 0; i < size && j < 3; ++j) {
                     if (++i == size ||
-                        (data[i] < mask_10 || data[i] > mask_110))
+                        (data.at(i) < mask_10 || data.at(i) > mask_110)) {
                         return false;
+                    }
                 }
-            } else if ((data[i] & mask_1110) == mask_1110) {
+            } else if ((data.at(i) & mask_1110) == mask_1110) {
                 for (int j = 0; i < size && j < 2; ++j) {
                     if (++i == size ||
-                        (data[i] < mask_10 || data[i] > mask_110))
+                        (data.at(i) < mask_10 || data.at(i) > mask_110)) {
                         return false;
+                    }
                 }
-            } else if ((data[i] & mask_110) == mask_110) {
+            } else if ((data.at(i) & mask_110) == mask_110) {
                 for (int j = 0; i < size && j < 1; ++j) {
                     if (++i == size ||
-                        (data[i] < mask_10 || data[i] > mask_110))
+                        (data.at(i) < mask_10 || data.at(i) > mask_110)) {
                         return false;
+                    }
                 }
             }
         }

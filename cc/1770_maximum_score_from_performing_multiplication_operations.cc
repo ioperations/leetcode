@@ -24,8 +24,8 @@ namespace {
 class Solution {
    public:
     int MaximumScoreV1(vector<int>& nums, vector<int>& multipliers) {
-        int const n = nums.size();
-        int m = multipliers.size();
+        int const n = static_cast<int>(nums.size());
+        int const m = static_cast<int>(multipliers.size());
 
         function<int(int, int, int, int)> fun = [&](int start, int end, int ith,
                                                     int value) -> int {
@@ -33,9 +33,9 @@ class Solution {
             if (start > end) return value;
 
             int const v1 = fun(start + 1, end, ith + 1,
-                               value + nums[start] * multipliers[ith]);
+                               value + nums.at(start) * multipliers.at(ith));
             int const v2 = fun(start, end - 1, ith + 1,
-                               value + nums[end] * multipliers[ith]);
+                               value + nums.at(end) * multipliers.at(ith));
 
             return std::max(v1, v2);
         };
@@ -45,18 +45,18 @@ class Solution {
     int Dfs(int i, int j, vector<vector<int>>& dp, vector<int>& nums,
             vector<int>& mul, int m) {
         if (m >= static_cast<int>(mul.size())) return 0;
-        if (dp[i][j] != INT_MIN) return dp[i][j];
-        int const idx = nums.size() - j - 1;
+        if (dp.at(i).at(j) != INT_MIN) return dp.at(i).at(j);
+        int const idx = static_cast<int>(nums.size()) - j - 1;
         int l = 0, r = 0;
-        l = nums[idx] * mul[m] + Dfs(i, j + 1, dp, nums, mul, m + 1);
-        r = nums[i] * mul[m] + Dfs(i + 1, j, dp, nums, mul, m + 1);
-        return dp[i][j] = max(l, r);
+        l = nums.at(idx) * mul.at(m) + Dfs(i, j + 1, dp, nums, mul, m + 1);
+        r = nums.at(i) * mul.at(m) + Dfs(i + 1, j, dp, nums, mul, m + 1);
+        return dp.at(i).at(j) = max(l, r);
     }
 
    public:
     int MaximumScore(vector<int>& nums, vector<int>& mul) {
         // int n = nums.size();
-        int const m = mul.size();
+        int const m = static_cast<int>(mul.size());
         vector<vector<int>> dp(m + 1, vector<int>(m + 1, INT_MIN));
         return Dfs(0, 0, dp, nums, mul, 0);
     }

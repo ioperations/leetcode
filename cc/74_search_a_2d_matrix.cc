@@ -25,15 +25,15 @@ class Solution {
         //  在这个节点对应的vector当中二分搜索，搜索到了就返回成功
 
         int low = 0;
-        int high = matrix.size();
+        int high = static_cast<int>(matrix.size());
         while (low < high) {
             int const mid = low + (high - low) / 2;
 
-            if (matrix[mid].size()) {
-                if (matrix[low][0] == target) {
+            if (matrix.at(mid).size()) {
+                if (matrix.at(low).at(0) == target) {
                     return true;
                 }
-                (matrix[mid][0] > target) ? (high = mid) : (low = mid + 1);
+                (matrix.at(mid).at(0) > target) ? (high = mid) : (low = mid + 1);
             } else {
                 high--;
             }
@@ -45,15 +45,18 @@ class Solution {
         }
 
         low = 0;
-        high = matrix[first_dimension].size();
+        int high_col = static_cast<int>(matrix.at(first_dimension).size());
 
-        while (low < high) {
-            int const mid = low + (high - low) / 2;
-            if (matrix[first_dimension][mid] == target) {
+        while (low < high_col) {
+            int const mid = low + (high_col - low) / 2;
+            if (matrix.at(first_dimension).at(mid) == target) {
                 return true;
             }
-            (matrix[first_dimension][mid] > target) ? (high = mid)
-                                                    : (low = mid + 1);
+            if (matrix.at(first_dimension).at(mid) > target) {
+                high_col = mid;
+            } else {
+                low = mid + 1;
+            }
         }
 
         return false;
@@ -61,11 +64,14 @@ class Solution {
 
     // https://leetcode.com/problems/search-a-2d-matrix/discuss/1895837/C%2B%2B-BINARY-SEARCH-TREE-(**)-Explained-with-IMG
     bool SearchMatrixV2(vector<vector<int>>& matrix, int target) {
-        int rows = matrix.size(), cols = matrix[0].size(), row = 0,
+        int const rows = static_cast<int>(matrix.size());
+        if (rows == 0) return false;
+        int const cols = static_cast<int>(matrix.at(0).size());
+        int row = 0,
             col = cols - 1;
 
         while (row < rows && col > -1) {
-            int const cur = matrix[row][col];
+            int const cur = matrix.at(row).at(col);
             if (cur == target) return true;
             if (target > cur) {
                 row++;
