@@ -25,9 +25,9 @@ namespace {
 class Solution {
    private:
     vector<vector<int>> m_dp;
-    bool Backtrack(int curr, int& max_int, int& desire, int mask, int player) {
-        if (m_dp[player][mask] != -1) {
-            return m_dp[player][mask];
+    bool Backtrack(int curr, int const max_int, int const desire, int mask, int player) {
+        if (m_dp.at(player).at(mask) != -1) {
+            return m_dp.at(player).at(mask);
         }
         for (int i = 1; i <= max_int; i++) {
             int const nmask = (1 << (i - 1));
@@ -35,11 +35,11 @@ class Solution {
                 if (curr + i >= desire or
                     !Backtrack(curr + i, max_int, desire, mask + nmask,
                                (player + 1) % 2)) {
-                    return (m_dp[player][mask] = true);
+                    return (m_dp.at(player).at(mask) = true);
                 }
             }
         }
-        return (m_dp[player][mask] = false);
+        return (m_dp.at(player).at(mask) = false);
     }
 
    public:
@@ -50,13 +50,13 @@ class Solution {
             desired_total) {
             return false;
         }
-        int curr = 0, mask = 0;
+        int const curr = 0, mask = 0;
         return Backtrack(curr, max_choosable_integer, desired_total, mask, 0);
     }
 };
 
 TEST(CanIWin, t1) {
-    int max_choosable_integerer = 10, desired_total = 11;
+    int const max_choosable_integerer = 10, desired_total = 11;
     bool const expected = false;
     // Explanation:
     // No matter which integer the first player choose, the first player will
@@ -72,7 +72,7 @@ TEST(CanIWin, t1) {
 }
 
 TEST(CanIWin, t2) {
-    int max_choosable_integer = 10, desired_total = 0;
+    int const max_choosable_integer = 10, desired_total = 0;
     bool const expected = true;
 
     Solution s;
@@ -81,7 +81,7 @@ TEST(CanIWin, t2) {
 }
 
 TEST(CanIWin, t3) {
-    int max_choosable_integer = 10, desired_total = 1;
+    int const max_choosable_integer = 10, desired_total = 1;
     bool const expected = true;
 
     Solution s;

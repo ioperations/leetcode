@@ -22,17 +22,17 @@ class Solution {
     std::map<char, int> m_map;
 
    public:
-    bool IsAlienSorted(vector<string>& words, string order) {
+    bool IsAlienSorted(vector<string>& words, string const& order) {
         int i = 0;
         for (auto& ptr : order) {
             m_map[ptr] = i;
             i++;
         }
 
-        int const size = words.size();
+        int const size = static_cast<int>(words.size());
         for (int i = 0; i < size; i++) {
             for (int j = i + 1; j < size; j++) {
-                if (Greather(words[i], words[j])) {
+                if (Greather(words.at(i), words.at(j))) {
                     return false;
                 }
             }
@@ -41,14 +41,14 @@ class Solution {
         return true;
     }
 
-    bool Greather(string& a, string& b) {
-        int const size_a = a.size();
-        int const size_b = b.size();
+    bool Greather(string const& a, string const& b) {
+        int const size_a = static_cast<int>(a.size());
+        int const size_b = static_cast<int>(b.size());
         for (int i = 0; i < size_a && i < size_b; i++) {
-            if (m_map[a[i]] > m_map[b[i]]) {
+            if (m_map.at(a.at(i)) > m_map.at(b.at(i))) {
                 return true;
             }
-            if (m_map[a[i]] < m_map[b[i]]) {
+            if (m_map.at(a.at(i)) < m_map.at(b.at(i))) {
                 return false;
             }
         }

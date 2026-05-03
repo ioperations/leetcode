@@ -33,7 +33,7 @@ namespace {
 class Solution {
    public:
     int Trap(vector<int>& height) {
-        int const n = height.size();
+        int const n = static_cast<int>(height.size());
         int left = 0;
         int right = n - 1;
         int res = 0;
@@ -41,19 +41,19 @@ class Solution {
 
         while (left <= right) {
             // handling left ptr
-            if (height[left] <= height[right]) {
-                if (height[left] >= leftmax) {
-                    leftmax = height[left];
+            if (height.at(static_cast<size_t>(left)) <= height.at(static_cast<size_t>(right))) {
+                if (height.at(static_cast<size_t>(left)) >= leftmax) {
+                    leftmax = height.at(static_cast<size_t>(left));
                 } else {
-                    res += leftmax - height[left];
+                    res += leftmax - height.at(static_cast<size_t>(left));
                 }
                 left++;
             } else {
                 // handling right ptr
-                if (height[right] >= rightmax) {
-                    rightmax = height[right];
+                if (height.at(static_cast<size_t>(right)) >= rightmax) {
+                    rightmax = height.at(static_cast<size_t>(right));
                 } else {
-                    res += rightmax - height[right];
+                    res += rightmax - height.at(static_cast<size_t>(right));
                 }
                 right--;
             }

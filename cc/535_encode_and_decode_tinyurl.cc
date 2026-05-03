@@ -33,18 +33,18 @@ class Solution {
     unordered_map<string, string> m_um;
     int m_len = 6;
 
-    string GenerateRandomCode(string long_url) {
+    string GenerateRandomCode(string const& long_url) {
         string code = "";
 
         for (int i = 0; i < m_len; i++) {
             int const type = rand() % 3;
 
             if (type == 0) {  // number
-                code += char(rand() % 10 + 48);
+                code += static_cast<char>(rand() % 10 + 48);
             } else if (type == 1) {  // lowercase char
-                code += char(rand() % 26 + 97);
+                code += static_cast<char>(rand() % 26 + 97);
             } else {  // uppercase char
-                code += char(rand() % 26 + 65);
+                code += static_cast<char>(rand() % 26 + 65);
             }
         }
 
@@ -55,21 +55,20 @@ class Solution {
         return code;
     }
 
-    string GetCode(string short_url) {
-        int const n = short_url.size();
-        return short_url.substr(n - m_len, m_len);
+    string GetCode(string const& short_url) {
+        int const n = static_cast<int>(short_url.size());
+        return short_url.substr(static_cast<size_t>(n) - static_cast<size_t>(m_len), static_cast<size_t>(m_len));
     }
 
    public:
-    // Encodes a URL to a shortened URL.
-    string Encode(string long_url) {
+    string Encode(string const& long_url) {
         string tiny_url = "http://tinyurl.com/";
         string const suffix = GenerateRandomCode(long_url);
         return tiny_url += suffix;
     }
 
     // Decodes a shortened URL to its original URL.
-    string Decode(string short_url) {
+    string Decode(string const& short_url) {
         string const code = GetCode(short_url);
         return m_um[code];
     }

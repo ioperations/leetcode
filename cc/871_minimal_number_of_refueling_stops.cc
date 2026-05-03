@@ -52,27 +52,22 @@ class Solution {
         dp[0] = start_fuel;
 
         for (int i = 0; i < n; i++) {
-            // FAQ : Why the inner loop is in reverse order , if we traverse the
-            // loop
-            //       from forward direction , the it destroys the previous state
-            //       ( Do a dry run and it is crystal clear for you)
-
             for (int j = i; j >= 0; j--) {
-                // Condition given in the question
-                if (dp[j] >= stations.at(i).at(0))
-                    dp[j + 1] = max(dp[j + 1], dp[j] + stations.at(i).at(1));
+                if (dp.at(j) >= stations.at(i).at(0)) {
+                    dp.at(j + 1) = max(dp.at(j + 1), dp.at(j) + stations.at(i).at(1));
+                }
             }
         }
 
         for (int i = 0; i <= n; i++) {
-            if (dp[i] >= target) return i;
+            if (dp.at(i) >= target) return i;
         }
         return -1;
     }
 
     int MinRefuelStopsV2(int target, int start_fuel,
                          vector<vector<int>>& stations) {
-        int size = static_cast<int>(stations.size());
+        int const size = static_cast<int>(stations.size());
         // 从start节点开始，带着current_fuel升汽油，到达target花费最小的加油次数
         function<int(int, int, int)> fun = [&](int start, int current_fuel,
                                                int current_route) -> int {
@@ -102,7 +97,7 @@ class Solution {
 };
 
 TEST(MinimalNumberOfRefuelingStops, t1) {
-    int target = 1, start_fuel = 1;
+    int const target = 1, start_fuel = 1;
     vector<vector<int>> stations = {};
     int const output = 0;
     // Explanation: We can reach the target without refueling.
@@ -112,7 +107,7 @@ TEST(MinimalNumberOfRefuelingStops, t1) {
 }
 
 TEST(MinimalNumberOfRefuelingStops, t2) {
-    int target = 100, start_fuel = 0;
+    int const target = 100, start_fuel = 0;
     vector<vector<int>> stations = {{10, 100}};
     int const output = -1;
     // We can not reach the target (or even the first gas station).
@@ -122,7 +117,7 @@ TEST(MinimalNumberOfRefuelingStops, t2) {
 }
 
 TEST(MinimalNumberOfRefuelingStops, t3) {
-    int target = 100, start_fuel = 10;
+    int const target = 100, start_fuel = 10;
     vector<vector<int>> stations = {{10, 60}, {20, 30}, {30, 30}, {60, 40}};
     int const output = 2;
     /* We start with 10 liters of fuel.

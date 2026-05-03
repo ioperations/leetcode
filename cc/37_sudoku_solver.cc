@@ -62,8 +62,8 @@ vector<char> Solution::GetPositionCandidate(int i, int j) {
     for (int row = 0; row < 9; row++) {
         if (board.at(row).at(j) != '.') used.insert(board.at(row).at(j));
     }
-    int boxRow = 3 * (i / 3);
-    int boxCol = 3 * (j / 3);
+    int const boxRow = 3 * (i / 3);
+    int const boxCol = 3 * (j / 3);
     for (int r = boxRow; r < boxRow + 3; r++) {
         for (int c = boxCol; c < boxCol + 3; c++) {
             if (board.at(r).at(c) != '.') used.insert(board.at(r).at(c));
@@ -79,10 +79,10 @@ bool Solution::SolveSudokuHelper(vector<vector<char>>& board) {
         for (int j = 0; j < 9; j++) {
             if (board.at(i).at(j) == '.') {
                 auto candidates = GetPositionCandidate(i, j);
-                for (char c : candidates) {
-                    board[i][j] = c;
+                for (char const c : candidates) {
+                    board.at(i).at(j) = c;
                     if (SolveSudokuHelper(board)) return true;
-                    board[i][j] = '.';
+                    board.at(i).at(j) = '.';
                 }
                 return false;
             }
@@ -92,7 +92,7 @@ bool Solution::SolveSudokuHelper(vector<vector<char>>& board) {
 }
 bool Solution::SolveSudoku(vector<vector<char>>& board) {
     this->board = board;
-    bool ret = SolveSudokuHelper(this->board);
+    bool const ret = SolveSudokuHelper(this->board);
     board = this->board;
     return ret;
 }

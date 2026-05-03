@@ -17,6 +17,7 @@ Return the length of the longest possible word chain with words chosen from the
 given list of words.*/
 
 #include <algorithm>
+#include <cstddef>
 #include <string>
 #include <vector>
 
@@ -27,12 +28,13 @@ using namespace std;
 namespace {
 class Solution {
    public:
+    [[nodiscard]]
     bool Check(const string& a, const string& b) const {
         int cnt = 0, idx = 0;
         for (int i = 0;
              i < static_cast<int>(a.size()) && idx < static_cast<int>(b.size());
              i++, idx++) {
-          if (a[i] != b[idx]) {
+          if (a.at(i) != b.at(idx)) {
             cnt++;
             i--;
           }
@@ -50,17 +52,17 @@ class Solution {
                  return s1.length() < s2.length();
              });
         for (int i = 0; i < static_cast<int>(words.size()); i++) {
-          for (int j = i - 1; j >= 0 && words[j].size() + 1 >= words[i].size();
+          for (int j = i - 1; j >= 0 && words.at(static_cast<size_t>(j)).size() + 1 >= words.at(static_cast<size_t>(i)).size();
                j--) {
-            if (words[j].size() == words[i].size() - 1) {
-              if (Check(words[j], words[i])) {
-                dp[i] = max(dp[j] + 1, dp[i]);
+            if (words.at(static_cast<size_t>(j)).size() == words.at(static_cast<size_t>(i)).size() - 1) {
+              if (Check(words.at(static_cast<size_t>(j)), words.at(static_cast<size_t>(i)))) {
+                dp.at(static_cast<size_t>(i)) = max(dp.at(static_cast<size_t>(j)) + 1, dp.at(static_cast<size_t>(i)));
               }
             }
           }
         }
 
-        ans = *std::max_element(dp.begin(), dp.end());
+        ans = *std::max_element(dp.cbegin(), dp.cend());
         return ans;
     }
 };

@@ -26,15 +26,16 @@ class Solution {
         map<int, int> m;
         for (auto i : nums) m[i]++;
 
-        for (size_t i = 1; i <= nums.size(); i++)
-            if (m[i] == 0) return i;
+        for (size_t i = 1; i <= nums.size(); i++) {
+            if (m[static_cast<int>(i)] == 0) return static_cast<int>(i);
+        }
 
-        return nums.size() + 1;
+        return static_cast<int>(nums.size()) + 1;
 
         return 0;
     }
     int FirstMissingPositiveV2(std::vector<int>& nums) const {
-        int const n = nums.size();
+        int const n = static_cast<int>(nums.size());
         // making all negative to zero as they are useless
         for (int i = 0; i < n; i++) {
             if (nums.at(i) < 0) nums.at(i) = 0;
@@ -45,35 +46,35 @@ class Solution {
             int const val = abs(nums.at(i));
             if (val >= 1 && val <= n) {
                 int const idx = val - 1;
-                if (nums.at(idx) == 0) {
-                    nums.at(idx) = -(n + 1);
-                } else if (nums.at(idx) > 0) {
-                    nums.at(idx) *= -1;
+                if (nums.at(static_cast<size_t>(idx)) == 0) {
+                    nums.at(static_cast<size_t>(idx)) = -(n + 1);
+                } else if (nums.at(static_cast<size_t>(idx)) > 0) {
+                    nums.at(static_cast<size_t>(idx)) *= -1;
                 }
             }
         }
 
         // check first missing positive number
         for (int i = 0; i < n; i++) {
-            if (nums.at(i) >= 0) return (i + 1);
+            if (nums.at(static_cast<size_t>(i)) >= 0) return (i + 1);
         }
 
         // maarking -ve for present
         for (int i = 0; i < n; i++) {
-            int const val = abs(nums[i]);
+            int const val = abs(nums.at(i));
             if (val >= 1 && val <= n) {
                 int const idx = val - 1;
-                if (nums[idx] == 0) {
-                    nums[idx] = -(n + 1);
-                } else if (nums[idx] > 0) {
-                    nums[idx] *= -1;
+                if (nums.at(static_cast<size_t>(idx)) == 0) {
+                    nums.at(static_cast<size_t>(idx)) = -(n + 1);
+                } else if (nums.at(static_cast<size_t>(idx)) > 0) {
+                    nums.at(static_cast<size_t>(idx)) *= -1;
                 }
             }
         }
 
         // check first missing positive number
         for (int i = 0; i < n; i++) {
-            if (nums[i] >= 0) return (i + 1);
+            if (nums.at(static_cast<size_t>(i)) >= 0) return (i + 1);
         }
 
         return (n + 1);

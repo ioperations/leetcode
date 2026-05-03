@@ -32,8 +32,8 @@ class Solution {
 
     void AddToRet(TreeNode* root, vector<vector<int>>& ret, int n = 0) {
         if (root) {
-          if (static_cast<int>(ret.size()) <= n) ret.resize(n + 1);
-          ret[n].push_back(root->val);
+          if (static_cast<int>(ret.size()) <= n) ret.resize(static_cast<size_t>(n) + 1);
+          ret.at(static_cast<size_t>(n)).push_back(root->val);
 
           AddToRet(root->left, ret, n + 1);
           AddToRet(root->right, ret, n + 1);

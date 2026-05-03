@@ -32,7 +32,7 @@ class Solution {
         }
 
         vector<int> dist(n + 1, 1e9);
-        dist[0] = dist[k] = 0;
+        dist.at(0) = dist.at(k) = 0;
 
         queue<pair<int, int>> q;
         q.emplace(k, 0);
@@ -60,7 +60,7 @@ class Solution {
     }
 
    public:
-    const int m_max_time = 1e8;
+    int const m_max_time = 1e8;
     using pa = pair<int, int>;
 
     int NetworkDelayTimeV1(vector<vector<int>>& times, int n, int k) {
@@ -70,7 +70,7 @@ class Solution {
         dist[k] = 0;
 
         for (auto& edge : times) {
-            int u = edge.at(0), v = edge.at(1), time = edge.at(2);
+            int const u = edge.at(0), v = edge.at(1), time = edge.at(2);
             graph.at(u).emplace_back(time, v);
         }
 

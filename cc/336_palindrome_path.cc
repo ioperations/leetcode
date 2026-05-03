@@ -73,11 +73,11 @@ class Solution {
 
     void Insert(TrieNode* root, string& word, int word_index) {
         for (auto c : word) {
-            const int index = c - 'a';
-            if (root->m_children[index] == nullptr) {
-                root->m_children[index] = new TrieNode();
+            int const index = c - 'a';
+            if (root->m_children.at(static_cast<size_t>(index)) == nullptr) {
+                root->m_children.at(static_cast<size_t>(index)) = new TrieNode();
             }
-            root = root->m_children[index];
+            root = root->m_children.at(static_cast<size_t>(index));
         }
 
         root->m_word_index = word_index;
@@ -109,8 +109,8 @@ class Solution {
         }
 
         for (int i = 0; i < 26; ++i) {
-            str.push_back('a' + i);
-            Dfs(root->m_children[i], long_word_indices, str);
+            str.push_back(static_cast<char>('a' + i));
+            Dfs(root->m_children.at(static_cast<size_t>(i)), long_word_indices, str);
             str.pop_back();
         }
     }
@@ -119,7 +119,7 @@ class Solution {
         // word is longer than its corresponding word.
         int index = 0;
         while (index < static_cast<int>(word.length()) && root != nullptr) {
-            root = root->m_children[word.at(index++) - 'a'];
+            root = root->m_children.at(static_cast<size_t>(word.at(static_cast<size_t>(index++)) - 'a'));
             if (root != nullptr && root->m_word_index != -1) {
                 if (root->m_word_index != word_index &&
                     IsPalindrome(word.substr(index))) {

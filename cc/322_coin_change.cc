@@ -140,7 +140,7 @@ TEST(coinV, t3) {
 }
 
 static void BenchMarkV0(benchmark::State& state) {
-    for (auto _ : state) {
+    for (auto&& _ : state) {
         std::vector<int> coins = {1, 2, 5};
         int const amount = 11;
         int const output = 3;
@@ -153,7 +153,7 @@ static void BenchMarkV0(benchmark::State& state) {
 BENCHMARK(BenchMarkV0);
 
 static void BenchMarkV1(benchmark::State& state) {
-    for (auto _ : state) {
+    for (auto&& _ : state) {
         std::vector<int> coins = {1, 2, 5};
         int const amount = 11;
         int const output = 3;
@@ -166,7 +166,7 @@ static void BenchMarkV1(benchmark::State& state) {
 BENCHMARK(BenchMarkV1);
 
 static void BenchMarkV2(benchmark::State& state) {
-    for (auto _ : state) {
+    for (auto&& _ : state) {
         std::vector<int> coins = {1, 2, 5};
         int const amount = 11;
         int const output = 3;

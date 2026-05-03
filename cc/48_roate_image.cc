@@ -38,19 +38,20 @@ class Solution {
         */
 
         const bool __attribute__((unused)) ok =
-            matrix.size() ? matrix.size() == matrix[0].size() : true;
+            matrix.size() ? matrix.size() == matrix.at(0).size() : true;
         assert(ok && "should be ok");
 
-        const int n = matrix.size();
+        const int n = static_cast<int>(matrix.size());
         for (int i = 0; i < n; i++) {
             for (int j = i; j < n; j++) {
-                const int t = matrix[i][j];
-                matrix[i][j] = matrix[j][i];
-                matrix[j][i] = t;
+                int const t = matrix.at(static_cast<size_t>(i)).at(static_cast<size_t>(j));
+                matrix.at(static_cast<size_t>(i)).at(static_cast<size_t>(j)) = matrix.at(static_cast<size_t>(j)).at(static_cast<size_t>(i));
+                matrix.at(static_cast<size_t>(j)).at(static_cast<size_t>(i)) = t;
             }
         }
         for (int i = 0; i < n; i++) {
-            reverse(matrix[i].begin(), matrix[i].end());
+            matrix.at(static_cast<size_t>(i)).shrink_to_fit();
+            reverse(matrix.at(static_cast<size_t>(i)).begin(), matrix.at(static_cast<size_t>(i)).end());
         }
         return;
         for (size_t i = 0; i < matrix.size(); i++) {

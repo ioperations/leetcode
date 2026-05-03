@@ -153,7 +153,7 @@ void Benchmakrv1(benchmark::State& state) {
         expected.push_back(t.at(i));
     }
 
-    for (auto _ : state) {
+    for (auto&& _ : state) {
         ListNode* s1 = List::ConstructList(t);
 
         ListNode* l1 = List::ConstructList(t);
@@ -185,7 +185,7 @@ void Benchmakrv2(benchmark::State& state) {
     }
     sort(expected.begin(), expected.end());
 
-    for (auto _ : state) {
+    for (auto&& _ : state) {
         ListNode* s1 = List::ConstructList(t);
 
         ListNode* l1 = List::ConstructList(t);

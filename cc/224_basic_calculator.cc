@@ -26,7 +26,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    int Calculate(string s) {
+    int Calculate(const string& s) {
         // pass
         Token token(s);
 
@@ -342,7 +342,7 @@ TEST(basiccalculatorV2, t3) {
 }
 
 void BenchV2(benchmark::State& state) {
-    for (auto _ : state) {
+    for (auto&& _ : state) {
         const std::string s = "(1+(4+5+2)-3)+(6+8)";
 
         SolutionV2 sl;
@@ -354,7 +354,7 @@ void BenchV2(benchmark::State& state) {
 BENCHMARK(BenchV2);
 
 void BenchV3(benchmark::State& state) {
-    for (auto _ : state) {
+    for (auto&& _ : state) {
         const std::string s = "(1+(4+5+2)-3)+(6+8)";
 
         SolutionV3 sl;

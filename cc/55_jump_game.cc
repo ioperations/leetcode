@@ -78,7 +78,7 @@ TEST(testName, t1) {
 }
 
 static void BenchMarkMyImpl(benchmark::State& state) {
-    for (auto _ : state) {
+    for (auto&& _ : state) {
         std::vector<int> nums = {2, 3, 1, 1, 4};
         bool const output = true;
 
@@ -91,7 +91,7 @@ static void BenchMarkMyImpl(benchmark::State& state) {
 BENCHMARK(BenchMarkMyImpl);
 
 static void BenchMarkDp(benchmark::State& state) {
-    for (auto _ : state) {
+    for (auto&& _ : state) {
         std::vector<int> nums = {2, 3, 1, 1, 4};
         bool const output = true;
 

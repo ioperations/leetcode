@@ -22,20 +22,20 @@ namespace {
 class Solution {
    public:
     int Candy(vector<int>& ratings) {
-        int const n = ratings.size();
+        int const n = static_cast<int>(ratings.size());
         if (n == 1) return 1;
         vector<int> candies(n, 1);
 
         for (int i = 1; i < n; i++) {
-            if (ratings[i] > ratings[i - 1]) {
-                candies[i] += candies[i - 1];
+            if (ratings.at(i) > ratings.at(i - 1)) {
+                candies.at(i) += candies.at(i - 1);
             }
         }
 
         for (int i = n - 2; i > -1; i--) {
-            if (ratings[i] > ratings[i + 1]) {
-                if (candies[i] > candies[i + 1]) continue;
-                candies[i] = max(candies[i], candies[i + 1]) + 1;
+            if (ratings.at(i) > ratings.at(i + 1)) {
+                if (candies.at(i) > candies.at(i + 1)) { continue; }
+                candies.at(i) = max(candies.at(i), candies.at(i + 1)) + 1;
             }
         }
 

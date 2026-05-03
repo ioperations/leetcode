@@ -59,11 +59,11 @@ class Solution {
         // pass
         std::stack<char> stack;
         for (int i = start; i < (end + 1) && i < static_cast<int>(s.size()); i++) {
-            stack.push(s[i]);
+            stack.push(s.at(static_cast<size_t>(i)));
         }
 
         for (int i = start; i < end + 1 && i < static_cast<int>(s.size()); i++) {
-            s[i] = stack.top();
+            s.at(static_cast<size_t>(i)) = stack.top();
             stack.pop();
         }
     }

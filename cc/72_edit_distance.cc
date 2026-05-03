@@ -175,7 +175,7 @@ TEST(editdistanceV4, t4) {
 }
 
 static void BenchMarkFirst(benchmark::State& state) {
-    for (auto _ : state) {
+    for (auto&& _ : state) {
         std::string const word1 = "horse", word2 = "ros";
 
         int const output = 3;
@@ -188,7 +188,7 @@ static void BenchMarkFirst(benchmark::State& state) {
 BENCHMARK(BenchMarkFirst);
 
 static void BenchMarkSecond(benchmark::State& state) {
-    for (auto _ : state) {
+    for (auto&& _ : state) {
         std::string const word1 = "horse", word2 = "ros";
 
         int const output = 3;
@@ -201,7 +201,7 @@ static void BenchMarkSecond(benchmark::State& state) {
 BENCHMARK(BenchMarkSecond);
 
 static void BenchMarkThird(benchmark::State& state) {
-    for (auto _ : state) {
+    for (auto&& _ : state) {
         std::string const word1 = "horse", word2 = "ros";
 
         int const output = 3;

@@ -42,7 +42,7 @@ class Solution {
                     num += fun(i) * fun(arr.at(index) / arr.at(i));
                 }
             }
-            return m_cache[index] = num;
+            return m_cache[index] = static_cast<int>(num);
         };
 
         int ret = 0;
@@ -62,17 +62,19 @@ class Solution {
             int l = 0, r = i - 1;
             while (l <= r) {
                 if (arr.at(l) * 1LL * arr.at(r) == arr.at(i) * 1LL) {
-                    if (l != r)
-                        dp[i] = (dp[i] +
+                    if (l != r) {
+                        dp.at(i) = (dp.at(i) +
                                  (dp.at(l) * 1LL * dp.at(r) % m_mod * 2LL % m_mod)) %
                                 m_mod;
-                    else
-                        dp[i] = (dp[i] + (dp.at(l) * 1LL * dp.at(r) % m_mod)) % m_mod;
+                    } else {
+                        dp.at(i) = (dp.at(i) + (dp.at(l) * 1LL * dp.at(r) % m_mod)) % m_mod;
+                    }
                     l++, r--;
-                } else if (arr.at(l) * 1LL * arr.at(r) > arr.at(i) * 1LL)
+                } else if (arr.at(l) * 1LL * arr.at(r) > arr.at(i) * 1LL) {
                     r--;
-                else
+                } else {
                     l++;
+                }
             }
         }
 

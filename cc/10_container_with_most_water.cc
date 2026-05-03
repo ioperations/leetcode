@@ -16,16 +16,16 @@ class Solution {
         size_t i = 0;
         size_t j = height.size() - 1;
         for (; j > i;) {
-            int const het = std::min(height[i], height[j]);
+            int const het = std::min(height.at(i), height.at(j));
             ret = std::max(ret, het * (j - i));
-            if (height[i] < height[j]) {
+            if (height.at(i) < height.at(j)) {
                 i++;
             } else {
                 j--;
             }
         }
 
-        return ret;
+        return static_cast<int>(ret);
     }
 
     int MaxAreaV2(std::vector<int>& height) const {
@@ -33,8 +33,8 @@ class Solution {
         size_t h = height.size() - 1;
         size_t max_area = 0;
         while (l < h) {
-            int const lh = height[l];
-            int const hh = height[h];
+            int const lh = height.at(l);
+            int const hh = height.at(h);
             max_area = std::max(max_area, (h - l) * std::min(lh, hh));
             if (lh < hh) {
                 l++;
@@ -42,7 +42,7 @@ class Solution {
                 h--;
             }
         }
-        return max_area;
+        return static_cast<int>(max_area);
     }
 };
 

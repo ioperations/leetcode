@@ -26,7 +26,7 @@ struct DummyClass {
         this->v = other.v;
         g_statistic.copyConstruct++;
     }
-    DummyClass(DummyClass&& other) {
+    DummyClass(DummyClass&& other) noexcept {
         this->v = other.v;
         g_statistic.moveConstruct++;
     }
@@ -35,7 +35,7 @@ struct DummyClass {
         g_statistic.copyAssignment++;
         return *this;
     }
-    DummyClass& operator=(DummyClass&& other) {
+    DummyClass& operator=(DummyClass&& other) noexcept {
         this->v = other.v;
         g_statistic.moveAssignment++;
         return *this;

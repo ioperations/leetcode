@@ -34,13 +34,14 @@ class Solution {
     unordered_set<string> m_visited;
 
    public:
-    double Dfs(string src, string dest) {
+    double Dfs(const string& src, const string& dest) {
         m_visited.insert(src);
-        if (src == dest && m_unmp.find(src) != m_unmp.end())
+        if (src == dest && m_unmp.find(src) != m_unmp.end()) {
             return 1;  // if we reached destionation and  destionation string
                        // actually present in the graph
+        }
         for (const auto& it : m_unmp[src]) {
-            if (m_visited.find(it.first) != m_visited.end()) continue;
+            if (m_visited.find(it.first) != m_visited.end()) { continue; }
             double const d = Dfs(it.first, dest);
             if (d > 0)
                 return d *
@@ -56,14 +57,14 @@ class Solution {
         for (int i = 0; i < static_cast<int>(values.size());
              i++)  // this loop is for creating graph
         {
-            m_unmp[eq[i][0]].insert({eq[i][1], values[i]});
-            m_unmp[eq[i][1]].insert({eq[i][0], 1 / values[i]});
+            m_unmp[eq.at(i).at(0)].insert({eq.at(i).at(1), values.at(i)});
+            m_unmp[eq.at(i).at(1)].insert({eq.at(i).at(0), 1 / values.at(i)});
         }
         vector<double> ans;
         for (auto it : queries) {
             m_visited.clear();  // we clear visited array for each dfs
             ans.push_back(Dfs(
-                it[0], it[1]));  // pushing answer of each query returned by dfs
+                it.at(0), it.at(1)));  // pushing answer of each query returned by dfs
         }
         return ans;
     }

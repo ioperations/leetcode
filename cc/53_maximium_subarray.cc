@@ -11,6 +11,7 @@ A subarray is a contiguous part of an array.
 */
 
 #include <algorithm>
+#include <cstddef>
 #include <vector>
 
 #include "gtest/gtest.h"
@@ -23,17 +24,17 @@ class Solution {
     // ReSharper disable once CppMemberFunctionMayBeStatic
     [[nodiscard]] int MaxSubArray(const vector<int>& nums) const {
         // pass
-        const std::size_t size = nums.size();
+        std::size_t const size = nums.size();
         if (size == 0) {
             return 0;
         }
-        int max_sum = nums[0];
+        int max_sum = nums.at(0);
         int cur = max_sum;
         for (std::size_t i = 1; i < size; i++) {
-            if (cur + nums[i] > nums[i]) {
-                cur += nums[i];
+            if (cur + nums.at(i) > nums.at(i)) {
+                cur += nums.at(i);
             } else {
-                cur = nums[i];
+                cur = nums.at(i);
             }
             max_sum = max(max_sum, cur);
         }
@@ -45,7 +46,7 @@ TEST(maximiumV, t1) {
     const std::vector<int> v{-2, 1, -3, 4, -1, 2, 1, -5, 4};
 
     constexpr int o = 6;
-    Solution sl;
+    Solution const sl;
     int const ret = sl.MaxSubArray(v);
     EXPECT_EQ(ret, o);
 }
@@ -54,7 +55,7 @@ TEST(maximiumV, t2) {
     const std::vector<int> v{1};
 
     constexpr int o = 1;
-    Solution sl;
+    Solution const sl;
     int const ret = sl.MaxSubArray(v);
     EXPECT_EQ(ret, o);
 }
@@ -63,7 +64,7 @@ TEST(maximiumV, t3) {
     const std::vector<int> v{5, 4, -1, 7, 8};
 
     constexpr int o = 23;
-    Solution sl;
+    Solution const sl;
     int const ret = sl.MaxSubArray(v);
     EXPECT_EQ(ret, o);
 }

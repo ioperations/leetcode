@@ -33,18 +33,18 @@ class Solution {
         int n_it = 0;
         for (int i = 0; i < m + n; i++) {
             if (m_it < m && n_it < n) {
-                if (numz[m_it] <= nums2[n_it]) {
-                    nums1[i] = numz[m_it];
+                if (numz.at(m_it) <= nums2.at(n_it)) {
+                    nums1.at(i) = numz.at(m_it);
                     m_it++;
                 } else {
-                    nums1[i] = nums2[n_it];
+                    nums1.at(i) = nums2.at(n_it);
                     n_it++;
                 }
             } else if (m_it < m) {
-                nums1[i] = numz[m_it];
+                nums1.at(i) = numz.at(m_it);
                 m_it++;
             } else {
-                nums1[i] = nums2[n_it];
+                nums1.at(i) = nums2.at(n_it);
                 n_it++;
             }
         }

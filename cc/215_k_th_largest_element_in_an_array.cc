@@ -24,7 +24,7 @@ class Solution {
         priority_queue<int, vector<int>, greater<>> q;
 
         for (auto& ptr : nums) {
-            if (k > (int)q.size()) {
+            if (k > static_cast<int>(q.size())) {
                 q.push(ptr);
             } else if (ptr > q.top()) {
                 q.push(ptr);
@@ -37,14 +37,14 @@ class Solution {
         // pass
         priority_queue<int, vector<int>, greater<>> q;
         for (int i = 0; i < k; i++) {
-            q.push(nums[i]);
+            q.push(nums.at(static_cast<size_t>(i)));
         }
 
-        int const size = nums.size();
+        int const size = static_cast<int>(nums.size());
         for (int i = k; i < size; i++) {
-            if (q.top() < nums[i]) {
+            if (q.top() < nums.at(static_cast<size_t>(i))) {
                 q.pop();
-                q.push(nums[i]);
+                q.push(nums.at(static_cast<size_t>(i)));
             }
         }
 

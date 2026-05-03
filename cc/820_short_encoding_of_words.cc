@@ -22,21 +22,19 @@ using namespace std;
 
 namespace {
 class Solution {
-    // pass
-    // we need to create a structure
-   private:
+private:
     struct TrieNode {
         int m_ends_here;
         TrieNode* m_child[26];
+        TrieNode() : m_ends_here(0) {
+            for (auto& i : m_child) {
+                i = nullptr;
+            }
+        }
     };
 
-    // creates a node with character and returns it
     TrieNode* GetNode() {
-        // index is 0-25 representing characters of alphabets
         auto* new_node = new TrieNode;
-        new_node->m_ends_here = 0;
-        // initialize every child node ptr to nullptr
-        for (auto& i : new_node->m_child) i = nullptr;
         return new_node;
     }
 
@@ -48,7 +46,7 @@ class Solution {
         delete root;
     }
 
-   public:
+public:
     TrieNode* m_root;
 
     Solution() : m_root(GetNode()) {}
@@ -69,12 +67,12 @@ class Solution {
         return res + count;
     }
 
-    void Insert(string word, int& count, int& res) {
+    void Insert(string const& word, int& count, int& res) {
         TrieNode* curr = m_root;
-        int const len = word.length();
+        int const len = static_cast<int>(word.length());
         bool flag = true;
         for (int i = len - 1; i >= 0; i--) {
-            int const ind = word[i] - 'a';
+            int const ind = word.at(i) - 'a';
             if (curr->m_child[ind] == nullptr) {
                 flag = false;
                 // if no word has created yet

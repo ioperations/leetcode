@@ -21,27 +21,27 @@ class Solution {
    public:
     vector<int> FindClosestElements(vector<int>& arr, int k, int x) {
         auto const iter = lower_bound(arr.begin(), arr.end(), x);
-        int j = iter - arr.begin();
+        int j = static_cast<int>(iter - arr.begin());
         int i = j - 1;
         vector<int> ans;
-        int const n = arr.size();
+        int const n = static_cast<int>(arr.size());
 
-        while (i >= 0 && j < n && (int)ans.size() < k) {
-            if (abs(x - arr[i]) <= abs(x - arr[j])) {
-                ans.push_back(arr[i]);
+        while (i >= 0 && j < n && static_cast<int>(ans.size()) < k) {
+            if (abs(x - arr.at(i)) <= abs(x - arr.at(j))) {
+                ans.push_back(arr.at(i));
                 i--;
             } else {
-                ans.push_back(arr[j]);
+                ans.push_back(arr.at(j));
                 j++;
             }
         }
 
         while (i >= 0 && ans.size() < k) {
-            ans.push_back(arr[i]);
+            ans.push_back(arr.at(i));
             i--;
         }
 
-        while (j < n && (int)ans.size() < k) {
+        while (j < n && static_cast<int>(ans.size()) < k) {
             ans.push_back(arr[j]);
             j++;
         }

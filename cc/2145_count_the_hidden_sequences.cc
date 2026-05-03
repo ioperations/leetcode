@@ -50,7 +50,7 @@ class Solution {
 
 TEST(T0, t1) {
     vector<int> differences = {1, -3, 4};
-    int lower = 1, upper = 6;
+    int const lower = 1, upper = 6;
     int const output = 2;
     Solution sl;
     int const ret = sl.NumberOfArrays(differences, lower, upper);
@@ -63,7 +63,7 @@ TEST(T0, t1) {
 
 TEST(T0, t2) {
     vector<int> differences = {3, -4, 5, 1, -2};
-    int lower = -4, upper = 5;
+    int const lower = -4, upper = 5;
     int const output = 4;
     Solution sl;
     int const ret = sl.NumberOfArrays(differences, lower, upper);
@@ -78,7 +78,7 @@ TEST(T0, t2) {
 
 TEST(T0, t3) {
     vector<int> differences = {4, -7, 2};
-    int lower = 3, upper = 6;
+    int const lower = 3, upper = 6;
     int const output = 0;
     Solution sl;
     int const ret = sl.NumberOfArrays(differences, lower, upper);
@@ -88,7 +88,7 @@ TEST(T0, t3) {
 
 TEST(T0, t4) {
     vector<int> differences = {83702, -5216};
-    int lower = -82788, upper = 14602;
+    int const lower = -82788, upper = 14602;
     int const output = 13689;
     Solution sl;
     int const ret = sl.NumberOfArrays(differences, lower, upper);

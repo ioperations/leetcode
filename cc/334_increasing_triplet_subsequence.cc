@@ -20,32 +20,32 @@ namespace {
 class Solution {
    public:
     bool IncreasingTriplet(vector<int>& nums) {
-        int const n = nums.size();
+        int const n = static_cast<int>(nums.size());
         if (n < 3) {
             return false;
         }
         stack<int> st;
-        st.push(nums[n - 1]);
+        st.push(nums.at(static_cast<size_t>(n) - 1));
         //  st.push(nums[n-2]);
         int second{INT_MIN};
         int third{INT_MIN};
         for (int i = n - 2; i >= 0; i--) {
-            if (nums[i] < second) {
+            if (nums.at(static_cast<size_t>(i)) < second) {
                 return true;
             }
 
-            while (!st.empty() && st.top() > nums[i]) {
-                second = max(second, nums[i]);
+            while (!st.empty() && st.top() > nums.at(static_cast<size_t>(i))) {
+                second = max(second, nums.at(static_cast<size_t>(i)));
                 int const k = st.top();
                 st.pop();
                 third = max(third, k);
             }
 
-            if ((nums[i] > second) && (nums[i] < third)) {
-                second = nums[i];
+            if ((nums.at(static_cast<size_t>(i)) > second) && (nums.at(static_cast<size_t>(i)) < third)) {
+                second = nums.at(static_cast<size_t>(i));
             }
 
-            st.push(nums[i]);
+            st.push(nums.at(static_cast<size_t>(i)));
         }
 
         return false;

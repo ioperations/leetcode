@@ -51,12 +51,9 @@ class BrowserHistory {
 
    public:
     ~BrowserHistory() { DeleteNode(home_page); }
-    BrowserHistory(string homepage) {
-        home_page = new Node(homepage);
-        curr_page = home_page;
-    }
+    BrowserHistory(const string& homepage) : home_page(new Node(homepage)), curr_page(home_page) {}
 
-    void Visit(string url) {
+    void Visit(const string& url) {
         Node* new_page = new Node(url);
         if (curr_page->next) {
             DeleteNode(curr_page->next);
@@ -115,7 +112,7 @@ class BrowserHistorySysV2 {
     ~BrowserHistorySysV2() {
         Node* p = m_p_head;
         while (p != nullptr) {
-            Node* const tmp = p;
+            const Node* const tmp = p;
             p = p->next;
             delete tmp;
         }
@@ -188,7 +185,7 @@ class BrowserHistorySysV2 {
     }
 
     void DeleteLastNode() {
-        Node* const target = m_p_end->pre;
+        Node const* const target = m_p_end->pre;
         target->pre->next = target->next;
         target->next->pre = target->pre;
         delete target;

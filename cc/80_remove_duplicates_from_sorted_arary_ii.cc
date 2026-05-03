@@ -27,10 +27,10 @@ namespace {
 class Solution {
    public:
     int RemoveDuplicates(vector<int>& nums) {
-        int idx = 0, n = nums.size();
+        int idx = 0, n = static_cast<int>(nums.size());
         for (int i = 0; i < n; i++) {
-            if (idx < 2 || nums[idx - 2] != nums[i]) {
-                nums[idx++] = nums[i];
+            if (idx < 2 || nums.at(idx - 2) != nums.at(i)) {
+                nums.at(idx++) = nums.at(i);
             }
         }
 
@@ -39,7 +39,7 @@ class Solution {
 
     void MakeVectorBack(vector<int>& nums, int from, int end) {
         for (int i = from; i < end - 1; i++) {
-            nums[i] = nums[i + 1];
+            nums.at(i) = nums.at(i + 1);
         }
     }
 };
@@ -61,7 +61,7 @@ TEST(RemoveDuplicatesFromSortedAraryIi, t1) {
     EXPECT_EQ(ret, output);
 
     for (int i = 0; i < ret; i++) {
-        EXPECT_EQ(ret_expected[i], nums[i]);
+        EXPECT_EQ(ret_expected.at(i), nums.at(i));
     }
 }
 
@@ -81,7 +81,7 @@ TEST(RemoveDuplicatesFromSortedAraryIi, t2) {
     EXPECT_EQ(ret, output);
 
     for (int i = 0; i < ret; i++) {
-        EXPECT_EQ(ret_expected[i], nums[i]);
+        EXPECT_EQ(ret_expected.at(i), nums.at(i));
     }
 }
 

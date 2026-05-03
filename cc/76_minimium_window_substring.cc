@@ -39,8 +39,8 @@ class Solution {
         unordered_map<char, int> window;
 
         // It will update the frequency of each charater of string t int map;
-        for (int i = 0; i < (int)t.length(); i++) {
-            map[t[i]]++;
+        for (int i = 0; i < static_cast<int>(t.length()); i++) {
+            map[t.at(i)]++;
         }
 
         // variable to store minimum length of result string
@@ -49,41 +49,26 @@ class Solution {
         // counter
         int letter_counter = 0;
 
-        for (int slow = 0, fast = 0; fast < (int)s.length(); fast++) {
-            // This c variable will store each character of string s according
-            // to the fast pointer movement starting from 0
-            char const c = s[fast];
+        for (int slow = 0, fast = 0; fast < static_cast<int>(s.length()); fast++) {
+            char const c = s.at(fast);
 
-            // If current character of "s" is available in map that consists of
-            // string "t" characters
             if (map.find(c) != map.end()) {
-                // store that character in current window and increase the
-                // counter by 1
                 window[c]++;
-                // This if condition will execute only if there is need to
-                // fulfill required charters from map to window and increase the
-                // letter counter
-                if (window[c] <= map[c]) {
+                if (window.at(c) <= map.at(c)) {
                     letter_counter++;
                 }
             }
 
-            // This condition we have found the result in current window
-            if (letter_counter >= (int)t.length()) {
-                while (map.find(s[slow]) == map.end() ||
-                       window[s[slow]] > map[s[slow]]) {
-                    // This will start decreasing frequency of extra character
-                    // in window
-                    window[s[slow]]--;
+            if (letter_counter >= static_cast<int>(t.length())) {
+                while (map.find(s.at(slow)) == map.end() ||
+                       window.at(s.at(slow)) > map.at(s.at(slow))) {
+                    window[s.at(slow)]--;
 
-                    // and move slow pointer
                     slow++;
                 }
 
-                // It will update the minimum required substring
                 if (fast - slow + 1 < min_length) {
                     min_length = fast - slow + 1;
-                    // It will update the result string
                     result = s.substr(slow, min_length);
                 }
             }

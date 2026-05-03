@@ -16,7 +16,7 @@ namespace {
 class Solution {
    public:
     int SumSubarrayMins(vector<int>& arr) {
-        int const size = arr.size();
+        int const size = static_cast<int>(arr.size());
         vector<int> nextsmaller(size, size);
         vector<int> prevsmaller(size, -1);
 
@@ -24,8 +24,8 @@ class Solution {
 
         // calculating the nextsmaller index
         for (int i = 0; i < size; i++) {
-            while (stack.size() && arr[stack.top()] > arr[i]) {
-                nextsmaller[stack.top()] = i;
+            while (stack.size() && arr.at(stack.top()) > arr.at(i)) {
+                nextsmaller.at(stack.top()) = i;
                 stack.pop();
             }
             stack.push(i);
@@ -36,8 +36,8 @@ class Solution {
 
         // calculating the prevsmaller index
         for (int i = size - 1; i >= 0; --i) {
-            while (stack.size() && arr[stack.top()] >= arr[i]) {
-                prevsmaller[stack.top()] = i;
+            while (stack.size() && arr.at(stack.top()) >= arr.at(i)) {
+                prevsmaller.at(stack.top()) = i;
                 stack.pop();
             }
             stack.push(i);
@@ -46,8 +46,8 @@ class Solution {
         long long const mod = 1e9 + 7;
 
         for (int i = 0; i < size; i++) {
-            ret += (int)(arr[i] * (i - prevsmaller[i]) % mod) *
-                   (nextsmaller[i] - i) % mod;
+            ret += static_cast<int>(arr.at(i) * (i - prevsmaller.at(i)) % mod) *
+                   (nextsmaller.at(i) - i) % mod;
             ret %= mod;
         }
         return ret;

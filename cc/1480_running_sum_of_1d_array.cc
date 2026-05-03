@@ -27,8 +27,8 @@ class Solution {
         return nums;
     }
     vector<int> RunningSumV1(vector<int>& nums) const {
-        for (int i = 1; i < (int)nums.size(); i++) {
-            nums[i] += nums[i - 1];
+        for (int i = 1; i < static_cast<int>(nums.size()); i++) {
+            nums.at(i) += nums.at(i - 1);
         }
         return nums;
     }
@@ -62,7 +62,7 @@ TEST(RunningSumOf1dArray, t3) {
 }
 
 static void BenchV1(benchmark::State& state) {
-    for (auto _ : state) {
+    for (auto&& _ : state) {
         std::vector<int> p{3, 1, 2, 10, 1};
         std::vector<int> const output{3, 4, 6, 16, 17};
 
@@ -74,7 +74,7 @@ static void BenchV1(benchmark::State& state) {
 BENCHMARK(BenchV1);
 
 static void BenchV2(benchmark::State& state) {
-    for (auto _ : state) {
+    for (auto&& _ : state) {
         std::vector<int> p{3, 1, 2, 10, 1};
         std::vector<int> const output{3, 4, 6, 16, 17};
 

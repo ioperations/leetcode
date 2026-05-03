@@ -35,13 +35,15 @@ class Solution {
         if (start > end || power < tokens.at(start)) return 0;
         int take = 0, nottake = 0;
         if (dp.at(start).at(end) != -1) return dp.at(start).at(end);
-        if (power >= tokens.at(start))
+        if (power >= tokens.at(start)) {
             take = 1 +
                    Recursion(tokens, power - tokens.at(start), start + 1, end, dp);
-        if (power >= tokens.at(start))
+        }
+        if (power >= tokens.at(start)) {
             nottake = Recursion(tokens, power - tokens.at(start) + tokens.at(end),
                                 start + 1, end - 1, dp);
-        return dp[start][end] = max(take, nottake);
+        }
+        return dp.at(start).at(end) = max(take, nottake);
     }
 
     int BagOfTokensScore(vector<int>& tokens, int power) {
@@ -161,7 +163,7 @@ static void BenchmarkTwoArrayDpv1(benchmark::State& state) {
     Solution sl;
     int const output = 4;
 
-    for (auto _ : state) {
+    for (auto&& _ : state) {
         int const ret = sl.BagOfTokensScore(tokens, power);
         EXPECT_EQ(output, ret);
     }
@@ -174,7 +176,7 @@ static void BenchmarkMyImplementation(benchmark::State& state) {
     Solution sl;
     int const output = 4;
 
-    for (auto _ : state) {
+    for (auto&& _ : state) {
         int const ret = sl.BagOfTokensScoreV1(tokens, power);
         EXPECT_EQ(output, ret);
     }

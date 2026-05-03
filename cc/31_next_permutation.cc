@@ -37,14 +37,14 @@ class Solution {
     void NextPermutation(vector<int>& nums) const {
         bool flag = false;
 
-        for (int i = nums.size() - 1; i > 0; i--) {
-            if (nums[i] > nums[i - 1]) {
+        for (int i = static_cast<int>(nums.size()) - 1; i > 0; i--) {
+            if (nums.at(static_cast<size_t>(i)) > nums.at(static_cast<size_t>(i) - 1)) {
                 flag = true;
-                int j = nums.size() - 1;
-                while (nums[j] <= nums[i - 1]) {
+                int j = static_cast<int>(nums.size()) - 1;
+                while (nums.at(static_cast<size_t>(j)) <= nums.at(static_cast<size_t>(i) - 1)) {
                     j--;
                 }
-                swap(nums[i - 1], nums[j]);
+                swap(nums.at(static_cast<size_t>(i) - 1), nums.at(static_cast<size_t>(j)));
                 reverse(nums.begin() + i, nums.end());
                 break;
             }

@@ -20,19 +20,19 @@ namespace {
 class Solution {
    public:
     bool Find132pattern(vector<int>& nums) {
-        int const n = nums.size();
-        vector<int> minval(n);
-        minval[0] = nums[0];
+        int const n = static_cast<int>(nums.size());
+        vector<int> minval(static_cast<size_t>(n));
+        minval.at(0) = nums.at(0);
         for (int i = 1; i < n; i++) {
-            minval[i] = min(nums[i], minval[i - 1]);
+            minval.at(i) = min(nums.at(i), minval.at(static_cast<size_t>(i) - 1));
         }
         stack<int> st;
         for (int j = n - 1; j >= 0; j--) {
-            while (!st.empty() && st.top() <= minval[j]) st.pop();
-            if (!st.empty() && st.top() < nums[j]) {
+            while (!st.empty() && st.top() <= minval.at(static_cast<size_t>(j))) st.pop();
+            if (!st.empty() && st.top() < nums.at(static_cast<size_t>(j))) {
                 return true;
             }
-            st.push(nums[j]);
+            st.push(nums.at(static_cast<size_t>(j)));
         }
         return false;
     }

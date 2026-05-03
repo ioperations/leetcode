@@ -24,10 +24,10 @@ class Solution {
     ll Solve(int n, int goal, int k, vector<vector<int>>& dp) {
         if (n == 0 && goal == 0) return 1;
         if (n == 0 || goal == 0) return 0;
-        if (dp[n][goal] != -1) return dp[n][goal];
-        ll pick{Solve(n - 1, goal - 1, k, dp) * n};
-        ll notpick{Solve(n, goal - 1, k, dp) * max(n - k, 0)};
-        return dp[n][goal] = (pick + notpick) % m_mod;
+        if (dp.at(n).at(goal) != -1) return dp.at(n).at(goal);
+        ll const pick{Solve(n - 1, goal - 1, k, dp) * n};
+        ll const notpick{Solve(n, goal - 1, k, dp) * max(n - k, 0)};
+        return dp.at(n).at(goal) = (pick + notpick) % m_mod;
     }
 
     int NumMusicPlaylists(int n, int goal, int k) {

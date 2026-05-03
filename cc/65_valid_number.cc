@@ -65,8 +65,9 @@ class Solution {
         // optionally + or -
         if (s.at(i) == '+' || s.at(i) == '-') i++;
 
-        if (i == static_cast<int>(s.size()))  // end already?
+        if (i == static_cast<int>(s.size())) {  // end already?
             return false;        // TODO: when false, undo side effect??
+        }
 
         if (ParseDigits(s, i)) {
             if (i == static_cast<int>(s.size())) return false;
@@ -94,27 +95,29 @@ class Solution {
         // optionally + or -
         if (s.at(i) == '+' || s.at(i) == '-') i++;
 
-        if (ParseDigits(s, i))
+        if (ParseDigits(s, i)) {
             return true;  // return i==s.size(); // mistake!! = vs. == always
+        }
 
         return false;
     }
 
     // this is after decimal or integer: as optional part!!
     bool ParseExponent(const string& s, int& i) {
-        if (i == static_cast<int>(s.size())) return false;
+        if (i == static_cast<int>(s.size())) { return false; }
         if (s.at(i) == 'e' || s.at(i) == 'E') {
             i++;  // mistake: forgot this!!
-            if (ParseInteger(s, i))
+            if (ParseInteger(s, i)) {
                 return true;  // i==s.size();  // mistake; return true // here
                               // we expect ending of all
+            }
         }
 
         return false;
     }
 
    public:
-    bool IsNumber(string s) {
+    bool IsNumber(const string& s) {
         int i = 0;
         if (s.size() == 0) return false;
 
@@ -132,7 +135,7 @@ class Solution {
         return false;
     }
 
-    bool IsNumberV2(string s) {
+    bool IsNumberV2(const string& s) {
         Tokener tokener(s);
         /*
 

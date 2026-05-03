@@ -16,19 +16,19 @@ namespace {
 class Solution {
    public:
     void WiggleSort(vector<int>& nums) {
-        int const n = nums.size();
+        int const n = static_cast<int>(nums.size());
         sort(nums.begin(), nums.end());
 
-        vector<int> sorted(n);
+        vector<int> sorted(static_cast<size_t>(n));
 
         int end = n - 1;
         int start = end / 2;
 
         int i = 0;
         while (i < n) {
-            sorted[i++] = nums[start--];
+            sorted.at(static_cast<size_t>(i++)) = nums.at(static_cast<size_t>(start--));
             if (i < n) {
-                sorted[i++] = nums[end--];
+                sorted.at(static_cast<size_t>(i++)) = nums.at(static_cast<size_t>(end--));
             }
         }
 

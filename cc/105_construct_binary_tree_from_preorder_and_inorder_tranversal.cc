@@ -23,7 +23,7 @@ class Solution {
                        int i_end) {
         if (p_start > p_end || i_start > i_end) return nullptr;
 
-        auto* root = new TreeNode(preorder[p_start]);
+        auto* root = new TreeNode(preorder.at(static_cast<size_t>(p_start)));
         int const i_root = inorder_map[root->val];
         int const nums_left = i_root - i_start;
 
@@ -37,12 +37,12 @@ class Solution {
     template <typename T>
     TreeNode<T>* BuildTree(vector<T>& preorder, vector<T>& inorder) {
         unordered_map<int, int> inorder_map;
-        for (int i = 0; i < (int)inorder.size(); i++) {
-          inorder_map[inorder[i]] = i;
+        for (int i = 0; i < static_cast<int>(inorder.size()); i++) {
+          inorder_map[inorder.at(static_cast<size_t>(i))] = i;
         }
 
-        return Build(preorder, 0, preorder.size() - 1, inorder_map, 0,
-                     inorder.size() - 1);
+        return Build(preorder, 0, static_cast<int>(preorder.size()) - 1, inorder_map, 0,
+                     static_cast<int>(inorder.size()) - 1);
     }
 };
 

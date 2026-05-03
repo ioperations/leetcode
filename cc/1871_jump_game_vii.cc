@@ -26,19 +26,23 @@ class Solution {
    public:
     bool CanReach(string s, int min_jump, int max_jump) {
         // pass
-        if (s[s.size() - 1] != '0') return false;
+        if (s.at(s.size() - 1) != '0') return false;
         vector<int> list;
-        for (int i = 0; i < static_cast<int>(s.size()); i++)
-            if (s[i] == '0') list.push_back(i);
+        for (int i = 0; i < static_cast<int>(s.size()); i++) {
+            if (s.at(i) == '0') list.push_back(i);
+        }
         queue<pair<int, int>> q;
         q.emplace(0, 0);
         for (int i = 0; i < static_cast<int>(list.size()); i++) {
             if (q.empty()) return false;
-            if (list[i] >= q.front().first && list[i] <= q.front().second) {
-                if (list[i] == static_cast<int>(s.size()) - 1) return true;
-                q.emplace(list[i] + min_jump, list[i] + max_jump);
+            if (list.at(i) >= q.front().first && list.at(i) <= q.front().second) {
+                if (list.at(i) == static_cast<int>(s.size()) - 1) return true;
+                q.emplace(list.at(i) + min_jump, list.at(i) + max_jump);
             } else {
-                if (list[i] > q.front().second) q.pop(), i--;
+                if (list.at(i) > q.front().second) {
+                    q.pop();
+                    i--;
+                }
             }
         }
         return false;

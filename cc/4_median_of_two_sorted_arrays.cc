@@ -15,34 +15,34 @@ class Solution {
     double FindMedianSortedArrays(std::vector<int>& nums1,
                                   std::vector<int>& nums2) {
         std::vector<int> merged;
-        const int size = nums1.size() + nums2.size();
-        merged.reserve(size);
+        int const size = static_cast<int>(nums1.size() + nums2.size());
+        merged.reserve(static_cast<size_t>(size));
 
         std::size_t i = 0, j = 0;
 
         for (; i < nums1.size() || j < nums2.size();) {
             if (i < nums1.size() && j < nums2.size()) {
-                if (nums1[i] < nums2[j]) {
-                    merged.push_back(nums1[i]);
+                if (nums1.at(i) < nums2.at(j)) {
+                    merged.push_back(nums1.at(i));
                     i++;
                 } else {
-                    merged.push_back(nums2[j]);
+                    merged.push_back(nums2.at(j));
                     j++;
                 }
             } else if (i == nums1.size()) {
-                merged.push_back(nums2[j]);
+                merged.push_back(nums2.at(j));
                 j++;
             } else if (j == nums2.size()) {
-                merged.push_back(nums1[i]);
+                merged.push_back(nums1.at(i));
                 i++;
             }
         }
 
         if (size % 2 == 1) {
-            return merged[(size - 1) / 2];
+            return merged.at(static_cast<size_t>((size - 1) / 2));
         }
 
-        return (double)(merged[(size - 1) / 2] + merged[(size) / 2]) / 2;
+        return (static_cast<double>(merged.at(static_cast<size_t>((size - 1) / 2)) + merged.at(static_cast<size_t>(size) / 2))) / 2;
     }
 
    private:

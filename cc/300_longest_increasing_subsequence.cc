@@ -9,6 +9,7 @@ or no elements without changing the order of the remaining elements. For
 example, [3,6,2,7] is a subsequence of the array [0,3,1,6,2,2,7].*/
 
 #include <algorithm>
+#include <cstddef>
 #include <functional>
 #include <limits>
 #include <vector>
@@ -21,16 +22,16 @@ namespace {
 class Solution {
    public:
     int LengthOfLisV1(vector<int>& nums) {
-        int size = nums.size();
+        int const size = static_cast<int>(nums.size());
         function<int(int, int)> fun = [&](int start_with,
                                           int min_required) -> int {
             // passengers
 
             if (start_with >= size) return 0;
 
-            if (nums[start_with] > min_required) {
+            if (nums.at(static_cast<size_t>(start_with)) > min_required) {
                 return max(1 + fun(start_with + 1,
-                                   max(min_required, nums[start_with])),
+                                   max(min_required, nums.at(static_cast<size_t>(start_with)))),
                            fun(start_with + 1, min_required));
             }
 
@@ -40,19 +41,19 @@ class Solution {
     }
     int LengthOfLis(vector<int>& nums) {
         vector<int> ans;
-        ans.push_back(nums[0]);
+        ans.push_back(nums.at(0));
         for (int i = 1; i < static_cast<int>(nums.size()); i++) {
-            int const ele = nums[i];
+            int const ele = nums.at(static_cast<size_t>(i));
             if (ele > ans.back()) {
                 ans.push_back(ele);
                 continue;
             }
             int const idx =
-                lower_bound(ans.begin(), ans.end(), ele) - ans.begin();
+                static_cast<int>(lower_bound(ans.begin(), ans.end(), ele) - ans.begin());
             if (idx == static_cast<int>(ans.size())) continue;
-            ans[idx] = ele;
+            ans.at(static_cast<size_t>(idx)) = ele;
         }
-        return ans.size();
+        return static_cast<int>(ans.size());
     }
 };
 

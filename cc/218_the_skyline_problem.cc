@@ -45,9 +45,9 @@ class Solution {
         std::vector<std::pair<int, int>> coords;
         for (const auto& b : buildings) {
             // Building end is processed first if two x-coordinates are a tie.
-            coords.emplace_back(b[0], -b[2]);
+            coords.emplace_back(b.at(0), -b.at(2));
             // And add building start.
-            coords.emplace_back(b[1], b[2]);
+            coords.emplace_back(b.at(1), b.at(2));
         }
 
         // Sort coordinates so buildings ending are processed before buildings
@@ -65,18 +65,19 @@ class Solution {
         heights[0] = 1;
         for (const auto& cur : coords) {
             // Building start, encounter new height.
-            if (cur.second < 0)
+            if (cur.second < 0) {
                 ++heights[-cur.second];
-            else
+            } else {
                 // Building end, height no longer available. If no other active
                 // buildings have the same height, remove it.
                 if (--heights[cur.second] == 0) heights.erase(cur.second);
+            }
 
             // Currently at building start/end x, height is the largest
             // available height.
             int const x = cur.first, y = heights.rbegin()->first;
             if (xs.size()) {
-                int const prev_x = xs.back()[0], prev_y = xs.back()[1];
+                int const prev_x = xs.back().at(0), prev_y = xs.back().at(1);
 
                 // If the previous recorded height is the same as the current
                 // height, skip inserting duplicate points.

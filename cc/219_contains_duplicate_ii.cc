@@ -18,23 +18,25 @@ using namespace std;
 namespace {
 class Solution {
    public:
+    [[nodiscard]]
     bool ContainsNearbyDuplicate(const vector<int>& nums, int k) const {
-        int const size = nums.size();
+        int const size = static_cast<int>(nums.size());
         for (int i = 0; i < size; i++) {
             for (int j = i + 1; (j < size) && ((j - i) <= k); j++) {
-                if (nums[i] == nums[j]) return true;
+                if (nums.at(static_cast<size_t>(i)) == nums.at(static_cast<size_t>(j))) return true;
             }
         }
         return false;
     }
+    [[nodiscard]]
     bool ContainsNearbyDuplicateV2(const vector<int>& nums, int k) const {
         unordered_map<int, int> map;
-        int const n = nums.size();
+        int const n = static_cast<int>(nums.size());
         for (int i = 0; i < n; i++) {
-            if (map.count(nums[i])) {
-                if (abs(i - map[nums[i]]) <= k) return true;
+            if (map.count(nums.at(static_cast<size_t>(i)))) {
+                if (abs(i - map[nums.at(static_cast<size_t>(i))]) <= k) return true;
             }
-            map[nums[i]] = i;
+            map[nums.at(static_cast<size_t>(i))] = i;
         }
         return false;
     }

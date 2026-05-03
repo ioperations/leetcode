@@ -43,22 +43,22 @@ class Solution {
 
     vector<int> PivotArrayV2(vector<int>& nums, int pivot) {
         vector<int> result(nums.size(), 0);
-        int left = 0, right = nums.size() - 1;
+        int left = 0, right = static_cast<int>(nums.size()) - 1;
 
-        for (int i = 0, j = nums.size() - 1; i < nums.size(); ++i, --j) {
-            if (nums[i] < pivot) {
-                result[left] = nums[i];
+        for (int i = 0, j = static_cast<int>(nums.size()) - 1; i < static_cast<int>(nums.size()); ++i, --j) {
+            if (nums.at(static_cast<size_t>(i)) < pivot) {
+                result.at(static_cast<size_t>(left)) = nums.at(static_cast<size_t>(i));
                 left++;
             }
 
-            if (nums[j] > pivot) {
-                result[right] = nums[j];
+            if (nums.at(static_cast<size_t>(j)) > pivot) {
+                result.at(static_cast<size_t>(right)) = nums.at(static_cast<size_t>(j));
                 right--;
             }
         }
 
         while (left <= right) {
-            result[left] = pivot;
+            result.at(static_cast<size_t>(left)) = pivot;
             left++;
         }
 

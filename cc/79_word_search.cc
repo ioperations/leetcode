@@ -448,7 +448,7 @@ static void BenchMarkSolution(benchmark::State& state) {
       {'A', 'A', 'A', 'A', 'A', 'A'}, {'A', 'A', 'A', 'A', 'A', 'A'},
       {'A', 'A', 'A', 'A', 'A', 'A'}, {'A', 'A', 'A', 'A', 'A', 'A'}};
   const std::string word = "AAAAAAAAAAAAAAB";
-  for (auto _ : state) {
+  for (auto&& _ : state) {
     Solution s;
     s.Exist(board, word);
   }
@@ -461,7 +461,7 @@ static void BenchMarkSolutionV2(benchmark::State& state) {
       {'A', 'A', 'A', 'A', 'A', 'A'}, {'A', 'A', 'A', 'A', 'A', 'A'},
       {'A', 'A', 'A', 'A', 'A', 'A'}, {'A', 'A', 'A', 'A', 'A', 'A'}};
   const std::string word = "AAAAAAAAAAAAAAB";
-  for (auto _ : state) {
+  for (auto&& _ : state) {
     SolutionV2 s;
     s.Exist(board, word);
   }
@@ -474,7 +474,7 @@ static void BenchMarkSolutionV3(benchmark::State& state) {
       {'A', 'A', 'A', 'A', 'A', 'A'}, {'A', 'A', 'A', 'A', 'A', 'A'},
       {'A', 'A', 'A', 'A', 'A', 'A'}, {'A', 'A', 'A', 'A', 'A', 'A'}};
   const std::string word = "AAAAAAAAAAAAAAB";
-  for (auto _ : state) {
+  for (auto&& _ : state) {
     SolutionV3 s;
     s.Exist(board, word);
   }

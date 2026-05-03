@@ -1,7 +1,6 @@
 // This is a personal academic project. Dear PVS-Studio, please check it.
 // PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
 // https://pvs-studio.com
-#include <cstddef>
 #include <queue>
 #include <vector>
 
@@ -18,22 +17,22 @@ class Solution {
         vector<int> indegree(num_courses, 0);
         // 邻接表
         vector<vector<int>> adjacency_list(num_courses, vector<int>());
-        int const len = prerequisites.size();
+        int const len = static_cast<int>(prerequisites.size());
         // 计算所有的顶点的入度值
         for (int i = 0; i < len; i++) {
-            vector<int>& item = prerequisites[i];
-            int const cur_course = item[0];
-            int const pre_course = item[1];
+            vector<int>& item = prerequisites.at(i);
+            int const cur_course = item.at(0);
+            int const pre_course = item.at(1);
             // 计算入度
-            indegree[pre_course]++;
+            indegree.at(pre_course)++;
             // 构造邻接表
-            adjacency_list[cur_course].push_back(pre_course);
+            adjacency_list.at(cur_course).push_back(pre_course);
         }
 
         // 将所有入度为0的顶点入队列
         queue<int> course_queue;
         for (int i = 0; i < num_courses; i++) {
-            if (indegree[i] == 0) {
+            if (indegree.at(i) == 0) {
                 course_queue.push(i);
             }
         }
@@ -45,10 +44,10 @@ class Solution {
             course_queue.pop();
             count++;
             // 从邻接表里面访问，把从该顶点出发所能到达人顶点的入度减一
-            for (int const pre_course : adjacency_list[point]) {
-                indegree[pre_course]--;
+            for (int const pre_course : adjacency_list.at(point)) {
+                indegree.at(pre_course)--;
                 // 入度为0则加入队列
-                if (indegree[pre_course] == 0) {
+                if (indegree.at(pre_course) == 0) {
                     course_queue.push(pre_course);
                 }
             }

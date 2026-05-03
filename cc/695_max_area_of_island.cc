@@ -50,9 +50,10 @@ class Solution {
     int m_m{}, m_n{};
     void Dfs(int i, int j, vector<vector<int>>& grid, int& count) {
         if (i < 0 || j < 0 || i >= m_m || j >= m_n || grid.at(i).at(j) == 0 ||
-            grid.at(i).at(j) == 2)
+            grid.at(i).at(j) == 2) {
             return;
-        grid[i][j] = 2;
+        }
+        grid.at(i).at(j) = 2;
         count++;  // sare direction me jao jiske just me 1 ho .. utna hi baar
                   // count bhi increase kro jeetne milenge aur 1 aaspass ke sare
                   // 1 ko 2 bna do jis se agli baar yeh nai mile
@@ -80,11 +81,11 @@ class Solution {
     }
     int Mark(vector<vector<int>>& grid, int x, int y, int m, int n) {
         if (x < 0 || x >= m || y < 0 || y >= n || grid.at(x).at(y) != 1) return 0;
-        grid[x][y] = 2;
-        int a = Mark(grid, x + 1, y, m, n);
-        int b = Mark(grid, x, y + 1, m, n);
-        int c = Mark(grid, x - 1, y, m, n);
-        int d = Mark(grid, x, y - 1, m, n);
+        grid.at(x).at(y) = 2;
+        int const a = Mark(grid, x + 1, y, m, n);
+        int const b = Mark(grid, x, y + 1, m, n);
+        int const c = Mark(grid, x - 1, y, m, n);
+        int const d = Mark(grid, x, y - 1, m, n);
         return 1 + a + b + c + d;
     }
     int MaxAreaOfIsland(vector<vector<int>>& grid) {
@@ -93,7 +94,7 @@ class Solution {
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
                 if (grid.at(i).at(j) == 1) {
-                    int area = Mark(grid, i, j, m, n);
+                    int const area = Mark(grid, i, j, m, n);
                     max_area = max(max_area, area);
                 }
             }

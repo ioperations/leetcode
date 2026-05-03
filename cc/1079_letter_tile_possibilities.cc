@@ -19,7 +19,7 @@ class Solution {
       // tiles consists of uppercase English letters.
 
       m_s = tiles;
-      m_size = tiles.size();
+      m_size = static_cast<int>(tiles.size());
       for (int i = 0; i < m_size; i++) {
         m_visiable.push_back(true);
       }
@@ -38,22 +38,22 @@ class Solution {
         }
 
         for (int i = 0; i < m_size; i++) {
-            if (!m_visiable[i]) {
+            if (!m_visiable.at(static_cast<size_t>(i))) {
                 continue;
             }
 
-            m_visiable[i] = false;
-            str += m_s[i];
+            m_visiable.at(static_cast<size_t>(i)) = false;
+            str += m_s.at(static_cast<size_t>(i));
 
             Gen(str, num, true);
 
             str.erase(str.end() - 1);
-            m_visiable[i] = true;
+            m_visiable.at(static_cast<size_t>(i)) = true;
         }
     }
 
     std::set<string> m_cache;
-    std::size_t m_size = 0;
+    int m_size = 0;
     string m_s;
     vector<bool> m_visiable;
 };

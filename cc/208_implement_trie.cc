@@ -16,6 +16,7 @@ prefix prefix, and false otherwise.*/
 
 #include <benchmark/benchmark.h>
 
+#include <cstddef>
 #include <map>
 #include <string>
 #include <vector>
@@ -198,7 +199,7 @@ TEST(implementtrieV2, t1) {
 }
 
 void BenchMarkOther(benchmark::State& state) {
-    for (auto _ : state) {
+    for (auto&& _ : state) {
         bool ret = false;
         Trie* trie = new Trie();
         trie->Insert("apple");
@@ -217,7 +218,7 @@ void BenchMarkOther(benchmark::State& state) {
 BENCHMARK(BenchMarkOther);
 
 void BenchMarkMyImpl(benchmark::State& state) {
-    for (auto _ : state) {
+    for (auto&& _ : state) {
         bool ret = false;
         auto* trie = new TrieV1();
         trie->Insert("apple");

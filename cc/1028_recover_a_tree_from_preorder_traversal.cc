@@ -31,11 +31,11 @@ class Solution {
     }
 
     TreeNode* Build(int current_index = 0) {
-        if (m_index >= m_string_info.size()) {
+        if (m_index >= static_cast<int>(m_string_info.size())) {
             return nullptr;
         }
 
-        const auto& now = m_string_info[m_index];
+        const auto& now = m_string_info.at(static_cast<size_t>(m_index));
         if (current_index != now.m_depth) {
             return nullptr;
         }
@@ -49,16 +49,16 @@ class Solution {
    private:
     void Tranverse(const std::string& value) {
         int dash = 0;
-        for (int i = 0; i < value.size(); i++) {
-            if (value[i] == '-') {
+        for (int i = 0; i < static_cast<int>(value.size()); i++) {
+            if (value.at(static_cast<size_t>(i)) == '-') {
                 dash++;
                 continue;
             }
 
             string v;
             int k = 0;
-            for (int j = i; j < value.size() && value[j] != '-'; j++) {
-                v += value[j];
+            for (int j = i; j < static_cast<int>(value.size()) && value.at(static_cast<size_t>(j)) != '-'; j++) {
+                v += value.at(static_cast<size_t>(j));
                 k++;
             }
             i = i + k - 1;

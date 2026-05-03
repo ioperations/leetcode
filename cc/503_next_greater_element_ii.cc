@@ -24,16 +24,16 @@ class Solution {
    public:
     vector<int> NextGreaterElements(vector<int>& nums) {
         // pass
-        int const size = nums.size();
-        vector<int> ret(size, -1);
+        int const size = static_cast<int>(nums.size());
+        vector<int> ret(static_cast<size_t>(size), -1);
         vector<int> copy(nums.begin(), nums.end());
 
         nums.insert(nums.end(), copy.begin(), copy.end());
 
         for (int i = 0; i < size; i++) {
             for (int j = 1; j < size; j++) {
-                if (nums[i + j] > nums[i]) {
-                    ret[i] = nums[i + j];
+                if (nums.at(static_cast<size_t>(i + j)) > nums.at(static_cast<size_t>(i))) {
+                    ret.at(static_cast<size_t>(i)) = nums.at(static_cast<size_t>(i + j));
                     break;
                 }
             }
