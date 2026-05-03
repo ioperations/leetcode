@@ -30,46 +30,46 @@ class LoserTree {
     vector<int>* m_base;  // 数组副本(叶节点数据)
    public:
     LoserTree(vector<int>& nums) {
-        const int nums_size = nums.size();
+        int const nums_size = static_cast<int>(nums.size());
         if (nums_size == 0) return;
-        const int power_num = ceil(log2(nums_size));
-        const int leaves_num = 1 << power_num;
+        int const power_num = static_cast<int>(ceil(log2(nums_size)));
+        int const leaves_num = 1 << power_num;
         this->m_base = &nums;
         this->m_leaves_ls_st = leaves_num;
         this->m_ls.resize(leaves_num << 1, -1);
         (*this->m_base).resize(leaves_num, inf);
         // 左闭右开
         for (int i = 0; i < leaves_num; i++) {
-            this->m_ls[this->m_leaves_ls_st + i] = i;
+            this->m_ls.at(this->m_leaves_ls_st + i) = i;
         }
-        this->m_ls[0] = this->Build(1);
+        this->m_ls.at(0) = this->Build(1);
     }
 
     // node_idx为ls中的下标
     //  返回:winner_id为base中的下标
     int Build(int node_idx) {
         if (node_idx >= this->m_leaves_ls_st) {
-            return this->m_ls[node_idx];
+            return this->m_ls.at(node_idx);
         }
-        const int lwinner_idx = Build(node_idx << 1);
-        const int rwinner_idx = Build(node_idx << 1 | 1);
+        int const lwinner_idx = Build(node_idx << 1);
+        int const rwinner_idx = Build(node_idx << 1 | 1);
         int winner_idx = -1;
         // 父节点存loser
-        if ((*this->m_base)[lwinner_idx] < (*this->m_base)[rwinner_idx]) {
-            this->m_ls[node_idx] = rwinner_idx;
+        if ((*this->m_base).at(lwinner_idx) < (*this->m_base).at(rwinner_idx)) {
+            this->m_ls.at(node_idx) = rwinner_idx;
             winner_idx = lwinner_idx;
         } else {
-            this->m_ls[node_idx] = lwinner_idx;
+            this->m_ls.at(node_idx) = lwinner_idx;
             winner_idx = rwinner_idx;
         }
         return winner_idx;
     }
 
     int GetMin() {
-        int ans{(*this->m_base).at(m_ls.at(0))};
+        int const ans{(*this->m_base).at(m_ls.at(0))};
         // modify_fa_idx为ls的下标
-        int leaves_idx{this->m_leaves_ls_st + m_ls.at(0)};
-        (*this->m_base)[this->m_ls.at(leaves_idx)] = inf;
+        int const leaves_idx{this->m_leaves_ls_st + m_ls.at(0)};
+        (*this->m_base).at(this->m_ls.at(leaves_idx)) = inf;
         this->Sort(leaves_idx >> 1, this->m_ls.at(0));
         return ans;
     }
@@ -79,13 +79,13 @@ class LoserTree {
     // 自底上更新败者树
     void Sort(int node_idx, int winner_idx) {
         while (node_idx) {
-            if ((*this->m_base)[winner_idx] >
-                (*this->m_base)[this->m_ls[node_idx]]) {
-                swap(this->m_ls[node_idx], winner_idx);
+            if ((*this->m_base).at(winner_idx) >
+                (*this->m_base).at(this->m_ls.at(node_idx))) {
+                swap(this->m_ls.at(node_idx), winner_idx);
             }
             node_idx >>= 1;
         }
-        this->m_ls[0] = winner_idx;
+        this->m_ls.at(0) = winner_idx;
     }
 };
 
@@ -156,7 +156,7 @@ class Solution {
     ///* 听说用最小堆,还可以用败者树
     MyListNode* MergeKLists(vector<MyListNode*>& lists) {
         // 我们记录这一路 走到了什么位置
-        std::vector<MyListNode*> cursors = lists;
+        std::vector<MyListNode*> const cursors = lists;
 
         // 对于每一路我们拿出值最小的那个值(这个node !=
         // nullptr)，并将这一路的游标向右移动一格
@@ -164,9 +164,9 @@ class Solution {
         MyListNode* head = nullptr;
         MyListNode* pre = nullptr;
 
-        int first = true;
+        bool first = true;
 
-        int val{std::numeric_limits<int>::max()};
+        int const val{std::numeric_limits<int>::max()};
         while (true) {
             // 所以现在的问题是怎样确定这个candidate
             MyListNode* candidate = nullptr;
@@ -245,11 +245,11 @@ TEST(MergeKSortedListV2, t11) {
     FreeList(ret);
 }
 
-void ExpectEqList(MyListNode* list, const std::vector<int>& elemets) {
+void ExpectEqList(MyListNode* list, std::vector<int> const& elemets) {
     int count = 0;
     MyListNode* ptr = list;
     while (ptr != nullptr) {
-        EXPECT_EQ(ptr->val, elemets[count]);
+        EXPECT_EQ(ptr->val, elemets.at(count));
         ptr = ptr->next;
         count++;
     }

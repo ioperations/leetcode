@@ -57,15 +57,15 @@ class Solution {
         }
 #define b z->index_array
         if (z->index_array.size() >= 3) {
-            return vector<string>{m_product[b[0]], m_product[b[1]],
-                                  m_product[b[2]]};
+            return vector<string>{m_product.at(b.at(0)), m_product.at(b.at(1)),
+                                  m_product.at(b.at(2))};
         }
         if (z->index_array.size() == 2) {
-            return vector<string>{m_product[b[0]], m_product[b[1]]};
+            return vector<string>{m_product.at(b.at(0)), m_product.at(b.at(1))};
         }
 
         if (z->index_array.size() == 1) {
-            return vector<string>{m_product[b[0]]};
+            return vector<string>{m_product.at(b.at(0))};
         }
 #undef b
         return vector<string>{};

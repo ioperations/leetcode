@@ -26,16 +26,16 @@ class Solution {
         vector<vector<int>> dp(n, vector<int>(5, 0));
         int ans = 0;
         for (int i = 0; i < 5; i++) {
-            dp[0][i] = 1;
+            dp.at(0).at(i) = 1;
         }
         for (int i = 1; i < n; i++) {
-            dp[i][0] = (dp[i - 1][1]) % mod;
-            dp[i][1] = (dp[i - 1][0] + dp[i - 1][2]) % mod;
-            dp[i][2] =
-                (dp[i - 1][0] + dp[i - 1][1] + dp[i - 1][3] + dp[i - 1][4]) %
+            dp.at(i).at(0) = (dp.at(i - 1).at(1)) % mod;
+            dp.at(i).at(1) = (dp.at(i - 1).at(0) + dp.at(i - 1).at(2)) % mod;
+            dp.at(i).at(2) =
+                (dp.at(i - 1).at(0) + dp.at(i - 1).at(1) + dp.at(i - 1).at(3) + dp.at(i - 1).at(4)) %
                 mod;
-            dp[i][3] = (dp[i - 1][2] + dp[i - 1][4]) % mod;
-            dp[i][4] = (dp[i - 1][0]) % mod;
+            dp.at(i).at(3) = (dp.at(i - 1).at(2) + dp.at(i - 1).at(4)) % mod;
+            dp.at(i).at(4) = (dp.at(i - 1).at(0)) % mod;
         }
         for (auto num : dp.at(n - 1)) {
             ans = (ans + num) % mod;

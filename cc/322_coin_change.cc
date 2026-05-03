@@ -65,10 +65,10 @@ class Solution {
 
     int CoinChangeV1(vector<int>& coins, int amount) {
         vector<int> h((amount + 1), INT_MAX - 1);
-        h[0] = 0;
+        h.at(0) = 0;
         for (int i = 0; i < static_cast<int>(h.size()); i++) {
             for (int const coin : coins) {
-                if (i >= coin) h[i] = min(h[i], 1 + h[i - coin]);
+                if (i >= coin) { h.at(i) = min(h.at(i), 1 + h.at(i - coin)); }
             }
         }
         return (h.at(h.size() - 1) < INT_MAX - 1) ? h.at(h.size() - 1) : -1;
@@ -79,32 +79,33 @@ class Solution {
 
         vector<vector<int>> dp(n + 1, vector<int>(sum + 1));
 
-        for (int i = 0; i <= n; i++) dp[i][0] = 0;
+        for (int i = 0; i <= n; i++) { dp.at(i).at(0) = 0; }
 
-        for (int i = 0; i < sum + 1; i++) dp[0][i] = INT_MAX - 1;
+        for (int i = 0; i < sum + 1; i++) { dp.at(0).at(i) = INT_MAX - 1; }
 
         for (int i = 1; i <= sum; i++) {
             if (i % arr.at(0) == 0) {
-                dp[1][i] = i / arr.at(0);
+                dp.at(1).at(i) = i / arr.at(0);
             } else {
-                dp[1][i] = INT_MAX - 1;
+                dp.at(1).at(i) = INT_MAX - 1;
             }
         }
 
         for (int i = 1; i <= n; i++) {
             for (int j = 1; j <= sum; j++) {
-                if (arr.at(i - 1) <= j)
-                    dp[i][j] = min(dp[i - 1][j], dp[i][j - arr.at(i - 1)] + 1);
-                else
-                    dp[i][j] = dp[i - 1][j];
+                if (arr.at(i - 1) <= j) {
+                    dp.at(i).at(j) = min(dp.at(i - 1).at(j), dp.at(i).at(j - arr.at(i - 1)) + 1);
+                } else {
+                    dp.at(i).at(j) = dp.at(i - 1).at(j);
+                }
             }
         }
 
-        if (dp[n][sum] == INT_MAX or dp[n][sum] == INT_MAX - 1) {
+        if (dp.at(n).at(sum) == INT_MAX or dp.at(n).at(sum) == INT_MAX - 1) {
             return -1;
         }
 
-        return dp[n][sum];
+        return dp.at(n).at(sum);
     }
 };
 

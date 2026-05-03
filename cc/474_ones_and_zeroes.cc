@@ -30,18 +30,18 @@ class Solution {
 
         for (int i = 0; i < static_cast<int>(strings.size()); i++) {
             string now = strings.at(i);
-            int const zeros = count(now.begin(), now.end(), '0');
-            int const ones = count(now.begin(), now.end(), '1');
+            int const zeros = static_cast<int>(count(now.begin(), now.end(), '0'));
+            int const ones = static_cast<int>(count(now.begin(), now.end(), '1'));
 
             for (int j = 0; j <= m; j++) {
                 for (int k = 0; k <= n; k++) {
                     if (i == 0 || (j == 0 && k == 0)) {
-                        arr[i][j][k] = 0;
+                        arr.at(i).at(j).at(k) = 0;
                     } else if (zeros <= j && ones <= k) {
-                        arr[i][j][k] = max(1 + arr[i - 1][j - zeros][k - ones],
-                                           arr[i - 1][j][k]);
+                        arr.at(i).at(j).at(k) = max(1 + arr.at(i - 1).at(j - zeros).at(k - ones),
+                                                   arr.at(i - 1).at(j).at(k));
                     } else {
-                        arr[i][j][k] = arr[i - 1][j][k];
+                        arr.at(i).at(j).at(k) = arr.at(i - 1).at(j).at(k);
                     }
                 }
             }
@@ -68,7 +68,7 @@ class Solution {
 
 TEST(OnesAndZeroes, t1) {
     vector<string> strs = {"10", "0001", "111001", "1", "0"};
-    int m = 5, n = 3;
+    int const m = 5, n = 3;
     int const output = 4;
     // Explanation: The largest subset with at most 5 0's and 3 1's is {"10",
     // "0001", "1", "0"}, so the answer is 4. Other valid but smaller subsets
@@ -83,7 +83,7 @@ TEST(OnesAndZeroes, t1) {
 
 TEST(OnesAndZeroes, t2) {
     vector<string> strs = {"10", "0", "1"};
-    int m = 1, n = 1;
+    int const m = 1, n = 1;
     int const output = 2;
     // Explanation: The largest subset is {"0", "1"}, so the answer is 2.
     Solution sl;

@@ -163,12 +163,12 @@ class Solution {
       }
 
         for (int k = 0; k < 4; k++) {
-            if (IsSafe(i + m_dir[k], j + m_dir[k + 1])) {
-                Backtrack(i + m_dir[k], j + m_dir[k + 1], board, word);
+            if (IsSafe(i + m_dir.at(k), j + m_dir.at(k + 1))) {
+                Backtrack(i + m_dir.at(k), j + m_dir.at(k + 1), board, word);
             }
         }
 
-        board[i][j] = m_s.at(m_index - 1);  // undo move
+        board.at(i).at(j) = m_s.at(m_index - 1);  // undo move
         // m_s.pop_back();
         m_index--;
     }

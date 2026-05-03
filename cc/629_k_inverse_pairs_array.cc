@@ -21,19 +21,20 @@ class Solution {
         // x x 1 2 3 x x
         //       ^
         vector<vector<int>> dp(n + 1, vector<int>(k + 1, 0));
-        const int mod = 1e+9 + 7;
-        dp[1][0] = 1;  // base case and dp[1][1] = 0;
+        int const mod = 1e+9 + 7;
+        dp.at(1).at(0) = 1;  // base case and dp[1][1] = 0;
         for (int i = 2; i <= n; i++) {
             for (int j = 0; j <= k; j++) {
                 // d[i][j] = dp[i - 1][j] + dp[i][j - 1] - dp[i - 1][j - i];
-                dp[i][j] = dp[i - 1][j];
-                if (j > 0) dp[i][j] = (dp[i][j] + dp[i][j - 1]) % mod;
-                if (j >= i)
-                    dp[i][j] = (dp[i][j] - dp[i - 1][j - i] + mod) % mod;
+                dp.at(i).at(j) = dp.at(i - 1).at(j);
+                if (j > 0) { dp.at(i).at(j) = (dp.at(i).at(j) + dp.at(i).at(j - 1)) % mod; }
+                if (j >= i) {
+                    dp.at(i).at(j) = (dp.at(i).at(j) - dp.at(i - 1).at(j - i) + mod) % mod;
+                }
             }
         }
 
-        return dp[n][k];
+        return dp.at(n).at(k);
     }
 
     int KInversePairsV1(int n, int k) {
@@ -43,15 +44,15 @@ class Solution {
             for (int j = 0; j <= k; j++) {
                 // when j = 0(k = 0) then sorted array is the only solution
                 if (j == 0) {
-                    dp[i][j] = 1;
+                    dp.at(i).at(j) = 1;
                 } else {
                     for (int p = 0; p <= min(j, i - 1); p++) {
-                        dp[i][j] = (dp[i][j] + dp[i - 1][j - p]) % 1000000007;
+                        dp.at(i).at(j) = (dp.at(i).at(j) + dp.at(i - 1).at(j - p)) % 1000000007;
                     }
                 }
             }
         }
-        return dp[n][k];
+        return dp.at(n).at(k);
 
         return 0;
     }

@@ -42,7 +42,7 @@ class SolutionV2 {
    public:
     int ReversePairs(vector<int>& nums) {
         vector<int> temp(nums.size());
-        return Merge(nums, 0, nums.size(), temp);
+        return Merge(nums, 0, static_cast<int>(nums.size()), temp);
     }
     int BinaryCnt(vector<int>& nums, int left, int right, double n,
                   bool direction) {
@@ -53,15 +53,17 @@ class SolutionV2 {
         while (left <= right) {
             mid = left + (right - left) / 2;
             if (direction) {
-                if (nums[mid] > n)
+                if (nums.at(mid) > n) {
                     right = mid - 1;
-                else
+                } else {
                     left = mid + 1;
+                }
             } else {
-                if (nums[mid] >= n)
+                if (nums.at(mid) >= n) {
                     right = mid - 1;
-                else
+                } else {
                     left = mid + 1;
+                }
             }
         }
 
@@ -70,7 +72,7 @@ class SolutionV2 {
     };
 
     int Merge(vector<int>& nums, int left, int right, vector<int>& temp) {
-        long cnt = 0;
+        int cnt = 0;
         if (right - left < 2) {
             return cnt;
         }
@@ -79,24 +81,24 @@ class SolutionV2 {
         cnt += Merge(nums, mid, right, temp);
 
         for (int i = left; i < right; ++i) {
-            temp[i] = nums[i];
+            temp.at(i) = nums.at(i);
         }
         int left_p = left;
         int right_p = mid;
         int idx = left;
         while (left_p < mid && right_p < right) {
-            if (temp[left_p] < temp[right_p]) {
+            if (temp.at(left_p) < temp.at(right_p)) {
                 cnt += BinaryCnt(temp, right_p, right,
-                                 (double)(temp[left_p]) / 2, false);
-                nums[idx++] = temp[left_p++];
+                                 static_cast<double>(temp.at(left_p)) / 2, false);
+                nums.at(idx++) = temp.at(left_p++);
             } else {
-                cnt += BinaryCnt(temp, left_p, mid, (double)(temp[right_p]) * 2,
+                cnt += BinaryCnt(temp, left_p, mid, static_cast<double>(temp.at(right_p)) * 2,
                                  true);
-                nums[idx++] = temp[right_p++];
+                nums.at(idx++) = temp.at(right_p++);
             }
         }
         while (left_p < mid) {
-            nums[idx++] = temp[left_p++];
+            nums.at(idx++) = temp.at(left_p++);
         }
         return cnt;
     };

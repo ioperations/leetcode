@@ -50,14 +50,14 @@ class Solution {
                         i++;
                         break;
                     }
-                    if (ret[i][j]) {
+                    if (ret.at(i).at(j)) {
                         direction = down;
                         j--;
                         i++;
                         break;
                     }
 
-                    ret[i][j] = count;
+                    ret.at(i).at(j) = count;
                     count++;
                     j++;
                     break;
@@ -70,13 +70,13 @@ class Solution {
                         break;
                     }
 
-                    if (ret[i][j]) {
+                    if (ret.at(i).at(j)) {
                         direction = left;
                         i--;
                         j--;
                         break;
                     }
-                    ret[i][j] = count;
+                    ret.at(i).at(j) = count;
                     count++;
                     i++;
                     break;
@@ -89,13 +89,13 @@ class Solution {
                         break;
                     }
 
-                    if (ret[i][j]) {
+                    if (ret.at(i).at(j)) {
                         direction = up;
                         j++;
                         i--;
                         break;
                     }
-                    ret[i][j] = count;
+                    ret.at(i).at(j) = count;
                     j--;
                     count++;
                     break;
@@ -108,13 +108,13 @@ class Solution {
                         break;
                     }
 
-                    if (ret[i][j]) {
+                    if (ret.at(i).at(j)) {
                         direction = right;
                         i++;
                         j++;
                         break;
                     }
-                    ret[i][j] = count;
+                    ret.at(i).at(j) = count;
                     count++;
                     i--;
 

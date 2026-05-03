@@ -18,6 +18,7 @@ bottom-right cell.
 */
 
 #include <algorithm>
+#include <array>
 #include <cstdlib>
 #include <functional>
 #include <limits>
@@ -56,8 +57,9 @@ class Solution {
             if (cache.count(make_pair(i, j))) {
                 return cache.at(make_pair(i, j));
             }
-            if (visiting.count(make_pair(i, j)))
+            if (visiting.count(make_pair(i, j))) {
                 return std::numeric_limits<int>::max();
+            }
 
             visiting.emplace(i, j);
 
@@ -132,10 +134,10 @@ class Solution {
 
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
-                dp[i][j] = std::numeric_limits<int>::max();
+                dp.at(i).at(j) = std::numeric_limits<int>::max();
             }
         }
-        dp[0][0] = 0;
+        dp.at(0).at(0) = 0;
 
         queue<pair<int, int>> q;
         q.emplace(0, 0);
@@ -149,24 +151,24 @@ class Solution {
             q.pop();
 
             for (int k = 0; k < 4; k++) {
-                px = temp.first + x[k];
-                py = temp.second + y[k];
+                px = temp.first + x.at(k);
+                py = temp.second + y.at(k);
                 if (OutBound(px, py, m, n)) {
                     continue;
                 }
-                if (dp[px][py] <= dp[temp.first][temp.second]) {
+                if (dp.at(px).at(py) <= dp.at(temp.first).at(temp.second)) {
                     continue;
                 }
 
-                dp[px][py] =
-                    min(dp[px][py], max(dp[temp.first][temp.second],
+                dp.at(px).at(py) =
+                    min(dp.at(px).at(py), max(dp.at(temp.first).at(temp.second),
                                         abs(heights.at(temp.first).at(temp.second) -
                                             heights.at(px).at(py))));
                 q.emplace(px, py);
             }
         }
 
-        return dp[m - 1][n - 1];
+        return dp.at(m - 1).at(n - 1);
     }
 };
 

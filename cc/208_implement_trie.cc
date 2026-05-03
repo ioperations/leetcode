@@ -16,7 +16,6 @@ prefix prefix, and false otherwise.*/
 
 #include <benchmark/benchmark.h>
 
-#include <cstddef>
 #include <map>
 #include <string>
 #include <vector>
@@ -51,35 +50,35 @@ class Trie {
     Trie() : m_root(new TrieNode()) {}
     ~Trie() { DeleteTrieNode(m_root); }
 
-    void Insert(string word) {
+    void Insert(string const& word) {
         TrieNode* c = m_root;
-        for (auto x : word) {
-            if (c->m_child[x - 'a'] == nullptr) {
-                c->m_child[x - 'a'] = new TrieNode();
+        for (char const x : word) {
+            if (c->m_child.at(static_cast<size_t>(x - 'a')) == nullptr) {
+                c->m_child.at(static_cast<size_t>(x - 'a')) = new TrieNode();
             }
-            c = c->m_child[x - 'a'];
+            c = c->m_child.at(static_cast<size_t>(x - 'a'));
         }
         c->m_is_end = true;
     }
 
-    bool Search(string word) {
+    bool Search(string const& word) {
         TrieNode* c = m_root;
-        for (auto x : word) {
-            if (c->m_child[x - 'a'] == nullptr) {
+        for (char const x : word) {
+            if (c->m_child.at(static_cast<size_t>(x - 'a')) == nullptr) {
                 return false;
             }
-            c = c->m_child[x - 'a'];
+            c = c->m_child.at(static_cast<size_t>(x - 'a'));
         }
         return c->m_is_end;
     }
 
-    bool StartsWith(string prefix) {
+    bool StartsWith(string const& prefix) {
         TrieNode* c = m_root;
-        for (auto x : prefix) {
-            if (c->m_child[x - 'a'] == nullptr) {
+        for (char const x : prefix) {
+            if (c->m_child.at(static_cast<size_t>(x - 'a')) == nullptr) {
                 return false;
             }
-            c = c->m_child[x - 'a'];
+            c = c->m_child.at(static_cast<size_t>(x - 'a'));
         }
 
         return true;
@@ -103,7 +102,7 @@ class TrieV1 {
    public:
     TrieV1() = default;
 
-    void Insert(string word) {
+    void Insert(string const& word) {
         // pass
         Tree* z = &m_root;
         for (char const i : word) {
@@ -113,7 +112,7 @@ class TrieV1 {
         z->m_end = true;
     }
 
-    bool Search(string word) {
+    bool Search(string const& word) {
         Tree* z = &m_root;
         for (char const i : word) {
             auto t = z->m_map.find(i);
@@ -127,7 +126,7 @@ class TrieV1 {
         return z->m_end;
     }
 
-    bool StartsWith(string prefix) {
+    bool StartsWith(string const& prefix) {
         Tree* z = &m_root;
         for (char const i : prefix) {
             auto t = z->m_map.find(i);

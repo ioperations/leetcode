@@ -32,26 +32,26 @@ class Solution {
         int const m = static_cast<int>(obstacle_grid.size()), n = static_cast<int>(obstacle_grid.at(0).size());
         if (obstacle_grid.at(0).at(0) == 1) return 0;
         vector<vector<int>> dp(m, vector<int>(n, 0));
-        dp[0][0] = 1;
+        dp.at(0).at(0) = 1;
 
         for (int i = 1; i < m; i++) {
-            dp[i][0] = obstacle_grid.at(i).at(0) == 0 && dp[i - 1][0] == 1 ? 1 : 0;
+            dp.at(i).at(0) = obstacle_grid.at(i).at(0) == 0 && dp.at(i - 1).at(0) == 1 ? 1 : 0;
         }
         for (int i = 1; i < n; i++) {
-            dp[0][i] = obstacle_grid.at(0).at(i) == 0 && dp[0][i - 1] == 1 ? 1 : 0;
+            dp.at(0).at(i) = obstacle_grid.at(0).at(i) == 0 && dp.at(0).at(i - 1) == 1 ? 1 : 0;
         }
 
         for (int i = 1; i < m; i++) {
             for (int j = 1; j < n; j++) {
                 if (obstacle_grid.at(i).at(j) == 0) {
-                    dp[i][j] = dp[i - 1][j] + dp[i][j - 1];
+                    dp.at(i).at(j) = dp.at(i - 1).at(j) + dp.at(i).at(j - 1);
                 } else {
-                    dp[i][j] = 0;
+                    dp.at(i).at(j) = 0;
                 }
             }
         }
 
-        return dp[m - 1][n - 1];
+        return dp.at(m - 1).at(n - 1);
     }
 
     int UniquePathsWithObstaclesV1(vector<vector<int>>& obstacle_grid) {
@@ -59,26 +59,28 @@ class Solution {
         vector<vector<int>> grid(m, vector<int>(n, 0));
         queue<pair<int, int>> q;
         vector<pair<int, int>> const dirs = {make_pair(0, 1), make_pair(1, 0)};
-        grid[0][0] = obstacle_grid.at(0).at(0) == 0 ? 1 : 0;
+        grid.at(0).at(0) = obstacle_grid.at(0).at(0) == 0 ? 1 : 0;
         q.emplace(0, 0);
         while (q.size() > 0) {
             pair<int, int> const cell = q.front();
             q.pop();
-            int const next_value = grid[cell.first][cell.second];
+            int const next_value = grid.at(cell.first).at(cell.second);
             for (auto& p : dirs) {
                 if ((p.second + cell.second) > n - 1 ||
                     (p.first + cell.first) > m - 1 ||
                     (obstacle_grid.at(p.first + cell.first)
-                                  .at(p.second + cell.second) == 1))
+                                  .at(p.second + cell.second) == 1)) {
                     continue;
+                }
                 pair<int, int> const next_cell =
                     make_pair(p.first + cell.first, p.second + cell.second);
-                if (grid[next_cell.first][next_cell.second] == 0)
+                if (grid.at(next_cell.first).at(next_cell.second) == 0) {
                     q.push(next_cell);
-                grid[next_cell.first][next_cell.second] += next_value;
+                }
+                grid.at(next_cell.first).at(next_cell.second) += next_value;
             }
         }
-        return grid[m - 1][n - 1];
+        return grid.at(m - 1).at(n - 1);
     }
 };
 

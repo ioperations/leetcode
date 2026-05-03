@@ -27,19 +27,20 @@ class Solution {
         int const n = static_cast<int>(s.length());
 
         vector<vector<bool>> dp(m + 1, vector<bool>(n + 1, false));
-        dp[0][0] = true;
+        dp.at(0).at(0) = true;
 
         int st = 0;
-        while (st < m && p.at(st) == '*') dp[++st][0] = true;
+        while (st < m && p.at(st) == '*') { dp.at(++st).at(0) = true; }
 
         for (int i = 1; i <= m; i++) {
             for (int j = 1; j <= n; j++) {
-                if (p.at(i - 1) == s.at(j - 1) || p.at(i - 1) == '?')
-                    dp[i][j] = dp[i - 1][j - 1];
-                else if (p.at(i - 1) == '*')
-                    dp[i][j] = dp[i][j - 1] || dp[i - 1][j];
-                else
-                    dp[i][j] = false;
+                if (p.at(i - 1) == s.at(j - 1) || p.at(i - 1) == '?') {
+                    dp.at(i).at(j) = dp.at(i - 1).at(j - 1);
+                } else if (p.at(i - 1) == '*') {
+                    dp.at(i).at(j) = dp.at(i).at(j - 1) || dp.at(i - 1).at(j);
+                } else {
+                    dp.at(i).at(j) = false;
+                }
             }
         }
 
@@ -49,7 +50,7 @@ class Solution {
         //     cout << endl;
         // }
 
-        return dp[m][n];
+        return dp.at(m).at(n);
     }
 };
 

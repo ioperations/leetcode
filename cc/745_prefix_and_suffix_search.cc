@@ -22,8 +22,6 @@ the dictionary, return -1.
 
 using namespace std;
 
-#include <cstddef>
-
 namespace {
 class Trie {
    public:
@@ -120,7 +118,7 @@ class WordFilter {
         }
     }
 
-    int F(string prefix, string suffix) {
+    int F(string const& prefix, string const& suffix) {
         string cur = suffix + '{' + prefix;
 
         // just use startswith function and pass suffix + '{' + prefix to find
@@ -155,15 +153,15 @@ class WordFilterMy {
         // 指向一个新的前缀树，前缀树中的节点是一个链表,
         // 在真正构建的时候可以覆盖，后面的index覆盖前面的index，
         // 第一个前缀树当中还需要保留链表，
-        int const size = words.size();
+        int const size = static_cast<int>(words.size());
         for (int i = 0; i < size; i++) {
             PrefixTree* z = &m_root;
-            string const tmp = words[i];
-            reverse(words[i].begin(), words[i].end());
+            string const tmp = words.at(i);
+            reverse(words.at(i).begin(), words.at(i).end());
 
             for (auto& ptr : tmp) {
                 z = &z->m_node[ptr];
-                z->m_n.push_back(Pp{words[i], i});
+                z->m_n.push_back(Pp{words.at(i), i});
             }
         }
     }

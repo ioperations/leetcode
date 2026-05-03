@@ -21,14 +21,14 @@ class Solution {
                          vector<int>& profit) {
         vector<vector<int>> tmp;
         tmp.reserve(start_time.size());
-        for (int i = 0; i < start_time.size(); i++) {
-          tmp.push_back({start_time[i], end_time[i], profit[i]});
+        for (int i = 0; i < static_cast<int>(start_time.size()); i++) {
+          tmp.push_back({start_time.at(i), end_time.at(i), profit.at(i)});
         }
         sort(tmp.begin(), tmp.end());
-        for (int i = 0; i < start_time.size(); i++) {
-            start_time[i] = tmp[i][0];
-            end_time[i] = tmp[i][1];
-            profit[i] = tmp[i][2];
+        for (int i = 0; i < static_cast<int>(start_time.size()); i++) {
+            start_time.at(i) = tmp.at(i).at(0);
+            end_time.at(i) = tmp.at(i).at(1);
+            profit.at(i) = tmp.at(i).at(2);
         }
     }
 
@@ -39,13 +39,13 @@ class Solution {
         map<int, int> time_profit;  // dp, timeProfit[i]: maximum profit if we
                                     // schedule job from timepoint i
         int res = 0;
-        for (int i = start_time.size() - 1; i >= 0; i--) {
-            auto iter = time_profit.lower_bound(end_time[i]);
+        for (int i = static_cast<int>(start_time.size()) - 1; i >= 0; i--) {
+            auto iter = time_profit.lower_bound(end_time.at(i));
             int const val =
-                (iter == time_profit.end() ? 0 : iter->second) + profit[i];
-            time_profit[start_time[i]] = max(time_profit[start_time[i]], val);
-            time_profit[start_time[i]] = max(time_profit[start_time[i]], res);
-            res = time_profit[start_time[i]];
+                (iter == time_profit.end() ? 0 : iter->second) + profit.at(i);
+            time_profit[start_time.at(i)] = max(time_profit[start_time.at(i)], val);
+            time_profit[start_time.at(i)] = max(time_profit[start_time.at(i)], res);
+            res = time_profit[start_time.at(i)];
         }
         return res;
     }

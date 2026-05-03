@@ -97,27 +97,27 @@ class Solution {
         int const m = static_cast<int>(word1.length());
         int const n = static_cast<int>(word2.length());
         std::vector<std::vector<int>> dp(m + 1, std::vector<int>(n + 1, 0));
-        for (int i = 0; i <= m; i++) dp[i][0] = i;
-        for (int i = 0; i <= n; i++) dp[0][i] = i;
+        for (int i = 0; i <= m; i++) { dp.at(i).at(0) = i; }
+        for (int i = 0; i <= n; i++) { dp.at(0).at(i) = i; }
         for (int i = 1; i <= m; i++) {
             for (int j = 1; j <= n; j++) {
                 if (word1.at(i - 1) == word2.at(j - 1)) {
-                    dp[i][j] = 0 + dp[i - 1][j - 1];
+                    dp.at(i).at(j) = 0 + dp.at(i - 1).at(j - 1);
                 } else {
-                    int mn = 1 + dp[i - 1][j];
-                    if (1 + dp[i][j - 1] < mn) { mn = 1 + dp[i][j - 1]; }
-                    if (1 + dp[i - 1][j - 1] < mn) { mn = 1 + dp[i - 1][j - 1]; }
-                    dp[i][j] = mn;
+                    int mn = 1 + dp.at(i - 1).at(j);
+                    if (1 + dp.at(i).at(j - 1) < mn) { mn = 1 + dp.at(i).at(j - 1); }
+                    if (1 + dp.at(i - 1).at(j - 1) < mn) { mn = 1 + dp.at(i - 1).at(j - 1); }
+                    dp.at(i).at(j) = mn;
                 }
             }
         }
 
-        return dp[m][n];
+        return dp.at(m).at(n);
     }
 };
 
 TEST(editdistanceV2, t2) {
-    std::string word1 = "intention", word2 = "execution";
+    std::string const word1 = "intention", word2 = "execution";
     int const output = 5;
     Solution s;
 
@@ -126,7 +126,7 @@ TEST(editdistanceV2, t2) {
 }
 
 TEST(editdistanceV2, t3) {
-    std::string word1 = "horse", word2 = "ros";
+    std::string const word1 = "horse", word2 = "ros";
 
     int const output = 3;
     Solution s;
@@ -136,7 +136,7 @@ TEST(editdistanceV2, t3) {
 }
 
 TEST(editdistanceV2, t4) {
-    std::string word1 = "dinitrophenylhydrazine",
+    std::string const word1 = "dinitrophenylhydrazine",
                 word2 = "acetylphenylhydrazine";
 
     int const output = 6;
@@ -147,7 +147,7 @@ TEST(editdistanceV2, t4) {
 }
 
 TEST(editdistanceV3, t2) {
-    std::string word1 = "intention", word2 = "execution";
+    std::string const word1 = "intention", word2 = "execution";
     int const output = 5;
     Solution s;
 
@@ -155,7 +155,7 @@ TEST(editdistanceV3, t2) {
     EXPECT_EQ(ret, output);
 }
 TEST(editdistanceV4, t3) {
-    std::string word1 = "horse", word2 = "ros";
+    std::string const word1 = "horse", word2 = "ros";
 
     int const output = 3;
     Solution s;
@@ -164,7 +164,7 @@ TEST(editdistanceV4, t3) {
     EXPECT_EQ(ret, output);
 }
 TEST(editdistanceV4, t4) {
-    std::string word1 = "dinitrophenylhydrazine",
+    std::string const word1 = "dinitrophenylhydrazine",
                 word2 = "acetylphenylhydrazine";
 
     int const output = 6;
@@ -176,7 +176,7 @@ TEST(editdistanceV4, t4) {
 
 static void BenchMarkFirst(benchmark::State& state) {
     for (auto _ : state) {
-        std::string word1 = "horse", word2 = "ros";
+        std::string const word1 = "horse", word2 = "ros";
 
         int const output = 3;
         Solution s;
@@ -189,7 +189,7 @@ BENCHMARK(BenchMarkFirst);
 
 static void BenchMarkSecond(benchmark::State& state) {
     for (auto _ : state) {
-        std::string word1 = "horse", word2 = "ros";
+        std::string const word1 = "horse", word2 = "ros";
 
         int const output = 3;
         Solution s;
@@ -202,7 +202,7 @@ BENCHMARK(BenchMarkSecond);
 
 static void BenchMarkThird(benchmark::State& state) {
     for (auto _ : state) {
-        std::string word1 = "horse", word2 = "ros";
+        std::string const word1 = "horse", word2 = "ros";
 
         int const output = 3;
         Solution s;

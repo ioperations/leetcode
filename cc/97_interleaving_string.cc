@@ -34,7 +34,7 @@ class Solution {
 
         q1.push_back(0);
         q2.push_back(0);
-        table[0][0] = true;
+        table.at(0).at(0) = true;
 
         while (q1.size()) {
             int const tmp1 = q1.at(0), tmp2 = q2.at(0);
@@ -54,20 +54,20 @@ class Solution {
 
             q1.erase(q1.begin());
             q2.erase(q2.begin());
-            table[tmp1][tmp2] = false;
+            table.at(tmp1).at(tmp2) = false;
 
             if (c1 == c3) {
-                if (table[tmp1 + 1][tmp2] == false) {
+                if (table.at(tmp1 + 1).at(tmp2) == false) {
                     q1.push_back(tmp1 + 1);
                     q2.push_back(tmp2);
-                    table[tmp1 + 1][tmp2] = true;
+                    table.at(tmp1 + 1).at(tmp2) = true;
                 }
             }
             if (c2 == c3) {
-                if (table[tmp1][tmp2 + 1] == false) {
+                if (table.at(tmp1).at(tmp2 + 1) == false) {
                     q1.push_back(tmp1);
                     q2.push_back(tmp2 + 1);
-                    table[tmp1][tmp2 + 1] = true;
+                    table.at(tmp1).at(tmp2 + 1) = true;
                 }
             }
         }
@@ -90,23 +90,23 @@ class Solution {
         for (int i = 0; i <= n1; i++) {
             for (int j = 0; j <= n2; j++) {
                 if (i == 0 && j == 0) {
-                    dp[i][j] = true;
+                    dp.at(i).at(j) = true;
                 } else if (i == 0) {
-                    dp[i][j] = dp[i][j - 1] && s2.at(j - 1) == s3.at(i + j - 1);
+                    dp.at(i).at(j) = dp.at(i).at(j - 1) && s2.at(j - 1) == s3.at(i + j - 1);
                 } else if (j == 0) {
-                    dp[i][j] = dp[i - 1][j] && s1.at(i - 1) == s3.at(i + j - 1);
+                    dp.at(i).at(j) = dp.at(i - 1).at(j) && s1.at(i - 1) == s3.at(i + j - 1);
                 } else {
-                    dp[i][j] = ((dp[i - 1][j] && s1.at(i - 1) == s3.at(i + j - 1)) ||
-                                (dp[i][j - 1] && s2.at(j - 1) == s3.at(i + j - 1)));
+                    dp.at(i).at(j) = ((dp.at(i - 1).at(j) && s1.at(i - 1) == s3.at(i + j - 1)) ||
+                                (dp.at(i).at(j - 1) && s2.at(j - 1) == s3.at(i + j - 1)));
                 }
             }
         }
-        return dp[n1][n2];
+        return dp.at(n1).at(n2);
     }
 };
 
 TEST(interleavingV, t1) {
-    string string1 = "aabcc", s2 = "dbbca", s3 = "aadbbcbcac";
+    string const string1 = "aabcc", s2 = "dbbca", s3 = "aadbbcbcac";
     bool const output = true;
 
     Solution sl;
@@ -118,7 +118,7 @@ TEST(interleavingV, t1) {
 }
 
 TEST(interleavingV, t2) {
-    string string1 = "", s2 = "", s3 = "";
+    string const string1 = "", s2 = "", s3 = "";
     bool const output = true;
 
     Solution sl;

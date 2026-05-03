@@ -33,6 +33,7 @@ values to update other cells. In this question, we represent the board using a
 the active area encroaches upon the border of the array (i.e., live cells reach
 the border). How would you address these problems?
 */
+#include <array>
 #include <vector>
 
 #include "gtest/gtest.h"
@@ -49,36 +50,36 @@ class Solution {
 
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
-                z[i][j] = 0;
+                z.at(i).at(j) = 0;
             }
         }
 
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
                 if (i > 0 && j > 0) {  // 左上
-                    z[i - 1][j - 1] += board.at(i).at(j);
+                    z.at(i - 1).at(j - 1) += board.at(i).at(j);
                 }
                 if (i > 0) {  // 上
-                    z[i - 1][j] += board.at(i).at(j);
+                    z.at(i - 1).at(j) += board.at(i).at(j);
                 }
                 if (i > 0 && j < n - 1) {  // 右上
-                    z[i - 1][j + 1] += board.at(i).at(j);
+                    z.at(i - 1).at(j + 1) += board.at(i).at(j);
                 }
                 if (j > 0) {  // 左边
-                    z[i][j - 1] += board.at(i).at(j);
+                    z.at(i).at(j - 1) += board.at(i).at(j);
                 }
                 if (j < n - 1) {  // 右边
-                    z[i][j + 1] += board.at(i).at(j);
+                    z.at(i).at(j + 1) += board.at(i).at(j);
                 }
 
                 if (i < m - 1 && j > 0) {  // 左下
-                    z[i + 1][j - 1] += board.at(i).at(j);
+                    z.at(i + 1).at(j - 1) += board.at(i).at(j);
                 }
                 if (i < m - 1) {  // 下
-                    z[i + 1][j] += board.at(i).at(j);
+                    z.at(i + 1).at(j) += board.at(i).at(j);
                 }
                 if (i < m - 1 && j < n - 1) {  // 右下
-                    z[i + 1][j + 1] += board.at(i).at(j);
+                    z.at(i + 1).at(j + 1) += board.at(i).at(j);
                 }
             }
         }
@@ -87,8 +88,8 @@ class Solution {
 
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
-                board[i][j] =
-                    board.at(i).at(j) ? (live_next.at(z[i][j])) : (z[i][j] == 3 ? 1 : 0);
+                board.at(i).at(j) =
+                    board.at(i).at(j) ? (live_next.at(z.at(i).at(j))) : (z.at(i).at(j) == 3 ? 1 : 0);
             }
         }
     }

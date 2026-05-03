@@ -24,7 +24,7 @@ class Solution {
         auto size = s1.length();
 
         for (size_t i = 0; i < size; i++) {
-            for (int j = i; j < size; j++) {
+            for (size_t j = i; j < size; j++) {
                 Change(s1, i, j);
                 if (s1 == s2) {
                     return true;
@@ -36,15 +36,15 @@ class Solution {
     }
 
     void Change(std::string& s, size_t i, size_t j) {
-        char const tmp = s[i];
-        s[i] = s[j];
-        s[j] = tmp;
+        char const tmp = s.at(i);
+        s.at(i) = s.at(j);
+        s.at(j) = tmp;
     }
 };
 
 class SolutionV2 {
    public:
-    bool AreAlmostEqual(string s1, string s2) {
+    bool AreAlmostEqual(string const& s1, string const& s2) {
         /*
          * Initialize Variables:
          Use variables i and j to store the indices of characters that differ
@@ -68,8 +68,8 @@ class SolutionV2 {
         int i = -1, j = -1;
         int cnt = 0;
 
-        for (int k = 0; k < s1.length(); k++) {
-            if (s1[k] != s2[k]) {
+        for (int k = 0; k < static_cast<int>(s1.length()); k++) {
+            if (s1.at(k) != s2.at(k)) {
                 cnt++;
                 if (i == -1) {
                     i = k;
@@ -82,7 +82,7 @@ class SolutionV2 {
         if (cnt == 0) {
             return true;
         }
-        if (cnt == 2 && s1[i] == s2[j] && s1[j] == s2[i]) {
+        if (cnt == 2 && s1.at(i) == s2.at(j) && s1.at(j) == s2.at(i)) {
             return true;
         }
 
@@ -92,7 +92,7 @@ class SolutionV2 {
 #include <gtest/gtest.h>
 
 TEST(T0, t1) {
-    string s1 = "bank", s2 = "kanb";
+    string const s1 = "bank", s2 = "kanb";
     bool const output = true;
     // Explanation : For example, swap the first character with the last
     // character of s2 to make "bank"
@@ -105,7 +105,7 @@ TEST(T0, t1) {
 }
 
 TEST(T0, t2) {
-    string s1 = "attack", s2 = "defend";
+    string const s1 = "attack", s2 = "defend";
     auto output = false;
     // Explanation : It is impossible to make them equal with one string swap
     Solution sl;
@@ -117,7 +117,7 @@ TEST(T0, t2) {
 }
 
 TEST(T0, t3) {
-    string s1 = "kelb", s2 = "kelb";
+    string const s1 = "kelb", s2 = "kelb";
     bool const output = true;
     // Explanation: The two strings are already equal, so no string swap
     // operation is required.
