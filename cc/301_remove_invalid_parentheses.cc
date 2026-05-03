@@ -38,35 +38,37 @@ class Solution {
         }
     }
 
-    int Removals(string s) {
+    int Removals(string const& s) {
         stack<char> st;
         for (int i = 0; i < static_cast<int>(s.length()); i++) {
-            if (s[i] == '(') {
-                st.push(s[i]);
-            } else if (s[i] == ')') {
-                if (st.size() == 0 || st.top() == ')')
-                    st.push(s[i]);
-                else
+            if (s.at(i) == '(') {
+                st.push(s.at(i));
+            } else if (s.at(i) == ')') {
+                if (st.size() == 0 || st.top() == ')') {
+                    st.push(s.at(i));
+                } else {
                     st.pop();
+                }
             }
         }
-        return st.size();
+        return static_cast<int>(st.size());
     }
 
-    int RemovalsV2(string s) {
+    int RemovalsV2(string const& s) {
         stack<char> stack;
 
         for (auto& ptr : s) {
             if (ptr == '(') {
                 stack.push(ptr);
             } else if (ptr == ')') {
-                if (stack.size() && stack.top() != ')')
+                if (stack.size() && stack.top() != ')') {
                     stack.pop();
-                else
+                } else {
                     stack.push(ptr);
+                }
             }
         }
-        return stack.size();
+        return static_cast<int>(stack.size());
     }
 
     vector<string> RemoveInvalidParentheses(string s) {

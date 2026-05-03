@@ -22,21 +22,22 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    static bool Comp(vector<int>& p1, vector<int>& p2) {
-        return (p1[1] > p2[1]);
+    static bool Comp(vector<int> const& p1, vector<int> const& p2) {
+        return (p1.at(1) > p2.at(1));
     }
 
     int MaximumUnits(vector<vector<int>>& b, int t) {
         sort(b.begin(), b.end(), Comp);
 
-        int ret = 0, i = 0, n = b.size();
+        int ret = 0, i = 0;
+        int const n = static_cast<int>(b.size());
 
         while (t > 0 && i < n) {
-            if (t >= b[i][0]) {
-                ret += b[i][0] * b[i][1];
-                t -= b[i][0];
+            if (t >= b.at(i).at(0)) {
+                ret += b.at(i).at(0) * b.at(i).at(1);
+                t -= b.at(i).at(0);
             } else {
-                ret += b[i][1] * t;
+                ret += b.at(i).at(1) * t;
                 t = 0;
             }
             i++;

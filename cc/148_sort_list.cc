@@ -89,7 +89,7 @@ class Solution {
             return head;
         }
 
-        ListNode* fast = head;
+        const ListNode* fast = head;
         ListNode* slow = head;
 
         while (fast != tail) {
@@ -130,7 +130,7 @@ void ExpectEqList(ListNode* list, const std::vector<int>& elemets) {
     int count = 0;
     ListNode* ptr = list;
     while (ptr != nullptr) {
-        EXPECT_EQ(ptr->val, elemets[count]);
+        EXPECT_EQ(ptr->val, elemets.at(count));
         ptr = ptr->next;
         count++;
     }

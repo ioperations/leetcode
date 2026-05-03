@@ -66,8 +66,8 @@ class Solution2 {
 class Solution {
    public:
     bool IsPalindrome(ListNode* head) {
-        std::vector<ListNode*> vec;
-        ListNode* z = head;
+        std::vector<const ListNode*> vec;
+        const ListNode* z = head;
         while (z != nullptr) {
             vec.push_back(z);
             z = z->next;
@@ -76,7 +76,7 @@ class Solution {
         return IsPalindrome(vec);
     }
 
-    bool IsPalindrome(std::vector<ListNode*>& vec) {
+    bool IsPalindrome(std::vector<const ListNode*>& vec) {
         std::size_t const size = vec.size();
         if (vec.size() == 1 || vec.size() == 0) {
             return true;
@@ -85,11 +85,11 @@ class Solution {
         int left = 0;
         int right = 0;
         if (size % 2 == 0) {
-            left = size / 2 - 1;
-            right = size / 2;
+            left = static_cast<int>(size / 2 - 1);
+            right = static_cast<int>(size / 2);
         } else {
-            left = size / 2 - 1;
-            right = size / 2 + 1;
+            left = static_cast<int>(size / 2 - 1);
+            right = static_cast<int>(size / 2 + 1);
         }
 
         while (left >= 0) {

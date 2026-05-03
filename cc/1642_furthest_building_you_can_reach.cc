@@ -30,7 +30,7 @@ class Solution {
    public:
     int FurthestBuilding(vector<int>& heights, int bricks, int ladders) {
         // pass
-        int size = heights.size();
+        int const size = static_cast<int>(heights.size());
 
         map<tuple<int, int, int>, int> const cache;
 
@@ -41,7 +41,7 @@ class Solution {
 
             int candidates = -1;
             int candidates2 = -1;
-            if (heights[i + 1] <= heights[i]) {
+            if (heights.at(i + 1) <= heights.at(i)) {
                 return 1 + fun(i + 1, bricks, ladders);
             }
             if (ladders > 0) {
@@ -92,13 +92,13 @@ class Solution {
             }
         }
         // Return the last element as it reached till the end
-        return heights.size() - 1;
+        return static_cast<int>(heights.size() - 1);
     }
 };
 
 TEST(FurthestBuildingYouCanReach, t1) {
     vector<int> heights{4, 2, 7, 6, 9, 14, 12};
-    int bricks = 5, ladders = 1;
+    int const bricks = 5, ladders = 1;
 
     Solution sl;
     int const ret = sl.FurthestBuilding2(heights, bricks, ladders);

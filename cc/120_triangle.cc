@@ -21,18 +21,18 @@ class Solution {
    public:
     int FindMin(int i, int j, int n, vector<vector<int>>& triangle,
                 vector<vector<int>>& mem) {
-        if (i == n - 1) return triangle[i][j];
-        if (mem[i][j] != -1) return mem[i][j];
-        int const left = triangle[i][j] + FindMin(i + 1, j, n, triangle, mem);
+        if (i == n - 1) return triangle.at(i).at(j);
+        if (mem.at(i).at(j) != -1) return mem.at(i).at(j);
+        int const left = triangle.at(i).at(j) + FindMin(i + 1, j, n, triangle, mem);
         int const right =
-            triangle[i][j] + FindMin(i + 1, j + 1, n, triangle, mem);
-        return mem[i][j] = min(left, right);
+            triangle.at(i).at(j) + FindMin(i + 1, j + 1, n, triangle, mem);
+        return mem.at(i).at(j) = min(left, right);
     }
 
     int MinimumTotal(vector<vector<int>>& triangle) {
         vector<vector<int>> mem(triangle.size(),
                                 vector<int>(triangle.size(), -1));
-        return FindMin(0, 0, triangle.size(), triangle, mem);
+        return FindMin(0, 0, static_cast<int>(triangle.size()), triangle, mem);
     }
 };
 

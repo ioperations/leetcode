@@ -50,20 +50,20 @@ class Solution {
             int i = 0, j = 0;
             for (i = 0; i < n - 1; i++) {
               for (j = 0; j < n - i - 1; j++) {
-                if (*static_cast<int*>(arr[j]) >
-                    *static_cast<int*>(arr[j + 1])) {
-                  int const tmp = *static_cast<int*>(arr[j]);
-                  *static_cast<int*>(arr[j]) = *static_cast<int*>(arr[j + 1]);
-                  *static_cast<int*>(arr[j + 1]) = tmp;
+                if (*static_cast<int*>(arr.at(j)) >
+                    *static_cast<int*>(arr.at(j + 1))) {
+                  int const tmp = *static_cast<int*>(arr.at(j));
+                  *static_cast<int*>(arr.at(j)) = *static_cast<int*>(arr.at(j + 1));
+                  *static_cast<int*>(arr.at(j + 1)) = tmp;
                 }
               }
             }
         };
 
         // 行
-        int const row = mat.size();
+        int const row = static_cast<int>(mat.size());
         // 列
-        int const column = mat[0].size();
+        int const column = static_cast<int>(mat.at(0).size());
 
         for (int i = row - 1, j = 0; i >= row || j < column;) {
             // pass
@@ -74,9 +74,9 @@ class Solution {
 
                 for (int tmp_i = max(i, 0), tmp_j = j;
                      tmp_i < row && tmp_j < column; tmp_i++, tmp_j++) {
-                    address.push_back(&mat[tmp_i][tmp_j]);
+                    address.push_back(&mat.at(tmp_i).at(tmp_j));
                 }
-                bubble_sort(address, address.size());
+                bubble_sort(address, static_cast<int>(address.size()));
 
             }  //
             {

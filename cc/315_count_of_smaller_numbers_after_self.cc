@@ -24,7 +24,7 @@ class Solution {
         for (int i = 0; i < size; i++) {
             for (int j = i + 1; j < size; j++) {
                 if (nums.at(j) < nums.at(i)) {
-                    ret[i]++;
+                    ret.at(i)++;
                 }
             }
         }
@@ -45,8 +45,8 @@ class Solution {
         // we come out of the while loop as j=end+1
         while (i <= mid && j <= end) {
             if (arr.at(i).first <= arr.at(j).first) {
-                count[arr.at(i).second] += cnt;
-                tmp[k++] = arr[i++];
+                count.at(arr.at(i).second) += cnt;
+                tmp.at(k++) = arr.at(i++);
             } else {
                 cnt++;
                 tmp[k++] = arr[j++];
@@ -59,12 +59,12 @@ class Solution {
             // if arr[i]=5 is bigger than 3 elements from the right, arr[i]=6
             // and if there were even more elements present, they all would have
             // been greater than 3(no of elements on the right!)
-            count[arr.at(i).second] += cnt;
-            tmp[k++] = arr[i++];
+            count.at(arr.at(i).second) += cnt;
+            tmp.at(k++) = arr.at(i++);
         }
-        while (j <= end) tmp[k++] = arr[j++];
+        while (j <= end) tmp.at(k++) = arr.at(j++);
 
-        for (int i = start; i <= end; i++) arr[i] = tmp[i - start];
+        for (int i = start; i <= end; i++) arr.at(i) = tmp.at(i - start);
     }
 
     void MergeSort(vector<int>& count, vector<pair<int, int>>& arr, int start,

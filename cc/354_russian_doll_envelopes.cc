@@ -30,21 +30,23 @@ class Solution {
     }
 
     int MaxEnvelopes(vector<vector<int>>& env) {
-        int const n = env.size();
+        int const n = static_cast<int>(env.size());
         vector<pair<int, int>> vec;
-        for (int i = 0; i < n; i++) vec.emplace_back(env[i][0], env[i][1]);
+        vec.reserve(n);
+        for (int i = 0; i < n; i++) vec.emplace_back(env.at(i).at(0), env.at(i).at(1));
         sort(vec.begin(), vec.end(), Comp);
         vector<int> t;
 
         for (int i = 0; i < n; i++) {
-            auto it = lower_bound(t.begin(), t.end(), vec[i].second);
-            if (it == t.end())
-                t.push_back(vec[i].second);
-            else
-                *it = vec[i].second;
+            auto it = lower_bound(t.begin(), t.end(), vec.at(i).second);
+            if (it == t.end()) {
+                t.push_back(vec.at(i).second);
+            } else {
+                *it = vec.at(i).second;
+            }
         }
 
-        return t.size();
+        return static_cast<int>(t.size());
     }
 };
 

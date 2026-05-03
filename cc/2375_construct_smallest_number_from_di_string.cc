@@ -17,17 +17,18 @@
 
 using namespace std;
 
+namespace {
 class Solution {
    public:
-    string SmallestNumber(string pattern) {
+    string SmallestNumber(string const& pattern) {
         // 1 <= pattern.length <= 8
         // pattern consists of only the letters 'I' and 'D'.
         string ret;
 
         this->m_pattern = pattern;
-        auto size = pattern.size();
+        int const size = static_cast<int>(pattern.size());
 
-        ret.resize(size + 1);
+        ret.resize(static_cast<size_t>(size) + 1);
 
         vector<bool> visiable(9, true);
         Gen(ret, 0, size + 1, visiable);
@@ -43,26 +44,26 @@ class Solution {
         }
 
         for (int i = 1; i < 10; i++) {
-            if (visiable[i - 1]) {
-                ret[index] = '0' + i;
-                visiable[i - 1] = false;
+            if (visiable.at(i - 1)) {
+                ret.at(index) = static_cast<char>('0' + i);
+                visiable.at(i - 1) = false;
                 if (Gen(ret, index + 1, size, visiable)) {
                     return true;
                 }
-                visiable[i - 1] = true;
+                visiable.at(i - 1) = true;
             }
         }
         return false;
     }
 
     bool CheckFunc(const string& str) {
-        for (int i = 0; i < m_pattern.size(); i++) {
-            if (m_pattern[i] == 'I') {
-                if (str[i] >= str[i + 1]) {
+        for (int i = 0; i < static_cast<int>(m_pattern.size()); i++) {
+            if (m_pattern.at(i) == 'I') {
+                if (str.at(i) >= str.at(i + 1)) {
                     return false;
                 }
             } else {
-                if (str[i] <= str[i + 1]) {
+                if (str.at(i) <= str.at(i + 1)) {
                     return false;
                 }
             }
@@ -73,6 +74,8 @@ class Solution {
 
     string m_pattern;
 };
+
+}  // namespace
 
 #include <gtest/gtest.h>
 
