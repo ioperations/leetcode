@@ -120,7 +120,7 @@ TEST(LowestCommonAncestorOfABinarySearchTree, t1) {
 
     */
     std::vector<int> const list = {3, 5, 1, 6, 2, 0, 8, 7, 4};
-    int p = 5, q = 1;
+    int const p = 5, q = 1;
     int const expeced = 3;
 
     TreeNode* root = ConstructTree(list);
@@ -155,7 +155,7 @@ TEST(LowestCommonAncestorOfABinarySearchTree, t2) {
     */
 
     std::vector<int> const list = {3, 5, 1, 6, 2, 0, 8, 7, 4};
-    int p = 5, q = 4;
+    int const p = 5, q = 4;
     int const expeced = 5;
 
     TreeNode* root = ConstructTree(list);
@@ -183,7 +183,7 @@ TEST(LowestCommonAncestorOfABinarySearchTree, t3) {
 
     std::vector<int> const list = {1, 2};
 
-    int p = 1, q = 2;
+    int const p = 1, q = 2;
     int const expeced = 1;
 
     TreeNode* root = ConstructTree(list);
