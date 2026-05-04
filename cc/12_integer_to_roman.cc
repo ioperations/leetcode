@@ -31,6 +31,7 @@ Given an integer, convert it to a roman numeral.
  */
 
 #include <array>
+#include <iterator>
 #include <string>
 
 #include "gtest/gtest.h"
@@ -41,13 +42,13 @@ namespace {
 class Solution {
    public:
     [[nodiscard]] string IntToRoman(int num) const {
-        static const std::array<int, 13> normal = {1000, 900, 500, 400, 100, 90, 50,
-                              40,   10,  9,   5,   4,   1};
+        static const std::array<int, 13> normal = {
+            1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
         static const std::array<std::string, 13> roman = {
             "M",  "CM", "D",  "CD", "C",  "XC", "L",
             "XL", "X",  "IX", "V",  "IV", "I"};
         string res;
-        for (int i = 0; i < 13; i++) {
+        for (int i = 0; i < std::size(normal); i++) {
             while (num >= normal.at(i)) {
                 res.append(roman.at(i));
                 num -= normal.at(i);
