@@ -24,7 +24,9 @@ class Solution {
     void Solve(vector<vector<char> >& v, vector<string>& ans, string digits,
                int pos, string s) {
         if (pos == static_cast<int>(digits.size())) {
-            if (s != "") ans.push_back(s);
+            if (s != "") {
+                ans.push_back(s);
+            }
             return;
         }
         const int temp = digits.at(pos) - '0';

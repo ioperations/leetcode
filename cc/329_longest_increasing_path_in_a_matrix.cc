@@ -25,7 +25,9 @@ class Solution {
     std::array<std::array<int, 201>, 201> m_dp{};
     vector<vector<int>> m_a;
     int Recur(int i, int j) {
-        if (m_dp.at(i).at(j) != -1) return m_dp.at(i).at(j);
+        if (m_dp.at(i).at(j) != -1) {
+            return m_dp.at(i).at(j);
+        }
         int val = 0;
         if (i - 1 != -1 && m_a.at(i - 1).at(j) > m_a.at(i).at(j)) {
             val = max(val, Recur(i - 1, j) + 1);

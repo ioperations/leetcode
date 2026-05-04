@@ -29,7 +29,7 @@ class Solution {
         auto existed = [&](std::map<char, int>& map, std::string& str) -> bool {
             for (const auto& ptr : str) {
                 if (map.count(ptr)) {
-                    if (map[ptr] != 0) {
+                    if (map.at(ptr) != 0) {
                         return true;
                     }
                 }
@@ -76,7 +76,7 @@ class Solution {
         for (const std::string& x : arr) {
             int mask = 0;
             for (char const c : x) {
-                mask |= 1 << (c - 'a');
+                mask |= 1U << (c - 'a');
             }
             if (__builtin_popcount(mask) != x.length()) {
                 continue;
@@ -90,10 +90,10 @@ class Solution {
         for (int const i : a) {
             int const size = static_cast<int>(dp.size());
             for (int j = 0; j < size; ++j) {
-                if (dp.at(j) & i) {
+                if (static_cast<unsigned>(dp.at(j)) & static_cast<unsigned>(i)) {
                     continue;
                 }
-                int const t = dp.at(j) | i;
+                unsigned const t = static_cast<unsigned>(dp.at(j)) | static_cast<unsigned>(i);
                 dp.push_back(t);
                 ans = std::max(ans, __builtin_popcount(t));
             }

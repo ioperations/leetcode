@@ -30,14 +30,15 @@ namespace {
 class Codec {
    public:
     // Encodes a tree to a single string.
-    template <typename T>
-    string Serialize(TreeNode<T>* root) {
-        if (!root) return "";
-        string s = "";
-        std::queue<TreeNode<T>*> q;
-        q.push(root);
-        while (!q.empty()) {
-            TreeNode<T>* const cur = q.front();
+template <typename T>
+     string Serialize(TreeNode<T>* root) {
+if (!root) {
+             return "";
+         }
+         string s = "";
+         std::queue<TreeNode<T>*> q;
+         q.push(root);
+         TreeNode<T>* const cur = q.front();
             q.pop();
             if (cur == nullptr) {
                 s.append("#,");

@@ -6,8 +6,8 @@
  * level and alternate between).*/
 
 //* Definition for a binary tree node.
-#include <cstddef>
 #include <algorithm>
+#include <cstddef>
 #include <optional>
 #include <vector>
 
@@ -33,8 +33,8 @@ class Solution {
 
     void AddToRet(TreeNode* root, vector<vector<int>>& ret, size_t n = 0) {
         if (root) {
-          if (static_cast<int>(ret.size()) <= n) ret.resize(static_cast<size_t>(n) + 1);
-          ret.at(static_cast<size_t>(n)).push_back(root->val);
+          if (ret.size() <= n) ret.resize(n + 1);
+          ret.at(n).push_back(root->val);
 
           AddToRet(root->left, ret, n + 1);
           AddToRet(root->right, ret, n + 1);

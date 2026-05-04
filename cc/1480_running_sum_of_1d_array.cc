@@ -8,6 +8,7 @@ Return the running sum of nums.*/
 
 #include <benchmark/benchmark.h>
 
+#include <cstddef>
 #include <vector>
 
 #include "gtest/gtest.h"
@@ -27,7 +28,7 @@ class Solution {
         return nums;
     }
     vector<int> RunningSumV1(vector<int>& nums) const {
-        for (int i = 1; i < static_cast<int>(nums.size()); i++) {
+        for (size_t i = 1; i < nums.size(); i++) {
             nums.at(i) += nums.at(i - 1);
         }
         return nums;

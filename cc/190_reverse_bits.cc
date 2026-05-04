@@ -16,7 +16,6 @@ the output represents the signed integer -1073741825.
 */
 
 #include <algorithm>
-#include <cstddef>
 #include <cstdint>
 #include <string>
 
@@ -28,7 +27,7 @@ namespace {
 uint32_t ConstructUint32T(const std::string& s) {
     uint32_t num = 0;
     for (int i = 0; i < static_cast<int>(s.size()); i++) {
-        num += (s.at(s.size() - i - 1) == '1') ? (i == 0 ? 1 : 2 << (i - 1)) : 0;
+        num += (s.at(s.size() - i - 1) == '1') ? (i == 0 ? 1U : 2U << (i - 1)) : 0U;
     }
     return num;
 }
@@ -39,7 +38,7 @@ std::string ConstructString(uint32_t n) {
     int i = 0;
 
     while (n) {
-        if (n & 1) {
+        if (n & 1U) {
             ret.at(i) = '1';
         } else {
             ret.at(i) = '0';
@@ -67,8 +66,8 @@ class Solution {
         uint32_t ret = 0;
         int i = 0;
         while (n) {
-            if (n & 1) {
-                ret += i == 0 ? 1 : 2 << (i - 1);
+            if (n & 1U) {
+                ret += i == 0 ? 1U : 2U << (i - 1);
             }
             n = n >> 1;
 
@@ -83,8 +82,8 @@ class Solution {
         uint32_t ret = 0;
         int i = 0;
         while (n) {
-            if (n & 1) {
-                ret += i == 31 ? 1 : 2 << (30 - i);
+            if (n & 1U) {
+                ret += i == 31 ? 1U : 2U << (30 - i);
             }
             n = n >> 1;
 
@@ -95,8 +94,8 @@ class Solution {
 };
 
 TEST(Base, tp) {
-    EXPECT_EQ(2 << 1, 4);
-    EXPECT_EQ(2 << 0, 2);
+    EXPECT_EQ(2U << 1U, 4U);
+    EXPECT_EQ(2U << 0U, 2U);
 }
 
 TEST(Base, t0) {

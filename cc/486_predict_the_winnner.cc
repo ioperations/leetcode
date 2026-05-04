@@ -48,38 +48,40 @@ class Solution {
         return Ok(nums, 0, static_cast<int>(nums.size()) - 1, 0, true);
     }
 
-    std::array<std::array<std::array<int, 2>, 21>, 21> m_dp;
+std::array<std::array<std::array<int, 2>, 21>, 21> m_dp;
 
-    int Ok(vector<int>& nums, int i, int j, bool chance) {
-        // Base case
-        if (i > j) {
-            return 0;
-        }
+     int Ok(vector<int>& nums, int i, int j, int chance) {
+         // Base case
+         if (i > j) {
+             return 0;
+         }
 
-        if (m_dp.at(i).at(j).at(chance) != -1) return m_dp.at(i).at(j).at(chance);
+         if (m_dp.at(i).at(j).at(chance) != -1) {
+             return m_dp.at(i).at(j).at(chance);
+         }
 
-        int ans = 0;
-        if (chance) {
-            ans = max(Ok(nums, i + 1, j, 1 - chance) + nums.at(i),
-                      Ok(nums, i, j - 1, 1 - chance) + nums.at(j));
-        } else {
-            ans = min(Ok(nums, i + 1, j, 1 - chance) - nums.at(i),
-                      Ok(nums, i, j - 1, 1 - chance) - nums.at(j));
-        }
+         int ans = 0;
+         if (chance != 0) {
+             ans = max(Ok(nums, i + 1, j, static_cast<int>(1 - chance)) + nums.at(i),
+                       Ok(nums, i, j - 1, static_cast<int>(1 - chance)) + nums.at(j));
+         } else {
+             ans = min(Ok(nums, i + 1, j, static_cast<int>(1 - chance)) - nums.at(i),
+                       Ok(nums, i, j - 1, static_cast<int>(1 - chance)) - nums.at(j));
+         }
 
-        return m_dp.at(i).at(j).at(chance) = ans;
-    }
+         return m_dp.at(i).at(j).at(chance) = ans;
+     }
 
-    bool PredictTheWinnerV2(vector<int>& nums) {
-        for (auto& row : m_dp) {
-            for (auto& col : row) {
-                col.fill(-1);
-            }
-        }
-        int const res = Ok(nums, 0, static_cast<int>(nums.size()) - 1, true);
+     bool PredictTheWinnerV2(vector<int>& nums) {
+         for (auto& row : m_dp) {
+             for (auto& col : row) {
+                 col.fill(-1);
+             }
+         }
+         int const res = Ok(nums, 0, static_cast<int>(nums.size()) - 1, 1);
 
-        return res >= 0;
-    }
+         return res >= 0;
+     }
 };
 
 TEST(PredictTheWinnner, t1) {
