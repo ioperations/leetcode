@@ -4,43 +4,42 @@
 #include <functional>
 #include <iostream>
 #include <string>
+#include <string_view>
 
 #include "gtest/gtest.h"
 
 namespace {
 
-void ReverseOutPutAllWords(const char* s, int len) {
-    std::function<std::string(const char*, int)> recursive =
-        [&recursive](const char* str, int str_len) -> std::string {
-        // base case
-
-        if (str_len == 0) {
+void ReverseOutPutAllWords(std::string_view const s) {
+    std::function<std::string(std::string_view)> recursive =
+        [&recursive](std::string_view const str) -> std::string {
+        if (str.empty()) {
             return {""};
         }
 
-        int i = 0;
-        /// 向前找到第一个word的开头
-        for (; !((('a' <= str[i]) && (str[i] <= 'z')) ||
-                 (('A' <= str[i]) && (str[i] <= 'Z')));) {
+        size_t i = 0;
+        for (; i < str.size() &&
+               !((('a' <= str.at(i)) && (str.at(i) <= 'z')) ||
+                 (('A' <= str.at(i)) && (str.at(i) <= 'Z')));) {
             i += 1;
         }
 
-        const char* begin = str + i;
-
-        if (i >= str_len) {
+        if (i >= str.size()) {
             return {""};
         }
-        for (; ('a' <= str[i] && str[i] <= 'z') ||
-               ('A' <= str[i] && str[i] <= 'Z');
-             ++i) {
+
+        size_t const begin = i;
+        for (; i < str.size() &&
+               (('a' <= str.at(i) && str.at(i) <= 'z') ||
+                ('A' <= str.at(i) && str.at(i) <= 'Z'));) {
+            ++i;
         }
-        std::string const back(begin, str + i);
-        return recursive(str + i, str_len - i) + " " + back;
+        std::string const back(str.substr(begin, i - begin).data(), i - begin);
+        return recursive(str.substr(i)) + " " + back;
     };
 
-    std::string ret = recursive(s, len);
+    std::string ret = recursive(s);
 
-    /// remove the first " " in front of ret
     std::string const ret2(ret.begin() + 1, ret.end());
 
     std::cout << ret2 << '\n';
@@ -50,7 +49,7 @@ TEST(XNiukeHjv2, t2) {
     testing::internal::CaptureStdout();
     std::string const s("i am a student");
 
-    ReverseOutPutAllWords(s.c_str(), static_cast<int>(s.size()));
+    ReverseOutPutAllWords(s);
     std::string const out = testing::internal::GetCapturedStdout();
 
     EXPECT_EQ(out, std::string("student a am i\n"));
@@ -60,7 +59,7 @@ TEST(XNiukeHjv3, t2) {
     testing::internal::CaptureStdout();
     std::string const s("$bo*y gi!r#l");
 
-    ReverseOutPutAllWords(s.c_str(), static_cast<int>(s.size()));
+    ReverseOutPutAllWords(s);
     std::string const out = testing::internal::GetCapturedStdout();
 
     EXPECT_EQ(out, std::string("l r gi y bo\n"));

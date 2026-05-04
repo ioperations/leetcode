@@ -34,33 +34,36 @@ class BrowserHistory {
     */
    public:
     struct Node {
-        string m_url;
-        Node *prev{nullptr}, *next{nullptr};
-        Node(string str) : m_url(std::move(str)) {}
+        struct Node* m_next;
+        std::string m_url;
+        struct Node* m_prev;
+
+        explicit Node(std::string u) : m_next(nullptr), m_url(std::move(u)), m_prev(nullptr) {}
     };
 
-    Node *home_page, *curr_page;
+    Node* m_home_page;
+    Node* m_curr_page;
 
     void DeleteNode(Node* head) {
         if (head == nullptr) {
             return;
         }
-        DeleteNode(head->next);
+        DeleteNode(head->m_next);
         delete head;
     }
 
    public:
-    ~BrowserHistory() { DeleteNode(home_page); }
-    BrowserHistory(const string& homepage) : home_page(new Node(homepage)), curr_page(home_page) {}
+    ~BrowserHistory() { DeleteNode(m_home_page); }
+    explicit BrowserHistory(const string& homepage) : m_home_page(new Node(homepage)), m_curr_page(m_home_page) {}
 
     void Visit(const string& url) {
         Node* new_page = new Node(url);
-        if (curr_page->next) {
-            DeleteNode(curr_page->next);
+        if (m_curr_page->m_next) {
+            DeleteNode(m_curr_page->m_next);
         }
-        curr_page->next = new_page;
-        new_page->prev = curr_page;
-        curr_page = new_page;
+        m_curr_page->m_next = new_page;
+        new_page->m_prev = m_curr_page;
+        m_curr_page = new_page;
         //       if (zz) {
         //           zz->prev = new_page;
         //           new_page->next = zz;
@@ -69,40 +72,36 @@ class BrowserHistory {
 
     string Back(int steps) {
         int cnt = 0;
-        while (curr_page->prev) {
-            curr_page = curr_page->prev;
+        while (m_curr_page->m_prev) {
+            m_curr_page = m_curr_page->m_prev;
             cnt++;
-            if (cnt == steps) return curr_page->m_url;
+            if (cnt == steps) return m_curr_page->m_url;
         }
-        return curr_page->m_url;
+        return m_curr_page->m_url;
     }
 
     string Forward(int steps) {
         int cnt = 0;
-        while (curr_page->next) {
-            curr_page = curr_page->next;
+        while (m_curr_page->m_next) {
+            m_curr_page = m_curr_page->m_next;
             cnt++;
-            if (cnt == steps) return curr_page->m_url;
+            if (cnt == steps) return m_curr_page->m_url;
         }
-        return curr_page->m_url;
+        return m_curr_page->m_url;
     }
 };
 
 using namespace std;
 class BrowserHistorySysV2 {
    public:
-    BrowserHistorySysV2(const BrowserHistorySysV2&) = default;
-    BrowserHistorySysV2(BrowserHistorySysV2&&) = delete;
-    BrowserHistorySysV2& operator=(const BrowserHistorySysV2&) = default;
-    BrowserHistorySysV2& operator=(BrowserHistorySysV2&&) = delete;
     BrowserHistorySysV2(const string& homepage, int max_count)
-        : current_size(1), capability(max_count) {
+        : m_current_size(1), m_capability(max_count) {
         m_p_head = new Node("head");
         m_p_end = new Node("end");
-        m_p_head->next = m_p_end;
-        m_p_end->pre = m_p_head;
-        m_p_head->pre = nullptr;
-        m_p_end->next = nullptr;
+        m_p_head->m_next = m_p_end;
+        m_p_end->m_prev = m_p_head;
+        m_p_head->m_prev = nullptr;
+        m_p_end->m_next = nullptr;
 
         auto* p = new Node(homepage);
         AddToHead(p);
@@ -112,92 +111,92 @@ class BrowserHistorySysV2 {
     ~BrowserHistorySysV2() {
         Node* p = m_p_head;
         while (p != nullptr) {
-            const Node* const tmp = p;
-            p = p->next;
+            Node* const tmp = p;
+            p = p->m_next;
             delete tmp;
         }
     }
 
     int Visit(const string& url) {
-        if (m_p_currnet->url == url) {
-            return current_size;
+        if (m_p_currnet->m_url == url) {
+            return m_current_size;
         }
 
         CleanNodeToHead();
 
         auto* p = new Node(url);
         AddToHead(p);
-        current_size++;
+        m_current_size++;
         m_p_currnet = p;
 
-        if (current_size > capability) {
+        if (m_current_size > m_capability) {
             DeleteLastNode();
         }
-        return current_size;
+        return m_current_size;
     }
 
     string Back() {
         Node* p = m_p_currnet;
-        if (p->next != m_p_end) {
-            p = p->next;
+        if (p->m_next != m_p_end) {
+            p = p->m_next;
         }
         m_p_currnet = p;
-        return p->url;
+        return p->m_url;
     }
 
     string Forward() {
         Node* p = m_p_currnet;
-        if (p->pre != m_p_head) {
-            p = p->pre;
+        if (p->m_prev != m_p_head) {
+            p = p->m_prev;
         }
         m_p_currnet = p;
-        return p->url;
+        return p->m_url;
     }
 
    private:
     struct Node {
-        struct Node* next;
-        std::string url;
-        struct Node* pre;
+        struct Node* m_next;
+        std::string m_url;
+        struct Node* m_prev;
 
-        Node(std::string u) : next(nullptr), url(std::move(u)), pre(nullptr) {}
+        explicit Node(std::string u) : m_next(nullptr), m_url(std::move(u)), m_prev(nullptr) {}
     };
 
     void CleanNodeToHead() {
-        Node* p = m_p_currnet->pre;
+        Node* p = m_p_currnet->m_prev;
         while (p != m_p_head) {
-            Node* tmp = p->pre;
+            Node* tmp = p->m_prev;
             delete p;
             p = tmp;
-            current_size--;
+            m_current_size--;
         }
 
         p = m_p_currnet;
-        m_p_head->next = p;
-        p->pre = m_p_head;
+        m_p_head->m_next = p;
+        p->m_prev = m_p_head;
     }
 
     void AddToHead(struct Node* n) {
-        m_p_head->next->pre = n;
-        n->next = m_p_head->next;
-        n->pre = m_p_head;
-        m_p_head->next = n;
+        m_p_head->m_next->m_prev = n;
+        n->m_next = m_p_head->m_next;
+        n->m_prev = m_p_head;
+        m_p_head->m_next = n;
     }
 
     void DeleteLastNode() {
-        Node const* const target = m_p_end->pre;
-        target->pre->next = target->next;
-        target->next->pre = target->pre;
+        Node const* const target = m_p_end->m_prev;
+        target->m_prev->m_next = target->m_next;
+        target->m_next->m_prev = target->m_prev;
         delete target;
-        current_size--;
+        m_current_size--;
     }
 
     struct Node* m_p_currnet;
     struct Node* m_p_head;
     struct Node* m_p_end;
-    int current_size = 0;
+    int m_current_size = 0;
 
-    int capability;
+    int m_capability;
 };
 
 TEST(DesignBrowserHistoryV2, t1) {

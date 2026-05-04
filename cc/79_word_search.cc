@@ -442,6 +442,7 @@ int main(int argc, char* argv[]) {
 
 #include <benchmark/benchmark.h>
 
+namespace {
 static void BenchMarkSolution(benchmark::State& state) {
   std::vector<std::vector<char>> board = {
       {'A', 'A', 'A', 'A', 'A', 'A'}, {'A', 'A', 'A', 'A', 'A', 'A'},
@@ -480,5 +481,6 @@ static void BenchMarkSolutionV3(benchmark::State& state) {
   }
 }
 BENCHMARK(BenchMarkSolutionV3);
+}  // namespace
 
 BENCHMARK_MAIN();

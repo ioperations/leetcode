@@ -183,7 +183,7 @@ TEST(sortlistV2, t3) {
 }
 
 void BenchV2(benchmark::State& state) {
-    for (auto _ : state) {
+    for (auto&& _ : state) {
         ListNode* n = List::ConstructList(std::vector<int>{-4, 5, 3, 4, 0});
         SolutionV2 s;
         n = s.SortList(n);
@@ -194,7 +194,7 @@ void BenchV2(benchmark::State& state) {
 BENCHMARK(BenchV2);
 
 void BenchV1(benchmark::State& state) {
-    for (auto _ : state) {
+    for (auto&& _ : state) {
         ListNode* n = List::ConstructList(std::vector<int>{-4, 5, 3, 4, 0});
         Solution s;
         n = s.SortList(n);

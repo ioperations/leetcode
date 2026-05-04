@@ -21,7 +21,7 @@ namespace {
 class Solution {
    public:
     bool CanJump(vector<int>& nums) {
-        return CanJump(nums, 0, nums.size() - 1);
+        return CanJump(nums, 0, static_cast<int>(nums.size()) - 1);
     }
 
     bool CanJump(vector<int>& nums, int start_position, int last_position) {
@@ -31,11 +31,11 @@ class Solution {
         if (last_position == start_position) {
             return true;
         }
-        if (nums[start_position] <= 0) {
+        if (nums.at(start_position) <= 0) {
             return false;
         }
 
-        for (int i = 0; i < nums[start_position]; i++) {
+        for (int i = 0; i < nums.at(start_position); i++) {
             if (CanJump(nums, start_position + i + 1, last_position)) {
                 return true;
             }

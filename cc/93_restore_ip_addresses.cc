@@ -29,29 +29,30 @@ class Solution {
     }
     vector<std::string> m_v;
     void Check(string s, string ans, int len, int index) {
-        if ((int)s.length() == index && len == 0) {
+        const int size = static_cast<int>(s.length());
+        if (size == index && len == 0) {
             ans.pop_back();
             m_v.push_back(ans);
             return;
         }
 
-        if (len == 0 || ((int)s.length() - index) > len * 3) {
+        if (len == 0 || (static_cast<int>(s.length()) - index) > len * 3) {
             return;
         }
 
-        if (s[index] == '0') {
-            Check(s, ans + s[index] + ".", len - 1, index + 1);
+        if (index < size && s.at(index) == '0') {
+            Check(s, ans + s.at(index) + ".", len - 1, index + 1);
             return;
         }
 
         int c = index + 2;
-        if (c > (int)s.length() - 1) {
-            c = s.length() - 1;
+        if (c > static_cast<int>(s.length()) - 1) {
+            c = static_cast<int>(s.length()) - 1;
         }
 
-        string x = "";
+        std::string x;
         for (int i = index; i <= c; i++) {
-            x += s[i];
+            x += s.at(i);
             if (x.length() == 3 && x > "255") {
                 break;
             }

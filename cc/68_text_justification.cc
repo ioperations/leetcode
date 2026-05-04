@@ -36,8 +36,6 @@ namespace {
 class Solution {
    public:
     vector<string> FullJustify(vector<string>& words, int max_width) {
-        // int i = 0;
-
         vector<string> ret;
         std::queue<std::string> q;
 
@@ -48,13 +46,14 @@ class Solution {
                                     (q.size() ? (q.size() - 1) : 0) -
                                     ((size) ? 1 : 0);
 
-            if (remain_size >= (int)ptr.size()) {
+            if (remain_size >= static_cast<int>(ptr.size())) {
                 q.push(ptr);
-                size += ptr.size();
+                size += static_cast<int>(ptr.size());
             } else {
                 std::string str = BuildMaxLeft(q, max_width - size);
-                if ((int)str.size() < max_width) {
-                    for (int i = (int)str.size(); i < max_width; i++) {
+                if (static_cast<int>(str.size()) < max_width) {
+                    for (int i = static_cast<int>(str.size()); i < max_width;
+                         i++) {
                         str += " ";
                     }
                 }
@@ -80,7 +79,8 @@ class Solution {
     std::string BuildMaxLeft(std::queue<std::string>& q, int space_size) {
         std::string ret;
 
-        std::vector<int> z = SaperateEvenly(space_size, q.size() - 1);
+        std::vector<int> z =
+            SaperateEvenly(space_size, static_cast<int>(q.size()) - 1);
 
         int i = 0;
         while (q.size()) {
@@ -88,13 +88,12 @@ class Solution {
             ret += str;
             q.pop();
             if (q.size()) {
-                for (int j = 0; j < z[i]; j++) {
+                for (int j = 0; j < z.at(i); j++) {
                     ret += ' ';
                 }
             }
             i++;
         }
-        // remain should be seprated even to first (q.size() - 1)
 
         return ret;
     }

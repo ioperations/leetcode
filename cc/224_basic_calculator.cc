@@ -32,8 +32,8 @@ class Solution {
 
         auto z = token.CurToken();
 
-        while (z != Token::EOL) {
-            if (z == Token::NUMBER) {
+        while (z != Token::token_type::EOL) {
+            if (z == Token::token_type::NUMBER) {
                 //    int val = token.GetVal();
             } else {
             }
@@ -64,7 +64,7 @@ class Solution {
     class Token {
        public:
         // s consists of digits, '+', '-', '(', ')', and ' '.
-        enum token_type {
+        enum class token_type : std::uint8_t {
             PLUS,
             MINUS,
             NUMBER,
@@ -73,13 +73,13 @@ class Solution {
             EOL,
         };
 
-        Token(std::string s) : m_s(std::move(s)) { next(); }
+        Token(std::string s) : m_s(std::move(s)), m_cur_token(token_type::EOL) { next(); }
         void next() {
             m_index++;
             m_val = 0;
             bool val_set = false;
             if (m_index >= m_s.size()) {
-                m_cur_token = EOL;
+                m_cur_token = token_type::EOL;
                 return;
             }
             while (m_index < m_s.size()) {
@@ -89,7 +89,7 @@ class Solution {
                 }
                 if ('0' <= m_s.at(m_index) && m_s.at(m_index) <= '9') {
                     val_set = true;
-                    m_cur_token = NUMBER;
+                    m_cur_token = token_type::NUMBER;
                     m_val = m_val * 10 + m_s.at(m_index) - '0';
                 }
 
@@ -105,22 +105,22 @@ class Solution {
                     break;
                 }
                 if ('+' == m_s.at(m_index)) {
-                    m_cur_token = PLUS;
+                    m_cur_token = token_type::PLUS;
                     break;
                 }
                 if ('-' == m_s.at(m_index)) {
-                    m_cur_token = MINUS;
+                    m_cur_token = token_type::MINUS;
                     break;
                 }
                 if ('(' == m_s.at(m_index)) {
-                    m_cur_token = LEFT_PARAM;
+                    m_cur_token = token_type::LEFT_PARAM;
                     break;
                 }
                 if (')' == m_s.at(m_index)) {
-                    m_cur_token = RIGHT_PARAM;
+                    m_cur_token = token_type::RIGHT_PARAM;
                     break;
                 }
-                m_cur_token = EOL;
+                m_cur_token = token_type::EOL;
                 break;
             }
         }
@@ -341,6 +341,9 @@ TEST(basiccalculatorV2, t3) {
     EXPECT_EQ(ret, 23);
 }
 
+}  // namespace
+
+namespace {
 void BenchV2(benchmark::State& state) {
     for (auto&& _ : state) {
         const std::string s = "(1+(4+5+2)-3)+(6+8)";
@@ -364,5 +367,4 @@ void BenchV3(benchmark::State& state) {
     }
 }
 BENCHMARK(BenchV3);
-
 }  // namespace

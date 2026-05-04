@@ -89,7 +89,7 @@ TEST(sumclosestV2, t3) {
 }
 static void BenchV2(benchmark::State& state) {
     Solution const s;
-    for (auto _ : state) {
+    for (auto&& _ : state) {
         std::vector<int> nums{0, 0, 0, 0, 0, 0};
         s.ThreeSum2(nums, 1);
     }
@@ -99,7 +99,7 @@ BENCHMARK(BenchV2);
 static void BenchV1(benchmark::State& state) {
     Solution const s;
 
-    for (auto _ : state) {
+    for (auto&& _ : state) {
         std::vector<int> nums{0, 0, 0, 0, 0, 0};
         s.ThreeSum(nums, 1);
     }

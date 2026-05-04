@@ -12,6 +12,8 @@ Return a list of lists of the suggested products after each character of
 searchWord is typed.*/
 
 #include <algorithm>
+#include <array>
+#include <cstddef>
 #include <map>
 #include <string>
 #include <vector>
@@ -25,11 +27,16 @@ class Solution {
     class Trie {
        public:
         std::map<char, Trie> m_ndoe;
-        vector<int> index_array;
+        std::vector<int> index_array;
+        Trie() = default;
         ~Trie() {
             m_ndoe.clear();
             index_array.clear();
         }
+        Trie(const Trie&) = default;
+        Trie(Trie&&) = default;
+        Trie& operator=(const Trie&) = default;
+        Trie& operator=(Trie&&) = default;
     };
     Trie m_root;
     vector<string> m_product;
@@ -85,15 +92,15 @@ class Solution {
 class SolutionV2 {
     class TrieNode {
        public:
-        TrieNode* m_links[26]{};
-        vector<int> m_idx;
+        std::array<TrieNode*, 26> m_links{};
+        std::vector<int> m_idx;
     };
 
     class Trie {
         TrieNode* m_root;
 
        private:
-        void DeleteNode(TrieNode* root) {
+        void DeleteNode(TrieNode* const root) {
             if (root == nullptr) return;
             for (auto& link : root->m_links) {
                 DeleteNode(link);
@@ -108,11 +115,11 @@ class SolutionV2 {
         void Insert(const string& s, int id) {
             TrieNode* node = m_root;
             for (auto& ch : s) {
-              if (!node->m_links[ch - 'a']) {
-                node->m_links[ch - 'a'] = new TrieNode();
+              if (!node->m_links.at(static_cast<size_t>(ch - 'a'))) {
+                node->m_links.at(static_cast<size_t>(ch - 'a')) = new TrieNode();
               }
 
-                node = node->m_links[ch - 'a'];
+                node = node->m_links.at(static_cast<size_t>(ch - 'a'));
                 node->m_idx.push_back(id);
             }
         }
@@ -120,8 +127,8 @@ class SolutionV2 {
         vector<int> Search(const string& s) {
           TrieNode const* node = m_root;
           for (int i = 0; i < static_cast<int>(s.length()); i++) {
-            if (!node->m_links[s.at(i) - 'a']) return {};
-            node = node->m_links[s.at(i) - 'a'];
+            if (!node->m_links.at(static_cast<size_t>(s.at(i) - 'a'))) return {};
+            node = node->m_links.at(static_cast<size_t>(s.at(i) - 'a'));
           }
             return node->m_idx;
         }
@@ -133,18 +140,18 @@ class SolutionV2 {
         Trie trie;
         sort(products.begin(), products.end());
         for (int i = 0; i < static_cast<int>(products.size()); i++) {
-          trie.Insert(products[i], i);
+          trie.Insert(products.at(i), i);
         }
 
         string s;
-        int const len = search_word.length();
-        vector<vector<string>> res(len);
+        int const len = static_cast<int>(search_word.length());
+        vector<vector<string>> res(static_cast<size_t>(len));
 
         for (int i = 0; i < static_cast<int>(search_word.length()); i++) {
           s += search_word.at(i);
           vector<int> t = trie.Search(s);
           for (int j = 0; j < min(3, static_cast<int>(t.size())); j++) {
-            res[i].push_back(products.at(t.at(j)));
+            res.at(i).push_back(products.at(t.at(j)));
           }
         }
 

@@ -11,6 +11,7 @@ For each index indices[i], the substring of s starting from indices[i] and up to
 of words, return the length of the shortest reference string s possible of any
 valid encoding of words.*/
 
+#include <array>
 #include <cstddef>
 #include <string>
 #include <unordered_set>
@@ -25,12 +26,8 @@ class Solution {
 private:
     struct TrieNode {
         int m_ends_here;
-        TrieNode* m_child[26];
-        TrieNode() : m_ends_here(0) {
-            for (auto& i : m_child) {
-                i = nullptr;
-            }
-        }
+        std::array<TrieNode*, 26> m_child;
+        TrieNode() : m_ends_here(0), m_child{} {}
     };
 
     TrieNode* GetNode() {
@@ -38,7 +35,7 @@ private:
         return new_node;
     }
 
-    void DeleteNode(TrieNode* root) {
+    void DeleteNode(TrieNode* const root) {
         if (root == nullptr) return;
         for (auto& i : root->m_child) {
             DeleteNode(i);
@@ -73,19 +70,16 @@ public:
         bool flag = true;
         for (int i = len - 1; i >= 0; i--) {
             int const ind = word.at(i) - 'a';
-            if (curr->m_child[ind] == nullptr) {
+            if (curr->m_child.at(ind) == nullptr) {
                 flag = false;
-                // if no word has created yet
-                curr->m_child[ind] = GetNode();
+                curr->m_child.at(ind) = GetNode();
             }
-            // a word ends here previously
-            // so donot consider it in the result
             if (curr->m_ends_here) {
                 curr->m_ends_here = 0;
                 count--;
                 res -= (len - i - 1);
             }
-            curr = curr->m_child[ind];
+            curr = curr->m_child.at(ind);
         }
         // flag will be true if some word previously has created all the
         // nodes ex- ["time","me"] for "me" the flag will be true so we dont

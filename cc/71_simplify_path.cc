@@ -35,37 +35,32 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    string SimplifyPath(string path) const {
-        // pass
-        stack<string> st;
-        string res;
+    [[nodiscard]] std::string SimplifyPath(std::string path) const {
+        std::stack<std::string> st;
+        std::string res;
 
         for (size_t i = 0; i < path.size(); ++i) {
-            if (path[i] == '/') continue;
-            string temp;
-            // iterate till we doesn't traverse the whole string and doesn't
-            // encounter the last /
-            while (i < path.size() && path[i] != '/') {
-                // add path to temp string
-                temp += path[i];
+            if (path.at(i) == '/') continue;
+            std::string temp;
+            while (i < path.size() && path.at(i) != '/') {
+                temp += path.at(i);
                 ++i;
             }
             if (temp == ".") continue;
-            // pop the top element from stack if exists
             if (temp == "..") {
-                if (!st.empty()) st.pop();
-            } else
-                // push the directory file name to stack
+                if (!st.empty()) {
+                    st.pop();
+                }
+            } else {
                 st.push(temp);
+            }
         }
 
-        // adding all the stack elements to res
         while (!st.empty()) {
             res = "/" + st.top() + res;
             st.pop();
         }
 
-        // if no directory or file is present
         if (res.size() == 0) return "/";
 
         return res;
@@ -78,14 +73,14 @@ class SolutionV2 {
     virtual ~SolutionV2() = default;
 
     std::stack<string> m_stack;
-    string SimplifyPath(string path) {
-        string ret;
+    [[nodiscard]] std::string SimplifyPath(std::string path) {
+        std::string ret;
 
         replace(path.begin(), path.end(), '/', ' ');
 
-        stringstream ss(path);
+        std::stringstream ss(path);
 
-        string tmp;
+        std::string tmp;
         while (ss >> tmp) {
             if (tmp == "..") {
                 if (m_stack.size()) m_stack.pop();

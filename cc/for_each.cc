@@ -7,41 +7,33 @@
 #include "for_each.hh"
 
 namespace {
-struct Statisc {
+struct Statistic {
     int construct{0};
-    int copyConstruct{0};
-    int moveConstruct{0};
-    int copyAssignment{0};
-    int moveAssignment{0};
+    int copy_construct{0};
+    int move_construct{0};
+    int copy_assignment{0};
+    int move_assignment{0};
     int destruct{0};
 };
-thread_local Statisc g_statistic;
+thread_local Statistic g_statistic;
 
 struct DummyClass {
-    DummyClass(int v) {
-        g_statistic.construct++;
-        this->v = v;
-    }
-    DummyClass(const DummyClass& other) {
-        this->v = other.v;
-        g_statistic.copyConstruct++;
-    }
-    DummyClass(DummyClass&& other) noexcept {
-        this->v = other.v;
-        g_statistic.moveConstruct++;
-    }
+    int v{0};
+
+    DummyClass(int val) : v(val) { g_statistic.construct++; }
+    DummyClass(const DummyClass& other) : v(other.v) { g_statistic.copy_construct++; }
+    DummyClass(DummyClass&& other) noexcept : v(other.v) { g_statistic.move_construct++; }
     DummyClass& operator=(const DummyClass& other) {
-        this->v = other.v;
-        g_statistic.copyAssignment++;
+        v = other.v;
+        g_statistic.copy_assignment++;
         return *this;
     }
     DummyClass& operator=(DummyClass&& other) noexcept {
-        this->v = other.v;
-        g_statistic.moveAssignment++;
+        v = other.v;
+        g_statistic.move_assignment++;
         return *this;
     }
     ~DummyClass() { g_statistic.destruct++; }
-    int v = 0;
 };
 
 class AutoResetStatistic {
@@ -50,17 +42,19 @@ class AutoResetStatistic {
     ~AutoResetStatistic() { Reset(); }
 
    private:
-    void Reset() {
-        g_statistic.construct = 0;
-        g_statistic.copyConstruct = 0;
-        g_statistic.moveConstruct = 0;
-        g_statistic.copyAssignment = 0;
-        g_statistic.moveAssignment = 0;
-        g_statistic.destruct = 0;
-    }
+    void Reset() const;
 };
 
 }  // namespace
+
+void AutoResetStatistic::Reset() const {
+    g_statistic.construct = 0;
+    g_statistic.copy_construct = 0;
+    g_statistic.move_construct = 0;
+    g_statistic.copy_assignment = 0;
+    g_statistic.move_assignment = 0;
+    g_statistic.destruct = 0;
+}
 
 TEST(forV, DISABLEDBasicTest) {
     AutoResetStatistic const auto_reset_statistic;
@@ -80,9 +74,9 @@ TEST(forV, DISABLEDBasicTest) {
     }
 
     EXPECT_EQ(g_statistic.construct, 7);
-    // EXPECT_EQ(g_statistic.copyConstruct, 19);
-    EXPECT_EQ(g_statistic.moveConstruct, 0);
-    EXPECT_EQ(g_statistic.copyAssignment, 0);
-    EXPECT_EQ(g_statistic.moveAssignment, 0);
+    // EXPECT_EQ(g_statistic.copy_construct, 19);
+    EXPECT_EQ(g_statistic.move_construct, 0);
+    EXPECT_EQ(g_statistic.copy_assignment, 0);
+    EXPECT_EQ(g_statistic.move_assignment, 0);
     // EXPECT_EQ(g_statistic.destruct, 26);
 }

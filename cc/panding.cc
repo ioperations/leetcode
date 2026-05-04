@@ -1,54 +1,58 @@
 #include <gtest/gtest.h>
 
+#include <array>
+#include <cstdint>
 #include <cstring>
 #include <optional>
 #include <string>
-enum e_type { INT, STRING, NULL_ };
+
+namespace {
+enum class e_type : std::uint8_t { INT, STRING, NULL_ };
 
 struct StackGrowth {
     int m_a{};
-    char m_padding[4096]{};
+    std::array<char, 4096> m_padding{};
     union {
         int m_i;
         char* m_p;
     };
-    e_type m_type{NULL_};
+    e_type m_type{e_type::NULL_};
     int m_size = 0;
 
     StackGrowth() {
-        // padding
-        m_p = m_padding;
+        m_p = m_padding.data();
     }
 
    public:
     void append(const char* q) {
-        auto len = strlen(q);
+        const auto len = strlen(q);
         memcpy(m_p + m_size, q, len);
         m_size = m_size + static_cast<int>(len);
 
-        m_p[m_size] = '\0';
-        m_type = STRING;
+        m_p[static_cast<size_t>(m_size)] = '\0';
+        m_type = e_type::STRING;
     }
 
     void SetInt(int q) {
         m_i = q;
-        m_type = INT;
+        m_type = e_type::INT;
     }
 
     [[nodiscard]] std::optional<std::string> GetString() const {
-        if (m_type != STRING) {
+        if (m_type != e_type::STRING) {
             return {};
         }
-        return m_p;
+        return std::string(m_p);
     }
 
     [[nodiscard]] std::optional<int> GetInt() const {
-        if (m_type != INT) {
+        if (m_type != e_type::INT) {
             return {};
         }
         return m_i;
     }
 };
+}  // namespace
 
 TEST(T0, t1) {
     StackGrowth stack_growth;

@@ -18,11 +18,15 @@ namespace {
 class Solution {
    public:
     bool IsToeplitzMatrix(vector<vector<int>>& matrix) {
-        int const rows = matrix.size();
-        int const cols = matrix[0].size();
-        for (int r = 1; r < rows; ++r)
-            for (int c = 1; c < cols; ++c)
-                if (matrix[r][c] != matrix[r - 1][c - 1]) return false;
+        int const rows = static_cast<int>(matrix.size());
+        int const cols = static_cast<int>(matrix.at(0).size());
+        for (int r = 1; r < rows; ++r) {
+            for (int c = 1; c < cols; ++c) {
+                if (matrix.at(r).at(c) != matrix.at(r - 1).at(c - 1)) {
+                    return false;
+                }
+            }
+        }
 
         return true;
     }
