@@ -24,7 +24,7 @@ class SolutionV2 {
 
         ListNode* temp = nullptr;
         ListNode* slow = head;
-        ListNode* fast = head;
+        const ListNode* fast = head;
 
         while (fast != nullptr && fast->next != nullptr) {
             temp = slow;
@@ -125,7 +125,7 @@ class Solution {
 
 void ExpectEqList(ListNode* list, const std::vector<int>& elemets) {
     int count = 0;
-    ListNode* ptr = list;
+    const ListNode* ptr = list;
     while (ptr != nullptr) {
         EXPECT_EQ(ptr->val, elemets.at(count));
         ptr = ptr->next;

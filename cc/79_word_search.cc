@@ -33,8 +33,8 @@ class Solution {
             1 <= m, n <= 6
             1 <= word.length <= 15
         */
-        for (int i = 0; i < static_cast<int>(board.size()); i++) {
-            for (int j = 0; j < static_cast<int>(board.at(0).size()); j++) {
+        for (size_t i = 0; i < board.size(); i++) {
+            for (size_t j = 0; j < board.at(0).size(); j++) {
                 if (ExistV(board, i, j, word)) {
                     return true;
                 }
@@ -62,8 +62,8 @@ class Solution {
             return false;
         }
 
-        int word_it = 1;
-        while (stack.size() && word_it < static_cast<int>(word.size())) {
+        size_t word_it = 1;
+        while (stack.size() && word_it < word.size()) {
           // navigate to next
           bool set = false;
 
@@ -126,7 +126,7 @@ class Solution {
           }
         }
 
-        if (word_it == static_cast<int>(word.size())) {
+        if (word_it == word.size()) {
             return true;
         }
         return false;

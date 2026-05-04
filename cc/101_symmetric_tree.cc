@@ -35,7 +35,7 @@ class Solution {
             return false;
         }
 
-        for (int i = 0; i < static_cast<int>(p.size()); i++) {
+        for (size_t i = 0; i < p.size(); i++) {
           if (p.at(i) != q.at(i)) {
             return false;
           }

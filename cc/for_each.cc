@@ -1,4 +1,3 @@
-
 #include <gtest/gtest.h>
 
 #include <iostream>
@@ -15,25 +14,29 @@ struct Statistic {
     int m_move_assignment{0};
     int m_destruct{0};
 };
-thread_local Statistic g_statistic;
+
+inline Statistic& GetStatistic() {
+    static thread_local Statistic stat;
+    return stat;
+}
 
 struct DummyClass {
     int m_v{0};
 
-    DummyClass(int val) : m_v(val) { g_statistic.m_construct++; }
-    DummyClass(const DummyClass& other) : m_v(other.m_v) { g_statistic.m_copy_construct++; }
-    DummyClass(DummyClass&& other) noexcept : m_v(other.m_v) { g_statistic.m_move_construct++; }
+    DummyClass(int val) : m_v(val) { GetStatistic().m_construct++; }
+    DummyClass(const DummyClass& other) : m_v(other.m_v) { GetStatistic().m_copy_construct++; }
+    DummyClass(DummyClass&& other) noexcept : m_v(other.m_v) { GetStatistic().m_move_construct++; }
     DummyClass& operator=(const DummyClass& other) {
         m_v = other.m_v;
-        g_statistic.m_copy_assignment++;
+        GetStatistic().m_copy_assignment++;
         return *this;
     }
     DummyClass& operator=(DummyClass&& other) noexcept {
         m_v = other.m_v;
-        g_statistic.m_move_assignment++;
+        GetStatistic().m_move_assignment++;
         return *this;
     }
-    ~DummyClass() { g_statistic.m_destruct++; }
+    ~DummyClass() { GetStatistic().m_destruct++; }
 };
 
 class AutoResetStatistic {
@@ -52,6 +55,7 @@ class AutoResetStatistic {
 }  // namespace
 
 void AutoResetStatistic::Reset() const {
+    auto& g_statistic = GetStatistic();
     g_statistic.m_construct = 0;
     g_statistic.m_copy_construct = 0;
     g_statistic.m_move_construct = 0;
@@ -77,10 +81,8 @@ TEST(forV, DISABLEDBasicTest) {
         EXPECT_EQ(flattern, expected);
     }
 
-    EXPECT_EQ(g_statistic.m_construct, 7);
-    // EXPECT_EQ(g_statistic.m_copy_construct, 19);
-    EXPECT_EQ(g_statistic.m_move_construct, 0);
-    EXPECT_EQ(g_statistic.m_copy_assignment, 0);
-    EXPECT_EQ(g_statistic.m_move_assignment, 0);
-    // EXPECT_EQ(g_statistic.m_destruct, 26);
+    EXPECT_EQ(GetStatistic().m_construct, 7);
+    EXPECT_EQ(GetStatistic().m_move_construct, 0);
+    EXPECT_EQ(GetStatistic().m_copy_assignment, 0);
+    EXPECT_EQ(GetStatistic().m_move_assignment, 0);
 }

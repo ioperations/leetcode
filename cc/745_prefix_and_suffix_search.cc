@@ -54,6 +54,8 @@ class Trie {
 
    public:
     Trie() : m_root(new Node()) {}
+    Trie(const Trie&) = default;
+    Trie& operator=(const Trie&) = default;
     Trie(Trie&&) = default;
     Trie& operator=(Trie&&) = default;
 
@@ -142,6 +144,8 @@ class WordFilterMy {
         std::vector<Pp> m_n;
         std::map<char, PrefixTree> m_node;
         PrefixTree() = default;
+        PrefixTree(const PrefixTree&) = default;
+        PrefixTree& operator=(const PrefixTree&) = default;
         PrefixTree(PrefixTree&&) = default;
         PrefixTree& operator=(PrefixTree&&) = default;
         ~PrefixTree() {

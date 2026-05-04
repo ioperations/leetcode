@@ -25,15 +25,16 @@ class NumArray {
     vector<int> m_arr;
 #define ll int
 #define vll vector<int>
-   public:
-    vll vp;  // given array which we are going to use..we will copy it in
+   private:
+    vll m_vp;  // given array which we are going to use..we will copy it in
              // constructor
     // v is node number tl and tr are node range...node range means
     // range that falls under subtree of node v
     // tl and tr are basically array ranges
 
     vll m_segarr;
-    ll n;
+    ll m_n;
+   public:
 
     ll Combine(ll a, ll b) {
         // you have to combine acc to query type like add,min,max..etc;
@@ -42,7 +43,7 @@ class NumArray {
 
     void Build(ll v, ll tl, ll tr) {
         if (tl == tr) {
-            m_segarr.at(v) = vp.at(tl);
+            m_segarr.at(v) = m_vp.at(tl);
             return;
         }
 
@@ -71,7 +72,7 @@ class NumArray {
         m_segarr.at(v) = Combine(m_segarr.at(2 * v), m_segarr.at(2 * v + 1));
     }
 
-    void Update(int index, int val) { Upd(1, 0, n - 1, index, val); }
+    void Update(int index, int val) { Upd(1, 0, m_n - 1, index, val); }
     // here tl and tr are node ranges and l and r are query ranges which will be
     // given to us
     ll Query(ll v, ll l, ll r, ll tl, ll tr) {
@@ -97,15 +98,15 @@ class NumArray {
     }
 
     int SumRange(int left, int right) {
-        return Query(1, left, right, 0, n - 1);
+        return Query(1, left, right, 0, m_n - 1);
     }
 
     // 0 based indexing segment tree ..value of v always starts from 1
-    explicit NumArray(vector<int>& a) : vp(a), n(static_cast<int>(a.size())) {
-        vp.resize(n);
+    explicit NumArray(vector<int>& a) : m_vp(a), m_n(static_cast<int>(a.size())) {
+        m_vp.resize(m_n);
 
-        m_segarr.resize(4 * n);
-        Build(1, 0, n - 1);
+        m_segarr.resize(4 * m_n);
+        Build(1, 0, m_n - 1);
     }
 };
 

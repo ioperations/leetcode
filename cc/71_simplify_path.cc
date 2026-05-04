@@ -57,7 +57,8 @@ class Solution {
         }
 
         while (!st.empty()) {
-            res = "/" + st.top() + res;
+            res.insert(0, st.top());
+            res.insert(0, "/");
             st.pop();
         }
 
@@ -71,6 +72,10 @@ class SolutionV2 {
    public:
     SolutionV2() = default;
     virtual ~SolutionV2() = default;
+    SolutionV2(const SolutionV2&) = default;
+    SolutionV2& operator=(const SolutionV2&) = default;
+    SolutionV2(SolutionV2&&) noexcept = default;
+    SolutionV2& operator=(SolutionV2&&) noexcept = default;
 
     std::stack<string> m_stack;
     [[nodiscard]] std::string SimplifyPath(std::string path) {
@@ -91,7 +96,8 @@ class SolutionV2 {
         }
 
         while (m_stack.size()) {
-            ret = ('/' + m_stack.top()) + ret;
+            ret.insert(0, m_stack.top());
+            ret.insert(0, "/");
             m_stack.pop();
         }
         if (ret == "") {

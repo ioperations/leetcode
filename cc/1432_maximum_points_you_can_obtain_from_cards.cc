@@ -54,7 +54,7 @@ class Solution {
             accumulate(card_points.begin(), card_points.end(), 0LL);
 
         int ans = 0;
-        int const n = card_points.size();
+        int const n = static_cast<int>(card_points.size());
         int const window_size = n - k;
         int l = 0;
         int r = 0;

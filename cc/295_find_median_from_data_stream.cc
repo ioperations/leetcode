@@ -77,14 +77,14 @@ class MedianFinder {
     // Returns the median of current data stream
     double FindMedian() {
         if (m_min_set.size() < m_max_set.size()) {
-            return double(*begin(m_max_set));
+            return static_cast<double>(*begin(m_max_set));
         }
         if (m_min_set.size() > m_max_set.size()) {
-            return double(*prev(end(m_min_set)));
+            return static_cast<double>(*prev(end(m_min_set)));
         }
         if (m_min_set.size() == m_max_set.size()) {
-            double const min_set_max_val = double(*prev(end(m_min_set)));
-            double const max_set_min_val = double(*begin(m_max_set));
+double const min_set_max_val = static_cast<double>(*prev(end(m_min_set)));
+        double const max_set_min_val = static_cast<double>(*begin(m_max_set));
             return min_set_max_val / 2.0 + max_set_min_val / 2.0;
         }
         return 0.0;

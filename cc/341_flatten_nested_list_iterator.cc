@@ -36,15 +36,18 @@ namespace {
 class NestedInteger {
     bool m_is_integer{};
     int m_val{};
-    vector<NestedInteger> m_vec;
+    std::vector<NestedInteger> m_vec;
 
    public:
-    // Return true if this NestedInteger holds a single integer, rather than a
-    // nested list.
-    NestedInteger(vector<int> in) {}
+    NestedInteger(std::vector<int> const& in) {}
     NestedInteger() = default;
     NestedInteger(int i) : m_is_integer(true), m_val(i) {}
     ~NestedInteger() { m_vec.clear(); }
+
+    NestedInteger(const NestedInteger&) = default;
+    NestedInteger& operator=(const NestedInteger&) = default;
+    NestedInteger(NestedInteger&&) = default;
+    NestedInteger& operator=(NestedInteger&&) = default;
 
     void AddNestedInteger(NestedInteger& in) {
         m_is_integer = false;
@@ -90,9 +93,9 @@ class NestedIterator {
         FlatternAdd(m_faltterned, nested_list);
     }
 
-    int next() { return m_faltterned[m_i++]; }
+    int next() { return m_faltterned.at(m_i++); }
 
-    bool hasNext() { return m_i < (int)m_faltterned.size(); }
+    bool hasNext() { return m_i < static_cast<int>(m_faltterned.size()); }
 };
 
 /**

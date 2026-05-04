@@ -67,7 +67,7 @@ class Solution {
         vector<vector<pa>> graph(n + 1);
         vector<int> visited(n + 1);
         vector<int> dist(n + 1, m_max_time);
-        dist[k] = 0;
+        dist.at(k) = 0;
 
         for (auto& edge : times) {
             int const u = edge.at(0), v = edge.at(1), time = edge.at(2);
@@ -104,7 +104,7 @@ class Solution {
 
 TEST(NetworkDelayTime, t1) {
     vector<vector<int>> times = {{2, 1, 1}, {2, 3, 1}, {3, 4, 1}};
-    int n = 4, k = 2;
+    int const n = 4, k = 2;
     int const output = 2;
 
     Solution sl;
@@ -117,7 +117,7 @@ TEST(NetworkDelayTime, t1) {
 
 TEST(NetworkDelayTime, t2) {
     vector<vector<int>> times = {{1, 2, 1}};
-    int n = 2, k = 1;
+    int const n = 2, k = 1;
     int const output = 1;
 
     Solution sl;
@@ -129,7 +129,7 @@ TEST(NetworkDelayTime, t2) {
 
 TEST(NetworkDelayTime, t3) {
     vector<vector<int>> times = {{1, 2, 1}};
-    int n = 2, k = 2;
+    int const n = 2, k = 2;
     int const output = -1;
 
     Solution sl;

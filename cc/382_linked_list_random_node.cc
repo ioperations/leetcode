@@ -1,8 +1,8 @@
 // This is a personal academic project. Dear PVS-Studio, please check it.
 // PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
 // https://pvs-studio.com
-#include <cstdlib>
 #include <map>
+#include <random>
 #include <set>
 #include <vector>
 
@@ -16,10 +16,11 @@ using ListNode = List::ListNode<int>;
 
 namespace {
 class Solution {
-    vector<int> m_vec;
+    std::mt19937 m_gen;
+    std::vector<int> m_vec;
 
    public:
-    Solution(ListNode* head) {
+    Solution(ListNode* head) : m_gen(std::random_device{}()) {
         while (head != nullptr) {
             m_vec.push_back(head->val);
             head = head->next;
@@ -27,8 +28,9 @@ class Solution {
     }
 
     int GetRandom() {
-        int const random_index = rand() / (RAND_MAX + 1.0) * m_vec.size();
-        return m_vec[random_index];
+        std::uniform_int_distribution<> dis(0, static_cast<int>(m_vec.size()) - 1);
+        int const random_index = dis(m_gen);
+        return m_vec.at(random_index);
     }
 };
 

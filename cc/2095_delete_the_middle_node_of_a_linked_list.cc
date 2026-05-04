@@ -35,7 +35,7 @@ namespace {
 class Solution {
     ListNode* MiddlePrev(ListNode* head) {
         ListNode* slow = head;
-        ListNode* fast = head;
+        const ListNode* fast = head;
         ListNode* prev = nullptr;
         while (fast != nullptr && fast->next != nullptr) {
             prev = slow;

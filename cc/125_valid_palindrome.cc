@@ -30,7 +30,7 @@ class Solution {
         for (int i = 0; i < n; ++i) {
             char const ch = ss.at(i);
             if ('A' <= ch && ch <= 'Z') {
-                ret += ch - 'A' + 'a';
+                ret += static_cast<char>(ch - 'A' + 'a');
             } else if ('a' <= ch && ch <= 'z') {
                 ret += ch;
             } else if ('0' <= ch && ch <= '9') {

@@ -19,8 +19,8 @@ class Solution {
         stack<std::size_t> stack;
 
         for (std::size_t i = 0; i < size; i++) {
-            while (!stack.empty() && nums[stack.top()] < nums[i]) {
-                ret[stack.top()] = static_cast<int>(i);
+            while (!stack.empty() && nums.at(stack.top()) < nums.at(i)) {
+                ret.at(stack.top()) = static_cast<int>(i);
                 stack.pop();
             }
             stack.push(i);

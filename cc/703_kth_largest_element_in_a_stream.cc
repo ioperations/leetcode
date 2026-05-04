@@ -25,7 +25,7 @@ class KthLargest {
 
    public:
     KthLargest(int k, vector<int>& nums) : m_k(k) {
-        int const size = nums.size();
+        int const size = static_cast<int>(nums.size());
         for (int i = 0; i < size; i++) {
             m_q.push(nums.at(i));
             if (static_cast<int>(m_q.size()) > k) m_q.pop();

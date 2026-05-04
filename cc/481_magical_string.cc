@@ -27,7 +27,7 @@ class Solution {
 
         std::string magic_string = "1221121221221121122";
         char last = '2';
-        int str_len = magic_string.size();
+        int str_len = static_cast<int>(magic_string.size());
         // pass
         int i = 12;
 
@@ -49,7 +49,7 @@ class Solution {
 
     int CountNumber(const std::string& s, int n) {
         int count = 0;
-        for (int i = 0; i < n && i < (int)s.size(); i++) {
+        for (int i = 0; i < n && i < static_cast<int>(s.size()); i++) {
             if (s.at(i) == '1') {
                 count++;
             }

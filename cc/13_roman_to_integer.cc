@@ -11,7 +11,7 @@ class Solution {
     int RomanToInt(const std::string& s) const {
         int i = 0;
         int sum = 0;
-        const int len = s.length();
+        int const len = static_cast<int>(s.length());
         int current = 0, next = 0;
 
         for (i = 0; i < len; i++) {

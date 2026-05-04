@@ -6,6 +6,7 @@
  * level and alternate between).*/
 
 //* Definition for a binary tree node.
+#include <cstddef>
 #include <algorithm>
 #include <optional>
 #include <vector>
@@ -24,13 +25,13 @@ class Solution {
         if (root == nullptr) return ret;
 
         AddToRet(root, ret, 0);
-        for (int i = 1; i < static_cast<int>(ret.size()); i += 2) {
+        for (size_t i = 1; i < ret.size(); i += 2) {
           reverse(ret.at(i).begin(), ret.at(i).end());
         }
         return ret;
     }
 
-    void AddToRet(TreeNode* root, vector<vector<int>>& ret, int n = 0) {
+    void AddToRet(TreeNode* root, vector<vector<int>>& ret, size_t n = 0) {
         if (root) {
           if (static_cast<int>(ret.size()) <= n) ret.resize(static_cast<size_t>(n) + 1);
           ret.at(static_cast<size_t>(n)).push_back(root->val);

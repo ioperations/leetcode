@@ -21,8 +21,8 @@ namespace {
 class Solution {
    public:
     void Solve(vector<vector<int>>& ans, vector<int> temp, int ind,
-               vector<int>& nums) const {
-        int const n = nums.size();
+               vector<int> const& nums) const {
+        int const n = static_cast<int>(nums.size());
 
         if (ind >= n) {
             ans.push_back(temp);
@@ -32,12 +32,12 @@ class Solution {
         // not pick
         Solve(ans, temp, ind + 1, nums);
         // pick
-        int const ele = nums[ind];
+        int const ele = nums.at(ind);
         temp.push_back(ele);
         Solve(ans, temp, ind + 1, nums);
         temp.pop_back();  // backtracking to reverse in original manner
     }
-    vector<vector<int>> Subsets(vector<int>& nums) const {
+    vector<vector<int>> Subsets(vector<int> const& nums) const {
         vector<vector<int>> ans;
         vector<int> const temp;
         Solve(ans, temp, 0, nums);
@@ -48,8 +48,8 @@ class Solution {
 class SolutionV1 {
    public:
     void Solve(vector<vector<int>>& ans, vector<int> temp, int ind,
-               vector<int>& nums) {
-        int const n = nums.size();
+               vector<int> const& nums) {
+        int const n = static_cast<int>(nums.size());
 
         if (ind >= n) {
             ans.push_back(temp);
@@ -59,11 +59,11 @@ class SolutionV1 {
         // not pick
         Solve(ans, temp, ind + 1, nums);
         // pick
-        int const ele = nums[ind];
+        int const ele = nums.at(ind);
         temp.push_back(ele);
         Solve(ans, temp, ind + 1, nums);
     }
-    vector<vector<int>> Subsets(vector<int>& nums) {
+    vector<vector<int>> Subsets(vector<int> const& nums) {
         vector<vector<int>> ans;
         vector<int> const temp;
         Solve(ans, temp, 0, nums);
@@ -72,7 +72,7 @@ class SolutionV1 {
 };
 
 TEST(Subsets, t1) {
-    std::vector<int> input{1, 2, 3};
+    std::vector<int> const input{1, 2, 3};
     std::vector<vector<int>> out{{},  {1},    {2},    {1, 2},
                                  {3}, {1, 3}, {2, 3}, {1, 2, 3}};
 
@@ -84,7 +84,7 @@ TEST(Subsets, t1) {
 }
 
 TEST(Subsets, t2) {
-    std::vector<int> input{0};
+    std::vector<int> const input{0};
     std::vector<vector<int>> out{{}, {0}};
 
     Solution const sl;

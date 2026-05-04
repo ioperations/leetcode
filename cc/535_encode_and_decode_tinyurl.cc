@@ -21,6 +21,7 @@ object.
 */
 
 #include <cstdlib>
+#include <random>
 #include <string>
 #include <unordered_map>
 
@@ -36,15 +37,21 @@ class Solution {
     string GenerateRandomCode(string const& long_url) {
         string code = "";
 
+        static std::mt19937 gen{std::random_device{}()};
+
         for (int i = 0; i < m_len; i++) {
-            int const type = rand() % 3;
+            std::uniform_int_distribution<> dis(0, 2);
+            int const type = dis(gen);
 
             if (type == 0) {  // number
-                code += static_cast<char>(rand() % 10 + 48);
+                std::uniform_int_distribution<> num_dis(0, 9);
+                code += static_cast<char>(num_dis(gen) + 48);
             } else if (type == 1) {  // lowercase char
-                code += static_cast<char>(rand() % 26 + 97);
+                std::uniform_int_distribution<> low_dis(0, 25);
+                code += static_cast<char>(low_dis(gen) + 97);
             } else {  // uppercase char
-                code += static_cast<char>(rand() % 26 + 65);
+                std::uniform_int_distribution<> up_dis(0, 25);
+                code += static_cast<char>(up_dis(gen) + 65);
             }
         }
 

@@ -18,10 +18,12 @@ class Solution {
     std::vector<std::vector<int>> PermuteUnique(std::vector<int>& nums) {
         std::vector<std::vector<int>> ret;
         std::sort(nums.begin(), nums.end());
-
-        do {
+        while (true) {
             ret.push_back(nums);
-        } while (std::next_permutation(nums.begin(), nums.end()));
+            if (!std::next_permutation(nums.begin(), nums.end())) {
+                break;
+            }
+        }
         return ret;
     }
     std::vector<std::vector<int>> m_res;

@@ -15,8 +15,8 @@ Clarification: The input/output format is the same as how LeetCode serializes a
 binary tree. You do not necessarily need to follow this format, so please be
 creative and come up with different approaches yourself.*/
 
-#include <cstddef>
 #include <queue>
+
 #include <sstream>
 #include <string>
 
@@ -34,7 +34,7 @@ class Codec {
     string Serialize(TreeNode<T>* root) {
         if (!root) return "";
         string s = "";
-        queue<TreeNode<T>*> q;
+        std::queue<TreeNode<T>*> q;
         q.push(root);
         while (!q.empty()) {
             TreeNode<T>* const cur = q.front();
@@ -51,12 +51,11 @@ class Codec {
                 q.push(cur->right);
             }
         }
-        // cout << s;
         return s;
     }
 
     // Decodes your encoded data to tree.
-    TreeNode<int>* Deserialize(string data) {
+    TreeNode<int>* Deserialize(string const& data) {
         if (data.size() == 0) return nullptr;
 
         stringstream s(data);
