@@ -14,10 +14,12 @@ If x is a non-negative integer, then abs(x) = x.
 
 using namespace std;
 
+namespace {
 class Solution {
    public:
-    template <typename M>
-    int Calculate(vector<int>& nums, M&& m) {
+template <typename M>
+     int Calculate(vector<int>& nums, M&& m) {
+         (void)m;
         /*
          * Kadane’s algorithm is to traverse over the array from left to right
          * and for each element, find the maximum sum among all subarrays ending
@@ -47,6 +49,7 @@ class Solution {
         return max(abs(ma), abs(mi));
     }
 };
+}  // namespace
 
 #include <gtest/gtest.h>
 

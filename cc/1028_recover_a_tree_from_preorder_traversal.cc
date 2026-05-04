@@ -21,6 +21,7 @@ root.
 using TreeNode = Tree::TreeNode<int>;
 using namespace std;
 
+namespace {
 class Solution {
    public:
     TreeNode* RecoverFromPreorder(const string& traversal) {
@@ -76,6 +77,7 @@ class Solution {
     vector<Info> m_string_info;
     int m_index = 0;
 };
+}  // namespace
 
 #include <gtest/gtest.h>
 

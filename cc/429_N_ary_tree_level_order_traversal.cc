@@ -71,14 +71,14 @@ class Solution {
 
 Node* ConstructNode(vector<optional<int>>& elements) {
     Node* node = nullptr;
-    const int size = elements.size();
+    const int size = static_cast<int>(elements.size());
     elements.resize(size * 3 + 31);
     if (size == 0) return nullptr;
 
     if (!elements.at(0).has_value()) return nullptr;
     queue<Node*> q;
 
-    node = new Node(elements[0].value());
+    node = new Node(elements.at(0).value());
     q.push(node);
 
     int index = 2;

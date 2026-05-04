@@ -16,6 +16,8 @@
  */
 
 #include <vector>
+
+namespace {
 class ProductOfNumbers {
    public:
     ProductOfNumbers() = default;
@@ -37,12 +39,13 @@ class ProductOfNumbers {
 
     int GetProduct(int k) {
         auto size = m_d.size();
-        return m_d[size - k];
+        return m_d.at(size - k);
     }
 
    private:
     std::vector<int> m_d;
 };
+}  // namespace
 
 /**
  * Your ProductOfNumbers object will be instantiated and called as such:

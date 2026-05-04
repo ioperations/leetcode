@@ -41,17 +41,16 @@ namespace {
 class Solution {
    public:
     [[nodiscard]] string IntToRoman(int num) const {
-        int const normal[] = {1000, 900, 500, 400, 100, 90, 50,
+        static const std::array<int, 13> normal = {1000, 900, 500, 400, 100, 90, 50,
                               40,   10,  9,   5,   4,   1};
-        int const size = static_cast<int>(sizeof(normal) / sizeof(int));
         static const std::array<std::string, 13> roman = {
             "M",  "CM", "D",  "CD", "C",  "XC", "L",
             "XL", "X",  "IX", "V",  "IV", "I"};
         string res;
-        for (int i = 0; i < size; i++) {
-            while (num >= normal[i]) {
+        for (int i = 0; i < 13; i++) {
+            while (num >= normal.at(i)) {
                 res.append(roman.at(i));
-                num -= normal[i];
+                num -= normal.at(i);
             }
         }
         return res;

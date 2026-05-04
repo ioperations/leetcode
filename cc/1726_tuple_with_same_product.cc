@@ -10,6 +10,7 @@
 
 using namespace std;
 
+namespace {
 class Solution {
    public:
     int TupleSameProduct(vector<int>& nums) {
@@ -48,7 +49,7 @@ class Solution {
 
         for (int i = 0; i < size; i++) {
             for (int j = i + 1; j < size; j++) {
-                map[nums[i] * nums[j]]++;
+                map[nums.at(i) * nums.at(j)]++;
             }
         }
 
@@ -61,6 +62,7 @@ class Solution {
         return res;
     }
 };
+}  // namespace
 
 #include <gtest/gtest.h>
 

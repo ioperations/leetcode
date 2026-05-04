@@ -49,7 +49,7 @@ class Solution {
                 tmp.at(k++) = arr.at(i++);
             } else {
                 cnt++;
-                tmp[k++] = arr[j++];
+                tmp.at(k++) = arr.at(j++);
             }
         }
 

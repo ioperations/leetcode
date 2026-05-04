@@ -14,6 +14,7 @@
 
 using namespace std;
 
+namespace {
 class Solution {
    public:
     string ShortestCommonSupersequence(string str1, string str2) {
@@ -77,6 +78,7 @@ class Solution {
         return result;
     }
 };
+}  // namespace
 
 #include <gtest/gtest.h>
 

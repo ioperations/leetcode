@@ -62,7 +62,7 @@ class Solution {
             // a team is formed now, calculate the performance
             ans = max(ans, speed_sum * e);
         }
-        return ans % mod;
+        return static_cast<int>(ans % mod);
     }
 
     int MaxPerformanceV1(int n, vector<int>& speed, vector<int>& efficiency,

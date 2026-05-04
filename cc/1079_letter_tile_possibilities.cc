@@ -12,6 +12,7 @@
 
 using namespace std;
 
+namespace {
 class Solution {
    public:
     int NumTilePossibilities(const string& tiles) {
@@ -57,6 +58,7 @@ class Solution {
     string m_s;
     vector<bool> m_visiable;
 };
+}  // namespace
 
 #include <gtest/gtest.h>
 

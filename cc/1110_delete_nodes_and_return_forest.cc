@@ -57,6 +57,7 @@ class Solution {
 
 template <typename Func>
 void InOrderTraverse(TreeNode* node, Func&& func) {
+    (void)func;
     if (node == nullptr) {
         return;
     }
@@ -89,7 +90,7 @@ TEST(T, t1) {
     int i = 0;
     for (auto& node : expected) {
         std::vector<int> ret_p;
-        InOrderTraverse(ret[i],
+        InOrderTraverse(ret.at(i),
                         [&](TreeNode* root) { ret_p.push_back(root->val); });
         std::vector<int> ptr_p;
         InOrderTraverse(&node,

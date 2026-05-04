@@ -21,7 +21,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    bool static Comp(string a, string b) { return a + b > b + a; }
+    bool static Comp(const string& a, const string& b) { return a + b > b + a; }
     string LargestNumber(vector<int>& nums) const {
         vector<string> v;
         for (auto x : nums) {
@@ -34,7 +34,7 @@ class Solution {
         }
         // boundary case when the given vector has only zero elements
         // [0,0,0,...]
-        while (ans[0] == '0' and ans.length() > 1) {
+        while (!ans.empty() && ans.at(0) == '0' and ans.length() > 1) {
             ans.erase(0, ans.size() - 1);
         }
 

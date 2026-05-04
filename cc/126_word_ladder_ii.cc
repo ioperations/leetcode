@@ -41,8 +41,8 @@ class Solution {
         vector<int> dist(n, 1005);
         queue<int> q;
         q.push(sr);
-        parent[sr] = {-1};
-        dist[sr] = 0;
+        parent.at(sr) = {-1};
+        dist.at(sr) = 0;
         while (!q.empty()) {
             int const x = q.front();
             q.pop();

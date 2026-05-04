@@ -101,7 +101,7 @@ void ExpectEqList(ListNode* const head, const std::vector<int>& elements) {
     ListNode* m_head = head;
 
     while (m_head != nullptr) {
-        EXPECT_EQ(m_head->val, elements[i]);
+        EXPECT_EQ(m_head->val, elements.at(i));
         m_head = m_head->next;
         i++;
     }

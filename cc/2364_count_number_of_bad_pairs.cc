@@ -6,7 +6,6 @@
  * Return the total number of bad pairs in nums.
  */
 
-#include <cstddef>
 #include <vector>
 using namespace std;
 
@@ -32,9 +31,9 @@ class Solution {
 
 TEST(T0, t1) {
     vector<int> nums = {4, 1, 3, 3};
-    int const output = 5;
+    long long const output = 5;
     Solution sl;
-    int const ret = sl.CountBadPairs(nums);
+    long long const ret = sl.CountBadPairs(nums);
     EXPECT_EQ(ret, output);
     /*
      * Explanation: The pair (0, 1) is a bad pair since 1 - 0 != 1 - 4.
@@ -50,7 +49,7 @@ TEST(T0, t2) {
     vector<int> nums = {1, 2, 3, 4, 5};
     int const output = 0;
     Solution sl;
-    int const ret = sl.CountBadPairs(nums);
+    long long const ret = sl.CountBadPairs(nums);
     EXPECT_EQ(ret, output);
     // Explanation : There are no bad pairs.
 }

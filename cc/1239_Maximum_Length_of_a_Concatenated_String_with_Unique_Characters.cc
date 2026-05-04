@@ -71,14 +71,14 @@ class Solution {
     }
 
     int MaxLengthV2(std::vector<std::string>& arr) {
-        std::vector<int> a;
+        std::vector<unsigned> a;
 
         for (const std::string& x : arr) {
-            int mask = 0;
+            unsigned mask = 0U;
             for (char const c : x) {
-                mask |= 1U << (c - 'a');
+                mask |= 1U << static_cast<unsigned>(c - 'a');
             }
-            if (__builtin_popcount(mask) != x.length()) {
+            if (__builtin_popcount(mask) != static_cast<int>(x.length())) {
                 continue;
             }
             a.push_back(mask);
@@ -86,14 +86,14 @@ class Solution {
 
         int ans = 0;
 
-        std::vector<int> dp{0};
-        for (int const i : a) {
+        std::vector<unsigned> dp{0U};
+        for (unsigned const i : a) {
             int const size = static_cast<int>(dp.size());
             for (int j = 0; j < size; ++j) {
-                if (static_cast<unsigned>(dp.at(j)) & static_cast<unsigned>(i)) {
+                if (dp.at(j) & i) {
                     continue;
                 }
-                unsigned const t = static_cast<unsigned>(dp.at(j)) | static_cast<unsigned>(i);
+                unsigned const t = dp.at(j) | i;
                 dp.push_back(t);
                 ans = std::max(ans, __builtin_popcount(t));
             }

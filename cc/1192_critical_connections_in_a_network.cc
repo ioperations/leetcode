@@ -38,11 +38,11 @@ class Solution {
         vector<vector<int>> result;
         vector<int> vis(n, -1);
         function<int(int, int, int)> dfs = [&](int u, int p, int rank) -> int {
-            if (vis[u] != -1) return vis[u];
-            vis[u] = rank;
+            if (vis.at(u) != -1) return vis.at(u);
+            vis.at(u) = rank;
 
             int min_rank = rank;
-            for (int const v : adj[u]) {
+            for (int const v : adj.at(u)) {
                 if (v == p) continue;
                 int const returned_rank = dfs(v, u, rank + 1);
                 if (returned_rank == rank + 1) result.push_back({u, v});

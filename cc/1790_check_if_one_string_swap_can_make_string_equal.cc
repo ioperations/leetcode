@@ -13,6 +13,7 @@
 
 using namespace std;
 
+namespace {
 class Solution {
    public:
     bool AreAlmostEqual(string s1, string s2) {
@@ -89,6 +90,8 @@ class SolutionV2 {
         return false;
     }
 };
+}  // namespace
+
 #include <gtest/gtest.h>
 
 TEST(T0, t1) {

@@ -19,7 +19,7 @@ namespace {
 class Solution {
    public:
     int MinSetSize(vector<int>& arr) {
-        int const n = arr.size();
+        int const n = static_cast<int>(arr.size());
 
         unordered_map<int, int> mp;
         for (auto i : arr) mp[i]++;

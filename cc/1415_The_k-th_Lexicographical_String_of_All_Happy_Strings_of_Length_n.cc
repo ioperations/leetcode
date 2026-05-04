@@ -19,6 +19,7 @@
 #include <vector>
 using namespace std;
 
+namespace {
 class Solution {
    public:
     string GetHappyString(int n, int k) {
@@ -39,7 +40,7 @@ class Solution {
             return;
         }
         for (int i = 0; i < 3; i++) {
-            char const now = 'a' + i;
+            char const now = static_cast<char>('a' + i);
             if (now == last) {
                 continue;
             }
@@ -48,6 +49,7 @@ class Solution {
         }
     }
 };
+}  // namespace
 
 #include <gtest/gtest.h>
 

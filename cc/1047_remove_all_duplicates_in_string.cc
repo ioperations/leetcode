@@ -25,7 +25,9 @@ class Solution {
    public:
     [[nodiscard]] string RemoveDuplicates(const string& s, int k = 2) const {
         int const n = static_cast<int>(s.size());
-        if (n < k) return s;
+        if (n < k) {
+            return s;
+        }
 
         stack<pair<char, int>> stk;
         for (int i = 0; i < n; ++i) {
@@ -36,14 +38,16 @@ class Solution {
             stk.pop();
             stk.emplace(s.at(i), prev.second + 1);
           }
-          if (stk.top().second == k) stk.pop();
+          if (stk.top().second == k) {
+                stk.pop();
+            }
         }
 
         string ans = "";
         while (!stk.empty()) {
             auto cur = stk.top();
             stk.pop();
-            while (cur.second--) {
+            while (cur.second-- != 0) {
                 ans.push_back(cur.first);
             }
         }

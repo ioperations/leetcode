@@ -26,6 +26,8 @@
 
 using TreeNode = Tree::TreeNode<int>;
 
+namespace {
+
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -57,6 +59,7 @@ class FindElements {
     }
     std::set<int> m_s;
 };
+}  // namespace
 
 /**
  * Your FindElements object will be instantiated and called as such:

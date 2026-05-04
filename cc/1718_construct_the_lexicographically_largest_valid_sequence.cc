@@ -23,6 +23,7 @@
 
 using namespace std;
 
+namespace {
 class Solution {
    public:
     vector<int> ConstructDistancedSequence(int n) {
@@ -51,7 +52,7 @@ class Solution {
             return true;
         }
 
-        if (results[index] != 0) {
+        if (results.at(index) != 0) {
             return Gen(results, value_set, exists, number_one_used, index + 1,
                        fillsize);
         }
@@ -87,10 +88,11 @@ class Solution {
         if (Gen(results, value_set, exists, true, index + 1, fillsize + 1)) {
             return true;
         }
-        results[index] = 0;
+        results.at(index) = 0;
         return false;
     }
 };
+}  // namespace
 
 #include <gtest/gtest.h>
 

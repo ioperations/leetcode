@@ -138,7 +138,7 @@ TreeNode* ConstructTree(const std::vector<int>& elements) {
     auto* root = new TreeNode(elements.at(0));
 
     for (int i = 1; i < static_cast<int>(elements.size()); i++) {
-        root = AddToRoot(root, elements[i]);
+        root = AddToRoot(root, elements.at(i));
     }
 
     return root;
