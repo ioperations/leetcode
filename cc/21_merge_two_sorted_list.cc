@@ -146,7 +146,7 @@ void Benchmakrv1(benchmark::State& state) {
                        10, 11, 12, 13, 14, 15, 16, 17};
 
     std::vector<int> expected;
-    int size{static_cast<int>(t.size())};
+    int const size{static_cast<int>(t.size())};
     expected.reserve(size * 2);
     for (int i = 0; i < size; i++) {
         expected.push_back(t.at(i));
@@ -177,7 +177,7 @@ void Benchmakrv2(benchmark::State& state) {
                        10, 11, 12, 13, 14, 15, 16, 17};
 
     std::vector<int> expected;
-    int size{static_cast<int>(t.size())};
+    int const size{static_cast<int>(t.size())};
     expected.reserve(size * 2);
     for (int i = 0; i < size; i++) {
         expected.push_back(t.at(i));

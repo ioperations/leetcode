@@ -33,7 +33,7 @@ class Solution {
     0 <= nums1[i], nums2[j] <= 105
     1 <= k <= n
 */
-        const int len = nums1.size();
+        const int len = static_cast<int>(nums1.size());
         function<long long(int sum, int min, int current_size,
                            int current_index)>
             dfs = [&](int sum, int min, int current_size, int current_index) {
@@ -41,15 +41,15 @@ class Solution {
                     return 0;
                 }
 
-                sum += nums1[current_index];
+                sum += nums1.at(current_index);
                 int z = 0;
                 if ((current_size + 1) == k) {
-                    z = sum * std::min(min, nums2[current_index]);
+                    z = sum * std::min(min, nums2.at(current_index));
                 }
                 int const choose_this_index =
-                    dfs(sum, std::min(min, nums2[current_index]),
+                    dfs(sum, std::min(min, nums2.at(current_index)),
                         current_size + 1, current_index + 1);
-                sum -= nums1[current_index];
+                sum -= nums1.at(current_index);
                 int const do_not_choose_this_index =
                     dfs(sum, min, current_size, current_index + 1);
 

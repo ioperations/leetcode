@@ -21,21 +21,21 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    vector<int> DiffWaysToCompute(string str) {
+    vector<int> DiffWaysToCompute(const string& str) {
         vector<int> ans;
         for (int i = 0; i < static_cast<int>(str.size()); i++) {
-            if (str[i] == '+' || str[i] == '-' || str[i] == '*') {
+            if (str.at(i) == '+' || str.at(i) == '-' || str.at(i) == '*') {
                 vector<int> const left = DiffWaysToCompute(str.substr(0, i));
                 vector<int> const right = DiffWaysToCompute(str.substr(i + 1));
                 for (auto x : left) {
                     for (auto y : right) {
-                        if (str[i] == '+') {
+                        if (str.at(i) == '+') {
                             ans.push_back(x + y);
                         }
-                        if (str[i] == '-') {
+                        if (str.at(i) == '-') {
                             ans.push_back(x - y);
                         }
-                        if (str[i] == '*') {
+                        if (str.at(i) == '*') {
                             ans.push_back(x * y);
                         }
                     }
@@ -43,7 +43,7 @@ class Solution {
             }
         }
         if (ans.size() == 0) {
-            ans.push_back(stoll(str));
+            ans.push_back(static_cast<int>(stoll(str)));
         }
         return ans;
     }
@@ -51,13 +51,13 @@ class Solution {
 
 class SolutionV2 {
    public:
-    vector<int> DiffWaysToCompute(string expression) {
-        int const n = expression.size();
+    vector<int> DiffWaysToCompute(const string& expression) {
+        int const n = static_cast<int>(expression.size());
         if (n <= 2) {
             return {stoi(expression)};
         }
         if (m_memo.count(expression)) {
-            return m_memo[expression];
+            return m_memo.at(expression);
         }
         vector<int> result;
         string const operators = "+-*";
@@ -65,7 +65,7 @@ class SolutionV2 {
         while (divider != string::npos) {
             string const sub1 = expression.substr(0, divider);
             string const sub2 = expression.substr(divider + 1, n - divider - 1);
-            char const op = expression[divider];
+            char const op = expression.at(divider);
             vector<int> const nums1 = DiffWaysToCompute(sub1);
             vector<int> const nums2 = DiffWaysToCompute(sub2);
             for (int const num1 : nums1) {

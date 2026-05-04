@@ -8,7 +8,7 @@ node values in the path is a palindrome.
 Return the number of pseudo-palindromic paths going from the root node to leaf
 nodes.*/
 
-#include <cstddef>
+
 // Definition for a binary tree node.
 #include <algorithm>
 #include <stack>
@@ -27,7 +27,7 @@ class Solution {
     template <typename T>
     void Dfs(TreeNode<T>* root, vector<T> mpp) {
         if (root->left == nullptr && root->right == nullptr) {
-            mpp[root->val]++;
+            mpp.at(root->val)++;
             int count_odd = 0;
             for (auto i : mpp) {
                 if (i % 2 == 1) {
@@ -39,14 +39,14 @@ class Solution {
             }
             return;
         }
-        mpp[root->val]++;
+        mpp.at(root->val)++;
         if (root->left != nullptr) {
             Dfs(root->left, mpp);
         }
         if (root->right != nullptr) {
             Dfs(root->right, mpp);
         }
-        mpp[root->val] -= mpp[root->val];
+        mpp.at(root->val) -= mpp.at(root->val);
     }
     template <typename T>
     int PseudoPalindromicPaths(TreeNode<T>* root) {
@@ -62,7 +62,7 @@ class Solution {
                       return lft->val > rht->val;
                   });
 
-        int last = n[0]->val;
+        int last = n.at(0)->val;
 
         int count = 1;
 
@@ -70,18 +70,18 @@ class Solution {
         bool allow = true;
 
         for (int j = 1; j < size; j++) {
-            if (n[j]->val == last) {
+            if (n.at(j)->val == last) {
                 count++;
                 continue;
             }
             if (count % 2 == 0) {
                 count = 0;
-                last = n[j]->val;
+                last = n.at(j)->val;
             } else if (allow) {
                 allow = false;
 
                 count = 1;
-                last = n[j]->val;
+                last = n.at(j)->val;
             } else {
                 return false;
             }

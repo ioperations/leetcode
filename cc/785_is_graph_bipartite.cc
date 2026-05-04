@@ -29,15 +29,13 @@ class Solution {
    public:
     vector<int> m_vis, m_col;
     bool Dfs(int v, int c, vector<vector<int>>& graph) {
-        m_vis[v] = 1;
-        m_col[v] = c;
-        for (int const child : graph[v]) {
-            if (m_vis[child] == 0) {
-                // here c^1 is for flipping 1 by 0 or 0 by 1, that is flip the
-                // current color
+        m_vis.at(v) = 1;
+        m_col.at(v) = c;
+        for (int const child : graph.at(v)) {
+            if (m_vis.at(child) == 0) {
                 if (Dfs(child, c ^ 1, graph) == false) return false;
             } else {
-                if (m_col[v] == m_col[child]) return false;
+                if (m_col.at(v) == m_col.at(child)) return false;
             }
         }
         return true;
@@ -57,12 +55,12 @@ class Solution {
            SPACE COMPLEXITY
            O(n+n) [vis and col vectors are of size n each]
         */
-        int const n = graph.size();
+        int const n = static_cast<int>(graph.size());
         m_vis.resize(n);
         m_col.resize(n);
 
         for (int i = 0; i < n; ++i) {
-            if (m_vis[i] == 0 && Dfs(i, 0, graph) == false) {
+            if (m_vis.at(i) == 0 && Dfs(i, 0, graph) == false) {
                 return false;
             }
         }

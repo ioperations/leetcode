@@ -10,22 +10,21 @@
 #include <cstddef>
 #include <string>
 #include <vector>
+
 using namespace std;
 
+namespace {
 class Solution {
    public:
-    string ClearDigits(string s) {
-        // 1 <= s.length <= 100
-        // s consists only of lowercase English letters and digits.
-        // The input is generated such that it is possible to delete all digits.
-        auto size = s.size();
+    string ClearDigits(const string& s) {
+        auto const size = s.size();
         vector<bool> exists(size, true);
         for (size_t i = 0; i < size; i++) {
-            if ('0' <= s[i] && s[i] <= '9') {
-                exists[i] = false;
-                for (int j = i - 1; j >= 0; j--) {
-                    if (exists[j]) {
-                        exists[j] = false;
+            if ('0' <= s.at(i) && s.at(i) <= '9') {
+                exists.at(i) = false;
+                for (int j = static_cast<int>(i) - 1; j >= 0; j--) {
+                    if (exists.at(j)) {
+                        exists.at(j) = false;
                         break;
                     }
                 }
@@ -33,13 +32,14 @@ class Solution {
         }
         string ret;
         for (size_t i = 0; i < size; i++) {
-            if (exists[i]) {
-                ret += s[i];
+            if (exists.at(i)) {
+                ret += s.at(i);
             }
         }
         return ret;
     }
 };
+}  // namespace
 
 #include <gtest/gtest.h>
 

@@ -23,7 +23,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    vector<string> RestoreIpAddressesV1(string s) {
+    vector<string> RestoreIpAddressesV1(string const& s) {
         vector<string> ret;
         return ret;
     }
@@ -61,7 +61,7 @@ class Solution {
         }
     }
 
-    vector<string> RestoreIpAddresses(string s) {
+    vector<string> RestoreIpAddresses(string const& s) {
         if (s.length() > 12) {
             return m_v;
         }

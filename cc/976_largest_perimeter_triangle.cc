@@ -19,8 +19,12 @@ class Solution {
    public:
     int LargestPerimeter(vector<int>& a) {
         sort(a.begin(), a.end());
-        for (int i = a.size() - 1; i > 1; --i)
-            if (a[i] < a[i - 1] + a[i - 2]) return a[i] + a[i - 1] + a[i - 2];
+        int const size = static_cast<int>(a.size());
+        for (int i = size - 1; i > 1; --i) {
+            if (a.at(i) < a.at(i - 1) + a.at(i - 2)) {
+                return a.at(i) + a.at(i - 1) + a.at(i - 2);
+            }
+        }
         return 0;
     }
 };

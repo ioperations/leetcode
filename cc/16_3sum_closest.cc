@@ -26,14 +26,19 @@ class Solution {
         std::sort(t.begin(), t.end());
         int ret{std::numeric_limits<int>::max()};
         int ret_ret = 0;
-        do {
-            const int tmp = t.at(0) + t.at(1) + t.at(2);
-            const int distance = abs(tmp - target);
-            if (distance < ret) {
-                ret = distance;
-                ret_ret = tmp;
+        const int size = static_cast<int>(t.size());
+        for (int i = 0; i < size; ++i) {
+            for (int j = i + 1; j < size; ++j) {
+                for (int k = j + 1; k < size; ++k) {
+                    const int tmp = t.at(i) + t.at(j) + t.at(k);
+                    const int distance = std::abs(tmp - target);
+                    if (distance < ret) {
+                        ret = distance;
+                        ret_ret = tmp;
+                    }
+                }
             }
-        } while (std::next_permutation(t.begin(), t.end()));
+        }
         return ret_ret;
     }
 

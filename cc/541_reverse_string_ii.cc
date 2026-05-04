@@ -13,6 +13,7 @@ characters and leave the other as original.
 #include <benchmark/benchmark.h>
 
 #include <algorithm>
+#include <cstddef>
 #include <stack>
 #include <string>
 
@@ -112,7 +113,7 @@ static void BenchV1(benchmark::State& state) {
     std::string const output = "bacd";
     Solution sl;
 
-    for (auto _ : state) {
+    for (auto&& _ : state) {
         auto ret = sl.ReverseStr(s, k);
         EXPECT_EQ(ret, output);
     }
@@ -124,7 +125,7 @@ static void BenchV2(benchmark::State& state) {
     std::string const output = "bacd";
     Solution sl;
 
-    for (auto _ : state) {
+    for (auto&& _ : state) {
         auto ret = sl.ReverseStrV2(s, k);
         EXPECT_EQ(ret, output);
     }

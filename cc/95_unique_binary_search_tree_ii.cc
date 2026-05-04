@@ -7,7 +7,6 @@
 
  */
 
-#include <cstddef>
 #include <functional>
 #include <map>
 #include <optional>
@@ -60,17 +59,17 @@ class Solution {
                 return ret;
             }
             if (j == 1) {
-                ret.push_back(new TreeNode(ele[0]));
+                ret.push_back(new TreeNode(ele.at(0)));
                 return ret;
             }
             if (j == 2) {
-                auto* n1 = new TreeNode(ele[0]);
-                n1->right = new TreeNode(ele[1]);
+                auto* n1 = new TreeNode(ele.at(0));
+                n1->right = new TreeNode(ele.at(1));
 
                 ret.push_back(n1);
 
-                n1 = new TreeNode(ele[1]);
-                n1->left = new TreeNode(ele[0]);
+                n1 = new TreeNode(ele.at(1));
+                n1->left = new TreeNode(ele.at(0));
                 ret.push_back(n1);
 
                 return ret;
@@ -111,9 +110,9 @@ std::vector<vector<optional<int>>> Flattern(vector<TreeNode*>& vec) {
             q.pop();
         }
         while (true) {
-            if (!ret.back().has_value())
+            if (!ret.back().has_value()) {
                 ret.pop_back();
-            else {
+            } else {
                 break;
             }
         }
@@ -121,7 +120,7 @@ std::vector<vector<optional<int>>> Flattern(vector<TreeNode*>& vec) {
     };
 
     for (auto& ptr : vec) {
-        ret.push_back(fun(ptr));
+        ret.emplace_back(fun(ptr));
     }
 
     return ret;

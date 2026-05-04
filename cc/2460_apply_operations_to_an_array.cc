@@ -20,27 +20,30 @@
 #include <vector>
 
 using namespace std;
+
+namespace {
 class Solution {
    public:
     vector<int> ApplyOperations(vector<int>& nums) {
-        auto n = nums.size();
+        auto const n = static_cast<int>(nums.size());
 
         for (int i = 0; i < n - 1; i++) {
-            if (nums[i] == nums[i + 1]) {
-                nums[i] = nums[i] * 2;
-                nums[i + 1] = 0;
+            if (nums.at(i) == nums.at(i + 1)) {
+                nums.at(i) = nums.at(i) * 2;
+                nums.at(i + 1) = 0;
             }
         }
 
         int j = 0;
         for (int i = 0; i < n; i++) {
-            if (nums[i] > 0) nums[j++] = nums[i];
+            if (nums.at(i) > 0) nums[j++] = nums.at(i);
         }
         fill(nums.begin() + j, nums.end(), 0);
 
         return nums;
     }
 };
+}  // namespace
 
 #include <gtest/gtest.h>
 

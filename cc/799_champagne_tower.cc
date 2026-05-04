@@ -32,20 +32,20 @@ class Solution {
         for (int i = 0; i < query_row; i++) {
             vector<double> next(i + 2, 0);
             for (int j = 0; j <= i; j++) {
-                if (row[j] <= 1) continue;
+                if (row.at(j) <= 1) continue;
                 double excess = 0.0;
-                excess = (row[j] - 1) / 2.0;
-                next[j] += excess;
-                next[j + 1] += excess;
+                excess = (row.at(j) - 1) / 2.0;
+                next.at(j) += excess;
+                next.at(j + 1) += excess;
             }
             row = next;
         }
-        return min(1.0, row[query_glass]);
+        return std::min(1.0, row.at(query_glass));
     }
 };
 
 TEST(champagneV, t1) {
-    int poured = 1, query_row = 1, query_glass = 1;
+    int const poured = 1, query_row = 1, query_glass = 1;
     double const output = 0.00000;
     Solution sl;
     double const ret = sl.ChampagneTower(poured, query_row, query_glass);
@@ -56,7 +56,7 @@ TEST(champagneV, t1) {
 }
 
 TEST(champagneV, t2) {
-    int poured = 2, query_row = 1, query_glass = 1;
+    int const poured = 2, query_row = 1, query_glass = 1;
     double const output = 0.50000;
     Solution sl;
     double const ret = sl.ChampagneTower(poured, query_row, query_glass);
@@ -69,7 +69,7 @@ TEST(champagneV, t2) {
 }
 
 TEST(champagneV, t3) {
-    int poured = 100000009, query_row = 33, query_glass = 17;
+    int const poured = 100000009, query_row = 33, query_glass = 17;
     double const output = 1.00000;
     Solution sl;
     double const ret = sl.ChampagneTower(poured, query_row, query_glass);

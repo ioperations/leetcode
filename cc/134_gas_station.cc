@@ -30,15 +30,15 @@ class Solution {
             1 <= n <= 105
             0 <= gas[i], cost[i] <= 104
         */
-        int const n = gas.size();
+        int const n = static_cast<int>(gas.size());
         for (int i = 0; i < n; ++i) {
-            int cur_gas = gas[i];
+            int cur_gas = gas.at(i);
             for (int j = 0; j < n; ++j) {
-                cur_gas -= cost[(i + j) % n];
+                cur_gas -= cost.at((i + j) % n);
                 if (cur_gas < 0) {
                     continue;
                 }
-                cur_gas += gas[(i + j + 1) % n];
+                cur_gas += gas.at((i + j + 1) % n);
             }
             if (cur_gas > 0) {
                 return i;
@@ -55,9 +55,9 @@ class SolutionV {
         int total_gas = 0;
         size_t start = 0;
 
-        for (size_t i = 0; i < gas.size(); i++) {
-            curr_gas += (gas[i] - cost[i]);
-            total_gas += (gas[i] - cost[i]);
+        for (size_t i = 0; i < static_cast<size_t>(gas.size()); i++) {
+            curr_gas += (gas.at(i) - cost.at(i));
+            total_gas += (gas.at(i) - cost.at(i));
 
             if (curr_gas < 0) {
                 start = i + 1;
@@ -65,7 +65,7 @@ class SolutionV {
             }
         }
 
-        if (start < gas.size() && total_gas >= 0) return start;
+        if (start < static_cast<size_t>(gas.size()) && total_gas >= 0) return static_cast<int>(start);
 
         return -1;
     }

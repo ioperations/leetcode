@@ -69,7 +69,7 @@ class Solution {
 };
 
 static void BenchBubbleSort(benchmark::State& state) {
-    for (auto _ : state) {
+    for (auto&& _ : state) {
         Solution s;
         std::vector<int> nums{2, 0, 2, 1, 1, 0};
         s.SortColors(nums);
@@ -78,7 +78,7 @@ static void BenchBubbleSort(benchmark::State& state) {
 BENCHMARK(BenchBubbleSort);
 
 static void BenchMergeSort(benchmark::State& state) {
-    for (auto _ : state) {
+    for (auto&& _ : state) {
         Solution s;
         std::vector<int> nums{2, 0, 2, 1, 1, 0};
         s.SortColorsV2(nums);

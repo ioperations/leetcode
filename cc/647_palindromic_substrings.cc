@@ -107,7 +107,7 @@ TEST(palindromicsubstringsV2, t2) {
 }
 
 static void BenchMarkV1(benchmark::State& state) {
-    for (auto _ : state) {
+    for (auto&& _ : state) {
         string const s = "aaa";
         int const output = 6;
         // Explanation: Six palindromic strings: "a", "a", "a", "aa", "aa",
@@ -121,7 +121,7 @@ static void BenchMarkV1(benchmark::State& state) {
 BENCHMARK(BenchMarkV1);
 
 static void BenchMarkV0(benchmark::State& state) {
-    for (auto _ : state) {
+    for (auto&& _ : state) {
         string const s = "aaa";
         int const output = 6;
         // Explanation: Six palindromic strings: "a", "a", "a", "aa", "aa",

@@ -89,7 +89,7 @@ static void BenchMarkStack(benchmark::State& state) {
     string const s = "Let's take LeetCode contest";
     Solution sl;
     string const output = "s'teL ekat edoCteeL tsetnoc";
-    for (auto _ : state) {
+    for (auto&& _ : state) {
         auto ret = sl.ReverseWords(s);
         EXPECT_EQ(ret, output);
     }
@@ -100,7 +100,7 @@ static void BenchMarkTwoPointer(benchmark::State& state) {
     string const s = "Let's take LeetCode contest";
     Solution sl;
     string const output = "s'teL ekat edoCteeL tsetnoc";
-    for (auto _ : state) {
+    for (auto&& _ : state) {
         auto ret = sl.ReverseWordsV1(s);
         EXPECT_EQ(ret, output);
     }

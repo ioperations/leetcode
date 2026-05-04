@@ -41,8 +41,8 @@ class Solution {
             Node* node = st.top();
             st.pop();
             v.push_back(node->m_val);
-            for (int i = (node->m_children.size()) - 1; i >= 0; i--) {
-                st.push(node->m_children[i]);
+            for (int i = static_cast<int>(node->m_children.size()) - 1; i >= 0; i--) {
+                st.push(node->m_children.at(i));
             }
         }
         return v;
@@ -51,14 +51,14 @@ class Solution {
 
 Node* ConstructNode(vector<optional<int>>& elements) {
     Node* node = nullptr;
-    const int size = elements.size();
+    int const size = static_cast<int>(elements.size());
     elements.resize(size * 3 + 31);
     if (size == 0) return nullptr;
 
-    if (!elements[0].has_value()) return nullptr;
+    if (!elements.at(0).has_value()) return nullptr;
     queue<Node*> q;
 
-    node = new Node(elements[0].value());
+    node = new Node(elements.at(0).value());
     q.push(node);
 
     int index = 2;
@@ -66,8 +66,8 @@ Node* ConstructNode(vector<optional<int>>& elements) {
         // todo
 
         Node* tmp = q.front();
-        while (index < size && elements[index].has_value()) {
-            Node* local_tmp = new Node(elements[index].value());
+        while (index < size && elements.at(index).has_value()) {
+            Node* const local_tmp = new Node(elements.at(index).value());
             tmp->m_children.push_back(local_tmp);
             q.push(local_tmp);
             index++;

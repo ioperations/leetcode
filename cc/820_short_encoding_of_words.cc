@@ -12,7 +12,6 @@ of words, return the length of the shortest reference string s possible of any
 valid encoding of words.*/
 
 #include <array>
-#include <cstddef>
 #include <string>
 #include <unordered_set>
 #include <vector>
@@ -25,9 +24,9 @@ namespace {
 class Solution {
 private:
     struct TrieNode {
-        int m_ends_here;
-        std::array<TrieNode*, 26> m_child;
-        TrieNode() : m_ends_here(0), m_child{} {}
+        int m_ends_here{0};
+        std::array<TrieNode*, 26> m_child{};
+        TrieNode() = default;
     };
 
     TrieNode* GetNode() {
