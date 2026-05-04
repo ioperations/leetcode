@@ -28,11 +28,11 @@
 namespace {
 class Iterator {
     const std::vector<int>& m_nums;
-    int size;
-    int i{-1};
+    int m_size;
+    int m_i{-1};
 
    public:
-    Iterator(const std::vector<int>& nums) : m_nums(nums), size(nums.size()) {}
+    Iterator(const std::vector<int>& nums) : m_nums(nums), m_size(static_cast<int>(nums.size())) {}
 
     Iterator(const Iterator& iter) = default;
 
@@ -41,13 +41,13 @@ class Iterator {
         if (!hasNext()) {
             return -1;
         }
-        i++;
-        return m_nums[i];
+        m_i++;
+        return m_nums.at(m_i);
     };
 
     // Returns true if the iteration has more elements.
     [[nodiscard]] bool hasNext() const {
-        return 0 <= (i + 1) && (i + 1) < size;
+        return 0 <= (m_i + 1) && (m_i + 1) < m_size;
     };
 };
 

@@ -1,7 +1,7 @@
 
 #include <gtest/gtest.h>
 
-#include <cstdio>
+#include <iostream>
 #include <vector>
 
 #include "for_each.hh"
@@ -39,6 +39,10 @@ struct DummyClass {
 class AutoResetStatistic {
    public:
     AutoResetStatistic() { Reset(); }
+    AutoResetStatistic(const AutoResetStatistic&) = default;
+    AutoResetStatistic(AutoResetStatistic&&) = default;
+    AutoResetStatistic& operator=(const AutoResetStatistic&) = default;
+    AutoResetStatistic& operator=(AutoResetStatistic&&) = default;
     ~AutoResetStatistic() { Reset(); }
 
    private:
@@ -68,7 +72,7 @@ TEST(forV, DISABLEDBasicTest) {
         DfsForEach(v, [&](auto&& v) { flattern.push_back(v.v); });
 
         DfsForEach(std::vector<DummyClass>{1},
-                   [&](auto&& v) { printf("got v %d\n", v.v); });
+                   [&](auto&& v) { std::cout << "got v " << v.v << "\n"; });
         const std::vector<int> expected{101, 102, 103, 104, 105, 106};
         EXPECT_EQ(flattern, expected);
     }

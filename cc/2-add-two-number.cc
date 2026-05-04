@@ -13,7 +13,7 @@ namespace {
 class Solution {
    public:
     ListNode* AddTwoNumbers(ListNode* l1, ListNode* l2) {
-        constexpr int kBase = 10;
+        constexpr int k_base = 10;
         for (int i = 0; l1 || l2 || m_carrier; i++) {
             int va = 0;
             if (l1 && l2) {
@@ -25,8 +25,8 @@ class Solution {
             } else if (m_carrier) {
                 va = m_carrier;
             }
-            m_carrier = va >= kBase ? 1 : 0;
-            va = va % kBase;
+            m_carrier = va >= k_base ? 1 : 0;
+            va = va % k_base;
             auto* n = new ListNode(va);
             // 保存 head
             if (i == 0) {
@@ -81,10 +81,10 @@ ListNode* CreateList(const std::vector<int>& vals) {
     if (vals.empty()) {
         return nullptr;
     }
-    auto* head = new ListNode(vals[0]);
+    auto* head = new ListNode(vals.at(0));
     ListNode* curr = head;
     for (size_t i = 1; i < vals.size(); i++) {
-        curr->next = new ListNode(vals[i]);
+        curr->next = new ListNode(vals.at(i));
         curr = curr->next;
     }
     return head;
@@ -101,7 +101,7 @@ std::vector<int> ListToVector(ListNode* head) {
 
 void FreeList(ListNode* head) {
     while (head) {
-        ListNode* tmp = head;
+        ListNode* const tmp = head;
         head = head->next;
         delete tmp;
     }
@@ -116,7 +116,7 @@ TEST(AddTwoNumbers, t1) {
     auto* l2 = CreateList({5, 6, 4});
     Solution sl;
     ListNode* result = sl.AddTwoNumbers(l1, l2);
-    std::vector<int> expected = {7, 0, 8};
+    std::vector<int> const expected = {7, 0, 8};
     EXPECT_EQ(ListToVector(result), expected);
     FreeList(l1);
     FreeList(l2);
@@ -128,7 +128,7 @@ TEST(AddTwoNumbers, t2) {
     auto* l2 = CreateList({0});
     Solution sl;
     ListNode* result = sl.AddTwoNumbers(l1, l2);
-    std::vector<int> expected = {0};
+    std::vector<int> const expected = {0};
     EXPECT_EQ(ListToVector(result), expected);
     FreeList(l1);
     FreeList(l2);
@@ -140,7 +140,7 @@ TEST(AddTwoNumbers, t3) {
     auto* l2 = CreateList({1});
     Solution sl;
     ListNode* result = sl.AddTwoNumbers(l1, l2);
-    std::vector<int> expected = {0, 0, 0, 0, 0, 0, 0, 1};
+    std::vector<int> const expected = {0, 0, 0, 0, 0, 0, 0, 1};
     EXPECT_EQ(ListToVector(result), expected);
     FreeList(l1);
     FreeList(l2);

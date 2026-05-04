@@ -34,13 +34,13 @@ class Solution {
             return;
         }
 
-        while (i < (int)candidates.size() && target - candidates[i] >= 0) {
+        while (i < static_cast<int>(candidates.size()) && target - candidates.at(i) >= 0) {
             // Till every element in the array starting
             // from i which can contribute to the target
-            r.push_back(candidates[i]);  // add them to vector
+            r.push_back(candidates.at(i));  // add them to vector
 
             // recur for next numbers
-            Sum(candidates, target - candidates[i], res, r, i);
+            Sum(candidates, target - candidates.at(i), res, r, i);
             ++i;
 
             // Remove number from vector (backtracking)

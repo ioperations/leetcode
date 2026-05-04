@@ -21,13 +21,13 @@ namespace {
 class Solution {
    public:
     bool CheckIfPangram(std::string& sentence) const {
-        std::set<char> s(sentence.begin(), sentence.end());
-        constexpr int kAlphabetSize = 26;
-        return s.size() == kAlphabetSize;
+        std::set<char> const s(sentence.begin(), sentence.end());
+        constexpr int k_alphabet_size = 26;
+        return s.size() == k_alphabet_size;
     }
     bool CheckIfPangramV2(std::string& sentence) const {
-        constexpr int kAlphabetSize = 26;
-        int const max = (1 << kAlphabetSize) - 1;
+        constexpr int k_alphabet_size = 26;
+        int const max = (1 << k_alphabet_size) - 1;
         int temp = 0;
         for (auto& ptr : sentence) {
             temp |= 1 << (ptr - 'a');

@@ -23,8 +23,8 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    string RemoveDuplicates(const string& s, int k = 2) const {
-        int const n = s.size();
+    [[nodiscard]] string RemoveDuplicates(const string& s, int k = 2) const {
+        int const n = static_cast<int>(s.size());
         if (n < k) return s;
 
         stack<pair<char, int>> stk;

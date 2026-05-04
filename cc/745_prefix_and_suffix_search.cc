@@ -31,13 +31,13 @@ class Trie {
         int m_end_idx;
 
        public:
-        bool Contains(char& ch) { return (m_child[ch - 'a'] != nullptr); }
+        bool Contains(char ch) { return (m_child[ch - 'a'] != nullptr); }
 
-        void PutNode(char& ch, Node* new_node) { m_child[ch - 'a'] = new_node; }
+        void PutNode(char ch, Node* new_node) { m_child[ch - 'a'] = new_node; }
 
-        Node* GetNext(char& ch) { return m_child[ch - 'a']; }
+        Node* GetNext(char ch) { return m_child[ch - 'a']; }
 
-        void SetIdx(int& i) { m_end_idx = i; }
+        void SetIdx(int i) { m_end_idx = i; }
 
         int GetIdx() { return m_end_idx; }
     };

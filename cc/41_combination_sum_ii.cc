@@ -29,10 +29,10 @@ class Solution {
         }
 
         for (int j = i; j < static_cast<int>(arr.size()); j++) {
-            if (j > i && arr[j] == arr[j - 1]) continue;
-            if (arr[j] > target) break;
-            v.push_back(arr[j]);
-            Find(j + 1, ans, v, arr, target - arr[j]);
+            if (j > i && arr.at(j) == arr.at(j - 1)) continue;
+            if (arr.at(j) > target) break;
+            v.push_back(arr.at(j));
+            Find(j + 1, ans, v, arr, target - arr.at(j));
             v.pop_back();
         }
     }

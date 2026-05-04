@@ -47,7 +47,7 @@ class Solution {
             if (ladders > 0) {
                 candidates = 1 + fun(i + 1, bricks, ladders - 1);
             }
-            int const minus = heights[i + 1] - heights[i];
+            int const minus = heights.at(i + 1) - heights.at(i);
             if (minus <= bricks) {
                 candidates2 = 1 + fun(i + 1, bricks - minus, ladders);
             }
@@ -62,10 +62,10 @@ class Solution {
         std::priority_queue<int> max_heap;
         for (int i = 0; i < static_cast<int>(heights.size()) - 1; i++) {
             // If height of next building is smaller jump on it
-            if (heights[i] >= heights[i + 1]) {
+            if (heights.at(i) >= heights.at(i + 1)) {
                 continue;
             }  // Difference between both heights
-            int const diff = heights[i + 1] - heights[i];
+            int const diff = heights.at(i + 1) - heights.at(i);
 
             // Total count of bricks needed
             total_count += diff;
@@ -121,7 +121,7 @@ TEST(FurthestBuildingYouCanReach, t1) {
 
 TEST(FurthestBuildingYouCanReach, t2) {
     std::vector<int> heights{4, 12, 2, 7, 3, 18, 20, 3, 19};
-    int bricks = 10, ladders = 2;
+    int const bricks = 10, ladders = 2;
 
     Solution sl;
     int const ret = sl.FurthestBuilding2(heights, bricks, ladders);
@@ -130,7 +130,7 @@ TEST(FurthestBuildingYouCanReach, t2) {
 
 TEST(FurthestBuildingYouCanReach, t3) {
     std::vector<int> heights{14, 3, 19, 3};
-    int bricks = 17, ladders = 0;
+    int const bricks = 17, ladders = 0;
 
     Solution sl;
     int const ret = sl.FurthestBuilding2(heights, bricks, ladders);

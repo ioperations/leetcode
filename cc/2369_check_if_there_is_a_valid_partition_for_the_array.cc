@@ -44,14 +44,14 @@ class Solution {
             return m_cache[start_from];
         }
 
-        if (nums[start_from] == nums[start_from + 1]) {
+        if (nums.at(start_from) == nums.at(start_from + 1)) {
             if (CheckIfOk(nums, start_from + 2)) {
                 m_cache[start_from] = true;
                 return true;
             }
 
             if (start_from + 2 < nums.size()) {
-                if (nums[start_from] == nums[start_from + 2]) {
+                if (nums.at(start_from) == nums.at(start_from + 2)) {
                     return CheckIfOk(nums, start_from + 3);
                 }
                 m_cache[start_from] = false;
@@ -65,8 +65,8 @@ class Solution {
             return false;
         }
 
-        if (nums[start_from + 2] - nums[start_from + 1] == 1) {
-            if (nums[start_from + 1] - nums[start_from] == 1) {
+        if (nums.at(start_from + 2) - nums.at(start_from + 1) == 1) {
+            if (nums.at(start_from + 1) - nums.at(start_from) == 1) {
                 return CheckIfOk(nums, start_from + 3);
             }
         }

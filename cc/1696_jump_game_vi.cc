@@ -23,25 +23,25 @@ namespace {
 class Solution {
    public:
     int MaxResult(std::vector<int>& nums, int k) {
-        int const n = nums.size();
+        int const n = static_cast<int>(nums.size());
         std::vector<int> mem(n, INT_MIN);
         std::priority_queue<std::pair<int, int>> pq;
-        mem[n - 1] = nums[n - 1];
-        pq.emplace(mem[n - 1], n - 1);
+        mem.at(n - 1) = nums.at(n - 1);
+        pq.emplace(mem.at(n - 1), n - 1);
         for (int i = n - 2; i >= 0; i--) {
             while (!pq.empty()) {
                 std::pair<int, int> const curr = pq.top();
                 int const prev_max_score = curr.first;
                 int const index = curr.second;
                 if (index - i <= k) {
-                    mem[i] = nums[i] + prev_max_score;
-                    pq.emplace(mem[i], i);
+                    mem.at(i) = nums.at(i) + prev_max_score;
+                    pq.emplace(mem.at(i), i);
                     break;
                 }
                 pq.pop();
             }
         }
-        return mem[0];
+        return mem.at(0);
     }
 };
 

@@ -21,16 +21,16 @@ class Solution {
         // vector for updating the dp array/values
         std::vector<int> dp(n + 1, INT_MAX);
         // base case
-        dp[0] = 0;
+        dp.at(0) = 0;
         int count = 1;
         while (count * count <= n) {
             int const sq = count * count;
             for (int i = sq; i < n + 1; i++) {
-                dp[i] = std::min(dp[i - sq] + 1, dp[i]);
+                dp.at(i) = std::min(dp.at(i - sq) + 1, dp.at(i));
             }
             count++;
         }
-        return dp[n];
+        return dp.at(n);
     }
 };
 

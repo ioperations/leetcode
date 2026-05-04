@@ -17,21 +17,24 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    bool IsPalindrome(string s) const {
+    [[nodiscard]] bool IsPalindrome(string s) const {
         s = RemoveAllUNreleated(s);
-        return IsPalindrome(s, 0, s.size() - 1);
+        return IsPalindrome(s, 0, static_cast<int>(s.size()) - 1);
         return false;
     }
 
-    string RemoveAllUNreleated(std::string& ss) const {
+    [[nodiscard]] string RemoveAllUNreleated(std::string& ss) const {
+        int const n = static_cast<int>(ss.size());
         std::string ret;
-        for (char const s : ss) {
-            if ('A' <= s && s <= 'Z') {
-                ret += s - 'A' + 'a';
-            } else if ('a' <= s && s <= 'z') {
-                ret += s;
-            } else if ('0' <= s && s <= '9') {
-                ret += s;
+        ret.reserve(n);
+        for (int i = 0; i < n; ++i) {
+            char const ch = ss.at(i);
+            if ('A' <= ch && ch <= 'Z') {
+                ret += ch - 'A' + 'a';
+            } else if ('a' <= ch && ch <= 'z') {
+                ret += ch;
+            } else if ('0' <= ch && ch <= '9') {
+                ret += ch;
             }
         }
         return ret;
@@ -39,7 +42,7 @@ class Solution {
 
     bool IsPalindrome(string& s, int i, int j) const {
         while (i < j) {
-            if (s[i] == s[j]) {
+            if (s.at(i) == s.at(j)) {
                 i++;
                 j--;
             } else {

@@ -23,7 +23,7 @@ class Solution {
 
         int count = 0;
         for (int i = 0; i < 32; i++) {
-            if (x_str[i] != y_str[i]) {
+            if (x_str.at(i) != y_str.at(i)) {
                 count++;
             }
         }
@@ -36,7 +36,7 @@ class Solution {
         int i = 0;
         while (x) {
             int const cur = x % 2;
-            ret[31 - i] = '0' + cur;
+            ret.at(31 - i) = static_cast<char>('0' + cur);
             x /= 2;
             i++;
         }
@@ -55,7 +55,7 @@ class Solution {
 };
 
 TEST(hammingV, t1) {
-    int x = 1, y = 4;
+    int const x = 1, y = 4;
     int const output = 2;
     // Explanation:
     // 1   (0 0 0 1)
@@ -72,7 +72,7 @@ TEST(hammingV, t1) {
 }
 
 TEST(hammingV, t2) {
-    int x = 3, y = 1;
+    int const x = 3, y = 1;
     int const output = 1;
     // Explanation:
     // 1   (0 0 0 1)

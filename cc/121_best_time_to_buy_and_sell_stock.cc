@@ -26,7 +26,7 @@ class Solution {
         int max = 0;
         for (size_t i = 1; i < prices.size(); i++) {
             for (size_t j = 0; j < i; j++) {
-                max = (prices[i] - prices[j]) > max ? (prices[i] - prices[j])
+                max = (prices.at(i) - prices.at(j)) > max ? (prices.at(i) - prices.at(j))
                                                     : max;
             }
         }
@@ -36,11 +36,11 @@ class Solution {
     int MaxProfitV2(std::vector<int>& prices) const {
         int max_price = -1;
         int max_profit = 0;
-        for (int i = prices.size() - 1; i >= 0; i--) {
-            if (prices[i] > max_price) {
-                max_price = prices[i];
+        for (int i = static_cast<int>(prices.size()) - 1; i >= 0; i--) {
+            if (prices.at(i) > max_price) {
+                max_price = prices.at(i);
             }
-            int const profit = max_price - prices[i];
+            int const profit = max_price - prices.at(i);
             if (profit > max_profit) {
                 max_profit = profit;
             }

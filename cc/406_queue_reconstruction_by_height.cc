@@ -29,13 +29,14 @@ class Solution {
         vector<vector<int>> ans;
         map<int, vector<int>> heights;
 
-        for (auto& i : people) heights[i[0]].push_back(i[1]);
+        for (auto& i : people) heights[i.at(0)].push_back(i.at(1));
 
         for (auto rit = heights.rbegin(); rit != heights.rend(); ++rit) {
             sort(rit->second.begin(), rit->second.end());
-            for (int i = 0; i < static_cast<int>(rit->second.size()); i++)
-                ans.insert(ans.begin() + rit->second[i],
-                           {rit->first, rit->second[i]});
+            for (int i = 0; i < static_cast<int>(rit->second.size()); i++) {
+                ans.insert(ans.begin() + rit->second.at(i),
+                           {rit->first, rit->second.at(i)});
+            }
         }
         return ans;
     }

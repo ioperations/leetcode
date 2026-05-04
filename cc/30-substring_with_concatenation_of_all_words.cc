@@ -19,7 +19,7 @@ namespace {
 class Solution {
    public:
     Solution() = default;
-    std::vector<int> FindSubString(std::string s,
+    std::vector<int> FindSubString(std::string const& s,
                                    std::vector<std::string>& words) {
         std::sort(
             words.begin(), words.end(),
@@ -46,7 +46,7 @@ class Solution {
         if (it != std::string::npos) {
             return tofind.substr(it, tofind.size()).find(candidate) !=
                            std::string::npos
-                       ? it
+                       ? static_cast<int>(it)
                        : -1;
         }
         return -1;
@@ -57,7 +57,7 @@ class Solution {
         auto it = tofind.find(candidate);
         if (it != std::string::npos) {
             const std::string substr = tofind.substr(it + 1, tofind.size());
-            auto ret2 = AllSubString(substr, candidate, it + 1 + index);
+            auto ret2 = AllSubString(substr, candidate, static_cast<int>(it + 1 + index));
             ret2.emplace(it + index);
             return ret2;
         }

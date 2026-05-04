@@ -77,8 +77,9 @@ class Solution {
                 high = mid - 1;
             } else {
                 // if the current element is peak return the index
-                if (nums.at(mid) > nums.at(mid - 1) && nums.at(mid) > nums.at(mid + 1))
+                if (nums.at(mid) > nums.at(mid - 1) && nums.at(mid) > nums.at(mid + 1)) {
                     return mid;
+                }
                 // if the next element is bigger so we will go left as we need
                 // only one more element to be in right of bigger element
                 if (nums.at(mid + 1) > nums.at(mid)) {

@@ -65,8 +65,8 @@ class Solution {
         // optionally + or -
         if (s.at(i) == '+' || s.at(i) == '-') i++;
 
-        if (i == static_cast<int>(s.size())) {  // end already?
-            return false;        // TODO: when false, undo side effect??
+        if (i == static_cast<int>(s.size())) {
+            return false;
         }
 
         if (ParseDigits(s, i)) {
@@ -76,10 +76,10 @@ class Solution {
                 //  if (i==s.size())  // how to handle 46.e3 ??  conflicting
                 //  semantics
                 //     return true;
-                if (ParseDigits(s, i))
-                    return true;  // mistake:  return i==s.size(); // it can
-                                  // follow more things
-                return true;      // still true , most tricky part here !!!
+                if (ParseDigits(s, i)) {
+                    return true;
+                }
+                return true;
             }
         } else if (s.at(i) == '.') {
             i++;
@@ -157,10 +157,14 @@ class Solution {
 
     class Tokener {
        public:
-        Tokener(std::string s) : m_s(std::move(s)) {};
+        Tokener(std::string s) : m_s(std::move(s)) {}
+        Tokener(const Tokener&) = default;
+        Tokener(Tokener&&) = default;
+        Tokener& operator=(const Tokener&) = default;
+        Tokener& operator=(Tokener&&) = default;
         virtual ~Tokener() = default;
 
-        enum token_type {
+        enum class token_type {
             PLUS_OR_MINUS,
             NUMBER_SEQUENCE,
             DOT,
@@ -189,10 +193,10 @@ class Solution {
                 }
                 ret = Next(z);
                 switch (ret.first) {
-                    case ERROR:
+                    case token_type::ERROR:
                         return false;
                         break;
-                    case END:
+                    case token_type::END:
                         end = true;
                         break;
                     default:
@@ -248,7 +252,7 @@ class Solution2 {
     string::iterator m_it;
 
    public:
-    bool IsNumber(string s) {
+    bool IsNumber(const std::string& s) {
         m_s = s;
         m_it = m_s.begin();
         return ParseUntrimmedSignedScientificNum();

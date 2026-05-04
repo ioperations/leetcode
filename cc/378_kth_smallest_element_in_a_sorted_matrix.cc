@@ -37,8 +37,9 @@ Space Complexity: O(1), constant space.
             if (CountLessOrEqual(matrix, mid) >= k) {
                 ans = mid;
                 high = mid - 1;
-            } else
+            } else {
                 low = mid + 1;
+            }
         }
 
         return ans;

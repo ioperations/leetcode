@@ -42,7 +42,7 @@ class Solution {
         int popped = INT_MIN;
 
         for (int i = 0; i < static_cast<int>(nums.size()); i++) {
-            auto a = nums[i];
+            auto a = nums.at(i);
             if ((v >> i & 1) || a == popped) {
                 continue;
             }

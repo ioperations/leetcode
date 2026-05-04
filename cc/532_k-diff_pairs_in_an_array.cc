@@ -29,10 +29,10 @@ class Solution {
         sort(nums.begin(), nums.end());
         int ret = 0;
         for (int i = 0; i < static_cast<int>(nums.size()); i++) {
-            if (binary_search(nums.begin() + i + 1, nums.end(), k + nums[i])) {
+            if (binary_search(nums.begin() + i + 1, nums.end(), k + nums.at(i))) {
                 ret++;
             }
-            while (i + 1 < static_cast<int>(nums.size()) && nums[i + 1] == nums[i]) {
+            while (i + 1 < static_cast<int>(nums.size()) && nums.at(i + 1) == nums.at(i)) {
                 i++;
             }
         }
@@ -41,9 +41,9 @@ class Solution {
 
     int FindPairsV1(vector<int>& nums, int k) const {
         sort(nums.begin(), nums.end());
-        int prev = INT_MIN, ret = 0, n = nums.size();
+        int prev = INT_MIN, ret = 0, n = static_cast<int>(nums.size());
         for (int i = 0; i < n; ++i) {
-            auto& v = nums[i];
+            auto& v = nums.at(i);
             if (v != prev) {
                 if (binary_search(nums.begin() + i + 1, nums.end(), v + k)) {
                     ret++;

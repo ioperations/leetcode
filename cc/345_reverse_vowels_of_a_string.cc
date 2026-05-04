@@ -18,6 +18,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
+    [[nodiscard]]
     std::string ReverseVowels(std::string s) const {
         // pass
         std::stack<int> z;
@@ -26,16 +27,16 @@ class Solution {
         std::set<char> const vowels{'a', 'e', 'i', 'o', 'u',
                                     'A', 'E', 'I', 'O', 'U'};
 
-        for (int i = 0; i < (int)s.size(); i++) {
-            if (vowels.count(s[i])) {
+        for (int i = 0; i < static_cast<int>(s.size()); i++) {
+            if (vowels.count(s.at(i))) {
                 z.push(i);
-                num.push(s[i]);
+                num.push(s.at(i));
             }
         }
         while (z.size()) {
             int const d = z.top();
 
-            s[d] = num.front();
+            s.at(d) = num.front();
             num.pop();
             z.pop();
         }

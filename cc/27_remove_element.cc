@@ -40,13 +40,13 @@ class Solution {
    public:
     int RemoveElement(std::vector<int>& nums, int val) {
         // pass
-        int const n = nums.size();
+        int const n = static_cast<int>(nums.size());
 
         int i = 0, j = 0;
 
         while (j < n) {
-            if (nums[j] != val) {
-                nums[i++] = nums[j];
+            if (nums.at(j) != val) {
+                nums.at(i++) = nums.at(j);
             }
             j++;
         }
@@ -67,7 +67,7 @@ TEST(removeV, t1) {
     int const ret = sl.RemoveElement(v, val);
     EXPECT_EQ(ret, output);
     for (int i = 0; i < output; i++) {
-        EXPECT_EQ(v[i], nums_expected[i]);
+        EXPECT_EQ(v.at(i), nums_expected.at(i));
     }
 }
 
@@ -84,7 +84,7 @@ TEST(removeV, t2) {
     int const ret = sl.RemoveElement(v, val);
     EXPECT_EQ(ret, output);
     for (int i = 0; i < output; i++) {
-        EXPECT_EQ(v[i], nums_expected[i]);
+        EXPECT_EQ(v.at(i), nums_expected.at(i));
     }
 }
 

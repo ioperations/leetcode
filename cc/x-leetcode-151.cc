@@ -12,7 +12,7 @@ namespace {
 
 class Solution {
    public:
-    std::string ReverseWords(std::string str) {
+    std::string ReverseWords(std::string const& str) {
         std::function<std::string(std::string)> recursive_fun =
             [&recursive_fun](std::string s) -> std::string {
             std::string ret{};
@@ -22,7 +22,7 @@ class Solution {
                 size_t i = 0;
                 bool novalue = true;
                 for (; i < s.size(); ++i) {
-                    if (s[i] == ' ') {
+                    if (s.at(i) == ' ') {
                         if (!novalue) {
                             break;
                         }
@@ -38,7 +38,7 @@ class Solution {
                 size_t j = 0;
                 // jump the very first space
                 for (; j != i; j++) {
-                    if (s[j] != ' ') {
+                    if (s.at(j) != ' ') {
                         break;
                     }
                 }

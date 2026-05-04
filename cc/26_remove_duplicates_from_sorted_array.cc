@@ -67,7 +67,7 @@ class Solution {
 
         int i = 0;
         while (q.size()) {
-            nums[i] = q.top();
+            nums.at(i) = q.top();
             q.pop();
             i++;
         }
@@ -83,7 +83,7 @@ TEST(RemoveDuplicatesFromSortedArray, t1) {
     int const k = sl.RemoveDuplicates(nums);
     EXPECT_EQ(k, output);
     for (int i = 0; i < output; i++) {
-        EXPECT_EQ(nums[i], nums_expected[i]);
+        EXPECT_EQ(nums.at(i), nums_expected.at(i));
     }
 }
 TEST(RemoveDuplicatesFromSortedArray, t2) {
@@ -94,7 +94,7 @@ TEST(RemoveDuplicatesFromSortedArray, t2) {
     int const k = sl.RemoveDuplicates(nums);
     EXPECT_EQ(k, output);
     for (int i = 0; i < output; i++) {
-        EXPECT_EQ(nums[i], nums_expected[i]);
+        EXPECT_EQ(nums.at(i), nums_expected.at(i));
     }
 }
 

@@ -100,7 +100,7 @@ class Solution {
 
     [[nodiscard]]
     NestedInteger DeserializeV1(std::string s) const {
-        constexpr int kBase = 10;
+        constexpr int k_base = 10;
         std::stack<NestedInteger> stk({NestedInteger()});
         for (size_t i = 0; i < s.size(); ++i) {
             if (s.at(i) == '[') {
@@ -118,7 +118,7 @@ class Solution {
                     ++i;
                 }
                 for (; i < s.size() && '0' <= s.at(i) && s.at(i) <= '9'; ++i) {
-                    v = v * kBase + s.at(i) - '0';
+                    v = v * k_base + s.at(i) - '0';
                 }
                 if (negative) {
                     v = -v;

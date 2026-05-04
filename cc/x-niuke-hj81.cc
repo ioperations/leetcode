@@ -36,8 +36,8 @@ void Func(const std::string& less, const std::string& more) {
 
 TEST(XNiukeHjv2, t2) {
     testing::internal::CaptureStdout();
-    std::string le("bc");
-    std::string more("abc");
+    std::string const le("bc");
+    std::string const more("abc");
     Func(le, more);
     std::string const out = testing::internal::GetCapturedStdout();
     std::string const expected = "true\n";
@@ -46,8 +46,8 @@ TEST(XNiukeHjv2, t2) {
 
 TEST(XNiukeHjv2, t3) {
     testing::internal::CaptureStdout();
-    std::string le("bd");
-    std::string more("abc");
+    std::string const le("bd");
+    std::string const more("abc");
     Func(le, more);
     std::string const out = testing::internal::GetCapturedStdout();
     std::string const expected = "false\n";
