@@ -25,7 +25,7 @@ class Solution {
 
         AddToRet(root, ret, 0);
         for (int i = 1; i < static_cast<int>(ret.size()); i += 2) {
-          reverse(ret[i].begin(), ret[i].end());
+          reverse(ret.at(i).begin(), ret.at(i).end());
         }
         return ret;
     }

@@ -22,13 +22,13 @@ namespace {
 class Solution {
    public:
     TreeNode* SortedArrayToBst(std::vector<int>& nums) const {
-        return Helper(nums, 0, nums.size() - 1);
+        return Helper(nums, 0, static_cast<int>(nums.size()) - 1);
     }
 
     TreeNode* Helper(vector<int>& nums, int start, int end) const {
         if (start > end) return nullptr;
         int const mid = start + (end - start) / 2;
-        auto* bs_ttree = new TreeNode(nums[mid]);
+        auto* bs_ttree = new TreeNode(nums.at(mid));
         bs_ttree->left = Helper(nums, start, mid - 1);
         bs_ttree->right = Helper(nums, mid + 1, end);
         return bs_ttree;

@@ -14,6 +14,7 @@ the dictionary, return -1.
 */
 
 #include <algorithm>
+#include <array>
 #include <map>
 #include <string>
 #include <vector>
@@ -27,15 +28,15 @@ class Trie {
    public:
     struct Node {
        public:
-        Node* m_child[27];
+        std::array<Node*, 27> m_child;
         int m_end_idx;
 
        public:
-        bool Contains(char ch) { return (m_child[ch - 'a'] != nullptr); }
+        bool Contains(char ch) { return (m_child.at(ch - 'a') != nullptr); }
 
-        void PutNode(char ch, Node* new_node) { m_child[ch - 'a'] = new_node; }
+        void PutNode(char ch, Node* new_node) { m_child.at(ch - 'a') = new_node; }
 
-        Node* GetNext(char ch) { return m_child[ch - 'a']; }
+        Node* GetNext(char ch) { return m_child.at(ch - 'a'); }
 
         void SetIdx(int i) { m_end_idx = i; }
 

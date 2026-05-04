@@ -29,12 +29,12 @@ class Solution {
 
         stack<pair<char, int>> stk;
         for (int i = 0; i < n; ++i) {
-          if (stk.empty() || stk.top().first != s[i]) {
-            stk.emplace(s[i], 1);
+          if (stk.empty() || stk.top().first != s.at(i)) {
+            stk.emplace(s.at(i), 1);
           } else {
-            auto prev = stk.top();
+            auto const prev = stk.top();
             stk.pop();
-            stk.emplace(s[i], prev.second + 1);
+            stk.emplace(s.at(i), prev.second + 1);
           }
           if (stk.top().second == k) stk.pop();
         }

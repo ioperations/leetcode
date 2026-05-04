@@ -36,7 +36,7 @@ class Solution {
         }
 
         for (int i = 0; i < static_cast<int>(p.size()); i++) {
-          if (p[i] != q[i]) {
+          if (p.at(i) != q.at(i)) {
             return false;
           }
         }

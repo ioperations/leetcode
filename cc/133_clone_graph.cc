@@ -116,7 +116,7 @@ Node* BuildNode(vector<std::vector<int>>& adj_list) {
     int count = 1;
     for (auto& ptr : adj_list) {
         for (auto& z : ptr) {
-            Node* to_insert = GetOrInsert(node, z);
+            Node* const to_insert = GetOrInsert(node, z);
             Node* to_be_insert = GetOrInsert(node, count);
             to_be_insert->m_neighbors.push_back(to_insert);
         }
@@ -172,7 +172,7 @@ void CheckEqual(Node* node, std::vector<std::vector<int>>& adj_list) {
     visited.insert(node->m_val);
 
     while (!q.empty()) {
-        Node* curr = q.front();
+        Node* const curr = q.front();
         q.pop();
 
         std::vector<int> neighbors;
@@ -188,7 +188,7 @@ void CheckEqual(Node* node, std::vector<std::vector<int>>& adj_list) {
 
     EXPECT_EQ(cloned_adj.size(), adj_list.size());
     for (size_t i = 0; i < adj_list.size(); i++) {
-        auto it = cloned_adj.find(i + 1);
+        auto it = cloned_adj.find(static_cast<int>(i) + 1);
         EXPECT_TRUE(it != cloned_adj.end());
         std::vector<int> expected = adj_list[i];
         std::sort(it->second.begin(), it->second.end());

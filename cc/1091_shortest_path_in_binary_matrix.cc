@@ -33,7 +33,7 @@ class Solution {
     int ShortestPathBinaryMatrix(vector<vector<int>>& grid) const {
         if (grid.at(0).at(0) == 1) return -1;  // path is blocked from the start
 
-        vector<vector<int>> dirs = {{-1, 0},  {1, 0},  {0, -1}, {0, 1},
+        vector<vector<int>> const dirs = {{-1, 0},  {1, 0},  {0, -1}, {0, 1},
                                     {-1, -1}, {-1, 1}, {1, -1}, {1, 1}};
 
         queue<pair<int, int>> fill_values;
@@ -48,15 +48,15 @@ class Solution {
                 pair<int, int> const coord = fill_values.front();
                 fill_values.pop();
 
-                int x = coord.first, y = coord.second;
+                int const x = coord.first, y = coord.second;
 
                 if (x == static_cast<int>(grid.size()) - 1 &&
                     y == static_cast<int>(grid.at(x).size()) - 1) {
                   return steps;
                 }
 
-                for (vector<int>& dir : dirs) {
-                    int new_x = x + dir.at(0), new_y = y + dir.at(1);
+                for (vector<int> const& dir : dirs) {
+                    int const new_x = x + dir.at(0), new_y = y + dir.at(1);
 
                     if (!InBoundsAndClear(grid, new_x, new_y)) continue;
 

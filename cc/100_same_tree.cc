@@ -65,7 +65,7 @@ TEST(Memleak, t0) {
 }
 
 TEST(sameV, t1) {
-    std::vector<int> p = {1, 2, 3}, q = {1, 2, 3};
+    std::vector<int> const p = {1, 2, 3}, q = {1, 2, 3};
 
     auto* root1 = ConstructTree(p);
     auto* root2 = ConstructTree(q);

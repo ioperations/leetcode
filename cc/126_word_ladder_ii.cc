@@ -114,7 +114,7 @@ class Solution {
 };
 
 TEST(WordLadderIi, t1) {
-    string begin_word = "hit", end_word = "cog";
+    string const begin_word = "hit", end_word = "cog";
     vector<string> word_list = {"hot", "dot", "dog", "lot", "log", "cog"};
     vector<vector<string>> output = {{"hit", "hot", "dot", "dog", "cog"},
                                      {"hit", "hot", "lot", "log", "cog"}};
@@ -129,7 +129,7 @@ TEST(WordLadderIi, t1) {
 }
 
 TEST(WordLadderIi, t2) {
-    string begin_word = "hit", end_word = "cog";
+    string const begin_word = "hit", end_word = "cog";
     vector<string> word_list = {"hot", "dot", "dog", "lot", "log"};
     vector<vector<string>> const output = {};
     // Explanation: The endWord "cog" is not in wordList, therefore there is no
@@ -140,7 +140,7 @@ TEST(WordLadderIi, t2) {
 }
 
 TEST(WordLadderIi, t3) {
-    string begin_word = "aaaaa", end_word = "ggggg";
+    string const begin_word = "aaaaa", end_word = "ggggg";
     vector<string> word_list = {
         "aaaaa", "caaaa", "cbaaa", "daaaa", "dbaaa", "eaaaa", "ebaaa", "faaaa",
         "fbaaa", "gaaaa", "gbaaa", "haaaa", "hbaaa", "iaaaa", "ibaaa", "jaaaa",

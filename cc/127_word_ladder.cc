@@ -43,7 +43,7 @@ class Solution {
       int depth = 0;
       while (!q.empty()) {
         depth += 1;
-        int qsize = q.size();
+        int qsize = static_cast<int>(q.size());
         // traverse all nodes of current level
         // bcz we are not going to use depth array
         while (qsize--) {
@@ -53,7 +53,7 @@ class Solution {
             string tmp = curr;
             // changing char at i, check all posibilities
             for (char ch = 'a'; ch <= 'z'; ch++) {
-              tmp[i] = ch;
+              tmp.at(i) = ch;
               if (tmp == curr) continue;
               if (tmp == end_word) return depth + 1;
               if (words.count(tmp)) {

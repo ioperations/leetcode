@@ -83,7 +83,7 @@ TreeNode* InsertLevelOrder(vector<int>& arr, int i) {
     // Base case for recursion
     const int n = arr.size();
     if (i < n) {
-        TreeNode* temp = NewNode(arr[i]);
+        TreeNode* temp = NewNode(arr.at(i));
         TreeNode* root = temp;
 
         // insert left child
@@ -92,7 +92,7 @@ TreeNode* InsertLevelOrder(vector<int>& arr, int i) {
         // insert right child
         root->right = InsertLevelOrder(arr, 2 * i + 2);
 
-        if (arr[i] == -1) {
+        if (arr.at(i) == -1) {
             root->m_deleted = true;
         }
         return root;

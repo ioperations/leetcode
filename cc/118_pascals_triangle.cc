@@ -18,7 +18,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    vector<vector<int>> Generate(int num_rows) const {
+    [[nodiscard]] vector<vector<int>> Generate(int num_rows) const {
         // 1 <= num_rows <= 30
         vector<vector<int>> ret;
         ret.push_back({1});
@@ -32,7 +32,7 @@ class Solution {
             vector<int> next;
             next.reserve(static_cast<int>(r.size()));
             for (int i = 0; i < static_cast<int>(r.size()); i++) {
-              next.push_back((i == 0 ? 0 : r[i - 1]) + r[i]);
+              next.push_back((i == 0 ? 0 : r.at(i - 1)) + r.at(i));
             }
 
             r.pop_back();
