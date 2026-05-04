@@ -15,27 +15,25 @@
 
 #include "gtest/gtest.h"
 
-using namespace std;
-
 namespace {
 class Solution {
    public:
-    vector<int> TopKFrequent(vector<int>& nums, int k) {
-        vector<int> ret;
+    std::vector<int> TopKFrequent(std::vector<int>& nums, int k) {
+        std::vector<int> ret;
 
-        sort(nums.begin(), nums.end());
-        map<int, int> map;
+        std::sort(nums.begin(), nums.end());
+        std::map<int, int> map;
         for (auto ptr : nums) {
             map[ptr]++;
         }
 
         struct Cmp {
-            bool operator()(pair<int, int>& a, pair<int, int>& b) {
+            bool operator()(std::pair<int, int>& a, std::pair<int, int>& b) {
                 return a.second < b.second;
             }
         };
 
-        std::priority_queue<pair<int, int>, vector<pair<int, int>>, Cmp> q;
+        std::priority_queue<std::pair<int, int>, std::vector<std::pair<int, int>>, Cmp> q;
         for (auto& ptr : map) {
             q.emplace(ptr);
         }
@@ -46,10 +44,10 @@ class Solution {
         }
         return ret;
     }
-    vector<int> TopKFrequentV1(vector<int>& nums, int k) {
-        unordered_map<int, int> mp;
-        priority_queue<pair<int, int>> pq;
-        vector<int> ans;
+    std::vector<int> TopKFrequentV1(std::vector<int>& nums, int k) {
+        std::unordered_map<int, int> mp;
+        std::priority_queue<std::pair<int, int>> pq;
+        std::vector<int> ans;
         for (int const i : nums) {
             ++mp[i];
         }
@@ -113,7 +111,7 @@ TEST(TopKFrequentElementsV2, t2) {
 }
 
 static void BenchMarkV0(benchmark::State& state) {
-    for (auto _ : state) {
+    for (auto&& _ : state) {
         std::vector<int> nums = {
             1,   1,   1,   2,   2,   3,   4,   5,   6,   7,   8,   9,   10,
             11,  12,  13,  14,  15,  16,  17,  18,  19,  20,  21,  22,  23,
@@ -137,7 +135,7 @@ static void BenchMarkV0(benchmark::State& state) {
 BENCHMARK(BenchMarkV0);
 
 static void BenchMarkV1(benchmark::State& state) {
-    for (auto _ : state) {
+    for (auto&& _ : state) {
         std::vector<int> nums = {
             1,   1,   1,   2,   2,   3,   4,   5,   6,   7,   8,   9,   10,
             11,  12,  13,  14,  15,  16,  17,  18,  19,  20,  21,  22,  23,

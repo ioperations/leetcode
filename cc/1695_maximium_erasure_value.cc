@@ -33,15 +33,16 @@ class Solution {
         //  from map and also subtract it from sum
         unordered_map<int, int> m;
         int sum = 0, ans = 0;
-        int i = 0, j = 0, n = nums.size();
+        int i = 0, j = 0;
+        int const n = static_cast<int>(nums.size());
         while (j < n) {
-            sum += nums[j];
-            while (m.find(nums[j]) != m.end()) {
-                sum -= nums[i];
-                m.erase(nums[i]);
+            sum += nums.at(j);
+            while (m.find(nums.at(j)) != m.end()) {
+                sum -= nums.at(i);
+                m.erase(nums.at(i));
                 i++;
             }
-            m[nums[j]]++;
+            m[nums.at(j)]++;
             ans = max(ans, sum);
             j++;
         }

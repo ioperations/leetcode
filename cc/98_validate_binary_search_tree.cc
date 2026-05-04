@@ -30,8 +30,8 @@ class Solution {
         std::vector<int> z;
         Solve(root, z);
 
-        for (int i = 0; i < (int)(z.size() - 1); i++) {
-            if (z[i] >= z[i + 1]) {
+        for (int i = 0; i < static_cast<int>(z.size() - 1); i++) {
+            if (z.at(i) >= z.at(i + 1)) {
                 return false;
             }
         }
@@ -135,9 +135,9 @@ TreeNode* ConstructTree(const std::vector<int>& elements) {
         return nullptr;
     }
 
-    auto* root = new TreeNode(elements[0]);
+    auto* root = new TreeNode(elements.at(0));
 
-    for (int i = 1; i < (int)elements.size(); i++) {
+    for (int i = 1; i < static_cast<int>(elements.size()); i++) {
         root = AddToRoot(root, elements[i]);
     }
 

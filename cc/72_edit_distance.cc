@@ -24,12 +24,10 @@ Replace a character
 
 #include "gtest/gtest.h"
 
-using namespace std;
-
 namespace {
 class Solution {
    public:
-    int MinDistance(const string& word1, const string& word2) {
+    int MinDistance(const std::string& word1, const std::string& word2) {
         std::map<std::pair<std::string, std::string>, int> cache;
         return EditDistance(word1, word2, cache);
     }
@@ -69,10 +67,10 @@ class Solution {
     int MinDistanceV3(const std::string& word1, const std::string& word2) {
         int const m = static_cast<int>(word1.size());
         int const n = static_cast<int>(word2.size());
-        map<pair<int, int>, int> cache;
-        function<int(int, int)> fun = [&](int i, int j) -> int {
-            if (cache.count(make_pair(i, j))) {
-                return cache.at(make_pair(i, j));
+        std::map<std::pair<int, int>, int> cache;
+        std::function<int(int, int)> fun = [&](int i, int j) -> int {
+            if (cache.count(std::make_pair(i, j))) {
+                return cache.at(std::make_pair(i, j));
             }
             if (i >= m && j >= n) {
                 return 0;
@@ -84,12 +82,12 @@ class Solution {
                 return m - i;
             }
             if (word1.at(i) == word2.at(j)) {
-                cache[make_pair(i, j)] = fun(i + 1, j + 1);
+                cache[std::make_pair(i, j)] = fun(i + 1, j + 1);
             } else {
-                cache[make_pair(i, j)] =
-                    1 + min({fun(i + 1, j + 1), fun(i + 1, j), fun(i, j + 1)});
+                cache[std::make_pair(i, j)] =
+                    1 + std::min({fun(i + 1, j + 1), fun(i + 1, j), fun(i, j + 1)});
             }
-            return cache.at(make_pair(i, j));
+            return cache.at(std::make_pair(i, j));
         };
         return fun(0, 0);
     }

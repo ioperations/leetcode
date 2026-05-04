@@ -25,11 +25,11 @@ class Solution {
         int m = 0, n = 0;  // char pointers
 
         while (i < static_cast<int>(word1.size()) and j < static_cast<int>(word2.size())) {
-            if (word1[i][m++] != word2[j][n++]) return false;
+            if (word1.at(i).at(m++) != word2.at(j).at(n++)) return false;
 
-            if (m >= static_cast<int>(word1[i].size())) i++, m = 0;
+            if (m >= static_cast<int>(word1.at(i).size())) i++, m = 0;
 
-            if (n >= static_cast<int>(word2[j].size())) j++, n = 0;
+            if (n >= static_cast<int>(word2.at(j).size())) j++, n = 0;
         }
 
         return i == static_cast<int>(word1.size()) and j == static_cast<int>(word2.size());

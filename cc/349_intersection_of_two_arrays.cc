@@ -22,15 +22,15 @@ class Solution {
         sort(nums1.begin(), nums1.end());
         sort(nums2.begin(), nums2.end());
 
-        const int size1 = nums1.size();
-        const int size2 = nums2.size();
+        int const size1 = static_cast<int>(nums1.size());
+        int const size2 = static_cast<int>(nums2.size());
 
         for (int i = 0, j = 0; i < size1 && j < size2;) {
-            if (nums1[i] == nums2[j]) {
-                ret.emplace(nums1[i]);
+            if (nums1.at(i) == nums2.at(j)) {
+                ret.emplace(nums1.at(i));
                 i++;
                 j++;
-            } else if (nums1[i] > nums2[j]) {
+            } else if (nums1.at(i) > nums2.at(j)) {
                 j++;
             } else {
                 i++;

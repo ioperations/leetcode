@@ -25,8 +25,6 @@
 
 #include "gtest/gtest.h"
 
-using namespace std;
-
 namespace {
 class Iterator {
     const std::vector<int>& m_nums;
@@ -34,7 +32,7 @@ class Iterator {
     int i{-1};
 
    public:
-    Iterator(const vector<int>& nums) : m_nums(nums), size(nums.size()) {}
+    Iterator(const std::vector<int>& nums) : m_nums(nums), size(nums.size()) {}
 
     Iterator(const Iterator& iter) = default;
 
@@ -57,7 +55,7 @@ class PeekingIterator : public Iterator {
     int m_next_val;
 
    public:
-    PeekingIterator(const vector<int>& nums)
+    PeekingIterator(const std::vector<int>& nums)
         : Iterator(nums), m_next_val(Iterator::next()) {
         // Initialize any member here.
         // **DO NOT** save a copy of nums and manipulate it directly.
@@ -71,10 +69,11 @@ class PeekingIterator : public Iterator {
     // Override them if needed.
     int next() {
         int const temp = m_next_val;
-        if (Iterator::hasNext())
+        if (Iterator::hasNext()) {
             m_next_val = Iterator::next();
-        else
+        } else {
             m_next_val = 0;
+        }
         return temp;
     }
 

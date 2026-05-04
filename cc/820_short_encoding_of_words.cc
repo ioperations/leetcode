@@ -22,11 +22,16 @@ using namespace std;
 
 namespace {
 class Solution {
-private:
+   private:
     struct TrieNode {
         int m_ends_here{0};
         std::array<TrieNode*, 26> m_child{};
         TrieNode() = default;
+        ~TrieNode() = default;
+        TrieNode(const TrieNode&) = default;
+        TrieNode& operator=(const TrieNode&) = default;
+        TrieNode(TrieNode&&) = default;
+        TrieNode& operator=(TrieNode&&) = default;
     };
 
     TrieNode* GetNode() {
@@ -42,11 +47,15 @@ private:
         delete root;
     }
 
-public:
+   public:
     TrieNode* m_root;
 
     Solution() : m_root(GetNode()) {}
     ~Solution() { DeleteNode(m_root); }
+    Solution(const Solution&) = default;
+    Solution& operator=(const Solution&) = default;
+    Solution(Solution&&) = default;
+    Solution& operator=(Solution&&) = default;
 
     int MinimumLengthEncoding(vector<string>& words) {
         // use set to avoid repetetion for duplicate words

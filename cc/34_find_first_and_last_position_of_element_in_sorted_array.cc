@@ -20,17 +20,18 @@ class Solution {
    public:
     vector<int> SearchRange(vector<int>& nums, int target) {
         vector<int> ans(2, -1);
-        if (nums.size() == 0) return ans;  // base case
-        auto it = lower_bound(nums.begin(), nums.end(), target);
-        if (it == nums.end() || *it != target)
-            return ans;  // ensures that there isnt any element equal to target
-        auto i = upper_bound(
-            nums.begin(), nums.end(),
-            target);  // gets the smallest element greater than target
-        i--;          // reduced by 1 to get to the target
+        if (nums.empty()) {
+            return ans;
+        }
+        auto it = std::lower_bound(nums.begin(), nums.end(), target);
+        if (it == nums.end() || *it != target) {
+            return ans;
+        }
+        auto i = std::upper_bound(nums.begin(), nums.end(), target);
+        --i;
         if (*it == *i) {
-            ans[0] = it - nums.begin();
-            ans[1] = i - nums.begin();
+            ans.at(0) = static_cast<int>(it - nums.begin());
+            ans.at(1) = static_cast<int>(i - nums.begin());
             return ans;
         }
         return ans;

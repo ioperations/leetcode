@@ -22,16 +22,14 @@ false.
 
 #include "gtest/gtest.h"
 
-using namespace std;
-
 namespace {
 class Solution {
    public:
-    bool ValidPartition(vector<int>& nums) {
+    bool ValidPartition(std::vector<int>& nums) {
         // pass
         return CheckIfOk(nums, 0);
     }
-    bool CheckIfOk(vector<int>& nums, int start_from) {
+    bool CheckIfOk(std::vector<int>& nums, int start_from) {
         // pass
         if (start_from == nums.size()) {
             return true;
@@ -79,7 +77,7 @@ class Solution {
 };
 
 TEST(CheckIfThereIsAValidPartitionForTheArray, t1) {
-    vector<int> nums = {4, 4, 4, 5, 6};
+    std::vector<int> nums = {4, 4, 4, 5, 6};
     bool const output = true;
     // Explanation: The array can be partitioned into the subarrays [4,4] and
     // [4,5,6]. This partition is valid, so we return true.
@@ -89,7 +87,7 @@ TEST(CheckIfThereIsAValidPartitionForTheArray, t1) {
 }
 
 TEST(CheckIfThereIsAValidPartitionForTheArray, t2) {
-    vector<int> nums = {1, 1, 1, 2};
+    std::vector<int> nums = {1, 1, 1, 2};
     bool const output = false;
     // There is no valid partition for this array.
     Solution sl;

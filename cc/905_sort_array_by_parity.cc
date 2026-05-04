@@ -49,7 +49,7 @@ class Solution {
 
         int i = 0;
         while (q.size()) {
-            nums[i] = q.top();
+            nums.at(i) = q.top();
             i++;
             q.pop();
         }
@@ -61,18 +61,17 @@ class Solution {
 class SolutionV2 {
    public:
     vector<int> SortArrayByParity(vector<int>& nums) {
-        // pass
-        int const n = nums.size();
+        int const n = static_cast<int>(nums.size());
 
         int last_odd_index = -1;
 
         for (int i = 0; i < n; i++) {
-            if (nums[i] % 2 == 0 and last_odd_index != -1) {
-                swap(nums[last_odd_index], nums[i]);
+            if (nums.at(i) % 2 == 0 and last_odd_index != -1) {
+                swap(nums.at(last_odd_index), nums.at(i));
                 last_odd_index++;
             }
 
-            if (nums[i] % 2 != 0 and last_odd_index == -1) {
+            if (nums.at(i) % 2 != 0 and last_odd_index == -1) {
                 last_odd_index = i;
             }
         }

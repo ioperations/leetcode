@@ -17,15 +17,16 @@ class Solution {
    public:
     int FindNthDigit(int n) {
         if (n < 10) return n;
-        long d = 1, base = 9;
+        long d = 1;
+        long base = 9;
         while (n - base * d > 0) {
-            n = n - base * d;
+            n = static_cast<int>(n - base * d);
             base *= 10;
             d++;
         }
-        int const index = n % d == 0 ? d : n % d;
-        long const num = pow(10, d - 1) + (index == d ? n / d - 1 : n / d);
-        return to_string(num)[index - 1] - '0';
+        int const index = n % d == 0 ? static_cast<int>(d) : n % d;
+        long const num = static_cast<long>(pow(10, d - 1)) + (index == d ? n / d - 1 : n / d);
+        return to_string(num).at(static_cast<size_t>(index) - 1) - '0';
     }
 };
 

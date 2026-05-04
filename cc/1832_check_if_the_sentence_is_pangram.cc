@@ -16,29 +16,31 @@ if sentence is a pangram, or false otherwise.
 
 #include "gtest/gtest.h"
 
-using namespace std;
-
 namespace {
 
 class Solution {
    public:
-    bool CheckIfPangram(string& sentence) const {
+    bool CheckIfPangram(std::string& sentence) const {
         std::set<char> s(sentence.begin(), sentence.end());
-        return s.size() == 26;
+        constexpr int kAlphabetSize = 26;
+        return s.size() == kAlphabetSize;
     }
-    bool CheckIfPangramV2(string& sentence) const {
-        int const max = (1 << 26) - 1;
+    bool CheckIfPangramV2(std::string& sentence) const {
+        constexpr int kAlphabetSize = 26;
+        int const max = (1 << kAlphabetSize) - 1;
         int temp = 0;
         for (auto& ptr : sentence) {
             temp |= 1 << (ptr - 'a');
-            if (temp == max) return true;
+            if (temp == max) {
+                return true;
+            }
         }
         return false;
     }
 };
 
 TEST(CheckIfTheSentenceIsPangram, t1) {
-    string sentence = "thequickbrownfoxjumpsoverthelazydog";
+    std::string sentence = "thequickbrownfoxjumpsoverthelazydog";
     bool const output = true;
     // Explanation: sentence contains at least one of every letter of the
     // English alphabet.
@@ -48,7 +50,7 @@ TEST(CheckIfTheSentenceIsPangram, t1) {
 }
 
 TEST(CheckIfTheSentenceIsPangram, t2) {
-    string sentence = "leetcode";
+    std::string sentence = "leetcode";
     bool const output = false;
     Solution const sl;
     bool const ret = sl.CheckIfPangram(sentence);
@@ -56,7 +58,7 @@ TEST(CheckIfTheSentenceIsPangram, t2) {
 }
 
 TEST(CheckIfTheSentenceIsPangramV2, t1) {
-    string sentence = "thequickbrownfoxjumpsoverthelazydog";
+    std::string sentence = "thequickbrownfoxjumpsoverthelazydog";
     bool const output = true;
     // Explanation: sentence contains at least one of every letter of the
     // English alphabet.
@@ -66,7 +68,7 @@ TEST(CheckIfTheSentenceIsPangramV2, t1) {
 }
 
 TEST(CheckIfTheSentenceIsPangramV2, t2) {
-    string sentence = "leetcode";
+    std::string sentence = "leetcode";
     bool const output = false;
     Solution const sl;
     bool const ret = sl.CheckIfPangramV2(sentence);
@@ -74,8 +76,8 @@ TEST(CheckIfTheSentenceIsPangramV2, t2) {
 }
 
 static void BenchMarkV1(benchmark::State& state) {
-    string sentence = "thequickbrownfoxjumpsoverthelazydog";
-    for (auto _ : state) {
+    std::string sentence = "thequickbrownfoxjumpsoverthelazydog";
+    for (auto&& _ : state) {
         bool const output = true;
         // Explanation: sentence contains at least one of every letter of the
         // English alphabet.
@@ -87,8 +89,8 @@ static void BenchMarkV1(benchmark::State& state) {
 BENCHMARK(BenchMarkV1);
 
 static void BenchMarkV2(benchmark::State& state) {
-    string sentence = "thequickbrownfoxjumpsoverthelazydog";
-    for (auto _ : state) {
+    std::string sentence = "thequickbrownfoxjumpsoverthelazydog";
+    for (auto&& _ : state) {
         bool const output = true;
         // Explanation: sentence contains at least one of every letter of the
         // English alphabet.

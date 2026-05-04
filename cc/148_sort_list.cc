@@ -18,26 +18,25 @@ namespace {
 class SolutionV2 {
    public:
     ListNode* SortList(ListNode* head) {
-        // If List Contain a Single or 0 Node
-        if (head == nullptr || head->next == nullptr) return head;
+        if (head == nullptr || head->next == nullptr) {
+            return head;
+        }
 
         ListNode* temp = nullptr;
         ListNode* slow = head;
         ListNode* fast = head;
 
-        // 2 pointer appraoach / turtle-hare Algorithm (Finding the middle
-        // element)
         while (fast != nullptr && fast->next != nullptr) {
             temp = slow;
-            slow = slow->next;        // slow increment by 1
-            fast = fast->next->next;  // fast incremented by 2
+            slow = slow->next;
+            fast = fast->next->next;
         }
-        temp->next = nullptr;  // end of first left half
+        temp->next = nullptr;
 
-        ListNode* l1 = SortList(head);  // left half recursive call
-        ListNode* l2 = SortList(slow);  // right half recursive call
+        ListNode* l1 = SortList(head);
+        ListNode* l2 = SortList(slow);
 
-        return Mergelist(l1, l2);  // mergelist Function call
+        return Mergelist(l1, l2);
     }
 
     // MergeSort Function O(n*logn)

@@ -37,7 +37,7 @@ class Solution {
                 if (cur_count == 0) {
                     throw std::runtime_error("divide by zero error");
                 }
-                v.push_back((double)cur_sum / cur_count);
+                v.push_back(static_cast<double>(cur_sum) / cur_count);
                 cur_level++;
                 cur_sum = z.first->val;
                 cur_count = 1;
@@ -51,7 +51,7 @@ class Solution {
             q.pop();
         }
         if (cur_count) {
-            v.push_back((double)cur_sum / cur_count);
+            v.push_back(static_cast<double>(cur_sum) / cur_count);
         }
         return v;
     }
@@ -73,7 +73,7 @@ TEST(AverageOfLevelsInBinaryTree, t1) {
     auto ret = sl.AverageOfLevels(rootnode);
     int i = 0;
     for (auto ptr1 : ret) {
-        EXPECT_DOUBLE_EQ(ptr1, output[i]);
+        EXPECT_DOUBLE_EQ(ptr1, output.at(i));
         i++;
     }
     FreeTreeNode(rootnode);
@@ -89,7 +89,7 @@ TEST(AverageOfLevelsInBinaryTree, t2) {
     auto ret = sl.AverageOfLevels(rootnode);
     int i = 0;
     for (auto ptr1 : ret) {
-        EXPECT_DOUBLE_EQ(ptr1, output[i]);
+        EXPECT_DOUBLE_EQ(ptr1, output.at(i));
         i++;
     }
     FreeTreeNode(rootnode);
@@ -105,7 +105,7 @@ TEST(AverageOfLevelsInBinaryTree, t3) {
     auto ret = sl.AverageOfLevels(rootnode);
     int i = 0;
     for (auto ptr1 : ret) {
-        EXPECT_DOUBLE_EQ(ptr1, output[i]);
+        EXPECT_DOUBLE_EQ(ptr1, output.at(i));
         i++;
     }
     FreeTreeNode(rootnode);

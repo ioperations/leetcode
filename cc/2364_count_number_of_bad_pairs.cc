@@ -15,10 +15,10 @@ class Solution {
     long long CountBadPairs(vector<int>& nums) {
         // FIXME: timeout
         long long ret = 0;
-        auto size = nums.size();
-        for (size_t i = 0; i < size; i++) {
+        int const size = static_cast<int>(nums.size());
+        for (int i = 0; i < size; i++) {
             for (int j = i + 1; j < size; j++) {
-                if (nums[j] - nums[i] != (j - i)) {
+                if (nums.at(j) - nums.at(i) != (j - i)) {
                     ret++;
                 }
             }

@@ -2,8 +2,8 @@
 // Created by ioperations on 2023/5/19.
 //
 
-#include <exception>
 #include <map>
+#include <optional>
 
 #include "gtest/gtest.h"
 
@@ -12,6 +12,10 @@ namespace {
 template <typename K, typename V>
 class LRUCache final {
    public:
+    LRUCache(const LRUCache&) = delete;
+    LRUCache& operator=(const LRUCache&) = delete;
+    LRUCache(LRUCache&&) = delete;
+    LRUCache& operator=(LRUCache&&) = delete;
     LRUCache(int capability)
         : m_head(new Node()), m_tail(new Node()), m_capability(capability) {
         m_head->m_next = m_tail;
@@ -23,7 +27,7 @@ class LRUCache final {
     ~LRUCache() {
         Node* p = m_head;
         while (p) {
-            Node* q = p;
+            Node* const q = p;
             p = p->m_next;
             delete q;
         }
@@ -77,7 +81,7 @@ class LRUCache final {
     }
 
     void DelLastNode() {
-        Node* p = m_tail->m_pre;
+        Node* const p = m_tail->m_pre;
 
         m_tail->m_pre = p->m_pre;
         p->m_pre->m_next = m_tail;

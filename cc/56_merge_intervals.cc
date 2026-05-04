@@ -35,7 +35,7 @@ class Solution {
         }
         ret.erase(
             std::remove_if(ret.begin(), ret.end(),
-                           [](const std::vector<int>& v) { return v.empty(); }),
+                           [](std::vector<int> const & v) { return v.empty(); }),
             ret.end());
         ret.shrink_to_fit();
 
@@ -56,11 +56,10 @@ TEST(mergeV, t1) {
             std::cout << ptr2 << " ";
         }
 
-        std::cout << std::endl;
+        std::cout << '\n';
+
+        std::cout << "###################" << '\n';
     }
-
-    std::cout << "###################" << std::endl;
-
     // Explanation: Since intervals [1,3] and [2,6] overlaps, merge them into
     // [1,6].
 }
@@ -76,7 +75,7 @@ TEST(mergeV, t2) {
 
     for (auto& ptr : ret) {
         for (auto& ptr2 : ptr) {
-            std::cout << ptr2 << std::endl;
+            std::cout << ptr2 << '\n';
         }
     }
 
@@ -95,7 +94,7 @@ TEST(mergeV, t3) {
 
     for (auto& ptr : ret) {
         for (auto& ptr2 : ptr) {
-            std::cout << ptr2 << std::endl;
+            std::cout << ptr2 << '\n';
         }
     }
 

@@ -83,7 +83,7 @@ class NumArray {
 
         // fully within
         if (l <= tl && r >= tr) {
-            return m_segarr[v];
+            return m_segarr.at(v);
         }
 
         // partial overlap

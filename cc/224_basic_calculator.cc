@@ -21,12 +21,10 @@ as mathematical expressions, such as eval().
 
 #include "gtest/gtest.h"
 
-using namespace std;
-
 namespace {
 class Solution {
    public:
-    int Calculate(const string& s) {
+    int Calculate(const std::string& s) {
         // pass
         Token token(s);
 
@@ -64,6 +62,7 @@ class Solution {
     class Token {
        public:
         // s consists of digits, '+', '-', '(', ')', and ' '.
+        static constexpr int k_base = 10;
         enum class token_type : std::uint8_t {
             PLUS,
             MINUS,
@@ -90,7 +89,7 @@ class Solution {
                 if ('0' <= m_s.at(m_index) && m_s.at(m_index) <= '9') {
                     val_set = true;
                     m_cur_token = token_type::NUMBER;
-                    m_val = m_val * 10 + m_s.at(m_index) - '0';
+                    m_val = m_val * k_base + m_s.at(m_index) - '0';
                 }
 
                 if (val_set) {
@@ -132,22 +131,23 @@ class Solution {
         std::string m_s;
         int m_val{};
         size_t m_index{0};
-        token_type m_cur_token;
+        token_type m_cur_token{token_type::EOL};
     };
 };
 
 class SolutionV2 {
    public:
-    int Calculate(string s) {
+    int Calculate(std::string s) {
+        constexpr int k_base = 10;
         int res = 0, sign = 1;
         int const n = static_cast<int>(s.size());
-        stack<int> stk;
+        std::stack<int> stk;
         for (int i = 0; i < n; i++) {
             const char c = s.at(i);
             if (c >= '0' && c <= '9') {
                 int num = 0;
                 while (i < n && s.at(i) >= '0' && s.at(i) <= '9') {
-                    num = num * 10 + (s.at(i) - '0');
+                    num = num * k_base + (s.at(i) - '0');
                     i++;
                 }
                 res += sign * num;
@@ -174,18 +174,21 @@ class SolutionV2 {
 
 class SolutionV3 {
    public:
-    int Calculate(string s) {
+    int Calculate(std::string s) {
+        constexpr int k_base = 10;
         // Stack to store numbers
-        stack<int> nums;
+        std::stack<int> nums;
 
         // Stack to store operators
-        stack<char> ops;
+        std::stack<char> ops;
 
         for (int i = 0; i < static_cast<int>(s.size()); ++i) {
             const char ch = s.at(i);
 
             // If current is space, skip it
-            if (ch == ' ') continue;
+            if (ch == ' ') {
+                continue;
+            }
 
             // If current is a number
             if (isdigit(ch)) {
@@ -193,10 +196,10 @@ class SolutionV3 {
                 long num = 0;
 
                 while (i < static_cast<int>(s.size()) && isdigit(s.at(i))) {
-                    num = num * 10 + s.at(i) - '0';
+                    num = num * k_base + s.at(i) - '0';
                     ++i;
                 }
-                nums.push(num);
+                nums.push(static_cast<int>(num));
                 --i;
             }
             // If current is left bracket
@@ -281,8 +284,12 @@ class SolutionV3 {
     }
 
     int Precedence(char op) {
-        if (op == '+' || op == '-') return 1;
-        if (op == '*' || op == '/') return 2;
+        if (op == '+' || op == '-') {
+            return 1;
+        }
+        if (op == '*' || op == '/') {
+            return 2;
+        }
         return 0;
     }
 };

@@ -28,12 +28,12 @@ class Solution {
         // sloution v1
         int z_max = -1;
         if (nums.size() == 1 && k % 2 == 1) return -1;
-        if (k == 1 || k == 0) return nums[k];
-        for (int i = 0; i < (int)nums.size(); i++) {
-            if (nums[i] > z_max) z_max = nums[i];
+        if (k == 1 || k == 0) return nums.at(k);
+        for (int i = 0; i < static_cast<int>(nums.size()); i++) {
+            if (nums.at(i) > z_max) z_max = nums.at(i);
             k--;
             if (k <= 1) {
-                if (nums[i + 2] > z_max) return nums[i + 2];
+                if (nums.at(i + 2) > z_max) return nums.at(i + 2);
                 break;
             }
         }

@@ -27,12 +27,12 @@ class Solution {
     }
 
     void Process(std::vector<std::vector<int>>& ans, std::vector<int> temp,
-                 int sum, int index, int k, int n) {
-        if (sum == n && (int)temp.size() == k) {
+                 int sum, int index, int const k, int n) {
+        if (sum == n && static_cast<int>(temp.size()) == k) {
             ans.push_back(temp);
             return;
         }
-        if (sum > n || (int)temp.size() > k) return;
+        if (sum > n || static_cast<int>(temp.size()) > k) return;
         for (int i = index; i <= 9; ++i) {
             temp.push_back(i);
             Process(ans, temp, sum + i, i + 1, k, n);
@@ -42,7 +42,7 @@ class Solution {
 };
 
 TEST(ConbinationSumIii, t1) {
-    int k = 3, n = 7;
+    int const k = 3, n = 7;
     std::vector<vector<int>> const output = {{1, 2, 4}};
 
     Solution sl;
@@ -54,7 +54,7 @@ TEST(ConbinationSumIii, t1) {
     /* There are no other valid combinations. */
 }
 TEST(ConbinationSumIii, t2) {
-    int k = 3, n = 9;
+    int const k = 3, n = 9;
     std::vector<vector<int>> const output = {{1, 2, 6}, {1, 3, 5}, {2, 3, 4}};
     Solution sl;
     auto ret = sl.CombinationSum3(k, n);
@@ -68,7 +68,7 @@ TEST(ConbinationSumIii, t2) {
 }
 
 TEST(ConbinationSumIii, t3) {
-    int k = 4, n = 1;
+    int const k = 4, n = 1;
     std::vector<vector<int>> const output = {};
     Solution sl;
     auto ret = sl.CombinationSum3(k, n);

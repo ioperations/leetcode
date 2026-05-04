@@ -17,7 +17,11 @@ namespace {
 class Solution {
    public:
     Solution() = default;
-    virtual ~Solution() = default;
+    ~Solution() = default;
+    Solution(const Solution&) = default;
+    Solution& operator=(const Solution&) = default;
+    Solution(Solution&&) = default;
+    Solution& operator=(Solution&&) = default;
     ///* 将输入的数据得到他的全排列，
     ///* 在每一次排列当中，得到前3个数字，
     ///* 将这三个数字加和，更最后的要求做比较

@@ -21,20 +21,16 @@ using namespace std;
 class Solution {
    public:
     int LenLongestFibSubseq(vector<int>& arr) {
-        /*
-         * 3 <= arr.length <= 1000
-         * 1 <= arr[i] < arr[i + 1] <= 109
-         */
-        m_size = arr.size();
-        for (size_t i = 0; i < m_size; ++i) {
-            m_value_to_index[arr[i]] = i;
+        m_size = static_cast<int>(arr.size());
+        for (int i = 0; i < m_size; ++i) {
+            m_value_to_index[arr.at(i)] = i;
         }
         this->m_arr = arr;
         auto v = Next(0, 0, 0, 0);
         if (v <= 2) {
             return 0;
         }
-        return v;
+        return static_cast<int>(v);
     }
 
     size_t Next(int index, int now, int next, int curr_len) {
@@ -42,12 +38,12 @@ class Solution {
             return curr_len;
         }
         if (curr_len == 0) {
-            return max(Next(index + 1, now, next, curr_len),
-                       Next(index + 1, m_arr[index], next, 1));
+            return std::max(Next(index + 1, now, next, curr_len),
+                       Next(index + 1, m_arr.at(index), next, 1));
         }
 
         if (curr_len == 1) {
-            return max(Next(index + 1, m_arr[index], now + m_arr[index], 2),
+            return std::max(Next(index + 1, m_arr.at(index), now + m_arr.at(index), 2),
                        Next(index + 1, now, next, 1));
         }
 
@@ -61,7 +57,7 @@ class Solution {
 
     unordered_map<int, int> m_value_to_index;
     vector<int> m_arr;
-    size_t m_size = 0;
+    int m_size = 0;
 };
 
 #include <gtest/gtest.h>

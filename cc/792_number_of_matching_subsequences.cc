@@ -26,16 +26,13 @@ class Solution {
 
    public:
     bool IsSubsequence(const string& s1, const string& s2) {
-        if (m_cache.count(s1)) return m_cache[s1];
-        int n = s1.length(), m = s2.length();
+        if (m_cache.count(s1)) return m_cache.at(s1);
+        int const n = static_cast<int>(s1.length()), m = static_cast<int>(s2.length());
         int i = 0, j = 0;
         while (i < n && j < m) {
-            if (s1[i] == s2[j]) i++;
+            if (s1.at(i) == s2.at(j)) i++;
             j++;
         }
-        /*If i reaches end of s1,that mean we found all
-        characters of s1 in s2,
-        so s1 is subsequence of s2, else not*/
         return m_cache[s1] = i == n;
     }
     int NumMatchingSubseqV1(string s, vector<string>& words) {

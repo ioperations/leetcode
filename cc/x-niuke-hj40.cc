@@ -23,15 +23,15 @@ void Func(const char* s, int len) {
     classfy.fill(0);
 
     for (int i = 0; i < len; ++i) {
-        const char c = s[i];
+        char const c = s[static_cast<size_t>(i)];
         if (('a' <= c && c <= 'z') || ('A' <= c && c <= 'Z')) {
-            classfy[static_cast<size_t>(type::english_char)]++;
+            classfy.at(static_cast<size_t>(type::english_char))++;
         } else if ('0' <= c && c <= '9') {
-            classfy[static_cast<size_t>(type::number)]++;
+            classfy.at(static_cast<size_t>(type::number))++;
         } else if (' ' == c) {
-            classfy[static_cast<size_t>(type::space)]++;
+            classfy.at(static_cast<size_t>(type::space))++;
         } else {
-            classfy[static_cast<size_t>(type::others)]++;
+            classfy.at(static_cast<size_t>(type::others))++;
         }
     }
 

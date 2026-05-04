@@ -28,18 +28,18 @@ class Solution {
    public:
     string BreakPalindrome(string palindrome) {
         string& ret = palindrome;
-        int const original_size = palindrome.size();
-        int const size = palindrome.size() / 2;
+        int const original_size = static_cast<int>(palindrome.size());
+        int const size = original_size / 2;
         for (int i = 0; i < size; i++) {
-            if (ret[i] != 'a') {
-                ret[i] = 'a';
+            if (ret.at(i) != 'a') {
+                ret.at(i) = 'a';
                 return ret;
             }
         }
         if (original_size > 1) {
             for (int i = 0; i < size; i++) {
-                if (ret[i] == 'a') {
-                    ret[original_size - (i + 1)] = 'b';
+                if (ret.at(i) == 'a') {
+                    ret.at(original_size - (i + 1)) = 'b';
                     return ret;
                 }
             }

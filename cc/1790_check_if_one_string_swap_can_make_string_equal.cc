@@ -21,7 +21,7 @@ class Solution {
          * s1.length == s2.length
          * s1 and s2 consist of only lowercase English letters.
          */
-        auto size = s1.length();
+        auto const size = s1.length();
 
         for (size_t i = 0; i < size; i++) {
             for (size_t j = i; j < size; j++) {
@@ -96,24 +96,24 @@ TEST(T0, t1) {
     bool const output = true;
     // Explanation : For example, swap the first character with the last
     // character of s2 to make "bank"
-    Solution sl;
-    auto ret = sl.AreAlmostEqual(s1, s2);
-    EXPECT_EQ(ret, output);
-    SolutionV2 sl2;
-    ret = sl2.AreAlmostEqual(s1, s2);
-    EXPECT_EQ(ret, output);
+    Solution sol1;
+    bool const ret1 = sol1.AreAlmostEqual(s1, s2);
+    EXPECT_EQ(ret1, output);
+    SolutionV2 sol2;
+    bool const ret2 = sol2.AreAlmostEqual(s1, s2);
+    EXPECT_EQ(ret2, output);
 }
 
 TEST(T0, t2) {
     string const s1 = "attack", s2 = "defend";
-    auto output = false;
+    bool const output = false;
     // Explanation : It is impossible to make them equal with one string swap
-    Solution sl;
-    auto ret = sl.AreAlmostEqual(s1, s2);
-    EXPECT_EQ(ret, output);
-    SolutionV2 sl2;
-    ret = sl2.AreAlmostEqual(s1, s2);
-    EXPECT_EQ(ret, output);
+    Solution sol1;
+    bool const ret1 = sol1.AreAlmostEqual(s1, s2);
+    EXPECT_EQ(ret1, output);
+    SolutionV2 sol2;
+    bool const ret2 = sol2.AreAlmostEqual(s1, s2);
+    EXPECT_EQ(ret2, output);
 }
 
 TEST(T0, t3) {
@@ -121,12 +121,12 @@ TEST(T0, t3) {
     bool const output = true;
     // Explanation: The two strings are already equal, so no string swap
     // operation is required.
-    Solution sl;
-    auto ret = sl.AreAlmostEqual(s1, s2);
-    EXPECT_EQ(ret, output);
-    SolutionV2 sl2;
-    ret = sl2.AreAlmostEqual(s1, s2);
-    EXPECT_EQ(ret, output);
+    Solution sol1;
+    bool const ret1 = sol1.AreAlmostEqual(s1, s2);
+    EXPECT_EQ(ret1, output);
+    SolutionV2 sol2;
+    bool const ret2 = sol2.AreAlmostEqual(s1, s2);
+    EXPECT_EQ(ret2, output);
 }
 
 int main(int argc, char* argv[]) {

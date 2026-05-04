@@ -28,8 +28,8 @@ namespace {
 class Node {
    public:
     int m_val;
-    Node* next{nullptr};
-    Node* random{nullptr};
+    Node* m_next{nullptr};
+    Node* m_random{nullptr};
 
     Node(int my_val) : m_val(my_val) {}
 };
@@ -39,35 +39,35 @@ class Solution {
     Node* CopyRandomList(Node* head) {
         Node dummy_new(0);
         Node dummy_old(1);
-        dummy_old.next = head;
+        dummy_old.m_next = head;
         Node* ite_new = &dummy_new;
-        Node* ite_old = dummy_old.next;
+        Node* ite_old = dummy_old.m_next;
         std::unordered_map<Node*, int> map;
         std::vector<Node*> new_nodes;
         int i = 0;
         while (ite_old != nullptr) {
-            ite_new->next = new Node(ite_old->m_val);
-            map[ite_old] = i;
-            ite_old = ite_old->next;
-            ite_new = ite_new->next;
+            ite_new->m_next = new Node(ite_old->m_val);
+            map.emplace(ite_old, i);
+            ite_old = ite_old->m_next;
+            ite_new = ite_new->m_next;
             new_nodes.push_back(ite_new);
 
             i++;
         }
 
         ite_new = &dummy_new;
-        Node* ite_old_dup = dummy_old.next;
+        Node* ite_old_dup = dummy_old.m_next;
         i = 0;
-        while (ite_new->next != nullptr) {
-            if (ite_old_dup->random != nullptr) {
-                ite_new->next->random = new_nodes.at(map.at(ite_old_dup->random));
+        while (ite_new->m_next != nullptr) {
+            if (ite_old_dup->m_random != nullptr) {
+                ite_new->m_next->m_random = new_nodes.at(map.at(ite_old_dup->m_random));
             }
-            ite_new = ite_new->next;
-            ite_old_dup = ite_old_dup->next;
+            ite_new = ite_new->m_next;
+            ite_old_dup = ite_old_dup->m_next;
             i++;
         }
 
-        return dummy_new.next;
+        return dummy_new.m_next;
     }
 };
 
@@ -82,22 +82,22 @@ Node* ConstructNode(std::vector<std::vector<std::optional<int>>>& vec) {
     std::vector<Node*> cache;
     cache.reserve(vec.size());
     for (auto& ptr : vec) {
-        ite->next = new Node(ptr.at(0).value());
-        ite = ite->next;
+        ite->m_next = new Node(ptr.at(0).value());
+        ite = ite->m_next;
         cache.push_back(ite);
     }
     ite = &dummy;
 
     int const len = static_cast<int>(vec.size());
     int i = 0;
-    while (ite->next != nullptr && i < len) {
+    while (ite->m_next != nullptr && i < len) {
         if (vec.at(i).at(1).has_value()) {
-            ite->next->random = cache.at(vec.at(i).at(1).value());
+            ite->m_next->m_random = cache.at(vec.at(i).at(1).value());
         }
         i++;
-        ite = ite->next;
+        ite = ite->m_next;
     }
-    return dummy.next;
+    return dummy.m_next;
 }
 
 /// 从链表当中恢复到vec
@@ -111,24 +111,24 @@ std::vector<std::vector<std::optional<int>>> RestoreNode(Node* node) {
         map[ite] = i;
         std::vector<std::optional<int>> myret(2, std::optional<int>());
         myret.at(0) = ite->m_val;
-        ite = ite->next;
+        ite = ite->m_next;
         ret.push_back(myret);
         i++;
     }
     ite = node;
     i = 0;
     while (ite != nullptr) {
-        if (ite->random != nullptr) {
-            ret.at(i).at(1) = map[ite->random];
+        if (ite->m_random != nullptr) {
+            ret.at(i).at(1) = map[ite->m_random];
         }
         i++;
-        ite = ite->next;
+        ite = ite->m_next;
     }
 
     ite = node;
     while (ite != nullptr) {
         Node* const now = ite;
-        ite = now->next;
+        ite = now->m_next;
         delete now;
     }
 

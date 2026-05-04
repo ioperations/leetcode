@@ -24,7 +24,9 @@ class Solution {
     }
 
     int RangeBitwiseAndV2(int left, int right) {
-        if (left == right) return left;
+        if (left == right) {
+            return left;
+        }
 
         const int diff = left ^ right;
         const int pow = floor(log2(diff));
@@ -59,7 +61,7 @@ TEST(BitwiseAndOfNumbersRange, t4) {
 
 void BenchMarkSeqBitAnd(benchmark::State& state) {
     Solution s;
-    for (auto _ : state) {
+    for (auto&& _ : state) {
         const int left = 1, right = 200000;
         const int ret = s.RangeBitwiseAnd(left, right);
 
@@ -70,7 +72,7 @@ BENCHMARK(BenchMarkSeqBitAnd);
 
 void BenchMarkWise(benchmark::State& state) {
     Solution s;
-    for (auto _ : state) {
+    for (auto&& _ : state) {
         const int left = 1, right = 200000;
         const int ret = s.RangeBitwiseAndV2(left, right);
 

@@ -24,22 +24,22 @@ using namespace std;
 
 namespace {
 class Solution {
-    double x_center;
-    double y_center;
-    double radius;
+    double m_x_center;
+    double m_y_center;
+    double m_radius;
 
    public:
     Solution(double rad, double cx_center, double cy_center)
-        : x_center(cx_center), y_center(cy_center), radius(rad) {}
+        : m_x_center(cx_center), m_y_center(cy_center), m_radius(rad) {}
 
     double Random() { return 1.0 * rand() / RAND_MAX; }
 
     vector<double> RandPoint() {
-        double const length = sqrt(Random()) * radius;
+        double const length = sqrt(Random()) * m_radius;
         double angle = 0.0;
         angle = Random() * 2 * M_PI;
-        double x_rand = x_center + length * cos(angle),
-               y_rand = y_center + length * sin(angle);
+        double x_rand = m_x_center + length * cos(angle),
+               y_rand = m_y_center + length * sin(angle);
         return {x_rand, y_rand};
     }
 };

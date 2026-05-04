@@ -32,13 +32,13 @@ class Solution {
                 ret.emplace(atoi(tmp.c_str()));
                 return;
             }
-            if (tmp.back() + k <= '9') {
-                tmp += tmp.back() + k;
+            if (static_cast<char>(tmp.back() + k) <= '9') {
+                tmp += static_cast<char>(tmp.back() + k);
                 fun(tmp, cur_count + 1);
                 tmp.pop_back();
             }
-            if (tmp.back() - k >= '0') {
-                tmp += tmp.back() - k;
+            if (static_cast<char>(tmp.back() - k) >= '0') {
+                tmp += static_cast<char>(tmp.back() - k);
                 fun(tmp, cur_count + 1);
                 tmp.pop_back();
             }
@@ -51,7 +51,7 @@ class Solution {
 };
 
 TEST(NumbersWithSameConsecutiveDifferences, t1) {
-    int n = 3, k = 7;
+    int const n = 3, k = 7;
     vector<int> output = {181, 292, 707, 818, 929};
     // Explanation: Note that 070 is not a valid number, because it has leading
     // zeroes.
@@ -63,7 +63,7 @@ TEST(NumbersWithSameConsecutiveDifferences, t1) {
 }
 
 TEST(NumbersWithSameConsecutiveDifferences, t2) {
-    int n = 2, k = 1;
+    int const n = 2, k = 1;
     vector<int> output = {10, 12, 21, 23, 32, 34, 43, 45, 54,
                           56, 65, 67, 76, 78, 87, 89, 98};
     set<int> const out_set(output.begin(), output.end());
@@ -74,7 +74,7 @@ TEST(NumbersWithSameConsecutiveDifferences, t2) {
 }
 
 TEST(NumbersWithSameConsecutiveDifferences, t3) {
-    int n = 2, k = 0;
+    int const n = 2, k = 0;
     vector<int> output = {11, 22, 33, 44, 55, 66, 77, 88, 99};
     set<int> const out_set(output.begin(), output.end());
     Solution sl;

@@ -59,8 +59,9 @@ class Solution {
                                         // pill. Needs to be in descending order
 
         while (t < static_cast<int>(tasks.size())) {
-            while (w < static_cast<int>(workers.size()) && workers.at(w) == -1)
-                w++;  // Find next worker that has not already been processed
+            while (w < static_cast<int>(workers.size()) && workers.at(w) == -1) {
+                w++;
+            }  // Find next worker that has not already been processed
 
             if (w >= static_cast<int>(workers
                          .size()))  // If we've run out of workers, look to see
@@ -74,7 +75,7 @@ class Solution {
                        tasks.at(t))  // If the current worker can solve the task
                                   // without a pill, use her.
             {
-                workers[w] = -1;
+                workers.at(w) = -1;
                 w++;
                 completed_tasks++;
             } else {
@@ -113,7 +114,7 @@ class Solution {
                 // Can wp worker finish the task?
                 else if (workers.at(wp) + strength >= tasks.at(t)) {
                     workers_q.push(workers.at(wp));
-                    workers[wp] = -1;
+                    workers.at(wp) = -1;
                     wp += b_search_down ? -1 : 1;
                 }
                 // Even if we haven't filled queue, check to see if a worker can
@@ -140,7 +141,7 @@ class Solution {
 
 TEST(MaximumNumberOfTasksYouCanAssign, t1) {
     std::vector<int> tasks = {3, 2, 1}, workers = {0, 3, 3};
-    int pills = 1, strength = 1;
+    int const pills = 1, strength = 1;
     int const output = 3;
     Solution sl;
     int const ret = sl.MaxTaskAssign(tasks, workers, pills, strength);
@@ -155,7 +156,7 @@ TEST(MaximumNumberOfTasksYouCanAssign, t1) {
 
 TEST(MaximumNumberOfTasksYouCanAssign, t2) {
     std::vector<int> tasks = {5, 4}, workers = {0, 0, 0};
-    int pills = 1, strength = 5;
+    int const pills = 1, strength = 5;
     int const output = 1;
     Solution sl;
     int const ret = sl.MaxTaskAssign(tasks, workers, pills, strength);
@@ -169,7 +170,7 @@ TEST(MaximumNumberOfTasksYouCanAssign, t2) {
 
 TEST(MaximumNumberOfTasksYouCanAssign, t3) {
     std::vector<int> tasks = {10, 15, 30}, workers = {0, 10, 10, 10, 10};
-    int pills = 3, strength = 10;
+    int const pills = 3, strength = 10;
     int const output = 2;
     Solution sl;
     int const ret = sl.MaxTaskAssign(tasks, workers, pills, strength);

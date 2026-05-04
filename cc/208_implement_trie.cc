@@ -35,6 +35,10 @@ class Trie {
         bool m_is_end{false};
         TrieNode() { m_child.resize(26, nullptr); }
         ~TrieNode() { m_child.clear(); }
+        TrieNode(const TrieNode&) = default;
+        TrieNode& operator=(const TrieNode&) = default;
+        TrieNode(TrieNode&&) = default;
+        TrieNode& operator=(TrieNode&&) = default;
     };
     TrieNode* m_root;
 
@@ -50,6 +54,10 @@ class Trie {
    public:
     Trie() : m_root(new TrieNode()) {}
     ~Trie() { DeleteTrieNode(m_root); }
+    Trie(const Trie&) = default;
+    Trie& operator=(const Trie&) = default;
+    Trie(Trie&&) = default;
+    Trie& operator=(Trie&&) = default;
 
     void Insert(string const& word) {
         TrieNode* c = m_root;
@@ -95,13 +103,23 @@ class TrieV1 {
     struct Tree {
         std::map<char, Tree> m_map;
         bool m_end{};
+        Tree() = default;
         ~Tree() { m_map.clear(); }
+        Tree(const Tree&) = default;
+        Tree& operator=(const Tree&) = default;
+        Tree(Tree&&) = default;
+        Tree& operator=(Tree&&) = default;
     };
 
     Tree m_root;
 
    public:
     TrieV1() = default;
+    ~TrieV1() = default;
+    TrieV1(const TrieV1&) = default;
+    TrieV1& operator=(const TrieV1&) = default;
+    TrieV1(TrieV1&&) = default;
+    TrieV1& operator=(TrieV1&&) = default;
 
     void Insert(string const& word) {
         // pass

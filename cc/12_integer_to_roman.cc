@@ -40,17 +40,17 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    string IntToRoman(int num) const {
+    [[nodiscard]] string IntToRoman(int num) const {
         int const normal[] = {1000, 900, 500, 400, 100, 90, 50,
                               40,   10,  9,   5,   4,   1};
-        int const size = sizeof(normal) / sizeof(int);
+        int const size = static_cast<int>(sizeof(normal) / sizeof(int));
         static const std::array<std::string, 13> roman = {
             "M",  "CM", "D",  "CD", "C",  "XC", "L",
             "XL", "X",  "IX", "V",  "IV", "I"};
         string res;
         for (int i = 0; i < size; i++) {
             while (num >= normal[i]) {
-                res.append(roman[i]);
+                res.append(roman.at(i));
                 num -= normal[i];
             }
         }

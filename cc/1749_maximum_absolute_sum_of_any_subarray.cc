@@ -29,11 +29,11 @@ class Solution {
          *
          *      取决于前一个.......................... 最大值 是正输还是负数
          */
-        int res = nums[0];
-        int max_ending = nums[0];
+        int res = nums.at(0);
+        int max_ending = nums.at(0);
 
-        for (auto i = 1; i < nums.size(); ++i) {
-            max_ending = m(max_ending + nums[i], nums[i]);
+        for (auto i = 1; i < static_cast<int>(nums.size()); ++i) {
+            max_ending = m(max_ending + nums.at(i), nums.at(i));
             res = m(res, max_ending);
         }
         return res;

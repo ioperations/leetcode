@@ -34,11 +34,11 @@ class BrowserHistory {
     */
    public:
     struct Node {
-        struct Node* m_next;
+        struct Node* m_next{nullptr};
         std::string m_url;
-        struct Node* m_prev;
+        struct Node* m_prev{nullptr};
 
-        explicit Node(std::string u) : m_next(nullptr), m_url(std::move(u)), m_prev(nullptr) {}
+        explicit Node(std::string u) : m_url(std::move(u)) {}
     };
 
     Node* m_home_page;
@@ -155,11 +155,11 @@ class BrowserHistorySysV2 {
 
    private:
     struct Node {
-        struct Node* m_next;
+        struct Node* m_next{nullptr};
         std::string m_url;
-        struct Node* m_prev;
+        struct Node* m_prev{nullptr};
 
-        explicit Node(std::string u) : m_next(nullptr), m_url(std::move(u)), m_prev(nullptr) {}
+        explicit Node(std::string u) : m_url(std::move(u)) {}
     };
 
     void CleanNodeToHead() {

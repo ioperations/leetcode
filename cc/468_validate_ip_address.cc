@@ -29,31 +29,36 @@ are invalid IPv6 addresses.
 
 #include "gtest/gtest.h"
 
-using namespace std;
-
 namespace {
 class Solution {
    private:
     std::string m_ipv4 = "IPv4";
     std::string m_ipv6 = "IPv6";
     std::string m_neither = "Neither";
+    static constexpr int k_ipv4_max_val = 255;
+    static constexpr int k_base = 10;
 
     bool ParseIpv4(std::string& s) {
-        // pass
-        int const c = count(s.begin(), s.end(), '.');
-        if (c != 3) return false;
+        int const c = static_cast<int>(std::count(s.begin(), s.end(), '.'));
+        if (c != 3) {
+            return false;
+        }
 
-        auto parsedigit = [](const std::string& s) -> int {
+        auto parsedigit = [](const std::string& str) -> int {
             int sum = 0;
-            for (int i = 0; i < static_cast<int>(s.size()); i++) {
-                if (i == 0 && s.at(i) == '0') {
-                    if (s.size() == 1) return 0;
+            for (int i = 0; i < static_cast<int>(str.size()); i++) {
+                if (i == 0 && str.at(i) == '0') {
+                    if (str.size() == 1) {
+                        return 0;
+                    }
                     return -1;
                 }
-                if (sum > 255) return -1;  // avoid overflow
+                if (sum > k_ipv4_max_val) {
+                    return -1;
+                }
 
-                if ('0' <= s.at(i) && s.at(i) <= '9') {
-                    sum = sum * 10 + s.at(i) - '0';
+                if ('0' <= str.at(i) && str.at(i) <= '9') {
+                    sum = sum * k_base + str.at(i) - '0';
                 } else {
                     return -1;
                 }
@@ -61,19 +66,19 @@ class Solution {
             return sum;
         };
 
-        replace(s.begin(), s.end(), '.', ' ');
+        std::replace(s.begin(), s.end(), '.', ' ');
 
-        stringstream ss;
+        std::stringstream ss;
         ss << s;
         int i = 0;
         while (i < 4) {
-            string tmp;
+            std::string tmp;
             ss >> tmp;
             if (tmp.size() == 0) {
                 return false;
             }
             int const ret = parsedigit(tmp);
-            if (!(0 <= ret && ret <= 255)) {
+            if (!(0 <= ret && ret <= k_ipv4_max_val)) {
                 return false;
             }
             i++;
@@ -82,31 +87,43 @@ class Solution {
     }
 
     bool ParseIpv6(std::string& s) {
-        // pass
-        int const sum = count(s.begin(), s.end(), ':');
-        if (sum != 7) return false;
+        constexpr int k_colon_count = 7;
+        int const sum = static_cast<int>(std::count(s.begin(), s.end(), ':'));
+        if (sum != k_colon_count) {
+            return false;
+        }
 
-        auto parsehex = [](const std::string& s) -> bool {
-            if (s.size() <= 0 || s.size() > 4) return false;
+        auto parsehex = [](const std::string& str) -> bool {
+            if (str.size() <= 0 || str.size() > 4) {
+                return false;
+            }
 
-            for (auto& ptr : s) {
-                if ('0' <= ptr && ptr <= '9') continue;
-                if ('a' <= ptr && ptr <= 'f') continue;
-                if ('A' <= ptr && ptr <= 'F') continue;
+            for (auto& ptr : str) {
+                if ('0' <= ptr && ptr <= '9') {
+                    continue;
+                }
+                if ('a' <= ptr && ptr <= 'f') {
+                    continue;
+                }
+                if ('A' <= ptr && ptr <= 'F') {
+                    continue;
+                }
 
                 return false;
             }
             return true;
         };
 
-        replace(s.begin(), s.end(), ':', ' ');
-        stringstream ss;
+        std::replace(s.begin(), s.end(), ':', ' ');
+        std::stringstream ss;
         ss << s;
 
         std::string tmp;
         int i = 0;
         while (ss >> tmp) {
-            if (!parsehex(tmp)) return false;
+            if (!parsehex(tmp)) {
+                return false;
+            }
             i++;
         }
 
@@ -114,32 +131,34 @@ class Solution {
     }
 
    public:
-    string ValidIpAddress(string query_ip) {
-        // maybe ipv4
-        auto it1 = find_if(query_ip.begin(), query_ip.end(),
+    std::string ValidIpAddress(std::string query_ip) {
+        auto it1 = std::find_if(query_ip.begin(), query_ip.end(),
                            [](const char& c) { return c == '.'; });
-        if (it1 != query_ip.end() && ParseIpv4(query_ip)) return m_ipv4;
+        if (it1 != query_ip.end() && ParseIpv4(query_ip)) {
+            return m_ipv4;
+        }
 
-        // maybe ipv6
-        auto it = find_if(query_ip.begin(), query_ip.end(),
+        auto it = std::find_if(query_ip.begin(), query_ip.end(),
                           [](const char& c) { return c == ':'; });
-        if (it != query_ip.end() && ParseIpv6(query_ip)) return m_ipv6;
+        if (it != query_ip.end() && ParseIpv6(query_ip)) {
+            return m_ipv6;
+        }
 
         return m_neither;
     }
 };
 
 TEST(ValidateIpAddress, t0) {
-    string const query_ip = "192.0.0.1";
-    string const output = "IPv4";
+    std::string const query_ip = "192.0.0.1";
+    std::string const output = "IPv4";
     // Explanation: This is a valid IPv4 address, return "IPv4".
     Solution sl;
     auto ret = sl.ValidIpAddress(query_ip);
     EXPECT_EQ(ret, output);
 }
 TEST(ValidateIpAddress, t1) {
-    string const query_ip = "172.16.254.1";
-    string const output = "IPv4";
+    std::string const query_ip = "172.16.254.1";
+    std::string const output = "IPv4";
     // Explanation: This is a valid IPv4 address, return "IPv4".
     Solution sl;
     auto ret = sl.ValidIpAddress(query_ip);
@@ -147,8 +166,8 @@ TEST(ValidateIpAddress, t1) {
 }
 
 TEST(ValidateIpAddress, t2) {
-    string const query_ip = "2001:0db8:85a3:0:0:8A2E:0370:7334";
-    string const output = "IPv6";
+    std::string const query_ip = "2001:0db8:85a3:0:0:8A2E:0370:7334";
+    std::string const output = "IPv6";
     // Explanation: This is a valid IPv6 address, return "IPv6".
     Solution sl;
     auto ret = sl.ValidIpAddress(query_ip);
@@ -156,8 +175,8 @@ TEST(ValidateIpAddress, t2) {
 }
 
 TEST(ValidateIpAddress, t3) {
-    string const query_ip = "2001:0db8:85a3::8A2E:037j:7334";
-    string const output = "Neither";
+    std::string const query_ip = "2001:0db8:85a3::8A2E:037j:7334";
+    std::string const output = "Neither";
     // Explanation: This is a valid IPv6 address, return "IPv6".
     Solution sl;
     auto ret = sl.ValidIpAddress(query_ip);
@@ -165,8 +184,8 @@ TEST(ValidateIpAddress, t3) {
 }
 
 TEST(ValidateIpAddress, t4) {
-    string const query_ip = "02001:0db8:85a3:0000:0000:8a2e:0370:7334";
-    string const output = "Neither";
+    std::string const query_ip = "02001:0db8:85a3:0000:0000:8a2e:0370:7334";
+    std::string const output = "Neither";
     // Explanation: This is a valid IPv6 address, return "IPv6".
     Solution sl;
     auto ret = sl.ValidIpAddress(query_ip);
@@ -174,8 +193,8 @@ TEST(ValidateIpAddress, t4) {
 }
 
 TEST(ValidateIpAddress, t5) {
-    string const query_ip = "2001:0db8:85a3:0000:0000:8a2e:0370:7334";
-    string const output = "IPv6";
+    std::string const query_ip = "2001:0db8:85a3:0000:0000:8a2e:0370:7334";
+    std::string const output = "IPv6";
     // Explanation: This is a valid IPv6 address, return "IPv6".
     Solution sl;
     auto ret = sl.ValidIpAddress(query_ip);
@@ -183,8 +202,8 @@ TEST(ValidateIpAddress, t5) {
 }
 
 TEST(ValidateIpAddress, t6) {
-    string const query_ip = "2001:db8:85a3:0:0:8A2E:0370:7334";
-    string const output = "IPv6";
+    std::string const query_ip = "2001:db8:85a3:0:0:8A2E:0370:7334";
+    std::string const output = "IPv6";
     // Explanation: This is a valid IPv6 address, return "IPv6".
     Solution sl;
     auto ret = sl.ValidIpAddress(query_ip);
@@ -192,8 +211,8 @@ TEST(ValidateIpAddress, t6) {
 }
 
 TEST(ValidateIpAddress, t7) {
-    string const query_ip = "2001:db8:85a3:0:0:8A2E:0370:7334";
-    string const output = "IPv6";
+    std::string const query_ip = "2001:db8:85a3:0:0:8A2E:0370:7334";
+    std::string const output = "IPv6";
     // Explanation: This is a valid IPv6 address, return "IPv6".
     Solution sl;
     auto ret = sl.ValidIpAddress(query_ip);
@@ -201,8 +220,8 @@ TEST(ValidateIpAddress, t7) {
 }
 
 TEST(ValidateIpAddress, t8) {
-    string const query_ip = "2001:db8:85a3:0::8a2E:0370:7334";
-    string const output = "Neither";
+    std::string const query_ip = "2001:db8:85a3:0::8a2E:0370:7334";
+    std::string const output = "Neither";
     // Explanation: This is a valid IPv6 address, return "IPv6".
     Solution sl;
     auto ret = sl.ValidIpAddress(query_ip);
@@ -210,8 +229,8 @@ TEST(ValidateIpAddress, t8) {
 }
 
 TEST(ValidateIpAddressV2, t3) {
-    string const query_ip = "256.256.256.256";
-    string const output = "Neither";
+    std::string const query_ip = "256.256.256.256";
+    std::string const output = "Neither";
     // Explanation: This is neither a IPv4 address nor a IPv6 address.
     Solution sl;
     auto ret = sl.ValidIpAddress(query_ip);

@@ -55,7 +55,7 @@ class Solution {
 };
 
 TEST(Memleak, t0) {
-    std::vector<int> p = {1, 2, 3}, q = {1, 2, 3};
+    std::vector<int> const p = {1, 2, 3}, q = {1, 2, 3};
 
     auto* root = ConstructTree(p);
 
@@ -80,7 +80,7 @@ TEST(sameV, t1) {
 }
 
 TEST(sameV, t2) {
-    std::vector<int> p = {1, 2}, q = {1, 2};
+    std::vector<int> const p = {1, 2}, q = {1, 2};
     auto* root1 = ConstructTree(p);
     auto* root2 = ConstructTree(q);
     bool const expected = true;
@@ -94,7 +94,7 @@ TEST(sameV, t2) {
 }
 
 TEST(sameV, t3) {
-    std::vector<int> p = {1, 2, 1}, q = {1, 1, 2};
+    std::vector<int> const p = {1, 2, 1}, q = {1, 1, 2};
 
     auto* root1 = ConstructTree(p);
     auto* root2 = ConstructTree(q);
@@ -109,7 +109,7 @@ TEST(sameV, t3) {
 }
 
 TEST(sameV, t4) {
-    std::vector<int> p = {1, 2, 1}, q = {};
+    std::vector<int> const p = {1, 2, 1}, q = {};
 
     auto* root1 = ConstructTree(p);
     auto* root2 = ConstructTree(q);
@@ -124,7 +124,7 @@ TEST(sameV, t4) {
 }
 
 TEST(sameV, t5) {
-    std::vector<int> p = {}, q = {1, 2, 1};
+    std::vector<int> const p = {}, q = {1, 2, 1};
 
     auto* root1 = ConstructTree(p);
     auto* root2 = ConstructTree(q);

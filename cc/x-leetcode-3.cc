@@ -16,16 +16,18 @@ class Solution {
         int max = 0;
         int continued = 0;
         int j = 0;
-        for (int i = 0; i < (int)s.size(); ++i) {
+        for (int i = 0; i < static_cast<int>(s.size()); ++i) {
             j = i;
-            auto z = visited.find(s[j]);
-            for (; z == std::end(visited) && j < (int)s.size();) {
+            auto z = visited.find(s.at(j));
+            for (; z == std::end(visited) && j < static_cast<int>(s.size());) {
                 // 没有找到
-                visited.emplace(s[j]);
+                visited.emplace(s.at(j));
                 continued++;
                 max = std::max(max, continued);
                 j++;
-                z = visited.find(s[j]);
+                if (j < static_cast<int>(s.size())) {
+                    z = visited.find(s.at(j));
+                }
             }
             continued = 0;
             visited.erase(visited.begin(), visited.end());

@@ -18,6 +18,8 @@ For example, "cab" can be written as "-.-..--...", which is the concatenation of
 "-.-.", ".-", and "-...". We will call such a concatenation the transformation
 of a word. Return the number of different transformations among all words we
 have.*/
+#include <array>
+#include <cstddef>
 #include <set>
 #include <string>
 #include <vector>
@@ -26,16 +28,18 @@ have.*/
 
 using namespace std;
 
-const static char* table[] = {
+namespace {
+std::array<char const *, 26> const table = {{
     ".-",   "-...", "-.-.", "-..",  ".",   "..-.", "--.",  "....", "..",
     ".---", "-.-",  ".-..", "--",   "-.",  "---",  ".--.", "--.-", ".-.",
-    "...",  "-",    "..-",  "...-", ".--", "-..-", "-.--", "--.."};
-namespace {
+    "...",  "-",    "..-",  "...-", ".--", "-..-", "-.--", "--.."
+}};
+
 class Solution {
     std::string Convert(std::string& s) {
         string ret;
         for (auto chars : s) {
-            ret += table[chars - 'a'];
+            ret += table.at(static_cast<std::size_t>(chars - 'a'));
         }
 
         return ret;
@@ -49,7 +53,7 @@ class Solution {
             set.insert(Convert(ptr));
         }
 
-        return set.size();
+        return static_cast<int>(set.size());
     }
 };
 

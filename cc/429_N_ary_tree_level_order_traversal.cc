@@ -75,7 +75,7 @@ Node* ConstructNode(vector<optional<int>>& elements) {
     elements.resize(size * 3 + 31);
     if (size == 0) return nullptr;
 
-    if (!elements[0].has_value()) return nullptr;
+    if (!elements.at(0).has_value()) return nullptr;
     queue<Node*> q;
 
     node = new Node(elements[0].value());
@@ -84,8 +84,8 @@ Node* ConstructNode(vector<optional<int>>& elements) {
     int index = 2;
     while (index < size) {
         Node* tmp = q.front();
-        while (index < size && elements[index].has_value()) {
-            Node* local_tmp = new Node(elements[index].value());
+        while (index < size && elements.at(index).has_value()) {
+            Node* const local_tmp = new Node(elements.at(index).value());
             tmp->m_children.push_back(local_tmp);
             q.push(local_tmp);
             index++;

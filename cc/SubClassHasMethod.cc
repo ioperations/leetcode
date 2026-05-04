@@ -7,6 +7,7 @@
 #include <iostream>
 
 #include "gtest/gtest.h"
+namespace {
 template <typename T>
 class Father {
    private:
@@ -22,9 +23,9 @@ class Father {
    public:
     void Interface() {
         if constexpr (HasMethod<T>::value) {
-            std::cout << "has method" << std::endl;
+            std::cout << "has method" << '\n';
         } else {
-            std::cout << "to be implemented" << std::endl;
+            std::cout << "to be implemented" << '\n';
         }
     }
 };
@@ -44,6 +45,7 @@ class Obj2 : public Father<Obj2> {
    private:
     /* data */
 };
+}  // namespace
 
 #include <gtest/gtest.h>
 

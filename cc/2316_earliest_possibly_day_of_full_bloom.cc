@@ -75,8 +75,10 @@ class Solution {
 
         */
         vector<pair<int, int>> pairs;
-        for (auto i = 0; i < (int)plant_time.size(); ++i)
-            pairs.emplace_back(grow_time[i], plant_time[i]);
+        pairs.reserve(plant_time.size());
+        for (auto i = 0; i < static_cast<int>(plant_time.size()); ++i) {
+            pairs.emplace_back(grow_time.at(i), plant_time.at(i));
+        }
 
         // nice trick with reverse iterators for reverse sorting
         sort(pairs.rbegin(), pairs.rend());

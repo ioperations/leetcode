@@ -25,7 +25,7 @@ class Solution {
         }
         int ret = 0;
         while (x) {
-            if ((double)(std::numeric_limits<int>::max() - (x % 10)) / 10 >=
+            if (static_cast<double>(std::numeric_limits<int>::max() - (x % 10)) / 10 >=
                 ret) {
                 ret = ret * 10 + (x % 10);
                 x /= 10;
@@ -43,7 +43,7 @@ class Solution {
             if (OutOfRange(ret)) {
                 return 0;
             }
-            return -atol(ret.c_str());
+            return -static_cast<int>(atol(ret.c_str()));
         }
 
         auto str = std::to_string(std::abs(x));
@@ -53,7 +53,7 @@ class Solution {
             return 0;
         }
 
-        return atol(ret.c_str());
+        return static_cast<int>(atol(ret.c_str()));
     }
 
    private:
@@ -67,7 +67,7 @@ class Solution {
             return s;
         }
 
-        return Reverse(s.substr(1)) + s[0];
+        return Reverse(s.substr(1)) + s.at(0);
     }
 
     /**
@@ -78,7 +78,7 @@ class Solution {
         int32_t sum = 0;
         for (const auto& ptr : s) {
             if ('0' <= ptr && ptr <= '9') {
-                if (((double)(max - (ptr - '0')) / 10) >= sum) {
+                if ((static_cast<double>(max - (ptr - '0')) / 10) >= sum) {
                     // 怎么老是报错 说是越界
                     sum = sum * 10 + ptr - '0';
                 } else {

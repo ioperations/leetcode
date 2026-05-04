@@ -27,46 +27,39 @@ namespace {
 class Solution {
    public:
     int MaxRotateFunction(vector<int>& nums) {
-        int const size = nums.size();
+        int const size = static_cast<int>(nums.size());
 
         int tmp{std::numeric_limits<int>::min()};
         for (int i = 0; i < size; i++) {
             int tmp_sum = 0;
             for (int j = 0; j < size; j++) {
-                tmp_sum += j * nums[j];
+                tmp_sum += j * nums.at(j);
             }
-            tmp = max(tmp_sum, tmp);
+            tmp = std::max(tmp_sum, tmp);
             int const z = nums.back();
             nums.pop_back();
             nums.insert(nums.begin(), z);
         }
-        // return tmp;
 
-        int const n = nums.size();
+        int const n = static_cast<int>(nums.size());
 
-        // sum of all element in nums except the first one because it will be
-        // multiplied by 0
-        int sum = accumulate(nums.begin(), nums.end(), 0) - nums.front();
+        int sum = std::accumulate(nums.begin(), nums.end(), 0) - nums.front();
 
-        // pushing same vector at the end of same vector
         nums.insert(nums.end(), nums.begin(), nums.end());
 
         int rolling{0};
         int ans{INT_MIN};
 
-        // taking initial numbers in rolling
-        for (int i = 0; i < n; i++) rolling += (i * nums[i]);
+        for (int i = 0; i < n; i++) rolling += (i * nums.at(i));
 
-        ans = max(ans, rolling);
+        ans = std::max(ans, rolling);
 
-        // now roll the sliding window to find max in whole vector we created
-        // above
         for (int j = 1, i = n; i < (n * 2) - 1; i++, j++) {
             rolling -= sum;
-            sum -= nums[j];
-            sum += nums[i];
-            rolling += ((n - 1) * nums[i]);
-            ans = max(ans, rolling);
+            sum -= nums.at(j);
+            sum += nums.at(i);
+            rolling += ((n - 1) * nums.at(i));
+            ans = std::max(ans, rolling);
         }
 
         return ans;

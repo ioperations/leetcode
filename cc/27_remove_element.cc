@@ -35,12 +35,10 @@ If all assertions pass, then your solution will be accepted.
 
 #include "gtest/gtest.h"
 
-using namespace std;
-
 namespace {
 class Solution {
    public:
-    int RemoveElement(vector<int>& nums, int val) {
+    int RemoveElement(std::vector<int>& nums, int val) {
         // pass
         int const n = nums.size();
 

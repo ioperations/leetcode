@@ -60,7 +60,7 @@ class Solution {
     }
 
    public:
-    int const m_max_time = 1e8;
+    static constexpr int m_max_time = 1e8;
     using pa = pair<int, int>;
 
     int NetworkDelayTimeV1(vector<vector<int>>& times, int n, int k) {
@@ -80,7 +80,7 @@ class Solution {
             auto [current_time, current_node] = pq.top();
             pq.pop();
 
-            if (visited[current_node]) continue;
+            if (visited.at(current_node)) continue;
 
             for (auto& [time, adj_current_node] : graph.at(current_node)) {
                 if (current_time + time < dist.at(adj_current_node)) {
@@ -89,13 +89,13 @@ class Solution {
                 }
             }
 
-            visited[current_node] = true;
+            visited.at(current_node) = true;
         }
 
         int ans = 0;
         for (int node = 1; node <= n; node++) {
             if (dist.at(node) == m_max_time) return -1;
-            ans = max(ans, dist.at(node));
+            ans = std::max(ans, dist.at(node));
         }
 
         return ans;

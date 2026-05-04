@@ -7,12 +7,12 @@
 
 #include <algorithm>
 #include <array>
-#include <cstring>
 #include <iostream>
 #include <string>
 
 using namespace std;
 
+namespace {
 class Solution {
    public:
     /*
@@ -34,8 +34,8 @@ class Solution {
     inline long long LessEq(std::string& word, int k) {
         std::array<int, 5> last_pos{};  // last position of each vowel
         last_pos.fill(-1);
-        std::array<int, 6> freq{};       // 0-4 for vowl 5 for consonants)
-        long long ans = 0;       // count of valid substrings
+        std::array<int, 6> freq{};  // 0-4 for vowl 5 for consonants)
+        long long ans = 0;          // count of valid substrings
 
         int cnt_vow = 0;  // count different vowels in the current window
         for (int l = 0, r = 0; r < m_n; r++) {
@@ -55,7 +55,8 @@ class Solution {
                 if (type < 5 && freq.at(type) == 0) cnt_vow--;
                 l++;  // Move left pointer
             }
-            int const min_pos = *min_element(last_pos.begin(), last_pos.end());
+            int const min_pos =
+                *std::min_element(last_pos.begin(), last_pos.end());
             //    cout << freq[5] << endl;
             // count the number of valid substrings
             if (cnt_vow == 5) {
@@ -76,6 +77,7 @@ class Solution {
         return k == 0 ? LessEq(word, 0) : LessEq(word, k) - LessEq(word, k - 1);
     }
 };
+}  // namespace
 
 static auto init = []() {
     ios::sync_with_stdio(false);

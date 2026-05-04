@@ -91,16 +91,16 @@ class SolutionV2 {
         stack<Node> st;  // stack to save character and count
         for (int i = 0; i < static_cast<int>(s.length()); i++) {
           if (st.empty()) {
-            st.push({s[i], 1});
+            st.push({s.at(i), 1});
           } else {
-            if (st.top().m_c == s[i]) {
+            if (st.top().m_c == s.at(i)) {
               st.top().m_cnt++;
             } else {
-              st.push({s[i], 1});
+              st.push({s.at(i), 1});
             }
           }
 
-          if (st.top().m_cnt == k) st.pop();  // if make k len characters
+          if (st.top().m_cnt == k) { st.pop(); }  // if make k len characters
         }
 
         // make a sentence from stack
@@ -116,17 +116,17 @@ class SolutionV2 {
     }
 
     string RemoveDuplicates(const string& s, int k) {
-        int const n = s.size();
-        if (n < k) return s;
+        int const n = static_cast<int>(s.size());
+        if (n < k) { return s; }
 
         stack<pair<char, int>> stk;
         for (int i = 0; i < n; ++i) {
-          if (stk.empty() || stk.top().first != s[i]) {
-            stk.emplace(s[i], 1);
+          if (stk.empty() || stk.top().first != s.at(i)) {
+            stk.emplace(s.at(i), 1);
           } else {
             auto prev = stk.top();
             stk.pop();
-            stk.emplace(s[i], prev.second + 1);
+            stk.emplace(s.at(i), prev.second + 1);
           }
             if (stk.top().second == k) stk.pop();
         }

@@ -9,6 +9,7 @@ sorted in ascending order.
 Return the shortest such subarray and output its length
 **/
 
+#include <cstddef>
 #include <functional>
 #include <queue>
 #include <vector>
@@ -23,18 +24,18 @@ class Solution {
     int FindUnsortedSubarray(vector<int>& nums) {
         priority_queue<int, vector<int>, std::less<>> q1;
         priority_queue<int, vector<int>, std::greater<>> q2;
-        int i = 0, n = nums.size(), j = 0;
+        int i = 0, n = static_cast<int>(nums.size()), j = 0;
         for (i = 0; i < n; i++) {
-            q1.push(nums[i]);
-            q2.push(nums[i]);
+            q1.push(nums.at(static_cast<std::size_t>(i)));
+            q2.push(nums.at(static_cast<std::size_t>(i)));
         }
         for (i = 0; i < n; i++) {
-            if (nums[i] != q2.top()) break;
+            if (nums.at(static_cast<std::size_t>(i)) != q2.top()) break;
             q2.pop();
         }
         if (i == n) return 0;
         for (j = n - 1; j >= 0; j--) {
-            if (nums[j] != q1.top()) break;
+            if (nums.at(static_cast<std::size_t>(j)) != q1.top()) break;
             q1.pop();
         }
         return j - i + 1;

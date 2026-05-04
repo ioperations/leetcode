@@ -21,12 +21,10 @@ some or no elements without changing the order of the remaining elements.
 #include "benchmark/benchmark.h"
 #include "gtest/gtest.h"
 
-using namespace std;
-
 namespace {
 class Solution {
    public:
-    int MaxLength(vector<string>& arr) {
+    int MaxLength(std::vector<std::string>& arr) {
         // 这个性能肯定又不过关,但是好理解
         auto existed = [&](std::map<char, int>& map, std::string& str) -> bool {
             for (const auto& ptr : str) {
@@ -41,9 +39,11 @@ class Solution {
 
         std::map<char, int> visisted;
         int const size = static_cast<int>(arr.size());
-        function<int(std::string&, int, int)> fun = [&](std::string& pre, int i,
+        std::function<int(std::string&, int, int)> fun = [&](std::string& pre, int i,
                                                         int result) -> int {
-            if (i >= size) return result;
+            if (i >= size) {
+                return result;
+            }
             if (existed(visisted, arr.at(i))) {
                 return std::max(fun(pre, i + 1, result), result);
             }
@@ -70,26 +70,32 @@ class Solution {
         return fun(cur, 0, 0);
     }
 
-    int MaxLengthV2(vector<string>& arr) {
-        vector<int> a;
+    int MaxLengthV2(std::vector<std::string>& arr) {
+        std::vector<int> a;
 
-        for (const string& x : arr) {
+        for (const std::string& x : arr) {
             int mask = 0;
-            for (char const c : x) mask |= 1 << (c - 'a');
-            if (__builtin_popcount(mask) != x.length()) continue;
+            for (char const c : x) {
+                mask |= 1 << (c - 'a');
+            }
+            if (__builtin_popcount(mask) != x.length()) {
+                continue;
+            }
             a.push_back(mask);
         }
 
         int ans = 0;
 
-        vector<int> dp{0};
+        std::vector<int> dp{0};
         for (int const i : a) {
             int const size = static_cast<int>(dp.size());
             for (int j = 0; j < size; ++j) {
-                if (dp.at(j) & i) continue;
+                if (dp.at(j) & i) {
+                    continue;
+                }
                 int const t = dp.at(j) | i;
                 dp.push_back(t);
-                ans = max(ans, __builtin_popcount(t));
+                ans = std::max(ans, __builtin_popcount(t));
             }
         }
 
@@ -98,7 +104,7 @@ class Solution {
 };
 
 TEST(MaximumLengthOfAConcatenatedStringWithUniqueCharacters, t1) {
-    vector<string> arr = {"un", "iq", "ue"};
+    std::vector<std::string> arr = {"un", "iq", "ue"};
     int const output = 4;
     /*Explanation: All the valid concatenations are:
     - ""
@@ -115,7 +121,7 @@ TEST(MaximumLengthOfAConcatenatedStringWithUniqueCharacters, t1) {
 }
 
 TEST(MaximumLengthOfAConcatenatedStringWithUniqueCharacters, t2) {
-    vector<string> arr = {"cha", "r", "act", "ers"};
+    std::vector<std::string> arr = {"cha", "r", "act", "ers"};
     int const output = 6;
     /*
      Possible longest valid concatenations are "chaers" ("cha" + "ers") and
@@ -127,7 +133,7 @@ TEST(MaximumLengthOfAConcatenatedStringWithUniqueCharacters, t2) {
 }
 
 TEST(MaximumLengthOfAConcatenatedStringWithUniqueCharacters, t3) {
-    vector<string> arr = {"abcdefghijklmnopqrstuvwxyz"};
+    std::vector<std::string> arr = {"abcdefghijklmnopqrstuvwxyz"};
     int const output = 26;
     // Explanation: The only string in arr has all 26 characters.};
     Solution sl;
@@ -136,7 +142,7 @@ TEST(MaximumLengthOfAConcatenatedStringWithUniqueCharacters, t3) {
 }
 
 TEST(MaximumLengthOfAConcatenatedStringWithUniqueCharactersV2, t1) {
-    vector<string> arr = {"un", "iq", "ue"};
+    std::vector<std::string> arr = {"un", "iq", "ue"};
     int const output = 4;
     /*Explanation: All the valid concatenations are:
     - ""
@@ -153,7 +159,7 @@ TEST(MaximumLengthOfAConcatenatedStringWithUniqueCharactersV2, t1) {
 }
 
 TEST(MaximumLengthOfAConcatenatedStringWithUniqueCharactersV2, t2) {
-    vector<string> arr = {"cha", "r", "act", "ers"};
+    std::vector<std::string> arr = {"cha", "r", "act", "ers"};
     int const output = 6;
     /*
      Possible longest valid concatenations are "chaers" ("cha" + "ers") and
@@ -165,7 +171,7 @@ TEST(MaximumLengthOfAConcatenatedStringWithUniqueCharactersV2, t2) {
 }
 
 TEST(MaximumLengthOfAConcatenatedStringWithUniqueCharactersV2, t3) {
-    vector<string> arr = {"abcdefghijklmnopqrstuvwxyz"};
+    std::vector<std::string> arr = {"abcdefghijklmnopqrstuvwxyz"};
     int const output = 26;
     // Explanation: The only string in arr has all 26 characters.};
     Solution sl;
@@ -174,8 +180,8 @@ TEST(MaximumLengthOfAConcatenatedStringWithUniqueCharactersV2, t3) {
 }
 
 static void BenchMarkV1(benchmark::State& state) {
-    vector<string> arr = {"un", "iq", "ue"};
-    for (auto _ : state) {
+    std::vector<std::string> arr = {"un", "iq", "ue"};
+    for (auto&& _ : state) {
         int const output = 4;
 
         Solution sl;
@@ -186,8 +192,8 @@ static void BenchMarkV1(benchmark::State& state) {
 BENCHMARK(BenchMarkV1);
 
 static void BenchMarkV2(benchmark::State& state) {
-    vector<string> arr = {"un", "iq", "ue"};
-    for (auto _ : state) {
+    std::vector<std::string> arr = {"un", "iq", "ue"};
+    for (auto&& _ : state) {
         int const output = 4;
 
         Solution sl;

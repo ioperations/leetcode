@@ -88,7 +88,7 @@ class Solution {
         std::function<Node*(int i, int j, int len)> fun =
             [&](int i, int j, int len) -> Node* {
             if (len == 1) {
-                return new Node(grid[i][j], true);
+                return new Node(grid.at(i).at(j), true);
             }
             int const size = len / 2;
             auto* top_left = fun(i, j, size);
@@ -112,7 +112,7 @@ class Solution {
                             bottom_right);
         };
 
-        return fun(0, 0, grid.size());
+        return fun(0, 0, static_cast<int>(grid.size()));
     }
 };
 
@@ -162,7 +162,7 @@ TEST(ConstructQuadTree, t1) {
     // : Notice that 0 represnts False and
     // 1 represents True in the photo representing the Quad - Tree.
 
-    Solution sl;
+    Solution const sl;
     auto* ret = sl.Construct(grid);
     auto flattern = FlattenQuadTree(ret);
     EXPECT_EQ(flattern, output);
@@ -204,7 +204,7 @@ TEST(ConstructQuadTree, t2) {
     // value. The topRight have different values so we divide it into 4
     // sub-grids where each has the same value
 
-    Solution sl;
+    Solution const sl;
     auto* ret = sl.Construct(grid);
     auto flattern = FlattenQuadTree(ret);
     EXPECT_EQ(flattern, output);

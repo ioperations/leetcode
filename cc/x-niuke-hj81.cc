@@ -17,14 +17,14 @@ void Func(const std::string& less, const std::string& more) {
     bool t = true;
     std::map<int, char> less_set{};
     for (size_t i = 0; i < less.size(); ++i) {
-        less_set.emplace(static_cast<int>(i), less[i]);
+        less_set.emplace(static_cast<int>(i), less.at(i));
     }
 
-    const auto less_set_size = static_cast<int>(less_set.size());
+    int const less_set_size = static_cast<int>(less_set.size());
     for (int i = 0; i < less_set_size; ++i) {
         auto z = std::find_if(
             more.begin(), more.end(),
-            [target = less_set[i]](const char& c) { return c == target; });
+            [target = less_set.at(i)](const char& c) { return c == target; });
         if (z == std::end(more)) {
             t = false;
             break;

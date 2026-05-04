@@ -20,21 +20,21 @@ struct StackGrowth {
     int m_size = 0;
 
     StackGrowth() {
-        m_p = m_padding.data();
+        m_p = m_padding.data();  // NOLINT cppcoreguidelines-pro-type-union-access
     }
 
    public:
     void append(const char* q) {
         const auto len = strlen(q);
-        memcpy(m_p + m_size, q, len);
+        memcpy(m_p + m_size, q, len);  // NOLINT cppcoreguidelines-pro-bounds-pointer-arithmetic cppcoreguidelines-pro-type-union-access
         m_size = m_size + static_cast<int>(len);
 
-        m_p[static_cast<size_t>(m_size)] = '\0';
+        m_p[static_cast<size_t>(m_size)] = '\0';  // NOLINT cppcoreguidelines-pro-bounds-pointer-arithmetic cppcoreguidelines-pro-type-union-access
         m_type = e_type::STRING;
     }
 
     void SetInt(int q) {
-        m_i = q;
+        m_i = q;  // NOLINT cppcoreguidelines-pro-type-union-access
         m_type = e_type::INT;
     }
 
@@ -42,14 +42,14 @@ struct StackGrowth {
         if (m_type != e_type::STRING) {
             return {};
         }
-        return std::string(m_p);
+        return std::string(m_p);  // NOLINT cppcoreguidelines-pro-type-union-access
     }
 
     [[nodiscard]] std::optional<int> GetInt() const {
         if (m_type != e_type::INT) {
             return {};
         }
-        return m_i;
+        return m_i;  // NOLINT cppcoreguidelines-pro-type-union-access
     }
 };
 }  // namespace

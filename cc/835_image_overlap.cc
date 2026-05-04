@@ -31,15 +31,15 @@ namespace {
 class Solution {
    public:
     int LargestOverlap(vector<vector<int>>& img1, vector<vector<int>>& img2) {
-        int const n = img1.size();
+        int const n = static_cast<int>(img1.size());
         vector<pair<int, int>> vec_a;
         vector<pair<int, int>> vec_b;
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
-                if (img1[i][j] == 1) {
+                if (img1.at(i).at(j) == 1) {
                     vec_a.emplace_back(i, j);
                 }
-                if (img2[i][j] == 1) {
+                if (img2.at(i).at(j) == 1) {
                     vec_b.emplace_back(i, j);
                 }
             }

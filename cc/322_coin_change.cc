@@ -23,18 +23,16 @@ You may assume that you have an infinite number of each kind of coin.
 
 #include "gtest/gtest.h"
 
-using namespace std;
-
 namespace {
 class Solution {
    public:
-    int CoinChange(vector<int>& coins, int amount) {
+    int CoinChange(std::vector<int>& coins, int amount) {
         // pass
         sort(coins.begin(), coins.end());
 
         std::map<int, int> cache;
 
-        function<int(int)> fun = [&](int a) -> int {
+        std::function<int(int)> fun = [&](int a) -> int {
             if (a == 0) {
                 return 0;
             }
@@ -63,25 +61,31 @@ class Solution {
         return fun(amount);
     }
 
-    int CoinChangeV1(vector<int>& coins, int amount) {
-        vector<int> h((amount + 1), INT_MAX - 1);
+    int CoinChangeV1(std::vector<int>& coins, int amount) {
+        std::vector<int> h((amount + 1), INT_MAX - 1);
         h.at(0) = 0;
         for (int i = 0; i < static_cast<int>(h.size()); i++) {
             for (int const coin : coins) {
-                if (i >= coin) { h.at(i) = min(h.at(i), 1 + h.at(i - coin)); }
+                if (i >= coin) {
+                    h.at(i) = std::min(h.at(i), 1 + h.at(i - coin));
+                }
             }
         }
         return (h.at(h.size() - 1) < INT_MAX - 1) ? h.at(h.size() - 1) : -1;
     }
 
-    int CoinChangeV2(vector<int>& arr, int sum) {
+    int CoinChangeV2(std::vector<int>& arr, int sum) {
         int const n = static_cast<int>(arr.size());
 
-        vector<vector<int>> dp(n + 1, vector<int>(sum + 1));
+        std::vector<std::vector<int>> dp(n + 1, std::vector<int>(sum + 1));
 
-        for (int i = 0; i <= n; i++) { dp.at(i).at(0) = 0; }
+        for (int i = 0; i <= n; i++) {
+            dp.at(i).at(0) = 0;
+        }
 
-        for (int i = 0; i < sum + 1; i++) { dp.at(0).at(i) = INT_MAX - 1; }
+        for (int i = 0; i < sum + 1; i++) {
+            dp.at(0).at(i) = INT_MAX - 1;
+        }
 
         for (int i = 1; i <= sum; i++) {
             if (i % arr.at(0) == 0) {
@@ -94,7 +98,7 @@ class Solution {
         for (int i = 1; i <= n; i++) {
             for (int j = 1; j <= sum; j++) {
                 if (arr.at(i - 1) <= j) {
-                    dp.at(i).at(j) = min(dp.at(i - 1).at(j), dp.at(i).at(j - arr.at(i - 1)) + 1);
+                    dp.at(i).at(j) = std::min(dp.at(i - 1).at(j), dp.at(i).at(j - arr.at(i - 1)) + 1);
                 } else {
                     dp.at(i).at(j) = dp.at(i - 1).at(j);
                 }

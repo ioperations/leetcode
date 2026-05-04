@@ -32,15 +32,11 @@ namespace {
 class Solution {
    public:
     int EliminateMaximum(vector<int>& dist, vector<int>& speed) {
-        //     n == dist.length == speed.length
-        //     1 <= n <= 105
-        //     1 <= dist[i], speed[i] <= 105
-
-        const int len = dist.size();
+        int const len = static_cast<int>(dist.size());
         priority_queue<int, vector<int>, std::greater<> > queue;
         for (int i = 0; i < len; i++) {
-            queue.emplace((dist[i] % speed[i] == 0) ? dist[i] / speed[i]
-                                            : dist[i] / speed[i] + 1);
+            queue.emplace((dist.at(i) % speed.at(i) == 0) ? dist.at(i) / speed.at(i)
+                                            : dist.at(i) / speed.at(i) + 1);
         }
 
         int ret = 0;

@@ -17,11 +17,10 @@ achieve any profit, return 0.
 
 #include "gtest/gtest.h"
 
-using namespace std;
 namespace {
 class Solution {
    public:
-    int MaxProfit(vector<int>& prices) const {
+    int MaxProfit(std::vector<int>& prices) const {
         // pass
 
         int max = 0;
@@ -34,13 +33,17 @@ class Solution {
         return max;
     }
 
-    int MaxProfitV2(vector<int>& prices) const {
+    int MaxProfitV2(std::vector<int>& prices) const {
         int max_price = -1;
         int max_profit = 0;
         for (int i = prices.size() - 1; i >= 0; i--) {
-            if (prices[i] > max_price) max_price = prices[i];
+            if (prices[i] > max_price) {
+                max_price = prices[i];
+            }
             int const profit = max_price - prices[i];
-            if (profit > max_profit) max_profit = profit;
+            if (profit > max_profit) {
+                max_profit = profit;
+            }
         }
         return max_profit;
     }

@@ -15,20 +15,19 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    int FirstUniqChar(string s) const {
+    [[nodiscard]] int FirstUniqChar(string s) const {
         unordered_map<char, pair<int, int>> m;
-        int idx = s.size();
-        for (int i = 0; i < (int)s.size(); i++) {
-            m[s[i]].first++;
-            m[s[i]].second = i;
+        int idx = static_cast<int>(s.size());
+        for (int i = 0; i < static_cast<int>(s.size()); i++) {
+            m[s.at(i)].first++;
+            m[s.at(i)].second = i;
         }
         for (const auto& [c, p] : m) {
             if (p.first == 1) {
                 idx = min(idx, p.second);
             }
         }
-        return idx == (int)s.size() ? -1 : idx;
-        return 0;
+        return idx == static_cast<int>(s.size()) ? -1 : idx;
     }
 };
 

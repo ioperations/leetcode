@@ -16,7 +16,9 @@ using namespace std;
 
 using MyListNode = List::ListNode<int>;
 
-enum { inf = 0x7fffffff };
+namespace {
+enum class inf { val = 0x7fffffff };
+}  // namespace
 
 namespace {
 class LoserTree {
@@ -37,7 +39,7 @@ class LoserTree {
         this->m_base = &nums;
         this->m_leaves_ls_st = leaves_num;
         this->m_ls.resize(leaves_num << 1, -1);
-        (*this->m_base).resize(leaves_num, inf);
+        (*this->m_base).resize(leaves_num, static_cast<int>(inf::val));
         // 左闭右开
         for (int i = 0; i < leaves_num; i++) {
             this->m_ls.at(this->m_leaves_ls_st + i) = i;
@@ -69,7 +71,7 @@ class LoserTree {
         int const ans{(*this->m_base).at(m_ls.at(0))};
         // modify_fa_idx为ls的下标
         int const leaves_idx{this->m_leaves_ls_st + m_ls.at(0)};
-        (*this->m_base).at(this->m_ls.at(leaves_idx)) = inf;
+        (*this->m_base).at(this->m_ls.at(leaves_idx)) = static_cast<int>(inf::val);
         this->Sort(leaves_idx >> 1, this->m_ls.at(0));
         return ans;
     }
@@ -91,6 +93,7 @@ class LoserTree {
 
 }  // namespace
 
+namespace {
 class Solution {
    public:
     std::vector<int> GetLeastNumbers(std::vector<int>& arr, int k) {
@@ -156,7 +159,7 @@ class Solution {
     ///* 听说用最小堆,还可以用败者树
     MyListNode* MergeKLists(vector<MyListNode*>& lists) {
         // 我们记录这一路 走到了什么位置
-        std::vector<MyListNode*> const cursors = lists;
+        std::vector<MyListNode*> const& cursors = lists;
 
         // 对于每一路我们拿出值最小的那个值(这个node !=
         // nullptr)，并将这一路的游标向右移动一格
@@ -193,12 +196,15 @@ class Solution {
             }
 
             // 现在当前的candidate的node需要向下一格
-            candidate = candidate->next;
+            if (candidate->next) {
+                candidate = candidate->next;
+            }
         }
 
         return head;
     }
 };
+}  // namespace
 
 namespace {
 TEST(Memleak, t1) {
@@ -247,7 +253,7 @@ TEST(MergeKSortedListV2, t11) {
 
 void ExpectEqList(MyListNode* list, std::vector<int> const& elemets) {
     int count = 0;
-    MyListNode* ptr = list;
+    MyListNode const * ptr = list;
     while (ptr != nullptr) {
         EXPECT_EQ(ptr->val, elemets.at(count));
         ptr = ptr->next;

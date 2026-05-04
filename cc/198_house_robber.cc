@@ -24,28 +24,28 @@ namespace {
 class Solution {
    public:
     int Rob(vector<int>& nums) {
-        int size = nums.size();
+        int const size = static_cast<int>(nums.size());
 
         if (size == 1) {
-            return nums[0];
+            return nums.at(0);
         }
         if (size == 2) {
-            return max(nums[0], nums[1]);
+            return std::max(nums.at(0), nums.at(1));
         }
         std::map<int, int> cache;
 
         function<int(int)> fun = [&](int index) -> int {
-            if (index == size - 1) return nums[index];
-            if (cache.count(index)) return cache[index];
+            if (index == size - 1) return nums.at(index);
+            if (cache.count(index)) return cache.at(index);
             int const m1 = fun(index + 1);
             if (index + 2 < size) {
-                int const m2 = nums[index] + fun(index + 2);
-                int const tmp = max(m1, m2);
+                int const m2 = nums.at(index) + fun(index + 2);
+                int const tmp = std::max(m1, m2);
 
                 cache[index] = tmp;
                 return tmp;
             }
-            int const tmp = std::max(m1, nums[index]);
+            int const tmp = std::max(m1, nums.at(index));
             cache[index] = tmp;
             return tmp;
         };

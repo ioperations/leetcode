@@ -12,19 +12,19 @@ namespace {
 
 class Solution {
    public:
-    int LengthOfLongestSubstring(std::string s) const {
-        int const n = s.size();
+    [[nodiscard]] int LengthOfLongestSubstring(std::string s) const {
+        int const n = static_cast<int>(s.size());
         int ans = std::numeric_limits<int>::min(), i = 0, j = 0;
         std::unordered_map<char, int> m;
         if (n == 0) return 0;
         for (j = 0; j < n; j++) {
-            m[s[j]]++;
+            m[s.at(j)]++;
             if (static_cast<int>(m.size()) == j - i + 1) {
               ans = std::max(ans, j - i + 1);
             } else if (static_cast<int>(m.size()) < j - i + 1) {
               while (static_cast<int>(m.size()) < j - i + 1) {
-                m[s[i]]--;
-                if (m[s[i]] == 0) m.erase(s[i]);
+                m[s.at(i)]--;
+                if (m[s.at(i)] == 0) m.erase(s.at(i));
                 i++;
               }
             }

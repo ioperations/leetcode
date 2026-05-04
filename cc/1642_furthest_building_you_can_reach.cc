@@ -23,21 +23,21 @@ you use the given ladders and bricks optimally*/
 
 #include "gtest/gtest.h"
 
-using namespace std;
-
 namespace {
 class Solution {
    public:
-    int FurthestBuilding(vector<int>& heights, int bricks, int ladders) {
+    int FurthestBuilding(std::vector<int>& heights, int bricks, int ladders) {
         // pass
         int const size = static_cast<int>(heights.size());
 
-        map<tuple<int, int, int>, int> const cache;
+        std::map<std::tuple<int, int, int>, int> const cache;
 
         // 在当前的位置上，根据自身条件，最多能向前走几步
-        function<int(int, int, int)> fun = [&](int i, int bricks,
+        std::function<int(int, int, int)> fun = [&](int i, int bricks,
                                                int ladders) -> int {
-            if ((i + 1) >= size) return 0;
+            if ((i + 1) >= size) {
+                return 0;
+            }
 
             int candidates = -1;
             int candidates2 = -1;
@@ -51,15 +51,15 @@ class Solution {
             if (minus <= bricks) {
                 candidates2 = 1 + fun(i + 1, bricks - minus, ladders);
             }
-            return max(candidates2, candidates);
+            return std::max(candidates2, candidates);
         };
 
         return fun(0, bricks, ladders);
     }
 
-    int FurthestBuilding2(vector<int>& heights, int bricks, int ladders) {
+    int FurthestBuilding2(std::vector<int>& heights, int bricks, int ladders) {
         int total_count = 0;
-        priority_queue<int> max_heap;
+        std::priority_queue<int> max_heap;
         for (int i = 0; i < static_cast<int>(heights.size()) - 1; i++) {
             // If height of next building is smaller jump on it
             if (heights[i] >= heights[i + 1]) {
@@ -72,11 +72,15 @@ class Solution {
 
             // If count of bricks is greater than existing bricks return the
             // current height as no ladder is remaining
-            if (ladders == 0 && total_count > bricks) return i;
+            if (ladders == 0 && total_count > bricks) {
+                return i;
+            }
 
             // If count of bricks is lesser than existing bricks move to
             // next building
-            if (ladders == 0 && total_count <= bricks) continue;
+            if (ladders == 0 && total_count <= bricks) {
+                continue;
+            }
 
             // Insert the current differnce into maxheap to retrive the
             // highest diff if needed for the ladder
@@ -97,7 +101,7 @@ class Solution {
 };
 
 TEST(FurthestBuildingYouCanReach, t1) {
-    vector<int> heights{4, 2, 7, 6, 9, 14, 12};
+    std::vector<int> heights{4, 2, 7, 6, 9, 14, 12};
     int const bricks = 5, ladders = 1;
 
     Solution sl;
@@ -116,7 +120,7 @@ TEST(FurthestBuildingYouCanReach, t1) {
 }
 
 TEST(FurthestBuildingYouCanReach, t2) {
-    vector<int> heights{4, 12, 2, 7, 3, 18, 20, 3, 19};
+    std::vector<int> heights{4, 12, 2, 7, 3, 18, 20, 3, 19};
     int bricks = 10, ladders = 2;
 
     Solution sl;
@@ -125,7 +129,7 @@ TEST(FurthestBuildingYouCanReach, t2) {
 }
 
 TEST(FurthestBuildingYouCanReach, t3) {
-    vector<int> heights{14, 3, 19, 3};
+    std::vector<int> heights{14, 3, 19, 3};
     int bricks = 17, ladders = 0;
 
     Solution sl;

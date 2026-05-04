@@ -34,7 +34,7 @@ class Solution {
         int const mod = 1e9 + 7;
         vector<pair<int, int>> candidates(n);
         // we build the pair { efficiency, speed } so that we can sort it later
-        for (int i = 0; i < n; i++) candidates[i] = {efficiency[i], speed[i]};
+        for (int i = 0; i < n; i++) candidates.at(i) = {efficiency.at(i), speed.at(i)};
         // sort candidates in descending order
         sort(candidates.rbegin(), candidates.rend());
         // Using Example 1:
@@ -74,8 +74,8 @@ class Solution {
             int min{std::numeric_limits<int>::max()};
 
             for (auto& it : list) {
-                min = std::min(min, efficiency[it]);
-                sum += speed[it];
+                min = std::min(min, efficiency.at(it));
+                sum += speed.at(it);
             }
 
             return min * sum;

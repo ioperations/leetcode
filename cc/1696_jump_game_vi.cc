@@ -19,20 +19,18 @@ Return the maximum score you can get.*/
 
 #include "gtest/gtest.h"
 
-using namespace std;
-
 namespace {
 class Solution {
    public:
-    int MaxResult(vector<int>& nums, int k) {
+    int MaxResult(std::vector<int>& nums, int k) {
         int const n = nums.size();
-        vector<int> mem(n, INT_MIN);
-        priority_queue<pair<int, int>> pq;
+        std::vector<int> mem(n, INT_MIN);
+        std::priority_queue<std::pair<int, int>> pq;
         mem[n - 1] = nums[n - 1];
         pq.emplace(mem[n - 1], n - 1);
         for (int i = n - 2; i >= 0; i--) {
             while (!pq.empty()) {
-                pair<int, int> const curr = pq.top();
+                std::pair<int, int> const curr = pq.top();
                 int const prev_max_score = curr.first;
                 int const index = curr.second;
                 if (index - i <= k) {

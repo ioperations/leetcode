@@ -13,20 +13,20 @@ using namespace std;
 
 namespace {
 
-int pos;
+int pos = 0;  // NOLINT cppcoreguidelines-avoid-non-const-global-variables
 
 int Result(const string& data) {
     int num = 0;
     char flag = '+';
     stack<int> stk;
-    const auto len = static_cast<int>(data.length());
+    int const len = static_cast<int>(data.length());
     while (pos < len) {
-        if (data[pos] == '(') {
+        if (data.at(pos) == '(') {
             ++pos;
             num = Result(data);
         }
-        while (pos < len && isdigit(static_cast<unsigned char>(data[pos]))) {
-            num = num * 10 + data[pos] - '0';
+        while (pos < len && isdigit(static_cast<unsigned char>(data.at(pos)))) {
+            num = num * 10 + data.at(pos) - '0';
             ++pos;
         }
         switch (flag) {
@@ -49,9 +49,9 @@ int Result(const string& data) {
         }
         num = 0;
         if (pos < len) {
-            flag = data[pos];
+            flag = data.at(pos);
         }
-        if (pos < len && data[pos] == ')') {
+        if (pos < len && data.at(pos) == ')') {
             ++pos;
             break;
         }

@@ -77,8 +77,6 @@ class Solution {
                 pre->next = ret;
             }
             pre = ret;
-
-            ret = ret->next;
         }
         return head;
     }

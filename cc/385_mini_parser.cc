@@ -23,14 +23,12 @@ or other lists.
 
 #include "gtest/gtest.h"
 
-using namespace std;
-
 namespace {
 class NestedInteger {
    private:
     bool m_is_integer = true;
     int m_val{};
-    vector<NestedInteger> m_vec;
+    std::vector<NestedInteger> m_vec;
 
    public:
     // Constructor initializes an empty nested list.
@@ -65,24 +63,24 @@ class NestedInteger {
     // Return the nested list that this NestedInteger holds, if it holds a
     // nested list The result is undefined if this NestedInteger holds a single
     // integer
-    [[nodiscard]] const vector<NestedInteger>& GetList() const { return m_vec; }
+    [[nodiscard]] const std::vector<NestedInteger>& GetList() const { return m_vec; }
 };
 class Solution {
    public:
     [[nodiscard]]
     NestedInteger Deserialize(std::string s) const {
-        const function<bool(char)> isnumber = [](char c) {
-            return (c == '-') || isdigit(c);
+        const std::function<bool(char)> isnumber = [](char c) {
+            return (c == '-') || std::isdigit(c);
         };
 
-        stack<NestedInteger> stk;
+        std::stack<NestedInteger> stk;
         stk.emplace();
 
         for (auto it = s.begin(); it != s.end();) {
             const char& c = (*it);
             if (isnumber(c)) {
-                auto it2 = find_if_not(it, s.end(), isnumber);
-                const int val = stoi(string(it, it2));
+                auto it2 = std::find_if_not(it, s.end(), isnumber);
+                const int val = std::stoi(std::string(it, it2));
                 stk.top().Add(NestedInteger(val));
                 it = it2;
             } else {
@@ -101,8 +99,9 @@ class Solution {
     }
 
     [[nodiscard]]
-    NestedInteger DeserializeV1(string s) const {
-        stack<NestedInteger> stk({NestedInteger()});
+    NestedInteger DeserializeV1(std::string s) const {
+        constexpr int kBase = 10;
+        std::stack<NestedInteger> stk({NestedInteger()});
         for (size_t i = 0; i < s.size(); ++i) {
             if (s.at(i) == '[') {
                 stk.emplace();
@@ -119,7 +118,7 @@ class Solution {
                     ++i;
                 }
                 for (; i < s.size() && '0' <= s.at(i) && s.at(i) <= '9'; ++i) {
-                    v = v * 10 + s.at(i) - '0';
+                    v = v * kBase + s.at(i) - '0';
                 }
                 if (negative) {
                     v = -v;
@@ -134,7 +133,7 @@ class Solution {
     }
 };
 
-void Flattern(const NestedInteger& n, vector<int>& ret) {
+void Flattern(const NestedInteger& n, std::vector<int>& ret) {
     if (!n.IsInteger()) {
         for (auto& ptr : n.GetList()) {
             Flattern(ptr, ret);
@@ -147,15 +146,15 @@ void Flattern(const NestedInteger& n, vector<int>& ret) {
 TEST(Base, t0) {
     const NestedInteger tmp(1);
 
-    vector<int> vec;
+    std::vector<int> vec;
 
     Flattern(tmp, vec);
 
-    EXPECT_EQ(vec, vector<int>{1});
+    EXPECT_EQ(vec, std::vector<int>{1});
 }
 
 TEST(miniV, t1) {
-    const string s = "324";
+    const std::string s = "324";
     // Explanation: You should return a NestedInteger object which contains
     // a single integer 324.
 
@@ -167,14 +166,14 @@ TEST(miniV, t1) {
 
     ret = sl.DeserializeV1(s);
 
-    vector<int> vec;
+    std::vector<int> vec;
     Flattern(ret, vec);
 
     EXPECT_EQ(vec, (std::vector<int>{324}));
 }
 
 TEST(miniV, t2) {
-    const string s = "[123,[456,[789]]]";
+    const std::string s = "[123,[456,[789]]]";
     // Output: [123,[456,[789]]]
     // Explanation: Return a NestedInteger object containing a nested list
     // with 2 elements:
@@ -188,7 +187,7 @@ TEST(miniV, t2) {
     // Output: [123,[456,[789]]]
     auto ret = sl.Deserialize(s);
 
-    vector<int> vec;
+    std::vector<int> vec;
     Flattern(ret, vec);
 
     EXPECT_EQ(vec, (std::vector<int>{123, 456, 789}));
@@ -201,8 +200,8 @@ TEST(miniV, t2) {
 }
 
 void BenchV1(benchmark::State& state) {
-    for (auto _ : state) {
-        const string s = "[123,[456,[789]]]";
+    for (auto&& _ : state) {
+        const std::string s = "[123,[456,[789]]]";
         // Output: [123,[456,[789]]]
         // Explanation: Return a NestedInteger object containing a nested list
         // with 2 elements:
@@ -216,7 +215,7 @@ void BenchV1(benchmark::State& state) {
         // Output: [123,[456,[789]]]
         auto ret = sl.Deserialize(s);
 
-        vector<int> vec;
+        std::vector<int> vec;
         Flattern(ret, vec);
 
         EXPECT_EQ(vec, (std::vector<int>{123, 456, 789}));
@@ -225,8 +224,8 @@ void BenchV1(benchmark::State& state) {
 BENCHMARK(BenchV1);
 
 void BenchV2(benchmark::State& state) {
-    for (auto _ : state) {
-        const string s = "[123,[456,[789]]]";
+    for (auto&& _ : state) {
+        const std::string s = "[123,[456,[789]]]";
         // Output: [123,[456,[789]]]
         // Explanation: Return a NestedInteger object containing a nested list
         // with 2 elements:
@@ -240,7 +239,7 @@ void BenchV2(benchmark::State& state) {
         // Output: [123,[456,[789]]]
         auto ret = sl.DeserializeV1(s);
 
-        vector<int> vec;
+        std::vector<int> vec;
         Flattern(ret, vec);
 
         EXPECT_EQ(vec, (std::vector<int>{123, 456, 789}));

@@ -42,7 +42,9 @@ class Solution2 {
 
         // left half is longer if number is odd, so checking the right pointer
         while (right) {
-            if (left->val != right->val) return false;
+            if (left->val != right->val) {
+                return false;
+            }
             left = left->next;
             right = right->next;
         }
@@ -151,7 +153,7 @@ TEST(PalindromeLinkedListV2, t2) {
 
 static void BenchFastSlow(benchmark::State& state) {
     Solution2 s;
-    for (auto _ : state) {
+    for (auto&& _ : state) {
         ListNode head(1);
         ListNode head2(2);
         ListNode head3(3);
@@ -182,7 +184,7 @@ static void BenchFastSlow(benchmark::State& state) {
 BENCHMARK(BenchFastSlow);
 static void BenchMyVec(benchmark::State& state) {
     Solution s;
-    for (auto _ : state) {
+    for (auto&& _ : state) {
         ListNode head(1);
         ListNode head2(2);
         ListNode head3(3);

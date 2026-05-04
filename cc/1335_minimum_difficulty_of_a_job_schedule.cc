@@ -32,7 +32,7 @@ class Solution {
         job_difficulty.insert(job_difficulty.begin(), 0);
         vector<vector<int>> dp(n + 1, vector<int>(d + 1, INT_MAX / 2));
 
-        dp[0][0] = 0;
+        dp.at(0).at(0) = 0;
 
         for (int i = 1; i <= n; i++) {
             for (int k = 1; k <= min(i, d); k++) {
@@ -45,8 +45,8 @@ class Solution {
             }
         }
 
-        if (dp[n][d] >= INT_MAX / 2) return -1;
-        return dp[n][d];
+        if (dp.at(n).at(d) >= INT_MAX / 2) return -1;
+        return dp.at(n).at(d);
     }
 
     int Dfs(const vector<int>& jobs, int start_idx, int days_left,

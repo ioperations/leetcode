@@ -53,7 +53,7 @@ class Solution {
 
 vector<Node*> ConstructTreeNode(Node* z1, vector<int>& z) {
     for (auto& ptr : z) {
-        Node* ptrn = new Node(ptr);
+        Node* const ptrn = new Node(ptr);
         z1->m_children.push_back(ptrn);
     }
     return z1->m_children;
@@ -64,17 +64,17 @@ Node* ConstructTreeNode(vector<optional<int>>& elements) {
     if (elements.size() == 0) {
         return nullptr;
     }
-    Node* ptr = new Node(elements[0].value());
+    Node* ptr = new Node(elements.at(0).value());
     queue<Node*> q;
     q.push(ptr);
 
     bool continue_loop = true;
     int i = 2;
-    const int size = elements.size();
+    int const size = static_cast<int>(elements.size());
     while (continue_loop) {
         vector<int> z;
-        while (i < size && elements[i].has_value()) {
-            z.push_back(elements[i].value());
+        while (i < size && elements.at(i).has_value()) {
+            z.push_back(elements.at(i).value());
             i++;
         }
         Node* z1 = q.front();
@@ -84,7 +84,7 @@ Node* ConstructTreeNode(vector<optional<int>>& elements) {
         }
         q.pop();
         i++;
-        if (i >= (int)elements.size()) continue_loop = false;
+        if (i >= static_cast<int>(elements.size())) continue_loop = false;
     }
 
     return ptr;

@@ -13,6 +13,7 @@ namespace {
 class Solution {
    public:
     ListNode* AddTwoNumbers(ListNode* l1, ListNode* l2) {
+        constexpr int kBase = 10;
         for (int i = 0; l1 || l2 || m_carrier; i++) {
             int va = 0;
             if (l1 && l2) {
@@ -24,8 +25,8 @@ class Solution {
             } else if (m_carrier) {
                 va = m_carrier;
             }
-            m_carrier = va >= 10 ? 1 : 0;
-            va = va % 10;
+            m_carrier = va >= kBase ? 1 : 0;
+            va = va % kBase;
             auto* n = new ListNode(va);
             // 保存 head
             if (i == 0) {
@@ -77,7 +78,9 @@ class Solution {
 };
 
 ListNode* CreateList(const std::vector<int>& vals) {
-    if (vals.empty()) return nullptr;
+    if (vals.empty()) {
+        return nullptr;
+    }
     auto* head = new ListNode(vals[0]);
     ListNode* curr = head;
     for (size_t i = 1; i < vals.size(); i++) {

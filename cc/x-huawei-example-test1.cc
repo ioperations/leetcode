@@ -12,7 +12,7 @@
 
 namespace {
 
-void Processing(std::vector<int> nums) {
+void Processing(std::vector<int> const & nums) {
     int max = std::numeric_limits<int>::min();
     for (const auto& ret : nums) {
         max = std::max(max, ret);
@@ -28,12 +28,12 @@ void Processing(std::vector<int> nums) {
             return 1;
         }
 
-        if (dp[nums] != -1) {
-            return dp[nums];
+        if (dp.at(nums) != -1) {
+            return dp.at(nums);
         }
 
-        dp[nums] = nums / 3 + dp_fun(nums / 3 + nums % 3);
-        return dp[nums];
+        dp.at(nums) = nums / 3 + dp_fun(nums / 3 + nums % 3);
+        return dp.at(nums);
     };
 
     for (const auto& pingzi : nums) {

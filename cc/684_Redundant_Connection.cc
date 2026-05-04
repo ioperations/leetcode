@@ -17,6 +17,7 @@
 
 using namespace std;
 
+namespace {
 class Solution {
    public:
     vector<int> FindRedundantConnection(vector<vector<int>>& edges) {
@@ -95,7 +96,7 @@ class Solution {
         };
 
         for (const auto& edge : edges) {
-            int u = edge[0], v = edge[1];
+            int const u = edge.at(0), v = edge.at(1);
 
             if (graph.count(u) && graph.count(v) && is_connected(u, v)) {
                 return edge;
@@ -108,6 +109,7 @@ class Solution {
         return {};
     }
 };
+}  // namespace
 
 #include "gtest/gtest.h"
 

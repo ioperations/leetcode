@@ -67,9 +67,9 @@ TreeNode* ConstructTree(const std::vector<int>& elements) {
         return nullptr;
     }
 
-    auto* root = new TreeNode(elements[0]);
+    auto* root = new TreeNode(elements.at(0));
 
-    for (int i = 1; i < (int)elements.size(); i++) {
+    for (int i = 1; i < static_cast<int>(elements.size()); i++) {
         root = AddToRoot(root, elements[i]);
     }
 
@@ -120,7 +120,7 @@ TEST(LowestCommomAncestorOfABinaryTree, t1) {
 
     */
     std::vector<int> const list = {3, 5, 1, 6, 2, 0, 8, 7, 4};
-    int p = 5, q = 1;
+    int const p = 5, q = 1;
     int const expeced = 3;
 
     TreeNode* root = ConstructTree(list);

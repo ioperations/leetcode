@@ -14,12 +14,10 @@ constant extra space.*/
 #include "benchmark/benchmark.h"
 #include "gtest/gtest.h"
 
-using namespace std;
-
 namespace {
 class Solution {
    public:
-    int FindDuplicate(vector<int>& nums) {
+    int FindDuplicate(std::vector<int>& nums) {
         int const n = static_cast<int>(nums.size());
         int min = 1, max = n - 1;
         while (min != max) {
@@ -27,7 +25,9 @@ class Solution {
             int count = 0;
 
             for (auto k : nums) {
-                if (k <= mid) count++;
+                if (k <= mid) {
+                    count++;
+                }
             }
 
             if (count <= mid) {
@@ -38,7 +38,7 @@ class Solution {
         }
         return min;
     }
-    int FindDuplicateV1(vector<int>& nums) {
+    int FindDuplicateV1(std::vector<int>& nums) {
         int slow = nums.at(0);
         int fast = nums.at(nums.at(0));
         while (slow != fast) {
@@ -90,7 +90,7 @@ TEST(FindTheDuplicateNumberV2, t2) {
     EXPECT_EQ(ret, i);
 }
 static void BenchMarkV0(benchmark::State& state) {
-    for (auto _ : state) {
+    for (auto&& _ : state) {
         std::vector<int> v{3, 1, 3, 4, 2};
 
         int const i = 3;
@@ -102,7 +102,7 @@ static void BenchMarkV0(benchmark::State& state) {
 BENCHMARK(BenchMarkV0);
 
 static void BenchMarkV1(benchmark::State& state) {
-    for (auto _ : state) {
+    for (auto&& _ : state) {
         std::vector<int> v{3, 1, 3, 4, 2};
 
         int const i = 3;

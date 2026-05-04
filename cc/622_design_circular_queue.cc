@@ -50,25 +50,25 @@ class MyCircularQueue {
     MyCircularQueue(int k) : m_v(k) {}
     bool EnQueue(int value) {
         if (IsFull()) return false;
-        m_v[(m_start + m_len++) % m_v.size()] = value;
+        m_v.at((m_start + m_len++) % static_cast<int>(m_v.size())) = value;
         return true;
     }
     bool DeQueue() {
         if (IsEmpty()) return false;
-        m_start = (m_start + 1) % m_v.size();
+        m_start = (m_start + 1) % static_cast<int>(m_v.size());
         --m_len;
         return true;
     }
     int Front() {
         if (IsEmpty()) return -1;
-        return m_v[m_start];
+        return m_v.at(m_start);
     }
     int Rear() {
         if (IsEmpty()) return -1;
-        return m_v[(m_start + m_len - 1) % m_v.size()];
+        return m_v.at((m_start + m_len - 1) % static_cast<int>(m_v.size()));
     }
     bool IsEmpty() { return !m_len; }
-    bool IsFull() { return m_len == (int)m_v.size(); }
+    bool IsFull() { return m_len == static_cast<int>(m_v.size()); }
 };
 
 TEST(DesignCircularQueue, t1) {
