@@ -15,8 +15,10 @@
  */
 
 #include <vector>
+#include <gtest/gtest.h>
 using namespace std;
 
+namespace {
 class Solution {
    public:
     int NumberOfAlternatingGroups(vector<int>& colors, int k) {
@@ -25,7 +27,7 @@ class Solution {
         int left = 0;
 
         for (int right = 0; right < colors.size(); ++right) {
-            if (right > 0 && colors[right] == colors[right - 1]) {
+            if (right > 0 && colors.at(right) == colors.at(right - 1)) {
                 left = right;
             }
 
@@ -37,8 +39,7 @@ class Solution {
         return count;
     }
 };
-
-#include <gtest/gtest.h>
+}
 
 TEST(T0, t1) {
     vector<int> colors = {0, 1, 0, 1, 0};

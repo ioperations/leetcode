@@ -24,7 +24,7 @@ class Solution {
         if (i == static_cast<int>(nums.size())) return;
 
         for (int j = i; j < static_cast<int>(nums.size()); j++) {
-            if (v.size() && v.back() > nums[j]) continue;
+            if (v.size() && v.back() > nums.at(j)) continue;
             v.push_back(nums[j]);
             Dfs(j + 1, v, nums, s);
             v.pop_back();

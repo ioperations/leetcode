@@ -24,6 +24,7 @@ The replacement must be in place and use only constant extra memory.
 */
 
 #include <algorithm>
+#include <cstddef>
 #include <utility>
 #include <vector>
 

@@ -12,6 +12,7 @@
  * Return the lexicographically smallest possible string num that meets the
  * conditions.
  */
+#include <cstddef>
 #include <string>
 #include <vector>
 

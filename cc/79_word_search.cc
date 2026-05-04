@@ -11,6 +11,7 @@ may not be used more than once.
 */
 
 #include <array>
+#include <cstddef>
 #include <map>
 #include <set>
 #include <stack>
@@ -35,7 +36,7 @@ class Solution {
         */
         for (size_t i = 0; i < board.size(); i++) {
             for (size_t j = 0; j < board.at(0).size(); j++) {
-                if (ExistV(board, i, j, word)) {
+                if (ExistV(board, static_cast<int>(i), static_cast<int>(j), word)) {
                     return true;
                 }
             }
@@ -73,7 +74,7 @@ class Solution {
           int readllyy = 0;
           if (route.at(x).at(y) == false) {
             if (x > 1) {
-              if (next[make_pair(x, y)].count(make_pair(x - 1, y)) == 0 &&
+              if (next.at(make_pair(x, y)).count(make_pair(x - 1, y)) == 0 &&
                   board.at(x - 1).at(y) == word.at(word_it)) {
                 stack.emplace(x - 1, y);
                 set = true;
@@ -83,7 +84,7 @@ class Solution {
               }
             }
             if (x < m - 1) {
-              if (next[make_pair(x, y)].count(make_pair(x + 1, y)) == 0 &&
+              if (next.at(make_pair(x, y)).count(make_pair(x + 1, y)) == 0 &&
                   board.at(x + 1).at(y) == word.at(word_it)) {
                 // next[make_pair(x, y)].emplace(make_pair(x + 1, y));
                 stack.emplace(x + 1, y);
@@ -94,7 +95,7 @@ class Solution {
               }
             }
             if (y > 1) {
-              if (next[make_pair(x, y)].count(make_pair(x, y - 1)) == 0 &&
+              if (next.at(make_pair(x, y)).count(make_pair(x, y - 1)) == 0 &&
                   board.at(x).at(y - 1) == word.at(word_it)) {
                 // next[make_pair(x, y)].emplace(make_pair(x, y - 1));
                 stack.emplace(x, y - 1);
@@ -105,7 +106,7 @@ class Solution {
               }
             }
             if (y < n - 1) {
-              if (next[make_pair(x, y)].count(make_pair(x, y + 1)) == 0 &&
+              if (next.at(make_pair(x, y)).count(make_pair(x, y + 1)) == 0 &&
                   board.at(x).at(y + 1) == word.at(word_it)) {
                 // next[make_pair(x, y)].emplace(make_pair(x, y + 1));
                 stack.emplace(x, y + 1);
@@ -121,7 +122,7 @@ class Solution {
             route.at(x).at(y) = true;
             word_it--;
           } else {
-            next[make_pair(x, y)].emplace(readllyx, readllyy);
+            next.at(make_pair(x, y)).emplace(readllyx, readllyy);
             word_it++;
           }
         }
@@ -146,8 +147,8 @@ class Solution {
 
     void Backtrack(int i, int j, vector<vector<char>>& board,
                    const string& word) {
-      if (m_index >= static_cast<int>(word.size())) return;  // base-case
-      if (word.at(m_index) != board.at(i).at(j)) return;              // search pruning
+      if (m_index >= static_cast<int>(word.size())) { return; }  // base-case
+      if (word.at(m_index) != board.at(i).at(j)) { return; }              // search pruning
 
       m_s.at(m_index) = board.at(i).at(j);  // make move
       board.at(i).at(j) = '?';
@@ -189,14 +190,14 @@ class SolutionV2 {
    public:
     bool Exist(vector<vector<char>>& board, const string& word) {
         const int m = static_cast<int>(board.size());
-        if (m == 0) return false;
+        if (m == 0) { return false; }
         const int n = static_cast<int>(board.at(0).size());
 
         vector<vector<bool>> visited(m, vector<bool>(n, false));
 
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
-                if (Dfs(i, j, board, visited, word)) return true;
+                if (Dfs(i, j, board, visited, word)) { return true; }
             }
         }
         return false;

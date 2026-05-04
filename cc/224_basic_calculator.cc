@@ -126,7 +126,7 @@ class Solution {
         }
         token_type CurToken() { return m_cur_token; }
 
-        int GetVal() { return m_val; }
+        int GetVal() const { return m_val; }
 
        private:
         std::string m_s;
@@ -140,7 +140,8 @@ class SolutionV2 {
    public:
     int Calculate(std::string s) {
         constexpr int k_base = 10;
-        int res = 0, sign = 1;
+        int res = 0;
+        int sign = 1;
         int const n = static_cast<int>(s.size());
         std::stack<int> stk;
         for (int i = 0; i < n; i++) {

@@ -119,7 +119,7 @@ class Solution {
 
         int count = 0;
         for (int i = 0; i < size; i++) {
-            ret[i]++;
+            ret.at(i)++;
             if (count + 1 == num) {
                 break;
             }

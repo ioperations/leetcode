@@ -13,6 +13,7 @@ elements of matrix inside the rectangle defined by its upper left corner (row1,
 col1) and lower right corner (row2, col2).
  */
 
+#include <cstddef>
 #include <vector>
 
 #include "gtest/gtest.h"

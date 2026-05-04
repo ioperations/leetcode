@@ -35,14 +35,14 @@ class Solution {
     int EditDistance(
         const std::string& word1, const std::string& word2,
         std::map<std::pair<std::string, std::string>, int>& cache) {
-        if (!word2.size()) {
+        if (word2.empty()) {
             return static_cast<int>(word1.size());
         }
-        if (!word1.size()) {
+        if (word1.empty()) {
             return static_cast<int>(word2.size());
         }
 
-        if (cache.count(std::make_pair(word1, word2))) {
+        if (cache.find(std::make_pair(word1, word2)) != cache.end()) {
             return cache.at(std::make_pair(word1, word2));
         }
 
@@ -69,7 +69,7 @@ class Solution {
         int const n = static_cast<int>(word2.size());
         std::map<std::pair<int, int>, int> cache;
         std::function<int(int, int)> fun = [&](int i, int j) -> int {
-            if (cache.count(std::make_pair(i, j))) {
+            if (cache.find(std::make_pair(i, j)) != cache.end()) {
                 return cache.at(std::make_pair(i, j));
             }
             if (i >= m && j >= n) {
@@ -103,8 +103,8 @@ class Solution {
                     dp.at(i).at(j) = 0 + dp.at(i - 1).at(j - 1);
                 } else {
                     int mn = 1 + dp.at(i - 1).at(j);
-                    if (1 + dp.at(i).at(j - 1) < mn) { mn = 1 + dp.at(i).at(j - 1); }
-                    if (1 + dp.at(i - 1).at(j - 1) < mn) { mn = 1 + dp.at(i - 1).at(j - 1); }
+                    mn = std::min(mn, 1 + dp.at(i).at(j - 1));
+                    mn = std::min(mn, 1 + dp.at(i - 1).at(j - 1));
                     dp.at(i).at(j) = mn;
                 }
             }
@@ -115,7 +115,8 @@ class Solution {
 };
 
 TEST(editdistanceV2, t2) {
-    std::string const word1 = "intention", word2 = "execution";
+    std::string const word1 = "intention";
+    std::string const word2 = "execution";
     int const output = 5;
     Solution s;
 
@@ -124,7 +125,8 @@ TEST(editdistanceV2, t2) {
 }
 
 TEST(editdistanceV2, t3) {
-    std::string const word1 = "horse", word2 = "ros";
+    std::string const word1 = "horse";
+    std::string const word2 = "ros";
 
     int const output = 3;
     Solution s;
@@ -134,8 +136,8 @@ TEST(editdistanceV2, t3) {
 }
 
 TEST(editdistanceV2, t4) {
-    std::string const word1 = "dinitrophenylhydrazine",
-                word2 = "acetylphenylhydrazine";
+    std::string const word1 = "dinitrophenylhydrazine";
+    std::string const word2 = "acetylphenylhydrazine";
 
     int const output = 6;
     Solution s;
@@ -145,7 +147,8 @@ TEST(editdistanceV2, t4) {
 }
 
 TEST(editdistanceV3, t2) {
-    std::string const word1 = "intention", word2 = "execution";
+    std::string const word1 = "intention";
+    std::string const word2 = "execution";
     int const output = 5;
     Solution s;
 
@@ -153,7 +156,8 @@ TEST(editdistanceV3, t2) {
     EXPECT_EQ(ret, output);
 }
 TEST(editdistanceV4, t3) {
-    std::string const word1 = "horse", word2 = "ros";
+    std::string const word1 = "horse";
+    std::string const word2 = "ros";
 
     int const output = 3;
     Solution s;
@@ -162,8 +166,8 @@ TEST(editdistanceV4, t3) {
     EXPECT_EQ(ret, output);
 }
 TEST(editdistanceV4, t4) {
-    std::string const word1 = "dinitrophenylhydrazine",
-                word2 = "acetylphenylhydrazine";
+    std::string const word1 = "dinitrophenylhydrazine";
+    std::string const word2 = "acetylphenylhydrazine";
 
     int const output = 6;
     Solution s;

@@ -21,7 +21,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    bool HasAllCodes(string s, int k) {
+    bool HasAllCodes(const string& s, int k) {
         // 1 <= s.length <= 5 * 105
         // s[i] is either '0' or '1'.
         // 1 <= k <= 20
@@ -29,7 +29,7 @@ class Solution {
         if (static_cast<int>(s.size()) < k) return false;
         unordered_set<string> st;
         for (int i = 0; i <= static_cast<int>(s.size()) - k; i++) st.insert(s.substr(i, k));
-        return st.size() == pow(2, k);
+        return st.size() == static_cast<int>(pow(2, k));
     }
 };
 

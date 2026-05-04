@@ -36,7 +36,7 @@ class Solution {
             if (a == 0) {
                 return 0;
             }
-            if (cache.count(a)) {
+            if (cache.find(a) != cache.end()) {
                 return cache.at(a);
             }
 

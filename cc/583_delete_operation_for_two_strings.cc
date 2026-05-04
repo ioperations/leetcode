@@ -40,7 +40,7 @@ class Solution {
         return dp.at(n).at(m);
     }
 
-    int MinDistance(std::string const word1, std::string const word2) {
+    int MinDistance(const std::string& word1, const std::string& word2) {
         int const n = static_cast<int>(word1.size());
         int const m = static_cast<int>(word2.size());
         return n + m - 2 * Lcs(word1, word2);

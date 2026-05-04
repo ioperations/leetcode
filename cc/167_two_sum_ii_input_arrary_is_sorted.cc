@@ -30,7 +30,7 @@ class Solution {
     vector<int> TwoSum(vector<int>& numbers, int target) {
         vector<int> ret;
 
-        int const size = numbers.size();
+        int const size = static_cast<int>(numbers.size());
         for (int i = 0; i < size; i++) {
             int j = 0;
             if ((j = FindInArray(numbers, i + 1, size - 1,

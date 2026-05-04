@@ -41,7 +41,7 @@ class Solution {
                 if (i - num >= 0) dp.at(i) = dp.at(i) + dp.at(i - num);
             }
         }
-        return dp.at(tar);
+        return static_cast<int>(dp.at(tar));
     }
 
    public:
