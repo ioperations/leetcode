@@ -54,6 +54,8 @@ class Trie {
 
    public:
     Trie() : m_root(new Node()) {}
+    Trie(Trie&&) = default;
+    Trie& operator=(Trie&&) = default;
 
     ~Trie() { DeleteNode(m_root); }
 
@@ -140,6 +142,8 @@ class WordFilterMy {
         std::vector<Pp> m_n;
         std::map<char, PrefixTree> m_node;
         PrefixTree() = default;
+        PrefixTree(PrefixTree&&) = default;
+        PrefixTree& operator=(PrefixTree&&) = default;
         ~PrefixTree() {
             m_node.clear();
             m_n.clear();

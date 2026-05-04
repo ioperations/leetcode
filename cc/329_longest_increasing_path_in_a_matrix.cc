@@ -12,7 +12,7 @@ wrap-around is not allowed).
 */
 
 #include <algorithm>
-#include <cstring>
+#include <array>
 #include <vector>
 
 #include "gtest/gtest.h"
@@ -22,10 +22,10 @@ namespace {
 class Solution {
    public:
     int m_n{}, m_m{};
-    int m_dp[201][201]{};
+    std::array<std::array<int, 201>, 201> m_dp{};
     vector<vector<int>> m_a;
     int Recur(int i, int j) {
-        if (m_dp[i][j] != -1) return m_dp[i][j];
+        if (m_dp.at(i).at(j) != -1) return m_dp.at(i).at(j);
         int val = 0;
         if (i - 1 != -1 && m_a.at(i - 1).at(j) > m_a.at(i).at(j)) {
             val = max(val, Recur(i - 1, j) + 1);
@@ -39,14 +39,18 @@ class Solution {
         if (j + 1 != m_m && m_a.at(i).at(j + 1) > m_a.at(i).at(j)) {
             val = max(val, Recur(i, j + 1) + 1);
         }
-        return m_dp[i][j] = val;
+        return m_dp.at(i).at(j) = val;
     }
     int LongestIncreasingPath(vector<vector<int>>& matrix) {
         this->m_a = matrix;
         m_n = static_cast<int>(matrix.size());
         m_m = static_cast<int>(matrix.at(0).size());
         int ans = 0;
-        memset(m_dp, -1, sizeof(m_dp));
+        for (int i = 0; i < m_n; i++) {
+            for (int j = 0; j < m_m; j++) {
+                m_dp.at(i).at(j) = -1;
+            }
+        }
         for (int i = 0; i < m_n; i++) {
             for (int j = 0; j < m_m; j++) {
                 ans = max(ans, Recur(i, j));

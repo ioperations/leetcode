@@ -26,8 +26,8 @@ class Solution {
     bool IsValid(int radius, vector<int>& houses, vector<int>& heaters) {
         int i = 0, j = 0;
         while (i < static_cast<int>(houses.size()) && j < static_cast<int>(heaters.size())) {
-            if (houses[i] >= (heaters[j] - radius) &&
-                houses[i] <= (heaters[j] + radius)) {
+            if (houses.at(i) >= (heaters.at(j) - radius) &&
+                houses.at(i) <= (heaters.at(j) + radius)) {
                 i++;
             }
 

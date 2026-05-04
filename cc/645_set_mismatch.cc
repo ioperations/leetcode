@@ -14,6 +14,7 @@ Find the number that occurs twice and the number that is missing and return them
 in the form of an array.
 */
 
+#include <cstddef>
 #include <vector>
 
 #include "gtest/gtest.h"
@@ -29,14 +30,14 @@ class Solution {
         vector<int> vec;
 
         for (auto i : nums) {
-            arr[i]++;
+            arr.at(i)++;
         }
 
-        for (int i = 1; i < n + 1; i++) {
-            if (arr[i] > 1) vec.push_back(i);
+        for (std::size_t i = 1; i < n + 1; i++) {
+            if (arr.at(i) > 1) vec.push_back(static_cast<int>(i));
         }
-        for (int i = 1; i < n + 1; i++) {
-            if (arr[i] == 0) vec.push_back(i);
+        for (std::size_t i = 1; i < n + 1; i++) {
+            if (arr.at(i) == 0) vec.push_back(static_cast<int>(i));
         }
         return vec;
     }

@@ -17,15 +17,15 @@ class Solution {
    public:
     double FindMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {
         clock_t start = 0, end = 0;
+        double tmp = 0.0;
 
         start = clock();
-        double tmp = 0.0;
-        tmp = ImplV1(nums1, nums2);
+        ImplV1(nums1, nums2);
         end = clock();
         std::cout << "v1 const time " << end - start << '\n';
 
         start = clock();
-        tmp = ImplV2(nums1, nums2);
+        ImplV2(nums1, nums2);
         end = clock();
         std::cout << "v2 const time " << end - start << '\n';
 
@@ -132,15 +132,17 @@ class Solution {
 
     double Median(vector<int>& a, vector<int>& b, int s1, int e1, int s2,
                   int e2, int tar) {
-        int la = 0, lb = 0, ma = 0, mb = 0, m = max(e1 - s1 + 1, 0),
-            n = max(e2 - s2 + 1, 0), ans = 0;
+        int const m = max(e1 - s1 + 1, 0);
+        int const n = max(e2 - s2 + 1, 0);
+        int la = 0, lb = 0;
+        double ma = 0, mb = 0, ans = 0;
         if (!m) return b.at(s2 + tar);
         if (!n) return a.at(s1 + tar);
 
         la = m / 2;
         lb = n / 2;
-        ma = a.at(s1 + la);
-        mb = b.at(s2 + lb);
+        ma = static_cast<double>(a.at(s1 + la));
+        mb = static_cast<double>(b.at(s2 + lb));
 
         if (la + lb >= tar) {
             if (ma > mb) {

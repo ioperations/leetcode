@@ -24,7 +24,7 @@ class SolutionV2 {
 
         ListNode* temp = nullptr;
         ListNode* slow = head;
-ListNode* fast = head;
+        ListNode* fast = head;
 
         while (fast != nullptr && fast->next != nullptr) {
             temp = slow;

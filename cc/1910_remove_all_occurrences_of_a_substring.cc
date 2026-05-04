@@ -9,14 +9,13 @@
  * A substring is a contiguous sequence of characters in a string.
  */
 
-#include <cstddef>
 #include <string>
 #include <vector>
 using namespace std;
 
 class Solution {
    public:
-    string RemoveOccurrences(string s, string part) const {
+    [[nodiscard]] string RemoveOccurrences(string s, string part) const {
         int const size = static_cast<int>(s.size());
         vector<bool> exists(size, true);
 
@@ -68,7 +67,7 @@ class Solution {
 #include <gtest/gtest.h>
 
 TEST(T0, t1) {
-    string s = "daabcbaabcbc", part = "abc";
+    string const s = "daabcbaabcbc", part = "abc";
     string const output = "dab";
     Solution const sl;
     auto ret = sl.RemoveOccurrences(s, part);
@@ -82,7 +81,7 @@ TEST(T0, t1) {
 }
 
 TEST(T0, t2) {
-    string s = "axxxxyyyyb", part = "xy";
+    string const s = "axxxxyyyyb", part = "xy";
     string const output = "ab";
     Solution const sl;
     auto ret = sl.RemoveOccurrences(s, part);

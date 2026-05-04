@@ -15,6 +15,7 @@ as mathematical expressions, such as eval().
 
 #include <cctype>
 #include <cstddef>
+#include <cstdint>
 #include <stack>
 #include <string>
 #include <utility>
@@ -72,7 +73,7 @@ class Solution {
             EOL,
         };
 
-        Token(std::string s) : m_s(std::move(s)), m_cur_token(token_type::EOL) { next(); }
+        Token(std::string s) : m_s(std::move(s)) { next(); }
         void next() {
             m_index++;
             m_val = 0;

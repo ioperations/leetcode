@@ -17,7 +17,7 @@ may assume that both players are playing optimally.
 */
 
 #include <algorithm>
-#include <cstring>
+#include <array>
 #include <vector>
 
 #include "gtest/gtest.h"
@@ -48,7 +48,7 @@ class Solution {
         return Ok(nums, 0, static_cast<int>(nums.size()) - 1, 0, true);
     }
 
-    int m_dp[21][21][2];
+    std::array<std::array<std::array<int, 2>, 21>, 21> m_dp;
 
     int Ok(vector<int>& nums, int i, int j, bool chance) {
         // Base case
@@ -56,7 +56,7 @@ class Solution {
             return 0;
         }
 
-        if (m_dp[i][j][chance] != -1) return m_dp[i][j][chance];
+        if (m_dp.at(i).at(j).at(chance) != -1) return m_dp.at(i).at(j).at(chance);
 
         int ans = 0;
         if (chance) {
@@ -67,11 +67,15 @@ class Solution {
                       Ok(nums, i, j - 1, 1 - chance) - nums.at(j));
         }
 
-        return m_dp[i][j][chance] = ans;
+        return m_dp.at(i).at(j).at(chance) = ans;
     }
 
     bool PredictTheWinnerV2(vector<int>& nums) {
-        memset(m_dp, -1, sizeof m_dp);
+        for (auto& row : m_dp) {
+            for (auto& col : row) {
+                col.fill(-1);
+            }
+        }
         int const res = Ok(nums, 0, static_cast<int>(nums.size()) - 1, true);
 
         return res >= 0;

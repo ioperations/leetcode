@@ -24,25 +24,25 @@ the output represents the signed integer -1073741825.
 
 using namespace std;
 
-static uint32_t ConstructUint32T(const std::string& s) {
+namespace {
+uint32_t ConstructUint32T(const std::string& s) {
     uint32_t num = 0;
-    // pass
     for (size_t i = 0; i < s.size(); i++) {
-        num += (s[s.size() - i - 1] == '1') ? (i == 0 ? 1 : 2 << (i - 1)) : 0;
+        num += (s.at(s.size() - i - 1) == '1') ? (i == 0 ? 1 : 2 << (i - 1)) : 0;
     }
     return num;
 }
 
-static std::string ConstructString(uint32_t n) {
+std::string ConstructString(uint32_t n) {
     std::string ret = "00000000000000000000000000000000";
 
     int i = 0;
 
     while (n) {
         if (n & 1) {
-            ret[i] = '1';
+            ret.at(i) = '1';
         } else {
-            ret[i] = '0';
+            ret.at(i) = '0';
         }
         n = n >> 1;
         i++;
@@ -51,6 +51,7 @@ static std::string ConstructString(uint32_t n) {
 
     return ret;
 }
+}  // namespace
 
 namespace {
 class Solution {

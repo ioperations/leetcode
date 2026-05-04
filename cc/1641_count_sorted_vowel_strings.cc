@@ -64,7 +64,7 @@ class Solution {
         ret = n * (n - 1) * (n - 2) * (n - 3);
         ret = ret / 24;
 
-        return (ret);
+        return static_cast<int>(ret);
     }
 
     int CountVowelStrings(int n) { return (Choose4(n + 4)); }
@@ -73,10 +73,10 @@ class Solution {
         vector<int> dp(5, 1);
         for (int i = 0; i < n; i++) {
             for (int j = 1; j < 5; j++) {
-                dp[j] = dp[j - 1] + dp[j];
+                dp.at(j) = dp.at(j - 1) + dp.at(j);
             }
         }
-        return dp[4];
+        return dp.at(4);
     }
 };
 

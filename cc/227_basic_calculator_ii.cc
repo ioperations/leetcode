@@ -24,8 +24,8 @@ class Solution {
     int Calculate(string s) {
         int i = 0;
         for (int j = 0; j < static_cast<int>(s.size()); j++) {
-            if (s[j] != ' ') {
-                s[i++] = s[j];
+            if (s.at(j) != ' ') {
+                s.at(i++) = s.at(j);
             }
         }
         s = s.substr(0, i);
@@ -33,9 +33,9 @@ class Solution {
         stack<int> values;
         stack<char> op;
         for (int j = 0; j < i; j++) {
-            char const ch = s.at(j);
+            int const ch = s.at(j);
             if (ch == '+' or ch == '-') {
-                op.push(ch);
+                op.push(static_cast<char>(ch));
             } else if (ch == '/' or ch == '*') {
                 int const lastval = values.top();
                 values.pop();

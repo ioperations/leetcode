@@ -27,14 +27,14 @@ class KthLargest {
     KthLargest(int k, vector<int>& nums) : m_k(k) {
         int const size = nums.size();
         for (int i = 0; i < size; i++) {
-            m_q.push(nums[i]);
-            if ((int)m_q.size() > k) m_q.pop();
+            m_q.push(nums.at(i));
+            if (static_cast<int>(m_q.size()) > k) m_q.pop();
         }
     }
 
     int Add(int val) {
         m_q.push(val);
-        if ((int)m_q.size() > m_k) {
+        if (static_cast<int>(m_q.size()) > m_k) {
             m_q.pop();
         }
 

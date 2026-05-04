@@ -27,16 +27,15 @@ class Solution {
             if (s != "") ans.push_back(s);
             return;
         }
-        const int temp = digits[pos] - '0';
-        for (int i = 0; i < static_cast<int>(v[temp].size()); i++) {
-            s.push_back(v[temp][i]);
+        const int temp = digits.at(pos) - '0';
+        for (int i = 0; i < static_cast<int>(v.at(temp).size()); i++) {
+            s.push_back(v.at(temp).at(i));
             Solve(v, ans, digits, pos + 1, s);
             s.pop_back();
         }
     }
     // clang-format off
     vector<string> LetterCombinations(string digits) {
-        string const s;
         // clang-format off
         vector<vector<char> > v{{}, {}, {'a', 'b', 'c'}, {'d', 'e', 'f'},
                                 {'g', 'h', 'i'}, {'j', 'k', 'l'},

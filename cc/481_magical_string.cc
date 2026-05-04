@@ -32,7 +32,7 @@ class Solution {
         int i = 12;
 
         while (str_len < n) {
-            int const build_count = magic_string[i] - '0';
+            int const build_count = magic_string.at(i) - '0';
             i++;
             last = last == '2' ? '1' : '2';
             BuildCountBuild(magic_string, last, build_count);
@@ -50,7 +50,7 @@ class Solution {
     int CountNumber(const std::string& s, int n) {
         int count = 0;
         for (int i = 0; i < n && i < (int)s.size(); i++) {
-            if (s[i] == '1') {
+            if (s.at(i) == '1') {
                 count++;
             }
         }

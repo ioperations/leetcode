@@ -22,7 +22,7 @@
     lexicographically smallest instructions that will take Bob to destination.
 */
 
-#include <cstring>
+#include <array>
 #include <string>
 #include <vector>
 
@@ -36,12 +36,12 @@ class Solution {
    public:
     int m_n{}, m_m{};
 
-    int m_dp[mxn][mxn]{};
+    std::array<std::array<int, mxn>, mxn> m_dp{};
 
     int Go(int x, int y) {
         if (x == m_n && y == m_m) return 1;
         if (x < 0 || x > m_n || y < 0 || y > m_m) return 0;
-        int& ans = m_dp[x][y];
+        int& ans = m_dp.at(x).at(y);
         if (ans != -1) return ans;
         ans = Go(x + 1, y) + Go(x, y + 1);
         return ans;
@@ -63,9 +63,11 @@ class Solution {
 
    public:
     string KthSmallestPath(vector<int>& destination, int k) {
-        m_n = destination[0];
-        m_m = destination[1];
-        memset(m_dp, -1LL, sizeof(m_dp));
+        m_n = destination.at(0);
+        m_m = destination.at(1);
+        for (auto& row : m_dp) {
+            row.fill(-1);
+        }
         Go(0, 0);
         Build(0, 0, k);
         return m_way;

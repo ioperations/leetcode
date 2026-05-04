@@ -27,11 +27,11 @@ class Solution {
         vector<string> ans;
         int min_sum{INT_MAX};
         for (int i = 0; i < static_cast<int>(list1.size()); i++) {
-            string const key = list1[i];
+            string const& key = list1.at(i);
             pos[key] = i + 1;
         }
         for (int i = 0; i < static_cast<int>(list2.size()); i++) {
-            string const st = list2[i];
+            string const& st = list2.at(i);
             if (pos[st] > 0) {
                 int const sum = i + 1 + pos[st];
                 if (sum < min_sum) {

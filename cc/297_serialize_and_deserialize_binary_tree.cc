@@ -37,10 +37,11 @@ class Codec {
         queue<TreeNode<T>*> q;
         q.push(root);
         while (!q.empty()) {
-            TreeNode<T>* cur = q.front();
+            TreeNode<T>* const cur = q.front();
             q.pop();
-            if (cur == nullptr)
+            if (cur == nullptr) {
                 s.append("#,");
+            }
             else {
                 s.append(to_string(cur->val) + ',');
             }

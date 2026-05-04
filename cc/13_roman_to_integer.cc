@@ -15,13 +15,13 @@ class Solution {
         int current = 0, next = 0;
 
         for (i = 0; i < len; i++) {
-            current = Basic(s[i]);
+            current = Basic(s.at(i));
             if (i == len - 1)  // last element
             {
                 sum += current;
                 break;
             }
-            next = Basic(s[i + 1]);
+            next = Basic(s.at(i + 1));
             //  cout << "current = " << current << " next = " << next << endl;
 
             if (current > next) {

@@ -40,8 +40,8 @@ class Solution {
             int left_res = -1;
             int right_res = -1;
 
-            left_res = card_points[left] + fun(left + 1, right, k - 1);
-            right_res = card_points[right] + fun(left, right - 1, k - 1);
+            left_res = card_points.at(left) + fun(left + 1, right, k - 1);
+            right_res = card_points.at(right) + fun(left, right - 1, k - 1);
 
             map[tuple] = max(left_res, right_res);
             return map[tuple];
@@ -61,10 +61,10 @@ class Solution {
         long long window_sum = 0;
 
         while (r < n) {
-            int const right = card_points[r++];
+            int const right = card_points.at(r++);
             window_sum += right;
             while (r - l > window_size) {
-                int const left = card_points[l++];
+                int const left = card_points.at(l++);
                 window_sum -= left;
             }
             if (r - l == window_size) {
