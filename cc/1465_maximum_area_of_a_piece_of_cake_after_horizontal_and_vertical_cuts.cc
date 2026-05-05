@@ -39,8 +39,8 @@ class Solution {
         for (int i = 1; i < static_cast<int>(vertical_cuts.size()); i++) {
             maxv = max(maxv, vertical_cuts.at(i) - vertical_cuts.at(i - 1));
         }
-        return (1LL * maxh * maxv) %
-               1000000007;  // 1LL used to make the product long long or integer
+        return static_cast<int>((1LL * maxh * maxv) %
+               1000000007);  // 1LL used to make the product long long or integer
                             // sign overflow will occur.
     }
 };
