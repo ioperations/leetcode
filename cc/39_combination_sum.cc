@@ -69,6 +69,7 @@ class Solution {
         sort(candidates.begin(), candidates.end());  // sort candidates array
 
         // remove duplicates
+        // NOLINTNEXTLINE: llvm-use-ranges
         candidates.erase(unique(candidates.begin(), candidates.end()),
                          candidates.end());
 

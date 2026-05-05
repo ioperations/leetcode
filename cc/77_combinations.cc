@@ -25,7 +25,7 @@ class Solution {
         }
 
         // pick up the element
-        v.push_back(nums[i]);
+        v.push_back(nums.at(static_cast<size_t>(i)));
         Fn(i + 1, k - 1, n, nums, v, ans);
         v.pop_back();
 
@@ -36,7 +36,7 @@ class Solution {
         vector<int> v, nums(n + 1, 0);
         vector<vector<int>> ans;
         for (int i = 1; i <= n; i++) {
-            nums[i] = i;
+            nums.at(static_cast<size_t>(i)) = i;
         }
         Fn(1, k, n, nums, v, ans);
         return ans;

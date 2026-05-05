@@ -11,6 +11,10 @@ class Solution {
    public:
     Solution() = default;
     virtual ~Solution() = default;
+    Solution(const Solution&) = default;
+    Solution& operator=(const Solution&) = default;
+    Solution(Solution&&) = default;
+    Solution& operator=(Solution&&) = default;
 
     double FindMedianSortedArrays(std::vector<int>& nums1,
                                   std::vector<int>& nums2) {

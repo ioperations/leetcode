@@ -9,6 +9,7 @@ must be used exactly one time.
 Return true if you can make this square and false otherwise.*/
 
 #include <algorithm>
+#include <cstddef>
 #include <numeric>
 #include <vector>
 

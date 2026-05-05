@@ -22,6 +22,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
+    [[nodiscard]]
     string ToHex(int num) const {
         // pass
         if (num == 0) return "0";
@@ -30,7 +31,7 @@ class Solution {
         unsigned n = num;
         while (n) {
             auto rem = n % 16;
-            char const value = rem >= 10 ? (rem - 10) + 'a' : rem + '0';
+            char const value = static_cast<char>(rem >= 10 ? (rem - 10) + 'a' : rem + '0');
             result.push_back(value);
             n /= 16;
         }

@@ -24,9 +24,11 @@ class Solution {
             return ans;
         }
         auto it = std::lower_bound(nums.begin(), nums.end(), target);
+        // NOLINTNEXTLINE: llvm-use-ranges
         if (it == nums.end() || *it != target) {
             return ans;
         }
+        // NOLINTNEXTLINE: llvm-use-ranges
         auto i = std::upper_bound(nums.begin(), nums.end(), target);
         --i;
         if (*it == *i) {

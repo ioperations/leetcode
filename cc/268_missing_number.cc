@@ -22,7 +22,7 @@ class Solution {
             sum += ptr;
             max = std::max(max, ptr);
         }
-        int const ret = nums.size() * (nums.size() + 1) / 2 - sum;
+        int const ret = static_cast<int>(nums.size()) * (static_cast<int>(nums.size()) + 1) / 2 - sum;
         return ret;
     }
 };

@@ -1,6 +1,7 @@
 /**/
 #include "gtest/gtest.h"
 
+// NOLINTNEXTLINE: misc-use-internal-linkage
 class Solution {
    public:
     long long ColoredCells(int n) {

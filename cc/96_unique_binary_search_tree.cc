@@ -59,10 +59,10 @@ TEST(UniqueBinarySearchTree, t3) {
                           16796,   58786,    208012,    742900,    2674440,
                           9694845, 35357670, 129644790, 477638700, 1767263190};
     Solution sl;
-    int const size = test_case.size();
+    int const size = static_cast<int>(test_case.size());
     for (int i = 1; i < size; i++) {
         int const ret = sl.NumTrees(i);
-        EXPECT_EQ(ret, test_case[i]);
+        EXPECT_EQ(ret, test_case.at(static_cast<size_t>(i)));
     }
 }
 

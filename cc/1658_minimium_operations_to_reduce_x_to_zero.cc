@@ -14,6 +14,7 @@ possible, otherwise, return -1.
 */
 
 #include <algorithm>
+#include <cstddef>
 #include <vector>
 
 #include "gtest/gtest.h"
@@ -25,7 +26,7 @@ class Solution {
    public:
     int MinOperations(vector<int>& nums, int x) {
         int sum = 0;
-        int const n = nums.size();
+        int const n = static_cast<int>(nums.size());
         int len = 0;
 
         //         calculate the sum of array
@@ -39,7 +40,7 @@ class Solution {
         int i = 0, j = 0;
         int pre_sum = 0;
         while (j < n) {
-            pre_sum += nums[j];
+            pre_sum += nums.at(static_cast<size_t>(j));
             //             here (sum-preSum) represent sum of end points
             // if (sum-preSum) i.e. the sum of end points is greater than x we
             // have to increase the size of window
@@ -57,7 +58,7 @@ class Solution {
             //             the window
             else {
                 while (i < j && (sum - pre_sum) < x) {
-                    pre_sum -= nums[i];
+                    pre_sum -= nums.at(static_cast<size_t>(i));
                     i++;
                 }
                 if ((sum - pre_sum) == x) len = max((j - i + 1), len);
