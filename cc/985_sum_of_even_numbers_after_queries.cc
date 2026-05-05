@@ -9,6 +9,7 @@ the sum of the even values of nums.
 
 Return an integer array answer where answer[i] is the answer to the ith query.*/
 
+#include <cstddef>
 #include <iterator>
 #include <numeric>
 #include <string>
@@ -29,10 +30,10 @@ class Solution {
         vector<int> ans;
         ans.reserve(size(queries));
         for (const vector<int>& query : queries) {
-            const int val = query[0];
-            const int index = query[1];
+            const int val = query.at(0);
+            const int index = query.at(1);
 
-            int& num = nums[index];
+            int& num = nums.at(static_cast<size_t>(index));
 
             if (IsEven(num)) sum -= num;
             num += val;

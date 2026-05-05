@@ -34,6 +34,7 @@ class Solution {
             }
         }
         ret.erase(
+            // NOLINTNEXTLINE: use llvm::remove_if
             std::remove_if(ret.begin(), ret.end(),
                            [](std::vector<int> const & v) { return v.empty(); }),
             ret.end());

@@ -9,6 +9,7 @@
 */
 
 #include <algorithm>
+#include <cstddef>
 #include <cstdlib>
 #include <vector>
 
@@ -20,13 +21,13 @@ class Solution {
    public:
     int MinMoves2(vector<int>& nums) {
         // pass
-        int const n = nums.size();
+        int const n = static_cast<int>(nums.size());
         sort(nums.begin(), nums.end());
         int mid = 0;
         if (n % 2 != 0) {
-            mid = nums[n / 2];
+            mid = nums.at(static_cast<size_t>(n / 2));
         } else {
-            mid = nums[(n + 1) / 2];
+            mid = nums.at(static_cast<size_t>((n + 1) / 2));
         }
 
         int move = 0;

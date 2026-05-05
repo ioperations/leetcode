@@ -7,6 +7,7 @@ nums[0] < nums[1] > nums[2] < nums[3]....
 You may assume the input array always has a valid answer.*/
 
 #include <algorithm>
+#include <cstddef>
 #include <vector>
 
 #include "gtest/gtest.h"

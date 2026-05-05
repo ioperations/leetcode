@@ -19,7 +19,7 @@ class Solution {
             return s;
         }
 
-        return Reverse(s.substr(1)) + s[0];
+        return Reverse(s.substr(1)) + s.at(0);
     }
 };
 

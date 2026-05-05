@@ -14,10 +14,10 @@ class Solution {
         vector<bool> visited(n, false);
         int count = 0;
         for (int i = 2; i < n; i++) {
-            if (visited[i] == true) continue;
+            if (visited.at(i) == true) continue;
             count++;
             // make all multiple of current prine as visited
-            for (int j = i + i; j < n; j += i) visited[j] = true;
+            for (int j = i + i; j < n; j += i) visited.at(j) = true;
         }
         return count;
     }

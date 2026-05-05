@@ -29,7 +29,7 @@ class Solution {
         for (const auto& it : umap) {
             // minus sign used to build min heap
             pq.emplace(-it.second, it.first);
-            if ((int)pq.size() > k) pq.pop();
+            if (static_cast<int>(pq.size()) > k) pq.pop();
         }
         vector<string> res;
         while (k--) {

@@ -7,6 +7,7 @@ Given an integer n, return the nth digit of the infinite integer sequence
 */
 
 #include <cmath>
+#include <cstddef>
 #include <string>
 
 #include "gtest/gtest.h"
@@ -24,7 +25,7 @@ class Solution {
             base *= 10;
             d++;
         }
-        int const index = n % d == 0 ? static_cast<int>(d) : n % d;
+        int const index = n % d == 0 ? static_cast<int>(d) : static_cast<int>(n % d);
         long const num = static_cast<long>(pow(10, d - 1)) + (index == d ? n / d - 1 : n / d);
         return to_string(num).at(static_cast<size_t>(index) - 1) - '0';
     }

@@ -9,6 +9,7 @@
 #include <vector>
 using namespace std;
 
+namespace {
 class Solution {
    public:
     long long CountBadPairs(vector<int>& nums) {
@@ -25,7 +26,9 @@ class Solution {
 
         return ret;
     }
-};
+};  // class Solution
+
+}  // namespace
 
 #include <gtest/gtest.h>
 
