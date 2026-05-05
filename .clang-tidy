@@ -27,6 +27,10 @@ CheckOptions:
     value: "next|hasNext|begin|end"
   - key:   cppcoreguidelines-explicit-virtual-functions.IgnoreDestructors
     value: '1'
+  - key: cppcoreguidelines-avoid-non-const-global-variables.AllowInternalLinkage
+    value: '1'
+  - key: cppcoreguidelines-avoid-non-const-global-variables.AllowThreadLocal
+    value: '1'
   - key:   cppcoreguidelines-non-private-member-variables-in-classes.IgnoreClassesWithAllMemberVariablesBeingPublic
     value: '1'
   - key:   google-readability-braces-around-statements.ShortStatementLines
