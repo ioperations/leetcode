@@ -17,6 +17,7 @@
  */
 
 #include <algorithm>
+#include <cstddef>
 #include <vector>
 
 using namespace std;
@@ -36,7 +37,7 @@ class Solution {
 
         int j = 0;
         for (int i = 0; i < n; i++) {
-            if (nums.at(i) > 0) nums[j++] = nums.at(i);
+            if (nums.at(static_cast<size_t>(i)) > 0) nums.at(j++) = nums.at(static_cast<size_t>(i));
         }
         fill(nums.begin() + j, nums.end(), 0);
 

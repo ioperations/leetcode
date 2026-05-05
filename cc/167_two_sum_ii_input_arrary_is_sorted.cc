@@ -34,7 +34,7 @@ class Solution {
         for (int i = 0; i < size; i++) {
             int j = 0;
             if ((j = FindInArray(numbers, i + 1, size - 1,
-                                 target - numbers[i])) != 0) {
+                                 target - numbers.at(static_cast<size_t>(i)))) != 0) {
                 return vector<int>{i + 1, j + 1};
             }
         }
@@ -46,10 +46,10 @@ class Solution {
         while (left <= right) {
             int const mid = (left + right) / 2;
 
-            if (numbers[mid] > target) {
+            if (numbers.at(static_cast<size_t>(mid)) > target) {
                 right = mid - 1;
 
-            } else if (numbers[mid] < target) {
+            } else if (numbers.at(static_cast<size_t>(mid)) < target) {
                 left = mid + 1;
 
             } else {

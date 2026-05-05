@@ -18,6 +18,7 @@
 #include <string>
 using namespace std;
 
+namespace {
 class Solution {
    public:
     int MinimumRecolors(string blocks, int k) {
@@ -31,18 +32,18 @@ class Solution {
         auto size = blocks.size();
         int white_size = 0;
         for (int i = 0; i < k; i++) {
-            if (blocks[i] == 'W') {
+            if (blocks.at(static_cast<size_t>(i)) == 'W') {
                 white_size++;
             }
         }
 
         int ret = white_size;
         for (int i = k; i < size; i++) {
-            if (blocks[i] == 'W') {
+            if (blocks.at(static_cast<size_t>(i)) == 'W') {
                 white_size++;
             }
 
-            if (blocks[i - k] == 'W') {
+            if (blocks.at(static_cast<size_t>(i - k)) == 'W') {
                 white_size--;
             }
 
@@ -52,6 +53,8 @@ class Solution {
         return ret;
     }
 };
+
+}  // namespace
 
 #include <gtest/gtest.h>
 

@@ -9,9 +9,11 @@ is neither positive nor negative.
 */
 
 #include <algorithm>
+#include <cstddef>
 #include <vector>
 using namespace std;
 
+namespace {
 class Solution {
    public:
     int MaximumCount(vector<int>& nums) {
@@ -20,14 +22,18 @@ class Solution {
          * -2000 <= nums[i] <= 2000
          * nums is sorted in a non-decreasing order.
          */
+        // NOLINTNEXTLINE: llvm-use-ranges
         auto it = lower_bound(nums.begin(), nums.end(), 0);
 
-        auto n = it - nums.begin();
+        auto n = static_cast<int>(it - nums.begin());
+        // NOLINTNEXTLINE: llvm-use-ranges
         it = upper_bound(nums.begin(), nums.end(), 0);
 
-        return std::max(nums.end() - it, n);
+        return std::max(static_cast<int>(nums.end() - it), n);
     }
 };
+
+}  // namespace
 
 #include <gtest/gtest.h>
 
