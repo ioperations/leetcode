@@ -1,0 +1,114 @@
+{
+  "proxy": "",
+  "git": {
+    "gutter_debounce": 6
+  },
+  "document_folding_ranges": "on",
+  "document_symbols": "on",
+  "vim": {
+    "use_smartcase_find": true
+  },
+  "which_key": {
+    "enabled": false
+  },
+  "autosave": {
+    "after_delay": {
+      "milliseconds": 1000
+    }
+  },
+  "project_panel": {
+    "dock": "left"
+  },
+  "outline_panel": {
+    "dock": "left"
+  },
+  "collaboration_panel": {
+    "dock": "left"
+  },
+  "agent": {
+    "dock": "right",
+    "favorite_models": [],
+    "model_parameters": []
+  },
+  "git_panel": {
+    "dock": "left"
+  },
+  "telemetry": {
+    "diagnostics": true,
+    "metrics": false
+  },
+  "session": {
+    "trust_all_worktrees": true
+  },
+  "tab_bar": {
+    "show_pinned_tabs_in_separate_row": true
+  },
+  "tabs": {
+    "file_icons": true
+  },
+  "icon_theme": "Material Icon Theme",
+  "vim_mode": true,
+  "ui_font_size": 19.0,
+  "ui_font_family": "UbuntuSansMono Nerd Font Propo",
+  "buffer_font_family": "UbuntuSansMono Nerd Font Propo",
+  "ui_font_features": { "bold": true },
+  "buffer_font_features": { "bold": true },
+  "buffer_font_weight": 800,
+  "ui_font_weight": 500,
+  "buffer_font_size": 19.0,
+  "semantic_tokens": "combined",
+
+  "terminal": {
+    "toolbar": {
+      "breadcrumbs": false
+    },
+    "font_family": "UbuntuSansMono Nerd Font Propo",
+    "copy_on_select": true,
+    "font_size": 18.0,
+    "font_features": { "bold": true }
+  },
+  "theme": {
+    "mode": "dark",
+    "light": "Gruvbox Light Soft",
+    "dark": "Tokyo Night Storm"
+  },
+  "global_lsp_settings": {
+    "semantic_token_rules": [
+      {
+        "token_type": "function",
+        "foreground_color": "#52A3D3",
+        "font_weight": "bold"
+      },
+      {
+        "token_type": "method",
+        "foreground_color": "#52A3D3",
+        "font_weight": "bold"
+      },
+      { "token_type": "variable", "foreground_color": "#FFCC33" },
+      { "token_type": "variable.fileScope", "foreground_color": "#008B8B" },
+      { "token_type": "variable.globalScope", "foreground_color": "#008B8B" },
+      { "token_type": "variable.functionScope", "foreground_color": "#FFCC33" },
+      {
+        "token_type": "parameter",
+        "foreground_color": "#FF6600",
+        "underline": true
+      },
+      { "token_type": "property", "foreground_color": "#7B68EE" },
+      {
+        "token_type": "variable.static.classScope",
+        "foreground_color": "#C8C8C8"
+      },
+      { "token_type": "class", "foreground_color": "#D19E48" },
+      { "token_type": "type", "foreground_color": "#D19E48" },
+      { "token_type": "interface", "foreground_color": "#D19E48" },
+      { "token_type": "typeParameter", "foreground_color": "#D19E48" },
+      { "token_type": "enum", "foreground_color": "#DB7093" },
+      { "token_type": "enumMember", "foreground_color": "#DB7093" },
+      { "token_type": "namespace", "foreground_color": "#569CD6" },
+      { "token_type": "macro", "foreground_color": "#DB7093" },
+      { "token_type": "comment", "foreground_color": "#66685E" }
+    ]
+  }
+}
+
+
