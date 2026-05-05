@@ -26,17 +26,17 @@ class Solution {
 
     int EqualPairs(vector<vector<int>>& grid) const {
         int count = 0;
-        int const n = grid.size();
+        int const n = static_cast<int>(grid.size());
         unordered_map<string, int> mp;
 
         // mapping the rows with the help of mapping function to create keys
-        for (int i = 0; i < n; i++) mp[Mapping(grid[i])]++;
+        for (int i = 0; i < n; i++) mp[Mapping(grid.at(static_cast<size_t>(i)))]++;
 
         for (int i = 0; i < n; i++) {
             string ans = "";
 
             // Traversing the matrix column wise and generating new key
-            for (int j = 0; j < n; j++) ans += to_string(grid[j][i]) + "#";
+            for (int j = 0; j < n; j++) ans += to_string(grid.at(static_cast<size_t>(j)).at(static_cast<size_t>(i))) + "#";
 
             // adding the number of occurences of the key generated
             count += mp[ans];

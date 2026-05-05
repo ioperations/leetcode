@@ -74,7 +74,7 @@ Node* ConstructTreeNode(vector<optional<int>>& elements) {
 
     bool continue_loop = true;
     int i = 2;
-    const int size = elements.size();
+    const int size = static_cast<int>(elements.size());
     while (continue_loop) {
         vector<int> z;
         while (i < size && elements.at(i).has_value()) {

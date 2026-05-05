@@ -18,7 +18,7 @@ namespace {
 class Solution {
    public:
     vector<vector<string>> Partition(string s) {
-        return Partition(s, 0, s.size() - 1);
+        return Partition(s, 0, static_cast<int>(s.size()) - 1);
     }
     vector<vector<string>> Partition(string& s, int begin, int end) {
         vector<vector<string>> ret;
@@ -44,9 +44,9 @@ class Solution {
         return ret;
     }
 
-    bool IsPalindrom(std::string& s, int left, int right) {
+    bool IsPalindrom(const std::string& s, int left, int right) {
         while (left < right) {
-            if (s[left] == s[right]) {
+            if (s.at(static_cast<size_t>(left)) == s.at(static_cast<size_t>(right))) {
                 left++;
                 right--;
             } else {

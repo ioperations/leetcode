@@ -47,11 +47,11 @@ class Solution {
                     z = sum * std::min(min, nums2.at(current_index));
                 }
                 int const choose_this_index =
-                    dfs(sum, std::min(min, nums2.at(current_index)),
-                        current_size + 1, current_index + 1);
+                    static_cast<int>(dfs(sum, std::min(min, nums2.at(current_index)),
+                        current_size + 1, current_index + 1));
                 sum -= nums1.at(current_index);
                 int const do_not_choose_this_index =
-                    dfs(sum, min, current_size, current_index + 1);
+                    static_cast<int>(dfs(sum, min, current_size, current_index + 1));
 
                 return std::max(
                     {z, choose_this_index, do_not_choose_this_index});
