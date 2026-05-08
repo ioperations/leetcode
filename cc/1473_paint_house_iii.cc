@@ -23,17 +23,17 @@ there are exactly target neighborhoods. If it is not possible, return -1.*/
 
 #include "gtest/gtest.h"
 
-using namespace std;
+using namespace std;  // NOLINT
 
 namespace {
 class Solution {
    private:
     vector<vector<vector<int>>> m_mem;
     int Solve(vector<int>& houses, vector<vector<int>>& cost, int target,
-              int index, int p) {
-        int const m = static_cast<int>(houses.size());
-        int const n = static_cast<int>(cost.at(0).size());
-        if (index == m) {
+              int index, int prev_color) {
+        int const num_houses = static_cast<int>(houses.size());
+        int const num_colors = static_cast<int>(cost.at(0).size());
+        if (index == num_houses) {
             if (target == 0) {
                 return 0;
             }
@@ -42,15 +42,15 @@ class Solution {
         if (target < 0) {
             return INT_MAX;
         }
-        if (m_mem.at(index).at(p).at(target) != -1) {
-            return m_mem.at(index).at(p).at(target);
+        if (m_mem.at(index).at(prev_color).at(target) != -1) {
+            return m_mem.at(index).at(prev_color).at(target);
         }
         if (houses.at(index) == 0) {
             int min_cost = INT_MAX;
-            for (int color = 1; color <= n; color++) {
+            for (int color = 1; color <= num_colors; color++) {
                 int ans = 0;
-                if (color == p) {
-                    ans = Solve(houses, cost, target, index + 1, p);
+                if (color == prev_color) {
+                    ans = Solve(houses, cost, target, index + 1, prev_color);
                 } else {
                     ans = Solve(houses, cost, target - 1, index + 1, color);
                 }
@@ -59,21 +59,22 @@ class Solution {
                 }
                 min_cost = min(min_cost, ans);
             }
-            return m_mem.at(index).at(p).at(target) = min_cost;
+            return m_mem.at(index).at(prev_color).at(target) = min_cost;
         }
-        if (houses.at(index) == p) {
-            return m_mem.at(index).at(p).at(target) =
-                       Solve(houses, cost, target, index + 1, p);
+        if (houses.at(index) == prev_color) {
+            return m_mem.at(index).at(prev_color).at(target) =
+                       Solve(houses, cost, target, index + 1, prev_color);
         }
-        return m_mem.at(index).at(p).at(target) =
+        return m_mem.at(index).at(prev_color).at(target) =
                    Solve(houses, cost, target - 1, index + 1, houses.at(index));
     }
 
    public:
-    int MinCost(vector<int>& houses, vector<vector<int>>& cost, int m, int n,
-                int target) {
+    int MinCost(vector<int>& houses, vector<vector<int>>& cost, int num_houses,
+                int num_colors, int target) {
         m_mem = vector<vector<vector<int>>>(
-            m, vector<vector<int>>(n + 1, vector<int>(target + 1, -1)));
+            num_houses,
+            vector<vector<int>>(num_colors + 1, vector<int>(target + 1, -1)));
         int const ans = Solve(houses, cost, target, 0, 0);
         return ans == INT_MAX ? -1 : ans;
     }
@@ -82,10 +83,11 @@ class Solution {
 TEST(PaintHouseIii, t1) {
     vector<int> houses = {0, 0, 0, 0, 0};
     vector<vector<int>> cost = {{1, 10}, {10, 1}, {10, 1}, {1, 10}, {5, 1}};
-    int const m = 5, n = 2, target = 3;
+    int const num_houses = 5, num_colors = 2, target = 3;
     int const output = 9;
-    Solution sl;
-    int const ret = sl.MinCost(houses, cost, m, n, target);
+    Solution solution;
+    int const ret =
+        solution.MinCost(houses, cost, num_houses, num_colors, target);
     /*Paint houses of this way [1,2,2,1,1]
     This array contains target = 3 neighborhoods, [{1}, {2,2}, {1,1}].
     Cost of paint all houses (1 + 1 + 1 + 1 + 5) = 9.*/
@@ -95,10 +97,11 @@ TEST(PaintHouseIii, t1) {
 TEST(PaintHouseIii, t2) {
     vector<int> houses = {0, 2, 1, 2, 0};
     vector<vector<int>> cost = {{1, 10}, {10, 1}, {10, 1}, {1, 10}, {5, 1}};
-    int const m = 5, n = 2, target = 3;
+    int const num_houses = 5, num_colors = 2, target = 3;
     int const output = 11;
-    Solution sl;
-    int const ret = sl.MinCost(houses, cost, m, n, target);
+    Solution solution;
+    int const ret =
+        solution.MinCost(houses, cost, num_houses, num_colors, target);
     /*Some houses are already painted, Paint the houses of this way [2,2,1,2,2]
     This array contains target = 3 neighborhoods, [{2,2}, {1}, {2,2}].
     Cost of paint the first and last house (10 + 1) = 11.*/
@@ -108,10 +111,11 @@ TEST(PaintHouseIii, t2) {
 TEST(PaintHouseIii, t3) {
     vector<int> houses = {3, 1, 2, 3};
     vector<vector<int>> cost = {{1, 1, 1}, {1, 1, 1}, {1, 1, 1}, {1, 1, 1}};
-    int const m = 4, n = 3, target = 3;
+    int const num_houses = 4, num_colors = 3, target = 3;
     int const output = -1;
-    Solution sl;
-    int const ret = sl.MinCost(houses, cost, m, n, target);
+    Solution solution;
+    int const ret =
+        solution.MinCost(houses, cost, num_houses, num_colors, target);
     /* Houses are already painted with a total of 4 neighborhoods
     [{3},{1},{2},{3}] different of target = 3. */
     EXPECT_EQ(ret, output);
