@@ -123,7 +123,7 @@ void BfsSearch(TreeNode<T>* root, std::vector<T>& vec) {
     std::queue<TreeNode<T>*> queue;
     queue.push(root);
 
-    while (queue.size()) {
+    while (!queue.empty()) {
         TreeNode<T>* tmp = queue.front();
 
         queue.pop();
