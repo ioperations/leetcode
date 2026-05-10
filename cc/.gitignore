@@ -1,0 +1,7 @@
+*
+# Unignore files with extensions (like .cpp, .h, .md)
+!*.*
+# Unignore all directories so git can still look inside them
+!*/
+/*.dSYM
+
