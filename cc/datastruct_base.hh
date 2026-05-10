@@ -57,7 +57,7 @@ TreeNode<T>* AddToRoot(TreeNode<T>* root, const std::vector<T>& elements) {
 
 template <typename T>
 TreeNode<T>* ConstructTree(const std::vector<T>& elements) {
-    if (!elements.size()) {
+    if (elements.empty()) {
         return nullptr;
     }
 
@@ -141,7 +141,7 @@ void BfsSearchV1(TreeNode<T>* root, std::vector<std::optional<int>>& vec) {
     std::queue<TreeNode<T>*> q;
     q.push(root);
 
-    while (q.size()) {
+    while (!q.empty()) {
         auto* tmp = q.front();
 
         q.pop();
