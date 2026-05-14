@@ -11,109 +11,68 @@ struct Solution;
 impl Solution {
     #![allow(unused)]
     pub fn max_score_words(
-        words: &[String],
+        words: Vec<String>,
         letters: Vec<char>,
         score: &[i32],
     ) -> i32 {
-        // TODO: there being much room to optimize,
-        // such as hashbuilder process
-
-        use std::collections::HashMap;
-
-        fn check_if_can_take(str: &str, hashm: &HashMap<char, usize>) -> bool {
-            let mut hm: HashMap<char, usize> = HashMap::default();
-            {
-                for i in str.bytes() {
-                    hm.entry(i as char).and_modify(|x| *x += 1).or_insert(1);
+        let n = words.len();
+        let word_counts: Vec<[i32; 26]> = words
+            .iter()
+            .map(|w| {
+                let mut cnt = [0; 26];
+                for &b in w.as_bytes() {
+                    cnt[(b - b'a') as usize] += 1;
                 }
-            };
+                cnt
+            })
+            .collect();
 
-            for (k, v) in hm {
-                if let Some(vv) = hashm.get(&k) {
-                    if *vv >= v {
-                        continue;
-                    }
-                    return false;
-                }
-                return false;
-            }
+        let word_scores: Vec<i32> = words
+            .iter()
+            .map(|w| w.bytes().map(|b| score[(b - b'a') as usize]).sum())
+            .collect();
 
-            true
-        };
+        let mut letter_counts = [0; 26];
+        for &c in &letters {
+            letter_counts[(c as u8 - b'a') as usize] += 1;
+        }
 
-        fn take(str: &str, hashm: &mut HashMap<char, usize>) -> bool {
-            let mut hm: HashMap<char, usize> = HashMap::default();
-            {
-                for i in str.bytes() {
-                    hm.entry(i as char).and_modify(|x| *x += 1).or_insert(1);
-                }
-            };
-
-            for (k, v) in hm {
-                hashm.entry(k).and_modify(|counter| *counter -= v);
-            }
-            true
-        };
-
-        fn calculate_value(str: &str, vec: &[i32]) -> i32 {
-            str.bytes()
-                .scan((0), |state, x| {
-                    *state += vec[(x - b'a') as usize];
-                    Some(*state)
-                })
-                .last()
-                .unwrap()
-        };
-
-        fn myimpl(
-            i: usize,
-            words: &[String],
-            mut visibility: &mut Vec<bool>,
-            letters: &mut HashMap<char, usize>,
-            score: &[i32],
-            before: i32,
+        fn backtrack(
+            idx: usize,
+            word_counts: &[[i32; 26]],
+            word_scores: &[i32],
+            letter_counts: &mut [i32; 26],
+            current_score: i32,
         ) -> i32 {
-            let len = words.len();
-            if i >= len {
-                return before;
+            if idx == word_counts.len() {
+                return current_score;
             }
 
-            if visibility[i] && check_if_can_take(&words[i], letters) {
-                // case 1. take the str
-                let leters_bk = letters.clone();
-                take(&words[i], letters);
-                visibility[i] = false;
-
-                let va = calculate_value(&words[i], score);
-                let case1 = myimpl(
-                    i + 1,
-                    words,
-                    visibility,
-                    letters,
-                    score,
-                    before + va,
-                );
-                visibility[i] = true;
-                *letters = leters_bk;
-                // case 2. do not take the str
-
-                let case2 =
-                    myimpl(i + 1, words, visibility, letters, score, before);
-                return case1.max(case2);
+            let mut can_take = true;
+            for (j, &cnt) in word_counts[idx].iter().enumerate() {
+                if cnt > 0 && letter_counts[j] < cnt {
+                    can_take = false;
+                    break;
+                }
             }
-            // do not take the str
-            myimpl(i + 1, words, visibility, letters, score, before)
-        };
 
-        let mut lh: HashMap<char, usize> = HashMap::default();
-        {
-            for i in letters {
-                lh.entry(i).and_modify(|x| *x += 1).or_insert(1);
+            let skip = backtrack(idx + 1, word_counts, word_scores, letter_counts, current_score);
+
+            if can_take {
+                for (j, &cnt) in word_counts[idx].iter().enumerate() {
+                    letter_counts[j] -= cnt;
+                }
+                let take = backtrack(idx + 1, word_counts, word_scores, letter_counts, current_score + word_scores[idx]);
+                for (j, &cnt) in word_counts[idx].iter().enumerate() {
+                    letter_counts[j] += cnt;
+                }
+                return take.max(skip);
             }
-        };
-        let len = words.len();
-        let mut visibility = vec![true; len];
-        myimpl(0, words, &mut visibility, &mut lh, score, 0)
+
+            skip
+        }
+
+        backtrack(0, &word_counts, &word_scores, &mut letter_counts, 0)
     }
 }
 
@@ -141,7 +100,7 @@ mod test {
         // Given letters, we can form the words "dad" (5+1+5) and "good"
         // (3+2+2+5) with a score of 23. Words "dad" and "dog" only get
         // a score of 21.
-        let ret = Solution::max_score_words(&words, letters, &score);
+        let ret = Solution::max_score_words(words, letters, &score);
         assert_eq!(ret, output);
     }
 
@@ -164,7 +123,7 @@ mod test {
         // Score  a=4, b=4, c=4, x=5, z=10
         // Given letters, we can form the words "ax" (4+5), "bx" (4+5) and "cx"
         // (4+5) with a score of 27. Word "xxxz" only get a score of 25.
-        let ret = Solution::max_score_words(&words, letters, &score);
+        let ret = Solution::max_score_words(words, letters, &score);
         assert_eq!(ret, output);
     }
 
@@ -185,7 +144,7 @@ mod test {
         let output = 0;
         // Explanation:
         // Letter "e" can only be used once.
-        let ret = Solution::max_score_words(&words, letters, &score);
+        let ret = Solution::max_score_words(words, letters, &score);
         assert_eq!(ret, output);
     }
 }
