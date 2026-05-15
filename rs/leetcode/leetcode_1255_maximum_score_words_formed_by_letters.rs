@@ -12,7 +12,7 @@ impl Solution {
     #![allow(unused)]
     pub fn max_score_words(
         words: &[String],
-        letters: Vec<char>,
+        letters: &[char],
         score: &[i32],
     ) -> i32 {
         let n = words.len();
@@ -33,7 +33,7 @@ impl Solution {
             .collect();
 
         let mut letter_counts = [0; 26];
-        for &c in &letters {
+        for &c in letters {
             letter_counts[(c as u8 - b'a') as usize] += 1;
         }
 
@@ -112,7 +112,11 @@ mod test {
         // Given letters, we can form the words "dad" (5+1+5) and "good"
         // (3+2+2+5) with a score of 23. Words "dad" and "dog" only get
         // a score of 21.
-        let ret = Solution::max_score_words(words.as_slice(), letters, &score);
+        let ret = Solution::max_score_words(
+            words.as_slice(),
+            letters.as_slice(),
+            &score,
+        );
         assert_eq!(ret, output);
     }
 
@@ -135,7 +139,11 @@ mod test {
         // Score  a=4, b=4, c=4, x=5, z=10
         // Given letters, we can form the words "ax" (4+5), "bx" (4+5) and "cx"
         // (4+5) with a score of 27. Word "xxxz" only get a score of 25.
-        let ret = Solution::max_score_words(words.as_slice(), letters, &score);
+        let ret = Solution::max_score_words(
+            words.as_slice(),
+            letters.as_slice(),
+            &score,
+        );
         assert_eq!(ret, output);
     }
 
@@ -156,7 +164,11 @@ mod test {
         let output = 0;
         // Explanation:
         // Letter "e" can only be used once.
-        let ret = Solution::max_score_words(words.as_slice(), letters, &score);
+        let ret = Solution::max_score_words(
+            words.as_slice(),
+            letters.as_slice(),
+            &score,
+        );
         assert_eq!(ret, output);
     }
 }
