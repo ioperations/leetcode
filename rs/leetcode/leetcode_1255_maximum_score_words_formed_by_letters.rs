@@ -8,6 +8,53 @@
 #![allow(unused)]
 struct Solution;
 
+fn backtrack(
+    idx: usize,
+    word_counts: &[[i32; 26]],
+    word_scores: &[i32],
+    letter_counts: &mut [i32; 26],
+    current_score: i32,
+) -> i32 {
+    if idx == word_counts.len() {
+        return current_score;
+    }
+
+    let mut can_take = true;
+    for (j, &cnt) in word_counts[idx].iter().enumerate() {
+        if cnt > 0 && letter_counts[j] < cnt {
+            can_take = false;
+            break;
+        }
+    }
+
+    let skip = backtrack(
+        idx + 1,
+        word_counts,
+        word_scores,
+        letter_counts,
+        current_score,
+    );
+
+    if can_take {
+        for (j, &cnt) in word_counts[idx].iter().enumerate() {
+            letter_counts[j] -= cnt;
+        }
+        let take = backtrack(
+            idx + 1,
+            word_counts,
+            word_scores,
+            letter_counts,
+            current_score + word_scores[idx],
+        );
+        for (j, &cnt) in word_counts[idx].iter().enumerate() {
+            letter_counts[j] += cnt;
+        }
+        return take.max(skip);
+    }
+
+    skip
+}
+
 impl Solution {
     #![allow(unused)]
     pub fn max_score_words(
@@ -35,53 +82,6 @@ impl Solution {
         let mut letter_counts = [0; 26];
         for &c in letters {
             letter_counts[(c as u8 - b'a') as usize] += 1;
-        }
-
-        fn backtrack(
-            idx: usize,
-            word_counts: &[[i32; 26]],
-            word_scores: &[i32],
-            letter_counts: &mut [i32; 26],
-            current_score: i32,
-        ) -> i32 {
-            if idx == word_counts.len() {
-                return current_score;
-            }
-
-            let mut can_take = true;
-            for (j, &cnt) in word_counts[idx].iter().enumerate() {
-                if cnt > 0 && letter_counts[j] < cnt {
-                    can_take = false;
-                    break;
-                }
-            }
-
-            let skip = backtrack(
-                idx + 1,
-                word_counts,
-                word_scores,
-                letter_counts,
-                current_score,
-            );
-
-            if can_take {
-                for (j, &cnt) in word_counts[idx].iter().enumerate() {
-                    letter_counts[j] -= cnt;
-                }
-                let take = backtrack(
-                    idx + 1,
-                    word_counts,
-                    word_scores,
-                    letter_counts,
-                    current_score + word_scores[idx],
-                );
-                for (j, &cnt) in word_counts[idx].iter().enumerate() {
-                    letter_counts[j] += cnt;
-                }
-                return take.max(skip);
-            }
-
-            skip
         }
 
         backtrack(0, &word_counts, &word_scores, &mut letter_counts, 0)
