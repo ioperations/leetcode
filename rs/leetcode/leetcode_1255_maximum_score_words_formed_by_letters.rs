@@ -11,7 +11,7 @@ struct Solution;
 impl Solution {
     #![allow(unused)]
     pub fn max_score_words(
-        words: Vec<String>,
+        words: &[String],
         letters: Vec<char>,
         score: &[i32],
     ) -> i32 {
@@ -56,13 +56,25 @@ impl Solution {
                 }
             }
 
-            let skip = backtrack(idx + 1, word_counts, word_scores, letter_counts, current_score);
+            let skip = backtrack(
+                idx + 1,
+                word_counts,
+                word_scores,
+                letter_counts,
+                current_score,
+            );
 
             if can_take {
                 for (j, &cnt) in word_counts[idx].iter().enumerate() {
                     letter_counts[j] -= cnt;
                 }
-                let take = backtrack(idx + 1, word_counts, word_scores, letter_counts, current_score + word_scores[idx]);
+                let take = backtrack(
+                    idx + 1,
+                    word_counts,
+                    word_scores,
+                    letter_counts,
+                    current_score + word_scores[idx],
+                );
                 for (j, &cnt) in word_counts[idx].iter().enumerate() {
                     letter_counts[j] += cnt;
                 }
@@ -100,7 +112,7 @@ mod test {
         // Given letters, we can form the words "dad" (5+1+5) and "good"
         // (3+2+2+5) with a score of 23. Words "dad" and "dog" only get
         // a score of 21.
-        let ret = Solution::max_score_words(words, letters, &score);
+        let ret = Solution::max_score_words(words.as_slice(), letters, &score);
         assert_eq!(ret, output);
     }
 
@@ -123,7 +135,7 @@ mod test {
         // Score  a=4, b=4, c=4, x=5, z=10
         // Given letters, we can form the words "ax" (4+5), "bx" (4+5) and "cx"
         // (4+5) with a score of 27. Word "xxxz" only get a score of 25.
-        let ret = Solution::max_score_words(words, letters, &score);
+        let ret = Solution::max_score_words(words.as_slice(), letters, &score);
         assert_eq!(ret, output);
     }
 
@@ -144,7 +156,7 @@ mod test {
         let output = 0;
         // Explanation:
         // Letter "e" can only be used once.
-        let ret = Solution::max_score_words(words, letters, &score);
+        let ret = Solution::max_score_words(words.as_slice(), letters, &score);
         assert_eq!(ret, output);
     }
 }
