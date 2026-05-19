@@ -22,8 +22,7 @@ package gomod
 
 import "strings"
 
-type Solution struct {
-}
+type Solution struct{}
 
 func (s *Solution) SimplifyPath(path string) string {
 	// simplifyPath takes a string path and returns the simplified canonical path
@@ -70,5 +69,4 @@ func (s *Solution) SimplifyPath(path string) string {
 	// The function is efficient and handles all edge cases correctly.
 	// The function is also easy to understand and maintain, making it a good
 	// solution for the problem.
-
 }

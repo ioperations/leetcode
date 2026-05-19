@@ -54,7 +54,8 @@ class Solution {
         for (int i = 0; i < n; i++) {
             for (int j = i; j >= 0; j--) {
                 if (dp.at(j) >= stations.at(i).at(0)) {
-                    dp.at(j + 1) = max(dp.at(j + 1), dp.at(j) + stations.at(i).at(1));
+                    dp.at(j + 1) =
+                        max(dp.at(j + 1), dp.at(j) + stations.at(i).at(1));
                 }
             }
         }
@@ -79,10 +80,10 @@ class Solution {
             if (size > start) {
                 // 表明这里有加油站
                 if (current_fuel < stations.at(start).at(0)) return -1;
-                c1 = 1 +
-                     fun(start + 1,
-                         current_fuel - stations.at(start).at(0) + stations.at(start).at(1),
-                         current_route + stations.at(start).at(0));
+                c1 = 1 + fun(start + 1,
+                             current_fuel - stations.at(start).at(0) +
+                                 stations.at(start).at(1),
+                             current_route + stations.at(start).at(0));
                 if (current_fuel >= stations.at(start).at(0)) {
                     c2 = fun(start + 1, current_fuel - stations.at(start).at(0),
                              current_route + stations.at(start).at(0));
