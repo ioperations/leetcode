@@ -116,7 +116,7 @@ TEST(FurthestBuildingYouCanReach, t1) {
        ladders because 6 < 9. It is impossible to go beyond building 4 because
        you do not have any more bricks or ladders.
     */
-    EXPECT_EQ(ret, 4);
+    EXPECT_EQ(4, ret);
 }
 
 TEST(FurthestBuildingYouCanReach, t2) {
@@ -125,7 +125,7 @@ TEST(FurthestBuildingYouCanReach, t2) {
 
     Solution sl;
     int const ret = sl.FurthestBuilding2(heights, bricks, ladders);
-    EXPECT_EQ(ret, 7);
+    EXPECT_EQ(7, ret);
 }
 
 TEST(FurthestBuildingYouCanReach, t3) {
@@ -134,7 +134,7 @@ TEST(FurthestBuildingYouCanReach, t3) {
 
     Solution sl;
     int const ret = sl.FurthestBuilding2(heights, bricks, ladders);
-    EXPECT_EQ(ret, 3);
+    EXPECT_EQ(3, ret);
 }
 
 }  // namespace

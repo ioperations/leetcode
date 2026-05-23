@@ -84,7 +84,7 @@ TEST(symmetricV, t1) {
     TreeNode* root = Tree::ConstructBinaryTree(data);
     Solution sl;
     bool const ret = sl.IsSymmetric(root);
-    EXPECT_EQ(ret, true);
+    EXPECT_EQ(true, ret);
     Tree::FreeTreeNode(root);
 }
 
@@ -105,7 +105,7 @@ TEST(symmetricV, t2) {
     TreeNode* root = Tree::ConstructBinaryTree(data);
     Solution sl;
     bool const ret = sl.IsSymmetric(root);
-    EXPECT_EQ(ret, false);
+    EXPECT_EQ(false, ret);
     Tree::FreeTreeNode(root);
 }
 

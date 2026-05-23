@@ -57,12 +57,12 @@ TEST(T0, t1) {
     obj1.Interface();
 
     auto out = testing::internal::GetCapturedStdout();
-    EXPECT_EQ(out, "has method\n");
+    EXPECT_EQ("has method\n", out);
 
     testing::internal::CaptureStdout();
     Obj2 obj2;
     obj2.Interface();
 
     out = testing::internal::GetCapturedStdout();
-    EXPECT_EQ(out, "to be implemented\n");
+    EXPECT_EQ("to be implemented\n", out);
 }

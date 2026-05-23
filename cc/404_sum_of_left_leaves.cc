@@ -89,7 +89,7 @@ TEST(SumOfLeftLeaves, t1) {
     TreeNode* root = ConstructTree(elements);
     Solution s;
     const int ret = s.SumOfLeftLeaves(root);
-    EXPECT_EQ(ret, 12);
+    EXPECT_EQ(12, ret);
 
     FreeRoot(root);
 }
@@ -99,7 +99,7 @@ TEST(SumOfLeftLeaves, t3) {
     TreeNode* root = ConstructTree(elements);
     Solution s;
     const int ret = s.SumOfLeftLeaves(root);
-    EXPECT_EQ(ret, 0);
+    EXPECT_EQ(0, ret);
 
     FreeRoot(root);
 }
@@ -109,7 +109,7 @@ TEST(SumOfLeftLeaves, t2) {
     TreeNode* root = ConstructTree(elements);
     Solution s;
     const int ret = s.SumOfLeftLeaves(root);
-    EXPECT_EQ(ret, 0);
+    EXPECT_EQ(0, ret);
 
     FreeRoot(root);
 }

@@ -29,6 +29,6 @@ TEST(XHuaweiExampleTestv2, t2) {
     Processing(t);
     std::string const s = testing::internal::GetCapturedStdout();
 
-    EXPECT_EQ(s, std::string("1\n2\n3\n4\n5\n6\n7\n"));
+    EXPECT_EQ(std::string("1\n2\n3\n4\n5\n6\n7\n"), s);
 }
 }  // namespace

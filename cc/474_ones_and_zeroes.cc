@@ -78,7 +78,7 @@ TEST(OnesAndZeroes, t1) {
 
     Solution sl;
     int const ret = sl.FindMaxForm(strs, m, n);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(OnesAndZeroes, t2) {
@@ -88,7 +88,7 @@ TEST(OnesAndZeroes, t2) {
     // Explanation: The largest subset is {"0", "1"}, so the answer is 2.
     Solution sl;
     int const ret = sl.FindMaxForm(strs, m, n);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 }  // namespace

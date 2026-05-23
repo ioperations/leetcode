@@ -89,7 +89,7 @@ TEST(combinationV, t1) {
     Solution s;
     auto ret = s.CombinationSum(candidates, target);
 
-    EXPECT_EQ(ret, (std::vector<std::vector<int>>{{2, 2, 3}, {7}}));
+    EXPECT_EQ((std::vector<std::vector<int>>{{2, 2, 3}, {7}}), ret);
 }
 
 TEST(combinationV, t2) {
@@ -99,9 +99,7 @@ TEST(combinationV, t2) {
     Solution s;
     auto ret = s.CombinationSum(candidates, target);
 
-    EXPECT_EQ(
-        ret,
-        (std::vector<std::vector<int>>{{{2, 2, 2, 2}, {2, 3, 3}, {3, 5}}}));
+    EXPECT_EQ((std::vector<std::vector<int>>{{{2, 2, 2, 2}, {2, 3, 3}, {3, 5}}}), ret);
 }
 
 TEST(combinationV, t3) {
@@ -112,7 +110,7 @@ TEST(combinationV, t3) {
     Solution s;
     auto ret = s.CombinationSum(candidates, target);
 
-    EXPECT_EQ(ret, (std::vector<std::vector<int>>{}));
+    EXPECT_EQ((std::vector<std::vector<int>>{}), ret);
 }
 
 }  // namespace

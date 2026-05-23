@@ -49,7 +49,7 @@ TEST(LinkedListRandomNode, t1) {
     }
     delete s;
     List::FreeList(head);
-    // EXPECT_EQ(set.count(ret), 1);
+    // EXPECT_EQ(1, set.count(ret));
 }
 
 }  // namespace

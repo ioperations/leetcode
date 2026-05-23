@@ -58,10 +58,10 @@ TEST(T0, t1) {
     StackGrowth stack_growth;
 
     stack_growth.append("TEST");
-    EXPECT_EQ("TEST", *stack_growth.GetString());
+    EXPECT_EQ(*stack_growth.GetString(), "TEST");
 
     stack_growth.append("Hello");
-    EXPECT_EQ("TESTHello", *stack_growth.GetString());
+    EXPECT_EQ(*stack_growth.GetString(), "TESTHello");
 }
 
 int main(int argc, char* argv[]) {

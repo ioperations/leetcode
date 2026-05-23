@@ -93,10 +93,10 @@ TEST(SearchA2dMatrixV2, t0) {
 
     Solution s;
     bool ret = s.SearchMatrix(nums, 3);
-    EXPECT_EQ(ret, true);
+    EXPECT_EQ(true, ret);
 
     ret = s.SearchMatrixV2(nums, 3);
-    EXPECT_EQ(ret, true);
+    EXPECT_EQ(true, ret);
 }
 
 TEST(SearchA2dMatrixV2, t1) {
@@ -108,10 +108,10 @@ TEST(SearchA2dMatrixV2, t1) {
 
     Solution s;
     bool ret = s.SearchMatrix(nums, 13);
-    EXPECT_EQ(ret, false);
+    EXPECT_EQ(false, ret);
 
     ret = s.SearchMatrixV2(nums, 13);
-    EXPECT_EQ(ret, false);
+    EXPECT_EQ(false, ret);
 }
 
 TEST(SearchA2dMatrixV2, t2) {
@@ -121,10 +121,10 @@ TEST(SearchA2dMatrixV2, t2) {
 
     Solution s;
     bool ret = s.SearchMatrix(nums, 0);
-    EXPECT_EQ(ret, false);
+    EXPECT_EQ(false, ret);
 
     ret = s.SearchMatrixV2(nums, 0);
-    EXPECT_EQ(ret, false);
+    EXPECT_EQ(false, ret);
 }
 
 TEST(SearchA2dMatrixV2, t3) {
@@ -134,9 +134,9 @@ TEST(SearchA2dMatrixV2, t3) {
 
     Solution s;
     bool ret = s.SearchMatrix(nums, 1);
-    EXPECT_EQ(ret, true);
+    EXPECT_EQ(true, ret);
     ret = s.SearchMatrixV2(nums, 1);
-    EXPECT_EQ(ret, true);
+    EXPECT_EQ(true, ret);
 }
 
 }  // namespace

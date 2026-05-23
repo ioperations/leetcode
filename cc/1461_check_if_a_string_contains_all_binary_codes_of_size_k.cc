@@ -42,7 +42,7 @@ TEST(CheckIfAStringContainsAllBinaryCodesOfSizeK, t1) {
     bool const ret = sl.HasAllCodes(s, k);
     // The binary codes of length 2 are "00", "01", "10" and "11". They can be
     // all found as substrings at indices 0, 1, 3 and 2 respectively.
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(CheckIfAStringContainsAllBinaryCodesOfSizeK, t2) {
@@ -53,7 +53,7 @@ TEST(CheckIfAStringContainsAllBinaryCodesOfSizeK, t2) {
     // as a substring.
     Solution sl;
     bool const ret = sl.HasAllCodes(s, k);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(CheckIfAStringContainsAllBinaryCodesOfSizeK, t3) {
@@ -64,7 +64,7 @@ TEST(CheckIfAStringContainsAllBinaryCodesOfSizeK, t3) {
     //  The binary code "00" is of length 2 and does not exist in the array.
     Solution sl;
     bool const ret = sl.HasAllCodes(s, k);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 }  // namespace

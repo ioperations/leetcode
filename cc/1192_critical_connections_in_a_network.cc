@@ -66,7 +66,7 @@ TEST(CriticalConnectionsInANetwork, t1) {
     Solution sl;
     auto ret = sl.CriticalConnections(n, connections);
 
-    EXPECT_EQ(output, ret);
+    EXPECT_EQ(ret, output);
 
     // Explanation : [[ 3, 1 ]] is also accepted.
 }
@@ -80,7 +80,7 @@ TEST(CriticalConnectionsInANetwork, t2) {
 
     // const set<vector<int>> ret_set(ret.begin(), ret.end());
 
-    EXPECT_EQ(output, ret);
+    EXPECT_EQ(ret, output);
 }
 
 }  // namespace

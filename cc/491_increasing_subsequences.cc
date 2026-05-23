@@ -49,7 +49,7 @@ TEST(increasingV, t1) {
                                         {6, 7, 7}, {7, 7}};
     Solution const sl;
     auto ret = sl.FindSubsequences(nums);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(increasingV, t2) {
@@ -58,7 +58,7 @@ TEST(increasingV, t2) {
 
     Solution const sl;
     auto ret = sl.FindSubsequences(nums);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 }  // namespace

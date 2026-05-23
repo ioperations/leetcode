@@ -87,13 +87,13 @@ TEST(RangeSumQuery2dImmutable, t1) {
     auto* obj = new NumMatrix(input);
 
     int ret = obj->SumRegion(2, 1, 4, 3);
-    EXPECT_EQ(ret, 8);
+    EXPECT_EQ(8, ret);
 
     ret = obj->SumRegion(1, 1, 2, 2);
-    EXPECT_EQ(ret, 11);
+    EXPECT_EQ(11, ret);
 
     ret = obj->SumRegion(1, 2, 2, 4);
-    EXPECT_EQ(ret, 12);
+    EXPECT_EQ(12, ret);
     delete obj;
 
     // /*NumMatrix numMatrix = new NumMatrix([[3, 0, 1, 4, 2], [5, 6, 3, 2, 1],
@@ -115,13 +115,13 @@ TEST(RangeSumQuery2dImmutable, t2) {
     auto* obj = new NumMatrixV1(input);
 
     int ret = obj->SumRegion(2, 1, 4, 3);
-    EXPECT_EQ(ret, 8);
+    EXPECT_EQ(8, ret);
 
     ret = obj->SumRegion(1, 1, 2, 2);
-    EXPECT_EQ(ret, 11);
+    EXPECT_EQ(11, ret);
 
     ret = obj->SumRegion(1, 2, 2, 4);
-    EXPECT_EQ(ret, 12);
+    EXPECT_EQ(12, ret);
     delete obj;
 
     // /*NumMatrix numMatrix = new NumMatrix([[3, 0, 1, 4, 2], [5, 6, 3, 2, 1],

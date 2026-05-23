@@ -49,7 +49,7 @@ TEST(ContainsDuplicateIi, t1) {
 
     Solution const sl;
     bool const ret = sl.ContainsNearbyDuplicate(nums, k);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(ContainsDuplicateIi, t2) {
@@ -59,7 +59,7 @@ TEST(ContainsDuplicateIi, t2) {
 
     Solution const sl;
     bool const ret = sl.ContainsNearbyDuplicate(nums, k);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(ContainsDuplicateIi, t3) {
@@ -69,7 +69,7 @@ TEST(ContainsDuplicateIi, t3) {
 
     Solution const sl;
     bool const ret = sl.ContainsNearbyDuplicate(nums, k);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(ContainsDuplicateIiV2, t1) {
@@ -79,7 +79,7 @@ TEST(ContainsDuplicateIiV2, t1) {
 
     Solution const sl;
     bool const ret = sl.ContainsNearbyDuplicateV2(nums, k);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(ContainsDuplicateIiV2, t2) {
@@ -89,7 +89,7 @@ TEST(ContainsDuplicateIiV2, t2) {
 
     Solution const sl;
     bool const ret = sl.ContainsNearbyDuplicateV2(nums, k);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(ContainsDuplicateIiV2, t3) {
@@ -99,7 +99,7 @@ TEST(ContainsDuplicateIiV2, t3) {
 
     Solution const sl;
     bool const ret = sl.ContainsNearbyDuplicateV2(nums, k);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 }  // namespace

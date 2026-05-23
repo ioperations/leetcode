@@ -83,7 +83,7 @@ TEST(gasV, t1) {
     Solution s;
     int const ret = s.CanCompleteCircuit(gas, cost);
 
-    EXPECT_EQ(ret, expected);
+    EXPECT_EQ(expected, ret);
 }
 
 TEST(gasV, t2) {
@@ -97,7 +97,7 @@ TEST(gasV, t2) {
     // station 3. Therefore, return 3 as the starting index.
     Solution s;
     int const ret = s.CanCompleteCircuit(gas, cost);
-    EXPECT_EQ(ret, expected);
+    EXPECT_EQ(expected, ret);
 }
 
 }  // namespace

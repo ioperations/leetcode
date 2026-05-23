@@ -47,7 +47,7 @@ TEST(NextGreaterElementIi, t1) {
     vector<int> const output = {2, -1, 2};
     Solution sl;
     auto ret = sl.NextGreaterElements(nums);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
     // Explanation: The first 1's next greater number is 2;
     // The number 2 can't find next greater number.
     // The second 1's next greater number needs to search circularly, which is
@@ -59,7 +59,7 @@ TEST(NextGreaterElementIi, t2) {
     vector<int> const output = {2, 3, 4, -1, 4};
     Solution sl;
     auto ret = sl.NextGreaterElements(nums);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 }  // namespace

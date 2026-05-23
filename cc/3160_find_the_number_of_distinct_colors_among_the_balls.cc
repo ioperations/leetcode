@@ -86,9 +86,9 @@ TEST(T0, t1) {
     vector<int> const output = {1, 2, 2, 3};
     Solution sl;
     auto ret = sl.QueryResults(limit, queries);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
     ret = sl.QueryResultsV0(limit, queries);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 
     /*
       Explanation:
@@ -107,9 +107,9 @@ TEST(T0, t2) {
     vector<int> const output = {1, 2, 2, 3, 4};
     Solution sl;
     auto ret = sl.QueryResults(limit, queries);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
     ret = sl.QueryResultsV0(limit, queries);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 
     /*
      * After query 0, ball 0 has color 1.

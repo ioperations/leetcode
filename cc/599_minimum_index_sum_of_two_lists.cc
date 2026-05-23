@@ -55,7 +55,7 @@ TEST(MinimumIndexSumOfTwoLists, t1) {
     // Explanation: The only restaurant they both like is "Shogun".
     Solution const sl;
     auto ret = sl.FindRestaurant(list1, list2);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(MinimumIndexSumOfTwoLists, t2) {
@@ -66,7 +66,7 @@ TEST(MinimumIndexSumOfTwoLists, t2) {
     // with index sum 1 (0+1).
     Solution const sl;
     auto ret = sl.FindRestaurant(list1, list2);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 }  // namespace

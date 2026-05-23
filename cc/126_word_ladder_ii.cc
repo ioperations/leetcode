@@ -125,7 +125,7 @@ TEST(WordLadderIi, t1) {
     Solution sl;
     auto ret = sl.FindLadders(begin_word, end_word, word_list);
     set<vector<string>> const set(ret.begin(), ret.end());
-    EXPECT_EQ(set, output_set);
+    EXPECT_EQ(output_set, set);
 }
 
 TEST(WordLadderIi, t2) {
@@ -136,7 +136,7 @@ TEST(WordLadderIi, t2) {
     // valid transformation sequence.
     Solution sl;
     auto ret = sl.FindLadders(begin_word, end_word, word_list);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(WordLadderIi, t3) {
@@ -214,7 +214,7 @@ TEST(WordLadderIi, t3) {
     // is no valid transformation sequence.
     Solution sl;
     auto ret = sl.FindLadders(begin_word, end_word, word_list);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 }  // namespace

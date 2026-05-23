@@ -36,7 +36,7 @@ TEST(missingV, t0) {
 
     Solution const sl;
     int const ret = sl.MissingNumber(nums);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(missingV, t1) {
@@ -48,7 +48,7 @@ TEST(missingV, t1) {
 
     Solution const sl;
     int const ret = sl.MissingNumber(nums);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(missingV, t2) {
@@ -60,7 +60,7 @@ TEST(missingV, t2) {
 
     Solution const sl;
     int const ret = sl.MissingNumber(nums);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(missingV, t3) {
@@ -72,7 +72,7 @@ TEST(missingV, t3) {
 
     Solution const sl;
     int const ret = sl.MissingNumber(nums);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 }  // namespace

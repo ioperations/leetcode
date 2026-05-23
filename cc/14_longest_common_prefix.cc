@@ -63,7 +63,7 @@ TEST(LongestCommonPrefix, t1) {
     Solution s;
     const auto ret = s.LongestCommonPrefix(strs);
 
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(LongestCommonPrefix, t2) {
@@ -73,7 +73,7 @@ TEST(LongestCommonPrefix, t2) {
     Solution s;
     const auto ret = s.LongestCommonPrefix(strs);
 
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 }  // namespace

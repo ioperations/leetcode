@@ -97,7 +97,7 @@ TEST(MinimumDeletionsToMakeCharacterFrequenciesUnique, t1) {
     Solution sl;
     int const ret = sl.MinDeletions(s);
     //  s is already good.
-    EXPECT_EQ(ret, out);
+    EXPECT_EQ(out, ret);
 }
 
 TEST(MinimumDeletionsToMakeCharacterFrequenciesUnique, t2) {
@@ -108,7 +108,7 @@ TEST(MinimumDeletionsToMakeCharacterFrequenciesUnique, t2) {
     /*You can delete two 'b's resulting in the good string "aaabcc".
     Another way it to delete one 'b' and one 'c' resulting in the good string
     "aaabbc".*/
-    EXPECT_EQ(ret, out);
+    EXPECT_EQ(out, ret);
 }
 
 TEST(MinimumDeletionsToMakeCharacterFrequenciesUnique, t3) {
@@ -120,7 +120,7 @@ TEST(MinimumDeletionsToMakeCharacterFrequenciesUnique, t3) {
     Note that we only care about characters that are still in the string at the
     end (i.e. frequency of 0 is ignored).
     */
-    EXPECT_EQ(ret, out);
+    EXPECT_EQ(out, ret);
 }
 
 }  // namespace

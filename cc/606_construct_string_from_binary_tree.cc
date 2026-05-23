@@ -83,7 +83,7 @@ TEST(ConstructStringFromBinaryTree, t1) {
     Solution sl;
     auto* node = ConstructBinaryTree(root);
     auto ret = sl.Tree2str(node);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 
     FreeTreeNode(node);
 }
@@ -118,7 +118,7 @@ TEST(ConstructStringFromBinaryTree, t2) {
     Solution sl;
     auto* node = ConstructBinaryTree(root);
     auto ret = sl.Tree2str(node);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 
     FreeTreeNode(node);
 }

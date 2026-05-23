@@ -49,7 +49,7 @@ TEST(T1j, t2) {
     const char* s2 = "hell";
     int const ret =
         MaxSubStringLengthOfTwoString(s1, static_cast<int>(strlen(s1)), s2, static_cast<int>(strlen(s2)));
-    EXPECT_EQ(ret, 4);
+    EXPECT_EQ(4, ret);
 }
 
 TEST(T1j, t3) {
@@ -57,7 +57,7 @@ TEST(T1j, t3) {
     const char* s2 = "hell";
     int const ret =
         MaxSubStringLengthOfTwoString(s1, static_cast<int>(strlen(s1)), s2, static_cast<int>(strlen(s2)));
-    EXPECT_EQ(ret, 3);
+    EXPECT_EQ(3, ret);
 }
 
 TEST(T1j, t4) {
@@ -65,7 +65,7 @@ TEST(T1j, t4) {
     const char* s2 = "defg";
     int const ret =
         MaxSubStringLengthOfTwoString(s1, static_cast<int>(strlen(s1)), s2, static_cast<int>(strlen(s2)));
-    EXPECT_EQ(ret, 1);
+    EXPECT_EQ(1, ret);
 }
 
 TEST(T1j, t5) {
@@ -73,7 +73,7 @@ TEST(T1j, t5) {
     const char* s2 = "defg";
     int const ret =
         MaxSubStringLengthOfTwoString(s1, static_cast<int>(strlen(s1)), s2, static_cast<int>(strlen(s2)));
-    EXPECT_EQ(ret, 0);
+    EXPECT_EQ(0, ret);
 }
 
 }  // namespace

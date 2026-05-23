@@ -62,7 +62,7 @@ TEST(DistributeCoinsInBinaryTree, t1) {
     // From the root of the tree, we move one coin to its left child, and one
     // coin to its right child.
     int const ret = sl.DistributeCoins(root);
-    EXPECT_EQ(ret, out);
+    EXPECT_EQ(out, ret);
     FreeTreeNode(root);
 }
 
@@ -75,7 +75,7 @@ TEST(DistributeCoinsInBinaryTree, t2) {
     int const out = 3;
     Solution sl;
     int const ret = sl.DistributeCoins(root);
-    EXPECT_EQ(ret, out);
+    EXPECT_EQ(out, ret);
     FreeTreeNode(root);
 }
 

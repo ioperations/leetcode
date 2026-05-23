@@ -71,7 +71,7 @@ TEST(T0, t1) {
     int const output = 8;
     Solution sl;
     auto ret = sl.TupleSameProduct(nums);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 
     /*
      Explanation: There are 8 valid tuples:
@@ -85,7 +85,7 @@ TEST(T0, t2) {
     int const output = 16;
     Solution sl;
     auto ret = sl.TupleSameProduct(nums);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
     /*
      Explanation: There are 16 valid tuples:
      (1,10,2,5) , (1,10,5,2) , (10,1,2,5) , (10,1,5,2)

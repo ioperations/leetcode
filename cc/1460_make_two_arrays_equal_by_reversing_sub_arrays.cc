@@ -35,7 +35,7 @@ TEST(MakeTwoArraysEqualByReversingSubArrays, t1) {
     Solution sl;
     bool const ret = sl.CanBeEqual(target, arr);
 
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
     /*
     You can follow the next steps to convert arr to target:
     1- Reverse sub-array [2,4,1], arr becomes [1,4,2,3]
@@ -52,7 +52,7 @@ TEST(MakeTwoArraysEqualByReversingSubArrays, t2) {
     Solution sl;
     bool const ret = sl.CanBeEqual(target, arr);
 
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(MakeTwoArraysEqualByReversingSubArrays, t3) {
@@ -62,7 +62,7 @@ TEST(MakeTwoArraysEqualByReversingSubArrays, t3) {
     Solution sl;
     bool const ret = sl.CanBeEqual(target, arr);
 
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 
     /*arr does not have value 9 and it can never be converted to target.*/
 }

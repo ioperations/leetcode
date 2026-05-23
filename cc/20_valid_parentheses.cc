@@ -67,7 +67,7 @@ TEST(validV, t1) {
 
     Solution const sl;
     bool const ret = sl.IsValid(s);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(validV, t2) {
@@ -76,7 +76,7 @@ TEST(validV, t2) {
 
     Solution const sl;
     bool const ret = sl.IsValid(s);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(validV, t3) {
@@ -86,21 +86,21 @@ TEST(validV, t3) {
 
     Solution const sl;
     bool const ret = sl.IsValid(s);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(validV, t4) {
     string const s = "([)]";
     Solution const sl;
     bool const ret = sl.IsValid(s);
-    EXPECT_EQ(ret, false);
+    EXPECT_EQ(false, ret);
 }
 
 TEST(validV, t5) {
     string const s = "{[]}";
     Solution const sl;
     bool const ret = sl.IsValid(s);
-    EXPECT_EQ(ret, true);
+    EXPECT_EQ(true, ret);
 }
 
 }  // namespace

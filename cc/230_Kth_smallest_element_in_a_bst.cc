@@ -48,7 +48,7 @@ TEST(KthSmallestElementInABst, t1) {
     TreeNode* head = Tree::ConstructTree(root);
     Solution s;
     int const ret = s.KthSmallest(head, k);
-    EXPECT_EQ(ret, 1);
+    EXPECT_EQ(1, ret);
     Tree::FreeTreeNode(head);
 }
 
@@ -59,7 +59,7 @@ TEST(KthSmallestElementInABst, t2) {
     TreeNode* head = Tree::ConstructTree(root);
     Solution s;
     int const ret = s.KthSmallest(head, k);
-    EXPECT_EQ(ret, 3);
+    EXPECT_EQ(3, ret);
     Tree::FreeTreeNode(head);
 }
 

@@ -73,7 +73,7 @@ TEST(LongestStringChain, t1) {
     // Explanation: One of the longest word chains is ["a","ba","bda","bdca"].
     Solution const sl;
     int const ret = sl.LongestStrChain(words);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(LongestStringChain, t2) {
@@ -83,7 +83,7 @@ TEST(LongestStringChain, t2) {
     // "pcxbcf"].
     Solution const sl;
     int const ret = sl.LongestStrChain(words);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(LongestStringChain, t3) {
@@ -94,6 +94,6 @@ TEST(LongestStringChain, t3) {
     // letters is changed.
     Solution const sl;
     int const ret = sl.LongestStrChain(words);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 }  // namespace

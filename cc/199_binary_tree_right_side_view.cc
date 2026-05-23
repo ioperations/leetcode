@@ -51,7 +51,7 @@ TEST(BinaryTreeRightSideView, t1) {
     Solution sl;
     auto ret = sl.RightSideView(node);
     vector<int> const output = {1, 3, 4};
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 
     FreeTreeNode(node);
 }
@@ -62,7 +62,7 @@ TEST(BinaryTreeRightSideView, t2) {
     Solution sl;
     auto ret = sl.RightSideView(node);
     vector<int> const output = {1, 3};
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 
     FreeTreeNode(node);
 }
@@ -73,7 +73,7 @@ TEST(BinaryTreeRightSideView, t3) {
     Solution sl;
     auto ret = sl.RightSideView(node);
     vector<int> const output = {};
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 
     FreeTreeNode(node);
 }

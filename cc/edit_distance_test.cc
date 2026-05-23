@@ -58,7 +58,7 @@ TEST(Editdistance, t0) {
     Solution s;
     int const ret = s.MinDistance(a, b);
 
-    EXPECT_EQ(ret, 1);
+    EXPECT_EQ(1, ret);
 }
 TEST(Editdistance, t1) {
     std::string const a("ab");
@@ -67,7 +67,7 @@ TEST(Editdistance, t1) {
     Solution s;
     int const ret = s.MinDistance(a, b);
 
-    EXPECT_EQ(ret, 2);
+    EXPECT_EQ(2, ret);
 }
 
 TEST(editdistanceV2, t0) {
@@ -77,7 +77,7 @@ TEST(editdistanceV2, t0) {
     Solution s;
     int const ret = s.MinDistanceV2(a, b);
 
-    EXPECT_EQ(ret, 1);
+    EXPECT_EQ(1, ret);
 }
 
 TEST(editdistanceV2, t1) {
@@ -87,7 +87,7 @@ TEST(editdistanceV2, t1) {
     Solution s;
     int const ret = s.MinDistanceV2(a, b);
 
-    EXPECT_EQ(ret, 2);
+    EXPECT_EQ(2, ret);
 }
 
 }  // namespace

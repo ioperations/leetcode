@@ -148,7 +148,7 @@ TEST(PseudoPalindromicPathsInABinaryTree, t1) {
     // [2,1,1] can be rearranged in [1,2,1] (palindrome).
     Solution sl;
     int const ret = sl.PseudoPalindromicPaths(node);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
     FreeTreeNode(node);
 }
 
@@ -186,7 +186,7 @@ TEST(PseudoPalindromicPathsInABinaryTree, t2) {
 
     Solution sl;
     int const ret = sl.PseudoPalindromicPaths(node);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
     FreeTreeNode(node);
 }
 
@@ -197,7 +197,7 @@ TEST(PseudoPalindromicPathsInABinaryTree, t3) {
 
     Solution sl;
     int const ret = sl.PseudoPalindromicPaths(node);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
     FreeTreeNode(node);
 }
 
@@ -230,7 +230,7 @@ TEST(PseudoPalindromicPathsInABinaryTreeV2, t1) {
     // [2,1,1] can be rearranged in [1,2,1] (palindrome).
     Solution sl;
     int const ret = sl.PseudoPalindromicPathsV1(node);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
     FreeTreeNode(node);
 }
 
@@ -268,7 +268,7 @@ TEST(PseudoPalindromicPathsInABinaryTreeV2, t2) {
 
     Solution sl;
     int const ret = sl.PseudoPalindromicPathsV1(node);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
     FreeTreeNode(node);
 }
 
@@ -279,7 +279,7 @@ TEST(PseudoPalindromicPathsInABinaryTreeV2, t3) {
 
     Solution sl;
     int const ret = sl.PseudoPalindromicPathsV1(node);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
     FreeTreeNode(node);
 }
 

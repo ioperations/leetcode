@@ -64,7 +64,7 @@ TEST(SearchA2dMatrixIi, t1) {
 
     Solution sl;
     bool const ret = sl.SearchMatrix(matrix, target);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(SearchA2dMatrixIi, t2) {
@@ -78,6 +78,6 @@ TEST(SearchA2dMatrixIi, t2) {
 
     Solution sl;
     bool const ret = sl.SearchMatrix(matrix, target);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 }  // namespace

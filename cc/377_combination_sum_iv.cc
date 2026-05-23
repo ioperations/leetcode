@@ -87,7 +87,7 @@ TEST(CombinationSumIv, t1) {
     */
 
     int const ret = sl.CombinationSum4(nums, target);
-    EXPECT_EQ(ret, 7);
+    EXPECT_EQ(7, ret);
 }
 
 TEST(CombinationSumIv, t2) {
@@ -96,7 +96,7 @@ TEST(CombinationSumIv, t2) {
     Solution sl;
 
     int const ret = sl.CombinationSum4(nums, target);
-    EXPECT_EQ(ret, 0);
+    EXPECT_EQ(0, ret);
 }
 
 TEST(CombinationSumIvV2, t1) {
@@ -116,7 +116,7 @@ TEST(CombinationSumIvV2, t1) {
     */
 
     int const ret = sl.CombinationSum4V1(nums, target);
-    EXPECT_EQ(ret, 7);
+    EXPECT_EQ(7, ret);
 }
 
 TEST(CombinationSumIvV2, t2) {
@@ -125,7 +125,7 @@ TEST(CombinationSumIvV2, t2) {
     Solution sl;
 
     int const ret = sl.CombinationSum4V1(nums, target);
-    EXPECT_EQ(ret, 0);
+    EXPECT_EQ(0, ret);
 }
 
 TEST(CombinationSumIvV3, t1) {
@@ -145,7 +145,7 @@ TEST(CombinationSumIvV3, t1) {
     */
 
     int const ret = sl.CombinationSum4V2(nums, target);
-    EXPECT_EQ(ret, 7);
+    EXPECT_EQ(7, ret);
 }
 
 TEST(CombinationSumIvV3, t2) {
@@ -154,7 +154,7 @@ TEST(CombinationSumIvV3, t2) {
     Solution sl;
 
     int const ret = sl.CombinationSum4V2(nums, target);
-    EXPECT_EQ(ret, 0);
+    EXPECT_EQ(0, ret);
 }
 
 }  // namespace

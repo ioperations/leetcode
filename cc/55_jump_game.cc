@@ -64,7 +64,7 @@ TEST(testName, testNum) {
     Solution sl;
     bool const ret = sl.CanJumpV2(nums);
 
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(testName, t1) {
@@ -74,7 +74,7 @@ TEST(testName, t1) {
     Solution sl;
     bool const ret = sl.CanJumpV2(nums);
 
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 static void BenchMarkMyImpl(benchmark::State& state) {
@@ -85,7 +85,7 @@ static void BenchMarkMyImpl(benchmark::State& state) {
         Solution sl;
         bool const ret = sl.CanJump(nums);
 
-        EXPECT_EQ(ret, output);
+        EXPECT_EQ(output, ret);
     }
 }
 BENCHMARK(BenchMarkMyImpl);
@@ -98,7 +98,7 @@ static void BenchMarkDp(benchmark::State& state) {
         Solution sl;
         bool const ret = sl.CanJumpV2(nums);
 
-        EXPECT_EQ(ret, output);
+        EXPECT_EQ(output, ret);
     }
 }
 BENCHMARK(BenchMarkDp);

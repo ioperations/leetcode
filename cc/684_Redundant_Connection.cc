@@ -118,7 +118,7 @@ TEST(T0, t1) {
     vector<int> const output = {2, 3};
     Solution sl;
     vector<int> const ret = sl.FindRedundantConnection(edges);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(T0, t2) {
@@ -126,7 +126,7 @@ TEST(T0, t2) {
     vector<int> const output = {1, 4};
     Solution sl;
     vector<int> const ret = sl.FindRedundantConnection(edges);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(T0, t3) {
@@ -134,5 +134,5 @@ TEST(T0, t3) {
     vector<int> const output = {2, 3};
     Solution sl;
     vector<int> const ret = sl.FindRedundantConnection(edges);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }

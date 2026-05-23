@@ -69,7 +69,7 @@ TEST(XGraphHasCircle, t1) {
 
     Solution s;
     bool const ret = s.CanFinish(2, v);
-    EXPECT_EQ(ret, false);
+    EXPECT_EQ(false, ret);
 }
 
 TEST(XGraphHasCircle, t2) {
@@ -80,7 +80,7 @@ TEST(XGraphHasCircle, t2) {
 
     Solution s;
     bool const ret = s.CanFinish(2, v);
-    EXPECT_EQ(ret, true);
+    EXPECT_EQ(true, ret);
 }
 
 }  // namespace

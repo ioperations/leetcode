@@ -56,7 +56,7 @@ TEST(MaximizeTheTopmostElementAdterKMoves, t1) {
     Note that this is not the only way to end with 5 at the top of the pile. It
     can be shown that 5 is the largest answer possible after 4 moves.
     */
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(MaximizeTheTopmostElementAdterKMoves, t2) {
@@ -68,7 +68,7 @@ TEST(MaximizeTheTopmostElementAdterKMoves, t2) {
     /* In the first move, our only option is to pop the topmost element of the
     pile. Since it is not possible to obtain a non-empty pile after one move, we
     return -1.*/
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(MaximizeTheTopmostElementAdterKMoves, t3) {
@@ -80,6 +80,6 @@ TEST(MaximizeTheTopmostElementAdterKMoves, t3) {
     /* In the first move, our only option is to pop the topmost element of the
     pile. Since it is not possible to obtain a non-empty pile after one move, we
     return -1.*/
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 }  // namespace

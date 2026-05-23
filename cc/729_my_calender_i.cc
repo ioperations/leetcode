@@ -56,14 +56,14 @@ TEST(MyCalenderI, t1) {
     // Explanation
     MyCalendar my_calendar;
     bool ret = my_calendar.Book(10, 20);  // return True
-    EXPECT_EQ(ret, true);
+    EXPECT_EQ(true, ret);
     ret =
         my_calendar.Book(15, 25);  // return False, It can not be booked because
-    EXPECT_EQ(ret, false);
+    EXPECT_EQ(false, ret);
     // time 15 is already booked by another event.
     ret = my_calendar.Book(
         20, 30);  // return True, The event can be booked, as the first event
-    EXPECT_EQ(ret, true);
+    EXPECT_EQ(true, ret);
     // takes every time less than 20, but not including 20.
 }
 

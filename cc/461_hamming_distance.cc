@@ -65,10 +65,10 @@ TEST(hammingV, t1) {
     // different.
     Solution s;
     int ret = s.HammingDistance(x, y);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 
     ret = s.HammingDistanceV2(x, y);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(hammingV, t2) {
@@ -82,10 +82,10 @@ TEST(hammingV, t2) {
     // different.
     Solution s;
     int ret = s.HammingDistance(x, y);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 
     ret = s.HammingDistanceV2(x, y);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 }  // namespace

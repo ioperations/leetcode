@@ -37,7 +37,7 @@ TEST(BinaryTreePostorderTraversal, t1) {
     Solution const s;
     std::vector<int> const ret = s.PostorderTraversal(root);
 
-    EXPECT_EQ(ret, (std::vector{3, 2, 1}));
+    EXPECT_EQ((std::vector{3, 2, 1}), ret);
 
     FreeTreeNode(root);
 }
@@ -46,7 +46,7 @@ TEST(BinaryTreePostorderTraversal, t2) {
     Solution const s;
     std::vector<int> const ret = s.PostorderTraversal(root);
 
-    EXPECT_EQ(ret, std::vector<int>{});
+    EXPECT_EQ(std::vector<int>{}, ret);
 
     FreeTreeNode(root);
 }
@@ -55,7 +55,7 @@ TEST(BinaryTreePostorderTraversal, t3) {
     Solution const s;
     std::vector<int> const ret = s.PostorderTraversal(root);
 
-    EXPECT_EQ(ret, std::vector{1});
+    EXPECT_EQ(std::vector{1}, ret);
     FreeTreeNode(root);
 }
 

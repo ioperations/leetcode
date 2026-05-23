@@ -104,7 +104,7 @@ TEST(LengthOfLongestFibnacciSubsequence, t1) {
     Solution sl;
     int const ret = sl.LenLongestFibSubseq(arr);
     //  The longest subsequence that is fibonacci-like: [1,2,3,5,8].
-    EXPECT_EQ(ret, out);
+    EXPECT_EQ(out, ret);
 }
 
 TEST(LengthOfLongestFibnacciSubsequence, t2) {
@@ -114,7 +114,7 @@ TEST(LengthOfLongestFibnacciSubsequence, t2) {
     int const ret = sl.LenLongestFibSubseq(arr);
     // The longest subsequence that is fibonacci-like: [1,11,12], [3,11,14] or
     // [7,11,18].
-    EXPECT_EQ(ret, out);
+    EXPECT_EQ(out, ret);
 }
 
 TEST(LengthOfLongestFibnacciSubsequence, t3) {
@@ -125,7 +125,7 @@ TEST(LengthOfLongestFibnacciSubsequence, t3) {
     int const ret = sl.LenLongestFibSubseqV2(arr);
     // The longest subsequence that is fibonacci-like: [1,11,12], [3,11,14] or
     // [7,11,18].
-    EXPECT_EQ(ret, out);
+    EXPECT_EQ(out, ret);
 }
 
 }  // namespace

@@ -112,7 +112,7 @@ from indices[1] = 2 to the next '#' is underlined in "time#bell#" words[2] =
 "bell", the substring of s starting from indices[2] = 5 to the next '#' is
 underlined in "time#bell#"
     */
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(ShortEncodingOfWords, t2) {
@@ -121,7 +121,7 @@ TEST(ShortEncodingOfWords, t2) {
     Solution sl;
     int const ret = sl.MinimumLengthEncoding(words);
     // A valid encoding would be s = "t#" and indices = [0].
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 }  // namespace

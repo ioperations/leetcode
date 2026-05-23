@@ -54,7 +54,7 @@ TEST(T0, t1) {
     int const output = 2;
     Solution sl;
     int const ret = sl.NumberOfArrays(differences, lower, upper);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
     // Explanation: The possible hidden sequences are:
     // - [3, 4, 1, 5]
     // - [4, 5, 2, 6]
@@ -67,7 +67,7 @@ TEST(T0, t2) {
     int const output = 4;
     Solution sl;
     int const ret = sl.NumberOfArrays(differences, lower, upper);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
     // Explanation: The possible hidden sequences are:
     // [-3, 0, -4, 1, 2, 0]
     // - [-2, 1, -3, 2, 3, 1]
@@ -82,7 +82,7 @@ TEST(T0, t3) {
     int const output = 0;
     Solution sl;
     int const ret = sl.NumberOfArrays(differences, lower, upper);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
     // There are no possible hidden sequences. Thus, we return 0.
 }
 
@@ -92,7 +92,7 @@ TEST(T0, t4) {
     int const output = 13689;
     Solution sl;
     int const ret = sl.NumberOfArrays(differences, lower, upper);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
     // There are no possible hidden sequences. Thus, we return 0.
 }
 

@@ -98,7 +98,7 @@ TEST(FindDuplicateFileInSystem, t1) {
     auto ret = sl.FindDuplicate(paths);
 
     const set<vector<string>> ret_set(output.begin(), output.end());
-    EXPECT_EQ(ret_set, output_set);
+    EXPECT_EQ(output_set, ret_set);
 }
 
 TEST(FindDuplicateFileInSystem, t2) {
@@ -112,7 +112,7 @@ TEST(FindDuplicateFileInSystem, t2) {
     auto ret = sl.FindDuplicate(paths);
 
     const set<vector<string>> ret_set(output.begin(), output.end());
-    EXPECT_EQ(ret_set, output_set);
+    EXPECT_EQ(output_set, ret_set);
 }
 
 }  // namespace

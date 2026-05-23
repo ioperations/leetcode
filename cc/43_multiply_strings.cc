@@ -62,7 +62,7 @@ TEST(multiplyV, t1) {
 
     Solution const s;
     auto ret = s.Multiply(num1, num2);
-    EXPECT_EQ(ret, expected);
+    EXPECT_EQ(expected, ret);
 }
 
 TEST(multiplyV, t2) {
@@ -71,7 +71,7 @@ TEST(multiplyV, t2) {
 
     Solution const s;
     auto ret = s.Multiply(num1, num2);
-    EXPECT_EQ(ret, expected);
+    EXPECT_EQ(expected, ret);
 }
 TEST(multiplyV, t3) {
     std::string const num1 = "123456789", num2 = "987654321";
@@ -79,7 +79,7 @@ TEST(multiplyV, t3) {
 
     Solution const s;
     auto ret = s.Multiply(num1, num2);
-    EXPECT_EQ(ret, expected);
+    EXPECT_EQ(expected, ret);
 }
 TEST(multiplyV, t4) {
     std::string const num1 = "498828660196", num2 = "840477629533";
@@ -87,7 +87,7 @@ TEST(multiplyV, t4) {
 
     Solution const s;
     auto ret = s.Multiply(num1, num2);
-    EXPECT_EQ(ret, expected);
+    EXPECT_EQ(expected, ret);
 }
 
 }  // namespace

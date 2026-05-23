@@ -121,7 +121,7 @@ TEST(ConvertBstToGreaterTree, t1) {
 
     {
         auto ret = BFS(root);
-        EXPECT_EQ(ret, (std::vector<int>{4, 1, 6, 0, 2, 5, 7, 3, 8}));
+        EXPECT_EQ((std::vector<int>{4, 1, 6, 0, 2, 5, 7, 3, 8}), ret);
     }
 
     {
@@ -131,7 +131,7 @@ TEST(ConvertBstToGreaterTree, t1) {
 
     {
         auto ret = BFS(root);
-        EXPECT_EQ(ret, (std::vector<int>{30, 36, 21, 36, 35, 26, 15, 33, 8}));
+        EXPECT_EQ((std::vector<int>{30, 36, 21, 36, 35, 26, 15, 33, 8}), ret);
     }
 
     Tree::FreeTreeNode(root);
@@ -146,7 +146,7 @@ TEST(ConvertBstToGreaterTree, t2) {
 
     {
         auto ret = BFS(root);
-        EXPECT_EQ(ret, (std::vector<int>{0, 1}));
+        EXPECT_EQ((std::vector<int>{0, 1}), ret);
     }
     {
         Solution s;
@@ -154,7 +154,7 @@ TEST(ConvertBstToGreaterTree, t2) {
     }
     {
         auto ret = BFS(root);
-        EXPECT_EQ(ret, (std::vector<int>{1, 1}));
+        EXPECT_EQ((std::vector<int>{1, 1}), ret);
     }
 
     Tree::FreeTreeNode(root);

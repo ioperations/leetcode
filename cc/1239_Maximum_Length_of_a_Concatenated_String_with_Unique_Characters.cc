@@ -117,7 +117,7 @@ TEST(MaximumLengthOfAConcatenatedStringWithUniqueCharacters, t1) {
     */
     Solution sl;
     int const ret = sl.MaxLength(arr);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(MaximumLengthOfAConcatenatedStringWithUniqueCharacters, t2) {
@@ -129,7 +129,7 @@ TEST(MaximumLengthOfAConcatenatedStringWithUniqueCharacters, t2) {
     */
     Solution sl;
     int const ret = sl.MaxLength(arr);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(MaximumLengthOfAConcatenatedStringWithUniqueCharacters, t3) {
@@ -138,7 +138,7 @@ TEST(MaximumLengthOfAConcatenatedStringWithUniqueCharacters, t3) {
     // Explanation: The only string in arr has all 26 characters.};
     Solution sl;
     int const ret = sl.MaxLength(arr);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(MaximumLengthOfAConcatenatedStringWithUniqueCharactersV2, t1) {
@@ -155,7 +155,7 @@ TEST(MaximumLengthOfAConcatenatedStringWithUniqueCharactersV2, t1) {
     */
     Solution sl;
     int const ret = sl.MaxLengthV2(arr);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(MaximumLengthOfAConcatenatedStringWithUniqueCharactersV2, t2) {
@@ -167,7 +167,7 @@ TEST(MaximumLengthOfAConcatenatedStringWithUniqueCharactersV2, t2) {
     */
     Solution sl;
     int const ret = sl.MaxLengthV2(arr);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(MaximumLengthOfAConcatenatedStringWithUniqueCharactersV2, t3) {
@@ -176,7 +176,7 @@ TEST(MaximumLengthOfAConcatenatedStringWithUniqueCharactersV2, t3) {
     // Explanation: The only string in arr has all 26 characters.};
     Solution sl;
     int const ret = sl.MaxLengthV2(arr);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 static void BenchMarkV1(benchmark::State& state) {
@@ -186,7 +186,7 @@ static void BenchMarkV1(benchmark::State& state) {
 
         Solution sl;
         int const ret = sl.MaxLength(arr);
-        EXPECT_EQ(ret, output);
+        EXPECT_EQ(output, ret);
     }
 }
 BENCHMARK(BenchMarkV1);
@@ -198,7 +198,7 @@ static void BenchMarkV2(benchmark::State& state) {
 
         Solution sl;
         int const ret = sl.MaxLengthV2(arr);
-        EXPECT_EQ(ret, output);
+        EXPECT_EQ(output, ret);
     }
 }
 BENCHMARK(BenchMarkV2);

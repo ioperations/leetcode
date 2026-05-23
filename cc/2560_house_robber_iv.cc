@@ -91,7 +91,7 @@ TEST(T0, t1) {
     int const output = 5;
     Solution sl;
     int const ret = sl.MinCapability(nums, k);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
     /*
      * There are three ways to rob at least 2 houses:
      * - Rob the houses at indices 0 and 2. Capability is max(nums[0], nums[2])
@@ -109,7 +109,7 @@ TEST(T0, t2) {
     int const output = 2;
     Solution sl;
     int const ret = sl.MinCapability(nums, k);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
     /*
      * There are 7 ways to rob the houses. The way which leads to minimum
      * capability is to rob the house at index 0 and 4. Return max(nums[0],
@@ -131,7 +131,7 @@ TEST(T0, t2) {
 //     int output = 2;
 //     Solution sl;
 //     int ret = sl.minCapability(nums, k);
-//     EXPECT_EQ(ret, output);
+//     EXPECT_EQ(output, ret);
 //     /*
 //      * There are 7 ways to rob the houses. The way which leads to minimum
 //      * capability is to rob the house at index 0 and 4. Return max(nums[0],

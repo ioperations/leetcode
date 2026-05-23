@@ -88,11 +88,11 @@ TEST(ImplementStackUsingQueues, t1) {
     obj->Push(x);
     int const param_3 = obj->Top();
 
-    EXPECT_EQ(param_3, x);
+    EXPECT_EQ(x, param_3);
     int const param_2 = obj->Pop();
-    EXPECT_EQ(param_2, x);
+    EXPECT_EQ(x, param_2);
     bool const param_4 = obj->Empty();
-    EXPECT_EQ(param_4, true);
+    EXPECT_EQ(true, param_4);
 
     delete obj;
 }
@@ -104,11 +104,11 @@ TEST(ImplementStackUsingQueuesV2, t1) {
     obj->Push(x);
     int const param_3 = obj->Top();
 
-    EXPECT_EQ(param_3, x);
+    EXPECT_EQ(x, param_3);
     int const param_2 = obj->Pop();
-    EXPECT_EQ(param_2, x);
+    EXPECT_EQ(x, param_2);
     bool const param_4 = obj->Empty();
-    EXPECT_EQ(param_4, true);
+    EXPECT_EQ(true, param_4);
 
     delete obj;
 }
@@ -126,11 +126,11 @@ TEST(ImplementStackUsingQueues, t2) {
     my_stack->Push(2);
 
     int ret = my_stack->Top();  // return 2
-    EXPECT_EQ(ret, 2);
+    EXPECT_EQ(2, ret);
     ret = my_stack->Pop();  // return 2
-    EXPECT_EQ(ret, 2);
+    EXPECT_EQ(2, ret);
     bool const ret2 = my_stack->Empty();  // return False
-    EXPECT_EQ(ret2, false);
+    EXPECT_EQ(false, ret2);
 
     delete my_stack;
 }
@@ -148,11 +148,11 @@ TEST(ImplementStackUsingQueuesV2, t2) {
     my_stack->Push(2);
 
     int ret = my_stack->Top();  // return 2
-    EXPECT_EQ(ret, 2);
+    EXPECT_EQ(2, ret);
     ret = my_stack->Pop();  // return 2
-    EXPECT_EQ(ret, 2);
+    EXPECT_EQ(2, ret);
     bool const ret2 = my_stack->Empty();  // return False
-    EXPECT_EQ(ret2, false);
+    EXPECT_EQ(false, ret2);
 
     delete my_stack;
 }

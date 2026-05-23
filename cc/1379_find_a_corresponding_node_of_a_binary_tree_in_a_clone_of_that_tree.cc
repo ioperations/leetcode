@@ -112,11 +112,11 @@ TEST(Memleak, t1) {
     auto* head2 = ConstructRight(v);
     int const target = 3;
     auto* target_node = FindNodeInBinaryTree(head, target);
-    EXPECT_EQ(target_node->val, target);
+    EXPECT_EQ(target, target_node->val);
     std::vector<int> vec;
     BfsSearch(head, vec);
 
-    EXPECT_EQ(vec, v);
+    EXPECT_EQ(v, vec);
 
     FreeTreeNode(head);
     FreeTreeNode(head2);
@@ -131,7 +131,7 @@ TEST(FindACorrespondingNodeOfABinaryTreeInACloneOfThatTree, t1) {
     Solution sl;
     auto* target_node = FindNodeInBinaryTree(head, target);
     auto* ret = sl.GetTargetCopy(head, head2, target_node);
-    EXPECT_EQ(ret->val, target);
+    EXPECT_EQ(target, ret->val);
 
     FreeTreeNode(head);
     FreeTreeNode(head2);
@@ -147,7 +147,7 @@ TEST(FindACorrespondingNodeOfABinaryTreeInACloneOfThatTree, t2) {
 
     auto* target_node = FindNodeInBinaryTree(head, target);
     auto* ret = sl.GetTargetCopy(head, head2, target_node);
-    EXPECT_EQ(ret->val, target);
+    EXPECT_EQ(target, ret->val);
 
     FreeTreeNode(head);
     FreeTreeNode(head2);
@@ -164,7 +164,7 @@ TEST(FindACorrespondingNodeOfABinaryTreeInACloneOfThatTree, t3) {
     auto* target_node = FindNodeInBinaryTree(head, target);
     auto* ret = sl.GetTargetCopy(head, head2, target_node);
 
-    EXPECT_EQ(ret->val, target);
+    EXPECT_EQ(target, ret->val);
 
     FreeTreeNode(head);
     FreeTreeNode(head2);

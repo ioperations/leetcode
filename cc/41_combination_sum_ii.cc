@@ -53,7 +53,7 @@ TEST(CombinationSumIi, t1) {
     set<vector<int>> const out_set(output.begin(), output.end());
     auto ret = sl.CombinationSum2(candidates, target);
     set<vector<int>> const ret_set(ret.begin(), ret.end());
-    EXPECT_EQ(ret_set, out_set);
+    EXPECT_EQ(out_set, ret_set);
 }
 
 TEST(CombinationSumIi, t2) {
@@ -64,7 +64,7 @@ TEST(CombinationSumIi, t2) {
     set<vector<int>> const out_set(output.begin(), output.end());
     auto ret = sl.CombinationSum2(candidates, target);
     set<vector<int>> const ret_set(ret.begin(), ret.end());
-    EXPECT_EQ(ret_set, out_set);
+    EXPECT_EQ(out_set, ret_set);
 }
 
 }  // namespace

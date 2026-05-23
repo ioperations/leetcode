@@ -90,7 +90,7 @@ TEST(NumberOfMatchingSubsequences, t1) {
     // of s: "a", "acd", "ace".
     Solution sl;
     int const ret = sl.NumMatchingSubseq(s, words);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(NumberOfMatchingSubsequences, t2) {
@@ -99,7 +99,7 @@ TEST(NumberOfMatchingSubsequences, t2) {
     int const output = 2;
     Solution sl;
     int const ret = sl.NumMatchingSubseq(s, words);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 }  // namespace

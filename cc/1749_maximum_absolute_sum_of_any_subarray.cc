@@ -59,7 +59,7 @@ TEST(T0, t1) {
     // Explanation: The subarray [2,3] has absolute sum = abs(2+3) = abs(5) = 5.
     Solution sl;
     auto ret = sl.MaxAbsoluteSum(nums);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(T0, t2) {
@@ -68,7 +68,7 @@ TEST(T0, t2) {
     //  The subarray [-5,1,-4] has absolute sum = abs(-5+1-4) = abs(-8) = 8.
     Solution sl;
     auto ret = sl.MaxAbsoluteSum(nums);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 int main(int argc, char* argv[]) {

@@ -48,7 +48,7 @@ TEST(uniqueV, t1) {
     int const output = 28;
     Solution sl;
     int const ret = sl.UniquePaths(m, n);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(uniqueV, t2) {
@@ -63,7 +63,7 @@ TEST(uniqueV, t2) {
         3. Down -> Right -> Down
     */
     int const ret = sl.UniquePaths(m, n);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 }  // namespace

@@ -83,7 +83,7 @@ TEST(MinimumMovesToReachTargetScore, t1) {
     Double again so x = 18
     Increment once so x = 19
     */
-    EXPECT_EQ(ret, out);
+    EXPECT_EQ(out, ret);
 }
 
 TEST(MinimumMovesToReachTargetScore, t2) {
@@ -99,7 +99,7 @@ TEST(MinimumMovesToReachTargetScore, t2) {
      Double again so x = 10
     */
     int const out = sl.MinMoves(target, max_double);
-    EXPECT_EQ(ret, out);
+    EXPECT_EQ(out, ret);
 }
 
 TEST(MinimumMovesToReachTargetScore, t3) {
@@ -108,7 +108,7 @@ TEST(MinimumMovesToReachTargetScore, t3) {
     int const ret = 4;
     Solution sl;
     int const out = sl.MinMoves(target, max_double);
-    EXPECT_EQ(ret, out);
+    EXPECT_EQ(out, ret);
 }
 
 TEST(MinimumMovesToReachTargetScore, t4) {
@@ -117,7 +117,7 @@ TEST(MinimumMovesToReachTargetScore, t4) {
     int const ret = 45;
     Solution sl;
     int const out = sl.MinMovesV1(target, max_double);
-    EXPECT_EQ(ret, out);
+    EXPECT_EQ(out, ret);
 }
 
 }  // namespace

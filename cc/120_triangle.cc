@@ -51,7 +51,7 @@ TEST(Triangle, t1) {
     above).
     */
 
-    EXPECT_EQ(ret, out);
+    EXPECT_EQ(out, ret);
 }
 
 TEST(Triangle, t2) {
@@ -59,6 +59,6 @@ TEST(Triangle, t2) {
     int const out = -10;
     Solution sl;
     int const ret = sl.MinimumTotal(v);
-    EXPECT_EQ(ret, out);
+    EXPECT_EQ(out, ret);
 }
 }  // namespace

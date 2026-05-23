@@ -68,7 +68,7 @@ TEST(MaximumSubsequenceScore, t1) {
     int const output = 12;
     Solution sl;
     int const ret = sl.MaxScore(nums1, nums2, k);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
     // Explanation:
     // The four possible subsequence scores are:
     // - We choose the indices 0, 1, and 2 with score = (1+3+3) * min(2,1,3)
@@ -88,7 +88,7 @@ TEST(MaximumSubsequenceScore, t2) {
     int const output = 30;
     Solution sl;
     int const ret = sl.MaxScore(nums1, nums2, k);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
     // Explanation:
     // Choosing index 2 is optimal: nums1[2] * nums2[2] = 3 * 10 = 30 is the
     // maximum possible score.
@@ -114,7 +114,7 @@ TEST(MaximumSubsequenceScore, t3) {
     int output = 30;
     Solution sl;
     int ret = sl.MaxScore(nums1, nums2, k);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
     // Explanation:
     // Choosing index 2 is optimal: nums1[2] * nums2[2] = 3 * 10 = 30 is the
     // maximum possible score.

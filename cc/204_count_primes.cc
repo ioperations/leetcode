@@ -29,7 +29,7 @@ TEST(countV, t1) {
     // Explanation: There are 4 prime numbers less than 10, they are 2, 3, 5, 7.
     Solution sl;
     int const ret = sl.CountPrimes(n);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(countV, t2) {
@@ -37,7 +37,7 @@ TEST(countV, t2) {
     int const output = 0;
     Solution sl;
     int const ret = sl.CountPrimes(n);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(countV, t3) {
@@ -45,7 +45,7 @@ TEST(countV, t3) {
     int const output = 0;
     Solution sl;
     int const ret = sl.CountPrimes(n);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 }  // namespace

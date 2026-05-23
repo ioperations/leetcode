@@ -57,7 +57,7 @@ TEST(BinaryTreeZigzagLevelOrderTraversal, t1) {
     Solution sl;
     auto ret = sl.ZigzagLevelOrder(binary_tree);
     vector<vector<int>> const output{{3}, {20, 9}, {15, 7}};
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
     Tree::FreeTreeNode(binary_tree);
 }
 
@@ -68,7 +68,7 @@ TEST(BinaryTreeZigzagLevelOrderTraversal, t2) {
     Solution sl;
     auto ret = sl.ZigzagLevelOrder(binary_tree);
     vector<vector<int>> const output{{1}};
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
     Tree::FreeTreeNode(binary_tree);
 }
 
@@ -79,7 +79,7 @@ TEST(BinaryTreeZigzagLevelOrderTraversal, t3) {
     Solution sl;
     auto ret = sl.ZigzagLevelOrder(binary_tree);
     vector<vector<int>> const output{};
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
     Tree::FreeTreeNode(binary_tree);
 }
 }  // namespace

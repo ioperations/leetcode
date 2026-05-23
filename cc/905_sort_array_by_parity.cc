@@ -106,7 +106,7 @@ TEST(SortArrayByParity, t2) {
     Solution sl;
     auto ret = sl.SortArrayByParity(nums);
 
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(SortArrayByParityV2, t2) {
@@ -115,6 +115,6 @@ TEST(SortArrayByParityV2, t2) {
     SolutionV2 sl;
     auto ret = sl.SortArrayByParity(nums);
 
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 }  // namespace

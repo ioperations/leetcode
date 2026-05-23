@@ -17,6 +17,6 @@ std::string ReturnS(const char* s, int len) {
 TEST(XNiukeHjv2, t2) {
     std::string const s = "1516000";
     std::string const rets = ReturnS(s.c_str(), static_cast<int>(s.size()));
-    EXPECT_EQ(rets, std::string("0006151"));
+    EXPECT_EQ(std::string("0006151"), rets);
 }
 }  // namespace

@@ -255,7 +255,7 @@ void ExpectEqList(MyListNode* list, std::vector<int> const& elemets) {
     int count = 0;
     MyListNode const * ptr = list;
     while (ptr != nullptr) {
-        EXPECT_EQ(ptr->val, elemets.at(count));
+        EXPECT_EQ(elemets.at(count), ptr->val);
         ptr = ptr->next;
         count++;
     }
@@ -292,7 +292,7 @@ TEST(MergeKSortedListV2, null) {
     Solution s;
     auto* ret = s.MergeKLists(merge_list);
 
-    EXPECT_EQ(ret, nullptr);
+    EXPECT_EQ(nullptr, ret);
     // FreeListList(ret);
 }
 
@@ -307,7 +307,7 @@ TEST(MergeKSortedListV2, null2) {
     Solution s;
     auto* ret = s.MergeKLists(merge_list);
 
-    EXPECT_EQ(ret, nullptr);
+    EXPECT_EQ(nullptr, ret);
 
     FreeList(n1);
 }

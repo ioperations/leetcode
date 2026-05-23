@@ -52,21 +52,21 @@ TEST(T0, t1) {
     int const n = 12;
     Solution sl;
     auto ret = sl.CheckPowersOfThree(n);
-    EXPECT_EQ(true, ret);
+    EXPECT_EQ(ret, true);
 }
 
 TEST(T0, t2) {
     int const n = 91;
     Solution sl;
     auto ret = sl.CheckPowersOfThree(n);
-    EXPECT_EQ(true, ret);
+    EXPECT_EQ(ret, true);
 }
 
 TEST(T0, t3) {
     int const n = 21;
     Solution sl;
     auto ret = sl.CheckPowersOfThree(n);
-    EXPECT_EQ(false, ret);
+    EXPECT_EQ(ret, false);
 }
 
 int main(int argc, char* argv[]) {

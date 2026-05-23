@@ -71,7 +71,7 @@ TEST(TrappingRainWater, t1) {
     Solution s;
     int const ret = s.Trap(height);
 
-    EXPECT_EQ(ret, expected);
+    EXPECT_EQ(expected, ret);
 }
 TEST(TrappingRainWater, t2) {
     std::vector<int> height = {4, 2, 0, 3, 2, 5};
@@ -80,7 +80,7 @@ TEST(TrappingRainWater, t2) {
     Solution s;
     int const ret = s.Trap(height);
 
-    EXPECT_EQ(ret, expected);
+    EXPECT_EQ(expected, ret);
 }
 
 }  // namespace

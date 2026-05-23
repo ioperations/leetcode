@@ -87,7 +87,7 @@ TEST(RemoveInvalidParentheses, t1) {
     auto ret = sl.RemoveInvalidParentheses(s);
     set<string> const ret_set(ret.begin(), ret.end());
     set<string> const output_set(output.begin(), output.end());
-    EXPECT_EQ(ret_set, output_set);
+    EXPECT_EQ(output_set, ret_set);
 }
 
 TEST(RemoveInvalidParentheses, t2) {
@@ -98,7 +98,7 @@ TEST(RemoveInvalidParentheses, t2) {
     auto ret = sl.RemoveInvalidParentheses(s);
     set<string> const ret_set(ret.begin(), ret.end());
     set<string> const output_set(output.begin(), output.end());
-    EXPECT_EQ(ret_set, output_set);
+    EXPECT_EQ(output_set, ret_set);
 }
 
 TEST(RemoveInvalidParentheses, t3) {
@@ -109,7 +109,7 @@ TEST(RemoveInvalidParentheses, t3) {
     auto ret = sl.RemoveInvalidParentheses(s);
     set<string> const ret_set(ret.begin(), ret.end());
     set<string> const output_set(output.begin(), output.end());
-    EXPECT_EQ(ret_set, output_set);
+    EXPECT_EQ(output_set, ret_set);
 }
 
 }  // namespace

@@ -43,7 +43,7 @@ TEST(BinaryTreePreorderTraversal, t1) {
     Solution const s;
     std::vector<int> const ret = s.PreorderTraversal(root);
 
-    EXPECT_EQ(ret, (std::vector<int>{1, 2, 3}));
+    EXPECT_EQ((std::vector<int>{1, 2, 3}), ret);
 
     FreeTreeNode(root);
 }
@@ -54,7 +54,7 @@ TEST(BinaryTreePreorderTraversal, t2) {
     Solution const s;
     std::vector<int> const ret = s.PreorderTraversal(root);
 
-    EXPECT_EQ(ret, std::vector<int>{});
+    EXPECT_EQ(std::vector<int>{}, ret);
 
     FreeTreeNode(root);
 }
@@ -65,7 +65,7 @@ TEST(BinaryTreePreorderTraversal, t3) {
     Solution const s;
     std::vector<int> const ret = s.PreorderTraversal(root);
 
-    EXPECT_EQ(ret, std::vector<int>{1});
+    EXPECT_EQ(std::vector<int>{1}, ret);
     FreeTreeNode(root);
 }
 

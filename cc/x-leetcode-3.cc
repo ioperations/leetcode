@@ -40,31 +40,31 @@ TEST(R1, t2) {
     std::string const in("abcabcbb");
     Solution slu;
     int const ret = slu.LengthOfLongestSubstring(in);
-    EXPECT_EQ(ret, 3);
+    EXPECT_EQ(3, ret);
 }
 TEST(R1, t3) {
     std::string const in("bbbbbb");
     Solution slu;
     int const ret = slu.LengthOfLongestSubstring(in);
-    EXPECT_EQ(ret, 1);
+    EXPECT_EQ(1, ret);
 }
 TEST(R1, t4) {
     std::string const in("pwwwkew");
     Solution slu;
     int const ret = slu.LengthOfLongestSubstring(in);
-    EXPECT_EQ(ret, 3);
+    EXPECT_EQ(3, ret);
 }
 TEST(R1, t5) {
     std::string const in("");
     Solution slu;
     int const ret = slu.LengthOfLongestSubstring(in);
-    EXPECT_EQ(ret, 0);
+    EXPECT_EQ(0, ret);
 }
 TEST(R2, t2) {
     std::string const in("aab");
     Solution slu;
     int const ret = slu.LengthOfLongestSubstring(in);
-    EXPECT_EQ(ret, 2);
+    EXPECT_EQ(2, ret);
 }
 
 }  // namespace

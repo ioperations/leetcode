@@ -73,7 +73,7 @@ TEST(SubstringWithConcatenationOfAllWords, t1) {
 
     const std::set<int> expect{};
     const std::set<int> retset(ret.begin(), ret.end());
-    EXPECT_EQ(retset, expect);
+    EXPECT_EQ(expect, retset);
 
     delete s;
 }
@@ -86,7 +86,7 @@ TEST(SubstringWithConcatenationOfAllWords, t2) {
 
     const std::set<int> expect{6, 9, 12};
     const std::set<int> retset(ret.begin(), ret.end());
-    EXPECT_EQ(retset, expect);
+    EXPECT_EQ(expect, retset);
 }
 
 TEST(SubstringWithConcatenationOfAllWords, t3) {
@@ -97,7 +97,7 @@ TEST(SubstringWithConcatenationOfAllWords, t3) {
 
     const std::set<int> expect{0, 9};
     const std::set<int> retset(ret.begin(), ret.end());
-    EXPECT_EQ(retset, expect);
+    EXPECT_EQ(expect, retset);
 }
 
 TEST(SubstringWithConcatenationOfAllWords, t4) {
@@ -108,7 +108,7 @@ TEST(SubstringWithConcatenationOfAllWords, t4) {
 
     const std::set<int> expect{0, 3, 6};
     const std::set<int> retset(ret.begin(), ret.end());
-    EXPECT_EQ(retset, expect);
+    EXPECT_EQ(expect, retset);
 }
 
 TEST(SubstringWithConcatenationOfAllWords, t5) {
@@ -119,7 +119,7 @@ TEST(SubstringWithConcatenationOfAllWords, t5) {
 
     const std::set<int> expect{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
     const std::set<int> retset(ret.begin(), ret.end());
-    EXPECT_EQ(retset, expect);
+    EXPECT_EQ(expect, retset);
 }
 
 }  // namespace

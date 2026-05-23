@@ -129,7 +129,7 @@ TEST(LowestCommomAncestorOfABinaryTree, t1) {
     TreeNode *p_node = FindTreeNode(root, p), *q_node = FindTreeNode(root, q);
 
     auto* ret = s.LowestCommonAncestor(root, p_node, q_node);
-    EXPECT_EQ(ret->val, expeced);
+    EXPECT_EQ(expeced, ret->val);
     FreeRoot(root);
 }
 
@@ -164,7 +164,7 @@ TEST(LowestCommomAncestorOfABinaryTree, t2) {
     TreeNode *p_node = FindTreeNode(root, p), *q_node = FindTreeNode(root, q);
 
     auto* ret = s.LowestCommonAncestor(root, p_node, q_node);
-    EXPECT_EQ(ret->val, expeced);
+    EXPECT_EQ(expeced, ret->val);
     FreeRoot(root);
 }
 
@@ -192,7 +192,7 @@ TEST(LowestCommomAncestorOfABinaryTree, t3) {
     TreeNode *p_node = FindTreeNode(root, p), *q_node = FindTreeNode(root, q);
 
     auto* ret = s.LowestCommonAncestor(root, p_node, q_node);
-    EXPECT_EQ(ret->val, expeced);
+    EXPECT_EQ(expeced, ret->val);
     FreeRoot(root);
 }
 }  // namespace

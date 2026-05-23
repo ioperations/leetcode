@@ -64,14 +64,14 @@ TEST(LongestIncreasingSubsequence, t1) {
     int const ret = sl.LengthOfLis(nums);
     // The longest increasing subsequence is [2,3,7,101], therefore the length
     // is 4.
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 TEST(LongestIncreasingSubsequence, t2) {
     vector<int> nums{0, 1, 0, 3, 2, 3};
     int const output = 4;
     Solution sl;
     int const ret = sl.LengthOfLis(nums);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(LongestIncreasingSubsequence, t3) {
@@ -79,6 +79,6 @@ TEST(LongestIncreasingSubsequence, t3) {
     int const output = 1;
     Solution sl;
     int const ret = sl.LengthOfLis(nums);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 }  // namespace

@@ -91,7 +91,7 @@ TEST(SplitArrayIntoConsecutiveSubsequence, t1) {
     /*nums can be split into the following subsequences:
     [1,2,3,3,4,5] --> 1, 2, 3
     [1,2,3,3,4,5] --> 3, 4, 5*/
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(SplitArrayIntoConsecutiveSubsequence, t2) {
@@ -102,7 +102,7 @@ TEST(SplitArrayIntoConsecutiveSubsequence, t2) {
     /* nums can be split into the following subsequences:
     [1,2,3,3,4,4,5,5] --> 1, 2, 3, 4, 5
     [1,2,3,3,4,4,5,5] --> 3, 4, 5*/
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 TEST(SplitArrayIntoConsecutiveSubsequence, t3) {
     vector<int> nums = {1, 2, 3, 4, 4, 5};
@@ -111,7 +111,7 @@ TEST(SplitArrayIntoConsecutiveSubsequence, t3) {
     bool const ret = sl.IsPossible(nums);
     /*It is impossible to split nums into consecutive increasing subsequences of
      * length 3 or more.*/
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 }  // namespace

@@ -80,7 +80,7 @@ TEST(roateV, t1) {
     Solution s;
     s.Rotate(matrix);
 
-    EXPECT_EQ(matrix, expected);
+    EXPECT_EQ(expected, matrix);
 }
 
 TEST(roateV, t2) {
@@ -92,6 +92,6 @@ TEST(roateV, t2) {
     Solution s;
     s.Rotate(matrix);
 
-    EXPECT_EQ(matrix, expected);
+    EXPECT_EQ(expected, matrix);
 }
 }  // namespace

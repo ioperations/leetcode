@@ -39,29 +39,29 @@ class Solution {
 TEST(longestV, t1) {
     Solution sl;
     int const ret = sl.LengthOfLongestSubstring("abcabcbb");
-    EXPECT_EQ(ret, 3);
+    EXPECT_EQ(3, ret);
 }
 
 TEST(longestV, t2) {
     Solution sl;
     int const ret = sl.LengthOfLongestSubstring("bbbbb");
-    EXPECT_EQ(ret, 1);
+    EXPECT_EQ(1, ret);
 }
 
 TEST(longestV, t3) {
     Solution sl;
     int const ret = sl.LengthOfLongestSubstring("pwwkew");
-    EXPECT_EQ(ret, 3);
+    EXPECT_EQ(3, ret);
 }
 
 TEST(longestV, t4) {
     Solution sl;
     int const ret = sl.LengthOfLongestSubstring("");
-    EXPECT_EQ(ret, 0);
+    EXPECT_EQ(0, ret);
 }
 
 TEST(longestV, t5) {
     Solution sl;
     int const ret = sl.LengthOfLongestSubstring("au");
-    EXPECT_EQ(ret, 2);
+    EXPECT_EQ(2, ret);
 }

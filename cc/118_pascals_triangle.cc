@@ -53,7 +53,7 @@ TEST(pascalsV, t1) {
     auto ret = sl.Generate(num_rows);
     std::set<vector<int>> const ret_set(ret.begin(), ret.end());
 
-    EXPECT_EQ(ret_set, output_set);
+    EXPECT_EQ(output_set, ret_set);
 }
 
 TEST(pascalsV, t2) {
@@ -65,7 +65,7 @@ TEST(pascalsV, t2) {
     auto ret = sl.Generate(num_rows);
     std::set<vector<int>> const ret_set(ret.begin(), ret.end());
 
-    EXPECT_EQ(ret_set, output_set);
+    EXPECT_EQ(output_set, ret_set);
 }
 
 }  // namespace

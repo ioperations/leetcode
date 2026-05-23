@@ -40,7 +40,7 @@ TEST(perfectV, t1) {
     // Explanation: 12 = 4 + 4 + 4.
     Solution sl;
     int const ret = sl.NumSquares(n);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(perfectV, t2) {
@@ -49,7 +49,7 @@ TEST(perfectV, t2) {
     // Explanation: 12 = 4 + 9
     Solution sl;
     int const ret = sl.NumSquares(n);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 }  // namespace

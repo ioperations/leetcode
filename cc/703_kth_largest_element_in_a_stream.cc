@@ -49,15 +49,15 @@ TEST(KthLargestElementInAStream, t1) {
     auto* obj = new KthLargest(k, nums);
     int ret = 0;
     ret = obj->Add(3);  // return 4
-    EXPECT_EQ(ret, 4);
+    EXPECT_EQ(4, ret);
     ret = obj->Add(5);  // return 5
-    EXPECT_EQ(ret, 5);
+    EXPECT_EQ(5, ret);
     ret = obj->Add(10);  // return 5
-    EXPECT_EQ(ret, 5);
+    EXPECT_EQ(5, ret);
     ret = obj->Add(9);  // return 8
-    EXPECT_EQ(ret, 8);
+    EXPECT_EQ(8, ret);
     ret = obj->Add(4);  // return 8
-    EXPECT_EQ(ret, 8);
+    EXPECT_EQ(8, ret);
     delete obj;
 }
 

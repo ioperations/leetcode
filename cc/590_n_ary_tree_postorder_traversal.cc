@@ -108,7 +108,7 @@ TEST(NAryTreePostorderTraversal, t1) {
     Solution sl;
     auto* tree = ConstructTreeNode(root);
     auto ret = sl.Postorder(tree);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
     FreeNode(tree);
 }
 
@@ -121,7 +121,7 @@ TEST(NAryTreePostorderTraversal, t2) {
     Solution sl;
     auto* tree = ConstructTreeNode(root);
     auto ret = sl.Postorder(tree);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
     FreeNode(tree);
 }
 

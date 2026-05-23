@@ -49,7 +49,7 @@ TEST(ReduceArraySizeToTheHalf, t1) {
     */
     Solution sl;
     int const ret = sl.MinSetSize(arr);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(ReduceArraySizeToTheHalf, t2) {
@@ -61,7 +61,7 @@ TEST(ReduceArraySizeToTheHalf, t2) {
     */
     Solution sl;
     int const ret = sl.MinSetSize(arr);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 }  // namespace

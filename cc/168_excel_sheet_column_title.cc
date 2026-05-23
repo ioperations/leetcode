@@ -34,31 +34,31 @@ class Solution {
 TEST(ExcelSheetColumnTitle, t1) {
     Solution const s;
     auto ret = s.ConvertToTitle(1);
-    EXPECT_EQ(ret, "A");
+    EXPECT_EQ("A", ret);
 }
 
 TEST(ExcelSheetColumnTitle, t2) {
     Solution const s;
     auto ret = s.ConvertToTitle(26);
-    EXPECT_EQ(ret, "Z");
+    EXPECT_EQ("Z", ret);
 }
 
 TEST(ExcelSheetColumnTitle, t3) {
     Solution const s;
     auto ret = s.ConvertToTitle(28);
-    EXPECT_EQ(ret, "AB");
+    EXPECT_EQ("AB", ret);
 }
 
 TEST(ExcelSheetColumnTitle, t4) {
     Solution const s;
     auto ret = s.ConvertToTitle(27);
-    EXPECT_EQ(ret, "AA");
+    EXPECT_EQ("AA", ret);
 }
 
 TEST(ExcelSheetColumnTitle, t5) {
     Solution const s;
     auto ret = s.ConvertToTitle(701);
-    EXPECT_EQ(ret, "ZY");
+    EXPECT_EQ("ZY", ret);
 }
 
 }  // namespace

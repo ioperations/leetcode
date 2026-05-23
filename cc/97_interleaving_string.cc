@@ -111,10 +111,10 @@ TEST(interleavingV, t1) {
 
     Solution sl;
     bool ret = sl.IsInterleave(string1, s2, s3);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 
     ret = sl.IsInterleaveV1(string1, s2, s3);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(interleavingV, t2) {
@@ -123,9 +123,9 @@ TEST(interleavingV, t2) {
 
     Solution sl;
     bool ret = sl.IsInterleave(string1, s2, s3);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
     ret = sl.IsInterleaveV1(string1, s2, s3);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 }  // namespace

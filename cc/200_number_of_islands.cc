@@ -160,7 +160,7 @@ TEST(NumberOfIslands, t1) {
 
     Solution s;
     int const ret = s.NumIslands(grid);
-    EXPECT_EQ(ret, expected);
+    EXPECT_EQ(expected, ret);
 }
 
 TEST(NumberOfIslandsV2, t1) {
@@ -172,7 +172,7 @@ TEST(NumberOfIslandsV2, t1) {
 
     Solution s;
     int const ret = s.NumIslandsDFS(grid);
-    EXPECT_EQ(ret, expected);
+    EXPECT_EQ(expected, ret);
 }
 
 TEST(NumberOfIslands, t2) {
@@ -184,7 +184,7 @@ TEST(NumberOfIslands, t2) {
 
     Solution s;
     int const ret = s.NumIslands(grid);
-    EXPECT_EQ(ret, expected);
+    EXPECT_EQ(expected, ret);
 }
 
 TEST(NumberOfIslandsV2, t2) {
@@ -196,7 +196,7 @@ TEST(NumberOfIslandsV2, t2) {
 
     Solution s;
     int const ret = s.NumIslandsDFS(grid);
-    EXPECT_EQ(ret, expected);
+    EXPECT_EQ(expected, ret);
 }
 
 }  // namespace

@@ -41,7 +41,7 @@ TEST(RunningSumOf1dArray, t1) {
 
     Solution const sl;
     auto ret = sl.RunningSum(p);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(RunningSumOf1dArray, t2) {
@@ -50,7 +50,7 @@ TEST(RunningSumOf1dArray, t2) {
 
     Solution const sl;
     auto ret = sl.RunningSum(p);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(RunningSumOf1dArray, t3) {
@@ -59,7 +59,7 @@ TEST(RunningSumOf1dArray, t3) {
 
     Solution const sl;
     auto ret = sl.RunningSum(p);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 static void BenchV1(benchmark::State& state) {
@@ -69,7 +69,7 @@ static void BenchV1(benchmark::State& state) {
 
         Solution const sl;
         auto ret = sl.RunningSum(p);
-        EXPECT_EQ(ret, output);
+        EXPECT_EQ(output, ret);
     }
 }
 BENCHMARK(BenchV1);
@@ -81,7 +81,7 @@ static void BenchV2(benchmark::State& state) {
 
         Solution const sl;
         auto ret = sl.RunningSumV1(p);
-        EXPECT_EQ(ret, output);
+        EXPECT_EQ(output, ret);
     }
 }
 BENCHMARK(BenchV2);

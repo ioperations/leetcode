@@ -179,14 +179,14 @@ TEST(implementV, t1) {
     Trie* trie = new Trie();
     trie->Insert("apple");
     ret = trie->Search("apple");  // return True
-    EXPECT_EQ(ret, true);
+    EXPECT_EQ(true, ret);
     ret = trie->Search("app");  // return False
-    EXPECT_EQ(ret, false);
+    EXPECT_EQ(false, ret);
     ret = trie->StartsWith("app");  // return True
-    EXPECT_EQ(ret, true);
+    EXPECT_EQ(true, ret);
     trie->Insert("app");
     ret = trie->Search("app");  // return True
-    EXPECT_EQ(ret, true);
+    EXPECT_EQ(true, ret);
     delete trie;
 }
 
@@ -201,18 +201,18 @@ TEST(implementtrieV2, t1) {
     trie->Insert("apple");
     ret = trie->Search("apple");  // return True
 
-    EXPECT_EQ(ret, true);
+    EXPECT_EQ(true, ret);
     ret = trie->StartsWith("purp");
-    EXPECT_EQ(ret, false);
+    EXPECT_EQ(false, ret);
     trie->Insert("purple");
 
     ret = trie->Search("app");  // return False
-    EXPECT_EQ(ret, false);
+    EXPECT_EQ(false, ret);
     ret = trie->StartsWith("app");  // return True
-    EXPECT_EQ(ret, true);
+    EXPECT_EQ(true, ret);
     trie->Insert("app");
     ret = trie->Search("app");  // return True
-    EXPECT_EQ(ret, true);
+    EXPECT_EQ(true, ret);
     delete trie;
 }
 
@@ -222,14 +222,14 @@ void BenchMarkOther(benchmark::State& state) {
         Trie* trie = new Trie();
         trie->Insert("apple");
         ret = trie->Search("apple");  // return True
-        EXPECT_EQ(ret, true);
+        EXPECT_EQ(true, ret);
         ret = trie->Search("app");  // return False
-        EXPECT_EQ(ret, false);
+        EXPECT_EQ(false, ret);
         ret = trie->StartsWith("app");  // return True
-        EXPECT_EQ(ret, true);
+        EXPECT_EQ(true, ret);
         trie->Insert("app");
         ret = trie->Search("app");  // return True
-        EXPECT_EQ(ret, true);
+        EXPECT_EQ(true, ret);
         delete trie;
     }
 }
@@ -241,14 +241,14 @@ void BenchMarkMyImpl(benchmark::State& state) {
         auto* trie = new TrieV1();
         trie->Insert("apple");
         ret = trie->Search("apple");  // return True
-        EXPECT_EQ(ret, true);
+        EXPECT_EQ(true, ret);
         ret = trie->Search("app");  // return False
-        EXPECT_EQ(ret, false);
+        EXPECT_EQ(false, ret);
         ret = trie->StartsWith("app");  // return True
-        EXPECT_EQ(ret, true);
+        EXPECT_EQ(true, ret);
         trie->Insert("app");
         ret = trie->Search("app");  // return True
-        EXPECT_EQ(ret, true);
+        EXPECT_EQ(true, ret);
         delete trie;
     }
 }

@@ -97,7 +97,7 @@ TEST(NAryTreePreorderTraversal, t1) {
     const std::vector<int> output{1, 3, 5, 6, 2, 4};
     Solution sl;
     auto ret = sl.Preorder(tree);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 
     FreeNode(tree);
 }
@@ -112,7 +112,7 @@ TEST(NAryTreePreorderTraversal, t2) {
                                   4, 8, 12, 5, 9, 13, 10};
     Solution sl;
     auto ret = sl.Preorder(tree);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 
     FreeNode(tree);
 }

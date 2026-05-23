@@ -53,7 +53,7 @@ TEST(wiggleV, t1) {
     // -3, 5, -7, 3)
     Solution sl;
     int const ret = sl.WiggleMaxLength(nums);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(wiggleV, t2) {
@@ -65,7 +65,7 @@ TEST(wiggleV, t2) {
     // -8).
     Solution sl;
     int const ret = sl.WiggleMaxLength(nums);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(wiggleV, t3) {
@@ -74,7 +74,7 @@ TEST(wiggleV, t3) {
     int const output = 2;
     Solution sl;
     int const ret = sl.WiggleMaxLength(nums);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 }  // namespace

@@ -40,7 +40,7 @@ TEST(NThTribonacciNumber, t1) {
         T_3 = 0 + 1 + 1 = 2
         T_4 = 1 + 1 + 2 = 4
     */
-    EXPECT_EQ(ret, out);
+    EXPECT_EQ(out, ret);
 }
 
 TEST(NThTribonacciNumber, t2) {
@@ -48,7 +48,7 @@ TEST(NThTribonacciNumber, t2) {
     int const out = 1389537;
     Solution sl;
     int const ret = sl.Tribonacci(n);
-    EXPECT_EQ(ret, out);
+    EXPECT_EQ(out, ret);
 }
 
 }  // namespace

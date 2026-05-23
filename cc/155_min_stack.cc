@@ -42,12 +42,12 @@ TEST(minV, t1) {
     min_stack.Push(0);
     min_stack.Push(-3);
     int ret = min_stack.GetMin();  // return -3
-    EXPECT_EQ(ret, -3);
+    EXPECT_EQ(-3, ret);
     min_stack.Pop();
     ret = min_stack.Top();  // return 0
-    EXPECT_EQ(ret, 0);
+    EXPECT_EQ(0, ret);
     ret = min_stack.GetMin();  // return -2
-    EXPECT_EQ(ret, -2);
+    EXPECT_EQ(-2, ret);
 }
 
 }  // namespace

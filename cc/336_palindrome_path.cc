@@ -249,15 +249,15 @@ TEST(palindromeV, t1) {
     auto ret = sl.PalindromePairs(words);
 
     const set<vector<int>> ret_set(ret.begin(), ret.end());
-    EXPECT_EQ(ret_set, output_set);
+    EXPECT_EQ(output_set, ret_set);
     ret = sl.PalindromePairsV1(words);
 
     const set<vector<int>> ret_set1(ret.begin(), ret.end());
-    EXPECT_EQ(ret_set1, output_set);
+    EXPECT_EQ(output_set, ret_set1);
     ret = sl.PalindromePairsV1(words);
 
     const set<vector<int>> ret_set2(ret.begin(), ret.end());
-    EXPECT_EQ(ret_set2, output_set);
+    EXPECT_EQ(output_set, ret_set2);
 }
 
 TEST(palindromeV, t2) {
@@ -271,15 +271,15 @@ TEST(palindromeV, t2) {
     auto ret = sl.PalindromePairs(words);
 
     const set<vector<int>> ret_set(ret.begin(), ret.end());
-    EXPECT_EQ(ret_set, output_set);
+    EXPECT_EQ(output_set, ret_set);
     ret = sl.PalindromePairsV1(words);
 
     const set<vector<int>> ret_set1(ret.begin(), ret.end());
-    EXPECT_EQ(ret_set1, output_set);
+    EXPECT_EQ(output_set, ret_set1);
     ret = sl.PalindromePairsV1(words);
 
     const set<vector<int>> ret_set2(ret.begin(), ret.end());
-    EXPECT_EQ(ret_set2, output_set);
+    EXPECT_EQ(output_set, ret_set2);
 }
 
 }  // namespace

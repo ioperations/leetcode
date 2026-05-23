@@ -150,7 +150,7 @@ TEST(Base, t0) {
 
     Flattern(tmp, vec);
 
-    EXPECT_EQ(vec, std::vector<int>{1});
+    EXPECT_EQ(std::vector<int>{1}, vec);
 }
 
 TEST(miniV, t1) {
@@ -160,16 +160,16 @@ TEST(miniV, t1) {
 
     Solution const sl;
     auto ret = sl.Deserialize(s);
-    EXPECT_EQ(ret.IsInteger(), true);
+    EXPECT_EQ(true, ret.IsInteger());
 
-    EXPECT_EQ(ret.GetInteger(), 324);
+    EXPECT_EQ(324, ret.GetInteger());
 
     ret = sl.DeserializeV1(s);
 
     std::vector<int> vec;
     Flattern(ret, vec);
 
-    EXPECT_EQ(vec, (std::vector<int>{324}));
+    EXPECT_EQ((std::vector<int>{324}), vec);
 }
 
 TEST(miniV, t2) {
@@ -190,13 +190,13 @@ TEST(miniV, t2) {
     std::vector<int> vec;
     Flattern(ret, vec);
 
-    EXPECT_EQ(vec, (std::vector<int>{123, 456, 789}));
+    EXPECT_EQ((std::vector<int>{123, 456, 789}), vec);
     auto ret1 = sl.DeserializeV1(s);
 
     vec.clear();
     Flattern(ret, vec);
 
-    EXPECT_EQ(vec, (std::vector<int>{123, 456, 789}));
+    EXPECT_EQ((std::vector<int>{123, 456, 789}), vec);
 }
 
 void BenchV1(benchmark::State& state) {
@@ -218,7 +218,7 @@ void BenchV1(benchmark::State& state) {
         std::vector<int> vec;
         Flattern(ret, vec);
 
-        EXPECT_EQ(vec, (std::vector<int>{123, 456, 789}));
+        EXPECT_EQ((std::vector<int>{123, 456, 789}), vec);
     }
 }
 BENCHMARK(BenchV1);
@@ -242,7 +242,7 @@ void BenchV2(benchmark::State& state) {
         std::vector<int> vec;
         Flattern(ret, vec);
 
-        EXPECT_EQ(vec, (std::vector<int>{123, 456, 789}));
+        EXPECT_EQ((std::vector<int>{123, 456, 789}), vec);
     }
 }
 BENCHMARK(BenchV2);

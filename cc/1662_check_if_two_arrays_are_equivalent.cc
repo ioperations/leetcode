@@ -47,7 +47,7 @@ TEST(CheckIfTwoArraysAreEquivalent, t1) {
     */
     Solution sl;
     bool const ret = sl.ArrayStringsAreEqual(word1, word2);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(CheckIfTwoArraysAreEquivalent, t2) {
@@ -55,7 +55,7 @@ TEST(CheckIfTwoArraysAreEquivalent, t2) {
     bool const output = false;
     Solution sl;
     bool const ret = sl.ArrayStringsAreEqual(word1, word2);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(CheckIfTwoArraysAreEquivalent, t3) {
@@ -63,7 +63,7 @@ TEST(CheckIfTwoArraysAreEquivalent, t3) {
     bool const output = true;
     Solution sl;
     bool const ret = sl.ArrayStringsAreEqual(word1, word2);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 }  // namespace

@@ -34,7 +34,7 @@ TEST(Base7, t1) {
     string const output = "202";
     Solution sl;
     auto ret = sl.ConvertToBase7(num);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(Base7, t2) {
@@ -42,7 +42,7 @@ TEST(Base7, t2) {
     string const output = "-10";
     Solution sl;
     auto ret = sl.ConvertToBase7(num);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 }  // namespace

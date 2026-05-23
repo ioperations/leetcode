@@ -35,7 +35,7 @@ TEST(KthLargestElementInAnArray, t1) {
     int const k = 2;
     Solution sl;
     int const ret = sl.FindKthLargest(v, k);
-    EXPECT_EQ(ret, 5);
+    EXPECT_EQ(5, ret);
 }
 
 TEST(KthLargestElementInAnArray, t2) {
@@ -43,7 +43,7 @@ TEST(KthLargestElementInAnArray, t2) {
     int const k = 4;
     Solution sl;
     int const ret = sl.FindKthLargest(v, k);
-    EXPECT_EQ(ret, 4);
+    EXPECT_EQ(4, ret);
 }
 
 }  // namespace

@@ -116,7 +116,7 @@ TEST(MaxAreaOfIsland, t1) {
 
     Solution sl;
     const int ret = sl.MaxAreaOfIsland(grid);
-    EXPECT_EQ(ret, 6);
+    EXPECT_EQ(6, ret);
 }
 
 TEST(MaxAreaOfIsland, t2) {
@@ -124,7 +124,7 @@ TEST(MaxAreaOfIsland, t2) {
 
     Solution sl;
     const int ret = sl.MaxAreaOfIsland(grid);
-    EXPECT_EQ(ret, 0);
+    EXPECT_EQ(0, ret);
 }
 
 }  // namespace

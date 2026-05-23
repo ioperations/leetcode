@@ -68,11 +68,11 @@ TEST(XDpTutorialV2, r2) {
     std::string_view const s2 = "apple";
     int const ret = FindMinPath(s1, s2);
 
-    EXPECT_EQ(ret, expected);
-    EXPECT_EQ(FindMinPath("appled", "apple"), 1);
+    EXPECT_EQ(expected, ret);
+    EXPECT_EQ(1, FindMinPath("appled", "apple"));
     std::string_view const s1_1 = "appl7777777777777777777777777";
     std::string_view const s2_1 = "appl7777777777777777777777776";
-    EXPECT_EQ(FindMinPath(s1_1, s2_1), 1);
+    EXPECT_EQ(1, FindMinPath(s1_1, s2_1));
 }
 
 }  // namespace

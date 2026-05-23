@@ -109,7 +109,7 @@ TEST(DifferentWaysToAddParentheses, t1) {
        ((2-1)-1) = 0
        (2-(1-1)) = 2
     */
-    EXPECT_EQ(ret_set, out_set);
+    EXPECT_EQ(out_set, ret_set);
 }
 
 TEST(DifferentWaysToAddParentheses, t2) {
@@ -127,7 +127,7 @@ TEST(DifferentWaysToAddParentheses, t2) {
     */
     set<int> const ret_set(ret.begin(), ret.end());
     set<int> const out_set(output.begin(), output.end());
-    EXPECT_EQ(ret_set, out_set);
+    EXPECT_EQ(out_set, ret_set);
 }
 
 TEST(DifferentWaysToAddParenthesesV2, t1) {
@@ -142,7 +142,7 @@ TEST(DifferentWaysToAddParenthesesV2, t1) {
        ((2-1)-1) = 0
        (2-(1-1)) = 2
     */
-    EXPECT_EQ(ret_set, out_set);
+    EXPECT_EQ(out_set, ret_set);
 }
 
 TEST(DifferentWaysToAddParenthesesV2, t2) {
@@ -160,7 +160,7 @@ TEST(DifferentWaysToAddParenthesesV2, t2) {
     */
     set<int> const ret_set(ret.begin(), ret.end());
     set<int> const out_set(output.begin(), output.end());
-    EXPECT_EQ(ret_set, out_set);
+    EXPECT_EQ(out_set, ret_set);
 }
 
 }  // namespace

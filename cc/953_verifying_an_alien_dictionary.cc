@@ -62,7 +62,7 @@ TEST(VerifyingAnAlienDictionary, t1) {
     Solution sl;
     int const ret = sl.IsAlienSorted(words, order);
     // As 'h' comes before 'l' in this language, then the sequence is sorted.
-    EXPECT_EQ(true, ret);
+    EXPECT_EQ(ret, true);
 }
 
 TEST(VerifyingAnAlienDictionary, t2) {
@@ -72,7 +72,7 @@ TEST(VerifyingAnAlienDictionary, t2) {
     int const ret = sl.IsAlienSorted(words, order);
     // As 'd' comes after 'l' in this language, then words[0] > words[1], hence
     // the sequence is unsorted.
-    EXPECT_EQ(false, ret);
+    EXPECT_EQ(ret, false);
 }
 
 TEST(VerifyingAnAlienDictionary, t3) {
@@ -85,7 +85,7 @@ TEST(VerifyingAnAlienDictionary, t3) {
     // 'l' > '∅', where '∅' is defined as the blank character which is less than
     // any other character (More info).
 
-    EXPECT_EQ(false, ret);
+    EXPECT_EQ(ret, false);
 }
 
 }  // namespace

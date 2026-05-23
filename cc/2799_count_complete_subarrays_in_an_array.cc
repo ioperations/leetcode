@@ -36,7 +36,7 @@ TEST(T0, t1) {
     int const output = 4;
     Solution sl;
     int const ret = sl.CountCompleteSubarrays(nums);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
     /*
      * The complete subarrays are the following: [1,3,1,2], [1,3,1,2,2], [3,1,2]
      * and [3,1,2,2].
@@ -48,7 +48,7 @@ TEST(T0, t2) {
     int const output = 10;
     Solution sl;
     int const ret = sl.CountCompleteSubarrays(nums);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
     /*
      * The array consists only of the integer 5, so any subarray is complete.
      * The number of subarrays that we can choose is 10.
@@ -59,7 +59,7 @@ TEST(T0, t3) {
     int const output = 4;
     Solution sl;
     int const ret = sl.CountCompleteSubarrays(nums);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 int main(int argc, char* argv[]) {

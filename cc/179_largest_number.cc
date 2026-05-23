@@ -49,7 +49,7 @@ TEST(largestV, t1) {
     Solution const sl;
 
     string const ret = sl.LargestNumber(nums);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(largestV, t2) {
@@ -59,7 +59,7 @@ TEST(largestV, t2) {
     Solution const sl;
 
     string const ret = sl.LargestNumber(nums);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 }  // namespace

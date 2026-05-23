@@ -104,7 +104,7 @@ TEST(MinimalNumberOfRefuelingStops, t1) {
     // Explanation: We can reach the target without refueling.
     Solution sl;
     int const ret = sl.MinRefuelStops(target, start_fuel, stations);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(MinimalNumberOfRefuelingStops, t2) {
@@ -114,7 +114,7 @@ TEST(MinimalNumberOfRefuelingStops, t2) {
     // We can not reach the target (or even the first gas station).
     Solution sl;
     int const ret = sl.MinRefuelStops(target, start_fuel, stations);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(MinimalNumberOfRefuelingStops, t3) {
@@ -130,7 +130,7 @@ TEST(MinimalNumberOfRefuelingStops, t3) {
     */
     Solution sl;
     int const ret = sl.MinRefuelStops(target, start_fuel, stations);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 }  // namespace

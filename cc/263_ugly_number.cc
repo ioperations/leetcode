@@ -51,7 +51,7 @@ TEST(uglyV, t1) {
     // Explanation: 6 = 2 × 3
     Solution sl;
     bool const ret = sl.IsUgly(n);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(uglyV, t2) {
@@ -61,7 +61,7 @@ TEST(uglyV, t2) {
     // 2, 3, and 5.
     Solution sl;
     bool const ret = sl.IsUgly(n);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(uglyV, t3) {
@@ -70,7 +70,7 @@ TEST(uglyV, t3) {
     // 14 is not ugly since it includes the prime factor 7.
     Solution sl;
     bool const ret = sl.IsUgly(n);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(uglyV, t4) {
@@ -79,7 +79,7 @@ TEST(uglyV, t4) {
     // 14 is not ugly since it includes the prime factor 7.
     Solution sl;
     bool const ret = sl.IsUgly(n);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 }  // namespace

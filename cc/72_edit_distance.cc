@@ -121,7 +121,7 @@ TEST(editdistanceV2, t2) {
     Solution s;
 
     int const ret = s.MinDistance(word1, word2);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(editdistanceV2, t3) {
@@ -132,7 +132,7 @@ TEST(editdistanceV2, t3) {
     Solution s;
 
     int const ret = s.MinDistance(word1, word2);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(editdistanceV2, t4) {
@@ -143,7 +143,7 @@ TEST(editdistanceV2, t4) {
     Solution s;
 
     int const ret = s.MinDistanceV2(word1, word2);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(editdistanceV3, t2) {
@@ -153,7 +153,7 @@ TEST(editdistanceV3, t2) {
     Solution s;
 
     int const ret = s.MinDistanceV3(word1, word2);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 TEST(editdistanceV4, t3) {
     std::string const word1 = "horse";
@@ -163,7 +163,7 @@ TEST(editdistanceV4, t3) {
     Solution s;
 
     int const ret = s.MinDistanceV3(word1, word2);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 TEST(editdistanceV4, t4) {
     std::string const word1 = "dinitrophenylhydrazine";
@@ -173,7 +173,7 @@ TEST(editdistanceV4, t4) {
     Solution s;
 
     int const ret = s.MinDistanceV3(word1, word2);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 static void BenchMarkFirst(benchmark::State& state) {
@@ -184,7 +184,7 @@ static void BenchMarkFirst(benchmark::State& state) {
         Solution s;
 
         int const ret = s.MinDistance(word1, word2);
-        EXPECT_EQ(ret, output);
+        EXPECT_EQ(output, ret);
     }
 }
 BENCHMARK(BenchMarkFirst);
@@ -197,7 +197,7 @@ static void BenchMarkSecond(benchmark::State& state) {
         Solution s;
 
         int const ret = s.MinDistanceV2(word1, word2);
-        EXPECT_EQ(ret, output);
+        EXPECT_EQ(output, ret);
     }
 }
 BENCHMARK(BenchMarkSecond);
@@ -210,7 +210,7 @@ static void BenchMarkThird(benchmark::State& state) {
         Solution s;
 
         int const ret = s.MinDistanceV3(word1, word2);
-        EXPECT_EQ(ret, output);
+        EXPECT_EQ(output, ret);
     }
 }
 BENCHMARK(BenchMarkThird);

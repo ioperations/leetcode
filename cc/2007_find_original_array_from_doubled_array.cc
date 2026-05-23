@@ -62,7 +62,7 @@ TEST(FindOriginalArrayFromDoubledArray, t1) {
     Solution sl;
     auto ret = sl.FindOriginalArray(changed);
     std::set<int> const ret_set(ret.begin(), ret.end());
-    EXPECT_EQ(ret_set, output_set);
+    EXPECT_EQ(output_set, ret_set);
 }
 
 TEST(FindOriginalArrayFromDoubledArray, t2) {
@@ -74,7 +74,7 @@ TEST(FindOriginalArrayFromDoubledArray, t2) {
     Solution sl;
     auto ret = sl.FindOriginalArray(changed);
     std::set<int> const ret_set(ret.begin(), ret.end());
-    EXPECT_EQ(ret_set, output_set);
+    EXPECT_EQ(output_set, ret_set);
 }
 
 TEST(FindOriginalArrayFromDoubledArray, t3) {
@@ -85,7 +85,7 @@ TEST(FindOriginalArrayFromDoubledArray, t3) {
     Solution sl;
     auto ret = sl.FindOriginalArray(changed);
     std::set<int> const ret_set(ret.begin(), ret.end());
-    EXPECT_EQ(ret_set, output_set);
+    EXPECT_EQ(output_set, ret_set);
 }
 
 }  // namespace

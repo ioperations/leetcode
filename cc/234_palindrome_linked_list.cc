@@ -112,7 +112,7 @@ TEST(PalindromeLinkedList, t1) {
 
     Solution s;
     bool const ret = s.IsPalindrome(head);
-    EXPECT_EQ(ret, true);
+    EXPECT_EQ(true, ret);
 
     List::FreeList(head);
 }
@@ -128,7 +128,7 @@ TEST(PalindromeLinkedListV2, t1) {
 
     Solution2 s;
     bool const ret = s.IsPalindrome(&head);
-    EXPECT_EQ(ret, true);
+    EXPECT_EQ(true, ret);
 }
 
 TEST(PalindromeLinkedList, t2) {
@@ -136,7 +136,7 @@ TEST(PalindromeLinkedList, t2) {
 
     Solution s;
     bool const ret = s.IsPalindrome(head);
-    EXPECT_EQ(ret, false);
+    EXPECT_EQ(false, ret);
 
     List::FreeList(head);
 }
@@ -148,7 +148,7 @@ TEST(PalindromeLinkedListV2, t2) {
 
     Solution2 s;
     bool const ret = s.IsPalindrome(&head);
-    EXPECT_EQ(ret, false);
+    EXPECT_EQ(false, ret);
 }
 
 static void BenchFastSlow(benchmark::State& state) {
@@ -178,7 +178,7 @@ static void BenchFastSlow(benchmark::State& state) {
         head10.next = &head11;
 
         bool const ret = s.IsPalindrome(&head);
-        EXPECT_EQ(ret, true);
+        EXPECT_EQ(true, ret);
     }
 }
 BENCHMARK(BenchFastSlow);
@@ -209,7 +209,7 @@ static void BenchMyVec(benchmark::State& state) {
         head10.next = &head11;
 
         bool const ret = s.IsPalindrome(&head);
-        EXPECT_EQ(ret, true);
+        EXPECT_EQ(true, ret);
     }
 }
 BENCHMARK(BenchMyVec);

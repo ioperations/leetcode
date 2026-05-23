@@ -56,7 +56,7 @@ TEST(SearchInABinarySearchTree, t2) {
     TreeNode<int>* node = ConstructTree(v);
     Solution sl;
     auto* out = sl.SearchBst(node, val);
-    EXPECT_EQ(out, nullptr);
+    EXPECT_EQ(nullptr, out);
 
     FreeTreeNode(node);
 }

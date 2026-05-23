@@ -78,11 +78,11 @@ TEST(forV, DISABLEDBasicTest) {
         DfsForEach(std::vector<DummyClass>{1},
                    [&](auto&& v) { std::cout << "got v " << v.m_v << "\n"; });
         const std::vector<int> expected{101, 102, 103, 104, 105, 106};
-        EXPECT_EQ(flattern, expected);
+        EXPECT_EQ(expected, flattern);
     }
 
-    EXPECT_EQ(GetStatistic().m_construct, 7);
-    EXPECT_EQ(GetStatistic().m_move_construct, 0);
-    EXPECT_EQ(GetStatistic().m_copy_assignment, 0);
-    EXPECT_EQ(GetStatistic().m_move_assignment, 0);
+    EXPECT_EQ(7, GetStatistic().m_construct);
+    EXPECT_EQ(0, GetStatistic().m_move_construct);
+    EXPECT_EQ(0, GetStatistic().m_copy_assignment);
+    EXPECT_EQ(0, GetStatistic().m_move_assignment);
 }

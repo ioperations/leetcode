@@ -42,7 +42,7 @@ TEST(T0, t1) {
     int const output = 3;
     Solution sl;
     int const ret = sl.MaximumCount(nums);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
     // There are 3 positive integers and 3 negative integers. The maximum count
     // among them is 3.
 }
@@ -52,7 +52,7 @@ TEST(T0, t2) {
     int const output = 3;
     Solution sl;
     int const ret = sl.MaximumCount(nums);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
     // There are 2 positive integers and 3 negative integers. The maximum count
     // among them is 3.
 }
@@ -64,7 +64,7 @@ TEST(T0, t3) {
     int const ret = sl.MaximumCount(nums);
     // There are 4 positive integers and 0 negative integers. The maximum count
     // among them is 4.
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 int main(int argc, char* argv[]) {

@@ -109,7 +109,7 @@ TEST(ContinusSubarraySum, t1) {
     // up to 6.
     Solution sl;
     bool const ret = sl.CheckSubarraySum(nums, k);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(ContinusSubarraySum, t2) {
@@ -121,7 +121,7 @@ TEST(ContinusSubarraySum, t2) {
     // an integer.
     Solution sl;
     bool const ret = sl.CheckSubarraySum(nums, k);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(ContinusSubarraySum, t3) {
@@ -130,7 +130,7 @@ TEST(ContinusSubarraySum, t3) {
     bool const output = false;
     Solution sl;
     bool const ret = sl.CheckSubarraySum(nums, k);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 }  // namespace

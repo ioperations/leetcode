@@ -85,21 +85,21 @@ TEST(FirstMissingPositive, t1) {
     std::vector<int> nums = {1, 2, 0};
     Solution const s;
     int const ret = s.FirstMissingPositive(nums);
-    EXPECT_EQ(ret, 3);
+    EXPECT_EQ(3, ret);
 }
 
 TEST(FirstMissingPositive, t2) {
     std::vector<int> nums = {3, 4, -1, 1};
     Solution const s;
     int const ret = s.FirstMissingPositive(nums);
-    EXPECT_EQ(ret, 2);
+    EXPECT_EQ(2, ret);
 }
 
 TEST(FirstMissingPositive, t3) {
     std::vector<int> nums = {7, 8, 9, 11, 12};
     Solution const s;
     int const ret = s.FirstMissingPositive(nums);
-    EXPECT_EQ(ret, 1);
+    EXPECT_EQ(1, ret);
 }
 
 }  // namespace

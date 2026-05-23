@@ -61,7 +61,7 @@ TEST(SumOfSubarrayMinimums, t1) {
     int const ret = sl.SumSubarrayMins(arr);
     /*Subarrays are [3], [1], [2], [4], [3,1], [1,2], [2,4], [3,1,2], [1,2,4],
     [3,1,2,4]. Minimums are 3, 1, 2, 4, 1, 1, 2, 1, 1, 1. Sum is 17.*/
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(SumOfSubarrayMinimums, t2) {
@@ -69,7 +69,7 @@ TEST(SumOfSubarrayMinimums, t2) {
     int const output = 444;
     Solution sl;
     int const ret = sl.SumSubarrayMins(arr);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(SumOfSubarrayMinimums, t3) {
@@ -177,6 +177,6 @@ TEST(SumOfSubarrayMinimums, t3) {
     int const output = 508796209;
     Solution sl;
     int const ret = sl.SumSubarrayMins(arr);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 }  // namespace

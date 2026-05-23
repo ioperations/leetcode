@@ -59,7 +59,7 @@ TEST(CourseScheduleIii, t1) {
     int const output = 3;
     Solution sl;
     int const ret = sl.ScheduleCourse(courses);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
     // There are totally 4 courses, but you can take 3 courses at most:
     // First, take the 1st course, it costs 100 days so you will finish it on
     // the 100th day, and ready to take the next course on the 101st day.
@@ -75,7 +75,7 @@ TEST(CourseScheduleIii, t2) {
     int const output = 1;
     Solution sl;
     int const ret = sl.ScheduleCourse(courses);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(CourseScheduleIii, t3) {
@@ -83,6 +83,6 @@ TEST(CourseScheduleIii, t3) {
     int const output = 0;
     Solution sl;
     int const ret = sl.ScheduleCourse(courses);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 }  // namespace

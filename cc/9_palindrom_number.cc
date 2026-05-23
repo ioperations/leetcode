@@ -27,14 +27,14 @@ TEST(palindromV, t1) {
     Solution s;
 
     bool const ret = s.IsPalindrome(121);
-    EXPECT_EQ(ret, true);
+    EXPECT_EQ(true, ret);
 }
 
 TEST(palindromV, t2) {
     Solution s;
 
     const bool ret = s.IsPalindrome(-121);
-    EXPECT_EQ(ret, false);
+    EXPECT_EQ(false, ret);
 }
 
 TEST(palindromV, t3) {
@@ -42,6 +42,6 @@ TEST(palindromV, t3) {
 
     const bool ret = s.IsPalindrome(10);
 
-    EXPECT_EQ(ret, false);
+    EXPECT_EQ(false, ret);
 }
 }  // namespace

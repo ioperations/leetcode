@@ -55,7 +55,7 @@ TEST(DeleteOperationForTwoStrings, t1) {
 
     Solution sl;
     int const ret = sl.MinDistance(word1, word2);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(DeleteOperationForTwoStrings, t2) {
@@ -64,7 +64,7 @@ TEST(DeleteOperationForTwoStrings, t2) {
 
     Solution sl;
     int const ret = sl.MinDistance(word1, word2);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 }  // namespace

@@ -80,7 +80,7 @@ TEST(wordV, t1) {
 
     Solution sl;
     const int ret = sl.LadderLength(begin_word, end_word, word_list);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 TEST(wordV, t2) {
     const string begin_word = "hit", end_word = "cog";
@@ -91,7 +91,7 @@ TEST(wordV, t2) {
 
     Solution sl;
     const int ret = sl.LadderLength(begin_word, end_word, word_list);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 }  // namespace

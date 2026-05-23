@@ -100,7 +100,7 @@ TEST(CountOfSmallerNumbersAfterSelf, t1) {
     To the right of 6 there is 1 smaller element (1).
     To the right of 1 there is 0 smaller element.
     */
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(CountOfSmallerNumbersAfterSelf, t2) {
@@ -108,7 +108,7 @@ TEST(CountOfSmallerNumbersAfterSelf, t2) {
     vector<int> const output{0};
     Solution sl;
     auto ret = sl.CountSmaller(nums);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(CountOfSmallerNumbersAfterSelf, t3) {
@@ -116,7 +116,7 @@ TEST(CountOfSmallerNumbersAfterSelf, t3) {
     vector<int> const output{0, 0};
     Solution sl;
     auto ret = sl.CountSmaller(nums);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 }  // namespace

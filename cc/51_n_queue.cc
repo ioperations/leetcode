@@ -88,7 +88,7 @@ TEST(nV, t1) {
     std::set<vector<string>> const output_set(output.begin(), output.end());
 
     std::set<vector<string>> const ret_set(ret.begin(), ret.end());
-    EXPECT_EQ(ret_set, output_set);
+    EXPECT_EQ(output_set, ret_set);
     // Explanation: There exist two distinct solutions to the 4-queens puzzle as
     // shown above
 }
@@ -102,7 +102,7 @@ TEST(nV, t2) {
     std::set<vector<string>> const output_set(output.begin(), output.end());
 
     std::set<vector<string>> const ret_set(ret.begin(), ret.end());
-    EXPECT_EQ(ret_set, output_set);
+    EXPECT_EQ(output_set, ret_set);
     // Explanation: There exist two distinct solutions to the 4-queens puzzle as
     // shown above
 }

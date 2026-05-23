@@ -45,7 +45,7 @@ TEST(groupV, t1) {
     std::set<vector<string>> const out_set(output.begin(), output.end());
     Solution sl;
     auto ret = sl.GroupAnagrams(strs);
-    EXPECT_EQ(output, ret);
+    EXPECT_EQ(ret, output);
 }
 
 TEST(groupV, t2) {
@@ -56,7 +56,7 @@ TEST(groupV, t2) {
     Solution sl;
     auto ret = sl.GroupAnagrams(strs);
     set<vector<string>> const ret_set(ret.begin(), ret.end());
-    EXPECT_EQ(ret_set, out_set);
+    EXPECT_EQ(out_set, ret_set);
 }
 
 TEST(groupV, t3) {
@@ -67,7 +67,7 @@ TEST(groupV, t3) {
     Solution sl;
     auto ret = sl.GroupAnagrams(strs);
     set<vector<string>> const ret_set(ret.begin(), ret.end());
-    EXPECT_EQ(ret_set, out_set);
+    EXPECT_EQ(out_set, ret_set);
 }
 
 }  // namespace

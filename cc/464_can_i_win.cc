@@ -68,7 +68,7 @@ TEST(CanIWin, t1) {
 
     Solution s;
     bool const ret = s.CanIWin(max_choosable_integerer, desired_total);
-    EXPECT_EQ(ret, expected);
+    EXPECT_EQ(expected, ret);
 }
 
 TEST(CanIWin, t2) {
@@ -77,7 +77,7 @@ TEST(CanIWin, t2) {
 
     Solution s;
     bool const ret = s.CanIWin(max_choosable_integer, desired_total);
-    EXPECT_EQ(ret, expected);
+    EXPECT_EQ(expected, ret);
 }
 
 TEST(CanIWin, t3) {
@@ -86,7 +86,7 @@ TEST(CanIWin, t3) {
 
     Solution s;
     bool const ret = s.CanIWin(max_choosable_integer, desired_total);
-    EXPECT_EQ(ret, expected);
+    EXPECT_EQ(expected, ret);
 }
 
 }  // namespace

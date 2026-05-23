@@ -74,10 +74,10 @@ TEST(T0, t1) {
     vector<int> const output = {9, 5, 3, 10, 10, 12, 14};
     Solution sl;
     auto ret = sl.PivotArray(nums, pivot);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 
     ret = sl.PivotArrayV2(nums, pivot);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
     // Explanation:
     // The elements 9, 5, and 3 are less than the pivot so they are on the left
     // side of the array. The elements 12 and 14 are greater than the pivot so
@@ -93,10 +93,10 @@ TEST(T0, t2) {
     vector<int> const output = {-3, 2, 4, 3};
     Solution sl;
     auto ret = sl.PivotArray(nums, pivot);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 
     ret = sl.PivotArrayV2(nums, pivot);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
     // Explanation:
     // The element -3 is less than the pivot so it is on the left side of the
     // array.

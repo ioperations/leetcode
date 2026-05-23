@@ -154,7 +154,7 @@ TEST(ValidateIpAddress, t0) {
     // Explanation: This is a valid IPv4 address, return "IPv4".
     Solution sl;
     auto ret = sl.ValidIpAddress(query_ip);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 TEST(ValidateIpAddress, t1) {
     std::string const query_ip = "172.16.254.1";
@@ -162,7 +162,7 @@ TEST(ValidateIpAddress, t1) {
     // Explanation: This is a valid IPv4 address, return "IPv4".
     Solution sl;
     auto ret = sl.ValidIpAddress(query_ip);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(ValidateIpAddress, t2) {
@@ -171,7 +171,7 @@ TEST(ValidateIpAddress, t2) {
     // Explanation: This is a valid IPv6 address, return "IPv6".
     Solution sl;
     auto ret = sl.ValidIpAddress(query_ip);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(ValidateIpAddress, t3) {
@@ -180,7 +180,7 @@ TEST(ValidateIpAddress, t3) {
     // Explanation: This is a valid IPv6 address, return "IPv6".
     Solution sl;
     auto ret = sl.ValidIpAddress(query_ip);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(ValidateIpAddress, t4) {
@@ -189,7 +189,7 @@ TEST(ValidateIpAddress, t4) {
     // Explanation: This is a valid IPv6 address, return "IPv6".
     Solution sl;
     auto ret = sl.ValidIpAddress(query_ip);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(ValidateIpAddress, t5) {
@@ -198,7 +198,7 @@ TEST(ValidateIpAddress, t5) {
     // Explanation: This is a valid IPv6 address, return "IPv6".
     Solution sl;
     auto ret = sl.ValidIpAddress(query_ip);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(ValidateIpAddress, t6) {
@@ -207,7 +207,7 @@ TEST(ValidateIpAddress, t6) {
     // Explanation: This is a valid IPv6 address, return "IPv6".
     Solution sl;
     auto ret = sl.ValidIpAddress(query_ip);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(ValidateIpAddress, t7) {
@@ -216,7 +216,7 @@ TEST(ValidateIpAddress, t7) {
     // Explanation: This is a valid IPv6 address, return "IPv6".
     Solution sl;
     auto ret = sl.ValidIpAddress(query_ip);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(ValidateIpAddress, t8) {
@@ -225,7 +225,7 @@ TEST(ValidateIpAddress, t8) {
     // Explanation: This is a valid IPv6 address, return "IPv6".
     Solution sl;
     auto ret = sl.ValidIpAddress(query_ip);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(ValidateIpAddressV2, t3) {
@@ -234,7 +234,7 @@ TEST(ValidateIpAddressV2, t3) {
     // Explanation: This is neither a IPv4 address nor a IPv6 address.
     Solution sl;
     auto ret = sl.ValidIpAddress(query_ip);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 }  // namespace

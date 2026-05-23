@@ -59,7 +59,7 @@ TEST(BestTimeToBuyAndSellStock, t1) {
     Solution const s;
     int const ret = s.MaxProfit(prices);
 
-    EXPECT_EQ(ret, expected);
+    EXPECT_EQ(expected, ret);
 }
 
 TEST(BestTimeToBuyAndSellStock, t2) {
@@ -69,7 +69,7 @@ TEST(BestTimeToBuyAndSellStock, t2) {
     Solution const s;
     int const ret = s.MaxProfit(prices);
 
-    EXPECT_EQ(ret, expected);
+    EXPECT_EQ(expected, ret);
 }
 
 }  // namespace

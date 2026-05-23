@@ -114,7 +114,7 @@ TEST(NaryTreeLevelOrderTraversal, t1) {
     Node* tree = ConstructNode(root);
     Solution sl;
     auto ret = sl.LevelOrder(tree);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
     FreeNode(tree);
 }
 
@@ -129,7 +129,7 @@ TEST(NaryTreeLevelOrderTraversal, t2) {
     Node* tree = ConstructNode(root);
     Solution sl;
     auto ret = sl.LevelOrder(tree);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
     FreeNode(tree);
 }
 

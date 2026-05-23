@@ -52,7 +52,7 @@ TEST(T0, t1) {
     Solution sl;
     auto ret = sl.FindMissingAndRepeatedValues(grid);
     // Number 2 is repeated and number 4 is missing so the answer is [2,4].
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(T0, t2) {
@@ -65,7 +65,7 @@ TEST(T0, t2) {
 
     Solution sl;
     auto ret = sl.FindMissingAndRepeatedValues(grid);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 int main(int argc, char* argv[]) {

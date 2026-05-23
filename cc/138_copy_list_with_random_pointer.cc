@@ -144,7 +144,7 @@ TEST(Base, t1) {
             {7, null}, {13, 0}, {11, 4}, {10, 2}, {1, 0}};
     Node* node = ConstructNode(head);
     auto vec = RestoreNode(node);
-    EXPECT_EQ(output, vec);
+    EXPECT_EQ(vec, output);
 }
 
 TEST(CopyListWithRandomPointer, t1) {
@@ -159,7 +159,7 @@ TEST(CopyListWithRandomPointer, t1) {
     Node* ret = sl.CopyRandomList(node);
     auto vec = RestoreNode(ret);
     RestoreNode(node);  // do the free things
-    EXPECT_EQ(output, vec);
+    EXPECT_EQ(vec, output);
 }
 
 TEST(CopyListWithRandomPointer, t2) {
@@ -172,7 +172,7 @@ TEST(CopyListWithRandomPointer, t2) {
     Node* ret = sl.CopyRandomList(node);
     auto vec = RestoreNode(ret);
     RestoreNode(node);  // do the free things
-    EXPECT_EQ(output, vec);
+    EXPECT_EQ(vec, output);
 }
 
 TEST(CopyListWithRandomPointer, t3) {
@@ -187,7 +187,7 @@ TEST(CopyListWithRandomPointer, t3) {
     Node* ret = sl.CopyRandomList(node);
     auto vec = RestoreNode(ret);
     RestoreNode(node);  // do the free things
-    EXPECT_EQ(output, vec);
+    EXPECT_EQ(vec, output);
 }
 
 }  // namespace

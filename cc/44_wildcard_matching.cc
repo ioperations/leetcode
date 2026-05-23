@@ -58,21 +58,21 @@ TEST(wildcardV, t1) {
     std::string s = "aa", p = "a";
     Solution sl;
     bool const ret = sl.IsMatch(s, p);
-    EXPECT_EQ(ret, false);
+    EXPECT_EQ(false, ret);
 }
 
 TEST(wildcardV, t2) {
     std::string s = "aa", p = "*";
     Solution sl;
     bool const ret = sl.IsMatch(s, p);
-    EXPECT_EQ(ret, true);
+    EXPECT_EQ(true, ret);
 }
 
 TEST(wildcardV, t3) {
     std::string s = "cb", p = "?a";
     Solution sl;
     bool const ret = sl.IsMatch(s, p);
-    EXPECT_EQ(ret, false);
+    EXPECT_EQ(false, ret);
 }
 
 }  // namespace

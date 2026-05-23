@@ -109,10 +109,10 @@ TEST(NetworkDelayTime, t1) {
 
     Solution sl;
     int ret = sl.NetworkDelayTime(times, n, k);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 
     ret = sl.NetworkDelayTimeV1(times, n, k);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(NetworkDelayTime, t2) {
@@ -122,9 +122,9 @@ TEST(NetworkDelayTime, t2) {
 
     Solution sl;
     int ret = sl.NetworkDelayTime(times, n, k);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
     ret = sl.NetworkDelayTimeV1(times, n, k);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(NetworkDelayTime, t3) {
@@ -134,10 +134,10 @@ TEST(NetworkDelayTime, t3) {
 
     Solution sl;
     int ret = sl.NetworkDelayTime(times, n, k);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 
     ret = sl.NetworkDelayTimeV1(times, n, k);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 }  // namespace

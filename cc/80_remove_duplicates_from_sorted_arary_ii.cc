@@ -58,10 +58,10 @@ TEST(RemoveDuplicatesFromSortedAraryIi, t1) {
     Solution sl;
     int const ret = sl.RemoveDuplicates(nums);
 
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 
     for (int i = 0; i < ret; i++) {
-        EXPECT_EQ(ret_expected.at(i), nums.at(i));
+        EXPECT_EQ(nums.at(i), ret_expected.at(i));
     }
 }
 
@@ -78,10 +78,10 @@ TEST(RemoveDuplicatesFromSortedAraryIi, t2) {
     Solution sl;
     int const ret = sl.RemoveDuplicates(nums);
 
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 
     for (int i = 0; i < ret; i++) {
-        EXPECT_EQ(ret_expected.at(i), nums.at(i));
+        EXPECT_EQ(nums.at(i), ret_expected.at(i));
     }
 }
 

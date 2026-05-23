@@ -83,7 +83,7 @@ TEST(CheckIfThereIsAValidPartitionForTheArray, t1) {
     // [4,5,6]. This partition is valid, so we return true.
     Solution sl;
     bool const ret = sl.ValidPartition(nums);
-    EXPECT_EQ(output, ret);
+    EXPECT_EQ(ret, output);
 }
 
 TEST(CheckIfThereIsAValidPartitionForTheArray, t2) {
@@ -92,6 +92,6 @@ TEST(CheckIfThereIsAValidPartitionForTheArray, t2) {
     // There is no valid partition for this array.
     Solution sl;
     bool const ret = sl.ValidPartition(nums);
-    EXPECT_EQ(output, ret);
+    EXPECT_EQ(ret, output);
 }
 }  // namespace

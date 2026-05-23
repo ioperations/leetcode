@@ -50,28 +50,28 @@ TEST(ContainerWithMostWater, t1) {
     Solution const s;
     std::vector<int> height{1, 1};
     int const ret = s.MaxAreaV2(height);
-    EXPECT_EQ(ret, 1);
+    EXPECT_EQ(1, ret);
 }
 
 TEST(ContainerWithMostWater, t2) {
     Solution const s;
     std::vector<int> height{1, 8, 6, 2, 5, 4, 8, 3, 7};
     const int ret = s.MaxAreaV2(height);
-    EXPECT_EQ(ret, 49);
+    EXPECT_EQ(49, ret);
 }
 
 TEST(ContainerWithMostWaterV2, t1) {
     Solution const s;
     std::vector<int> height{1, 1};
     const int ret = s.MaxAreaV2(height);
-    EXPECT_EQ(ret, 1);
+    EXPECT_EQ(1, ret);
 }
 
 TEST(ContainerWithMostWaterV2, t2) {
     Solution const s;
     std::vector<int> height{1, 8, 6, 2, 5, 4, 8, 3, 7};
     const int ret = s.MaxAreaV2(height);
-    EXPECT_EQ(ret, 49);
+    EXPECT_EQ(49, ret);
 }
 
 }  // namespace

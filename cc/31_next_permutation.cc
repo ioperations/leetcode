@@ -61,7 +61,7 @@ TEST(nextV, t1) {
     vector<int> const output = {1, 3, 2};
     Solution const sl;
     sl.NextPermutation(nums);
-    EXPECT_EQ(nums, output);
+    EXPECT_EQ(output, nums);
 }
 
 TEST(nextV, t2) {
@@ -69,7 +69,7 @@ TEST(nextV, t2) {
     vector<int> const output = {1, 2, 3};
     Solution const sl;
     sl.NextPermutation(nums);
-    EXPECT_EQ(nums, output);
+    EXPECT_EQ(output, nums);
 }
 
 TEST(nextV, t3) {
@@ -77,7 +77,7 @@ TEST(nextV, t3) {
     vector<int> const output = {1, 5, 1};
     Solution const sl;
     sl.NextPermutation(nums);
-    EXPECT_EQ(nums, output);
+    EXPECT_EQ(output, nums);
 }
 
 }  // namespace

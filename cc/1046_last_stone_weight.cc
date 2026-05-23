@@ -59,13 +59,13 @@ TEST(LastStoneWeight, t1) {
     std::vector<int> stones{2, 7, 4, 1, 8, 1};
     Solution const s;
     int const ret = s.LastStoneWeight(stones);
-    EXPECT_EQ(ret, 1);
+    EXPECT_EQ(1, ret);
 }
 
 TEST(LastStoneWeight, t2) {
     std::vector<int> stones{1};
     Solution const s;
     int const ret = s.LastStoneWeight(stones);
-    EXPECT_EQ(ret, 1);
+    EXPECT_EQ(1, ret);
 }
 }  // namespace

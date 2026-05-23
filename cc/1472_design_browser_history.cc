@@ -202,43 +202,43 @@ class BrowserHistorySysV2 {
 TEST(DesignBrowserHistoryV2, t1) {
     BrowserHistorySysV2 br("w3.huawei.com", 10);
     int ret = br.Visit("google.com");
-    EXPECT_EQ(2, ret);
+    EXPECT_EQ(ret, 2);
     auto r = br.Back();
-    EXPECT_EQ("w3.huawei.com", r);
+    EXPECT_EQ(r, "w3.huawei.com");
     r = br.Forward();
-    EXPECT_EQ("google.com", r);
+    EXPECT_EQ(r, "google.com");
     r = br.Forward();
-    EXPECT_EQ("google.com", r);
+    EXPECT_EQ(r, "google.com");
     ret = br.Visit("baidu.com");
-    EXPECT_EQ(3, ret);
+    EXPECT_EQ(ret, 3);
     ret = br.Visit("youtube.com");
-    EXPECT_EQ(4, ret);
+    EXPECT_EQ(ret, 4);
     r = br.Back();
-    EXPECT_EQ("baidu.com", r);
+    EXPECT_EQ(r, "baidu.com");
     ret = br.Visit("baidu.com");
-    EXPECT_EQ(4, ret);
+    EXPECT_EQ(ret, 4);
 
     r = br.Back();
-    EXPECT_EQ("google.com", r);
+    EXPECT_EQ(r, "google.com");
     ret = br.Visit("mails.huawei.com");
-    EXPECT_EQ(3, ret);
+    EXPECT_EQ(ret, 3);
 }
 
 TEST(DesignBrowserHistoryV2, t2) {
     BrowserHistorySysV2 br("www.huawei.com", 3);
     int ret = br.Visit("w3.huawei.com");
-    EXPECT_EQ(2, ret);
+    EXPECT_EQ(ret, 2);
     ret = br.Visit("w4.huawei.com");
-    EXPECT_EQ(3, ret);
+    EXPECT_EQ(ret, 3);
     auto r = br.Back();
-    EXPECT_EQ("w3.huawei.com", r);
+    EXPECT_EQ(r, "w3.huawei.com");
     ret = br.Visit("www.huawei.com");
-    EXPECT_EQ(3, ret);
+    EXPECT_EQ(ret, 3);
     ret = br.Visit("w5.huawei.com");
-    EXPECT_EQ(3, ret);
+    EXPECT_EQ(ret, 3);
 
     ret = br.Visit("w6.huawei.com");
-    EXPECT_EQ(3, ret);
+    EXPECT_EQ(ret, 3);
 }
 
 /**
@@ -257,23 +257,23 @@ TEST(DesignBrowserHistory, t1) {
     browser_history->Visit("facebook.com");
 
     auto ret = browser_history->Back(2);
-    EXPECT_EQ(ret, "leetcode.com");
+    EXPECT_EQ("leetcode.com", ret);
 
     browser_history->Visit("linkedin.com");
 
     // You are in "linkedin.com", you cannot move forward any steps.
     auto ret1 = browser_history->Forward(2);
-    EXPECT_EQ(ret1, "linkedin.com");
+    EXPECT_EQ("linkedin.com", ret1);
 
     // "google.com". return "google.com"
     auto ret2 = browser_history->Back(2);
 
-    EXPECT_EQ(ret2, "leetcode.com");
+    EXPECT_EQ("leetcode.com", ret2);
     // You are in "google.com", you can move back only one step to
     // "leetcode.com". return "leetcode.com"
     auto ret3 = browser_history->Back(7);
 
-    EXPECT_EQ(ret3, "leetcode.com");
+    EXPECT_EQ("leetcode.com", ret3);
     delete browser_history;
 }
 
@@ -295,17 +295,17 @@ TEST(DesignBrowserHistory, t2) {
     // You are in "youtube.com", move back to "facebook.com" return
     // "facebook.com"
     auto ret = browser_history->Back(1);
-    EXPECT_EQ(ret, "facebook.com");
+    EXPECT_EQ("facebook.com", ret);
 
     // You are in "facebook.com", move back to "google.com" return "google.com"
     auto ret1 = browser_history->Back(1);
-    EXPECT_EQ(ret1, "google.com");
+    EXPECT_EQ("google.com", ret1);
 
     // You are in "google.com", move forward to "facebook.com" return
     // "facebook.com"
     auto ret2 = browser_history->Forward(1);
 
-    EXPECT_EQ(ret2, "facebook.com");
+    EXPECT_EQ("facebook.com", ret2);
 
     // You are in "facebook.com". Visit "linkedin.com"
     browser_history->Visit("linkedin.com");
@@ -316,12 +316,12 @@ TEST(DesignBrowserHistory, t2) {
     // "google.com". return "google.com"
     auto ret4 = browser_history->Back(2);
 
-    EXPECT_EQ(ret4, "google.com");
+    EXPECT_EQ("google.com", ret4);
     // You are in "google.com", you can move back only one step to
     // "leetcode.com". return "leetcode.com"
     auto ret5 = browser_history->Back(7);
 
-    EXPECT_EQ(ret5, "leetcode.com");
+    EXPECT_EQ("leetcode.com", ret5);
     delete browser_history;
 }
 

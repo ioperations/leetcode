@@ -95,7 +95,7 @@ TEST(T, t1) {
         std::vector<int> ptr_p;
         InOrderTraverse(&node,
                         [&](TreeNode* node) { ptr_p.push_back(node->val); });
-        EXPECT_EQ(ret_p, ptr_p);
+        EXPECT_EQ(ptr_p, ret_p);
         i++;
     }
 }

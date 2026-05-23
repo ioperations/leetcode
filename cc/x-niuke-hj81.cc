@@ -41,7 +41,7 @@ TEST(XNiukeHjv2, t2) {
     Func(le, more);
     std::string const out = testing::internal::GetCapturedStdout();
     std::string const expected = "true\n";
-    EXPECT_EQ(out, expected);
+    EXPECT_EQ(expected, out);
 }
 
 TEST(XNiukeHjv2, t3) {
@@ -51,7 +51,7 @@ TEST(XNiukeHjv2, t3) {
     Func(le, more);
     std::string const out = testing::internal::GetCapturedStdout();
     std::string const expected = "false\n";
-    EXPECT_EQ(out, expected);
+    EXPECT_EQ(expected, out);
 }
 
 }  // namespace

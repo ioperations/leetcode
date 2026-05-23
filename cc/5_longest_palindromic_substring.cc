@@ -66,7 +66,7 @@ TEST(LongestPalindromicSubstring, t2) {
     Solution const sl;
 
     auto ret = sl.LongestPalindrome(s);
-    EXPECT_EQ(ret, "bb");
+    EXPECT_EQ("bb", ret);
 }
 
 TEST(LongestPalindromicSubstring, t3) {
@@ -82,6 +82,6 @@ TEST(LongestPalindromicSubstring, t4) {
     Solution const sl;
 
     auto ret = sl.LongestPalindrome(s);
-    EXPECT_EQ(ret, "bb");
+    EXPECT_EQ("bb", ret);
 }
 }  // namespace

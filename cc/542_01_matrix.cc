@@ -64,7 +64,7 @@ TEST(V, t1) {
         {0, 0, 0}, {0, 1, 0}, {0, 0, 0}};
     Solution sl;
     auto ret = sl.UpdateMatrix(mat);
-    EXPECT_EQ(output, ret);
+    EXPECT_EQ(ret, output);
 }
 
 TEST(V, t2) {
@@ -74,7 +74,7 @@ TEST(V, t2) {
         {0, 0, 0}, {0, 1, 0}, {1, 2, 1}};
     Solution sl;
     auto ret = sl.UpdateMatrix(mat);
-    EXPECT_EQ(output, ret);
+    EXPECT_EQ(ret, output);
 }
 
 }  // namespace

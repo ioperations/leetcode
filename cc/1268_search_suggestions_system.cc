@@ -172,7 +172,7 @@ TEST(SearchSuggestionsSystem, t1) {
                                      {"mouse", "mousepad"}};
     vector<vector<string>> const ret =
         sl.SuggestedProducts(products, search_word);
-    EXPECT_EQ(ret, out);
+    EXPECT_EQ(out, ret);
 }
 
 TEST(SearchSuggestionsSystem, t2) {
@@ -185,7 +185,7 @@ TEST(SearchSuggestionsSystem, t2) {
     };
     vector<vector<string>> const ret =
         sl.SuggestedProducts(products, search_word);
-    EXPECT_EQ(ret, out);
+    EXPECT_EQ(out, ret);
 }
 
 TEST(SearchSuggestionsSystem, t3) {
@@ -200,7 +200,7 @@ TEST(SearchSuggestionsSystem, t3) {
                                      {"bags"}};
     vector<vector<string>> const ret =
         sl.SuggestedProducts(products, search_word);
-    EXPECT_EQ(ret, out);
+    EXPECT_EQ(out, ret);
 }
 
 TEST(SearchSuggestionsSystemV2, t1) {
@@ -216,7 +216,7 @@ TEST(SearchSuggestionsSystemV2, t1) {
                                      {"mouse", "mousepad"}};
     vector<vector<string>> const ret =
         sl.SuggestedProducts(products, search_word);
-    EXPECT_EQ(ret, out);
+    EXPECT_EQ(out, ret);
 }
 
 TEST(SearchSuggestionsSystemV2, t2) {
@@ -229,7 +229,7 @@ TEST(SearchSuggestionsSystemV2, t2) {
     };
     vector<vector<string>> const ret =
         sl.SuggestedProducts(products, search_word);
-    EXPECT_EQ(ret, out);
+    EXPECT_EQ(out, ret);
 }
 
 TEST(SearchSuggestionsSystemV2, t3) {
@@ -243,6 +243,6 @@ TEST(SearchSuggestionsSystemV2, t3) {
                                      {"bags"}};
     vector<vector<string>> const ret =
         sl.SuggestedProducts(products, search_word);
-    EXPECT_EQ(ret, out);
+    EXPECT_EQ(out, ret);
 }
 }  // namespace

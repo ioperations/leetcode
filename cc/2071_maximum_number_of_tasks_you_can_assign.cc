@@ -145,7 +145,7 @@ TEST(MaximumNumberOfTasksYouCanAssign, t1) {
     int const output = 3;
     Solution sl;
     int const ret = sl.MaxTaskAssign(tasks, workers, pills, strength);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
     // Explanation:
     // We can assign the magical pill and tasks as follows:
     // - Give the magical pill to worker 0.
@@ -160,7 +160,7 @@ TEST(MaximumNumberOfTasksYouCanAssign, t2) {
     int const output = 1;
     Solution sl;
     int const ret = sl.MaxTaskAssign(tasks, workers, pills, strength);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
     /*
         We can assign the magical pill and tasks as follows:
         - Give the magical pill to worker 0.
@@ -174,7 +174,7 @@ TEST(MaximumNumberOfTasksYouCanAssign, t3) {
     int const output = 2;
     Solution sl;
     int const ret = sl.MaxTaskAssign(tasks, workers, pills, strength);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
     /*
         We can assign the magical pills and tasks as follows:
         - Give the magical pill to worker 0 and worker 1.

@@ -85,7 +85,7 @@ TEST(MaximiumProductOfWordLengths, t1) {
     // Explanation: The two words can be "abcw", "xtfn".
     Solution sl;
     int const ret = sl.MaxProduct(words);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(MaximiumProductOfWordLengths, t2) {
@@ -94,7 +94,7 @@ TEST(MaximiumProductOfWordLengths, t2) {
     // The two words can be "ab", "cd".
     Solution sl;
     int const ret = sl.MaxProduct(words);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(MaximiumProductOfWordLengths, t3) {
@@ -103,7 +103,7 @@ TEST(MaximiumProductOfWordLengths, t3) {
     // No such pair of words.
     Solution sl;
     int const ret = sl.MaxProduct(words);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 }  // namespace

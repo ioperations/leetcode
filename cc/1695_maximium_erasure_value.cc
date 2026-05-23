@@ -57,7 +57,7 @@ TEST(MaximiumErasureValue, t1) {
     Solution sl;
     int const ret = sl.MaximumUniqueSubarray(nums);
     // The optimal subarray here is [2,4,5,6].
-    EXPECT_EQ(ret, out);
+    EXPECT_EQ(out, ret);
 }
 
 TEST(MaximiumErasureValue, t2) {
@@ -67,7 +67,7 @@ TEST(MaximiumErasureValue, t2) {
     Solution sl;
     int const ret = sl.MaximumUniqueSubarray(nums);
     // The optimal subarray here is [5,2,1] or [1,2,5].
-    EXPECT_EQ(ret, out);
+    EXPECT_EQ(out, ret);
 }
 
 }  // namespace

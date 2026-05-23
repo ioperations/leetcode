@@ -54,27 +54,27 @@ TEST(StringToIntegerV2, t2) {
     const std::string s = "42";
     Solution const sl;
     const int ret = sl.MyAtoi(s);
-    EXPECT_EQ(42, ret);
+    EXPECT_EQ(ret, 42);
 }
 
 TEST(StringToIntegerV3, t2) {
     const std::string s = "    -42";
     Solution const sl;
     const int ret = sl.MyAtoi(s);
-    EXPECT_EQ(-42, ret);
+    EXPECT_EQ(ret, -42);
 }
 
 TEST(StringToIntegerV4, t2) {
     const std::string s = "4193 with words";
     Solution const sl;
     const int ret = sl.MyAtoi(s);
-    EXPECT_EQ(4193, ret);
+    EXPECT_EQ(ret, 4193);
 }
 
 TEST(T4, t2) {
     const std::string s = "words with 987";
     Solution const sl;
     const int ret = sl.MyAtoi(s);
-    EXPECT_EQ(987, ret);
+    EXPECT_EQ(ret, 987);
 }
 }  // namespace

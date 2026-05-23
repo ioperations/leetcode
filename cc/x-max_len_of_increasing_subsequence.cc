@@ -49,28 +49,28 @@ int MaxLengthOf(const int* nums, int length) {
 TEST(XMaxLenOfIncreasingSubsequenceV2, t2) {
     constexpr std::array<int, 7> z = {1, 2, 3, 4, 5, 6, 7};
     int const ret = MaxLengthOf(z.data(), static_cast<int>(z.size()));
-    EXPECT_EQ(ret, 7);
+    EXPECT_EQ(7, ret);
     EXPECT_EQ(MaxLengthOfdijizixulie(z.data(), static_cast<int>(z.size())), 1);
 }
 
 TEST(XMaxLenOfIncreasingSubsequenceV2, t3) {
     constexpr std::array<int, 7> z = {1, 9, 3, 4, 5, 6, 7};
     int const ret = MaxLengthOf(z.data(), static_cast<int>(z.size()));
-    EXPECT_EQ(ret, 6);
+    EXPECT_EQ(6, ret);
     EXPECT_EQ(MaxLengthOfdijizixulie(z.data(), static_cast<int>(z.size())), 2);
 }
 
 TEST(XMaxLenOfIncreasingSubsequenceV2, t4) {
     constexpr std::array<int, 7> z = {9, 9, 3, 4, 5, 6, 7};
     int const ret = MaxLengthOf(z.data(), static_cast<int>(z.size()));
-    EXPECT_EQ(ret, 5);
+    EXPECT_EQ(5, ret);
     EXPECT_EQ(MaxLengthOfdijizixulie(z.data(), static_cast<int>(z.size())), 2);
 }
 
 TEST(XMaxLenOfIncreasingSubsequenceV3, t4) {
     constexpr std::array<int, 7> z = {-1, 9, 3, 4, 5, 6, 7};
     int const ret = MaxLengthOf(z.data(), static_cast<int>(z.size()));
-    EXPECT_EQ(ret, 6);
+    EXPECT_EQ(6, ret);
     EXPECT_EQ(MaxLengthOfdijizixulie(z.data(), static_cast<int>(z.size())), 2);
 }
 

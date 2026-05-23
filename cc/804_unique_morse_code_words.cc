@@ -71,7 +71,7 @@ TEST(UniqueMorseCodeWords, t1) {
     Solution sl;
 
     int const ret = sl.UniqueMorseRepresentations(words);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(UniqueMorseCodeWords, t2) {
@@ -80,6 +80,6 @@ TEST(UniqueMorseCodeWords, t2) {
     Solution sl;
 
     int const ret = sl.UniqueMorseRepresentations(words);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 }  // namespace

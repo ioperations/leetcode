@@ -67,7 +67,7 @@ TEST(InvertBinaryTree, t1) {
 
     std::vector<int> vec1;
     BfsSearch(head, vec1);
-    EXPECT_EQ(vec1, output);
+    EXPECT_EQ(output, vec1);
     FreeTreeNode(head);
 };
 
@@ -88,7 +88,7 @@ TEST(InvertBinaryTree, t2) {
 
     std::vector<int> vec1;
     BfsSearch(head, vec1);
-    EXPECT_EQ(vec1, output);
+    EXPECT_EQ(output, vec1);
     FreeTreeNode(head);
 };
 
@@ -103,7 +103,7 @@ TEST(InvertBinaryTree, t3) {
 
     std::vector<int> vec1;
     BfsSearch(head, vec1);
-    EXPECT_EQ(vec1, output);
+    EXPECT_EQ(output, vec1);
     FreeTreeNode(head);
 };
 

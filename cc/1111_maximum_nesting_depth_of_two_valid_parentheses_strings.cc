@@ -59,22 +59,22 @@ TEST(MaximumNestingDepthOfTwoValidParenthesesStrings, t1) {
     Solution s;
     std::vector<int> const ret = s.MaxDepthAfterSplit("(()())");
 
-    EXPECT_EQ(ret, (std::vector<int>{0, 1, 1, 1, 1, 0}));
+    EXPECT_EQ((std::vector<int>{0, 1, 1, 1, 1, 0}), ret);
 }
 
 TEST(MaximumNestingDepthOfTwoValidParenthesesStrings, t2) {
     Solution s;
     std::vector<int> const ret = s.MaxDepthAfterSplit("()(())()");
 
-    EXPECT_EQ(ret, (std::vector<int>{0, 0, 0, 1, 1, 0, 0, 0}));
+    EXPECT_EQ((std::vector<int>{0, 0, 0, 1, 1, 0, 0, 0}), ret);
 }
 
 TEST(MaximumNestingDepthOfTwoValidParenthesesStrings, t3) {
     Solution s;
     std::vector<int> const ret = s.MaxDepthAfterSplit("()(()())()()()()()(())");
 
-    EXPECT_EQ(ret, (std::vector<int>{0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0,
-                                     0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0}));
+    EXPECT_EQ((std::vector<int>{0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0,
+                                     0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0}), ret);
 }
 
 }  // namespace

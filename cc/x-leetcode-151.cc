@@ -56,32 +56,32 @@ TEST(xleetcodeV2, t2) {
     const std::string s(" hello world ");
     Solution slu;
     const std::string ret = slu.ReverseWords(s);
-    EXPECT_EQ(ret, std::string("world hello"));
+    EXPECT_EQ(std::string("world hello"), ret);
 }
 
 TEST(xleetcodeV2, t3) {
     std::string const s("a good  example");
     Solution slu;
     std::string const ret = slu.ReverseWords(s);
-    EXPECT_EQ(ret, std::string("example good a"));
+    EXPECT_EQ(std::string("example good a"), ret);
 }
 
 TEST(xleetcodeV2, t4) {
     std::string const s("the sky is blue");
     Solution slu;
     std::string const ret = slu.ReverseWords(s);
-    EXPECT_EQ(ret, std::string("blue is sky the"));
+    EXPECT_EQ(std::string("blue is sky the"), ret);
 }
 TEST(xleetcodeV2, t5) {
     std::string const s(" Bob  Loves Alice ");
     Solution slu;
     std::string const ret = slu.ReverseWords(s);
-    EXPECT_EQ(ret, std::string("Alice Loves Bob"));
+    EXPECT_EQ(std::string("Alice Loves Bob"), ret);
 }
 TEST(xleetcodeV2, t6) {
     std::string const s("Alice does not even like bob");
     Solution slu;
     std::string const ret = slu.ReverseWords(s);
-    EXPECT_EQ(ret, std::string("bob like even not does Alice"));
+    EXPECT_EQ(std::string("bob like even not does Alice"), ret);
 }
 }  // namespace

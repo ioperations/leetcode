@@ -95,7 +95,7 @@ TEST(Utf8Validation, t1) {
 
     Solution sl;
     bool const ret = sl.ValidUtf8(data);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(Utf8Validation, t2) {
@@ -109,7 +109,7 @@ TEST(Utf8Validation, t2) {
     // invalid.
     Solution sl;
     bool const ret = sl.ValidUtf8(data);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 }  // namespace

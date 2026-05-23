@@ -43,7 +43,7 @@ TEST(toeplitzV, t1) {
     */
     Solution sl;
     bool const ret = sl.IsToeplitzMatrix(matrix);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(toeplitzV, t2) {
@@ -55,7 +55,7 @@ TEST(toeplitzV, t2) {
     */
     Solution sl;
     bool const ret = sl.IsToeplitzMatrix(matrix);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 }  // namespace

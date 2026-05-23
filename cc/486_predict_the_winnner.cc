@@ -97,10 +97,10 @@ TEST(PredictTheWinnner, t1) {
 
     Solution sl{};
     bool ret = sl.PredictTheWinner(nums);
-    EXPECT_EQ(ret, expected);
+    EXPECT_EQ(expected, ret);
 
     ret = sl.PredictTheWinnerV2(nums);
-    EXPECT_EQ(ret, expected);
+    EXPECT_EQ(expected, ret);
 }
 
 TEST(PredictTheWinnner, t2) {
@@ -117,10 +117,10 @@ TEST(PredictTheWinnner, t2) {
 
     Solution sl{};
     bool ret = sl.PredictTheWinner(nums);
-    EXPECT_EQ(ret, expected);
+    EXPECT_EQ(expected, ret);
 
     ret = sl.PredictTheWinnerV2(nums);
-    EXPECT_EQ(ret, expected);
+    EXPECT_EQ(expected, ret);
 }
 
 }  // namespace

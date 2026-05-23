@@ -57,7 +57,7 @@ TEST(CountAndSay, t1) {
     Solution const s;
     auto ret = s.CountAndSay(n);
 
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
     // countAndSay(1) = "1"
     // countAndSay(2) = say "1" = one 1 = "11"
     // countAndSay(3) = say "11" = two 1's = "21"
@@ -70,7 +70,7 @@ TEST(CountAndSay, t2) {
     Solution const s;
     auto ret = s.CountAndSay(n);
 
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
     // Explanation : This is the base case.
 }
 }  // namespace

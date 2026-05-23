@@ -52,7 +52,7 @@ TEST(LowestCommonAncestorOfABinaryTree, t1) {
     auto* pn = FindInTree(node, p);
     auto* qn = FindInTree(node, q);
     auto* ret = sl.LowestCommonAncestor(node, pn, qn);
-    EXPECT_EQ(ret->val, output);
+    EXPECT_EQ(output, ret->val);
     FreeTreeNode(node);
 }
 
@@ -66,7 +66,7 @@ TEST(LowestCommonAncestorOfABinaryTree, t2) {
     auto* pn = FindInTree(node, p);
     auto* qn = FindInTree(node, q);
     auto* ret = sl.LowestCommonAncestor(node, pn, qn);
-    EXPECT_EQ(ret->val, output);
+    EXPECT_EQ(output, ret->val);
     FreeTreeNode(node);
 }
 
@@ -80,7 +80,7 @@ TEST(LowestCommonAncestorOfABinaryTree, t3) {
     auto* pn = FindInTree(node, p);
     auto* qn = FindInTree(node, q);
     auto* ret = sl.LowestCommonAncestor(node, pn, qn);
-    EXPECT_EQ(ret->val, output);
+    EXPECT_EQ(output, ret->val);
     FreeTreeNode(node);
 }
 

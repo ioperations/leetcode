@@ -67,7 +67,7 @@ TEST(permutationsV, t1) {
     auto ret = sl.PermuteUnique(nums);
     std::set<std::vector<int>> const ret_set(ret.begin(), ret.end());
 
-    EXPECT_EQ(ret_set, output_set);
+    EXPECT_EQ(output_set, ret_set);
 }
 
 TEST(permutationsiiV2, t1) {
@@ -79,7 +79,7 @@ TEST(permutationsiiV2, t1) {
     auto ret = sl.PermuteUniqueV1(nums);
     std::set<std::vector<int>> const ret_set(ret.begin(), ret.end());
 
-    EXPECT_EQ(ret_set, output_set);
+    EXPECT_EQ(output_set, ret_set);
 }
 
 TEST(permutationsV, t2) {
@@ -92,7 +92,7 @@ TEST(permutationsV, t2) {
     auto ret = sl.PermuteUnique(nums);
     std::set<std::vector<int>> const ret_set(ret.begin(), ret.end());
 
-    EXPECT_EQ(ret_set, output_set);
+    EXPECT_EQ(output_set, ret_set);
 }
 
 TEST(permutationsiiV2, t2) {
@@ -105,7 +105,7 @@ TEST(permutationsiiV2, t2) {
     auto ret = sl.PermuteUniqueV1(nums);
     std::set<std::vector<int>> const ret_set(ret.begin(), ret.end());
 
-    EXPECT_EQ(ret_set, output_set);
+    EXPECT_EQ(output_set, ret_set);
 }
 
 static void BenchMarkStlFunction(benchmark::State& state) {
@@ -119,7 +119,7 @@ static void BenchMarkStlFunction(benchmark::State& state) {
         auto ret = sl.PermuteUnique(nums);
         std::set<std::vector<int>> const ret_set(ret.begin(), ret.end());
 
-        EXPECT_EQ(ret_set, output_set);
+        EXPECT_EQ(output_set, ret_set);
     }
 }
 BENCHMARK(BenchMarkStlFunction);
@@ -135,7 +135,7 @@ static void BenchMarkLocalImpl(benchmark::State& state) {
         auto ret = sl.PermuteUniqueV1(nums);
         std::set<std::vector<int>> const ret_set(ret.begin(), ret.end());
 
-        EXPECT_EQ(ret_set, output_set);
+        EXPECT_EQ(output_set, ret_set);
     }
 }
 BENCHMARK(BenchMarkLocalImpl);

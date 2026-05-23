@@ -35,21 +35,21 @@ TEST(FirstUniqueCharacterInAString, t1) {
     string const s = "leetcode";
     Solution const sl;
     int const ret = sl.FirstUniqChar(s);
-    EXPECT_EQ(ret, 0);
+    EXPECT_EQ(0, ret);
 }
 
 TEST(FirstUniqueCharacterInAString, t2) {
     string const s = "loveleetcode";
     Solution const sl;
     int const ret = sl.FirstUniqChar(s);
-    EXPECT_EQ(ret, 2);
+    EXPECT_EQ(2, ret);
 }
 
 TEST(FirstUniqueCharacterInAString, t3) {
     string const s = "aabb";
     Solution const sl;
     int const ret = sl.FirstUniqChar(s);
-    EXPECT_EQ(ret, -1);
+    EXPECT_EQ(-1, ret);
 }
 
 }  // namespace

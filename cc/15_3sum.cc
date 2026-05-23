@@ -133,7 +133,7 @@ TEST(Sum, t2) {
     const std::vector<std::vector<int>> expected = {};
     Solution s;
     const auto ret = s.ThreeSum(nums);
-    // EXPECT_EQ(ret, expected);
+    // EXPECT_EQ(expected, ret);
 }
 
 TEST(Sum, t3) {
@@ -141,7 +141,7 @@ TEST(Sum, t3) {
     const std::vector<std::vector<int>> expected = {};
     Solution s;
     const auto ret = s.ThreeSum(nums);
-    EXPECT_EQ(ret, expected);
+    EXPECT_EQ(expected, ret);
 }
 
 }  // namespace

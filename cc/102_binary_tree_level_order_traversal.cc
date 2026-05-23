@@ -76,7 +76,7 @@ TEST(BinaryTreeLevelOrderTraversal, t1) {
     Solution sl;
     auto* tree = ConstructBinaryTree(root);
     auto ret = sl.LevelOrder(tree);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
     FreeTreeNode(tree);
 }
 
@@ -86,7 +86,7 @@ TEST(BinaryTreeLevelOrderTraversal, t2) {
     Solution sl;
     auto* tree = ConstructBinaryTree(root);
     auto ret = sl.LevelOrder(tree);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
     FreeTreeNode(tree);
 }
 
@@ -96,7 +96,7 @@ TEST(BinaryTreeLevelOrderTraversal, t3) {
     Solution sl;
     auto* tree = ConstructBinaryTree(root);
     auto ret = sl.LevelOrder(tree);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
     FreeTreeNode(tree);
 }
 

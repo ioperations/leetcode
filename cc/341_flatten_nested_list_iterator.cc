@@ -119,8 +119,8 @@ TEST(FlattenNestedListIterator, t1) {
     NestedInteger i2(2);
     n.AddNestedInteger(i2);
     n.AddNestedInteger(n1);
-    EXPECT_EQ(n.IsInteger(), false);
-    EXPECT_EQ(n.GetList().size(), 3);
+    EXPECT_EQ(false, n.IsInteger());
+    EXPECT_EQ(3, n.GetList().size());
 };
 
 TEST(FlattenNestedListIterator, t2) {
@@ -150,7 +150,7 @@ TEST(FlattenNestedListIterator, t2) {
     while (i.hasNext()) {
         v.push_back(i.next());
     }
-    EXPECT_EQ(v, output);
+    EXPECT_EQ(output, v);
 }
 
 }  // namespace

@@ -88,10 +88,10 @@ TEST(CountSortedVowelStrings, t1) {
 
     Solution sl;
     int ret = sl.CountVowelStrings(n);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 
     ret = sl.CountVowelStringsV2(n);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(CountSortedVowelStrings, t2) {
@@ -105,10 +105,10 @@ TEST(CountSortedVowelStrings, t2) {
 
     Solution sl;
     int ret = sl.CountVowelStrings(n);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 
     ret = sl.CountVowelStringsV2(n);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(CountSortedVowelStrings, t3) {
@@ -117,10 +117,10 @@ TEST(CountSortedVowelStrings, t3) {
 
     Solution sl;
     int ret = sl.CountVowelStrings(n);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 
     ret = sl.CountVowelStringsV2(n);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 }  // namespace

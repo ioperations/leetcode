@@ -165,7 +165,7 @@ TEST(ConstructQuadTree, t1) {
     Solution const sl;
     auto* ret = sl.Construct(grid);
     auto flattern = FlattenQuadTree(ret);
-    EXPECT_EQ(flattern, output);
+    EXPECT_EQ(output, flattern);
 }
 
 TEST(ConstructQuadTree, t2) {
@@ -207,7 +207,7 @@ TEST(ConstructQuadTree, t2) {
     Solution const sl;
     auto* ret = sl.Construct(grid);
     auto flattern = FlattenQuadTree(ret);
-    EXPECT_EQ(flattern, output);
+    EXPECT_EQ(output, flattern);
 }
 
 }  // namespace

@@ -34,7 +34,7 @@ TEST(LargestPerimeterTriangle, t1) {
     int const output = 5;
     Solution sl;
     int const ret = sl.LargestPerimeter(nums);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(LargestPerimeterTriangle, t2) {
@@ -42,7 +42,7 @@ TEST(LargestPerimeterTriangle, t2) {
     int const output = 0;
     Solution sl;
     int const ret = sl.LargestPerimeter(nums);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 }  // namespace

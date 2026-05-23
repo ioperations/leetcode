@@ -46,7 +46,7 @@ TEST(ConvertANumberToHexidecimal, t1) {
 
     Solution const s;
     auto ret = s.ToHex(num);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 TEST(ConvertANumberToHexidecimal, t2) {
     int const num = -1;
@@ -55,6 +55,6 @@ TEST(ConvertANumberToHexidecimal, t2) {
 
     Solution const s;
     auto ret = s.ToHex(num);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 }  // namespace

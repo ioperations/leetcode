@@ -117,7 +117,7 @@ TEST(AddTwoNumbers, t1) {
     Solution sl;
     ListNode* result = sl.AddTwoNumbers(l1, l2);
     std::vector<int> const expected = {7, 0, 8};
-    EXPECT_EQ(ListToVector(result), expected);
+    EXPECT_EQ(expected, ListToVector(result));
     FreeList(l1);
     FreeList(l2);
     FreeList(result);
@@ -129,7 +129,7 @@ TEST(AddTwoNumbers, t2) {
     Solution sl;
     ListNode* result = sl.AddTwoNumbers(l1, l2);
     std::vector<int> const expected = {0};
-    EXPECT_EQ(ListToVector(result), expected);
+    EXPECT_EQ(expected, ListToVector(result));
     FreeList(l1);
     FreeList(l2);
     FreeList(result);
@@ -141,7 +141,7 @@ TEST(AddTwoNumbers, t3) {
     Solution sl;
     ListNode* result = sl.AddTwoNumbers(l1, l2);
     std::vector<int> const expected = {0, 0, 0, 0, 0, 0, 0, 1};
-    EXPECT_EQ(ListToVector(result), expected);
+    EXPECT_EQ(expected, ListToVector(result));
     FreeList(l1);
     FreeList(l2);
     FreeList(result);

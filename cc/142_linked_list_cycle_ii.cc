@@ -85,7 +85,7 @@ TEST(LinkedListCycleIi, t1) {
 
     Solution s;
     ListNode const * ret = s.DetectCycle(head);
-    EXPECT_EQ(ret->val, 2);
+    EXPECT_EQ(2, ret->val);
 
     it2->next = nullptr;
 
@@ -115,7 +115,7 @@ TEST(LinkedListCycleIi, t2) {
 
     Solution s;
     ListNode const * ret = s.DetectCycle(head);
-    EXPECT_EQ(ret->val, 1);
+    EXPECT_EQ(1, ret->val);
 
     it2->next = nullptr;
 
@@ -133,7 +133,7 @@ TEST(LinkedListCycleIi, t3) {
 
     Solution s;
     ListNode const * ret = s.DetectCycle(head);
-    EXPECT_EQ(ret, nullptr);
+    EXPECT_EQ(nullptr, ret);
 
     FreeList(head);
 }
@@ -143,7 +143,7 @@ TEST(LinkedListCycleIi, t4) {
 
     Solution s;
     ListNode const * ret = s.DetectCycle(head);
-    EXPECT_EQ(ret, nullptr);
+    EXPECT_EQ(nullptr, ret);
 
     FreeList(head);
 }

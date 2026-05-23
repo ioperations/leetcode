@@ -31,7 +31,7 @@ TEST(validV, t1) {
     bool const output = true;
     Solution const sl;
     bool const ret = sl.IsAnagram(s, t);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(validV, t2) {
@@ -39,7 +39,7 @@ TEST(validV, t2) {
     bool const output = false;
     Solution const sl;
     bool const ret = sl.IsAnagram(s, t);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 }  // namespace

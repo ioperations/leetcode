@@ -129,7 +129,7 @@ TEST(IntersectionOfTwoLinkedLists, t1) {
 
     Solution s;
     auto* ret = s.GetIntersectionNodeV2(first, second);
-    EXPECT_EQ(ret->val, 8);
+    EXPECT_EQ(8, ret->val);
     second_it->next = nullptr;
 
     List::FreeList(first);
@@ -175,7 +175,7 @@ TEST(IntersectionOfTwoLinkedLists, t2) {
 
     Solution s;
     auto* ret = s.GetIntersectionNodeV2(first, second);
-    EXPECT_EQ(ret->val, 2);
+    EXPECT_EQ(2, ret->val);
     second_it->next = nullptr;
 
     List::FreeList(first);
@@ -207,7 +207,7 @@ TEST(IntersectionOfTwoLinkedLists, t3) {
     Solution s;
 
     auto* ret = s.GetIntersectionNodeV2(first, second);
-    EXPECT_EQ(ret, nullptr);
+    EXPECT_EQ(nullptr, ret);
 
     List::FreeList(first);
     List::FreeList(second);

@@ -73,7 +73,7 @@ TEST(T0, t1) {
     string const output = "dab";
     Solution const sl;
     auto ret = sl.RemoveOccurrences(s, part);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
     // Explanation: The following operations are done:
     // - s = "daabcbaabcbc", remove "abc" starting at index 2, so s =
     // "dabaabcbc".
@@ -87,7 +87,7 @@ TEST(T0, t2) {
     string const output = "ab";
     Solution const sl;
     auto ret = sl.RemoveOccurrences(s, part);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
     // Explanation:
     //     The following operations are done:
     // - s = "axxxxyyyyb", remove "xy" starting at index 4 so s = "axxxyyyb".

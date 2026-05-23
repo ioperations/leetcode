@@ -58,7 +58,7 @@ TEST(T0, t1) {
     string const output = "c";
     Solution sl;
     auto ret = sl.GetHappyString(n, k);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
     // The list ["a", "b", "c"] contains all happy strings of length 1. The
     // third string is "c".
 }
@@ -68,7 +68,7 @@ TEST(T0, t2) {
     string const output = "";
     Solution sl;
     auto ret = sl.GetHappyString(n, k);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
     //  There are only 3 happy strings of length 1.
 }
 TEST(T0, t3) {
@@ -76,7 +76,7 @@ TEST(T0, t3) {
     string const output = "cab";
     Solution sl;
     auto ret = sl.GetHappyString(n, k);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
     // There are 12 different happy string of length 3 ["aba", "abc", "aca",
     // "acb", "bab", "bac", "bca", "bcb", "cab", "cac", "cba", "cbc"]. You will
     // find the 9th string = "cab"

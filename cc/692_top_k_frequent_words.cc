@@ -53,7 +53,7 @@ TEST(TopKFrequentWords, t1) {
 
     Solution sl;
     auto ret = sl.TopKFrequent(words, k);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(TopKFrequentWords, t2) {
@@ -66,7 +66,7 @@ TEST(TopKFrequentWords, t2) {
 
     Solution sl;
     auto ret = sl.TopKFrequent(words, k);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 }  // namespace

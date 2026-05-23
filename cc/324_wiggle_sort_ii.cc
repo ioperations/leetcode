@@ -54,6 +54,6 @@ TEST(WiggleSortIi, t2) {
     Solution sl;
     sl.WiggleSort(nums);
 
-    EXPECT_EQ(nums, output);
+    EXPECT_EQ(output, nums);
 }
 }  // namespace

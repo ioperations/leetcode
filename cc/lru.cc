@@ -104,11 +104,11 @@ TEST(Lru, t1) {
     lru.Set(2, 2);
 
     auto ret = lru.Get(10);
-    EXPECT_EQ(!ret, true);
+    EXPECT_EQ(true, !ret);
 
     ret = lru.Get(1);
 
-    EXPECT_EQ(ret, 1);
+    EXPECT_EQ(1, ret);
 }
 
 }  // namespace

@@ -80,7 +80,7 @@ TEST(Subsets, t1) {
     auto ret = sl.Subsets(input);
     set<vector<int>> const out_set(out.begin(), out.end());
     set<vector<int>> const ret_set(ret.begin(), ret.end());
-    EXPECT_EQ(out_set, ret_set);
+    EXPECT_EQ(ret_set, out_set);
 }
 
 TEST(Subsets, t2) {
@@ -91,7 +91,7 @@ TEST(Subsets, t2) {
     auto ret = sl.Subsets(input);
     set<vector<int>> const out_set(out.begin(), out.end());
     set<vector<int>> const ret_set(ret.begin(), ret.end());
-    EXPECT_EQ(out_set, ret_set);
+    EXPECT_EQ(ret_set, out_set);
 }
 
 }  // namespace

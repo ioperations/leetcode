@@ -90,7 +90,7 @@ TEST(T0, t0) {
     std::set<int> const ret = sl.Gen(n);
     std::set<int> const expect{18, 27, 36, 99, 108, 135, 297, 1296};
 
-    EXPECT_EQ(ret, expect);
+    EXPECT_EQ(expect, ret);
 }
 
 TEST(T0, t1) {
@@ -99,7 +99,7 @@ TEST(T0, t1) {
 
     Solution sl;
     int const ret = sl.PunishmentNumber(n);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
     // Explanation: There are exactly 3 integers i in the range [1, 10] that
     // satisfy the conditions in the statement:
     // - 1 since 1 * 1 = 1
@@ -116,7 +116,7 @@ TEST(T0, t2) {
 
     Solution sl;
     int const ret = sl.PunishmentNumber(n);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
     //  There are exactly 4 integers i in the range [1, 37] that satisfy the
     //  conditions in the statement:
     // - 1 since 1 * 1 = 1.
@@ -133,7 +133,7 @@ TEST(T0, t3) {
 
     Solution sl;
     int const ret = sl.PunishmentNumber(n);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 int main(int argc, char* argv[]) {

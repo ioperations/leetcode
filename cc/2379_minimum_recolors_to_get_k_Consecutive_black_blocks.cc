@@ -64,7 +64,7 @@ TEST(T0, t1) {
     int const output = 3;
     Solution sl;
     auto ret = sl.MinimumRecolors(blocks, k);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
     // Explanation:
     // One way to achieve 7 consecutive black blocks is to recolor the 0th, 3rd,
     // and 4th blocks so that blocks = "BBBBBBBWBW". It can be shown that there
@@ -78,7 +78,7 @@ TEST(T0, t2) {
     int const output = 0;
     Solution sl;
     auto ret = sl.MinimumRecolors(blocks, k);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
     // Explanation:
     // No changes need to be made, since 2 consecutive black blocks already
     // exist.
@@ -91,7 +91,7 @@ TEST(T0, t3) {
     int const output = 3;
     Solution sl;
     auto ret = sl.MinimumRecolors(blocks, k);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 int main(int argc, char* argv[]) {

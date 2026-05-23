@@ -39,7 +39,7 @@ TEST(NumberOf1Bits, t1) {
     int const expected = 3;
     Solution s;
     int const ret = s.HammingWeight(n);
-    EXPECT_EQ(ret, expected);
+    EXPECT_EQ(expected, ret);
 }
 
 TEST(NumberOf1Bits, t2) {
@@ -47,7 +47,7 @@ TEST(NumberOf1Bits, t2) {
     int const expected = 1;
     Solution s;
     int const ret = s.HammingWeight(n);
-    EXPECT_EQ(ret, expected);
+    EXPECT_EQ(expected, ret);
 }
 
 TEST(NumberOf1Bits, t3) {
@@ -55,7 +55,7 @@ TEST(NumberOf1Bits, t3) {
     int const expected = 31;
     Solution s;
     int const ret = s.HammingWeight(n);
-    EXPECT_EQ(ret, expected);
+    EXPECT_EQ(expected, ret);
 }
 
 }  // namespace

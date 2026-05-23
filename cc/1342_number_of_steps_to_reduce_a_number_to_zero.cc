@@ -39,7 +39,7 @@ TEST(NumberOfStepsToReduceANumberToZero, t1) {
     Solution sls;
     int const ret = sls.NumberOfSteps(num);
 
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(NumberOfStepsToReduceANumberToZero, t2) {
@@ -54,7 +54,7 @@ TEST(NumberOfStepsToReduceANumberToZero, t2) {
     Solution sls;
     int const ret = sls.NumberOfSteps(num);
 
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(NumberOfStepsToReduceANumberToZero, t3) {
@@ -64,7 +64,7 @@ TEST(NumberOfStepsToReduceANumberToZero, t3) {
     Solution sls;
     int const ret = sls.NumberOfSteps(num);
 
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 }  // namespace

@@ -35,7 +35,7 @@ TEST(XHuaweiExampleTestv2, t2) {
     Processing(s);
     std::string const ret = testing::internal::GetCapturedStdout();
 
-    EXPECT_EQ(ret, std::string("10\n"));
+    EXPECT_EQ(std::string("10\n"), ret);
 }
 
 TEST(XHuaweiExampleTestv3, t2) {
@@ -44,7 +44,7 @@ TEST(XHuaweiExampleTestv3, t2) {
     Processing(s);
     std::string const ret = testing::internal::GetCapturedStdout();
 
-    EXPECT_EQ(ret, std::string("15\n"));
+    EXPECT_EQ(std::string("15\n"), ret);
 }
 
 TEST(XHuaweiExampleTestv4, t1) {
@@ -53,7 +53,7 @@ TEST(XHuaweiExampleTestv4, t1) {
     Processing(s);
     std::string const ret = testing::internal::GetCapturedStdout();
 
-    EXPECT_EQ(ret, std::string("255\n"));
+    EXPECT_EQ(std::string("255\n"), ret);
 }
 
 TEST(XHuaweiExampleTest3, t2) {
@@ -62,6 +62,6 @@ TEST(XHuaweiExampleTest3, t2) {
     Processing(s);
     std::string const ret = testing::internal::GetCapturedStdout();
 
-    EXPECT_EQ(ret, std::string("170\n"));
+    EXPECT_EQ(std::string("170\n"), ret);
 }
 }  // namespace

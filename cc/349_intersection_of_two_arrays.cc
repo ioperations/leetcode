@@ -46,7 +46,7 @@ TEST(IntersectionOfTwoArrays, t1) {
     std::vector<int> v2{2, 2};
     Solution sl;
     std::vector<int> const ret = sl.Intersection(v, v2);
-    EXPECT_EQ(ret, std::vector<int>{2});
+    EXPECT_EQ(std::vector<int>{2}, ret);
 }
 
 TEST(IntersectionOfTwoArrays, t2) {
@@ -54,7 +54,7 @@ TEST(IntersectionOfTwoArrays, t2) {
     std::vector<int> v2{9, 4, 9, 8, 4};
     Solution sl;
     std::vector<int> const ret = sl.Intersection(v, v2);
-    EXPECT_EQ(ret, (std::vector<int>{4, 9}));
+    EXPECT_EQ((std::vector<int>{4, 9}), ret);
     //
 }
 

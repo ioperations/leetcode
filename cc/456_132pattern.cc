@@ -43,7 +43,7 @@ TEST(Pattern, t1) {
     bool const expected = false;
     Solution sl;
     bool const ret = sl.Find132pattern(v);
-    EXPECT_EQ(ret, expected);
+    EXPECT_EQ(expected, ret);
 }
 
 TEST(Pattern, t2) {
@@ -51,7 +51,7 @@ TEST(Pattern, t2) {
     bool const expected = true;
     Solution sl;
     bool const ret = sl.Find132pattern(v);
-    EXPECT_EQ(ret, expected);
+    EXPECT_EQ(expected, ret);
 }
 
 TEST(Pattern, t3) {
@@ -59,7 +59,7 @@ TEST(Pattern, t3) {
     bool const expected = true;
     Solution sl;
     bool const ret = sl.Find132pattern(v);
-    EXPECT_EQ(ret, expected);
+    EXPECT_EQ(expected, ret);
 }
 
 }  // namespace

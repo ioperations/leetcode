@@ -186,14 +186,14 @@ void CheckEqual(Node* node, std::vector<std::vector<int>>& adj_list) {
         cloned_adj[curr->m_val] = neighbors;
     }
 
-    EXPECT_EQ(cloned_adj.size(), adj_list.size());
+    EXPECT_EQ(adj_list.size(), cloned_adj.size());
     for (size_t i = 0; i < adj_list.size(); i++) {
         auto it = cloned_adj.find(static_cast<int>(i) + 1);
         EXPECT_TRUE(it != cloned_adj.end());
         std::vector<int> expected = adj_list.at(i);
         std::sort(it->second.begin(), it->second.end());
         std::sort(expected.begin(), expected.end());
-        EXPECT_EQ(it->second, expected);
+        EXPECT_EQ(expected, it->second);
     }
 }
 

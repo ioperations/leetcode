@@ -98,7 +98,7 @@ TEST(NumberOfSetsOfKNonOverlappingLineSegments, t1) {
 
     Solution sl;
     int const ret = sl.NumberOfSets(n, k);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(NumberOfSetsOfKNonOverlappingLineSegments, t2) {
@@ -110,7 +110,7 @@ TEST(NumberOfSetsOfKNonOverlappingLineSegments, t2) {
 
     Solution sl;
     int const ret = sl.NumberOfSets(n, k);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(NumberOfSetsOfKNonOverlappingLineSegments, t3) {
@@ -122,7 +122,7 @@ TEST(NumberOfSetsOfKNonOverlappingLineSegments, t3) {
 
     Solution sl;
     int const ret = sl.NumberOfSets(n, k);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 }  // namespace

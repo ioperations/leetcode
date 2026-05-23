@@ -314,7 +314,7 @@ TEST(wordV, t1) {
     const std::string word = "ABCCED";
     Solution s;
     const bool ret = s.Exist(board, word);
-    EXPECT_EQ(ret, true);
+    EXPECT_EQ(true, ret);
 }
 
 TEST(wordsearchV2, t1) {
@@ -332,7 +332,7 @@ TEST(wordsearchV2, t1) {
     const std::string word = "ABCCED";
     SolutionV2 s;
     const bool ret = s.Exist(board, word);
-    EXPECT_EQ(ret, true);
+    EXPECT_EQ(true, ret);
 }
 
 TEST(wordV, t2) {
@@ -351,7 +351,7 @@ TEST(wordV, t2) {
     const std::string word = "SEE";
     Solution s;
     const bool ret = s.Exist(board, word);
-    EXPECT_EQ(ret, true);
+    EXPECT_EQ(true, ret);
 }
 
 TEST(wordsearchV2, t2) {
@@ -370,7 +370,7 @@ TEST(wordsearchV2, t2) {
     const std::string word = "SEE";
     SolutionV2 s;
     const bool ret = s.Exist(board, word);
-    EXPECT_EQ(ret, true);
+    EXPECT_EQ(true, ret);
 }
 TEST(wordV, t3) {
     /*
@@ -388,7 +388,7 @@ TEST(wordV, t3) {
     const std::string word = "ABCB";
     Solution s;
     const bool ret = s.Exist(board, word);
-    EXPECT_EQ(ret, false);
+    EXPECT_EQ(false, ret);
 }
 TEST(wordsearchV2, t3) {
     /*
@@ -406,7 +406,7 @@ TEST(wordsearchV2, t3) {
     const std::string word = "ABCB";
     SolutionV2 s;
     const bool ret = s.Exist(board, word);
-    EXPECT_EQ(ret, false);
+    EXPECT_EQ(false, ret);
 }
 
 TEST(wordV, t4) {
@@ -418,7 +418,7 @@ TEST(wordV, t4) {
     const std::string word = "AAAAAAAAAAAAAAB";
     Solution s;
     const bool ret = s.Exist(board, word);
-    EXPECT_EQ(ret, false);
+    EXPECT_EQ(false, ret);
 }
 TEST(wordsearchV2, t4) {
     std::vector<vector<char>> board =
@@ -429,7 +429,7 @@ TEST(wordsearchV2, t4) {
     const std::string word = "AAAAAAAAAAAAAAB";
     SolutionV2 s;
     const bool ret = s.Exist(board, word);
-    EXPECT_EQ(ret, false);
+    EXPECT_EQ(false, ret);
 }
 
 }  // namespace

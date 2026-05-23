@@ -206,7 +206,7 @@ TEST(PrefixAndSuffixSearch, t1) {
     std::vector<string> words{"apple"};
     WordFilter obj(words);
     int const ret = obj.F("a", "e");
-    EXPECT_EQ(ret, 0);
+    EXPECT_EQ(0, ret);
 }
 
 TEST(PrefixAndSuffixSearch, t2) {
@@ -217,26 +217,26 @@ TEST(PrefixAndSuffixSearch, t2) {
     WordFilter obj(words);
 
     int ret = obj.F("bccbacbcba", "a");
-    EXPECT_EQ(ret, 9);
+    EXPECT_EQ(9, ret);
 
     ret = obj.F("ab", "abcaccbcaa");
-    EXPECT_EQ(ret, 4);
+    EXPECT_EQ(4, ret);
     ret = obj.F("a", "aa");
-    EXPECT_EQ(ret, 5);
+    EXPECT_EQ(5, ret);
     ret = obj.F("cabaaba", "abaaaa");
-    EXPECT_EQ(ret, 0);
+    EXPECT_EQ(0, ret);
     ret = obj.F("cacc", "accbbcbab");
-    EXPECT_EQ(ret, 8);
+    EXPECT_EQ(8, ret);
     ret = obj.F("ccbcab", "bac");
-    EXPECT_EQ(ret, 1);
+    EXPECT_EQ(1, ret);
     ret = obj.F("bac", "cba");
-    EXPECT_EQ(ret, 2);
+    EXPECT_EQ(2, ret);
     ret = obj.F("ac", "accabaccaa");
-    EXPECT_EQ(ret, 5);
+    EXPECT_EQ(5, ret);
     ret = obj.F("bcbb", "aa");
-    EXPECT_EQ(ret, 3);
+    EXPECT_EQ(3, ret);
     ret = obj.F("ccbca", "cbcababac");
-    EXPECT_EQ(ret, 1);
+    EXPECT_EQ(1, ret);
 }
 
 }  // namespace

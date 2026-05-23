@@ -74,23 +74,23 @@ class MyCircularQueue {
 TEST(DesignCircularQueue, t1) {
     MyCircularQueue my_circular_queue(3);
     bool ret = my_circular_queue.EnQueue(1);  // return True
-    EXPECT_EQ(ret, true);
+    EXPECT_EQ(true, ret);
     ret = my_circular_queue.EnQueue(2);  // return True
-    EXPECT_EQ(ret, true);
+    EXPECT_EQ(true, ret);
     ret = my_circular_queue.EnQueue(3);  // return True
-    EXPECT_EQ(ret, true);
+    EXPECT_EQ(true, ret);
     ret = my_circular_queue.EnQueue(4);  // return False
-    EXPECT_EQ(ret, false);
+    EXPECT_EQ(false, ret);
     int ret1 = my_circular_queue.Rear();  // return 3
-    EXPECT_EQ(ret1, 3);
+    EXPECT_EQ(3, ret1);
     ret = my_circular_queue.IsFull();  // return True
-    EXPECT_EQ(ret, true);
+    EXPECT_EQ(true, ret);
     ret = my_circular_queue.DeQueue();  // return True
-    EXPECT_EQ(ret, true);
+    EXPECT_EQ(true, ret);
     ret = my_circular_queue.EnQueue(4);  // return True
-    EXPECT_EQ(ret, true);
+    EXPECT_EQ(true, ret);
     ret1 = my_circular_queue.Rear();  // return 4
-    EXPECT_EQ(ret1, 4);
+    EXPECT_EQ(4, ret1);
 }
 
 }  // namespace

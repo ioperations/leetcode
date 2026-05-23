@@ -72,21 +72,21 @@ TEST(RomanToInteger, t1) {
 
     const std::string input = "III";
     const int ret = s.RomanToInt(input);
-    EXPECT_EQ(ret, 3);
+    EXPECT_EQ(3, ret);
 }
 
 TEST(RomanToInteger, t2) {
     Solution const s;
     const std::string input = "LVIII";
     const int ret = s.RomanToInt(input);
-    EXPECT_EQ(ret, 58);
+    EXPECT_EQ(58, ret);
 }
 
 TEST(RomanToInteger, t3) {
     Solution const s;
     const std::string input = "MCMXCIV";
     const int ret = s.RomanToInt(input);
-    EXPECT_EQ(ret, 1994);
+    EXPECT_EQ(1994, ret);
 }
 
 }  // namespace

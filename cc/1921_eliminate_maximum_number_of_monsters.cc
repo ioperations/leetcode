@@ -67,7 +67,7 @@ TEST(EliminateMaximumNumberOfMonsters, t1) {
     // thrid monster. All 3 monsters can be eliminated.
     Solution sl;
     int const ret = sl.EliminateMaximum(dist, speed);
-    EXPECT_EQ(output, ret);
+    EXPECT_EQ(ret, output);
 }
 
 TEST(EliminateMaximumNumberOfMonsters, t2) {
@@ -80,7 +80,7 @@ TEST(EliminateMaximumNumberOfMonsters, t2) {
     // lose. You can only eliminate 1 monster
     Solution sl;
     int const ret = sl.EliminateMaximum(dist, speed);
-    EXPECT_EQ(output, ret);
+    EXPECT_EQ(ret, output);
 }
 
 TEST(EliminateMaximumNumberOfMonsters, t3) {
@@ -93,7 +93,7 @@ TEST(EliminateMaximumNumberOfMonsters, t3) {
     // so you lose.You can only eliminate 1 monster.
     Solution sl;
     int const ret = sl.EliminateMaximum(dist, speed);
-    EXPECT_EQ(output, ret);
+    EXPECT_EQ(ret, output);
 }
 
 }  // namespace

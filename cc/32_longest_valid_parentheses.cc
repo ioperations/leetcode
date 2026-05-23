@@ -43,7 +43,7 @@ TEST(LongestValidParentheses, t1) {
 
     Solution const sl;
     int const ret = sl.LongestValidParentheses(s);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(LongestValidParentheses, t2) {
@@ -53,7 +53,7 @@ TEST(LongestValidParentheses, t2) {
 
     Solution const sl;
     int const ret = sl.LongestValidParentheses(s);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 TEST(LongestValidParentheses, t3) {
     string const s = "";
@@ -61,7 +61,7 @@ TEST(LongestValidParentheses, t3) {
 
     Solution const sl;
     int const ret = sl.LongestValidParentheses(s);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 }  // namespace

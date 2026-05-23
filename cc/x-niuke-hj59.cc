@@ -26,13 +26,13 @@ TEST(Ta, t2) {
     testing::internal::CaptureStdout();
     Process(ss);
     std::string const out = testing::internal::GetCapturedStdout();
-    EXPECT_EQ(out, std::string("-1\n"));
+    EXPECT_EQ(std::string("-1\n"), out);
 }
 TEST(XNiukeHjv2, t2) {
     std::string const ss("asdfasdfo");
     testing::internal::CaptureStdout();
     Process(ss);
     std::string const out = testing::internal::GetCapturedStdout();
-    EXPECT_EQ(out, std::string("o\n"));
+    EXPECT_EQ(std::string("o\n"), out);
 }
 }  // namespace

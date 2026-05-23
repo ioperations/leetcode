@@ -58,7 +58,7 @@ TEST(PowXN, t1) {
 
     Solution s;
     const double ret = s.MyPow(x, n);
-    EXPECT_EQ(ret, expected);
+    EXPECT_EQ(expected, ret);
 }
 
 TEST(PowXN, t2) {
@@ -80,7 +80,7 @@ TEST(PowXN, t3) {
 
     Solution s;
     const double ret = s.MyPow(x, n);
-    EXPECT_EQ(ret, expected);
+    EXPECT_EQ(expected, ret);
 }
 
 TEST(PowXN, t4) {
@@ -91,7 +91,7 @@ TEST(PowXN, t4) {
 
     Solution s;
     const double ret = s.MyPowV3(x, n);
-    EXPECT_EQ(ret, expected);
+    EXPECT_EQ(expected, ret);
 }
 
 }  // namespace

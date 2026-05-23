@@ -33,7 +33,7 @@ TEST(OtherCount2AppearTimes, t1) {
     int const output = 6;
     Solution sl;
     int const ret = sl.Solve(left, right);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 }  // namespace

@@ -49,7 +49,7 @@ TEST(CountCompleteTreeNodes, t1) {
     auto* node = ConstructBinaryTree(root);
     Solution sl;
     int const ret = sl.CountNodes(node);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
     FreeTreeNode(node);
 }
 
@@ -59,7 +59,7 @@ TEST(CountCompleteTreeNodes, t2) {
     auto* node = ConstructBinaryTree(root);
     Solution sl;
     int const ret = sl.CountNodes(node);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
     FreeTreeNode(node);
 }
 
@@ -69,7 +69,7 @@ TEST(CountCompleteTreeNodes, t3) {
     auto* node = ConstructBinaryTree(root);
     Solution sl;
     int const ret = sl.CountNodes(node);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
     FreeTreeNode(node);
 }
 

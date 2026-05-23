@@ -43,7 +43,7 @@ TEST(RemovePalindromicSubsequences, t1) {
     // step.
     Solution sl;
     int const ret = sl.RemovePalindromeSub(s);
-    EXPECT_EQ(ret, out);
+    EXPECT_EQ(out, ret);
 }
 
 TEST(RemovePalindromicSubsequences, t2) {
@@ -52,7 +52,7 @@ TEST(RemovePalindromicSubsequences, t2) {
     //"abb" -> "bb" -> "". Remove palindromic subsequence "a" then "bb".
     Solution sl;
     int const ret = sl.RemovePalindromeSub(s);
-    EXPECT_EQ(ret, out);
+    EXPECT_EQ(out, ret);
 }
 
 TEST(RemovePalindromicSubsequences, t3) {
@@ -61,7 +61,7 @@ TEST(RemovePalindromicSubsequences, t3) {
     // "baabb" -> "b" -> "". Remove palindromic subsequence "baab" then "b".
     Solution sl;
     int const ret = sl.RemovePalindromeSub(s);
-    EXPECT_EQ(ret, out);
+    EXPECT_EQ(out, ret);
 }
 
 }  // namespace

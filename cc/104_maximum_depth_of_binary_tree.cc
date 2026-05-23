@@ -54,7 +54,7 @@ TEST(MaximumDepthOfBinaryTree, t1) {
     auto* binary_tree = ConstructBinaryTree(elements);
     Solution sl;
     int const ret = sl.MaxDepth(binary_tree);
-    EXPECT_EQ(ret, 3);
+    EXPECT_EQ(3, ret);
     FreeTreeNode(binary_tree);
 }
 
@@ -63,7 +63,7 @@ TEST(MaximumDepthOfBinaryTree, t2) {
     auto* binary_tree = ConstructBinaryTree(elements);
     Solution sl;
     int const ret = sl.MaxDepth(binary_tree);
-    EXPECT_EQ(ret, 2);
+    EXPECT_EQ(2, ret);
     FreeTreeNode(binary_tree);
 }
 

@@ -100,7 +100,7 @@ TEST(BagOfTokens, t1) {
     // Explanation: Playing the only token in the bag is impossible because you
     // either have too little power or too little score.*/
     int const ret = sl.BagOfTokensScore(tokens, power);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(BagOfTokens, t2) {
@@ -113,7 +113,7 @@ TEST(BagOfTokens, t2) {
     // becomes 1.
     // There is no need to play the 1st token since you cannot play it face up
     // to add to your score.int ret = sl.bagOfTokensScore(tokens, power);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(BagOfTokens, t3) {
@@ -133,7 +133,7 @@ TEST(BagOfTokens, t3) {
     4. Play the 2nd token (300) face up, your power becomes 0 and score
     becomes 2.
     */
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(BagOfTokensV2, t3) {
@@ -154,8 +154,8 @@ TEST(BagOfTokensV2, t3) {
     4. Play the 2nd token (300) face up, your power becomes 0 and score
     becomes 2.
     */
-    EXPECT_EQ(ret, output);
-    EXPECT_EQ(ret1, output);
+    EXPECT_EQ(output, ret);
+    EXPECT_EQ(output, ret1);
 }
 static void BenchmarkTwoArrayDpv1(benchmark::State& state) {
     vector<int> tokens = {100, 200, 300, 400, 500, 600, 700, 800, 900, 1000};
@@ -165,7 +165,7 @@ static void BenchmarkTwoArrayDpv1(benchmark::State& state) {
 
     for (auto&& _ : state) {
         int const ret = sl.BagOfTokensScore(tokens, power);
-        EXPECT_EQ(output, ret);
+        EXPECT_EQ(ret, output);
     }
 }
 BENCHMARK(BenchmarkTwoArrayDpv1);
@@ -178,7 +178,7 @@ static void BenchmarkMyImplementation(benchmark::State& state) {
 
     for (auto&& _ : state) {
         int const ret = sl.BagOfTokensScoreV1(tokens, power);
-        EXPECT_EQ(output, ret);
+        EXPECT_EQ(ret, output);
     }
 }
 BENCHMARK(BenchmarkMyImplementation);

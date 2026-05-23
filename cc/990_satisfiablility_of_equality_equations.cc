@@ -96,7 +96,7 @@ TEST(SatisfiablilityOfEqualityEquations, t1) {
     // There is no way to assign the variables to satisfy both equations.
     Solution sl;
     bool const ret = sl.EquationsPossible(equations);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(SatisfiablilityOfEqualityEquations, t2) {
@@ -106,6 +106,6 @@ TEST(SatisfiablilityOfEqualityEquations, t2) {
 
     Solution sl;
     bool const ret = sl.EquationsPossible(equations);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 }  // namespace

@@ -95,7 +95,7 @@ TEST(T0, t1) {
 
     Solution sl;
     auto ret = sl.ShortestCommonSupersequence(str1, str2);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(T0, t2) {
@@ -111,7 +111,7 @@ TEST(T0, t2) {
 
     Solution sl;
     auto ret = sl.ShortestCommonSupersequence(str1, str2);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 int main(int argc, char* argv[]) {

@@ -145,15 +145,15 @@ TEST(LRUV, t2) {
     LRUCache lru(2);
     lru.Put(1, 1);             // {1,1}
     lru.Put(2, 2);             // {2,2}
-    EXPECT_EQ(lru.Get(1), 1);  // {1,1} {2,2}
+    EXPECT_EQ(1, lru.Get(1));  // {1,1} {2,2}
     lru.Put(3, 3);
     const int ret = lru.Get(2);  // {1,1} {3,3}
-    EXPECT_EQ(ret, -1);
+    EXPECT_EQ(-1, ret);
 
     lru.Put(4, 4);              // {4,4} {3,3}
-    EXPECT_EQ(lru.Get(1), -1);  // {}
-    EXPECT_EQ(lru.Get(3), 3);   // {}
-    EXPECT_EQ(lru.Get(4), 4);   // {}
+    EXPECT_EQ(-1, lru.Get(1));  // {}
+    EXPECT_EQ(3, lru.Get(3));   // {}
+    EXPECT_EQ(4, lru.Get(4));   // {}
 }
 
 }  // namespace

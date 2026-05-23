@@ -45,7 +45,7 @@ TEST(MinimumMovesToEqualArrayElementsIi, t1) {
     int const ret = sl.MinMoves2(nums);
     // Only two moves are needed (remember each move increments or decrements
     // one element): [1,2,3]  =>  [2,2,3]  =>  [2,2,2]
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(MinimumMovesToEqualArrayElementsIi, t2) {
@@ -53,6 +53,6 @@ TEST(MinimumMovesToEqualArrayElementsIi, t2) {
     int const output = 16;
     Solution sl;
     int const ret = sl.MinMoves2(nums);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 }  // namespace

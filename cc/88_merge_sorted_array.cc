@@ -60,7 +60,7 @@ TEST(MergeSortedArray, t1) {
     Solution const s;
     s.Merge(nums1, m, nums2, n);
 
-    EXPECT_EQ(nums1, (std::vector<int>{1, 2, 2, 3, 5, 6}));
+    EXPECT_EQ((std::vector<int>{1, 2, 2, 3, 5, 6}), nums1);
 }
 
 TEST(MergeSortedArray, t2) {
@@ -72,7 +72,7 @@ TEST(MergeSortedArray, t2) {
     Solution const s;
     s.Merge(nums1, m, nums2, n);
 
-    EXPECT_EQ(nums1, (std::vector<int>{1}));
+    EXPECT_EQ((std::vector<int>{1}), nums1);
 }
 
 TEST(MergeSortedArray, t3) {
@@ -84,6 +84,6 @@ TEST(MergeSortedArray, t3) {
     Solution const s;
     s.Merge(nums1, m, nums2, n);
 
-    EXPECT_EQ(nums1, (std::vector<int>{1}));
+    EXPECT_EQ((std::vector<int>{1}), nums1);
 }
 }  // namespace

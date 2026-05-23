@@ -56,7 +56,7 @@ TEST(FindKClosestElements, t1) {
     vector<int> const output = {1, 2, 3, 4};
     Solution sl;
     auto ret = sl.FindClosestElements(arr, k, x);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 };
 
 TEST(FindKClosestElements, t2) {
@@ -65,6 +65,6 @@ TEST(FindKClosestElements, t2) {
     vector<int> const output = {1, 2, 3, 4};
     Solution sl;
     auto ret = sl.FindClosestElements(arr, k, x);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 };
 }  // namespace

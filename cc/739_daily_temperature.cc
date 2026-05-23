@@ -41,7 +41,7 @@ TEST(dailyV, t1) {
     vector<int> const output{1, 1, 4, 2, 1, 1, 0, 0};
     Solution const sl;
     auto ret = sl.DailyTemperatures(temperatures);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(dailyV, t2) {
@@ -49,7 +49,7 @@ TEST(dailyV, t2) {
     vector<int> const output{1, 1, 1, 0};
     Solution const sl;
     auto ret = sl.DailyTemperatures(temperatures);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(dailyV, t3) {
@@ -57,7 +57,7 @@ TEST(dailyV, t3) {
     vector<int> const output{1, 1, 0};
     Solution const sl;
     auto ret = sl.DailyTemperatures(temperatures);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 }  // namespace

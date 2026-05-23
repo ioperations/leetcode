@@ -46,12 +46,12 @@ TEST(reverseV, t1) {
     Solution const sl;
     sl.ReverseString(s);
 
-    EXPECT_EQ(s, output);
+    EXPECT_EQ(output, s);
 
     sl.ReverseString(s);
 
     sl.ReverseStringV2(s);
-    EXPECT_EQ(s, output);
+    EXPECT_EQ(output, s);
 }
 TEST(reverseV, t2) {
     std::vector<char> s = {'H', 'a', 'n', 'n', 'a', 'h'};
@@ -59,6 +59,6 @@ TEST(reverseV, t2) {
     Solution const sl;
     sl.ReverseString(s);
 
-    EXPECT_EQ(s, output);
+    EXPECT_EQ(output, s);
 }
 }  // namespace

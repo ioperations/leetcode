@@ -66,7 +66,7 @@ TEST(KInversePairsArray, t1) {
     const int ret = sl.KInversePairs(n, k);
     // Only the array [1,2,3] which consists of numbers from 1 to 3 has exactly
     // 0 inverse pairs.
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(KInversePairsArray, t2) {
@@ -75,7 +75,7 @@ TEST(KInversePairsArray, t2) {
     // Explanation: The array [1,3,2] and [2,1,3] have exactly 1 inverse pair.
     Solution sl;
     const int ret = sl.KInversePairs(n, k);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 }  // namespace

@@ -82,7 +82,7 @@ TEST(MinimiumOperationsToReduceXToZero, t1) {
     // reduce x to zero.
     Solution sl;
     int const ret = sl.MinOperations(nums, x);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(MinimiumOperationsToReduceXToZero, t2) {
@@ -93,7 +93,7 @@ TEST(MinimiumOperationsToReduceXToZero, t2) {
     // reduce x to zero.
     Solution sl;
     int const ret = sl.MinOperations(nums, x);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(MinimiumOperationsToReduceXToZero, t3) {
@@ -107,6 +107,6 @@ TEST(MinimiumOperationsToReduceXToZero, t3) {
     Solution sl;
 
     int const ret = sl.MinOperations(nums, x);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 }  // namespace

@@ -101,7 +101,7 @@ TEST(MinimumDifficultyOfAJobSchedule, t1) {
 
     Solution sl;
     int const ret = sl.MinDifficulty(job_difficulty, d);
-    EXPECT_EQ(output, ret);
+    EXPECT_EQ(ret, output);
 }
 
 TEST(MinimumDifficultyOfAJobSchedule, t2) {
@@ -115,7 +115,7 @@ TEST(MinimumDifficultyOfAJobSchedule, t2) {
 
     Solution sl;
     int const ret = sl.MinDifficulty(job_difficulty, d);
-    EXPECT_EQ(output, ret);
+    EXPECT_EQ(ret, output);
 }
 
 TEST(MinimumDifficultyOfAJobSchedule, t3) {
@@ -128,7 +128,7 @@ TEST(MinimumDifficultyOfAJobSchedule, t3) {
 
     Solution sl;
     int const ret = sl.MinDifficulty(job_difficulty, d);
-    EXPECT_EQ(output, ret);
+    EXPECT_EQ(ret, output);
 }
 
 TEST(MinimumDifficultyOfAJobScheduleV2, t1) {
@@ -143,7 +143,7 @@ TEST(MinimumDifficultyOfAJobScheduleV2, t1) {
 
     Solution sl;
     int const ret = sl.MinDifficultyV2(job_difficulty, d);
-    EXPECT_EQ(output, ret);
+    EXPECT_EQ(ret, output);
 }
 
 TEST(MinimumDifficultyOfAJobScheduleV2, t2) {
@@ -157,7 +157,7 @@ TEST(MinimumDifficultyOfAJobScheduleV2, t2) {
 
     Solution sl;
     int const ret = sl.MinDifficultyV2(job_difficulty, d);
-    EXPECT_EQ(output, ret);
+    EXPECT_EQ(ret, output);
 }
 
 TEST(MinimumDifficultyOfAJobScheduleV2, t3) {
@@ -170,7 +170,7 @@ TEST(MinimumDifficultyOfAJobScheduleV2, t3) {
 
     Solution sl;
     int const ret = sl.MinDifficultyV2(job_difficulty, d);
-    EXPECT_EQ(output, ret);
+    EXPECT_EQ(ret, output);
 }
 
 }  // namespace

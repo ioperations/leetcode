@@ -51,7 +51,7 @@ TEST(NQueueII, t1) {
     Solution sl;
     int const out = sl.TotalNQueens(n);
     // here are two distinct solutions to the 4-queens puzzle as shown.
-    EXPECT_EQ(ret, out);
+    EXPECT_EQ(out, ret);
 }
 
 TEST(NQueueII, t2) {
@@ -59,7 +59,7 @@ TEST(NQueueII, t2) {
     int const ret = 1;
     Solution sl;
     int const out = sl.TotalNQueens(n);
-    EXPECT_EQ(ret, out);
+    EXPECT_EQ(out, ret);
 }
 
 }  // namespace

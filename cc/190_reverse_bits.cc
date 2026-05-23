@@ -94,15 +94,15 @@ class Solution {
 };
 
 TEST(Base, tp) {
-    EXPECT_EQ(2U << 1U, 4U);
-    EXPECT_EQ(2U << 0U, 2U);
+    EXPECT_EQ(4U, 2U << 1U);
+    EXPECT_EQ(2U, 2U << 0U);
 }
 
 TEST(Base, t0) {
     std::string const z = "00000000000000000000000000000001";
     uint32_t const n = ConstructUint32T(z);           //
     std::string const expected = ConstructString(n);  //(
-    EXPECT_EQ(expected, z);
+    EXPECT_EQ(z, expected);
 }
 
 TEST(Base, t1) {
@@ -110,7 +110,7 @@ TEST(Base, t1) {
     uint32_t const n = ConstructUint32T(z);  //
 
     std::string const expected = ConstructString(n);  //(
-    EXPECT_EQ(expected, z);
+    EXPECT_EQ(z, expected);
 }
 
 TEST(reverseV, t1) {
@@ -123,7 +123,7 @@ TEST(reverseV, t1) {
     Solution s;
     uint32_t const ret = s.ReverseBits(n);
     std::string const ret_str = ConstructString(ret);
-    EXPECT_EQ(ret_str, output_expected);
+    EXPECT_EQ(output_expected, ret_str);
 }
 
 TEST(reverseV, t2) {
@@ -135,7 +135,7 @@ TEST(reverseV, t2) {
     uint32_t const ret = s.ReverseBits(n);
 
     std::string const ret_str = ConstructString(ret);
-    EXPECT_EQ(ret_str, output_expected);
+    EXPECT_EQ(output_expected, ret_str);
 }
 
 }  // namespace

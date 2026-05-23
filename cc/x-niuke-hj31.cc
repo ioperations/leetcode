@@ -52,7 +52,7 @@ TEST(XNiukeHjv2, t2) {
     ReverseOutPutAllWords(s);
     std::string const out = testing::internal::GetCapturedStdout();
 
-    EXPECT_EQ(out, std::string("student a am i\n"));
+    EXPECT_EQ(std::string("student a am i\n"), out);
 }
 
 TEST(XNiukeHjv3, t2) {
@@ -62,6 +62,6 @@ TEST(XNiukeHjv3, t2) {
     ReverseOutPutAllWords(s);
     std::string const out = testing::internal::GetCapturedStdout();
 
-    EXPECT_EQ(out, std::string("l r gi y bo\n"));
+    EXPECT_EQ(std::string("l r gi y bo\n"), out);
 }
 }  // namespace

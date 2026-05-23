@@ -103,7 +103,7 @@ TEST(FindPeekElement, t1) {
     Solution s;
 
     int const ret = s.FindPeakElementV2(nums);
-    EXPECT_EQ(expectd.count(ret), true);
+    EXPECT_EQ(true, expectd.count(ret));
 }
 
 TEST(FindPeekElement, t2) {
@@ -112,7 +112,7 @@ TEST(FindPeekElement, t2) {
     Solution s;
 
     int const ret = s.FindPeakElementV2(nums);
-    EXPECT_EQ(expectd.count(ret), true);
+    EXPECT_EQ(true, expectd.count(ret));
 }
 
 }  // namespace

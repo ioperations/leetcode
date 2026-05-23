@@ -51,7 +51,7 @@ TEST(CountVowelsPermutation, t1) {
     // Explanation: All possible strings are: "a", "e", "i" , "o" and "u".
     Solution sl;
     int const ret = sl.CountVowelPermutation(n);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(CountVowelsPermutation, t2) {
@@ -62,7 +62,7 @@ TEST(CountVowelsPermutation, t2) {
     // "ou" and "ua".
     Solution sl;
     int const ret = sl.CountVowelPermutation(n);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(CountVowelsPermutation, t3) {
@@ -71,6 +71,6 @@ TEST(CountVowelsPermutation, t3) {
 
     Solution sl;
     int const ret = sl.CountVowelPermutation(n);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 }  // namespace

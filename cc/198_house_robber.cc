@@ -63,7 +63,7 @@ TEST(houseV, t1) {
     /*Rob house 1 (money = 1) and then rob house 3 (money = 3).
     Total amount you can rob = 1 + 3 = 4.
     */
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(houseV, t2) {
@@ -73,7 +73,7 @@ TEST(houseV, t2) {
     int const ret = sl.Rob(nums);
     /*Rob house 1 (money = 2), rob house 3 (money = 9) and rob house 5 (money =
     1). Total amount you can rob = 2 + 9 + 1 = 12.*/
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(houseV, t3) {
@@ -81,7 +81,7 @@ TEST(houseV, t3) {
     int const output = 2;
     Solution sl;
     int const ret = sl.Rob(nums);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 }  // namespace

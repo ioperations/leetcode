@@ -66,7 +66,7 @@ TEST(RemoveAllDuplicatesInString, t1) {
 
     Solution const sl;
     auto ret = sl.RemoveDuplicates(s);
-    EXPECT_EQ(ret, expected);
+    EXPECT_EQ(expected, ret);
 }
 
 TEST(RemoveAllDuplicatesInString, t2) {
@@ -79,7 +79,7 @@ TEST(RemoveAllDuplicatesInString, t2) {
 
     Solution const sl;
     auto ret = sl.RemoveDuplicates(s);
-    EXPECT_EQ(ret, expected);
+    EXPECT_EQ(expected, ret);
 }
 
 }  // namespace

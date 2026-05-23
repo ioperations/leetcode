@@ -94,7 +94,7 @@ TEST(MergeTwoSortedList, t1) {
 
     auto* it_2 = it;
     for (auto& ptr : expected) {
-        EXPECT_EQ(ptr, it->val);
+        EXPECT_EQ(it->val, ptr);
         it = it->next;
     }
 
@@ -112,7 +112,7 @@ TEST(MergeTwoSortedListV2, t1) {
     const std::vector<int> expected{1, 1, 2, 3, 4, 4};
 
     for (auto& ptr : expected) {
-        EXPECT_EQ(ptr, it->val);
+        EXPECT_EQ(it->val, ptr);
         it = it->next;
     }
 
@@ -126,8 +126,8 @@ TEST(MergeTwoSortedList, t3) {
     Solution sl;
     auto* it = sl.MergeTwoLists(nullptr, &l1);
 
-    EXPECT_EQ(it->val, 0);
-    EXPECT_EQ(it->next, nullptr);
+    EXPECT_EQ(0, it->val);
+    EXPECT_EQ(nullptr, it->next);
 }
 
 TEST(MergeTwoSortedList, t2) {
@@ -161,7 +161,7 @@ void Benchmakrv1(benchmark::State& state) {
         auto* it2 = it;
 
         for (auto& ptr : expected) {
-            EXPECT_EQ(ptr, it->val);
+            EXPECT_EQ(it->val, ptr);
             it = it->next;
         }
 
@@ -194,7 +194,7 @@ void Benchmakrv2(benchmark::State& state) {
         auto* it2 = it;
 
         for (auto& ptr : expected) {
-            EXPECT_EQ(ptr, it->val);
+            EXPECT_EQ(it->val, ptr);
             it = it->next;
         }
 

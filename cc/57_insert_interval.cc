@@ -90,7 +90,7 @@ TEST(insertV, t1) {
 
     Solution sl;
     auto ret = sl.Insert(intervals, new_interval);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(insertV, t2) {
@@ -101,7 +101,7 @@ TEST(insertV, t2) {
     // Because the new interval [4,8] overlaps with [3,5],[6,7],[8,10].
     Solution sl;
     auto ret = sl.Insert(intervals, new_interval);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 }  // namespace

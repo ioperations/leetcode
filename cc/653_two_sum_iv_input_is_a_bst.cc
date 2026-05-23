@@ -72,7 +72,7 @@ TEST(TwoSumIvInputIsABst, t1) {
     auto* node = ConstructBinaryTree(root);
     Solution sl;
     bool const ret = sl.FindTarget(node, k);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
     FreeTreeNode(node);
 }
 
@@ -83,7 +83,7 @@ TEST(TwoSumIvInputIsABst, t2) {
     auto* node = ConstructBinaryTree(root);
     Solution sl;
     bool const ret = sl.FindTarget(node, k);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
     FreeTreeNode(node);
 }
 

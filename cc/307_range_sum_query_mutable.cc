@@ -126,10 +126,10 @@ TEST(RangeSumQueryMutable, t1) {
     vector<int> na{1, 3, 5};
     NumArray num_array(na);
     int ret = num_array.SumRange(0, 2);  // return 1 + 3 + 5 = 9
-    EXPECT_EQ(ret, 9);
+    EXPECT_EQ(9, ret);
     num_array.Update(1, 2);          // nums = [1, 2, 5]
     ret = num_array.SumRange(0, 2);  // return 1 + 2 + 5 = 8
-    EXPECT_EQ(ret, 8);
+    EXPECT_EQ(8, ret);
 }
 
 }  // namespace

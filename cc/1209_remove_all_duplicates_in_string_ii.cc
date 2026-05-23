@@ -149,7 +149,7 @@ TEST(RemoveAllDuplicatesInStringIi, t1) {
     int const k = 2;
     Solution sl;
     string const ret = sl.RemoveDuplicates(s, k);
-    EXPECT_EQ(ret, "abcd");
+    EXPECT_EQ("abcd", ret);
 }
 
 TEST(RemoveAllDuplicatesInStringIi, t2) {
@@ -157,7 +157,7 @@ TEST(RemoveAllDuplicatesInStringIi, t2) {
     int const k = 3;
     Solution sl;
     string const ret = sl.RemoveDuplicates(s, k);
-    EXPECT_EQ(ret, "aa");
+    EXPECT_EQ("aa", ret);
 }
 
 TEST(RemoveAllDuplicatesInStringIi, t3) {
@@ -165,7 +165,7 @@ TEST(RemoveAllDuplicatesInStringIi, t3) {
     int const k = 2;
     Solution sl;
     string const ret = sl.RemoveDuplicates(s, k);
-    EXPECT_EQ(ret, "ps");
+    EXPECT_EQ("ps", ret);
 }
 
 }  // namespace

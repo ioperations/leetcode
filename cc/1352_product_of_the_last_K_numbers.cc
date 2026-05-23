@@ -72,16 +72,16 @@ TEST(T0, t1) {
     product_of_numbers.Add(4);  // [3,0,2,5,4]
     int ret = product_of_numbers.GetProduct(2);
     // return 20. The product of the last 2 numbers is 5 * 4 = 20;
-    EXPECT_EQ(ret, 20);
+    EXPECT_EQ(20, ret);
     ret = product_of_numbers.GetProduct(3);
     // return 40. The product of the last 3 numbers is 2 * 5 * 4 = 40
-    EXPECT_EQ(ret, 40);
+    EXPECT_EQ(40, ret);
     ret = product_of_numbers.GetProduct(4);
     // return 0. The product of the last 4 numbers is 0 * 2 * 5 * 4 = 0
-    EXPECT_EQ(ret, 0);
+    EXPECT_EQ(0, ret);
     product_of_numbers.Add(8);  // [3,0,2,5,4,8]
     ret = product_of_numbers.GetProduct(2);
-    EXPECT_EQ(ret, 32);
+    EXPECT_EQ(32, ret);
     //  The product of the last 2 numbers is 4 * 8 = 32
 }
 

@@ -86,7 +86,7 @@ TEST(T0, t1) {
     string const output = "123549876";
     Solution sl;
     auto ret = sl.SmallestNumber(pattern);
-    EXPECT_EQ(output, ret);
+    EXPECT_EQ(ret, output);
     // Explanation:
     // At indices 0, 1, 2, and 4 we must have that num[i] < num[i+1].
     // At indices 3, 5, 6, and 7 we must have that num[i] > num[i+1].
@@ -102,7 +102,7 @@ TEST(T0, t2) {
     string const output = "4321";
     Solution sl;
     auto ret = sl.SmallestNumber(pattern);
-    EXPECT_EQ(output, ret);
+    EXPECT_EQ(ret, output);
     // Some possible values of num are "9876", "7321", and "8742".
     // It can be proven that "4321" is the smallest possible num that meets the
     // conditions.

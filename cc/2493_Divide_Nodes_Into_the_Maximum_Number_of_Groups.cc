@@ -100,7 +100,7 @@ TEST(T0, t1) {
     vector<vector<int>> edges = {{1, 2}, {2, 3}, {4, 5}, {5, 6}};
     Solution sl;
     int const ret = sl.MagnificentSets(n, edges);
-    EXPECT_EQ(ret, 6);
+    EXPECT_EQ(6, ret);
 }
 
 TEST(T0, t2) {
@@ -108,5 +108,5 @@ TEST(T0, t2) {
     vector<vector<int>> edges = {{1, 2}, {2, 3}, {1, 3}};
     Solution sl;
     int const ret = sl.MagnificentSets(n, edges);
-    EXPECT_EQ(ret, -1);
+    EXPECT_EQ(-1, ret);
 }

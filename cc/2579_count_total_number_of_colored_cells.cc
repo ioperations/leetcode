@@ -17,23 +17,23 @@ class Solution {
 TEST(coloredV, t1) {
     Solution sl;
     long long const ret = sl.ColoredCells(1);
-    EXPECT_EQ(ret, 1);
+    EXPECT_EQ(1, ret);
 }
 
 TEST(coloredV, t2) {
     Solution sl;
     long long const ret = sl.ColoredCells(2);
-    EXPECT_EQ(ret, 5);
+    EXPECT_EQ(5, ret);
 }
 
 TEST(coloredV, t3) {
     Solution sl;
     long long const ret = sl.ColoredCells(3);
-    EXPECT_EQ(ret, 13);
+    EXPECT_EQ(13, ret);
 }
 
 TEST(coloredV, t4) {
     Solution sl;
     long long const ret = sl.ColoredCells(4);
-    EXPECT_EQ(ret, 25);
+    EXPECT_EQ(25, ret);
 }

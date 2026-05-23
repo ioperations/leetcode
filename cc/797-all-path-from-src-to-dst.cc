@@ -38,7 +38,7 @@ TEST(AllPathFromSrcToDstv2, t2) {
     Solution const n;
 
     (void)n;
-    EXPECT_EQ(0, 0 + 0);
+    EXPECT_EQ(0 + 0, 0);
 }
 
 }  // namespace

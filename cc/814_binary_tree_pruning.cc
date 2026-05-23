@@ -48,7 +48,7 @@ TEST(BinaryTreePruning, t1) {
     // Only the red nodes satisfy the property "every subtree not containing a
     // 1".
     // The diagram on the right represents the answer.
-    EXPECT_EQ(ret_node, output);
+    EXPECT_EQ(output, ret_node);
     FreeTreeNode(node);
 }
 
@@ -65,7 +65,7 @@ TEST(BinaryTreePruning, t2) {
     // Only the red nodes satisfy the property "every subtree not containing a
     // 1".
     // The diagram on the right represents the answer.
-    EXPECT_EQ(ret_node, output);
+    EXPECT_EQ(output, ret_node);
     FreeTreeNode(node);
 }
 TEST(BinaryTreePruning, t3) {
@@ -81,7 +81,7 @@ TEST(BinaryTreePruning, t3) {
     // Only the red nodes satisfy the property "every subtree not containing a
     // 1".
     // The diagram on the right represents the answer.
-    EXPECT_EQ(ret_node, output);
+    EXPECT_EQ(output, ret_node);
     FreeTreeNode(node);
 }
 }  // namespace

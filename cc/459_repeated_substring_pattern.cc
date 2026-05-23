@@ -41,7 +41,7 @@ TEST(RepeatedSubstringPattern, t1) {
     Solution sl;
     bool const ret = sl.RepeatedSubstringPattern(s);
     // It is the substring "ab" twice.
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(RepeatedSubstringPattern, t2) {
@@ -50,7 +50,7 @@ TEST(RepeatedSubstringPattern, t2) {
     Solution sl;
     bool const ret = sl.RepeatedSubstringPattern(s);
     // It is the substring "ab" twice.
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(RepeatedSubstringPattern, t3) {
@@ -59,7 +59,7 @@ TEST(RepeatedSubstringPattern, t3) {
     Solution sl;
     bool const ret = sl.RepeatedSubstringPattern(s);
     // It is the substring "abc" four times or the substring "abcabc" twice.
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 }  // namespace

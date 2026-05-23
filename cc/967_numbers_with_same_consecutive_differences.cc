@@ -59,7 +59,7 @@ TEST(NumbersWithSameConsecutiveDifferences, t1) {
     Solution sl;
     auto ret = sl.NumsSameConsecDiff(n, k);
     std::set<int> const ret_set(ret.begin(), ret.end());
-    EXPECT_EQ(ret_set, out_set);
+    EXPECT_EQ(out_set, ret_set);
 }
 
 TEST(NumbersWithSameConsecutiveDifferences, t2) {
@@ -70,7 +70,7 @@ TEST(NumbersWithSameConsecutiveDifferences, t2) {
     Solution sl;
     auto ret = sl.NumsSameConsecDiff(n, k);
     std::set<int> const ret_set(ret.begin(), ret.end());
-    EXPECT_EQ(ret_set, out_set);
+    EXPECT_EQ(out_set, ret_set);
 }
 
 TEST(NumbersWithSameConsecutiveDifferences, t3) {
@@ -80,6 +80,6 @@ TEST(NumbersWithSameConsecutiveDifferences, t3) {
     Solution sl;
     auto ret = sl.NumsSameConsecDiff(n, k);
     std::set<int> const ret_set(ret.begin(), ret.end());
-    EXPECT_EQ(ret_set, out_set);
+    EXPECT_EQ(out_set, ret_set);
 }
 }  // namespace

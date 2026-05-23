@@ -90,7 +90,7 @@ TEST(BinaryTreeWithFactor, t1) {
     Solution sl;
     int const ret = sl.V2(arr);
     // We can make these trees: [2], [4], [4, 2, 2]
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(BinaryTreeWithFactor, t2) {
@@ -100,7 +100,7 @@ TEST(BinaryTreeWithFactor, t2) {
     // 5, 2].
     Solution sl;
     int const ret = sl.V2(arr);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 }  // namespace

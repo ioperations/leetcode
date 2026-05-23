@@ -65,10 +65,10 @@ TEST(KDiffPairsInAnArray, t1) {
 
     Solution const sl;
     int ret = sl.FindPairs(nums, k);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 
     ret = sl.FindPairsV1(nums, k);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(KDiffPairsInAnArray, t2) {
@@ -81,10 +81,10 @@ TEST(KDiffPairsInAnArray, t2) {
     Solution const sl;
     int ret = sl.FindPairs(nums, k);
 
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 
     ret = sl.FindPairsV1(nums, k);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(KDiffPairsInAnArray, t3) {
@@ -95,10 +95,10 @@ TEST(KDiffPairsInAnArray, t3) {
 
     Solution const sl;
     int ret = sl.FindPairs(nums, k);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 
     ret = sl.FindPairsV1(nums, k);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 }  // namespace

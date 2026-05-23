@@ -63,7 +63,7 @@ TEST(HourseRobberIi, t1) {
     // because they are adjacent houses.
     Solution sl;
     int const ret = sl.Rob(nums);
-    EXPECT_EQ(output, ret);
+    EXPECT_EQ(ret, output);
 }
 
 TEST(HourseRobberIi, t2) {
@@ -74,7 +74,7 @@ TEST(HourseRobberIi, t2) {
 
     Solution sl;
     int const ret = sl.Rob(nums);
-    EXPECT_EQ(output, ret);
+    EXPECT_EQ(ret, output);
 }
 
 TEST(HourseRobberIi, t3) {
@@ -89,7 +89,7 @@ TEST(HourseRobberIi, t3) {
 
     Solution sl;
     int const ret = sl.Rob(nums);
-    EXPECT_EQ(output, ret);
+    EXPECT_EQ(ret, output);
 }
 
 }  // namespace

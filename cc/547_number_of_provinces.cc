@@ -75,7 +75,7 @@ TEST(NumberOfProvinces, t1) {
     */
     Solution sl;
     int const ret = sl.FindCircleNum(v);
-    EXPECT_EQ(ret, 2);
+    EXPECT_EQ(2, ret);
 }
 
 TEST(NumberOfProvinces, t2) {
@@ -92,7 +92,7 @@ TEST(NumberOfProvinces, t2) {
 
     Solution sl;
     int const ret = sl.FindCircleNum(v);
-    EXPECT_EQ(ret, 3);
+    EXPECT_EQ(3, ret);
 }
 
 }  // namespace

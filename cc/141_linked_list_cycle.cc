@@ -77,7 +77,7 @@ TEST(LinkedListCycle, t1) {
 
     Solution s;
     bool const ret = s.HasCycle(head);
-    EXPECT_EQ(ret, true);
+    EXPECT_EQ(true, ret);
 
     it2->next = nullptr;
 
@@ -107,7 +107,7 @@ TEST(LinkedListCycle, t2) {
 
     Solution s;
     bool const ret = s.HasCycle(head);
-    EXPECT_EQ(ret, true);
+    EXPECT_EQ(true, ret);
 
     it2->next = nullptr;
 
@@ -126,7 +126,7 @@ TEST(LinkedListCycle, t3) {
 
     Solution s;
     bool const ret = s.HasCycle(head);
-    EXPECT_EQ(ret, false);
+    EXPECT_EQ(false, ret);
 
     FreeList(head);
 }
@@ -136,7 +136,7 @@ TEST(LinkedListCycle, t4) {
 
     Solution s;
     bool const ret = s.HasCycle(head);
-    EXPECT_EQ(ret, false);
+    EXPECT_EQ(false, ret);
 
     FreeList(head);
 }

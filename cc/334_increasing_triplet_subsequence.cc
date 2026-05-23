@@ -59,7 +59,7 @@ TEST(IncreasingTripletSubsequence, t1) {
     // Explanation: Any triplet where i < j < k is valid.
     Solution sl;
     bool const ret = sl.IncreasingTriplet(nums);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(IncreasingTripletSubsequence, t2) {
@@ -68,7 +68,7 @@ TEST(IncreasingTripletSubsequence, t2) {
     // No triplet exists.
     Solution sl;
     bool const ret = sl.IncreasingTriplet(nums);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(IncreasingTripletSubsequence, t3) {
@@ -78,7 +78,7 @@ TEST(IncreasingTripletSubsequence, t3) {
     // nums[5] == 6
     Solution sl;
     bool const ret = sl.IncreasingTriplet(nums);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 }  // namespace

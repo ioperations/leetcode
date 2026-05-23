@@ -73,7 +73,7 @@ TEST(sameV, t1) {
 
     Solution s;
     auto ret = s.IsSameTree(root1, root2);
-    EXPECT_EQ(ret, expected);
+    EXPECT_EQ(expected, ret);
 
     FreeTreeNode(root1);
     FreeTreeNode(root2);
@@ -87,7 +87,7 @@ TEST(sameV, t2) {
 
     Solution s;
     auto ret = s.IsSameTree(root1, root2);
-    EXPECT_EQ(ret, expected);
+    EXPECT_EQ(expected, ret);
 
     FreeTreeNode(root1);
     FreeTreeNode(root2);
@@ -102,7 +102,7 @@ TEST(sameV, t3) {
 
     Solution s;
     auto ret = s.IsSameTree(root1, root2);
-    EXPECT_EQ(ret, expected);
+    EXPECT_EQ(expected, ret);
 
     FreeTreeNode(root1);
     FreeTreeNode(root2);
@@ -117,7 +117,7 @@ TEST(sameV, t4) {
 
     Solution s;
     auto ret = s.IsSameTree(root1, root2);
-    EXPECT_EQ(ret, expected);
+    EXPECT_EQ(expected, ret);
 
     FreeTreeNode(root1);
     FreeTreeNode(root2);
@@ -132,7 +132,7 @@ TEST(sameV, t5) {
 
     Solution s;
     auto ret = s.IsSameTree(root1, root2);
-    EXPECT_EQ(ret, expected);
+    EXPECT_EQ(expected, ret);
 
     FreeTreeNode(root1);
     FreeTreeNode(root2);

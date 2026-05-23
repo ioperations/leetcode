@@ -148,7 +148,7 @@ TEST(VerticalOrderTraversalOfABinaryTree, t1) {
 
     Solution sl;
     auto ret = sl.VerticalTraversal(node);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
     FreeTreeNode(node);
 }
 
@@ -166,7 +166,7 @@ TEST(VerticalOrderTraversalOfABinaryTree, t2) {
     // Column 2: Only node 7 is in this column.
     Solution sl;
     auto ret = sl.VerticalTraversal(node);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
     FreeTreeNode(node);
 }
 TEST(VerticalOrderTraversalOfABinaryTree, t3) {
@@ -178,7 +178,7 @@ TEST(VerticalOrderTraversalOfABinaryTree, t3) {
     // location and should be ordered by their values. Column -2: Only node 4 is
     Solution sl;
     auto ret = sl.VerticalTraversal(node);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
     FreeTreeNode(node);
 }
 

@@ -61,7 +61,7 @@ TEST(decodeV, t1) {
     string const out = "aaabcbc";
     Solution sl;
     auto ret = sl.DecodeString(s);
-    EXPECT_EQ(ret, out);
+    EXPECT_EQ(out, ret);
 }
 
 TEST(decodeV, t2) {
@@ -69,7 +69,7 @@ TEST(decodeV, t2) {
     string const out = "accaccacc";
     Solution sl;
     auto ret = sl.DecodeString(s);
-    EXPECT_EQ(ret, out);
+    EXPECT_EQ(out, ret);
 }
 
 TEST(decodeV, t3) {
@@ -77,7 +77,7 @@ TEST(decodeV, t3) {
     string const out = "abcabccdcdcdef";
     Solution sl;
     auto ret = sl.DecodeString(s);
-    EXPECT_EQ(ret, out);
+    EXPECT_EQ(out, ret);
 }
 
 using namespace Tree;

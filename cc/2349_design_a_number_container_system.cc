@@ -105,18 +105,18 @@ TEST(T0, t1) {
     // [[], [10], [2, 10], [1, 10], [3, 10], [5, 10], [10], [1, 20], [10]]
     NumberContainers sl;
     auto ret = sl.Find(10);
-    EXPECT_EQ(ret, -1);
+    EXPECT_EQ(-1, ret);
 
     sl.Change(2, 10);
     sl.Change(1, 10);
     sl.Change(3, 10);
     sl.Change(5, 10);
     ret = sl.Find(10);
-    EXPECT_EQ(ret, 1);
+    EXPECT_EQ(1, ret);
 
     sl.Change(1, 20);
     ret = sl.Find(10);
-    EXPECT_EQ(ret, 2);
+    EXPECT_EQ(2, ret);
     // Output
     // [null, -1, null, null, null, null, 1, null, 2]
     /*
@@ -154,18 +154,18 @@ TEST(T1, t1) {
     // [[], [10], [2, 10], [1, 10], [3, 10], [5, 10], [10], [1, 20], [10]]
     NumberContainersV2 sl;
     auto ret = sl.Find(10);
-    EXPECT_EQ(ret, -1);
+    EXPECT_EQ(-1, ret);
 
     sl.Change(2, 10);
     sl.Change(1, 10);
     sl.Change(3, 10);
     sl.Change(5, 10);
     ret = sl.Find(10);
-    EXPECT_EQ(ret, 1);
+    EXPECT_EQ(1, ret);
 
     sl.Change(1, 20);
     ret = sl.Find(10);
-    EXPECT_EQ(ret, 2);
+    EXPECT_EQ(2, ret);
     // Output
     // [null, -1, null, null, null, null, 1, null, 2]
     /*

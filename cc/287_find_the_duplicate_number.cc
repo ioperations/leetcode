@@ -60,7 +60,7 @@ TEST(FindTheDuplicateNumber, t1) {
     int const i = 2;
     Solution sll;
     int const ret = sll.FindDuplicate(v);
-    EXPECT_EQ(ret, i);
+    EXPECT_EQ(i, ret);
 }
 
 TEST(FindTheDuplicateNumber, t2) {
@@ -69,7 +69,7 @@ TEST(FindTheDuplicateNumber, t2) {
     int const i = 3;
     Solution sll;
     int const ret = sll.FindDuplicate(v);
-    EXPECT_EQ(ret, i);
+    EXPECT_EQ(i, ret);
 }
 
 TEST(FindTheDuplicateNumberV2, t1) {
@@ -78,7 +78,7 @@ TEST(FindTheDuplicateNumberV2, t1) {
     int const i = 2;
     Solution sll;
     int const ret = sll.FindDuplicateV1(v);
-    EXPECT_EQ(ret, i);
+    EXPECT_EQ(i, ret);
 }
 
 TEST(FindTheDuplicateNumberV2, t2) {
@@ -87,7 +87,7 @@ TEST(FindTheDuplicateNumberV2, t2) {
     int const i = 3;
     Solution sll;
     int const ret = sll.FindDuplicateV1(v);
-    EXPECT_EQ(ret, i);
+    EXPECT_EQ(i, ret);
 }
 static void BenchMarkV0(benchmark::State& state) {
     for (auto&& _ : state) {
@@ -96,7 +96,7 @@ static void BenchMarkV0(benchmark::State& state) {
         int const i = 3;
         Solution sll;
         int const ret = sll.FindDuplicate(v);
-        EXPECT_EQ(ret, i);
+        EXPECT_EQ(i, ret);
     }
 }
 BENCHMARK(BenchMarkV0);
@@ -108,7 +108,7 @@ static void BenchMarkV1(benchmark::State& state) {
         int const i = 3;
         Solution sll;
         int const ret = sll.FindDuplicateV1(v);
-        EXPECT_EQ(ret, i);
+        EXPECT_EQ(i, ret);
     }
 }
 BENCHMARK(BenchMarkV1);

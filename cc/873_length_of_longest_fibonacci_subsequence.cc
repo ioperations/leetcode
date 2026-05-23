@@ -67,7 +67,7 @@ TEST(T0, t1) {
     int const output = 5;
     Solution sl;
     auto ret = sl.LenLongestFibSubseq(arr);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
     // Explanation: The longest subsequence that is fibonacci-like: [1,2,3,5,8].
 }
 
@@ -76,7 +76,7 @@ TEST(T0, t2) {
     int const output = 3;
     Solution sl;
     auto ret = sl.LenLongestFibSubseq(arr);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
     // The longest subsequence that is fibonacci-like: [1,11,12], [3,11,14] or
 }
 
@@ -85,7 +85,7 @@ TEST(T0, t3) {
     int const output = 0;
     Solution sl;
     auto ret = sl.LenLongestFibSubseq(arr);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
     // The longest subsequence that is fibonacci-like: [1,11,12], [3,11,14] or
 }
 int main(int argc, char* argv[]) {

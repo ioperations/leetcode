@@ -45,7 +45,7 @@ TEST(mirrorV, t1) {
     Solution sl;
 
     int const ret = sl.MirrorReflection(p, q);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(mirrorV, t2) {
@@ -54,7 +54,7 @@ TEST(mirrorV, t2) {
     Solution sl;
 
     int const ret = sl.MirrorReflection(p, q);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 }  // namespace

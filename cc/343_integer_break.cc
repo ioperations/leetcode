@@ -40,7 +40,7 @@ TEST(integerV, t1) {
     int const output = 1;
     Solution sl;
     int const ret = sl.IntegerBreak(n);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
     // Explanation: 2 = 1 + 1, 1 × 1 = 1.
 }
 
@@ -50,6 +50,6 @@ TEST(integerV, t2) {
     Solution sl;
     int const ret = sl.IntegerBreak(n);
     // 10 = 3 + 3 + 4, 3 × 3 × 4 = 36.
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 }  // namespace

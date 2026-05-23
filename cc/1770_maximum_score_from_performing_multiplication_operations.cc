@@ -75,7 +75,7 @@ TEST(MaximumScoreFromPerformingMultiplicationOperations, t1) {
     The total score is 9 + 4 + 1 = 14.
     */
 
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(MaximumScoreFromPerformingMultiplicationOperations, t2) {
@@ -94,6 +94,6 @@ TEST(MaximumScoreFromPerformingMultiplicationOperations, t2) {
     The total score is 50 + 15 - 9 + 4 + 42 = 102.
     */
 
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 }  // namespace

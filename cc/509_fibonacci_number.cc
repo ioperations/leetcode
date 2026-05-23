@@ -37,7 +37,7 @@ TEST(fibonacciV, t1) {
     int const out = 1;
     Solution sl;
     int const ret = sl.Fib(n);
-    EXPECT_EQ(ret, out);
+    EXPECT_EQ(out, ret);
 }
 
 TEST(fibonacciV, t2) {
@@ -45,7 +45,7 @@ TEST(fibonacciV, t2) {
     int const out = 2;
     Solution sl;
     int const ret = sl.Fib(n);
-    EXPECT_EQ(ret, out);
+    EXPECT_EQ(out, ret);
 }
 
 TEST(fibonacciV, t3) {
@@ -53,7 +53,7 @@ TEST(fibonacciV, t3) {
     int const out = 3;
     Solution sl;
     int const ret = sl.Fib(n);
-    EXPECT_EQ(ret, out);
+    EXPECT_EQ(out, ret);
 }
 
 }  // namespace

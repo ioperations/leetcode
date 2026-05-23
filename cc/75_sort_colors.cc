@@ -94,11 +94,11 @@ TEST(sortV, t1) {
     std::vector<int> nums{2, 0, 2, 1, 1, 0};
     s.SortColors(nums);
 
-    EXPECT_EQ(nums, (std::vector<int>{0, 0, 1, 1, 2, 2}));
+    EXPECT_EQ((std::vector<int>{0, 0, 1, 1, 2, 2}), nums);
     std::vector<int> nums2{2, 0, 2, 1, 1, 0};
 
     s.SortColorsV2(nums2);
-    EXPECT_EQ(nums2, (std::vector<int>{0, 0, 1, 1, 2, 2}));
+    EXPECT_EQ((std::vector<int>{0, 0, 1, 1, 2, 2}), nums2);
 }
 TEST(sortV, t2) {
     // nums = [2,0,1]
@@ -108,11 +108,11 @@ TEST(sortV, t2) {
     std::vector<int> nums{2, 0, 1};
     s.SortColors(nums);
 
-    EXPECT_EQ(nums, (std::vector<int>{0, 1, 2}));
+    EXPECT_EQ((std::vector<int>{0, 1, 2}), nums);
     std::vector<int> nums2{2, 0, 1};
     s.SortColors(nums2);
 
-    EXPECT_EQ(nums2, (std::vector<int>{0, 1, 2}));
+    EXPECT_EQ((std::vector<int>{0, 1, 2}), nums2);
 }
 
 }  // namespace

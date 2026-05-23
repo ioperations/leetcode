@@ -48,7 +48,7 @@ TEST(BinaryTreeInorderTranverseV2, t0) {
 
     Solution s;
     auto ret = s.InorderTraversal(root);
-    EXPECT_EQ(ret, (std::vector<int>{1, 3, 2}));
+    EXPECT_EQ((std::vector<int>{1, 3, 2}), ret);
 
     FreeTreeNode(root);
 }

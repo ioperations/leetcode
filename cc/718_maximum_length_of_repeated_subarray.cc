@@ -53,7 +53,7 @@ TEST(MaximumLengthOfRepeatedSubarray, t1) {
     /*The repeated subarray with maximum length is [3,2,1].*/
     Solution sl;
     int const ret = sl.FindLength(nums1, nums2);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(MaximumLengthOfRepeatedSubarray, t2) {
@@ -62,7 +62,7 @@ TEST(MaximumLengthOfRepeatedSubarray, t2) {
     int const output = 5;
     Solution sl;
     int const ret = sl.FindLength(nums1, nums2);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 }  // namespace

@@ -54,7 +54,7 @@ TEST(SumOfEvenNumbersAfterQueries, t1) {
     vector<int> const output = {8, 6, 2, 4};
     Solution sl;
     auto ret = sl.SumEvenAfterQueries(nums, queries);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(SumOfEvenNumbersAfterQueries, t2) {
@@ -63,7 +63,7 @@ TEST(SumOfEvenNumbersAfterQueries, t2) {
     vector<int> const output = {0};
     Solution sl;
     auto ret = sl.SumEvenAfterQueries(nums, queries);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 }  // namespace

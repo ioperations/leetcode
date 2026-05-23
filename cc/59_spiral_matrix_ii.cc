@@ -134,7 +134,7 @@ TEST(SpiralMatrixIi, t0) {
         {1, 2, 3}, {8, 9, 4}, {7, 6, 5}};
     Solution s;
     auto ret = s.GenerateMatrix(n);
-    EXPECT_EQ(ret, expected);
+    EXPECT_EQ(expected, ret);
 }
 
 TEST(SpiralMatrixIi, t1) {
@@ -142,7 +142,7 @@ TEST(SpiralMatrixIi, t1) {
     std::vector<std::vector<int>> const expected = {{1}};
     Solution s;
     auto ret = s.GenerateMatrix(n);
-    EXPECT_EQ(ret, expected);
+    EXPECT_EQ(expected, ret);
 }
 
 }  // namespace

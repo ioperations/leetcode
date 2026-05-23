@@ -113,7 +113,7 @@ TEST(IncreasingOrderSearchTree, t1) {
     Solution s;
     root = s.IncreasingBst(root);
     auto ret = BFS(root);
-    EXPECT_EQ(ret, (std::vector<int>{1, 2, 3, 4, 5, 6, 7, 8, 9}));
+    EXPECT_EQ((std::vector<int>{1, 2, 3, 4, 5, 6, 7, 8, 9}), ret);
 
     Tree::FreeTreeNode(root);
 }
@@ -125,7 +125,7 @@ TEST(IncreasingOrderSearchTree, t2) {
     Solution s;
     root = s.IncreasingBst(root);
     auto ret = BFS(root);
-    EXPECT_EQ(ret, (std::vector<int>{1, 5, 7}));
+    EXPECT_EQ((std::vector<int>{1, 5, 7}), ret);
 
     Tree::FreeTreeNode(root);
 }

@@ -101,10 +101,10 @@ TEST(T0, t1) {
     // character of s2 to make "bank"
     Solution sol1;
     bool const ret1 = sol1.AreAlmostEqual(s1, s2);
-    EXPECT_EQ(ret1, output);
+    EXPECT_EQ(output, ret1);
     SolutionV2 sol2;
     bool const ret2 = sol2.AreAlmostEqual(s1, s2);
-    EXPECT_EQ(ret2, output);
+    EXPECT_EQ(output, ret2);
 }
 
 TEST(T0, t2) {
@@ -113,10 +113,10 @@ TEST(T0, t2) {
     // Explanation : It is impossible to make them equal with one string swap
     Solution sol1;
     bool const ret1 = sol1.AreAlmostEqual(s1, s2);
-    EXPECT_EQ(ret1, output);
+    EXPECT_EQ(output, ret1);
     SolutionV2 sol2;
     bool const ret2 = sol2.AreAlmostEqual(s1, s2);
-    EXPECT_EQ(ret2, output);
+    EXPECT_EQ(output, ret2);
 }
 
 TEST(T0, t3) {
@@ -126,10 +126,10 @@ TEST(T0, t3) {
     // operation is required.
     Solution sol1;
     bool const ret1 = sol1.AreAlmostEqual(s1, s2);
-    EXPECT_EQ(ret1, output);
+    EXPECT_EQ(output, ret1);
     SolutionV2 sol2;
     bool const ret2 = sol2.AreAlmostEqual(s1, s2);
-    EXPECT_EQ(ret2, output);
+    EXPECT_EQ(output, ret2);
 }
 
 int main(int argc, char* argv[]) {

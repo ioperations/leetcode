@@ -117,14 +117,14 @@ TEST(T, t1) {
     // Explanation: 99 x 91 = 9009, 9009 % 1337 = 987
     Solution const s;
     const bool ret = s.IsPalindrome("9009");
-    EXPECT_EQ(ret, true);
+    EXPECT_EQ(true, ret);
 }
 
 TEST(T, t2) {
     // Explanation: 99 x 91 = 9009, 9009 % 1337 = 987
     Solution const s;
     const bool ret = s.IsPalindrome("000");
-    EXPECT_EQ(ret, true);
+    EXPECT_EQ(true, ret);
 }
 
 TEST(LargestPalindromeProduct, t1) {
@@ -133,7 +133,7 @@ TEST(LargestPalindromeProduct, t1) {
     // Explanation: 99 x 91 = 9009, 9009 % 1337 = 987
     Solution const s;
     const int ret = s.LargestPalindrome(n);
-    EXPECT_EQ(ret, expected);
+    EXPECT_EQ(expected, ret);
 }
 
 TEST(LargestPalindromeProduct, t2) {
@@ -141,7 +141,7 @@ TEST(LargestPalindromeProduct, t2) {
     const int expected = 9;
     Solution const s;
     const int ret = s.LargestPalindrome(n);
-    EXPECT_EQ(ret, expected);
+    EXPECT_EQ(expected, ret);
 }
 
 }  // namespace

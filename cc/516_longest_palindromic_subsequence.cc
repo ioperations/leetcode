@@ -47,7 +47,7 @@ TEST(LongestPalindromicSubsequence, t1) {
     // Explanation: One possible longest palindromic subsequence is "bbbb".
     Solution sl;
     int const ret = sl.LongestPalindromeSubseq(s);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(LongestPalindromicSubsequence, t2) {
@@ -56,7 +56,7 @@ TEST(LongestPalindromicSubsequence, t2) {
     // One possible longest palindromic subsequence is "bb".
     Solution sl;
     int const ret = sl.LongestPalindromeSubseq(s);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 }  // namespace

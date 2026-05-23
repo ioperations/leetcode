@@ -55,7 +55,7 @@ TEST(MaximumAreaOfAPieceOfCakeAfterHorizontalAndVerticalCuts, t1) {
     /*The figure above represents the given rectangular cake. Red lines are the
      * horizontal and vertical cuts. After you cut the cake, the green piece of
      * cake has the maximum area.*/
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(MaximumAreaOfAPieceOfCakeAfterHorizontalAndVerticalCuts, t2) {
@@ -68,7 +68,7 @@ TEST(MaximumAreaOfAPieceOfCakeAfterHorizontalAndVerticalCuts, t2) {
      * horizontal and vertical cuts. After you cut the cake, the green and
      * yellow pieces of cake have the maximum area.*/
     int const ret = sl.MaxArea(h, w, horizontal_cuts, vertical_cuts);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(MaximumAreaOfAPieceOfCakeAfterHorizontalAndVerticalCuts, t3) {
@@ -78,7 +78,7 @@ TEST(MaximumAreaOfAPieceOfCakeAfterHorizontalAndVerticalCuts, t3) {
     int const output = 9;
     Solution sl;
     int const ret = sl.MaxArea(h, w, horizontal_cuts, vertical_cuts);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 }  // namespace

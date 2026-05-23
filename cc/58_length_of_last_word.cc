@@ -33,7 +33,7 @@ TEST(LengthOfLastWord, t1) {
 
     Solution const sl;
     int const ret = sl.LengthOfLastWord(s);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(LengthOfLastWord, t2) {
@@ -41,7 +41,7 @@ TEST(LengthOfLastWord, t2) {
     int const output = 4;
     Solution const sl;
     int const ret = sl.LengthOfLastWord(s);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(LengthOfLastWord, t3) {
@@ -49,7 +49,7 @@ TEST(LengthOfLastWord, t3) {
     int const output = 6;
     Solution const sl;
     int const ret = sl.LengthOfLastWord(s);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 }  // namespace

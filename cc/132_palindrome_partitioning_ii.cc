@@ -55,7 +55,7 @@ TEST(PalindromePartitioningIi, t1) {
     int const i = 1;
     Solution sl;
     int const ret = sl.MinCut(s);
-    EXPECT_EQ(ret, i);
+    EXPECT_EQ(i, ret);
 }
 
 TEST(PalindromePartitioningIi, t2) {
@@ -64,7 +64,7 @@ TEST(PalindromePartitioningIi, t2) {
     int const i = 0;
     Solution sl;
     int const ret = sl.MinCut(s);
-    EXPECT_EQ(ret, i);
+    EXPECT_EQ(i, ret);
 }
 
 TEST(PalindromePartitioningIi, t3) {
@@ -73,6 +73,6 @@ TEST(PalindromePartitioningIi, t3) {
     int const i = 1;
     Solution sl;
     int const ret = sl.MinCut(s);
-    EXPECT_EQ(ret, i);
+    EXPECT_EQ(i, ret);
 }
 }  // namespace

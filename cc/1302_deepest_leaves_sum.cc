@@ -123,7 +123,7 @@ TEST(DeepestLeavesSum, t1) {
 
     Solution sl;
     const int ret = sl.DeepestLeavesSum(root);
-    EXPECT_EQ(ret, expected);
+    EXPECT_EQ(expected, ret);
 
     FreeTreeNode(root);
 };
@@ -136,7 +136,7 @@ TEST(DeepestLeavesSum, t2) {
 
     Solution sl;
     const int ret = sl.DeepestLeavesSum(root);
-    EXPECT_EQ(ret, expected);
+    EXPECT_EQ(expected, ret);
 
     FreeTreeNode(root);
 }

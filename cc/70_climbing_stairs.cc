@@ -69,7 +69,7 @@ TEST(climbingV, t1) {
         1. 1 step + 1 step
         2. 2 steps
     */
-    EXPECT_EQ(ret, 2);
+    EXPECT_EQ(2, ret);
 }
 
 TEST(climbingstairsV2, t1) {
@@ -81,7 +81,7 @@ TEST(climbingstairsV2, t1) {
         1. 1 step + 1 step
         2. 2 steps
     */
-    EXPECT_EQ(ret, 2);
+    EXPECT_EQ(2, ret);
 }
 
 TEST(climbingV, t2) {
@@ -94,7 +94,7 @@ TEST(climbingV, t2) {
         2. 1 step + 2 steps
         3. 2 steps + 1 step
     */
-    EXPECT_EQ(ret, 3);
+    EXPECT_EQ(3, ret);
 }
 
 TEST(climbingstairsV2, t2) {
@@ -107,7 +107,7 @@ TEST(climbingstairsV2, t2) {
         2. 1 step + 2 steps
         3. 2 steps + 1 step
     */
-    EXPECT_EQ(ret, 3);
+    EXPECT_EQ(3, ret);
 }
 
 }  // namespace

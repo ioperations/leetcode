@@ -93,7 +93,7 @@ TEST(UniquePathsIi, t1) {
     // 2. Down -> Down -> Right -> Right
     Solution sl;
     int const ret = sl.UniquePathsWithObstacles(obstacle_grid);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(UniquePathsIi, t2) {
@@ -105,7 +105,7 @@ TEST(UniquePathsIi, t2) {
     // 2. Down -> Down -> Right -> Right
     Solution sl;
     int const ret = sl.UniquePathsWithObstacles(obstacle_grid);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(UniquePathsIiV2, t1) {
@@ -117,7 +117,7 @@ TEST(UniquePathsIiV2, t1) {
     // 2. Down -> Down -> Right -> Right
     Solution sl;
     int const ret = sl.UniquePathsWithObstaclesV1(obstacle_grid);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(UniquePathsIiV2, t2) {
@@ -129,7 +129,7 @@ TEST(UniquePathsIiV2, t2) {
     // 2. Down -> Down -> Right -> Right
     Solution sl;
     int const ret = sl.UniquePathsWithObstaclesV1(obstacle_grid);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 }  // namespace

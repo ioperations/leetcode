@@ -37,7 +37,7 @@ TEST(T0, t1) {
     long long const output = 5;
     Solution sl;
     long long const ret = sl.CountBadPairs(nums);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
     /*
      * Explanation: The pair (0, 1) is a bad pair since 1 - 0 != 1 - 4.
      * The pair (0, 2) is a bad pair since 2 - 0 != 3 - 4, 2 != -1.
@@ -53,7 +53,7 @@ TEST(T0, t2) {
     int const output = 0;
     Solution sl;
     long long const ret = sl.CountBadPairs(nums);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
     // Explanation : There are no bad pairs.
 }
 

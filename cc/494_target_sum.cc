@@ -65,7 +65,7 @@ TEST(targetV, t1) {
         +1 + 1 + 1 + 1 - 1 = 3
     */
     int const ret = sl.FindTargetSumWays(nums, target);
-    EXPECT_EQ(ret, 5);
+    EXPECT_EQ(5, ret);
 }
 
 TEST(targetV, t2) {
@@ -74,7 +74,7 @@ TEST(targetV, t2) {
 
     Solution sl;
     int const ret = sl.FindTargetSumWays(nums, target);
-    EXPECT_EQ(ret, 1);
+    EXPECT_EQ(1, ret);
 }
 
 }  // namespace

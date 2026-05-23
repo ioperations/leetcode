@@ -78,7 +78,7 @@ TEST(sumclosestV2, t1) {
     std::vector<int> nums{-1, 2, 1, 4};
     const int ret = s.ThreeSum(nums, 1);
 
-    EXPECT_EQ(ret, 2);
+    EXPECT_EQ(2, ret);
 }
 
 TEST(sumclosestV2, t2) {
@@ -86,7 +86,7 @@ TEST(sumclosestV2, t2) {
     std::vector<int> nums{0, 0, 0};
     const int ret = s.ThreeSum(nums, 1);
 
-    EXPECT_EQ(ret, 0);
+    EXPECT_EQ(0, ret);
 }
 
 TEST(sumclosestV2, t3) {
@@ -94,7 +94,7 @@ TEST(sumclosestV2, t3) {
     std::vector<int> nums{-55, -24, -18, -11, -7, -3, 4, 5, 6, 9, 11, 23, 33};
     const int ret = s.ThreeSum2(nums, 0);
 
-    EXPECT_EQ(ret, 0);
+    EXPECT_EQ(0, ret);
 }
 static void BenchV2(benchmark::State& state) {
     Solution const s;

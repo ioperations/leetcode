@@ -63,7 +63,7 @@ TEST(LetterConbinationsOfAPhoneNumber, t1) {
     Solution sl;
     auto ret = sl.LetterCombinations(digits);
     set<string> const ret_set(ret.begin(), ret.end());
-    EXPECT_EQ(ret_set, expected_set);
+    EXPECT_EQ(expected_set, ret_set);
 }
 
 TEST(LetterConbinationsOfAPhoneNumber, t2) {
@@ -76,7 +76,7 @@ TEST(LetterConbinationsOfAPhoneNumber, t2) {
     Solution sl;
     auto ret = sl.LetterCombinations(digits);
     set<string> const ret_set(ret.begin(), ret.end());
-    EXPECT_EQ(ret_set, expected_set);
+    EXPECT_EQ(expected_set, ret_set);
 }
 
 TEST(LetterConbinationsOfAPhoneNumber, t3) {
@@ -89,7 +89,7 @@ TEST(LetterConbinationsOfAPhoneNumber, t3) {
     Solution sl;
     auto ret = sl.LetterCombinations(digits);
     set<string> const ret_set(ret.begin(), ret.end());
-    EXPECT_EQ(ret_set, expected_set);
+    EXPECT_EQ(expected_set, ret_set);
 }
 
 }  // namespace

@@ -48,7 +48,7 @@ TEST(TheNumberOfWeakCharactersInTheGame, t1) {
     // the other.
     Solution sl;
     int const ret = sl.NumberOfWeakCharacters(properties);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(TheNumberOfWeakCharactersInTheGame, t2) {
@@ -58,7 +58,7 @@ TEST(TheNumberOfWeakCharactersInTheGame, t2) {
     // greater attack and defense.
     Solution sl;
     int const ret = sl.NumberOfWeakCharacters(properties);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(TheNumberOfWeakCharactersInTheGame, t3) {
@@ -68,7 +68,7 @@ TEST(TheNumberOfWeakCharactersInTheGame, t3) {
     // a strictly greater attack and defense.};
     Solution sl;
     int const ret = sl.NumberOfWeakCharacters(properties);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 TEST(TheNumberOfWeakCharactersInTheGame, t4) {
     std::vector<vector<int>> properties = {{1, 1}, {2, 1}, {2, 2}, {1, 2}};
@@ -77,7 +77,7 @@ TEST(TheNumberOfWeakCharactersInTheGame, t4) {
     // a strictly greater attack and defense.};
     Solution sl;
     int const ret = sl.NumberOfWeakCharacters(properties);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 }  // namespace

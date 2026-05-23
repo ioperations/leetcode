@@ -46,7 +46,7 @@ TEST(CheckIfTheSentenceIsPangram, t1) {
     // English alphabet.
     Solution const sl;
     bool const ret = sl.CheckIfPangram(sentence);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(CheckIfTheSentenceIsPangram, t2) {
@@ -54,7 +54,7 @@ TEST(CheckIfTheSentenceIsPangram, t2) {
     bool const output = false;
     Solution const sl;
     bool const ret = sl.CheckIfPangram(sentence);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(CheckIfTheSentenceIsPangramV2, t1) {
@@ -64,7 +64,7 @@ TEST(CheckIfTheSentenceIsPangramV2, t1) {
     // English alphabet.
     Solution const sl;
     bool const ret = sl.CheckIfPangramV2(sentence);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(CheckIfTheSentenceIsPangramV2, t2) {
@@ -72,7 +72,7 @@ TEST(CheckIfTheSentenceIsPangramV2, t2) {
     bool const output = false;
     Solution const sl;
     bool const ret = sl.CheckIfPangramV2(sentence);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 static void BenchMarkV1(benchmark::State& state) {
@@ -83,7 +83,7 @@ static void BenchMarkV1(benchmark::State& state) {
         // English alphabet.
         Solution const sl;
         bool const ret = sl.CheckIfPangram(sentence);
-        EXPECT_EQ(ret, output);
+        EXPECT_EQ(output, ret);
     }
 }
 BENCHMARK(BenchMarkV1);
@@ -96,7 +96,7 @@ static void BenchMarkV2(benchmark::State& state) {
         // English alphabet.
         Solution const sl;
         bool const ret = sl.CheckIfPangramV2(sentence);
-        EXPECT_EQ(ret, output);
+        EXPECT_EQ(output, ret);
     }
 }
 BENCHMARK(BenchMarkV2);

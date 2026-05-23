@@ -65,9 +65,9 @@ TEST(removeV, t1) {
     // returned k (hence they are underscores).
     Solution sl;
     int const ret = sl.RemoveElement(v, val);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
     for (int i = 0; i < output; i++) {
-        EXPECT_EQ(v.at(i), nums_expected.at(i));
+        EXPECT_EQ(nums_expected.at(i), v.at(i));
     }
 }
 
@@ -82,9 +82,9 @@ TEST(removeV, t2) {
     // (hence they are underscores).   Solution sl;
     Solution sl;
     int const ret = sl.RemoveElement(v, val);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
     for (int i = 0; i < output; i++) {
-        EXPECT_EQ(v.at(i), nums_expected.at(i));
+        EXPECT_EQ(nums_expected.at(i), v.at(i));
     }
 }
 

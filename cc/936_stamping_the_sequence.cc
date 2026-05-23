@@ -87,7 +87,7 @@ TEST(StampingTheSequence, t1) {
     */
     Solution sl;
     auto ret = sl.MovesToStamp(stamp, target);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(StampingTheSequence, t2) {
@@ -101,7 +101,7 @@ TEST(StampingTheSequence, t2) {
     */
     Solution sl;
     auto ret = sl.MovesToStamp(stamp, target);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 }  // namespace

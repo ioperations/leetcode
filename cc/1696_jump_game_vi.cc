@@ -53,7 +53,7 @@ TEST(JumpGameVi, t1) {
     int const ret = sl.MaxResult(nums, k);
     // You can choose your jumps forming the subsequence [1,-1,4,3] (underlined
     // above). The sum is 7.
-    EXPECT_EQ(ret, out);
+    EXPECT_EQ(out, ret);
 }
 
 TEST(JumpGameVi, t2) {
@@ -65,7 +65,7 @@ TEST(JumpGameVi, t2) {
     // You can choose your jumps forming the subsequence [10,4,3] (underlined
     // above). The sum is 17.
 
-    EXPECT_EQ(ret, out);
+    EXPECT_EQ(out, ret);
 }
 
 TEST(JumpGameVi, t3) {
@@ -75,7 +75,7 @@ TEST(JumpGameVi, t3) {
     Solution sl;
     int const ret = sl.MaxResult(nums, k);
 
-    EXPECT_EQ(ret, out);
+    EXPECT_EQ(out, ret);
 }
 
 TEST(JumpGameVi, t4) {
@@ -179,6 +179,6 @@ TEST(JumpGameVi, t4) {
     Solution sl;
     int const ret = sl.MaxResult(nums, k);
 
-    EXPECT_EQ(ret, out);
+    EXPECT_EQ(out, ret);
 }
 }  // namespace

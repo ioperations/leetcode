@@ -107,12 +107,12 @@ TEST(T0, t0) {
     string out;
     PreOrder(root, out);
     string const output = "1-2--3--4-5--6--7";
-    EXPECT_EQ(out, output);
+    EXPECT_EQ(output, out);
 
     Solution sl;
     auto* r2 = sl.RecoverFromPreorder(output);
     PreOrder(r2, out);
-    EXPECT_EQ(out, output);
+    EXPECT_EQ(output, out);
     Tree::FreeTreeNode(r2);
 
     Tree::FreeTreeNode(root);
@@ -133,12 +133,12 @@ TEST(T1, t1) {
     string out;
     PreOrder(root, out);
     string const output = "1-2--3---4-5--6---7";
-    EXPECT_EQ(out, output);
+    EXPECT_EQ(output, out);
 
     Solution sl;
     auto* r2 = sl.RecoverFromPreorder(output);
     PreOrder(r2, out);
-    EXPECT_EQ(out, output);
+    EXPECT_EQ(output, out);
     Tree::FreeTreeNode(r2);
 
     Tree::FreeTreeNode(root);
@@ -155,12 +155,12 @@ TEST(T2, t2) {
     string out;
     PreOrder(root, out);
     string const output = "1-401--349---90--88";
-    EXPECT_EQ(out, output);
+    EXPECT_EQ(output, out);
 
     Solution sl;
     auto* r2 = sl.RecoverFromPreorder(output);
     PreOrder(r2, out);
-    EXPECT_EQ(out, output);
+    EXPECT_EQ(output, out);
     Tree::FreeTreeNode(r2);
 
     Tree::FreeTreeNode(root);

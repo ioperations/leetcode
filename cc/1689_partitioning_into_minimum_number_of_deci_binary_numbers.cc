@@ -44,7 +44,7 @@ TEST(PartitioningIntoMinimumNumberOfDeciBinaryNumbers, t1) {
     int const output = 3;
     Solution sl;
     int const ret = sl.MinPartitions(n);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
     // Explanation: 10 + 11 + 11 = 32;
 }
 
@@ -53,7 +53,7 @@ TEST(PartitioningIntoMinimumNumberOfDeciBinaryNumbers, t2) {
     int const output = 8;
     Solution sl;
     int const ret = sl.MinPartitions(n);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
     // Explanation: 10 + 11 + 11 = 32;
 }
 
@@ -62,7 +62,7 @@ TEST(PartitioningIntoMinimumNumberOfDeciBinaryNumbers, t3) {
     int const output = 9;
     Solution sl;
     int const ret = sl.MinPartitions(n);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
     // Explanation: 10 + 11 + 11 = 32;
 }
 }  // namespace

@@ -78,7 +78,7 @@ TEST(RestoreIpAddresses, t1) {
     auto ret = sl.RestoreIpAddresses(s);
     set<std::string> const ret_set(ret.begin(), ret.end());
     set<std::string> const out_set(output.begin(), output.end());
-    EXPECT_EQ(out_set, ret_set);
+    EXPECT_EQ(ret_set, out_set);
 }
 
 TEST(RestoreIpAddresses, t2) {
@@ -88,7 +88,7 @@ TEST(RestoreIpAddresses, t2) {
     auto ret = sl.RestoreIpAddresses(s);
     set<std::string> const ret_set(ret.begin(), ret.end());
     set<std::string> const out_set(output.begin(), output.end());
-    EXPECT_EQ(out_set, ret_set);
+    EXPECT_EQ(ret_set, out_set);
 }
 
 TEST(RestoreIpAddresses, t3) {
@@ -99,7 +99,7 @@ TEST(RestoreIpAddresses, t3) {
     auto ret = sl.RestoreIpAddresses(s);
     set<std::string> const ret_set(ret.begin(), ret.end());
     set<std::string> const out_set(output.begin(), output.end());
-    EXPECT_EQ(out_set, ret_set);
+    EXPECT_EQ(ret_set, out_set);
 }
 
 }  // namespace

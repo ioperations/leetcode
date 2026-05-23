@@ -161,7 +161,7 @@ TEST(ValidateBinarySearchTree, t1) {
 
     Solution sl;
     bool const ret = sl.IsValidBst(head);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
     FreeRoot(head);
 }
 
@@ -181,7 +181,7 @@ TEST(ValidateBinarySearchTree, t2) {
 
     Solution sl;
     bool const ret = sl.IsValidBst(&head);
-    EXPECT_EQ(ret, false);
+    EXPECT_EQ(false, ret);
 
     // Explanation: The root node's value is 5 but its right child's value is 4.
 }
@@ -202,7 +202,7 @@ TEST(ValidateBinarySearchTree, t3) {
 
     Solution sl;
     bool const ret = sl.IsValidBst(&head);
-    EXPECT_EQ(ret, false);
+    EXPECT_EQ(false, ret);
 
     // Explanation: The root node's value is 5 but its right child's value is 4.
 }

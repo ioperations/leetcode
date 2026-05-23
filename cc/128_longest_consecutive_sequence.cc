@@ -50,7 +50,7 @@ TEST(LongestConsecutiveSequence, t1) {
     // 4]. Therefore its length is 4.
     Solution sl;
     int const ret = sl.LongestConsecutive(nums);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(LongestConsecutiveSequence, t2) {
@@ -59,7 +59,7 @@ TEST(LongestConsecutiveSequence, t2) {
 
     Solution sl;
     int const ret = sl.LongestConsecutive(nums);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 }  // namespace

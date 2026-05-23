@@ -136,7 +136,7 @@ TEST(Test, t0) {
     Solution s;
     auto ret = s.SaperateEvenly(11, 3);
 
-    EXPECT_EQ(ret, (std::vector<int>{4, 4, 3}));
+    EXPECT_EQ((std::vector<int>{4, 4, 3}), ret);
 }
 
 TEST(Test, t1) {
@@ -147,7 +147,7 @@ TEST(Test, t1) {
     q.emplace("i");
     auto ret = s.BuildAliagnToLeft(q);
 
-    EXPECT_EQ(ret, "hello world i");
+    EXPECT_EQ("hello world i", ret);
 }
 
 TEST(Test, t2) {
@@ -158,7 +158,7 @@ TEST(Test, t2) {
     q.emplace("i");
     auto ret = s.BuildMaxLeft(q, 5);
 
-    EXPECT_EQ(ret, "hello   world  i");
+    EXPECT_EQ("hello   world  i", ret);
 }
 TEST(textV, t1) {
     vector<string> words = {
@@ -169,7 +169,7 @@ TEST(textV, t1) {
 
     Solution s;
     auto ret = s.FullJustify(words, max_width);
-    EXPECT_EQ(ret, expected);
+    EXPECT_EQ(expected, ret);
 }
 
 TEST(textV, t2) {
@@ -181,7 +181,7 @@ TEST(textV, t2) {
 
     Solution s;
     auto ret = s.FullJustify(words, max_width);
-    EXPECT_EQ(ret, expected);
+    EXPECT_EQ(expected, ret);
 }
 
 TEST(textV, t3) {
@@ -198,7 +198,7 @@ TEST(textV, t3) {
 
     Solution s;
     auto ret = s.FullJustify(words, max_width);
-    EXPECT_EQ(ret, expected);
+    EXPECT_EQ(expected, ret);
 }
 
 TEST(textV, t4) {
@@ -211,7 +211,7 @@ TEST(textV, t4) {
 
     Solution s;
     auto ret = s.FullJustify(words, max_width);
-    EXPECT_EQ(ret, expected);
+    EXPECT_EQ(expected, ret);
 }
 
 }  // namespace

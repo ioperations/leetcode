@@ -68,7 +68,7 @@ TEST(TwoSumIiInputArraryIsSorted, t1) {
     // We return [1, 2].
     Solution sl;
     auto ret = sl.TwoSum(numbers, target);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(TwoSumIiInputArraryIsSorted, t2) {
@@ -79,7 +79,7 @@ TEST(TwoSumIiInputArraryIsSorted, t2) {
     // We return [1, 2].
     Solution sl;
     auto ret = sl.TwoSum(numbers, target);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(TwoSumIiInputArraryIsSorted, t3) {
@@ -90,7 +90,7 @@ TEST(TwoSumIiInputArraryIsSorted, t3) {
     // We return [1, 2].
     Solution sl;
     auto ret = sl.TwoSum(numbers, target);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(TwoSumIiInputArraryIsSorted, t4) {
@@ -101,7 +101,7 @@ TEST(TwoSumIiInputArraryIsSorted, t4) {
     // We return [1, 2].
     Solution sl;
     auto ret = sl.TwoSum(numbers, target);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 }  // namespace

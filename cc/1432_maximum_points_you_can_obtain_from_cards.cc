@@ -81,7 +81,7 @@ TEST(MaximumPointsYouCanObtainFromCards, t1) {
     int const output = 12;
     Solution sl;
     int const ret = sl.MaxScore(card_points, k);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
     // Explanation: After the first step, your score will always be 1. However,
     // choosing the rightmost card first will maximize your total score. The
     // optimal strategy is to take the three cards on the right, giving a final
@@ -94,7 +94,7 @@ TEST(MaximumPointsYouCanObtainFromCards, t2) {
     int const output = 4;
     Solution sl;
     int const ret = sl.MaxScore(card_points, k);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
     // Regardless of which two cards you take, your score will always be 4.
 }
 
@@ -104,7 +104,7 @@ TEST(MaximumPointsYouCanObtainFromCards, t3) {
     int const output = 55;
     Solution sl;
     int const ret = sl.MaxScore(card_points, k);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
     // You have to take all the cards. Your score is the sum of points of all
     // cards.
 }
@@ -115,7 +115,7 @@ TEST(MaximumPointsYouCanObtainFromCardsV2, t1) {
     int const output = 12;
     Solution sl;
     int const ret = sl.MaxScoreV2(card_points, k);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
     // Explanation: After the first step, your score will always be 1. However,
     // choosing the rightmost card first will maximize your total score. The
     // optimal strategy is to take the three cards on the right, giving a final
@@ -128,7 +128,7 @@ TEST(MaximumPointsYouCanObtainFromCardsV2, t2) {
     int const output = 4;
     Solution sl;
     int const ret = sl.MaxScoreV2(card_points, k);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
     // Regardless of which two cards you take, your score will always be 4.
 }
 
@@ -138,7 +138,7 @@ TEST(MaximumPointsYouCanObtainFromCardsV2, t3) {
     int const output = 55;
     Solution sl;
     int const ret = sl.MaxScoreV2(card_points, k);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
     // You have to take all the cards. Your score is the sum of points of all
     // cards.
 }

@@ -35,7 +35,7 @@ TEST(T0, t1) {
     bool const output = true;
     Solution sl;
     int const ret = sl.DivideArray(nums);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
     // Explanation:
     // There are 6 elements in nums, so they should be divided into 6 / 2 = 3
     // pairs. If nums is divided into the pairs (2, 2), (3, 3), and (2, 2), it
@@ -47,7 +47,7 @@ TEST(T0, t2) {
     bool const output = false;
     Solution sl;
     int const ret = sl.DivideArray(nums);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
     // Explanation:
     // There is no way to divide nums into 4 / 2 = 2 pairs such that the pairs
     // satisfy every condition.

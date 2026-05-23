@@ -58,7 +58,7 @@ TEST(SearchInRotatedSortedArrayIi, t1) {
     bool const output = true;
     Solution sl;
     bool const ret = sl.Search(nums, target);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(SearchInRotatedSortedArrayIi, t2) {
@@ -67,7 +67,7 @@ TEST(SearchInRotatedSortedArrayIi, t2) {
     bool const output = false;
     Solution sl;
     bool const ret = sl.Search(nums, target);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 }  // namespace

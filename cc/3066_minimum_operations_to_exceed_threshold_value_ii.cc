@@ -49,7 +49,7 @@ TEST(T0, t1) {
     int const output = 2;
     Solution sl;
     int const ret = sl.MinOperations(nums, k);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
     // Explanation: In the first operation, we remove elements 1 and 2, then add
     // 1 * 2 + 2 to nums. nums becomes equal to [4, 11, 10, 3]. In the second
     // operation, we remove elements 3 and 4, then add 3 * 2 + 4 to nums. nums
@@ -65,7 +65,7 @@ TEST(T0, t2) {
     int const output = 4;
     Solution sl;
     int const ret = sl.MinOperations(nums, k);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
     /*
      * After one operation, nums becomes equal to [2, 4, 9, 3].
       After two operations, nums becomes equal to [7, 4, 9].
@@ -83,7 +83,7 @@ TEST(T0, t3) {
     int const output = 2;
     Solution sl;
     int const ret = sl.MinOperations(nums, k);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
     /*
      * NOTE: long long
      */

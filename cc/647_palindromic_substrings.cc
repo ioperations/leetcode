@@ -73,7 +73,7 @@ TEST(palindromicV, t1) {
 
     Solution sl;
     int const ret = sl.CountSubstrings(s);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(palindromicV, t2) {
@@ -83,7 +83,7 @@ TEST(palindromicV, t2) {
 
     Solution sl;
     int const ret = sl.CountSubstrings(s);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(palindromicsubstringsV2, t1) {
@@ -93,7 +93,7 @@ TEST(palindromicsubstringsV2, t1) {
 
     Solution sl;
     int const ret = sl.CountSubstringsV1(s);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(palindromicsubstringsV2, t2) {
@@ -103,7 +103,7 @@ TEST(palindromicsubstringsV2, t2) {
 
     Solution sl;
     int const ret = sl.CountSubstringsV1(s);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 static void BenchMarkV1(benchmark::State& state) {
@@ -115,7 +115,7 @@ static void BenchMarkV1(benchmark::State& state) {
 
         Solution sl;
         int const ret = sl.CountSubstringsV1(s);
-        EXPECT_EQ(ret, output);
+        EXPECT_EQ(output, ret);
     }
 }
 BENCHMARK(BenchMarkV1);
@@ -129,7 +129,7 @@ static void BenchMarkV0(benchmark::State& state) {
 
         Solution sl;
         int const ret = sl.CountSubstrings(s);
-        EXPECT_EQ(ret, output);
+        EXPECT_EQ(output, ret);
     }
 }
 BENCHMARK(BenchMarkV0);

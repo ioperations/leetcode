@@ -48,7 +48,7 @@ TEST(ConbinationSumIii, t1) {
     Solution sl;
     auto ret = sl.CombinationSum3(k, n);
     // Explanation:
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 
     /* 1 + 2 + 4 = 7 */
     /* There are no other valid combinations. */
@@ -58,7 +58,7 @@ TEST(ConbinationSumIii, t2) {
     std::vector<vector<int>> const output = {{1, 2, 6}, {1, 3, 5}, {2, 3, 4}};
     Solution sl;
     auto ret = sl.CombinationSum3(k, n);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 
     /* Explanation: */
     /* 1 + 2 + 6 = 9 */
@@ -73,7 +73,7 @@ TEST(ConbinationSumIii, t3) {
     Solution sl;
     auto ret = sl.CombinationSum3(k, n);
 
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
     // Explanation: There are no valid combinations.
     // Using 4 different numbers in the range [1,9], the smallest sum we can get
     // is 1+2+3+4 = 10 and since 10 > 1, there are no valid combination.

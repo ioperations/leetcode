@@ -37,28 +37,28 @@ TEST(LongestSubstringWithoutRepeatingCharactersV3, t2) {
     std::string const s("bbbbb");
     Solution const sss;
     int const ret = sss.LengthOfLongestSubstring(s);
-    EXPECT_EQ(1, ret);
+    EXPECT_EQ(ret, 1);
 }
 
 TEST(LongestSubstringWithoutRepeatingCharactersV2, t2) {
     std::string const s("abcabcbb");
     Solution const sss;
     int const ret = sss.LengthOfLongestSubstring(s);
-    EXPECT_EQ(3, ret);
+    EXPECT_EQ(ret, 3);
 }
 
 TEST(LongestSubstringWithoutRepeatingCharactersV2, t2ss) {
     std::string const s("");
     Solution const sss;
     int const ret = sss.LengthOfLongestSubstring(s);
-    EXPECT_EQ(0, ret);
+    EXPECT_EQ(ret, 0);
 }
 
 TEST(T1sss, t2ss) {
     std::string const s("pwwkew");
     Solution const sss;
     int const ret = sss.LengthOfLongestSubstring(s);
-    EXPECT_EQ(3, ret);
+    EXPECT_EQ(ret, 3);
 }
 
 }  // namespace

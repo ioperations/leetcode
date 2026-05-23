@@ -52,7 +52,7 @@ TEST(BackspaceStringCompare, t1) {
 
     Solution const sl;
     bool const ret = sl.BackspaceCompare(s, t);
-    EXPECT_EQ(ret, expected);
+    EXPECT_EQ(expected, ret);
     // Explanation: Both s and t become "ac".
 }
 TEST(BackspaceStringCompare, t2) {
@@ -61,7 +61,7 @@ TEST(BackspaceStringCompare, t2) {
 
     Solution const sl;
     bool const ret = sl.BackspaceCompare(s, t);
-    EXPECT_EQ(ret, expected);
+    EXPECT_EQ(expected, ret);
     // Explanation: Both s and t become "ac".
 }
 
@@ -71,7 +71,7 @@ TEST(BackspaceStringCompare, t3) {
 
     Solution const sl;
     bool const ret = sl.BackspaceCompare(s, t);
-    EXPECT_EQ(ret, expected);
+    EXPECT_EQ(expected, ret);
     // Explanation: Both s and t become "ac".
 }
 

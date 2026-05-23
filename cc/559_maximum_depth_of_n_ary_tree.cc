@@ -116,7 +116,7 @@ TEST(MaximumDepthOfNAryTree, t1) {
     const int output = 3;
     Solution sl;
     const int ret = sl.MaxDepth(n);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
     FreeNode(n);
 }
 
@@ -128,7 +128,7 @@ TEST(MaximumDepthOfNAryTree, t2) {
     Solution sl;
     const int output = 5;
     const int ret = sl.MaxDepth(n);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
     FreeNode(n);
 }
 

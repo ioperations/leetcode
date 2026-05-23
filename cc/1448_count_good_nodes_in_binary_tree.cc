@@ -50,7 +50,7 @@ TEST(CountGoodNodesInBinaryTree, t1) {
     auto* node = ConstructBinaryTree(root);
     Solution sl;
     int const ret = sl.GoodNodes(node);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
     /*Nodes in blue are good.
     Root Node (3) is always a good node.
     Node 4 -> (3,4) is the maximum value in the path starting from the root.
@@ -66,7 +66,7 @@ TEST(CountGoodNodesInBinaryTree, t2) {
     auto* node = ConstructBinaryTree(root);
     Solution sl;
     int const ret = sl.GoodNodes(node);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
     // Node 2 -> (3, 3, 2) is not good, because "3" is higher than it.
     FreeTreeNode(node);
 }
@@ -77,7 +77,7 @@ TEST(CountGoodNodesInBinaryTree, t3) {
     auto* node = ConstructBinaryTree(root);
     Solution sl;
     int const ret = sl.GoodNodes(node);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
     // Root is considered as good.
     FreeTreeNode(node);
 }
@@ -96,7 +96,7 @@ TEST(CountGoodNodesInBinaryTree, t4) {
     auto* node = ConstructBinaryTree(root);
     Solution sl;
     int const ret = sl.GoodNodes(node);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
     // Root is considered as good.
     FreeTreeNode(node);
 }

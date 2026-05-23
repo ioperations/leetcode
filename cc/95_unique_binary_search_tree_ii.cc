@@ -142,7 +142,7 @@ TEST(UniqueBinarySearchTreeIi, t1) {
                                                       flatted.end());
     std::set<vector<optional<int>>> const output_set(output.begin(),
                                                      output.end());
-    EXPECT_EQ(flatted_set, output_set);
+    EXPECT_EQ(output_set, flatted_set);
 
     for (auto& ptr : ret) {
         Tree::FreeTreeNode(ptr);
@@ -159,7 +159,7 @@ TEST(UniqueBinarySearchTreeIi, t2) {
                                                       flatted.end());
     std::set<vector<optional<int>>> const output_set(output.begin(),
                                                      output.end());
-    EXPECT_EQ(flatted_set, output_set);
+    EXPECT_EQ(output_set, flatted_set);
     for (auto& ptr : ret) {
         Tree::FreeTreeNode(ptr);
     }

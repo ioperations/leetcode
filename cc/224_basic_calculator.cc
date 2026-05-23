@@ -302,7 +302,7 @@ TEST(basicV, t1) {
     SolutionV2 sl;
     const int ret = sl.Calculate(s);
 
-    EXPECT_EQ(ret, 2);
+    EXPECT_EQ(2, ret);
 }
 
 TEST(basicV, t2) {
@@ -311,7 +311,7 @@ TEST(basicV, t2) {
     SolutionV2 sl;
     const int ret = sl.Calculate(s);
 
-    EXPECT_EQ(ret, 3);
+    EXPECT_EQ(3, ret);
 }
 
 TEST(basicV, t3) {
@@ -320,7 +320,7 @@ TEST(basicV, t3) {
     SolutionV2 sl;
     const int ret = sl.Calculate(s);
 
-    EXPECT_EQ(ret, 23);
+    EXPECT_EQ(23, ret);
 }
 
 TEST(basiccalculatorV2, t1) {
@@ -329,7 +329,7 @@ TEST(basiccalculatorV2, t1) {
     SolutionV3 sl;
     const int ret = sl.Calculate(s);
 
-    EXPECT_EQ(ret, 2);
+    EXPECT_EQ(2, ret);
 }
 
 TEST(basiccalculatorV2, t2) {
@@ -338,7 +338,7 @@ TEST(basiccalculatorV2, t2) {
     SolutionV3 sl;
     const int ret = sl.Calculate(s);
 
-    EXPECT_EQ(ret, 3);
+    EXPECT_EQ(3, ret);
 }
 
 TEST(basiccalculatorV2, t3) {
@@ -347,7 +347,7 @@ TEST(basiccalculatorV2, t3) {
     SolutionV3 sl;
     const int ret = sl.Calculate(s);
 
-    EXPECT_EQ(ret, 23);
+    EXPECT_EQ(23, ret);
 }
 
 }  // namespace
@@ -360,7 +360,7 @@ void BenchV2(benchmark::State& state) {
         SolutionV2 sl;
         const int ret = sl.Calculate(s);
 
-        EXPECT_EQ(ret, 23);
+        EXPECT_EQ(23, ret);
     }
 }
 BENCHMARK(BenchV2);
@@ -372,7 +372,7 @@ void BenchV3(benchmark::State& state) {
         SolutionV3 sl;
         const int ret = sl.Calculate(s);
 
-        EXPECT_EQ(ret, 23);
+        EXPECT_EQ(23, ret);
     }
 }
 BENCHMARK(BenchV3);

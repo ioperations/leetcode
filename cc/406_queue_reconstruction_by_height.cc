@@ -59,7 +59,7 @@ TEST(QueueReconstructionByHeight, t1) {
     front, which are people 0, 1, 2, and 3. Person 5 has height 7 with one
     person taller or the same height in front, which is person 1. Hence
     [[5,0],[7,0],[5,2],[6,1],[4,4],[7,1]] is the reconstructed queue.*/
-    EXPECT_EQ(ert, output);
+    EXPECT_EQ(output, ert);
 }
 
 TEST(QueueReconstructionByHeight, t2) {
@@ -69,7 +69,7 @@ TEST(QueueReconstructionByHeight, t2) {
                                              {3, 2}, {1, 4}, {6, 0}};
     Solution sl;
     auto ert = sl.ReconstructQueue(people);
-    EXPECT_EQ(ert, output);
+    EXPECT_EQ(output, ert);
 }
 
 }  // namespace

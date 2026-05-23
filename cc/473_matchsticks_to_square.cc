@@ -69,7 +69,7 @@ TEST(MatchsticksToSquare, t1) {
     // came two sticks with length 1.
     Solution sl;
     bool const ret = sl.Makesquare(matchsticks);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(MatchsticksToSquare, t2) {
@@ -78,7 +78,7 @@ TEST(MatchsticksToSquare, t2) {
     // You cannot find a way to form a square with all the matchsticks.
     Solution sl;
     bool const ret = sl.Makesquare(matchsticks);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 }  // namespace

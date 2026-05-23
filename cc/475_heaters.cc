@@ -70,7 +70,7 @@ TEST(Heaters, t1) {
     int const ret = sl.FindRadius(houses, heaters);
     // The only heater was placed in the position 2, and if we use the radius 1
     // standard, then all the houses can be warmed.
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 };
 
 TEST(Heaters, t2) {
@@ -81,7 +81,7 @@ TEST(Heaters, t2) {
     int const ret = sl.FindRadius(houses, heaters);
     // The two heater was placed in the position 1 and 4. We need to use radius
     // 1 standard, then all the houses can be warmed.
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 };
 
 TEST(Heaters, t3) {
@@ -90,7 +90,7 @@ TEST(Heaters, t3) {
     int const output = 3;
     Solution sl;
     int const ret = sl.FindRadius(houses, heaters);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 };
 
 }  // namespace

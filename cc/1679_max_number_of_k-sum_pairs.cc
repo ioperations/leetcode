@@ -81,7 +81,7 @@ TEST(MaxNumberOfKSumPairs, t1) {
     */
     Solution const sl;
     int const ret = sl.MaxOperations(nums, k);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(MaxNumberOfKSumPairsV2, t1) {
@@ -97,7 +97,7 @@ TEST(MaxNumberOfKSumPairsV2, t1) {
     */
     Solution const sl;
     int const ret = sl.MaxOperationsV2(nums, k);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(MaxNumberOfKSumPairsV3, t1) {
@@ -113,7 +113,7 @@ TEST(MaxNumberOfKSumPairsV3, t1) {
     */
     Solution const sl;
     int const ret = sl.MaxOperationsV3(nums, k);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(MaxNumberOfKSumPairs, t2) {
@@ -128,7 +128,7 @@ TEST(MaxNumberOfKSumPairs, t2) {
     */
     Solution const sl;
     int const ret = sl.MaxOperations(nums, k);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(MaxNumberOfKSumPairsV2, t2) {
@@ -143,7 +143,7 @@ TEST(MaxNumberOfKSumPairsV2, t2) {
     */
     Solution const sl;
     int const ret = sl.MaxOperationsV2(nums, k);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(MaxNumberOfKSumPairsV3, t2) {
@@ -158,7 +158,7 @@ TEST(MaxNumberOfKSumPairsV3, t2) {
     */
     Solution const sl;
     int const ret = sl.MaxOperationsV3(nums, k);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 }  // namespace

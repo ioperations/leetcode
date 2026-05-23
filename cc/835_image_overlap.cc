@@ -64,7 +64,7 @@ TEST(imageV, t1) {
     // The number of positions that have a 1 in both images is 3 (shown in red).
     Solution sl;
     int const ret = sl.LargestOverlap(img1, img2);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(imageV, t2) {
@@ -72,7 +72,7 @@ TEST(imageV, t2) {
     int const output = 1;
     Solution sl;
     int const ret = sl.LargestOverlap(img1, img2);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(imageV, t3) {
@@ -80,6 +80,6 @@ TEST(imageV, t3) {
     int const output = 0;
     Solution sl;
     int const ret = sl.LargestOverlap(img1, img2);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 }  // namespace

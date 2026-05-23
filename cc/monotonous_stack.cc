@@ -34,7 +34,7 @@ TEST(monotonousV, t1) {
     Solution sl;
     std::vector<int> const output{1, 2, 3, 4, 5, -1};
     auto ret = sl.Solve(nums);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(monotonousV, t2) {
@@ -42,7 +42,7 @@ TEST(monotonousV, t2) {
     Solution sl;
     std::vector<int> const output{-1, -1, -1, -1, -1, -1};
     auto ret = sl.Solve(nums);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(monotonousV, t3) {
@@ -50,7 +50,7 @@ TEST(monotonousV, t3) {
     Solution sl;
     std::vector<int> const output{1, -1, 3, -1, -1, -1};
     auto ret = sl.Solve(nums);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 }  // namespace

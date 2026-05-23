@@ -52,7 +52,7 @@ TEST(AddBinaryv2, t0) {
     Solution sl;
     auto ret = sl.AddBinary(s, b);
 
-    EXPECT_EQ(ret, "100100");
+    EXPECT_EQ("100100", ret);
 }
 
 TEST(AddBinaryv2, t1) {
@@ -62,7 +62,7 @@ TEST(AddBinaryv2, t1) {
     Solution sl;
     auto ret = sl.AddBinary(s, b);
 
-    EXPECT_EQ(ret, "100");
+    EXPECT_EQ("100", ret);
 }
 
 }  // namespace

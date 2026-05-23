@@ -51,7 +51,7 @@ TEST(BinaryTreeCameras, t1) {
     auto* n = ConstructBinaryTree(v);
     Solution sl;
     int const ret = sl.MinCameraCover(n);
-    EXPECT_EQ(ret, out);
+    EXPECT_EQ(out, ret);
     // One camera is enough to monitor all nodes if placed as shown.
     FreeTreeNode(n);
 }
@@ -62,7 +62,7 @@ TEST(BinaryTreeCameras, t2) {
     auto* n = ConstructBinaryTree(v);
     Solution sl;
     int const ret = sl.MinCameraCover(n);
-    EXPECT_EQ(ret, out);
+    EXPECT_EQ(out, ret);
     // At least two cameras are needed to monitor all nodes of the tree. The
     // above image shows one of the valid configurations of camera placement.
     FreeTreeNode(n);

@@ -110,7 +110,7 @@ TEST(reverseV, t1) {
 
     Solution sl;
     int const ret = sl.ReversePairs(nums);
-    EXPECT_EQ(ret, expected);
+    EXPECT_EQ(expected, ret);
 }
 
 TEST(reversepairsV2, t1) {
@@ -119,7 +119,7 @@ TEST(reversepairsV2, t1) {
 
     SolutionV2 sl;
     int const ret = sl.ReversePairs(nums);
-    EXPECT_EQ(ret, expected);
+    EXPECT_EQ(expected, ret);
 }
 
 TEST(reverseV, t2) {
@@ -128,7 +128,7 @@ TEST(reverseV, t2) {
 
     Solution sl;
     int const ret = sl.ReversePairs(nums);
-    EXPECT_EQ(ret, expected);
+    EXPECT_EQ(expected, ret);
 }
 
 TEST(reversepairsV2, t2) {
@@ -137,7 +137,7 @@ TEST(reversepairsV2, t2) {
 
     SolutionV2 sl;
     int const ret = sl.ReversePairs(nums);
-    EXPECT_EQ(ret, expected);
+    EXPECT_EQ(expected, ret);
 }
 
 TEST(reverseV, t3) {
@@ -147,7 +147,7 @@ TEST(reverseV, t3) {
 
     Solution sl;
     int const ret = sl.ReversePairs(nums);
-    EXPECT_EQ(ret, expected);
+    EXPECT_EQ(expected, ret);
 }
 TEST(reversepairsV2, t3) {
     std::vector<int> nums = {2147483647, 2147483647, 2147483647,
@@ -156,7 +156,7 @@ TEST(reversepairsV2, t3) {
 
     SolutionV2 sl;
     int const ret = sl.ReversePairs(nums);
-    EXPECT_EQ(ret, expected);
+    EXPECT_EQ(expected, ret);
 }
 
 }  // namespace

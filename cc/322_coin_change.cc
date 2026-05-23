@@ -120,7 +120,7 @@ TEST(coinV, t1) {
     // Explanation: 11 = 5 + 5 + 1
     Solution sl;
     int const ret = sl.CoinChange(coins, amount);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(coinV, t2) {
@@ -130,7 +130,7 @@ TEST(coinV, t2) {
     // Explanation: 11 = 5 + 5 + 1
     Solution sl;
     int const ret = sl.CoinChange(coins, amount);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(coinV, t3) {
@@ -140,7 +140,7 @@ TEST(coinV, t3) {
     // Explanation: 11 = 5 + 5 + 1
     Solution sl;
     int const ret = sl.CoinChange(coins, amount);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 static void BenchMarkV0(benchmark::State& state) {
@@ -151,7 +151,7 @@ static void BenchMarkV0(benchmark::State& state) {
         // Explanation: 11 = 5 + 5 + 1
         Solution sl;
         int const ret = sl.CoinChange(coins, amount);
-        EXPECT_EQ(ret, output);
+        EXPECT_EQ(output, ret);
     }
 }
 BENCHMARK(BenchMarkV0);
@@ -164,7 +164,7 @@ static void BenchMarkV1(benchmark::State& state) {
         // Explanation: 11 = 5 + 5 + 1
         Solution sl;
         int const ret = sl.CoinChangeV1(coins, amount);
-        EXPECT_EQ(ret, output);
+        EXPECT_EQ(output, ret);
     }
 }
 BENCHMARK(BenchMarkV1);
@@ -177,7 +177,7 @@ static void BenchMarkV2(benchmark::State& state) {
         // Explanation: 11 = 5 + 5 + 1
         Solution sl;
         int const ret = sl.CoinChangeV2(coins, amount);
-        EXPECT_EQ(ret, output);
+        EXPECT_EQ(output, ret);
     }
 }
 BENCHMARK(BenchMarkV2);

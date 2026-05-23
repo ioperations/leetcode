@@ -83,7 +83,7 @@ TEST(evaluateV, t1) {
         return: [6.0, 0.5, -1.0, 1.0, -1.0 ]
     */
     auto ret = sl.CalcEquation(equations, values, queries);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(evaluateV, t2) {
@@ -94,7 +94,7 @@ TEST(evaluateV, t2) {
     vector<double> const output{3.75000, 0.40000, 5.00000, 0.20000};
     Solution sl;
     auto ret = sl.CalcEquation(equations, values, queries);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(evaluateV, t3) {
@@ -105,7 +105,7 @@ TEST(evaluateV, t3) {
     vector<double> const output{0.50000, 2.00000, -1.00000, -1.00000};
     Solution sl;
     auto ret = sl.CalcEquation(equations, values, queries);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 }  // namespace

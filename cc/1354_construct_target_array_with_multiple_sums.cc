@@ -46,7 +46,7 @@ TEST(ConstructTargetArrayWithMultipleSums, t1) {
     bool const output = true;
     Solution sl;
     bool const ret = sl.IsPossible(target);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
     // Impossible to create target array from [1,1,1,1].
 }
 
@@ -55,7 +55,7 @@ TEST(ConstructTargetArrayWithMultipleSums, t2) {
     bool const output = true;
     Solution sl;
     bool const ret = sl.IsPossible(target);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 }  // namespace

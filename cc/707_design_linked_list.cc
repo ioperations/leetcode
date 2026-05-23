@@ -89,10 +89,10 @@ TEST(DesignLinkedList, t1) {
     my_linked_list->AddAtTail(3);
     my_linked_list->AddAtIndex(1, 2);  // linked list becomes 1->2->3
     int ret = my_linked_list->Get(1);  // return 2
-    EXPECT_EQ(ret, 2);
+    EXPECT_EQ(2, ret);
     my_linked_list->DeleteAtIndex(1);  // now the linked list is 1->3
     ret = my_linked_list->Get(1);      // return 3
-    EXPECT_EQ(ret, 3);
+    EXPECT_EQ(3, ret);
     delete my_linked_list;
 }
 

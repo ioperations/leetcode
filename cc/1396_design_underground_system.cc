@@ -193,18 +193,18 @@ undergroundSystem.getAverageTime("Leyton", "Waterloo");
     rgs->CheckOut(32, "Cambridge", 22);
 
     double ret = rgs->GetAverageTime("Paradise", "Cambridge");
-    EXPECT_EQ(ret, 14.0);
+    EXPECT_EQ(14.0, ret);
     ret = rgs->GetAverageTime("Leyton", "Waterloo");
-    EXPECT_EQ(ret, 11.0);
+    EXPECT_EQ(11.0, ret);
 
     rgs->CheckIn(10, "Leyton", 24);
 
     ret = rgs->GetAverageTime("Leyton", "Waterloo");
-    EXPECT_EQ(ret, 11.0);
+    EXPECT_EQ(11.0, ret);
     rgs->CheckOut(10, "Waterloo", 38);
 
     ret = rgs->GetAverageTime("Leyton", "Waterloo");
-    EXPECT_EQ(ret, 12.0);
+    EXPECT_EQ(12.0, ret);
 
     delete rgs;
 }
@@ -218,13 +218,13 @@ TEST(DesignUndergroundSystem, t2) {
 
     double ret = rgs->GetAverageTime("Leyton", "Paradise");
     // return 5.00000, (5) / 1 = 5
-    EXPECT_EQ(ret, 5.0);
+    EXPECT_EQ(5.0, ret);
     rgs->CheckIn(5, "Leyton", 10);
     // Customer 5 "Leyton" -> "Paradise" in 16-10 = 6
     rgs->CheckOut(5, "Paradise", 16);
     ret = rgs->GetAverageTime("Leyton", "Paradise");
     // return 5.50000, (5 + 6) / 2 = 5.5
-    EXPECT_EQ(ret, 5.5);
+    EXPECT_EQ(5.5, ret);
 
     rgs->CheckIn(2, "Leyton", 21);
     rgs->CheckOut(2, "Paradise", 30);
@@ -247,19 +247,19 @@ TEST(DesignUndergroundSystem, t3) {
     rgs->CheckIn(1, "York", 20);
     rgs->CheckIn(2, "Leeds", 22);
     double ret = rgs->GetAverageTime("Leeds", "York");
-    EXPECT_EQ(ret, 7);
+    EXPECT_EQ(7, ret);
 
     ret = rgs->GetAverageTime("York", "Leeds");
-    EXPECT_EQ(ret, 7);
+    EXPECT_EQ(7, ret);
 
     rgs->CheckOut(1, "Leeds", 24);
 
     ret = rgs->GetAverageTime("York", "Leeds");
-    EXPECT_EQ(ret, 5.5);
+    EXPECT_EQ(5.5, ret);
 
     rgs->CheckOut(2, "York", 38);
     ret = rgs->GetAverageTime("Leeds", "York");
-    EXPECT_EQ(ret, 11.5);
+    EXPECT_EQ(11.5, ret);
 
     // ["UndergroundSystem","checkIn","checkIn","checkOut","checkOut",
     // "checkIn","checkIn","getAverageTime","getAverageTime",

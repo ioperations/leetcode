@@ -55,7 +55,7 @@ TEST(T0, t1) {
     int const output = 54;
     Solution sl;
     int const ret = sl.MaximumSum(nums);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
     // Explanation: The pairs (i, j) that satisfy the conditions are:
     // - (0, 2), both numbers have a sum of digits equal to 9, and their sum is
     // 18 + 36 = 54.
@@ -68,7 +68,7 @@ TEST(T0, t2) {
     int const output = -1;
     Solution sl;
     int const ret = sl.MaximumSum(nums);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
     // Explanation:
     // There are no two numbers that satisfy the conditions, so we return -1.
 }

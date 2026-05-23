@@ -38,25 +38,25 @@ class Solution {
 TEST(BitwiseAndOfNumbersRange, t1) {
     Solution s;
     const int ret = s.RangeBitwiseAnd(5, 7);
-    EXPECT_EQ(ret, 4);
+    EXPECT_EQ(4, ret);
 }
 TEST(BitwiseAndOfNumbersRange, t2) {
     Solution s;
     const int ret = s.RangeBitwiseAnd(0, 0);
-    EXPECT_EQ(ret, 0);
+    EXPECT_EQ(0, ret);
 }
 
 TEST(BitwiseAndOfNumbersRange, t3) {
     Solution s;
     const int left = 1, right = 2147483647;
     const int ret = s.RangeBitwiseAndV2(left, right);
-    EXPECT_EQ(ret, 0);
+    EXPECT_EQ(0, ret);
 }
 TEST(BitwiseAndOfNumbersRange, t4) {
     Solution s;
     const int left = 1, right = 2;
     const int ret = s.RangeBitwiseAnd(left, right);
-    EXPECT_EQ(ret, 0);
+    EXPECT_EQ(0, ret);
 }
 
 void BenchMarkSeqBitAnd(benchmark::State& state) {
@@ -65,7 +65,7 @@ void BenchMarkSeqBitAnd(benchmark::State& state) {
         const int left = 1, right = 200000;
         const int ret = s.RangeBitwiseAnd(left, right);
 
-        EXPECT_EQ(ret, 0);
+        EXPECT_EQ(0, ret);
     }
 }
 BENCHMARK(BenchMarkSeqBitAnd);
@@ -76,7 +76,7 @@ void BenchMarkWise(benchmark::State& state) {
         const int left = 1, right = 200000;
         const int ret = s.RangeBitwiseAndV2(left, right);
 
-        EXPECT_EQ(ret, 0);
+        EXPECT_EQ(0, ret);
     }
 }
 BENCHMARK(BenchMarkWise);

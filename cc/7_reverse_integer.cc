@@ -96,70 +96,70 @@ TEST(reverseV, t1) {
     Solution s;
     auto ret = s.Reverse(100);
 
-    EXPECT_EQ(ret, 1);
+    EXPECT_EQ(1, ret);
 }
 
 TEST(reverseIntegerV2, t1) {
     Solution s;
     auto ret = s.ReverseV1(100);
 
-    EXPECT_EQ(ret, 1);
+    EXPECT_EQ(1, ret);
 }
 
 TEST(reverseV, t2) {
     Solution s;
     auto ret = s.Reverse(-101);
 
-    EXPECT_EQ(ret, -101);
+    EXPECT_EQ(-101, ret);
 }
 
 TEST(reverseIntegerV2, t2) {
     Solution s;
     auto ret = s.ReverseV1(-101);
 
-    EXPECT_EQ(ret, -101);
+    EXPECT_EQ(-101, ret);
 }
 
 TEST(reverseV, t3) {
     Solution s;
     auto ret = s.Reverse(1534236469);
 
-    EXPECT_EQ(ret, 0);
+    EXPECT_EQ(0, ret);
 }
 
 TEST(reverseIntegerV2, t3) {
     Solution s;
     auto ret = s.ReverseV1(1534236469);
 
-    EXPECT_EQ(ret, 0);
+    EXPECT_EQ(0, ret);
 }
 
 TEST(reverseV, t4) {
     Solution s;
     auto ret = s.Reverse(-2147483412);
 
-    EXPECT_EQ(ret, -2143847412);
+    EXPECT_EQ(-2143847412, ret);
 }
 
 TEST(reverseV, t5) {
     Solution s;
     auto ret = s.Reverse(-2147483648);
 
-    EXPECT_EQ(ret, 0);
+    EXPECT_EQ(0, ret);
 }
 
 TEST(reverseIntegerV2, t4) {
     Solution s;
     auto ret = s.ReverseV1(-2147483412);
 
-    EXPECT_EQ(ret, -2143847412);
+    EXPECT_EQ(-2143847412, ret);
 }
 
 TEST(reverseIntegerV2, t5) {
     Solution s;
     auto ret = s.ReverseV1(-2147483648);
 
-    EXPECT_EQ(ret, 0);
+    EXPECT_EQ(0, ret);
 }
 
 }  // namespace

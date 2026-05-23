@@ -69,7 +69,7 @@ TEST(BestTimeToBuyAndSellStockIv, t1) {
     // profit = 4-2 = 2.
     Solution sl;
     int const ret = sl.MaxProfit(k, prices);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(BestTimeToBuyAndSellStockIv, t2) {
@@ -81,7 +81,7 @@ TEST(BestTimeToBuyAndSellStockIv, t2) {
     // = 3.
     Solution sl;
     int const ret = sl.MaxProfit(k, prices);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(BestTimeToBuyAndSellStockIv, t3) {
@@ -90,7 +90,7 @@ TEST(BestTimeToBuyAndSellStockIv, t3) {
     int const output = 6;
     Solution sl;
     int const ret = sl.MaxProfit(k, prices);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(BestTimeToBuyAndSellStockIv, t4) {
@@ -101,7 +101,7 @@ TEST(BestTimeToBuyAndSellStockIv, t4) {
     int const output = 469;
     Solution sl;
     int const ret = sl.MaxProfit(k, prices);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 }  // namespace

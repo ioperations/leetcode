@@ -49,7 +49,7 @@ TEST(T0, t1) {
     std::string const output = "abc";
     Solution sl;
     auto ret = sl.ClearDigits(s);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 
     // Explanation:
     // There is no digit in the string.
@@ -61,7 +61,7 @@ TEST(T0, t2) {
     std::string const output = "";
     Solution sl;
     auto ret = sl.ClearDigits(s);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
     /*
      * First, we apply the operation on s[2], and s becomes "c4".
      * Then we apply the operation on s[1], and s becomes "".

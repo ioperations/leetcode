@@ -56,7 +56,7 @@ TEST(Candy, t1) {
      *  You can allocate to the first, second and third child with 2, 1, 2
      *  candies respectively.
      */
-    EXPECT_EQ(output, ret);
+    EXPECT_EQ(ret, output);
 }
 
 TEST(Candy, t2) {
@@ -69,7 +69,7 @@ TEST(Candy, t2) {
        candies respectively. The third child gets 1 candy because it satisfies
        the above two conditions.
     */
-    EXPECT_EQ(output, ret);
+    EXPECT_EQ(ret, output);
 }
 
 }  // namespace

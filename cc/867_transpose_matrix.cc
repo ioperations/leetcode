@@ -34,7 +34,7 @@ TEST(transposeV, t1) {
     vector<vector<int>> const output = {{1, 4, 7}, {2, 5, 8}, {3, 6, 9}};
     Solution const sl;
     auto ret = sl.Transpose(matrix);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(transposeV, t2) {
@@ -42,7 +42,7 @@ TEST(transposeV, t2) {
     vector<vector<int>> const output = {{1, 4}, {2, 5}, {3, 6}};
     Solution const sl;
     auto ret = sl.Transpose(matrix);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 }  // namespace

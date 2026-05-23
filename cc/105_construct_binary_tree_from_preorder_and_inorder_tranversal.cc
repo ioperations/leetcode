@@ -57,7 +57,7 @@ TEST(ConstructBinaryTreeFromPreorderAndInorderTranversal, t1) {
 
     FreeTreeNode(node);
     vector<int> const output = {3, 9, 20, 15, 7};
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(ConstructBinaryTreeFromPreorderAndInorderTranversal, t2) {
@@ -69,7 +69,7 @@ TEST(ConstructBinaryTreeFromPreorderAndInorderTranversal, t2) {
 
     FreeTreeNode(node);
     vector<int> const output = {-1};
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 }  // namespace

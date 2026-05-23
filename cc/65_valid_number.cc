@@ -372,7 +372,7 @@ TEST(validV, t1) {
 
     Solution sl;
     bool const ret = sl.IsNumber(s);
-    EXPECT_EQ(ret, expected);
+    EXPECT_EQ(expected, ret);
 }
 
 TEST(validnumberV2, t1) {
@@ -381,7 +381,7 @@ TEST(validnumberV2, t1) {
 
     Solution2 sl;
     bool const ret = sl.IsNumber(s);
-    EXPECT_EQ(ret, expected);
+    EXPECT_EQ(expected, ret);
 }
 
 TEST(validV, t2) {
@@ -390,7 +390,7 @@ TEST(validV, t2) {
 
     Solution sl;
     bool const ret = sl.IsNumber(s);
-    EXPECT_EQ(ret, expected);
+    EXPECT_EQ(expected, ret);
 }
 
 TEST(validnumberV2, t2) {
@@ -399,7 +399,7 @@ TEST(validnumberV2, t2) {
 
     Solution2 sl;
     bool const ret = sl.IsNumber(s);
-    EXPECT_EQ(ret, expected);
+    EXPECT_EQ(expected, ret);
 }
 
 TEST(validV, t4) {
@@ -408,7 +408,7 @@ TEST(validV, t4) {
 
     Solution sl;
     bool const ret = sl.IsNumber(s);
-    EXPECT_EQ(ret, expected);
+    EXPECT_EQ(expected, ret);
 }
 
 TEST(validnumberV2, t4) {
@@ -417,7 +417,7 @@ TEST(validnumberV2, t4) {
 
     Solution2 sl;
     bool const ret = sl.IsNumber(s);
-    EXPECT_EQ(ret, expected);
+    EXPECT_EQ(expected, ret);
 }
 
 TEST(validnumberV2, t5) {
@@ -429,7 +429,7 @@ TEST(validnumberV2, t5) {
     Solution2 sl;
     for (auto& ptr : s) {
         bool const ret = sl.IsNumber(ptr);
-        EXPECT_EQ(ret, expected);
+        EXPECT_EQ(expected, ret);
     }
 }
 
@@ -441,7 +441,7 @@ TEST(validnumberV2, t6) {
     Solution2 sl;
     for (auto& ptr : s) {
         bool const ret = sl.IsNumber(ptr);
-        EXPECT_EQ(ret, expected);
+        EXPECT_EQ(expected, ret);
     }
 }
 

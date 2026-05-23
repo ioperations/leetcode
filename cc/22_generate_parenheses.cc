@@ -81,7 +81,7 @@ TEST(generateV, t1) {
 
     std::set<string> const ret_set(ret.begin(), ret.end());
 
-    EXPECT_EQ(ret_set, expected_set);
+    EXPECT_EQ(expected_set, ret_set);
 }
 
 TEST(generateV, t2) {
@@ -95,7 +95,7 @@ TEST(generateV, t2) {
 
     std::set<string> const ret_set(ret.begin(), ret.end());
 
-    EXPECT_EQ(ret_set, expected_set);
+    EXPECT_EQ(expected_set, ret_set);
 }
 
 }  // namespace

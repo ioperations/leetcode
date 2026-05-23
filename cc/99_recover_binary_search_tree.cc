@@ -69,7 +69,7 @@ TEST(RecoverBinarySearchTree, t1) {
         BfsSearch(out, ou);
         FreeTreeNode(out);
     }
-    EXPECT_EQ(ou, in);
+    EXPECT_EQ(in, ou);
 }
 
 TEST(RecoverBinarySearchTree, t2) {
@@ -93,7 +93,7 @@ TEST(RecoverBinarySearchTree, t2) {
         BfsSearch(out, ou);
         FreeTreeNode(out);
     }
-    EXPECT_EQ(ou, in);
+    EXPECT_EQ(in, ou);
 }
 
 }  // namespace

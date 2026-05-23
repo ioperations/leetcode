@@ -61,7 +61,7 @@ TEST(MaximumProfitInJobScheduling, t1) {
     */
     Solution sl;
     int const ret = sl.JobScheduling(start_time, end_time, profit);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(MaximumProfitInJobScheduling, t2) {
@@ -76,7 +76,7 @@ TEST(MaximumProfitInJobScheduling, t2) {
     */
     Solution sl;
     int const ret = sl.JobScheduling(start_time, end_time, profit);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(MaximumProfitInJobScheduling, t3) {
@@ -91,7 +91,7 @@ TEST(MaximumProfitInJobScheduling, t3) {
     */
     Solution sl;
     int const ret = sl.JobScheduling(start_time, end_time, profit);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 }  // namespace

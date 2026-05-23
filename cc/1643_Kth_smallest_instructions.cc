@@ -85,7 +85,7 @@ TEST(KthSmallestInstructions, t1) {
 
     Solution sl;
     auto ret = sl.KthSmallestPath(destination, k);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(KthSmallestInstructions, t2) {
@@ -95,7 +95,7 @@ TEST(KthSmallestInstructions, t2) {
 
     Solution sl;
     auto ret = sl.KthSmallestPath(destination, k);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(KthSmallestInstructions, t3) {
@@ -105,7 +105,7 @@ TEST(KthSmallestInstructions, t3) {
 
     Solution sl;
     auto ret = sl.KthSmallestPath(destination, k);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 }  // namespace

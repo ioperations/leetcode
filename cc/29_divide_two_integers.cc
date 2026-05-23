@@ -90,7 +90,7 @@ TEST(DivideTwoIntegers, t1) {
     // Explanation: 10/3 = 3.33333.. which is truncated to 3.
     Solution sls;
     int const ret = sls.Divide(dividend, divisor);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(DivideTwoIntegers, t2) {
@@ -99,7 +99,7 @@ TEST(DivideTwoIntegers, t2) {
     // Explanation: 7/-3 = -2.33333.. which is truncated to -2.
     Solution sls;
     int const ret = sls.Divide(dividend, divisor);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 }  // namespace

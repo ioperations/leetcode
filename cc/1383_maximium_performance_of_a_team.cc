@@ -120,7 +120,7 @@ TEST(MaximiumPerformanceOfATeam, t1) {
 
     Solution sl;
     int const ret = sl.MaxPerformance(n, speed, efficiency, k);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(MaximiumPerformanceOfATeam, t2) {
@@ -136,7 +136,7 @@ TEST(MaximiumPerformanceOfATeam, t2) {
 
     Solution sl;
     int const ret = sl.MaxPerformance(n, speed, efficiency, k);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(MaximiumPerformanceOfATeam, t3) {
@@ -147,7 +147,7 @@ TEST(MaximiumPerformanceOfATeam, t3) {
 
     Solution sl;
     int const ret = sl.MaxPerformance(n, speed, efficiency, k);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 }  // namespace

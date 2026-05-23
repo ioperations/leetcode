@@ -47,7 +47,7 @@ TEST(T0, t1) {
     int const output = 3;
     Solution sl;
     int const ret = sl.NumberOfAlternatingGroups(colors, k);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(T0, t2) {
@@ -56,7 +56,7 @@ TEST(T0, t2) {
     int const output = 2;
     Solution sl;
     int const ret = sl.NumberOfAlternatingGroups(colors, k);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(T0, t3) {
@@ -65,7 +65,7 @@ TEST(T0, t3) {
     int const output = 0;
     Solution sl;
     int const ret = sl.NumberOfAlternatingGroups(colors, k);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 int main(int argc, char* argv[]) {

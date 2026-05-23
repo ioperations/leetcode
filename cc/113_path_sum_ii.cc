@@ -76,7 +76,7 @@ TEST(PathSumIi, t1) {
     Solution sl;
     auto ret = sl.PathSum(node, target_sum);
 
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
     FreeTreeNode(node);
 }
 
@@ -95,7 +95,7 @@ TEST(PathSumIi, t2) {
     Solution sl;
     auto ret = sl.PathSum(node, target_sum);
 
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
     FreeTreeNode(node);
 }
 
@@ -113,7 +113,7 @@ TEST(PathSumIi, t3) {
     Solution sl;
     auto ret = sl.PathSum(node, target_sum);
 
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
     FreeTreeNode(node);
 }
 }  // namespace

@@ -81,9 +81,9 @@ TEST(RemoveDuplicatesFromSortedArray, t1) {
     std::vector<int> nums_expected = {1, 2};
     Solution const sl;
     int const k = sl.RemoveDuplicates(nums);
-    EXPECT_EQ(k, output);
+    EXPECT_EQ(output, k);
     for (int i = 0; i < output; i++) {
-        EXPECT_EQ(nums.at(i), nums_expected.at(i));
+        EXPECT_EQ(nums_expected.at(i), nums.at(i));
     }
 }
 TEST(RemoveDuplicatesFromSortedArray, t2) {
@@ -92,9 +92,9 @@ TEST(RemoveDuplicatesFromSortedArray, t2) {
     std::vector<int> nums_expected = {0, 1, 2, 3, 4};
     Solution const sl;
     int const k = sl.RemoveDuplicates(nums);
-    EXPECT_EQ(k, output);
+    EXPECT_EQ(output, k);
     for (int i = 0; i < output; i++) {
-        EXPECT_EQ(nums.at(i), nums_expected.at(i));
+        EXPECT_EQ(nums_expected.at(i), nums.at(i));
     }
 }
 

@@ -58,7 +58,7 @@ TEST(RussianDollEnvelopes, t1) {
     // The maximum number of envelopes you can Russian doll is 3 ([2,3] => [5,4]
     // => [6,7]).
     int const ret = sl.MaxEnvelopes(envelopes);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 TEST(RussianDollEnvelopes, t2) {
     std::vector<vector<int>> envelopes = {{1, 1}, {1, 1}, {1, 1}};
@@ -66,7 +66,7 @@ TEST(RussianDollEnvelopes, t2) {
 
     Solution sl;
     int const ret = sl.MaxEnvelopes(envelopes);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 }  // namespace

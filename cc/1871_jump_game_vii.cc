@@ -57,7 +57,7 @@ TEST(JumpGameVii, t1) {
     // from index 3 to index 5.
     Solution sl;
     bool const ret = sl.CanReach(s, min_jump, max_jump);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(JumpGameVii, t2) {
@@ -68,7 +68,7 @@ TEST(JumpGameVii, t2) {
     // from index 3 to index 5.
     Solution sl;
     bool const ret = sl.CanReach(s, min_jump, max_jump);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 }  // namespace

@@ -103,12 +103,12 @@ TEST(Lfu, t1) {
     lfu.Set(2, 2);
     lfu.Set(3, 3);
     auto ret = lfu.Get(1);
-    EXPECT_EQ(!ret, true);
+    EXPECT_EQ(true, !ret);
 
     ret = lfu.Get(2);
-    EXPECT_EQ(ret, 2);
+    EXPECT_EQ(2, ret);
 
     ret = lfu.Get(3);
-    EXPECT_EQ(ret, 3);
+    EXPECT_EQ(3, ret);
 }
 }  // namespace

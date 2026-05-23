@@ -79,7 +79,7 @@ TEST(ShortestPathInBinaryMatrix, t1) {
 
     Solution const sl;
     int const ret = sl.ShortestPathBinaryMatrix(v);
-    EXPECT_EQ(ret, expected);
+    EXPECT_EQ(expected, ret);
 }
 
 TEST(ShortestPathInBinaryMatrix, t2) {
@@ -88,7 +88,7 @@ TEST(ShortestPathInBinaryMatrix, t2) {
 
     Solution const sl;
     int const ret = sl.ShortestPathBinaryMatrix(v);
-    EXPECT_EQ(ret, expected);
+    EXPECT_EQ(expected, ret);
 }
 TEST(ShortestPathInBinaryMatrix, t3) {
     std::vector<vector<int>> v{{1, 0, 0}, {1, 1, 0}, {1, 1, 0}};
@@ -96,7 +96,7 @@ TEST(ShortestPathInBinaryMatrix, t3) {
 
     Solution const sl;
     int const ret = sl.ShortestPathBinaryMatrix(v);
-    EXPECT_EQ(ret, expected);
+    EXPECT_EQ(expected, ret);
 }
 
 }  // namespace

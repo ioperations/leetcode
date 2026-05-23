@@ -74,7 +74,7 @@ TEST(TopKFrequentElements, t1) {
     Solution sl;
     auto ret = sl.TopKFrequent(nums, k);
 
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(TopKFrequentElementsV2, t1) {
@@ -85,7 +85,7 @@ TEST(TopKFrequentElementsV2, t1) {
     Solution sl;
     auto ret = sl.TopKFrequentV1(nums, k);
 
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(TopKFrequentElements, t2) {
@@ -96,7 +96,7 @@ TEST(TopKFrequentElements, t2) {
     Solution sl;
     auto ret = sl.TopKFrequent(nums, k);
 
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(TopKFrequentElementsV2, t2) {
@@ -107,7 +107,7 @@ TEST(TopKFrequentElementsV2, t2) {
     Solution sl;
     auto ret = sl.TopKFrequentV1(nums, k);
 
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 static void BenchMarkV0(benchmark::State& state) {
@@ -129,7 +129,7 @@ static void BenchMarkV0(benchmark::State& state) {
         Solution sl;
         auto ret = sl.TopKFrequent(nums, k);
 
-        EXPECT_EQ(ret, output);
+        EXPECT_EQ(output, ret);
     }
 }
 BENCHMARK(BenchMarkV0);
@@ -153,7 +153,7 @@ static void BenchMarkV1(benchmark::State& state) {
         Solution sl;
         auto ret = sl.TopKFrequentV1(nums, k);
 
-        EXPECT_EQ(ret, output);
+        EXPECT_EQ(output, ret);
     }
 }
 BENCHMARK(BenchMarkV1);

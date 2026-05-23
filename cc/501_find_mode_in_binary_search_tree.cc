@@ -76,7 +76,7 @@ TEST(FindModeInBinarySearchTree, t1) {
     Solution sl;
     auto ret = sl.FindMode(node);
 
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 
     Tree::FreeTreeNode(node);
 }
@@ -90,7 +90,7 @@ TEST(FindModeInBinarySearchTree, t2) {
     Solution sl;
     auto ret = sl.FindMode(node);
 
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 
     Tree::FreeTreeNode(node);
 }

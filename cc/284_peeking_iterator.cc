@@ -92,18 +92,18 @@ TEST(peekingV, t1) {
 
     // return 1, the pointer moves to the next element [1,2,3].
     auto ret = peeking_iterator->next();
-    EXPECT_EQ(ret, 1);
+    EXPECT_EQ(1, ret);
 
     // return 2, the pointer moves to the next element [1,2,3]
     ret = peeking_iterator->next();
-    EXPECT_EQ(ret, 2);
+    EXPECT_EQ(2, ret);
 
     // return 3, the pointer moves to the next element [1,2,3]
     ret = peeking_iterator->next();
-    EXPECT_EQ(ret, 3);
+    EXPECT_EQ(3, ret);
 
     bool const ret2 = peeking_iterator->hasNext();  // return False}
-    EXPECT_EQ(ret2, false);
+    EXPECT_EQ(false, ret2);
 
     delete peeking_iterator;
 }
@@ -120,22 +120,22 @@ TEST(peekingV, t2) {
 
     // return 1, the pointer moves to the next element [1,2,3].
     auto ret = peeking_iterator->next();
-    EXPECT_EQ(ret, 1);
+    EXPECT_EQ(1, ret);
 
     // return 2, the pointer does not move [1,2,3].
     ret = peeking_iterator->Peek();
-    EXPECT_EQ(ret, 2);
+    EXPECT_EQ(2, ret);
 
     // return 2, the pointer moves to the next element [1,2,3]
     ret = peeking_iterator->next();
-    EXPECT_EQ(ret, 2);
+    EXPECT_EQ(2, ret);
 
     // return 3, the pointer moves to the next element [1,2,3]
     ret = peeking_iterator->next();
-    EXPECT_EQ(ret, 3);
+    EXPECT_EQ(3, ret);
 
     bool const ret2 = peeking_iterator->hasNext();  // return False}
-    EXPECT_EQ(ret2, false);
+    EXPECT_EQ(false, ret2);
 
     delete peeking_iterator;
 }

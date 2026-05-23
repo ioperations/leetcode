@@ -60,7 +60,7 @@ TEST(validV, t1) {
 
     Solution const sl;
     bool const ret = sl.IsPalindrome(s);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 TEST(validV, t2) {
     string const s = "race a car";
@@ -69,7 +69,7 @@ TEST(validV, t2) {
 
     Solution const sl;
     bool const ret = sl.IsPalindrome(s);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(validV, t3) {
@@ -82,7 +82,7 @@ TEST(validV, t3) {
 
     Solution const sl;
     bool const ret = sl.IsPalindrome(s);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(validV, t4) {
@@ -91,6 +91,6 @@ TEST(validV, t4) {
 
     Solution const sl;
     bool const ret = sl.IsPalindrome(s);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 }  // namespace

@@ -65,7 +65,7 @@ TEST(MinCostClimbingStairs, t1) {
 
     Solution const sl;
     int const ret = sl.MinCostClimbingStairs(v);
-    EXPECT_EQ(ret, expected);
+    EXPECT_EQ(expected, ret);
 }
 
 TEST(MinCostClimbingStairs, t2) {
@@ -83,7 +83,7 @@ TEST(MinCostClimbingStairs, t2) {
     */
     Solution const sl;
     int const ret = sl.MinCostClimbingStairs(v);
-    EXPECT_EQ(ret, expected);
+    EXPECT_EQ(expected, ret);
 }
 
 }  // namespace

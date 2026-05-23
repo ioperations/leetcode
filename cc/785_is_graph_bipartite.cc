@@ -88,7 +88,7 @@ TEST(IsGraphBipartite, t1) {
     // that every edge connects a node in one and a node in the other.
     Solution s;
     bool const ret = s.IsBipartite(graph);
-    EXPECT_EQ(ret, expected);
+    EXPECT_EQ(expected, ret);
 }
 
 TEST(IsGraphBipartite, t2) {
@@ -109,7 +109,7 @@ TEST(IsGraphBipartite, t2) {
     // We can partition the nodes into two sets: {0, 2} and {1, 3}.
     Solution s;
     bool const ret = s.IsBipartite(graph);
-    EXPECT_EQ(ret, expected);
+    EXPECT_EQ(expected, ret);
 }
 
 }  // namespace

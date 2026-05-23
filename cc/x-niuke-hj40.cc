@@ -47,6 +47,6 @@ TEST(XNiukeHjv2, t2) {
     Func(s.c_str(), static_cast<int>(s.size()));
     std::string const result = testing::internal::GetCapturedStdout();
     std::string const expected("26\n3\n10\n12\n");
-    EXPECT_EQ(result, expected);
+    EXPECT_EQ(expected, result);
 }
 }  // namespace

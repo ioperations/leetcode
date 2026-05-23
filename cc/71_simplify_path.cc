@@ -115,7 +115,7 @@ TEST(simplifyV, t1) {
 
     Solution const s;
     auto ret = s.SimplifyPath(path);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(simplifyV, t2) {
@@ -125,7 +125,7 @@ TEST(simplifyV, t2) {
     // the root level is the highest level you can go.
     Solution const s;
     auto ret = s.SimplifyPath(path);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(simplifyV, t3) {
@@ -135,7 +135,7 @@ TEST(simplifyV, t3) {
     // replaced by a single one.
     Solution const s;
     auto ret = s.SimplifyPath(path);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(simplifypathV2, t1) {
@@ -146,7 +146,7 @@ TEST(simplifypathV2, t1) {
 
     SolutionV2 s;
     auto ret = s.SimplifyPath(path);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(simplifypathV2, t2) {
@@ -156,7 +156,7 @@ TEST(simplifypathV2, t2) {
     // the root level is the highest level you can go.
     SolutionV2 s;
     auto ret = s.SimplifyPath(path);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(simplifypathV2, t3) {
@@ -166,6 +166,6 @@ TEST(simplifypathV2, t3) {
     // replaced by a single one.
     SolutionV2 s;
     auto ret = s.SimplifyPath(path);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 }  // namespace

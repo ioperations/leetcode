@@ -68,7 +68,7 @@ TEST(LongestIncreasingPathInAMatrix, t1) {
 
     Solution sl;
     int const ret = sl.LongestIncreasingPath(matrix);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
     // Explanation: The longest increasing path is [1, 2, 6, 9].
 }
 TEST(LongestIncreasingPathInAMatrix, t2) {
@@ -80,7 +80,7 @@ TEST(LongestIncreasingPathInAMatrix, t2) {
 
     Solution sl;
     int const ret = sl.LongestIncreasingPath(matrix);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
     // Explanation: The longest increasing path is [1, 2, 6, 9].
 }
 

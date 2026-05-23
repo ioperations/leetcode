@@ -39,7 +39,7 @@ TEST(plusV, t1) {
 
     Solution s;
     auto ret = s.PlusOne(digits);
-    EXPECT_EQ(ret, (std::vector<int>{1, 2, 4}));
+    EXPECT_EQ((std::vector<int>{1, 2, 4}), ret);
 }
 
 TEST(plusV, t2) {
@@ -47,7 +47,7 @@ TEST(plusV, t2) {
 
     Solution s;
     auto ret = s.PlusOne(digits);
-    EXPECT_EQ(ret, (std::vector<int>{4, 3, 2, 2}));
+    EXPECT_EQ((std::vector<int>{4, 3, 2, 2}), ret);
 }
 
 TEST(plusV, t3) {
@@ -55,7 +55,7 @@ TEST(plusV, t3) {
 
     Solution s;
     auto ret = s.PlusOne(digits);
-    EXPECT_EQ(ret, (std::vector<int>{1, 0}));
+    EXPECT_EQ((std::vector<int>{1, 0}), ret);
 }
 
 }  // namespace

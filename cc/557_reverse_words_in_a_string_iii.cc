@@ -74,7 +74,7 @@ TEST(ReverseWordsInAStringIii, t1) {
     string const output = "s'teL ekat edoCteeL tsetnoc";
     Solution sl;
     auto ret = sl.ReverseWords(s);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(ReverseWordsInAStringIii, t2) {
@@ -82,7 +82,7 @@ TEST(ReverseWordsInAStringIii, t2) {
     string const output = "doG gniD";
     Solution sl;
     auto ret = sl.ReverseWords(s);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 static void BenchMarkStack(benchmark::State& state) {
@@ -91,7 +91,7 @@ static void BenchMarkStack(benchmark::State& state) {
     string const output = "s'teL ekat edoCteeL tsetnoc";
     for (auto&& _ : state) {
         auto ret = sl.ReverseWords(s);
-        EXPECT_EQ(ret, output);
+        EXPECT_EQ(output, ret);
     }
 }
 BENCHMARK(BenchMarkStack);
@@ -102,7 +102,7 @@ static void BenchMarkTwoPointer(benchmark::State& state) {
     string const output = "s'teL ekat edoCteeL tsetnoc";
     for (auto&& _ : state) {
         auto ret = sl.ReverseWordsV1(s);
-        EXPECT_EQ(ret, output);
+        EXPECT_EQ(output, ret);
     }
 }
 BENCHMARK(BenchMarkTwoPointer);

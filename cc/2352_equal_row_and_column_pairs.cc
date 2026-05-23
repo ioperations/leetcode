@@ -59,7 +59,7 @@ TEST(EqualRowAndColumnPairs, t1) {
     // - (Row 2, Column 1): [2,7,7]
     Solution const sl;
     int const ret = sl.EqualPairs(grid);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(EqualRowAndColumnPairs, t2) {
@@ -79,7 +79,7 @@ TEST(EqualRowAndColumnPairs, t2) {
 
     Solution const sl;
     int const ret = sl.EqualPairs(grid);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 }  // namespace

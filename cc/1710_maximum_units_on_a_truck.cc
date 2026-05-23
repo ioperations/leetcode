@@ -53,7 +53,7 @@ TEST(MaximumUnitsOnATruck, t1) {
     int const output = 8;
     Solution sl;
     int const ret = sl.MaximumUnits(box_types, truck_size);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
     // Explanation: There are:
     // - 1 box of the first type that contains 3 units.
     // - 2 boxes of the second type that contain 2 units each.
@@ -69,7 +69,7 @@ TEST(MaximumUnitsOnATruck, t2) {
     int const output = 91;
     Solution sl;
     int const ret = sl.MaximumUnits(box_types, truck_size);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 }  // namespace

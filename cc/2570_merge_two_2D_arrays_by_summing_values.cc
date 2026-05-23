@@ -72,7 +72,7 @@ TEST(T0, t1) {
 
     Solution sl;
     auto ret = sl.MergeArrays(nums1, nums2);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 
     // Explanation: The resulting array contains the following:
     // - id = 1, the value of this id is 2 + 4 = 6.
@@ -87,7 +87,7 @@ TEST(T0, t2) {
 
     Solution sl;
     auto ret = sl.MergeArrays(nums1, nums2);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 
     // There are no common ids, so we just include each id with its value in the
     // resulting list.

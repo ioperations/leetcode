@@ -45,7 +45,7 @@ TEST(FindFirstAndLastPositionOfElementInSortedArray, t1) {
     Solution sl;
     auto ret = sl.SearchRange(elements, 8);
     vector<int> const output{3, 4};
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(FindFirstAndLastPositionOfElementInSortedArray, t2) {
@@ -53,7 +53,7 @@ TEST(FindFirstAndLastPositionOfElementInSortedArray, t2) {
     Solution sl;
     auto ret = sl.SearchRange(elements, 6);
     vector<int> const output{-1, -1};
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(FindFirstAndLastPositionOfElementInSortedArray, t3) {
@@ -61,7 +61,7 @@ TEST(FindFirstAndLastPositionOfElementInSortedArray, t3) {
     Solution sl;
     auto ret = sl.SearchRange(elements, 0);
     vector<int> const output{-1, -1};
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 }  // namespace

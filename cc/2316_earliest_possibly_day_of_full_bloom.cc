@@ -109,7 +109,7 @@ TEST(EarliestPossiblyDayOfFullBloom, t1) {
     Solution sl;
 
     int const ret = sl.EarliestFullBloom(plant_time, grow_time);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(EarliestPossiblyDayOfFullBloom, t2) {
@@ -129,7 +129,7 @@ TEST(EarliestPossiblyDayOfFullBloom, t2) {
     Solution sl;
 
     int const ret = sl.EarliestFullBloom(plant_time, grow_time);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(EarliestPossiblyDayOfFullBloom, t3) {
@@ -142,6 +142,6 @@ TEST(EarliestPossiblyDayOfFullBloom, t3) {
     Solution sl;
 
     int const ret = sl.EarliestFullBloom(plant_time, grow_time);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 }  // namespace

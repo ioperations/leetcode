@@ -103,15 +103,15 @@ TEST(DesignFrontMiddleBackQueue, t1) {
     q->PushMiddle(3);         // [1, 3, 2]
     q->PushMiddle(4);         // [1, 4, 3, 2]
     int ret = q->PopFront();  // return 1 -> [4, 3, 2]
-    EXPECT_EQ(ret, 1);
+    EXPECT_EQ(1, ret);
     ret = q->PopMiddle();  // return 3 -> [4, 2]
-    EXPECT_EQ(ret, 3);
+    EXPECT_EQ(3, ret);
     ret = q->PopMiddle();  // return 4 -> [2]
-    EXPECT_EQ(ret, 4);
+    EXPECT_EQ(4, ret);
     ret = q->PopBack();  // return 2 -> []
-    EXPECT_EQ(ret, 2);
+    EXPECT_EQ(2, ret);
     ret = q->PopFront();  // return -1 -> [] (The queue is empty)
-    EXPECT_EQ(ret, -1);
+    EXPECT_EQ(-1, ret);
     delete q;
 }
 

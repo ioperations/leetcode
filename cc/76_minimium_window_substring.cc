@@ -86,7 +86,7 @@ TEST(MinimiumWindowSubstring, t1) {
     // 'C' from string t.
     Solution sl;
     auto ret = sl.MinWindow(s, t);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(MinimiumWindowSubstring, t2) {
@@ -98,7 +98,7 @@ TEST(MinimiumWindowSubstring, t2) {
     // 'C' from string t.
     Solution sl;
     auto ret = sl.MinWindow(s, t);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(MinimiumWindowSubstring, t3) {
@@ -111,6 +111,6 @@ TEST(MinimiumWindowSubstring, t3) {
 
     Solution sl;
     auto ret = sl.MinWindow(s, t);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 }  // namespace

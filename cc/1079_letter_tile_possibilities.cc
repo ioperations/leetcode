@@ -67,7 +67,7 @@ TEST(T0, t1) {
     int const output = 8;
     Solution sl;
     int const ret = sl.NumTilePossibilities(tiles);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(T0, t2) {
@@ -75,7 +75,7 @@ TEST(T0, t2) {
     int const output = 188;
     Solution sl;
     int const ret = sl.NumTilePossibilities(tiles);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(T0, t3) {
@@ -83,7 +83,7 @@ TEST(T0, t3) {
     int const output = 1;
     Solution sl;
     int const ret = sl.NumTilePossibilities(tiles);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 int main(int argc, char* argv[]) {

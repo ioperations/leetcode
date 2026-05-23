@@ -51,7 +51,7 @@ TEST(ShortestUnsortedContinuousSubarray, t1) {
     Solution sl;
     int const ret = sl.FindUnsortedSubarray(v);
 
-    EXPECT_EQ(ret, expected);
+    EXPECT_EQ(expected, ret);
 }
 
 TEST(ShortestUnsortedContinuousSubarray, t2) {
@@ -59,7 +59,7 @@ TEST(ShortestUnsortedContinuousSubarray, t2) {
     int const expected = 0;
     Solution sl;
     int const ret = sl.FindUnsortedSubarray(v);
-    EXPECT_EQ(ret, expected);
+    EXPECT_EQ(expected, ret);
 }
 
 }  // namespace

@@ -76,7 +76,7 @@ TEST(ReverseStringIi, t1) {
     std::string const output = "bacdfeg";
     Solution sl;
     auto ret = sl.ReverseStr(s, k);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(ReverseStringIiV2, t1) {
@@ -85,7 +85,7 @@ TEST(ReverseStringIiV2, t1) {
     std::string const output = "bacdfeg";
     Solution sl;
     auto ret = sl.ReverseStrV2(s, k);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(ReverseStringIi, t2) {
@@ -95,7 +95,7 @@ TEST(ReverseStringIi, t2) {
     Solution sl;
     auto ret = sl.ReverseStr(s, k);
 
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 TEST(ReverseStringIiV2, t2) {
     std::string const s = "abcd";
@@ -104,7 +104,7 @@ TEST(ReverseStringIiV2, t2) {
     Solution sl;
     auto ret = sl.ReverseStrV2(s, k);
 
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 static void BenchV1(benchmark::State& state) {
@@ -115,7 +115,7 @@ static void BenchV1(benchmark::State& state) {
 
     for (auto&& _ : state) {
         auto ret = sl.ReverseStr(s, k);
-        EXPECT_EQ(ret, output);
+        EXPECT_EQ(output, ret);
     }
 }
 BENCHMARK(BenchV1);
@@ -127,7 +127,7 @@ static void BenchV2(benchmark::State& state) {
 
     for (auto&& _ : state) {
         auto ret = sl.ReverseStrV2(s, k);
-        EXPECT_EQ(ret, output);
+        EXPECT_EQ(output, ret);
     }
 }
 BENCHMARK(BenchV2);

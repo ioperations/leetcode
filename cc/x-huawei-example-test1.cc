@@ -47,6 +47,6 @@ TEST(XHuaweiExampleTestv2, t2) {
     Processing(s);
     std::string const ret = testing::internal::GetCapturedStdout();
 
-    EXPECT_EQ(ret, std::string("1\n5\n40\n"));
+    EXPECT_EQ(std::string("1\n5\n40\n"), ret);
 }
 }  // namespace

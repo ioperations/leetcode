@@ -191,7 +191,7 @@ TEST(PathWithMinimiumEffort, t1) {
 
     Solution s;
     int const ret = s.MinimumEffortPath(heights);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(PathWithMinimiumEffort, t2) {
@@ -214,7 +214,7 @@ TEST(PathWithMinimiumEffort, t2) {
 
     Solution s;
     int const ret = s.MinimumEffortPath(heights);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 TEST(PathWithMinimiumEffort, t3) {
     vector<vector<int>> heights = {{1, 2, 1, 1, 1},
@@ -240,7 +240,7 @@ TEST(PathWithMinimiumEffort, t3) {
 
     Solution s;
     int const ret = s.MinimumEffortPathV2(heights);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 }  // namespace

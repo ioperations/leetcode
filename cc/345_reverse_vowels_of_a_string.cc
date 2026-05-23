@@ -49,7 +49,7 @@ TEST(ReverseVowelsOfAString, t1) {
     std::string const output = "holle";
     Solution const sl;
     auto ret = sl.ReverseVowels(s);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(ReverseVowelsOfAString, t2) {
@@ -57,7 +57,7 @@ TEST(ReverseVowelsOfAString, t2) {
     std::string const output = "leotcede";
     Solution const sl;
     auto ret = sl.ReverseVowels(s);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 }  // namespace

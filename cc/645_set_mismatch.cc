@@ -49,7 +49,7 @@ TEST(setV, t1) {
 
     Solution sl;
     auto ret = sl.FindErrorNums(nums);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(setV, t2) {
@@ -58,7 +58,7 @@ TEST(setV, t2) {
     vector<int> const output = {1, 2};
     Solution sl;
     auto ret = sl.FindErrorNums(nums);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 }  // namespace

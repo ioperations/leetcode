@@ -47,7 +47,7 @@ TEST(SuperUglyNumber, t1) {
     // first 12 super ugly numbers given primes = [2,7,13,19].
     Solution sl;
     int const ret = sl.NthSuperUglyNumber(n, primes);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(SuperUglyNumber, t2) {
@@ -58,7 +58,7 @@ TEST(SuperUglyNumber, t2) {
     // array primes = [2,3,5]
     Solution sl;
     int const ret = sl.NthSuperUglyNumber(n, primes);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 }  // namespace

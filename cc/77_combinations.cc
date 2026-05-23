@@ -56,7 +56,7 @@ TEST(Combinations, t1) {
     auto ret = sl.Combine(n, k);
 
     set<vector<int>> const ret_set(ret.begin(), ret.end());
-    EXPECT_EQ(ret_set, o_set);
+    EXPECT_EQ(o_set, ret_set);
 }
 TEST(Combinations, t2) {
     int const n = 1;
@@ -67,7 +67,7 @@ TEST(Combinations, t2) {
     auto ret = sl.Combine(n, k);
 
     set<vector<int>> const ret_set(ret.begin(), ret.end());
-    EXPECT_EQ(ret_set, o_set);
+    EXPECT_EQ(o_set, ret_set);
 }
 
 }  // namespace

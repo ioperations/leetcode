@@ -87,7 +87,7 @@ TEST(BasicCalculatorIi, t1) {
     int const output = 7;
     Solution sl;
     int const ret = sl.Calculate(s);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(BasicCalculatorIi, t2) {
@@ -95,7 +95,7 @@ TEST(BasicCalculatorIi, t2) {
     int const output = 1;
     Solution sl;
     int const ret = sl.Calculate(s);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(BasicCalculatorIi, t3) {
@@ -103,7 +103,7 @@ TEST(BasicCalculatorIi, t3) {
     int const output = 5;
     Solution sl;
     int const ret = sl.Calculate(s);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 }  // namespace

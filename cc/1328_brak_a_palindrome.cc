@@ -56,7 +56,7 @@ TEST(BrakAPalindrome, t1) {
     // lexicographically smallest.
     Solution sl;
     auto const ret = sl.BreakPalindrome(palindrome);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(BrakAPalindrome, t2) {
@@ -66,7 +66,7 @@ TEST(BrakAPalindrome, t2) {
     // palindrome, so return an empty string.
     Solution sl;
     auto const ret = sl.BreakPalindrome(palindrome);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(BrakAPalindrome, t3) {
@@ -76,6 +76,6 @@ TEST(BrakAPalindrome, t3) {
     // palindrome, so return an empty string.
     Solution sl;
     auto const ret = sl.BreakPalindrome(palindrome);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 }  // namespace

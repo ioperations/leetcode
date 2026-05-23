@@ -42,7 +42,7 @@ TEST(UniqueBinarySearchTree, t1) {
     int const out = 5;
     Solution sl;
     int const ret = sl.NumTrees(n);
-    EXPECT_EQ(ret, out);
+    EXPECT_EQ(out, ret);
 }
 
 TEST(UniqueBinarySearchTree, t2) {
@@ -50,7 +50,7 @@ TEST(UniqueBinarySearchTree, t2) {
     int const out = 1;
     Solution sl;
     int const ret = sl.NumTrees(n);
-    EXPECT_EQ(ret, out);
+    EXPECT_EQ(out, ret);
 }
 
 TEST(UniqueBinarySearchTree, t3) {
@@ -62,7 +62,7 @@ TEST(UniqueBinarySearchTree, t3) {
     int const size = static_cast<int>(test_case.size());
     for (int i = 1; i < size; i++) {
         int const ret = sl.NumTrees(i);
-        EXPECT_EQ(ret, test_case.at(static_cast<size_t>(i)));
+        EXPECT_EQ(test_case.at(static_cast<size_t>(i), ret));
     }
 }
 

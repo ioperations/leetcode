@@ -118,7 +118,7 @@ TEST(construtTest, t1) {
     std::vector<int> vec;
     BfsSearch(ret, vec);
 
-    EXPECT_EQ(vec, output);
+    EXPECT_EQ(output, vec);
     FreeTreeNode(ret);
 }
 
@@ -148,7 +148,7 @@ TEST(SerializeAndDeserializeBinaryTree, t1) {
     std::vector<int> vec;
     BfsSearch(ret, vec);
 
-    EXPECT_EQ(vec, output);
+    EXPECT_EQ(output, vec);
     FreeTreeNode(head);
 
     FreeTreeNode(ret);
@@ -162,13 +162,13 @@ TEST(SerializeAndDeserializeBinaryTree, t2) {
 
     Codec cl;
     string const data = cl.Serialize(head);
-    EXPECT_EQ(data, "");
+    EXPECT_EQ("", data);
     auto* ret = cl.Deserialize(data);
 
     std::vector<int> vec;
     BfsSearch(ret, vec);
 
-    EXPECT_EQ(vec, output);
+    EXPECT_EQ(output, vec);
 
     FreeTreeNode(head);
 

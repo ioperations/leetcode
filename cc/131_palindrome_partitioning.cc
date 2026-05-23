@@ -63,7 +63,7 @@ TEST(palindromeV, t1) {
 
     Solution sl;
     auto ret = sl.Partition(s);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(palindromeV, t2) {
@@ -72,7 +72,7 @@ TEST(palindromeV, t2) {
 
     Solution sl;
     auto ret = sl.Partition(s);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 }  // namespace

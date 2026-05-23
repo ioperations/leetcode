@@ -55,7 +55,7 @@ TEST(ConcatenationOfConsecutiveBinaryNumbersV2, t0) {
     Solution sl;
     std::string const ret = sl.DemicalToBinary(n);
     // "1" in binary corresponds to the decimal value 1.
-    EXPECT_EQ(ret, std::string("1010"));
+    EXPECT_EQ(std::string("1010"), ret);
 }
 
 TEST(ConcatenationOfConsecutiveBinaryNumbers, t1) {
@@ -67,8 +67,8 @@ TEST(ConcatenationOfConsecutiveBinaryNumbers, t1) {
     // "1" in binary corresponds to the decimal value 1.
     std::string str;
     sl.AppendToString(n, str);
-    EXPECT_EQ(str, expected_str);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(expected_str, str);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(ConcatenationOfConsecutiveBinaryNumbers, t2) {
@@ -85,8 +85,8 @@ TEST(ConcatenationOfConsecutiveBinaryNumbers, t2) {
 
     std::string str;
     sl.AppendToString(n, str);
-    EXPECT_EQ(str, expected_str);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(expected_str, str);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(ConcatenationOfConsecutiveBinaryNumbers, t3) {
@@ -102,8 +102,8 @@ TEST(ConcatenationOfConsecutiveBinaryNumbers, t3) {
     int const ret = sl.ConcatenatedBinary(n);
     std::string str;
     sl.AppendToString(n, str);
-    EXPECT_EQ(str, expected_str);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(expected_str, str);
+    EXPECT_EQ(output, ret);
 }
 
 }  // namespace

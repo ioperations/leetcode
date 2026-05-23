@@ -104,7 +104,7 @@ TEST(GameOfLife, t1) {
 
     Solution s;
     s.GameOfLife(board);
-    EXPECT_EQ(board, expected);
+    EXPECT_EQ(expected, board);
 }
 
 TEST(GameOfLife, t2) {
@@ -114,7 +114,7 @@ TEST(GameOfLife, t2) {
 
     Solution s;
     s.GameOfLife(board);
-    EXPECT_EQ(board, expected);
+    EXPECT_EQ(expected, board);
 }
 
 }  // namespace

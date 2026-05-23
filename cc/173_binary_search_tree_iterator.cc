@@ -72,7 +72,7 @@ TEST(BinarySearchTreeIterator, t1) {
 
     auto* it = new BSTIterator(root);
 
-    EXPECT_EQ(it->hasNext(), true);
+    EXPECT_EQ(true, it->hasNext());
 
     delete it;
 
@@ -83,15 +83,15 @@ TEST(BinarySearchTreeIterator, t2) {
     TreeNode<int>* root = ConstructTree(std::vector<int>{7, 3, 15, 9, 20});
 
     auto* it = new BSTIterator(root);
-    EXPECT_EQ(it->next(), 3);
-    EXPECT_EQ(it->next(), 7);
-    EXPECT_EQ(it->hasNext(), true);
-    EXPECT_EQ(it->next(), 9);
-    EXPECT_EQ(it->hasNext(), true);
-    EXPECT_EQ(it->next(), 15);
-    EXPECT_EQ(it->hasNext(), true);
-    EXPECT_EQ(it->next(), 20);
-    EXPECT_EQ(it->hasNext(), false);
+    EXPECT_EQ(3, it->next());
+    EXPECT_EQ(7, it->next());
+    EXPECT_EQ(true, it->hasNext());
+    EXPECT_EQ(9, it->next());
+    EXPECT_EQ(true, it->hasNext());
+    EXPECT_EQ(15, it->next());
+    EXPECT_EQ(true, it->hasNext());
+    EXPECT_EQ(20, it->next());
+    EXPECT_EQ(false, it->hasNext());
 
     delete it;
 

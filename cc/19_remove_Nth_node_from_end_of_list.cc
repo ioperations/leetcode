@@ -55,11 +55,11 @@ void ExpectEqList(ListNode* const head, const std::vector<int>& elements) {
     ListNode* m_head = head;
 
     while (m_head != nullptr) {
-        EXPECT_EQ(m_head->val, elements[i]);
+        EXPECT_EQ(elements[i], m_head->val);
         m_head = m_head->next;
         i++;
     }
-    EXPECT_EQ(i, elements.size());
+    EXPECT_EQ(elements.size(), i);
 }
 
 TEST(RemoveNthNodeFromEndOfList, t1) {

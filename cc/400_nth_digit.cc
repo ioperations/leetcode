@@ -45,7 +45,7 @@ TEST(nthV, t1) {
     int const output = 3;
     Solution sl;
     int const ret = sl.FindNthDigit(n);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(nthV, t2) {
@@ -55,7 +55,7 @@ TEST(nthV, t2) {
     // 10, 11, ... is a 0, which is part of the number 10.
     Solution sl;
     int const ret = sl.FindNthDigit(n);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(nthV, t3) {
@@ -63,7 +63,7 @@ TEST(nthV, t3) {
     int const output = 4;
     Solution sl;
     int const ret = sl.FindNthDigit(n);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(nthV, t4) {
@@ -71,7 +71,7 @@ TEST(nthV, t4) {
     int const output = 5;
     Solution sl;
     int const ret = sl.FindNthDigit(n);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(nthV, t5) {
@@ -79,7 +79,7 @@ TEST(nthV, t5) {
     int const output = 3;
     Solution sl;
     int const ret = sl.FindNthDigit(n);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 }  // namespace

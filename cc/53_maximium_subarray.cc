@@ -48,7 +48,7 @@ TEST(maximiumV, t1) {
     constexpr int o = 6;
     Solution const sl;
     int const ret = sl.MaxSubArray(v);
-    EXPECT_EQ(ret, o);
+    EXPECT_EQ(o, ret);
 }
 
 TEST(maximiumV, t2) {
@@ -57,7 +57,7 @@ TEST(maximiumV, t2) {
     constexpr int o = 1;
     Solution const sl;
     int const ret = sl.MaxSubArray(v);
-    EXPECT_EQ(ret, o);
+    EXPECT_EQ(o, ret);
 }
 
 TEST(maximiumV, t3) {
@@ -66,7 +66,7 @@ TEST(maximiumV, t3) {
     constexpr int o = 23;
     Solution const sl;
     int const ret = sl.MaxSubArray(v);
-    EXPECT_EQ(ret, o);
+    EXPECT_EQ(o, ret);
 }
 
 }  // namespace

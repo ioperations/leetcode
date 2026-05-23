@@ -127,7 +127,7 @@ TEST(KthSmallestElementsInASortedMatrix, t1) {
     // and the 8th smallest number is 13
     Solution sl;
     int const ret = sl.KthSmallest(matrix, k);
-    EXPECT_EQ(ret, expected);
+    EXPECT_EQ(expected, ret);
 }
 
 TEST(KthSmallestElementsInASortedMatrixV2, t1) {
@@ -138,7 +138,7 @@ TEST(KthSmallestElementsInASortedMatrixV2, t1) {
     // and the 8th smallest number is 13
     Solution sl;
     int const ret = sl.KthSmallestOn2(matrix, k);
-    EXPECT_EQ(ret, expected);
+    EXPECT_EQ(expected, ret);
 }
 
 TEST(KthSmallestElementsInASortedMatrixV3, t1) {
@@ -149,7 +149,7 @@ TEST(KthSmallestElementsInASortedMatrixV3, t1) {
     // and the 8th smallest number is 13
     Solution sl;
     int const ret = sl.KthSmallestV2(matrix, k);
-    EXPECT_EQ(ret, expected);
+    EXPECT_EQ(expected, ret);
 }
 
 TEST(KthSmallestElementsInASortedMatrix, t2) {
@@ -160,7 +160,7 @@ TEST(KthSmallestElementsInASortedMatrix, t2) {
     // and the 1th smallest number is -5
     Solution sl;
     int const ret = sl.KthSmallest(matrix, k);
-    EXPECT_EQ(ret, expected);
+    EXPECT_EQ(expected, ret);
 }
 
 TEST(KthSmallestElementsInASortedMatrixV2, t2) {
@@ -171,7 +171,7 @@ TEST(KthSmallestElementsInASortedMatrixV2, t2) {
     // and the 1th smallest number is -5
     Solution sl;
     int const ret = sl.KthSmallestOn2(matrix, k);
-    EXPECT_EQ(ret, expected);
+    EXPECT_EQ(expected, ret);
 }
 TEST(KthSmallestElementsInASortedMatrixV3, t2) {
     vector<vector<int>> matrix = {{-5}};
@@ -181,6 +181,6 @@ TEST(KthSmallestElementsInASortedMatrixV3, t2) {
     // and the 1th smallest number is -5
     Solution sl;
     int const ret = sl.KthSmallestV2(matrix, k);
-    EXPECT_EQ(ret, expected);
+    EXPECT_EQ(expected, ret);
 }
 }  // namespace

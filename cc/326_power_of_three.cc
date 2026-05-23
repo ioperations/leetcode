@@ -31,7 +31,7 @@ TEST(PowerOfThree, t1) {
 
     Solution sl;
     bool const ret = sl.IsPowerOfThree(n);
-    EXPECT_EQ(ret, expected);
+    EXPECT_EQ(expected, ret);
 }
 
 TEST(PowerOfThree, t2) {
@@ -40,7 +40,7 @@ TEST(PowerOfThree, t2) {
 
     Solution sl;
     bool const ret = sl.IsPowerOfThree(n);
-    EXPECT_EQ(ret, expected);
+    EXPECT_EQ(expected, ret);
 }
 TEST(PowerOfThree, t3) {
     int const n = 9;
@@ -48,7 +48,7 @@ TEST(PowerOfThree, t3) {
 
     Solution sl;
     bool const ret = sl.IsPowerOfThree(n);
-    EXPECT_EQ(ret, expected);
+    EXPECT_EQ(expected, ret);
 }
 
 }  // namespace

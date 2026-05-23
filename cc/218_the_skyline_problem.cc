@@ -110,7 +110,7 @@ TEST(TheSkylineProblem, t1) {
 
     Solution sl;
     auto ret = sl.GetSkyline(buildings);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(TheSkylineProblem, t2) {
@@ -125,7 +125,7 @@ TEST(TheSkylineProblem, t2) {
 
     Solution sl;
     auto ret = sl.GetSkyline(buildings);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 }  // namespace

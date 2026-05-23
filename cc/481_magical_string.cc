@@ -66,7 +66,7 @@ TEST(magicalV, t1) {
 
     Solution s;
     int const ret = s.MagicalString(n);
-    EXPECT_EQ(ret, expected);
+    EXPECT_EQ(expected, ret);
 }
 
 TEST(magicalV, t2) {
@@ -75,7 +75,7 @@ TEST(magicalV, t2) {
 
     Solution s;
     int const ret = s.MagicalString(n);
-    EXPECT_EQ(ret, expected);
+    EXPECT_EQ(expected, ret);
 }
 
 TEST(magicalV, t3) {
@@ -86,7 +86,7 @@ TEST(magicalV, t3) {
 
     Solution s;
     int const ret = s.MagicalString(n);
-    EXPECT_EQ(ret, expected);
+    EXPECT_EQ(expected, ret);
 }
 
 TEST(magicalV, t4) {
@@ -97,7 +97,7 @@ TEST(magicalV, t4) {
 
     Solution s;
     int const ret = s.MagicalString(n);
-    EXPECT_EQ(ret, expected);
+    EXPECT_EQ(expected, ret);
 }
 TEST(magicalV, t5) {
     int const n = 38;
@@ -107,7 +107,7 @@ TEST(magicalV, t5) {
 
     Solution s;
     int const ret = s.MagicalString(n);
-    EXPECT_EQ(ret, expected);
+    EXPECT_EQ(expected, ret);
 }
 
 TEST(magicalV, t6) {
@@ -118,7 +118,7 @@ TEST(magicalV, t6) {
 
     Solution s;
     int const ret = s.MagicalString(n);
-    EXPECT_EQ(ret, expected);
+    EXPECT_EQ(expected, ret);
 }
 
 }  // namespace

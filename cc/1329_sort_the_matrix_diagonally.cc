@@ -98,7 +98,7 @@ TEST(SortTheMatrixDiagonally, t1) {
         {1, 1, 1, 1}, {1, 2, 2, 2}, {1, 2, 3, 3}};
     Solution sl;
     auto ret = sl.DiagonalSort(mat);
-    EXPECT_EQ(ret, expected);
+    EXPECT_EQ(expected, ret);
 }
 
 TEST(SortTheMatrixDiagonally, t2) {
@@ -114,7 +114,7 @@ TEST(SortTheMatrixDiagonally, t2) {
                                           {84, 28, 75, 33, 55, 68}};
     Solution sl;
     auto ret = sl.DiagonalSort(mat);
-    EXPECT_EQ(ret, expected);
+    EXPECT_EQ(expected, ret);
 }
 
 }  // namespace

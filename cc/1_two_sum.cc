@@ -31,7 +31,7 @@ TEST(twosumV2, t1) {
     std::vector<int> nums{2, 7, 11, 15};
     int const target = 9;
     auto ret = s.TwoSum(nums, target);
-    EXPECT_EQ(ret, (std::vector<int>{0, 1}));
+    EXPECT_EQ((std::vector<int>{0, 1}), ret);
 }
 
 TEST(twosumV2, t2) {
@@ -39,7 +39,7 @@ TEST(twosumV2, t2) {
     std::vector<int> nums{3, 2, 4};
     int const target = 6;
     auto ret = s.TwoSum(nums, target);
-    EXPECT_EQ(ret, (std::vector<int>{1, 2}));
+    EXPECT_EQ((std::vector<int>{1, 2}), ret);
 }
 
 TEST(twosumV2, t3) {
@@ -47,6 +47,6 @@ TEST(twosumV2, t3) {
     std::vector<int> nums{3, 3};
     int const target = 6;
     auto ret = s.TwoSum(nums, target);
-    EXPECT_EQ(ret, (std::vector<int>{0, 1}));
+    EXPECT_EQ((std::vector<int>{0, 1}), ret);
 }
 }  // namespace

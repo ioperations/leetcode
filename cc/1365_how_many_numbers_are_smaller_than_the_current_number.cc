@@ -37,7 +37,7 @@ TEST(HowManyNumbersAreSmallerThanTheCurrentNumber, t1) {
     std::vector<int> const output{4, 0, 1, 1, 3};
     Solution sl;
     auto ret = sl.SmallerNumbersThanCurrent(nums);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(HowManyNumbersAreSmallerThanTheCurrentNumber, t2) {
@@ -45,7 +45,7 @@ TEST(HowManyNumbersAreSmallerThanTheCurrentNumber, t2) {
     std::vector<int> const output{2, 1, 0, 3};
     Solution sl;
     auto ret = sl.SmallerNumbersThanCurrent(nums);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(HowManyNumbersAreSmallerThanTheCurrentNumber, t3) {
@@ -53,7 +53,7 @@ TEST(HowManyNumbersAreSmallerThanTheCurrentNumber, t3) {
     std::vector<int> const output{0, 0, 0, 0};
     Solution sl;
     auto ret = sl.SmallerNumbersThanCurrent(nums);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 }  // namespace

@@ -134,11 +134,11 @@ void ExpectEqRight(TreeNode* const root, const std::vector<int>& elements) {
   TreeNode const* n = root;
   int i = 0;
   while (n != nullptr) {
-    EXPECT_EQ(n->val, elements.at(i));
+    EXPECT_EQ(elements.at(i), n->val);
     i++;
     n = n->right;
   }
-    EXPECT_EQ(i, elements.size());
+    EXPECT_EQ(elements.size(), i);
 }
 
 TEST(FlattenBinaryTreeToLinkedList, t1) {

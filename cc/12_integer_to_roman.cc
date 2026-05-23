@@ -64,7 +64,7 @@ TEST(IntegerToRoman, t1) {
     // Explanation: 3 is represented as 3 ones.
     Solution const sl;
     const string ret = sl.IntToRoman(num);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(IntegerToRoman, t2) {
@@ -73,7 +73,7 @@ TEST(IntegerToRoman, t2) {
     // Explanation: L = 50, V = 5, III = 3.";
     Solution const sl;
     const string ret = sl.IntToRoman(num);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 TEST(IntegerToRoman, t3) {
@@ -82,7 +82,7 @@ TEST(IntegerToRoman, t3) {
     // Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.
     Solution const sl;
     const string ret = sl.IntToRoman(num);
-    EXPECT_EQ(ret, output);
+    EXPECT_EQ(output, ret);
 }
 
 }  // namespace
