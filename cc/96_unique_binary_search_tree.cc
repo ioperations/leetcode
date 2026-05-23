@@ -62,7 +62,7 @@ TEST(UniqueBinarySearchTree, t3) {
     int const size = static_cast<int>(test_case.size());
     for (int i = 1; i < size; i++) {
         int const ret = sl.NumTrees(i);
-        EXPECT_EQ(test_case.at(static_cast<size_t>(i), ret));
+        EXPECT_EQ(test_case.at(static_cast<size_t>(i)), ret);
     }
 }
 

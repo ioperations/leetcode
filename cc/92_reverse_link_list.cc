@@ -116,7 +116,7 @@ void ExpectEqList(ListNode* const head, const std::vector<int>& elements) {
         m_head = m_head->next;
         i++;
     }
-    EXPECT_EQ(static_cast<int>(elements.size(), i));
+    EXPECT_EQ(static_cast<int>(elements.size()), i);
 }
 
 TEST(ReverseLinkListV2, t0) {
