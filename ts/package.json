@@ -23,8 +23,6 @@
     "typescript": "latest"
   },
   "dependencies": {
-    "@opentui/core": "latest",
-    "@opentui/react": "latest",
     "opentui-spinner": "latest",
     "react": "latest",
     "vitest": "latest"
