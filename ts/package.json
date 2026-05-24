@@ -16,17 +16,16 @@
   "private": true,
   "devDependencies": {
     "@types/bun": "latest",
-    "@types/node": "^25.6.0",
-    "@types/react": "^19.2.14"
+    "@types/node": "latest",
+    "@types/react": "latest"
   },
   "peerDependencies": {
-    "typescript": "^5"
+    "typescript": "latest"
   },
   "dependencies": {
-    "@opentui/core": "^0.1.97",
-    "@opentui/react": "^0.1.97",
-    "react": "^19.2.4",
-    "opentui-spinner": "^0.0.6",
+    "@opentui/core": "latest",
+    "@opentui/react": "latest",
+    "react": "latest",
     "vitest": "latest"
   }
 }
