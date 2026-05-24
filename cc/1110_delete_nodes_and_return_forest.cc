@@ -56,7 +56,7 @@ class Solution {
 };
 
 template <typename Func>
-void InOrderTraverse(TreeNode* node, Func&& func) {
+void InOrderTraverse(TreeNode* node, const Func& func) {
     (void)func;
     if (node == nullptr) {
         return;
