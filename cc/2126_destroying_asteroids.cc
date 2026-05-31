@@ -26,10 +26,10 @@ namespace {
 class Solution {
    public:
     bool AsteroidsDestroyed(int mass, vector<int>& asteroids) {
-        auto p = asteroids;
+        auto& p = asteroids;
         sort(p.begin(), p.end(), std::less<>());
 
-        for (auto asteroid : p) {
+        for (auto& asteroid : p) {
             if (mass < asteroid) {
                 return false;
             }
