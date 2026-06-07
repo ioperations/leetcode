@@ -59,17 +59,20 @@ class Solution {
             UpdateFather(child, parent);
         }
         auto z = GetRootParent(m_id2Node.cbegin()->first);
+        // std::cout << " id to parent +++ \n";
+        // for (auto& [first, second] : m_child2Father) {
+        //     std::cout << first << " --> " << second << "\n";
+        // }
         return m_id2Node[z];
     }
 
    private:
     void UpdateFather(int child, int parent) {
-        int tmp = child;
-        if (m_child2Father.find(tmp) != m_child2Father.end()) {
+        if (m_child2Father.find(child) != m_child2Father.end()) {
             int z = GetRootParent(parent);
             m_child2Father[child] = z;
         } else {
-            m_child2Father[tmp] = parent;
+            m_child2Father[child] = parent;
         }
     }
 
