@@ -37,19 +37,15 @@ class Solution {
             auto parent = desc[0];
             auto child = desc[1];
             auto isleft = desc[2] == 1;
-            auto it = m_id2Node.find(parent);
-            if (it == m_id2Node.end()) {
-                auto* n = new TreeNode(parent);
-                m_id2Node[parent] = n;
+            auto& p_parent = m_id2Node[parent];
+            if (p_parent == nullptr) {
+                p_parent = new TreeNode(parent);
             }
 
-            it = m_id2Node.find(child);
-            if (it == m_id2Node.end()) {
-                auto* n = new TreeNode(child);
-                m_id2Node[child] = n;
+            auto& p_child = m_id2Node[child];
+            if (p_child == nullptr) {
+                p_child = new TreeNode(child);
             }
-            auto*& p_parent = m_id2Node[parent];
-            auto*& p_child = m_id2Node[child];
 
             if (isleft) {
                 p_parent->left = p_child;
