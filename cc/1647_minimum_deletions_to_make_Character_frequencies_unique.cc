@@ -25,7 +25,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    int MinDeletionsV2(string s) {
+    int MinDeletionsV2(const string& s) {
         if (s.size() == 0) return 0;
         std::map<char, int> map;
         for (auto& ptr : s) {
@@ -40,7 +40,7 @@ class Solution {
         return 0;
     }
 
-    int MinDeletions(string s) {
+    int MinDeletions(const string& s) {
         /*Approach and Process:
 
         We are storing all the character frequency of the given string by using
