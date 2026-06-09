@@ -19,7 +19,7 @@ namespace {
 class Solution {
    public:
     vector<vector<int>> Merge(vector<vector<int>>& intervals) const {
-        std::vector<std::vector<int>> ret = intervals;
+        std::vector<std::vector<int>>& ret = intervals;
         sort(ret.begin(), ret.end(),
              [](const std::vector<int>& a, const std::vector<int>& b) {
                  return a.at(0) < b.at(0);
