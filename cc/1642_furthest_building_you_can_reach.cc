@@ -34,7 +34,7 @@ class Solution {
 
         // 在当前的位置上，根据自身条件，最多能向前走几步
         std::function<int(int, int, int)> fun = [&](int i, int bricks,
-                                               int ladders) -> int {
+                                                    int ladders) -> int {
             if ((i + 1) >= size) {
                 return 0;
             }
