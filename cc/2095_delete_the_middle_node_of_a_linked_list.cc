@@ -1,20 +1,23 @@
 // This is a personal academic project. Dear PVS-Studio, please check it.
 // PVS-Studio Static Code Analyzer for C, C++, C#, and Java:
 // https://pvs-studio.com
-/*You are given the head of a linked list. Delete the middle node, and return
-the head of the modified linked list.
 
-The middle node of a linked list of size n is the ⌊n / 2⌋th node from the start
-using 0-based indexing, where ⌊x⌋ denotes the largest integer less than or equal
-to x.
-
-For n = 1, 2, 3, 4, and 5, the middle nodes are 0, 1, 1, 2, and 2,
-respectively.*/
+/*
+ * You are given the head of a linked list. Delete the middle node, and return
+ * the head of the modified linked list.
+ *
+ * The middle node of a linked list of size n is the ⌊n / 2⌋th node from the
+ * start using 0-based indexing, where ⌊x⌋ denotes the largest integer less than
+ * or equal to x.
+ *
+ * For n = 1, 2, 3, 4, and 5, the middle nodes are 0, 1, 1, 2, and 2,
+ * respectively.
+ */
 
 #include "datastruct_base.hh"
 #include "gtest/gtest.h"
 
-//* Definition for singly-linked list.
+// Definition for singly-linked list.
 using ListNode = List::ListNode<int>;
 
 /*
@@ -78,11 +81,12 @@ TEST(DeleteTheMiddleNodeOfALinkedList, t1) {
     vector<int> const head = {1, 3, 4, 7, 1, 2, 6};
     vector<int> const output = {1, 3, 4, 1, 2, 6};
     /*
-    Explanation:
-    The above figure represents the given linked list. The indices of the nodes
-    are written below. Since n = 7, node 3 with value 7 is the middle node,
-    which is marked in red. We return the new list after removing this node.
-    */
+     * Explanation:
+     * The above figure represents the given linked list. The indices of the
+     * nodes are written below. Since n = 7, node 3 with value 7 is the middle
+     * node, which is marked in red. We return the new list after removing this
+     * node.
+     */
     auto* list = List::ConstructList(head);
 
     Solution sl;
@@ -95,10 +99,11 @@ TEST(DeleteTheMiddleNodeOfALinkedList, t2) {
     vector<int> const head = {1, 2, 3, 4};
     vector<int> const output = {1, 2, 4};
     /*
-    Explanation:
-    The above figure represents the given linked list.
-    For n = 4, node 2 with value 3 is the middle node, which is marked in red.
-    */
+     * Explanation:
+     * The above figure represents the given linked list.
+     * For n = 4, node 2 with value 3 is the middle node, which is marked in
+     * red.
+     */
     auto* list = List::ConstructList(head);
 
     Solution sl;
@@ -111,10 +116,11 @@ TEST(DeleteTheMiddleNodeOfALinkedList, t3) {
     vector<int> const head = {2, 1};
     vector<int> const output = {2};
     /*
-    The above figure represents the given linked list.
-  For n = 2, node 1 with value 1 is the middle node, which is marked in red.
-  Node 0 with value 2 is the only node remaining after removing node 1.
-    */
+     * The above figure represents the given linked list.
+     * For n = 2, node 1 with value 1 is the middle node, which is marked in
+     * red. Node 0 with value 2 is the only node remaining after removing
+     * node 1.
+     */
     auto* list = List::ConstructList(head);
 
     Solution sl;
