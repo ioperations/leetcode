@@ -22,7 +22,7 @@ class Solution {
         vector<vector<int>> tmp;
         tmp.reserve(start_time.size());
         for (int i = 0; i < static_cast<int>(start_time.size()); i++) {
-          tmp.push_back({start_time.at(i), end_time.at(i), profit.at(i)});
+            tmp.push_back({start_time.at(i), end_time.at(i), profit.at(i)});
         }
         sort(tmp.begin(), tmp.end());
         for (int i = 0; i < static_cast<int>(start_time.size()); i++) {
@@ -43,8 +43,10 @@ class Solution {
             auto iter = time_profit.lower_bound(end_time.at(i));
             int const val =
                 (iter == time_profit.end() ? 0 : iter->second) + profit.at(i);
-            time_profit[start_time.at(i)] = max(time_profit[start_time.at(i)], val);
-            time_profit[start_time.at(i)] = max(time_profit[start_time.at(i)], res);
+            time_profit[start_time.at(i)] =
+                max(time_profit[start_time.at(i)], val);
+            time_profit[start_time.at(i)] =
+                max(time_profit[start_time.at(i)], res);
             res = time_profit[start_time.at(i)];
         }
         return res;

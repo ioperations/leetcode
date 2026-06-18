@@ -25,8 +25,8 @@ namespace {
 class Solution {
    private:
     bool InBoundsAndClear(vector<vector<int>>& grid, int i, int j) const {
-      return i >= 0 && i < static_cast<int>(grid.size()) && j >= 0 &&
-             j < static_cast<int>(grid.at(i).size()) && grid.at(i).at(j) == 0;
+        return i >= 0 && i < static_cast<int>(grid.size()) && j >= 0 &&
+               j < static_cast<int>(grid.at(i).size()) && grid.at(i).at(j) == 0;
     }
 
    public:
@@ -34,7 +34,7 @@ class Solution {
         if (grid.at(0).at(0) == 1) return -1;  // path is blocked from the start
 
         vector<vector<int>> const dirs = {{-1, 0},  {1, 0},  {0, -1}, {0, 1},
-                                    {-1, -1}, {-1, 1}, {1, -1}, {1, 1}};
+                                          {-1, -1}, {-1, 1}, {1, -1}, {1, 1}};
 
         queue<pair<int, int>> fill_values;
         fill_values.emplace(0, 0);
@@ -52,7 +52,7 @@ class Solution {
 
                 if (x == static_cast<int>(grid.size()) - 1 &&
                     y == static_cast<int>(grid.at(x).size()) - 1) {
-                  return steps;
+                    return steps;
                 }
 
                 for (vector<int> const& dir : dirs) {

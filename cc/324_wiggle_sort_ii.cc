@@ -27,9 +27,11 @@ class Solution {
 
         int i = 0;
         while (i < n) {
-            sorted.at(static_cast<size_t>(i++)) = nums.at(static_cast<size_t>(start--));
+            sorted.at(static_cast<size_t>(i++)) =
+                nums.at(static_cast<size_t>(start--));
             if (i < n) {
-                sorted.at(static_cast<size_t>(i++)) = nums.at(static_cast<size_t>(end--));
+                sorted.at(static_cast<size_t>(i++)) =
+                    nums.at(static_cast<size_t>(end--));
             }
         }
 

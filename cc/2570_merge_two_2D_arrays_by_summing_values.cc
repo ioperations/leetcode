@@ -33,7 +33,8 @@ class Solution {
             if (i < static_cast<int>(n1) && j < static_cast<int>(n2)) {
                 if (nums1.at(i).at(0) == nums2.at(j).at(0)) {
                     ret.push_back(
-                        vector<int>{nums1.at(i).at(0), nums1.at(i).at(1) + nums2.at(j).at(1)});
+                        vector<int>{nums1.at(i).at(0),
+                                    nums1.at(i).at(1) + nums2.at(j).at(1)});
                     i++;
                     j++;
                     continue;

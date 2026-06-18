@@ -31,7 +31,8 @@ class Solution {
         while (left <= right) {
             int const mid = (left + right) / 2;
             if (target == nums.at(mid)) return true;
-            if (nums.at(left) == nums.at(mid) && nums.at(mid) == nums.at(right)) {
+            if (nums.at(left) == nums.at(mid) &&
+                nums.at(mid) == nums.at(right)) {
                 left++;
                 right--;
             } else if (nums.at(left) <= nums.at(mid)) {

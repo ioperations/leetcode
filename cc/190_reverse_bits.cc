@@ -27,7 +27,8 @@ namespace {
 uint32_t ConstructUint32T(const std::string& s) {
     uint32_t num = 0;
     for (int i = 0; i < static_cast<int>(s.size()); i++) {
-        num += (s.at(s.size() - i - 1) == '1') ? (i == 0 ? 1U : 2U << (i - 1)) : 0U;
+        num += (s.at(s.size() - i - 1) == '1') ? (i == 0 ? 1U : 2U << (i - 1))
+                                               : 0U;
     }
     return num;
 }

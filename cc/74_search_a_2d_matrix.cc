@@ -33,7 +33,8 @@ class Solution {
                 if (matrix.at(low).at(0) == target) {
                     return true;
                 }
-                (matrix.at(mid).at(0) > target) ? (high = mid) : (low = mid + 1);
+                (matrix.at(mid).at(0) > target) ? (high = mid)
+                                                : (low = mid + 1);
             } else {
                 high--;
             }
@@ -67,8 +68,7 @@ class Solution {
         int const rows = static_cast<int>(matrix.size());
         if (rows == 0) return false;
         int const cols = static_cast<int>(matrix.at(0).size());
-        int row = 0,
-            col = cols - 1;
+        int row = 0, col = cols - 1;
 
         while (row < rows && col > -1) {
             int const cur = matrix.at(row).at(col);

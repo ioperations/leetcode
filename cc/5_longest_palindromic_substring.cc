@@ -35,7 +35,8 @@ class Solution {
     }
 
    private:
-    [[nodiscard]] std::string_view Palindrome(const std::string_view& s, int l, int r) const {
+    [[nodiscard]] std::string_view Palindrome(const std::string_view& s, int l,
+                                              int r) const {
         const char* sql =
             R"(SELECT * FROM users WHERE ID = :ID and NAME = :NAME order by NAME limit 1)";  // should be highlight by treesitter to filetype sql
         (void)sql;
@@ -43,7 +44,9 @@ class Solution {
         const char* regex = R"(^+\\s+$)";
         (void)regex;
 
-        while (l >= 0 && r < s.length() && s.at(static_cast<std::size_t>(l)) == s.at(static_cast<std::size_t>(r))) {
+        while (l >= 0 && r < s.length() &&
+               s.at(static_cast<std::size_t>(l)) ==
+                   s.at(static_cast<std::size_t>(r))) {
             l--;
             r++;
         }

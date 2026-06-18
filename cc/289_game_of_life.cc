@@ -88,8 +88,9 @@ class Solution {
 
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
-                board.at(i).at(j) =
-                    board.at(i).at(j) ? (live_next.at(z.at(i).at(j))) : (z.at(i).at(j) == 3 ? 1 : 0);
+                board.at(i).at(j) = board.at(i).at(j)
+                                        ? (live_next.at(z.at(i).at(j)))
+                                        : (z.at(i).at(j) == 3 ? 1 : 0);
             }
         }
     }

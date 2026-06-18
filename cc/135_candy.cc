@@ -34,7 +34,9 @@ class Solution {
 
         for (int i = n - 2; i > -1; i--) {
             if (ratings.at(i) > ratings.at(i + 1)) {
-                if (candies.at(i) > candies.at(i + 1)) { continue; }
+                if (candies.at(i) > candies.at(i + 1)) {
+                    continue;
+                }
                 candies.at(i) = max(candies.at(i), candies.at(i + 1)) + 1;
             }
         }

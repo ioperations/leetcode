@@ -35,8 +35,9 @@ class Solution {
         int const len = static_cast<int>(dist.size());
         priority_queue<int, vector<int>, std::greater<> > queue;
         for (int i = 0; i < len; i++) {
-            queue.emplace((dist.at(i) % speed.at(i) == 0) ? dist.at(i) / speed.at(i)
-                                            : dist.at(i) / speed.at(i) + 1);
+            queue.emplace((dist.at(i) % speed.at(i) == 0)
+                              ? dist.at(i) / speed.at(i)
+                              : dist.at(i) / speed.at(i) + 1);
         }
 
         int ret = 0;

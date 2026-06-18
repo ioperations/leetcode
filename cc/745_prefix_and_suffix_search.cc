@@ -34,7 +34,9 @@ class Trie {
        public:
         bool Contains(char ch) { return (m_child.at(ch - 'a') != nullptr); }
 
-        void PutNode(char ch, Node* new_node) { m_child.at(ch - 'a') = new_node; }
+        void PutNode(char ch, Node* new_node) {
+            m_child.at(ch - 'a') = new_node;
+        }
 
         Node* GetNext(char ch) { return m_child.at(ch - 'a'); }
 

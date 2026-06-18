@@ -41,7 +41,8 @@ class Solution {
             Node* node = st.top();
             st.pop();
             v.push_back(node->m_val);
-            for (int i = static_cast<int>(node->m_children.size()) - 1; i >= 0; i--) {
+            for (int i = static_cast<int>(node->m_children.size()) - 1; i >= 0;
+                 i--) {
                 st.push(node->m_children.at(i));
             }
         }

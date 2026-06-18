@@ -64,7 +64,9 @@ class Solution {
 
     string GetCode(string const& short_url) {
         int const n = static_cast<int>(short_url.size());
-        return short_url.substr(static_cast<size_t>(n) - static_cast<size_t>(m_len), static_cast<size_t>(m_len));
+        return short_url.substr(
+            static_cast<size_t>(n) - static_cast<size_t>(m_len),
+            static_cast<size_t>(m_len));
     }
 
    public:

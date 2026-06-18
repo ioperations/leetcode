@@ -53,7 +53,8 @@ class Solution {
         if (j == static_cast<int>(is_connected.size())) return;
         is_visited.at(i).at(j) = 1;
         // isVisited[i][j] = 1;
-        if (is_connected.at(i).at(j) == 1 && i != j && is_visited.at(j).at(0) == 0) {
+        if (is_connected.at(i).at(j) == 1 && i != j &&
+            is_visited.at(j).at(0) == 0) {
             is_visited.at(j).at(0) = 1;
             DfSprovince(is_connected, is_visited, j, 0);
         }

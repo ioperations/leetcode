@@ -21,9 +21,9 @@ class Solution {
         vector<int> f = nums;
         sort(nums.begin(), nums.end());
         for (int i = 0; i < static_cast<int>(nums.size()); i++) {
-          if (s.at(nums.at(i)) == -1) {
-            s.at(nums.at(i)) = i;
-          }
+            if (s.at(nums.at(i)) == -1) {
+                s.at(nums.at(i)) = i;
+            }
         }
         for (int& i : f) {
             i = s.at(i);

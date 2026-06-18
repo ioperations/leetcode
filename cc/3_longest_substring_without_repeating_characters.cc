@@ -20,13 +20,13 @@ class Solution {
         for (j = 0; j < n; j++) {
             m[s.at(j)]++;
             if (static_cast<int>(m.size()) == j - i + 1) {
-              ans = std::max(ans, j - i + 1);
+                ans = std::max(ans, j - i + 1);
             } else if (static_cast<int>(m.size()) < j - i + 1) {
-              while (static_cast<int>(m.size()) < j - i + 1) {
-                m[s.at(i)]--;
-                if (m[s.at(i)] == 0) m.erase(s.at(i));
-                i++;
-              }
+                while (static_cast<int>(m.size()) < j - i + 1) {
+                    m[s.at(i)]--;
+                    if (m[s.at(i)] == 0) m.erase(s.at(i));
+                    i++;
+                }
             }
         }
         return ans;

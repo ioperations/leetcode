@@ -88,12 +88,14 @@ class SolutionV2 {
         int idx = left;
         while (left_p < mid && right_p < right) {
             if (temp.at(left_p) < temp.at(right_p)) {
-                cnt += BinaryCnt(temp, right_p, right,
-                                 static_cast<double>(temp.at(left_p)) / 2, false);
+                cnt +=
+                    BinaryCnt(temp, right_p, right,
+                              static_cast<double>(temp.at(left_p)) / 2, false);
                 nums.at(idx++) = temp.at(left_p++);
             } else {
-                cnt += BinaryCnt(temp, left_p, mid, static_cast<double>(temp.at(right_p)) * 2,
-                                 true);
+                cnt +=
+                    BinaryCnt(temp, left_p, mid,
+                              static_cast<double>(temp.at(right_p)) * 2, true);
                 nums.at(idx++) = temp.at(right_p++);
             }
         }

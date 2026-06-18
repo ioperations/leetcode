@@ -23,7 +23,8 @@ class Solution {
                 vector<vector<int>>& mem) {
         if (i == n - 1) return triangle.at(i).at(j);
         if (mem.at(i).at(j) != -1) return mem.at(i).at(j);
-        int const left = triangle.at(i).at(j) + FindMin(i + 1, j, n, triangle, mem);
+        int const left =
+            triangle.at(i).at(j) + FindMin(i + 1, j, n, triangle, mem);
         int const right =
             triangle.at(i).at(j) + FindMin(i + 1, j + 1, n, triangle, mem);
         return mem.at(i).at(j) = min(left, right);

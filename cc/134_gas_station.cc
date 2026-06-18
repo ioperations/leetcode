@@ -65,7 +65,8 @@ class SolutionV {
             }
         }
 
-        if (start < static_cast<size_t>(gas.size()) && total_gas >= 0) return static_cast<int>(start);
+        if (start < static_cast<size_t>(gas.size()) && total_gas >= 0)
+            return static_cast<int>(start);
 
         return -1;
     }

@@ -50,16 +50,19 @@ class Solution {
 
             // instead of comparing target and nums[mid]
             // we need to compare nums[left] and nums[mid]
-            if (nums.at(static_cast<size_t>(left)) <= nums.at(static_cast<size_t>(mid))) {
+            if (nums.at(static_cast<size_t>(left)) <=
+                nums.at(static_cast<size_t>(mid))) {
                 // In addition to first condition, we also need to consider
                 // target < nums [left]
-                if (nums.at(static_cast<size_t>(mid)) < target || target < nums.at(static_cast<size_t>(left))) {
+                if (nums.at(static_cast<size_t>(mid)) < target ||
+                    target < nums.at(static_cast<size_t>(left))) {
                     left = mid + 1;
                 } else {
                     right = mid - 1;
                 }
             } else {
-                if (nums.at(static_cast<size_t>(mid)) > target || target > nums.at(static_cast<size_t>(right))) {
+                if (nums.at(static_cast<size_t>(mid)) > target ||
+                    target > nums.at(static_cast<size_t>(right))) {
                     right = mid - 1;
                 } else {
                     left = mid + 1;

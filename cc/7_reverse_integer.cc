@@ -25,7 +25,9 @@ class Solution {
         }
         int ret = 0;
         while (x) {
-            if (static_cast<double>(std::numeric_limits<int>::max() - (x % 10)) / 10 >=
+            if (static_cast<double>(std::numeric_limits<int>::max() -
+                                    (x % 10)) /
+                    10 >=
                 ret) {
                 ret = ret * 10 + (x % 10);
                 x /= 10;

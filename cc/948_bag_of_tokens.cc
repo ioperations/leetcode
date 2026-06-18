@@ -36,12 +36,13 @@ class Solution {
         int take = 0, nottake = 0;
         if (dp.at(start).at(end) != -1) return dp.at(start).at(end);
         if (power >= tokens.at(start)) {
-            take = 1 +
-                   Recursion(tokens, power - tokens.at(start), start + 1, end, dp);
+            take = 1 + Recursion(tokens, power - tokens.at(start), start + 1,
+                                 end, dp);
         }
         if (power >= tokens.at(start)) {
-            nottake = Recursion(tokens, power - tokens.at(start) + tokens.at(end),
-                                start + 1, end - 1, dp);
+            nottake =
+                Recursion(tokens, power - tokens.at(start) + tokens.at(end),
+                          start + 1, end - 1, dp);
         }
         return dp.at(start).at(end) = max(take, nottake);
     }
@@ -50,7 +51,8 @@ class Solution {
         int const n = static_cast<int>(tokens.size());
         vector<vector<int>> dp(n, vector<int>(n, -1));
         sort(tokens.begin(), tokens.end());
-        return Recursion(tokens, power, 0, static_cast<int>(tokens.size()) - 1, dp);
+        return Recursion(tokens, power, 0, static_cast<int>(tokens.size()) - 1,
+                         dp);
     }
 
     int BagOfTokensScoreV1(vector<int>& tokens, int power) {

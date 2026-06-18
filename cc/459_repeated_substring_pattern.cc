@@ -24,15 +24,22 @@ class Solution {
         vector<ll> prefix(static_cast<size_t>(n), 0);
         for (ll i = 1; i < n; i++) {
             ll j = prefix.at(static_cast<size_t>(i) - 1);
-            while (j > 0 and p.at(static_cast<size_t>(i)) != p.at(static_cast<size_t>(j))) j = prefix.at(static_cast<size_t>(j) - 1);
-            if (p.at(static_cast<size_t>(i)) == p.at(static_cast<size_t>(j))) j++;
+            while (j > 0 and
+                   p.at(static_cast<size_t>(i)) != p.at(static_cast<size_t>(j)))
+                j = prefix.at(static_cast<size_t>(j) - 1);
+            if (p.at(static_cast<size_t>(i)) == p.at(static_cast<size_t>(j)))
+                j++;
             prefix.at(static_cast<size_t>(i)) = j;
         }
         if (prefix.at(static_cast<size_t>(n) - 1) == 0) return false;
-        return prefix.at(static_cast<size_t>(n) - 1) % (n - prefix.at(static_cast<size_t>(n) - 1)) == 0;
+        return prefix.at(static_cast<size_t>(n) - 1) %
+                   (n - prefix.at(static_cast<size_t>(n) - 1)) ==
+               0;
     }
     [[nodiscard]]
-    bool RepeatedSubstringPattern(string const& s) { return PrefixFunction(s); }
+    bool RepeatedSubstringPattern(string const& s) {
+        return PrefixFunction(s);
+    }
 };
 
 TEST(RepeatedSubstringPattern, t1) {

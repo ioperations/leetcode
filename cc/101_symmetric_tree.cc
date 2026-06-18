@@ -37,9 +37,9 @@ class Solution {
         }
 
         for (size_t i = 0; i < p.size(); i++) {
-          if (p.at(i) != q.at(i)) {
-            return false;
-          }
+            if (p.at(i) != q.at(i)) {
+                return false;
+            }
         }
 
         return true;
@@ -48,19 +48,19 @@ class Solution {
     template <bool from_left_to_right>
     void Inorder(TreeNode* root,
                  const std::function<void(const TreeNode*)>& fun) {
-      if (root == nullptr) {
-        return;
-      }
+        if (root == nullptr) {
+            return;
+        }
 
-      if constexpr (from_left_to_right) {
-        Inorder<from_left_to_right>(root->left, fun);
-        fun(root);
-        Inorder<from_left_to_right>(root->right, fun);
-      } else {
-        Inorder<from_left_to_right>(root->right, fun);
-        fun(root);
-        Inorder<from_left_to_right>(root->left, fun);
-      }
+        if constexpr (from_left_to_right) {
+            Inorder<from_left_to_right>(root->left, fun);
+            fun(root);
+            Inorder<from_left_to_right>(root->right, fun);
+        } else {
+            Inorder<from_left_to_right>(root->right, fun);
+            fun(root);
+            Inorder<from_left_to_right>(root->left, fun);
+        }
     }
 };
 

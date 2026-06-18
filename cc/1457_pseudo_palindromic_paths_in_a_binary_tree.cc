@@ -8,7 +8,6 @@ node values in the path is a palindrome.
 Return the number of pseudo-palindromic paths going from the root node to leaf
 nodes.*/
 
-
 // Definition for a binary tree node.
 #include <algorithm>
 #include <stack>

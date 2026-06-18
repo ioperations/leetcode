@@ -28,46 +28,46 @@ class Solution {
    public:
     int LadderLength(const string& begin_word, const string& end_word,
                      vector<string>& word_list) {
-      // pass
-      set<string> words;
-      bool has_end = false;
-      for (const string& word : word_list) {
-        words.insert(word);
-        if (word == end_word) has_end = true;
-      }
-
-      if (!has_end) return 0;
-
-      queue<string> q;
-      q.push(begin_word);
-      int depth = 0;
-      while (!q.empty()) {
-        depth += 1;
-        int qsize = static_cast<int>(q.size());
-        // traverse all nodes of current level
-        // bcz we are not going to use depth array
-        while (qsize--) {
-          string const curr = q.front();
-          q.pop();
-          for (int i = 0; i < static_cast<int>(curr.length()); i++) {
-            string tmp = curr;
-            // changing char at i, check all posibilities
-            for (char ch = 'a'; ch <= 'z'; ch++) {
-              tmp.at(i) = ch;
-              if (tmp == curr) continue;
-              if (tmp == end_word) return depth + 1;
-              if (words.count(tmp)) {
-                q.push(tmp);
-                words.erase(tmp);
-              }
-            }
-          }
+        // pass
+        set<string> words;
+        bool has_end = false;
+        for (const string& word : word_list) {
+            words.insert(word);
+            if (word == end_word) has_end = true;
         }
-      }
 
-      // 26 * (length^2) * N
+        if (!has_end) return 0;
 
-      return 0;
+        queue<string> q;
+        q.push(begin_word);
+        int depth = 0;
+        while (!q.empty()) {
+            depth += 1;
+            int qsize = static_cast<int>(q.size());
+            // traverse all nodes of current level
+            // bcz we are not going to use depth array
+            while (qsize--) {
+                string const curr = q.front();
+                q.pop();
+                for (int i = 0; i < static_cast<int>(curr.length()); i++) {
+                    string tmp = curr;
+                    // changing char at i, check all posibilities
+                    for (char ch = 'a'; ch <= 'z'; ch++) {
+                        tmp.at(i) = ch;
+                        if (tmp == curr) continue;
+                        if (tmp == end_word) return depth + 1;
+                        if (words.count(tmp)) {
+                            q.push(tmp);
+                            words.erase(tmp);
+                        }
+                    }
+                }
+            }
+        }
+
+        // 26 * (length^2) * N
+
+        return 0;
     }
 };
 

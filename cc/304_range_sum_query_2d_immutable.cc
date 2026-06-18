@@ -48,14 +48,22 @@ class NumMatrixV1 {
 
    public:
     NumMatrixV1(vector<vector<int>>& matrix) {
-        int const m = static_cast<int>(matrix.size()), n = static_cast<int>(matrix.at(0).size());
+        int const m = static_cast<int>(matrix.size()),
+                  n = static_cast<int>(matrix.at(0).size());
         m_sum = vector<vector<int>>(
             m + 1, vector<int>(n + 1));  // sum[i][j] is sum of all elements
                                          // inside the rectangle [0,0,i,j]
         for (int i = 1; i <= m; i++) {
             for (int j = 1; j <= n; j++) {
-                m_sum.at(static_cast<size_t>(i)).at(static_cast<size_t>(j)) = m_sum.at(static_cast<size_t>(i) - 1).at(static_cast<size_t>(j)) + m_sum.at(static_cast<size_t>(i)).at(static_cast<size_t>(j) - 1) -
-                              m_sum.at(static_cast<size_t>(i) - 1).at(static_cast<size_t>(j) - 1) + matrix.at(static_cast<size_t>(i) - 1).at(static_cast<size_t>(j) - 1);
+                m_sum.at(static_cast<size_t>(i)).at(static_cast<size_t>(j)) =
+                    m_sum.at(static_cast<size_t>(i) - 1)
+                        .at(static_cast<size_t>(j)) +
+                    m_sum.at(static_cast<size_t>(i))
+                        .at(static_cast<size_t>(j) - 1) -
+                    m_sum.at(static_cast<size_t>(i) - 1)
+                        .at(static_cast<size_t>(j) - 1) +
+                    matrix.at(static_cast<size_t>(i) - 1)
+                        .at(static_cast<size_t>(j) - 1);
             }
         }
     }
@@ -66,8 +74,8 @@ class NumMatrixV1 {
         c1++;
         r2++;
         c2++;
-        return m_sum.at(r2).at(c2) - m_sum.at(r2).at(c1 - 1) - m_sum.at(r1 - 1).at(c2) +
-               m_sum.at(r1 - 1).at(c1 - 1);
+        return m_sum.at(r2).at(c2) - m_sum.at(r2).at(c1 - 1) -
+               m_sum.at(r1 - 1).at(c2) + m_sum.at(r1 - 1).at(c1 - 1);
     }
 };
 

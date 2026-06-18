@@ -39,8 +39,8 @@ class Solution {
 
         std::map<char, int> visisted;
         int const size = static_cast<int>(arr.size());
-        std::function<int(std::string&, int, int)> fun = [&](std::string& pre, int i,
-                                                        int result) -> int {
+        std::function<int(std::string&, int, int)> fun =
+            [&](std::string& pre, int i, int result) -> int {
             if (i >= size) {
                 return result;
             }
@@ -54,12 +54,13 @@ class Solution {
                 for (auto& ptr : arr.at(i)) {
                     visisted[ptr]++;
                 }
-                next = fun(pre, i + 1, result + static_cast<int>(arr.at(i).size()));
+                next = fun(pre, i + 1,
+                           result + static_cast<int>(arr.at(i).size()));
                 for (auto& ptr : arr.at(i)) {
                     visisted[ptr]--;
                 }
                 for (int j = 0; j < static_cast<int>(arr.at(i).size()); j++) {
-                  pre.pop_back();
+                    pre.pop_back();
                 }
             }
             int const next_2 = fun(pre, i + 1, result);

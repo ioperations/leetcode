@@ -30,7 +30,9 @@ class Solution {
         dp.at(0).at(0) = true;
 
         int st = 0;
-        while (st < m && p.at(st) == '*') { dp.at(++st).at(0) = true; }
+        while (st < m && p.at(st) == '*') {
+            dp.at(++st).at(0) = true;
+        }
 
         for (int i = 1; i <= m; i++) {
             for (int j = 1; j <= n; j++) {

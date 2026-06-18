@@ -71,7 +71,8 @@ class LoserTree {
         int const ans{(*this->m_base).at(m_ls.at(0))};
         // modify_fa_idx为ls的下标
         int const leaves_idx{this->m_leaves_ls_st + m_ls.at(0)};
-        (*this->m_base).at(this->m_ls.at(leaves_idx)) = static_cast<int>(inf::val);
+        (*this->m_base).at(this->m_ls.at(leaves_idx)) =
+            static_cast<int>(inf::val);
         this->Sort(leaves_idx >> 1, this->m_ls.at(0));
         return ans;
     }
@@ -253,7 +254,7 @@ TEST(MergeKSortedListV2, t11) {
 
 void ExpectEqList(MyListNode* list, std::vector<int> const& elemets) {
     int count = 0;
-    MyListNode const * ptr = list;
+    MyListNode const* ptr = list;
     while (ptr != nullptr) {
         EXPECT_EQ(elemets.at(count), ptr->val);
         ptr = ptr->next;

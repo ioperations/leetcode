@@ -32,7 +32,7 @@ class Solution {
         if (s.length() != t.length()) return false;
         int c = 0;
         for (int i = 0; i < static_cast<int>(s.length()); i++) {
-          c += (s.at(i) != t.at(i));
+            c += (s.at(i) != t.at(i));
         }
         return c == 1;
     }
@@ -53,7 +53,7 @@ class Solution {
                     parent.at(u).clear();
                     parent.at(u).push_back(x);
                 } else if (dist.at(u) == dist.at(x) + 1) {
-                  parent.at(u).push_back(x);
+                    parent.at(u).push_back(x);
                 }
             }
         }
@@ -73,43 +73,43 @@ class Solution {
     vector<vector<string>> FindLadders(const string& begin_wordd,
                                        const string& end_word,
                                        vector<string>& word_list) {
-      int n = static_cast<int>(word_list.size()), sr = -1, ds = -1;
-      vector<vector<string>> ans;
-      for (int i = 0; i < n; i++) {
-        if (word_list.at(i) == begin_wordd) sr = i;
-        if (word_list.at(i) == end_word) ds = i;
-      }
-      if (ds == -1) return ans;
-      if (sr == -1) {
-        word_list.emplace(word_list.begin(), begin_wordd);
-        sr = 0;
-        ds++;
-        n++;
-      }
-      vector<vector<int>> g(n, vector<int>()), paths;
-      vector<vector<int>> parent(n, vector<int>());
-      vector<int> path;
-      for (int i = 0; i < n - 1; i++) {
-        for (int j = i + 1; j < n; j++) {
-          if (Able(word_list.at(i), word_list.at(j))) {
-            g.at(i).push_back(j);
-            g.at(j).push_back(i);
-          }
+        int n = static_cast<int>(word_list.size()), sr = -1, ds = -1;
+        vector<vector<string>> ans;
+        for (int i = 0; i < n; i++) {
+            if (word_list.at(i) == begin_wordd) sr = i;
+            if (word_list.at(i) == end_word) ds = i;
         }
-      }
-      Bfs(g, parent, n, sr, ds);
-      ShortestPaths(paths, path, parent, ds);
-      for (auto u : paths) {
-        vector<string> now;
-        now.reserve(static_cast<int>(u.size()) - 1);
-        for (int i = 0; i < static_cast<int>(u.size()) - 1; i++) {
-          now.push_back(word_list.at(u.at(i)));
+        if (ds == -1) return ans;
+        if (sr == -1) {
+            word_list.emplace(word_list.begin(), begin_wordd);
+            sr = 0;
+            ds++;
+            n++;
         }
-        reverse(now.begin(), now.end());
-        now.push_back(word_list.at(ds));
-        ans.push_back(now);
-      }
-      return ans;
+        vector<vector<int>> g(n, vector<int>()), paths;
+        vector<vector<int>> parent(n, vector<int>());
+        vector<int> path;
+        for (int i = 0; i < n - 1; i++) {
+            for (int j = i + 1; j < n; j++) {
+                if (Able(word_list.at(i), word_list.at(j))) {
+                    g.at(i).push_back(j);
+                    g.at(j).push_back(i);
+                }
+            }
+        }
+        Bfs(g, parent, n, sr, ds);
+        ShortestPaths(paths, path, parent, ds);
+        for (auto u : paths) {
+            vector<string> now;
+            now.reserve(static_cast<int>(u.size()) - 1);
+            for (int i = 0; i < static_cast<int>(u.size()) - 1; i++) {
+                now.push_back(word_list.at(u.at(i)));
+            }
+            reverse(now.begin(), now.end());
+            now.push_back(word_list.at(ds));
+            ans.push_back(now);
+        }
+        return ans;
     }
 };
 

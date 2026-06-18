@@ -27,9 +27,13 @@ class Solution {
             for (int j = 0; j <= k; j++) {
                 // d[i][j] = dp[i - 1][j] + dp[i][j - 1] - dp[i - 1][j - i];
                 dp.at(i).at(j) = dp.at(i - 1).at(j);
-                if (j > 0) { dp.at(i).at(j) = (dp.at(i).at(j) + dp.at(i).at(j - 1)) % mod; }
+                if (j > 0) {
+                    dp.at(i).at(j) =
+                        (dp.at(i).at(j) + dp.at(i).at(j - 1)) % mod;
+                }
                 if (j >= i) {
-                    dp.at(i).at(j) = (dp.at(i).at(j) - dp.at(i - 1).at(j - i) + mod) % mod;
+                    dp.at(i).at(j) =
+                        (dp.at(i).at(j) - dp.at(i - 1).at(j - i) + mod) % mod;
                 }
             }
         }
@@ -47,7 +51,9 @@ class Solution {
                     dp.at(i).at(j) = 1;
                 } else {
                     for (int p = 0; p <= min(j, i - 1); p++) {
-                        dp.at(i).at(j) = (dp.at(i).at(j) + dp.at(i - 1).at(j - p)) % 1000000007;
+                        dp.at(i).at(j) =
+                            (dp.at(i).at(j) + dp.at(i - 1).at(j - p)) %
+                            1000000007;
                     }
                 }
             }

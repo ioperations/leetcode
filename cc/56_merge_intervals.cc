@@ -26,17 +26,19 @@ class Solution {
              });
         for (int i = 0; i < static_cast<int>(ret.size()) - 1; i++) {
             if (ret.at(i).at(1) >= ret.at(i + 1).at(0)) {
-                ret.at(i + 1).at(0) =
-                    (ret.at(i + 1).at(0) > ret.at(i).at(0)) ? ret.at(i).at(0) : ret.at(i + 1).at(0);
-                ret.at(i + 1).at(1) =
-                    (ret.at(i + 1).at(1) > ret.at(i).at(1)) ? ret.at(i + 1).at(1) : ret.at(i).at(1);
+                ret.at(i + 1).at(0) = (ret.at(i + 1).at(0) > ret.at(i).at(0))
+                                          ? ret.at(i).at(0)
+                                          : ret.at(i + 1).at(0);
+                ret.at(i + 1).at(1) = (ret.at(i + 1).at(1) > ret.at(i).at(1))
+                                          ? ret.at(i + 1).at(1)
+                                          : ret.at(i).at(1);
                 ret.at(i) = std::vector<int>{};
             }
         }
         ret.erase(
             // NOLINTNEXTLINE: use llvm::remove_if
             std::remove_if(ret.begin(), ret.end(),
-                           [](std::vector<int> const & v) { return v.empty(); }),
+                           [](std::vector<int> const& v) { return v.empty(); }),
             ret.end());
         ret.shrink_to_fit();
 

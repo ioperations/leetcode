@@ -98,7 +98,8 @@ class Solution {
         for (int i = 1; i <= n; i++) {
             for (int j = 1; j <= sum; j++) {
                 if (arr.at(i - 1) <= j) {
-                    dp.at(i).at(j) = std::min(dp.at(i - 1).at(j), dp.at(i).at(j - arr.at(i - 1)) + 1);
+                    dp.at(i).at(j) = std::min(
+                        dp.at(i - 1).at(j), dp.at(i).at(j - arr.at(i - 1)) + 1);
                 } else {
                     dp.at(i).at(j) = dp.at(i - 1).at(j);
                 }

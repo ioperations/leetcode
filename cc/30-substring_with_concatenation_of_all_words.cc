@@ -57,7 +57,8 @@ class Solution {
         auto it = tofind.find(candidate);
         if (it != std::string::npos) {
             const std::string substr = tofind.substr(it + 1, tofind.size());
-            auto ret2 = AllSubString(substr, candidate, static_cast<int>(it + 1 + index));
+            auto ret2 = AllSubString(substr, candidate,
+                                     static_cast<int>(it + 1 + index));
             ret2.emplace(it + index);
             return ret2;
         }

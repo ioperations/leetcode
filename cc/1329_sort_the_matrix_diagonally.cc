@@ -49,14 +49,15 @@ class Solution {
         auto bubble_sort = [&](vector<void*>& arr, int n) {
             int i = 0, j = 0;
             for (i = 0; i < n - 1; i++) {
-              for (j = 0; j < n - i - 1; j++) {
-                if (*static_cast<int*>(arr.at(j)) >
-                    *static_cast<int*>(arr.at(j + 1))) {
-                  int const tmp = *static_cast<int*>(arr.at(j));
-                  *static_cast<int*>(arr.at(j)) = *static_cast<int*>(arr.at(j + 1));
-                  *static_cast<int*>(arr.at(j + 1)) = tmp;
+                for (j = 0; j < n - i - 1; j++) {
+                    if (*static_cast<int*>(arr.at(j)) >
+                        *static_cast<int*>(arr.at(j + 1))) {
+                        int const tmp = *static_cast<int*>(arr.at(j));
+                        *static_cast<int*>(arr.at(j)) =
+                            *static_cast<int*>(arr.at(j + 1));
+                        *static_cast<int*>(arr.at(j + 1)) = tmp;
+                    }
                 }
-              }
             }
         };
 
@@ -82,9 +83,9 @@ class Solution {
             {
                 // loop next
                 if (i >= 0) {
-                  i--;
+                    i--;
                 } else {
-                  j++;
+                    j++;
                 }
             }
         }

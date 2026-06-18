@@ -23,7 +23,9 @@ class Solution {
         int const size = static_cast<int>(nums.size());
         for (int i = 0; i < size; i++) {
             for (int j = i + 1; (j < size) && ((j - i) <= k); j++) {
-                if (nums.at(static_cast<size_t>(i)) == nums.at(static_cast<size_t>(j))) return true;
+                if (nums.at(static_cast<size_t>(i)) ==
+                    nums.at(static_cast<size_t>(j)))
+                    return true;
             }
         }
         return false;
@@ -34,7 +36,8 @@ class Solution {
         int const n = static_cast<int>(nums.size());
         for (int i = 0; i < n; i++) {
             if (map.count(nums.at(static_cast<size_t>(i)))) {
-                if (abs(i - map[nums.at(static_cast<size_t>(i))]) <= k) return true;
+                if (abs(i - map[nums.at(static_cast<size_t>(i))]) <= k)
+                    return true;
             }
             map[nums.at(static_cast<size_t>(i))] = i;
         }

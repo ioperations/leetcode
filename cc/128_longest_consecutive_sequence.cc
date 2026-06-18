@@ -24,13 +24,13 @@ class Solution {
             if (record.find(it) == record.end()) continue;
             int prev = it - 1, next = it + 1;
             while (record.find(prev) != record.end()) {
-              prev--;  // walk left on the number line, erasing numbers as you
+                prev--;  // walk left on the number line, erasing numbers as you
             }
-                         // go,
+            // go,
             while (record.find(next) != record.end()) {
-              next++;  // walk right on the number line, erasing numbers as
+                next++;  // walk right on the number line, erasing numbers as
             }
-                         // you go,
+            // you go,
             ans = max(
                 ans,
                 next - prev -

@@ -54,7 +54,8 @@ class BrowserHistory {
 
    public:
     ~BrowserHistory() { DeleteNode(m_home_page); }
-    explicit BrowserHistory(const string& homepage) : m_home_page(new Node(homepage)), m_curr_page(m_home_page) {}
+    explicit BrowserHistory(const string& homepage)
+        : m_home_page(new Node(homepage)), m_curr_page(m_home_page) {}
 
     void Visit(const string& url) {
         Node* new_page = new Node(url);

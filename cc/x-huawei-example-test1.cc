@@ -12,7 +12,7 @@
 
 namespace {
 
-void Processing(std::vector<int> const & nums) {
+void Processing(std::vector<int> const& nums) {
     int max = std::numeric_limits<int>::min();
     for (const auto& ret : nums) {
         max = std::max(max, ret);

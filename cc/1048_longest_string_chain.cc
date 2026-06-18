@@ -34,13 +34,13 @@ class Solution {
         for (int i = 0;
              i < static_cast<int>(a.size()) && idx < static_cast<int>(b.size());
              i++, idx++) {
-          if (a.at(i) != b.at(idx)) {
-            cnt++;
-            i--;
-          }
-          if (cnt > 1) {
-            return false;
-          }
+            if (a.at(i) != b.at(idx)) {
+                cnt++;
+                i--;
+            }
+            if (cnt > 1) {
+                return false;
+            }
         }
         return cnt <= 1;
     }
@@ -52,14 +52,20 @@ class Solution {
                  return s1.length() < s2.length();
              });
         for (int i = 0; i < static_cast<int>(words.size()); i++) {
-          for (int j = i - 1; j >= 0 && words.at(static_cast<size_t>(j)).size() + 1 >= words.at(static_cast<size_t>(i)).size();
-               j--) {
-            if (words.at(static_cast<size_t>(j)).size() == words.at(static_cast<size_t>(i)).size() - 1) {
-              if (Check(words.at(static_cast<size_t>(j)), words.at(static_cast<size_t>(i)))) {
-                dp.at(static_cast<size_t>(i)) = max(dp.at(static_cast<size_t>(j)) + 1, dp.at(static_cast<size_t>(i)));
-              }
+            for (int j = i - 1;
+                 j >= 0 && words.at(static_cast<size_t>(j)).size() + 1 >=
+                               words.at(static_cast<size_t>(i)).size();
+                 j--) {
+                if (words.at(static_cast<size_t>(j)).size() ==
+                    words.at(static_cast<size_t>(i)).size() - 1) {
+                    if (Check(words.at(static_cast<size_t>(j)),
+                              words.at(static_cast<size_t>(i)))) {
+                        dp.at(static_cast<size_t>(i)) =
+                            max(dp.at(static_cast<size_t>(j)) + 1,
+                                dp.at(static_cast<size_t>(i)));
+                    }
+                }
             }
-          }
         }
 
         ans = *std::max_element(dp.cbegin(), dp.cend());

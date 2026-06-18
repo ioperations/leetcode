@@ -22,7 +22,8 @@ class Solution {
    public:
     bool Makesquare(vector<int>& matchsticks) {
         std::sort(matchsticks.begin(), matchsticks.end());
-        int const sum{std::accumulate(matchsticks.begin(), matchsticks.end(), 0)};
+        int const sum{
+            std::accumulate(matchsticks.begin(), matchsticks.end(), 0)};
         int const n = static_cast<int>(matchsticks.size());
 
         if (n == 0) return false;
@@ -39,10 +40,14 @@ class Solution {
         if (pos == 0) return true;
 
         for (int i = 0; i < 4; i++) {
-            if (sums.at(static_cast<size_t>(i)) + matchsticks.at(static_cast<size_t>(pos) - 1) <= side) {
-                sums.at(static_cast<size_t>(i)) += matchsticks.at(static_cast<size_t>(pos) - 1);
+            if (sums.at(static_cast<size_t>(i)) +
+                    matchsticks.at(static_cast<size_t>(pos) - 1) <=
+                side) {
+                sums.at(static_cast<size_t>(i)) +=
+                    matchsticks.at(static_cast<size_t>(pos) - 1);
                 if (Check(matchsticks, pos - 1, sums, side)) return true;
-                sums.at(static_cast<size_t>(i)) -= matchsticks.at(static_cast<size_t>(pos) - 1);
+                sums.at(static_cast<size_t>(i)) -=
+                    matchsticks.at(static_cast<size_t>(pos) - 1);
             }
         }
 
@@ -52,7 +57,8 @@ class Solution {
     bool MakesquareV2(vector<int>& matchsticks) {
         sort(matchsticks.begin(), matchsticks.end());
         int const n = static_cast<int>(matchsticks.size());
-        int const sum = std::accumulate(matchsticks.begin(), matchsticks.end(), 0);
+        int const sum =
+            std::accumulate(matchsticks.begin(), matchsticks.end(), 0);
 
         if (sum % 4 != 0) return false;
 

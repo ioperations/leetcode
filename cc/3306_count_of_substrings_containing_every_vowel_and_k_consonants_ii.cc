@@ -5,12 +5,12 @@
  * 'e', 'i', 'o', and 'u') at least once and exactly k consonants.
  */
 
+#include <gtest/gtest.h>
+
 #include <algorithm>
 #include <array>
 #include <iostream>
 #include <string>
-
-#include <gtest/gtest.h>
 
 using namespace std;
 
@@ -22,8 +22,7 @@ class Solution {
     void SetType() {
         m_vow.fill(5);
         m_vow.at(0) = 0, m_vow.at('e' - 'a') = 1, m_vow.at('i' - 'a') = 2,
-        m_vow.at('o' - 'a') = 3,
-        m_vow.at('u' - 'a') = 4;
+        m_vow.at('o' - 'a') = 3, m_vow.at('u' - 'a') = 4;
     }
 
     inline long long LessEq(std::string& word, int k) {

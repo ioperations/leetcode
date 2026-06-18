@@ -57,8 +57,8 @@ class Solution {
         if (sum_dp.at(n).at(k) != -1) return sum_dp.at(n).at(k);
 
         sum_dp.at(n).at(k) = ((SumDyp(n - 1, k, dp, sum_dp) % m_mod) +
-                        (Dyp(n, k, dp, sum_dp) % m_mod)) %
-                       m_mod;
+                              (Dyp(n, k, dp, sum_dp) % m_mod)) %
+                             m_mod;
         return sum_dp.at(n).at(k);
     }
 

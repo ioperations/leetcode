@@ -85,7 +85,8 @@ class Solution {
                 cache[std::make_pair(i, j)] = fun(i + 1, j + 1);
             } else {
                 cache[std::make_pair(i, j)] =
-                    1 + std::min({fun(i + 1, j + 1), fun(i + 1, j), fun(i, j + 1)});
+                    1 +
+                    std::min({fun(i + 1, j + 1), fun(i + 1, j), fun(i, j + 1)});
             }
             return cache.at(std::make_pair(i, j));
         };
@@ -95,8 +96,12 @@ class Solution {
         int const m = static_cast<int>(word1.length());
         int const n = static_cast<int>(word2.length());
         std::vector<std::vector<int>> dp(m + 1, std::vector<int>(n + 1, 0));
-        for (int i = 0; i <= m; i++) { dp.at(i).at(0) = i; }
-        for (int i = 0; i <= n; i++) { dp.at(0).at(i) = i; }
+        for (int i = 0; i <= m; i++) {
+            dp.at(i).at(0) = i;
+        }
+        for (int i = 0; i <= n; i++) {
+            dp.at(0).at(i) = i;
+        }
         for (int i = 1; i <= m; i++) {
             for (int j = 1; j <= n; j++) {
                 if (word1.at(i - 1) == word2.at(j - 1)) {

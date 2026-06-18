@@ -32,8 +32,8 @@ class Solution {
         string tmp;
         int ans = INT_MAX;
         for (int i = 0; i < static_cast<int>(s.size()); i++) {
-          tmp += s[i];
-          if (Palindrome(tmp)) ans = min(ans, MinCut(s.substr(i + 1), mp));
+            tmp += s[i];
+            if (Palindrome(tmp)) ans = min(ans, MinCut(s.substr(i + 1), mp));
         }
 
         return mp[s] = ans + 1;
@@ -42,7 +42,7 @@ class Solution {
     bool Palindrome(string& s) {
         int i = 0, j = s.size() - 1;
         while (i < j) {
-          if (s[i++] != s[j--]) return false;
+            if (s[i++] != s[j--]) return false;
         }
 
         return true;

@@ -33,7 +33,8 @@ class Solution {
                 if (str1.at(i - 1) == str2.at(j - 1)) {
                     dp.at(i).at(j) = 1 + dp.at(i - 1).at(j - 1);
                 } else {
-                    dp.at(i).at(j) = max(dp.at(i - 1).at(j), dp.at(i).at(j - 1));
+                    dp.at(i).at(j) =
+                        max(dp.at(i - 1).at(j), dp.at(i).at(j - 1));
                 }
             }
         }

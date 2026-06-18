@@ -60,7 +60,8 @@ class Solution {
         i = 0;
         while (ite_new->m_next != nullptr) {
             if (ite_old_dup->m_random != nullptr) {
-                ite_new->m_next->m_random = new_nodes.at(map.at(ite_old_dup->m_random));
+                ite_new->m_next->m_random =
+                    new_nodes.at(map.at(ite_old_dup->m_random));
             }
             ite_new = ite_new->m_next;
             ite_old_dup = ite_old_dup->m_next;

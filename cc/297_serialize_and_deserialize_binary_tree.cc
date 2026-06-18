@@ -16,7 +16,6 @@ binary tree. You do not necessarily need to follow this format, so please be
 creative and come up with different approaches yourself.*/
 
 #include <queue>
-
 #include <sstream>
 #include <string>
 

@@ -18,9 +18,9 @@ void ReverseOutPutAllWords(std::string_view const s) {
         }
 
         size_t i = 0;
-        for (; i < str.size() &&
-               !((('a' <= str.at(i)) && (str.at(i) <= 'z')) ||
-                 (('A' <= str.at(i)) && (str.at(i) <= 'Z')));) {
+        for (;
+             i < str.size() && !((('a' <= str.at(i)) && (str.at(i) <= 'z')) ||
+                                 (('A' <= str.at(i)) && (str.at(i) <= 'Z')));) {
             i += 1;
         }
 
@@ -29,9 +29,8 @@ void ReverseOutPutAllWords(std::string_view const s) {
         }
 
         size_t const begin = i;
-        for (; i < str.size() &&
-               (('a' <= str.at(i) && str.at(i) <= 'z') ||
-                ('A' <= str.at(i) && str.at(i) <= 'Z'));) {
+        for (; i < str.size() && (('a' <= str.at(i) && str.at(i) <= 'z') ||
+                                  ('A' <= str.at(i) && str.at(i) <= 'Z'));) {
             ++i;
         }
         std::string const back(str.substr(begin, i - begin).data(), i - begin);

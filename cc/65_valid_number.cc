@@ -104,7 +104,9 @@ class Solution {
 
     // this is after decimal or integer: as optional part!!
     bool ParseExponent(const string& s, int& i) {
-        if (i == static_cast<int>(s.size())) { return false; }
+        if (i == static_cast<int>(s.size())) {
+            return false;
+        }
         if (s.at(i) == 'e' || s.at(i) == 'E') {
             i++;  // mistake: forgot this!!
             if (ParseInteger(s, i)) {

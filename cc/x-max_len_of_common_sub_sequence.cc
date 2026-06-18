@@ -35,9 +35,11 @@ int MaxSubStringLengthOfTwoString(const char* s1, int s1_len, const char* s2,
         }
 
         if (*(s1 + i) == *(s2 + j)) {
-            dp.at(static_cast<size_t>(i)).at(static_cast<size_t>(j)) = dp_fun(i - 1, j - 1) + 1;
+            dp.at(static_cast<size_t>(i)).at(static_cast<size_t>(j)) =
+                dp_fun(i - 1, j - 1) + 1;
         } else {
-            dp.at(static_cast<size_t>(i)).at(static_cast<size_t>(j)) = std::max({dp_fun(i - 1, j), dp_fun(i, j - 1)});
+            dp.at(static_cast<size_t>(i)).at(static_cast<size_t>(j)) =
+                std::max({dp_fun(i - 1, j), dp_fun(i, j - 1)});
         }
         return dp.at(static_cast<size_t>(i)).at(static_cast<size_t>(j));
     };
@@ -47,32 +49,32 @@ int MaxSubStringLengthOfTwoString(const char* s1, int s1_len, const char* s2,
 TEST(T1j, t2) {
     const char* s1 = "hello";
     const char* s2 = "hell";
-    int const ret =
-        MaxSubStringLengthOfTwoString(s1, static_cast<int>(strlen(s1)), s2, static_cast<int>(strlen(s2)));
+    int const ret = MaxSubStringLengthOfTwoString(
+        s1, static_cast<int>(strlen(s1)), s2, static_cast<int>(strlen(s2)));
     EXPECT_EQ(4, ret);
 }
 
 TEST(T1j, t3) {
     const char* s1 = "hllo";
     const char* s2 = "hell";
-    int const ret =
-        MaxSubStringLengthOfTwoString(s1, static_cast<int>(strlen(s1)), s2, static_cast<int>(strlen(s2)));
+    int const ret = MaxSubStringLengthOfTwoString(
+        s1, static_cast<int>(strlen(s1)), s2, static_cast<int>(strlen(s2)));
     EXPECT_EQ(3, ret);
 }
 
 TEST(T1j, t4) {
     const char* s1 = "abcd";
     const char* s2 = "defg";
-    int const ret =
-        MaxSubStringLengthOfTwoString(s1, static_cast<int>(strlen(s1)), s2, static_cast<int>(strlen(s2)));
+    int const ret = MaxSubStringLengthOfTwoString(
+        s1, static_cast<int>(strlen(s1)), s2, static_cast<int>(strlen(s2)));
     EXPECT_EQ(1, ret);
 }
 
 TEST(T1j, t5) {
     const char* s1 = "abch";
     const char* s2 = "defg";
-    int const ret =
-        MaxSubStringLengthOfTwoString(s1, static_cast<int>(strlen(s1)), s2, static_cast<int>(strlen(s2)));
+    int const ret = MaxSubStringLengthOfTwoString(
+        s1, static_cast<int>(strlen(s1)), s2, static_cast<int>(strlen(s2)));
     EXPECT_EQ(0, ret);
 }
 

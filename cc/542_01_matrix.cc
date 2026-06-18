@@ -47,7 +47,8 @@ class Solution {
             for (int i = 0; i < 4; i++) {
                 int const nx = cur.m_x + m_dx.at(i);
                 int const ny = cur.m_y + m_dy.at(i);
-                if (nx < 0 || nx >= m || ny < 0 || ny >= n || vis.at(nx).at(ny)) {
+                if (nx < 0 || nx >= m || ny < 0 || ny >= n ||
+                    vis.at(nx).at(ny)) {
                     continue;
                 }
                 vis.at(nx).at(ny) = 1;

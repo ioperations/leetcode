@@ -28,7 +28,8 @@ class Solution {
                 if (string1.at(i) == string2.at(j)) {
                     dp.at(i + 1).at(j + 1) = dp.at(i).at(j) + 1;
                 } else {
-                    dp.at(i + 1).at(j + 1) = max(dp.at(i).at(j + 1), dp.at(i + 1).at(j));
+                    dp.at(i + 1).at(j + 1) =
+                        max(dp.at(i).at(j + 1), dp.at(i + 1).at(j));
                 }
             }
         }

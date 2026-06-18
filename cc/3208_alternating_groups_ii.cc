@@ -14,8 +14,9 @@
  * considered to be next to each other.
  */
 
-#include <vector>
 #include <gtest/gtest.h>
+
+#include <vector>
 using namespace std;
 
 namespace {
@@ -39,7 +40,7 @@ class Solution {
         return count;
     }
 };
-}
+}  // namespace
 
 TEST(T0, t1) {
     vector<int> colors = {0, 1, 0, 1, 0};

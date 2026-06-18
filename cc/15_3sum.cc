@@ -58,10 +58,12 @@ class Solution {
                 } else if (sum > target) {
                     back--;
                 } else {
-                    vector<int> temp = {nums.at(i), nums.at(front), nums.at(back)};
+                    vector<int> temp = {nums.at(i), nums.at(front),
+                                        nums.at(back)};
                     res.push_back(temp);
 
-                    while (front < back && nums.at(front) == temp.at(1)) front++;
+                    while (front < back && nums.at(front) == temp.at(1))
+                        front++;
                     while (front < back && nums.at(back) == temp.at(2)) back--;
                 }
             }

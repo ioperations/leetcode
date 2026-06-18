@@ -26,8 +26,9 @@ class Solution {
         int max = 0;
         for (size_t i = 1; i < prices.size(); i++) {
             for (size_t j = 0; j < i; j++) {
-                max = (prices.at(i) - prices.at(j)) > max ? (prices.at(i) - prices.at(j))
-                                                    : max;
+                max = (prices.at(i) - prices.at(j)) > max
+                          ? (prices.at(i) - prices.at(j))
+                          : max;
             }
         }
         return max;

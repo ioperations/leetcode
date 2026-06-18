@@ -27,15 +27,15 @@ class NumArray {
 #define vll vector<int>
    private:
     vll m_vp;  // given array which we are going to use..we will copy it in
-             // constructor
+               // constructor
     // v is node number tl and tr are node range...node range means
     // range that falls under subtree of node v
     // tl and tr are basically array ranges
 
     vll m_segarr;
     ll m_n;
-   public:
 
+   public:
     ll Combine(ll a, ll b) {
         // you have to combine acc to query type like add,min,max..etc;
         return a + b;
@@ -102,7 +102,8 @@ class NumArray {
     }
 
     // 0 based indexing segment tree ..value of v always starts from 1
-    explicit NumArray(vector<int>& a) : m_vp(a), m_n(static_cast<int>(a.size())) {
+    explicit NumArray(vector<int>& a)
+        : m_vp(a), m_n(static_cast<int>(a.size())) {
         m_vp.resize(m_n);
 
         m_segarr.resize(4 * m_n);

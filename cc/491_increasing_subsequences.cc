@@ -19,7 +19,8 @@ using namespace std;
 
 namespace {
 class Solution {
-    void Dfs(int i, vector<int>& v, vector<int>& nums, set<vector<int>>& s) const {
+    void Dfs(int i, vector<int>& v, vector<int>& nums,
+             set<vector<int>>& s) const {
         if (v.size() >= 2) s.insert(v);
         if (i == static_cast<int>(nums.size())) return;
 

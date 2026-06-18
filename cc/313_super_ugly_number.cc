@@ -25,7 +25,9 @@ class Solution {
         while (static_cast<int>(ans.size()) < n) {
             int mn = 0;
             for (int i = 0; i < n2; i++) {
-                if (ans.at(dp.at(i)) * primes.at(i) < ans.at(dp.at(mn)) * primes.at(mn)) mn = i;
+                if (ans.at(dp.at(i)) * primes.at(i) <
+                    ans.at(dp.at(mn)) * primes.at(mn))
+                    mn = i;
             }
 
             ans.push_back(ans.at(dp.at(mn)) * primes.at(mn));

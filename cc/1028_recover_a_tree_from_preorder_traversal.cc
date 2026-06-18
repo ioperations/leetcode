@@ -25,10 +25,10 @@ namespace {
 class Solution {
    public:
     TreeNode* RecoverFromPreorder(const string& traversal) {
-      // The number of nodes in the original tree is in the range [1, 1000].
-      // 1 <= Node.val <= 109
-      Tranverse(traversal);
-      return Build();
+        // The number of nodes in the original tree is in the range [1, 1000].
+        // 1 <= Node.val <= 109
+        Tranverse(traversal);
+        return Build();
     }
 
     TreeNode* Build(int current_index = 0) {
@@ -58,7 +58,9 @@ class Solution {
 
             string v;
             int k = 0;
-            for (int j = i; j < static_cast<int>(value.size()) && value.at(static_cast<size_t>(j)) != '-'; j++) {
+            for (int j = i; j < static_cast<int>(value.size()) &&
+                            value.at(static_cast<size_t>(j)) != '-';
+                 j++) {
                 v += value.at(static_cast<size_t>(j));
                 k++;
             }

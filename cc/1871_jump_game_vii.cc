@@ -35,7 +35,8 @@ class Solution {
         q.emplace(0, 0);
         for (int i = 0; i < static_cast<int>(list.size()); i++) {
             if (q.empty()) return false;
-            if (list.at(i) >= q.front().first && list.at(i) <= q.front().second) {
+            if (list.at(i) >= q.front().first &&
+                list.at(i) <= q.front().second) {
                 if (list.at(i) == static_cast<int>(s.size()) - 1) return true;
                 q.emplace(list.at(i) + min_jump, list.at(i) + max_jump);
             } else {

@@ -54,29 +54,30 @@ class UndergroundSystem {
     }
 
     void CheckOut(int id, const string& station_name, int t) {
-      auto it = std::find_if(
-          m_wait.begin(), m_wait.end(), [&](const std::pair<int, Node>& n) { return id == n.first; });
-      if (it == m_wait.end()) return;
-      Node const n = it->second;
-      std::string const s =
-          n.m_station >= station_name ? n.m_station : station_name;
-      std::string const d =
-          n.m_station < station_name ? n.m_station : station_name;
+        auto it = std::find_if(
+            m_wait.begin(), m_wait.end(),
+            [&](const std::pair<int, Node>& n) { return id == n.first; });
+        if (it == m_wait.end()) return;
+        Node const n = it->second;
+        std::string const s =
+            n.m_station >= station_name ? n.m_station : station_name;
+        std::string const d =
+            n.m_station < station_name ? n.m_station : station_name;
 
-      m_already[make_pair(s, d)].push_back(t - n.m_time);
+        m_already[make_pair(s, d)].push_back(t - n.m_time);
     }
 
     double GetAverageTime(const string& start_station,
                           const string& end_station) {
-      std::string const s =
-          start_station >= end_station ? start_station : end_station;
-      std::string const d =
-          start_station < end_station ? start_station : end_station;
-      double sum = 0;
-      auto& z = m_already[make_pair(s, d)];
-      std::for_each(z.begin(), z.end(), [&](int n) { sum += n; });
+        std::string const s =
+            start_station >= end_station ? start_station : end_station;
+        std::string const d =
+            start_station < end_station ? start_station : end_station;
+        double sum = 0;
+        auto& z = m_already[make_pair(s, d)];
+        std::for_each(z.begin(), z.end(), [&](int n) { sum += n; });
 
-      return z.size() ? sum / z.size() : 0;
+        return z.size() ? sum / z.size() : 0;
     }
     ~UndergroundSystem() {
         m_wait.clear();
@@ -105,34 +106,34 @@ class Solution2 {
     }
 
     void CheckIn(int id, const string& station_name, int t) {
-      if (m_in_transit.find(id) != m_in_transit.end()) return;
-      m_in_transit[id] = {station_name, t};
+        if (m_in_transit.find(id) != m_in_transit.end()) return;
+        m_in_transit[id] = {station_name, t};
     }
 
     void CheckOut(int id, const string& station_name, int t) {
-      auto& info = m_in_transit[id];
-      string const start_station = info.first;
-      int const start_time = info.second;
-      string const key = start_station + ":" + station_name;
-      int const time = t - start_time;
+        auto& info = m_in_transit[id];
+        string const start_station = info.first;
+        int const start_time = info.second;
+        string const key = start_station + ":" + station_name;
+        int const time = t - start_time;
 
-      if (m_station_times.find(key) != m_station_times.end()) {
-        auto& old_times = m_station_times[key];
-        old_times.first += time;
-        old_times.second++;
-      } else {
-        m_station_times[key] = {time, 1};
-      }
-      m_in_transit.erase(id);
+        if (m_station_times.find(key) != m_station_times.end()) {
+            auto& old_times = m_station_times[key];
+            old_times.first += time;
+            old_times.second++;
+        } else {
+            m_station_times[key] = {time, 1};
+        }
+        m_in_transit.erase(id);
     }
 
     double GetAverageTime(const string& start_station,
                           const string& end_station) {
-      string const key = start_station + ":" + end_station;
-      auto& info = m_station_times[key];
-      double const avg =
-          static_cast<double>(info.first) / static_cast<double>(info.second);
-      return avg;
+        string const key = start_station + ":" + end_station;
+        auto& info = m_station_times[key];
+        double const avg =
+            static_cast<double>(info.first) / static_cast<double>(info.second);
+        return avg;
     }
 };
 

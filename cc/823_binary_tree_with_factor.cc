@@ -63,11 +63,13 @@ class Solution {
             while (l <= r) {
                 if (arr.at(l) * 1LL * arr.at(r) == arr.at(i) * 1LL) {
                     if (l != r) {
-                        dp.at(i) = (dp.at(i) +
-                                 (dp.at(l) * 1LL * dp.at(r) % m_mod * 2LL % m_mod)) %
-                                m_mod;
+                        dp.at(i) = (dp.at(i) + (dp.at(l) * 1LL * dp.at(r) %
+                                                m_mod * 2LL % m_mod)) %
+                                   m_mod;
                     } else {
-                        dp.at(i) = (dp.at(i) + (dp.at(l) * 1LL * dp.at(r) % m_mod)) % m_mod;
+                        dp.at(i) =
+                            (dp.at(i) + (dp.at(l) * 1LL * dp.at(r) % m_mod)) %
+                            m_mod;
                     }
                     l++, r--;
                 } else if (arr.at(l) * 1LL * arr.at(r) > arr.at(i) * 1LL) {

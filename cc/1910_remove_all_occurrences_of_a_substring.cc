@@ -16,7 +16,8 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    [[nodiscard]] string RemoveOccurrences(string const& s, string const& part) const {
+    [[nodiscard]] string RemoveOccurrences(string const& s,
+                                           string const& part) const {
         int const size = static_cast<int>(s.size());
         vector<bool> exists(size, true);
 

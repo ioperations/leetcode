@@ -46,7 +46,8 @@ class Solution {
 
     bool IsPalindrom(const std::string& s, int left, int right) {
         while (left < right) {
-            if (s.at(static_cast<size_t>(left)) == s.at(static_cast<size_t>(right))) {
+            if (s.at(static_cast<size_t>(left)) ==
+                s.at(static_cast<size_t>(right))) {
                 left++;
                 right--;
             } else {

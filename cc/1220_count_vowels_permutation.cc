@@ -31,9 +31,9 @@ class Solution {
         for (int i = 1; i < n; i++) {
             dp.at(i).at(0) = (dp.at(i - 1).at(1)) % mod;
             dp.at(i).at(1) = (dp.at(i - 1).at(0) + dp.at(i - 1).at(2)) % mod;
-            dp.at(i).at(2) =
-                (dp.at(i - 1).at(0) + dp.at(i - 1).at(1) + dp.at(i - 1).at(3) + dp.at(i - 1).at(4)) %
-                mod;
+            dp.at(i).at(2) = (dp.at(i - 1).at(0) + dp.at(i - 1).at(1) +
+                              dp.at(i - 1).at(3) + dp.at(i - 1).at(4)) %
+                             mod;
             dp.at(i).at(3) = (dp.at(i - 1).at(2) + dp.at(i - 1).at(4)) % mod;
             dp.at(i).at(4) = (dp.at(i - 1).at(0)) % mod;
         }

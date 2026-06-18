@@ -32,13 +32,16 @@ class Solution {
         int count = 0;
         if (row == n) return 1;
         for (int column = 0; column < n; column++) {
-            if (!col.at(static_cast<size_t>(column)) && !diag.at(static_cast<size_t>(row + column)) &&
+            if (!col.at(static_cast<size_t>(column)) &&
+                !diag.at(static_cast<size_t>(row + column)) &&
                 !anti_diag.at(static_cast<size_t>(row - column + n - 1))) {
-                col.at(static_cast<size_t>(column)) = diag.at(static_cast<size_t>(row + column)) =
-                    anti_diag.at(static_cast<size_t>(row - column + n - 1)) = true;
+                col.at(static_cast<size_t>(column)) =
+                    diag.at(static_cast<size_t>(row + column)) = anti_diag.at(
+                        static_cast<size_t>(row - column + n - 1)) = true;
                 count += Solve(col, diag, anti_diag, row + 1);
-                col.at(static_cast<size_t>(column)) = diag.at(static_cast<size_t>(row + column)) =
-                    anti_diag.at(static_cast<size_t>(row - column + n - 1)) = false;
+                col.at(static_cast<size_t>(column)) =
+                    diag.at(static_cast<size_t>(row + column)) = anti_diag.at(
+                        static_cast<size_t>(row - column + n - 1)) = false;
             }
         }
         return count;

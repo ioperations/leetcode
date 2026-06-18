@@ -133,13 +133,13 @@ class Solution {
    public:
     std::string ValidIpAddress(std::string query_ip) {
         auto it1 = std::find_if(query_ip.begin(), query_ip.end(),
-                            [](const char c) { return c == '.'; });
+                                [](const char c) { return c == '.'; });
         if (it1 != query_ip.end() && ParseIpv4(query_ip)) {
             return m_ipv4;
         }
 
         auto it = std::find_if(query_ip.begin(), query_ip.end(),
-                          [](const char c) { return c == ':'; });
+                               [](const char c) { return c == ':'; });
         if (it != query_ip.end() && ParseIpv6(query_ip)) {
             return m_ipv6;
         }

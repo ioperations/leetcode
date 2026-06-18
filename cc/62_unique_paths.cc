@@ -23,7 +23,6 @@ namespace {
 class Solution {
    public:
     int UniquePaths(int m, int n) {
-
         std::vector<std::vector<int>> v(m, std::vector<int>(n, 0));
 
         std::function<int(int, int)> fun = [&](int i, int j) -> int {

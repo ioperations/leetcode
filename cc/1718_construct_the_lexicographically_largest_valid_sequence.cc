@@ -63,7 +63,8 @@ class Solution {
             }
 
             const auto value = value_set.at(i);
-            if (index + value >= result_size || results.at(index + value) != 0) {
+            if (index + value >= result_size ||
+                results.at(index + value) != 0) {
                 continue;
             }
 

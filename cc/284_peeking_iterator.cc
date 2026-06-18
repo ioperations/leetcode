@@ -32,7 +32,8 @@ class Iterator {
     int m_i{-1};
 
    public:
-    Iterator(const std::vector<int>& nums) : m_nums(nums), m_size(static_cast<int>(nums.size())) {}
+    Iterator(const std::vector<int>& nums)
+        : m_nums(nums), m_size(static_cast<int>(nums.size())) {}
 
     Iterator(const Iterator& iter) = default;
 

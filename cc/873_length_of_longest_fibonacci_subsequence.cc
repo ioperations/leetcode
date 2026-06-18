@@ -39,12 +39,13 @@ class Solution {
         }
         if (curr_len == 0) {
             return std::max(Next(index + 1, now, next, curr_len),
-                       Next(index + 1, m_arr.at(index), next, 1));
+                            Next(index + 1, m_arr.at(index), next, 1));
         }
 
         if (curr_len == 1) {
-            return std::max(Next(index + 1, m_arr.at(index), now + m_arr.at(index), 2),
-                       Next(index + 1, now, next, 1));
+            return std::max(
+                Next(index + 1, m_arr.at(index), now + m_arr.at(index), 2),
+                Next(index + 1, now, next, 1));
         }
 
         auto it = m_value_to_index.find(next);

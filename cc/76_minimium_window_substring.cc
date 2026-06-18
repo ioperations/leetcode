@@ -49,7 +49,8 @@ class Solution {
         // counter
         int letter_counter = 0;
 
-        for (int slow = 0, fast = 0; fast < static_cast<int>(s.length()); fast++) {
+        for (int slow = 0, fast = 0; fast < static_cast<int>(s.length());
+             fast++) {
             char const c = s.at(fast);
 
             if (map.find(c) != map.end()) {

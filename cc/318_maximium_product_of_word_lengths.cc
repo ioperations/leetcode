@@ -25,8 +25,8 @@ class Solution {
         for (int i = 0; i < size; i++) {
             for (int j = i + 1; j < size; j++) {
                 if (!ShareSameChar(words.at(i), words.at(j))) {
-                    ret =
-                        std::max(ret, static_cast<int>(words.at(i).size() * words.at(j).size()));
+                    ret = std::max(ret, static_cast<int>(words.at(i).size() *
+                                                         words.at(j).size()));
                 }
             }
         }
@@ -56,7 +56,8 @@ class Solution {
         vector<vector<int>> dp(words.size(), vector<int>(26));
         for (int i = 0; i < static_cast<int>(words.size()); i++) {
             for (int j = 0; j < static_cast<int>(words.at(i).size()); j++) {
-                dp.at(static_cast<size_t>(i)).at(static_cast<size_t>(words.at(i).at(j) - 'a'))++;
+                dp.at(static_cast<size_t>(i))
+                    .at(static_cast<size_t>(words.at(i).at(j) - 'a'))++;
             }
         }
 
@@ -69,7 +70,8 @@ class Solution {
                     }
                 }
                 if (common) {
-                    int const cur = static_cast<int>(words.at(i).size() * words.at(j).size());
+                    int const cur = static_cast<int>(words.at(i).size() *
+                                                     words.at(j).size());
                     ans = max(ans, cur);
                 }
             }

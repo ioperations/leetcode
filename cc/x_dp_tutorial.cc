@@ -46,7 +46,8 @@ int FindMinPath(std::string_view s1, std::string_view s2) {
             return hash.at(i).at(j);
         }
 
-        if (s1.at(static_cast<std::size_t>(i)) == s2.at(static_cast<std::size_t>(j))) {
+        if (s1.at(static_cast<std::size_t>(i)) ==
+            s2.at(static_cast<std::size_t>(j))) {
             hash.at(i).at(j) = dp_fun(i - 1, j - 1);
         } else {
             hash.at(i).at(j) = std::min({
@@ -58,7 +59,8 @@ int FindMinPath(std::string_view s1, std::string_view s2) {
         return hash.at(i).at(j);
     };
     /// transfer function
-    return dp_fun(static_cast<int>(s1.size()) - 1, static_cast<int>(s2.size()) - 1);
+    return dp_fun(static_cast<int>(s1.size()) - 1,
+                  static_cast<int>(s2.size()) - 1);
 }
 
 TEST(XDpTutorialV2, r2) {

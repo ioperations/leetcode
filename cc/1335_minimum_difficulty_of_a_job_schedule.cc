@@ -40,7 +40,8 @@ class Solution {
 
                 for (int j = i; j >= k; j--) {
                     mx = max(mx, job_difficulty.at(j));
-                    dp.at(i).at(k) = min(dp.at(i).at(k), dp.at(j - 1).at(k - 1) + mx);
+                    dp.at(i).at(k) =
+                        min(dp.at(i).at(k), dp.at(j - 1).at(k - 1) + mx);
                 }
             }
         }
@@ -51,9 +52,9 @@ class Solution {
 
     int Dfs(const vector<int>& jobs, int start_idx, int days_left,
             vector<vector<int>>& memo) {
-      if (start_idx >= static_cast<int>(jobs.size())) {
-        return std::numeric_limits<int>::max();
-      }
+        if (start_idx >= static_cast<int>(jobs.size())) {
+            return std::numeric_limits<int>::max();
+        }
 
         if (days_left == 1) {
             return *max_element(begin(jobs) + start_idx, end(jobs));
@@ -66,13 +67,13 @@ class Solution {
         int state_value = std::numeric_limits<int>::max();
         int current_max = jobs.at(start_idx);
         for (int i = start_idx; i < static_cast<int>(jobs.size()); ++i) {
-          current_max = max(current_max, jobs.at(i));
-          int const next_state_value = Dfs(jobs, i + 1, days_left - 1, memo);
-          if (next_state_value == std::numeric_limits<int>::max()) {
-            continue;
-          }
+            current_max = max(current_max, jobs.at(i));
+            int const next_state_value = Dfs(jobs, i + 1, days_left - 1, memo);
+            if (next_state_value == std::numeric_limits<int>::max()) {
+                continue;
+            }
 
-          state_value = min(state_value, next_state_value + current_max);
+            state_value = min(state_value, next_state_value + current_max);
         }
 
         memo.at(start_idx).at(days_left) = state_value;

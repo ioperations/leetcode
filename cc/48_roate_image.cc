@@ -44,14 +44,19 @@ class Solution {
         const int n = static_cast<int>(matrix.size());
         for (int i = 0; i < n; i++) {
             for (int j = i; j < n; j++) {
-                int const t = matrix.at(static_cast<size_t>(i)).at(static_cast<size_t>(j));
-                matrix.at(static_cast<size_t>(i)).at(static_cast<size_t>(j)) = matrix.at(static_cast<size_t>(j)).at(static_cast<size_t>(i));
-                matrix.at(static_cast<size_t>(j)).at(static_cast<size_t>(i)) = t;
+                int const t = matrix.at(static_cast<size_t>(i))
+                                  .at(static_cast<size_t>(j));
+                matrix.at(static_cast<size_t>(i)).at(static_cast<size_t>(j)) =
+                    matrix.at(static_cast<size_t>(j))
+                        .at(static_cast<size_t>(i));
+                matrix.at(static_cast<size_t>(j)).at(static_cast<size_t>(i)) =
+                    t;
             }
         }
         for (int i = 0; i < n; i++) {
             matrix.at(static_cast<size_t>(i)).shrink_to_fit();
-            reverse(matrix.at(static_cast<size_t>(i)).begin(), matrix.at(static_cast<size_t>(i)).end());
+            reverse(matrix.at(static_cast<size_t>(i)).begin(),
+                    matrix.at(static_cast<size_t>(i)).end());
         }
         return;
         for (size_t i = 0; i < matrix.size(); i++) {

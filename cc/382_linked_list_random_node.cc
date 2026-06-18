@@ -28,7 +28,8 @@ class Solution {
     }
 
     int GetRandom() {
-        std::uniform_int_distribution<> dis(0, static_cast<int>(m_vec.size()) - 1);
+        std::uniform_int_distribution<> dis(0,
+                                            static_cast<int>(m_vec.size()) - 1);
         int const random_index = dis(m_gen);
         return m_vec.at(random_index);
     }

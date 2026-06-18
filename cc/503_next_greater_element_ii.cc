@@ -32,8 +32,10 @@ class Solution {
 
         for (int i = 0; i < size; i++) {
             for (int j = 1; j < size; j++) {
-                if (nums.at(static_cast<size_t>(i + j)) > nums.at(static_cast<size_t>(i))) {
-                    ret.at(static_cast<size_t>(i)) = nums.at(static_cast<size_t>(i + j));
+                if (nums.at(static_cast<size_t>(i + j)) >
+                    nums.at(static_cast<size_t>(i))) {
+                    ret.at(static_cast<size_t>(i)) =
+                        nums.at(static_cast<size_t>(i + j));
                     break;
                 }
             }

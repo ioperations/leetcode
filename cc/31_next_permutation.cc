@@ -39,13 +39,16 @@ class Solution {
         bool flag = false;
 
         for (int i = static_cast<int>(nums.size()) - 1; i > 0; i--) {
-            if (nums.at(static_cast<size_t>(i)) > nums.at(static_cast<size_t>(i) - 1)) {
+            if (nums.at(static_cast<size_t>(i)) >
+                nums.at(static_cast<size_t>(i) - 1)) {
                 flag = true;
                 int j = static_cast<int>(nums.size()) - 1;
-                while (nums.at(static_cast<size_t>(j)) <= nums.at(static_cast<size_t>(i) - 1)) {
+                while (nums.at(static_cast<size_t>(j)) <=
+                       nums.at(static_cast<size_t>(i) - 1)) {
                     j--;
                 }
-                swap(nums.at(static_cast<size_t>(i) - 1), nums.at(static_cast<size_t>(j)));
+                swap(nums.at(static_cast<size_t>(i) - 1),
+                     nums.at(static_cast<size_t>(j)));
                 reverse(nums.begin() + i, nums.end());
                 break;
             }

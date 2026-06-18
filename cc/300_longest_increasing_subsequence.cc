@@ -30,9 +30,11 @@ class Solution {
             if (start_with >= size) return 0;
 
             if (nums.at(static_cast<size_t>(start_with)) > min_required) {
-                return max(1 + fun(start_with + 1,
-                                   max(min_required, nums.at(static_cast<size_t>(start_with)))),
-                           fun(start_with + 1, min_required));
+                return max(
+                    1 + fun(start_with + 1,
+                            max(min_required,
+                                nums.at(static_cast<size_t>(start_with)))),
+                    fun(start_with + 1, min_required));
             }
 
             return fun(start_with + 1, min_required);
@@ -48,8 +50,8 @@ class Solution {
                 ans.push_back(ele);
                 continue;
             }
-            int const idx =
-                static_cast<int>(lower_bound(ans.begin(), ans.end(), ele) - ans.begin());
+            int const idx = static_cast<int>(
+                lower_bound(ans.begin(), ans.end(), ele) - ans.begin());
             if (idx == static_cast<int>(ans.size())) continue;
             ans.at(static_cast<size_t>(idx)) = ele;
         }

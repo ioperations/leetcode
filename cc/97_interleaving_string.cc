@@ -26,7 +26,8 @@ namespace {
 class Solution {
    public:
     bool Helper(const string& s1, const string& s2, const string& s3) {
-        int const l1 = static_cast<int>(s1.length()), l2 = static_cast<int>(s2.length());
+        int const l1 = static_cast<int>(s1.length()),
+                  l2 = static_cast<int>(s2.length());
         vector<int> q1, q2;  // queue;
         vector<vector<int>> table(s1.length() + 1,
                                   vector<int>(s2.length() + 1, false));
@@ -83,7 +84,9 @@ class Solution {
     bool IsInterleaveV1(const string& s1, const string& s2, const string& s3) {
         if (s1 == "") return s2 == s3;
         if (s2 == "") return s1 == s3;
-        int const n1 = static_cast<int>(s1.size()), n2 = static_cast<int>(s2.size()), n3 = static_cast<int>(s3.size());
+        int const n1 = static_cast<int>(s1.size()),
+                  n2 = static_cast<int>(s2.size()),
+                  n3 = static_cast<int>(s3.size());
         if (n1 + n2 != n3) return false;
         vector<vector<bool>> dp(n1 + 1, vector<bool>(n2 + 1));
 
@@ -92,12 +95,16 @@ class Solution {
                 if (i == 0 && j == 0) {
                     dp.at(i).at(j) = true;
                 } else if (i == 0) {
-                    dp.at(i).at(j) = dp.at(i).at(j - 1) && s2.at(j - 1) == s3.at(i + j - 1);
+                    dp.at(i).at(j) =
+                        dp.at(i).at(j - 1) && s2.at(j - 1) == s3.at(i + j - 1);
                 } else if (j == 0) {
-                    dp.at(i).at(j) = dp.at(i - 1).at(j) && s1.at(i - 1) == s3.at(i + j - 1);
+                    dp.at(i).at(j) =
+                        dp.at(i - 1).at(j) && s1.at(i - 1) == s3.at(i + j - 1);
                 } else {
-                    dp.at(i).at(j) = ((dp.at(i - 1).at(j) && s1.at(i - 1) == s3.at(i + j - 1)) ||
-                                (dp.at(i).at(j - 1) && s2.at(j - 1) == s3.at(i + j - 1)));
+                    dp.at(i).at(j) = ((dp.at(i - 1).at(j) &&
+                                       s1.at(i - 1) == s3.at(i + j - 1)) ||
+                                      (dp.at(i).at(j - 1) &&
+                                       s2.at(j - 1) == s3.at(i + j - 1)));
                 }
             }
         }

@@ -74,7 +74,8 @@ TEST(MaximumNestingDepthOfTwoValidParenthesesStrings, t3) {
     std::vector<int> const ret = s.MaxDepthAfterSplit("()(()())()()()()()(())");
 
     EXPECT_EQ((std::vector<int>{0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0,
-                                     0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0}), ret);
+                                0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0}),
+              ret);
 }
 
 }  // namespace

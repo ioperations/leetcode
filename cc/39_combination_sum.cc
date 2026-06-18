@@ -34,7 +34,8 @@ class Solution {
             return;
         }
 
-        while (i < static_cast<int>(candidates.size()) && target - candidates.at(i) >= 0) {
+        while (i < static_cast<int>(candidates.size()) &&
+               target - candidates.at(i) >= 0) {
             // Till every element in the array starting
             // from i which can contribute to the target
             r.push_back(candidates.at(i));  // add them to vector
@@ -99,7 +100,9 @@ TEST(combinationV, t2) {
     Solution s;
     auto ret = s.CombinationSum(candidates, target);
 
-    EXPECT_EQ((std::vector<std::vector<int>>{{{2, 2, 2, 2}, {2, 3, 3}, {3, 5}}}), ret);
+    EXPECT_EQ(
+        (std::vector<std::vector<int>>{{{2, 2, 2, 2}, {2, 3, 3}, {3, 5}}}),
+        ret);
 }
 
 TEST(combinationV, t3) {

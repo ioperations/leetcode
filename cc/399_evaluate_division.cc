@@ -41,7 +41,9 @@ class Solution {
                        // actually present in the graph
         }
         for (const auto& it : m_unmp[src]) {
-            if (m_visited.find(it.first) != m_visited.end()) { continue; }
+            if (m_visited.find(it.first) != m_visited.end()) {
+                continue;
+            }
             double const d = Dfs(it.first, dest);
             if (d > 0)
                 return d *
@@ -63,8 +65,9 @@ class Solution {
         vector<double> ans;
         for (auto it : queries) {
             m_visited.clear();  // we clear visited array for each dfs
-            ans.push_back(Dfs(
-                it.at(0), it.at(1)));  // pushing answer of each query returned by dfs
+            ans.push_back(
+                Dfs(it.at(0),
+                    it.at(1)));  // pushing answer of each query returned by dfs
         }
         return ans;
     }

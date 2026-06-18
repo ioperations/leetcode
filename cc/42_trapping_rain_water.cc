@@ -42,7 +42,8 @@ class Solution {
 
         while (left <= right) {
             // handling left ptr
-            if (height.at(static_cast<size_t>(left)) <= height.at(static_cast<size_t>(right))) {
+            if (height.at(static_cast<size_t>(left)) <=
+                height.at(static_cast<size_t>(right))) {
                 if (height.at(static_cast<size_t>(left)) >= leftmax) {
                     leftmax = height.at(static_cast<size_t>(left));
                 } else {

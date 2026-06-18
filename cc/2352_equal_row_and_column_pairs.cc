@@ -30,13 +30,17 @@ class Solution {
         unordered_map<string, int> mp;
 
         // mapping the rows with the help of mapping function to create keys
-        for (int i = 0; i < n; i++) mp[Mapping(grid.at(static_cast<size_t>(i)))]++;
+        for (int i = 0; i < n; i++)
+            mp[Mapping(grid.at(static_cast<size_t>(i)))]++;
 
         for (int i = 0; i < n; i++) {
             string ans = "";
 
             // Traversing the matrix column wise and generating new key
-            for (int j = 0; j < n; j++) ans += to_string(grid.at(static_cast<size_t>(j)).at(static_cast<size_t>(i))) + "#";
+            for (int j = 0; j < n; j++)
+                ans += to_string(grid.at(static_cast<size_t>(j))
+                                     .at(static_cast<size_t>(i))) +
+                       "#";
 
             // adding the number of occurences of the key generated
             count += mp[ans];

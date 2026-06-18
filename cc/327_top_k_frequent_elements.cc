@@ -33,7 +33,9 @@ class Solution {
             }
         };
 
-        std::priority_queue<std::pair<int, int>, std::vector<std::pair<int, int>>, Cmp> q;
+        std::priority_queue<std::pair<int, int>,
+                            std::vector<std::pair<int, int>>, Cmp>
+            q;
         for (auto& ptr : map) {
             q.emplace(ptr);
         }

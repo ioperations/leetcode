@@ -26,18 +26,18 @@ class Solution {
 
         AddToRet(root, ret, 0);
         for (size_t i = 1; i < ret.size(); i += 2) {
-          reverse(ret.at(i).begin(), ret.at(i).end());
+            reverse(ret.at(i).begin(), ret.at(i).end());
         }
         return ret;
     }
 
     void AddToRet(TreeNode* root, vector<vector<int>>& ret, size_t n = 0) {
         if (root) {
-          if (ret.size() <= n) ret.resize(n + 1);
-          ret.at(n).push_back(root->val);
+            if (ret.size() <= n) ret.resize(n + 1);
+            ret.at(n).push_back(root->val);
 
-          AddToRet(root->left, ret, n + 1);
-          AddToRet(root->right, ret, n + 1);
+            AddToRet(root->left, ret, n + 1);
+            AddToRet(root->right, ret, n + 1);
         }
     }
 };

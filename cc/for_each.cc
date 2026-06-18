@@ -1,9 +1,9 @@
+#include "for_each.hh"
+
 #include <gtest/gtest.h>
 
 #include <iostream>
 #include <vector>
-
-#include "for_each.hh"
 
 namespace {
 struct Statistic {
@@ -24,8 +24,12 @@ struct DummyClass {
     int m_v{0};
 
     DummyClass(int val) : m_v(val) { GetStatistic().m_construct++; }
-    DummyClass(const DummyClass& other) : m_v(other.m_v) { GetStatistic().m_copy_construct++; }
-    DummyClass(DummyClass&& other) noexcept : m_v(other.m_v) { GetStatistic().m_move_construct++; }
+    DummyClass(const DummyClass& other) : m_v(other.m_v) {
+        GetStatistic().m_copy_construct++;
+    }
+    DummyClass(DummyClass&& other) noexcept : m_v(other.m_v) {
+        GetStatistic().m_move_construct++;
+    }
     DummyClass& operator=(const DummyClass& other) {
         m_v = other.m_v;
         GetStatistic().m_copy_assignment++;

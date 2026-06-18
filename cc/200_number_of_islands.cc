@@ -30,8 +30,9 @@ namespace {
 class Solution {
    public:
     int NumIslands(vector<vector<char>>& grid) {
-        int const rows = static_cast<int>(grid.size());                // rows
-        int const cols = rows ? static_cast<int>(grid.at(0).size()) : 0;  // cols
+        int const rows = static_cast<int>(grid.size());  // rows
+        int const cols =
+            rows ? static_cast<int>(grid.at(0).size()) : 0;  // cols
         int islands = 0;
         vector<int> offsets{0, 1, 0, -1, 0};
         for (int i = 0; i < rows; ++i) {
@@ -41,7 +42,7 @@ class Solution {
                     ++islands;
                     // cout << "visited top: " << i << "," << j << "\n";
                     //  mark loc as visited
-grid.at(i).at(j) = '0';
+                    grid.at(i).at(j) = '0';
                     // cout << "visited top: " << i << "," << j << "\n";
                     //  mark loc as visited
                     queue<pair<int, int>> neighbors;  // queue for neighbors
@@ -52,8 +53,10 @@ grid.at(i).at(j) = '0';
                         neighbors.pop();
                         // iterate thru offsets
                         for (size_t k = 0; k < offsets.size() - 1; k++) {
-                            int const r = p.first + static_cast<int>(offsets.at(k));
-                            int const c = p.second + static_cast<int>(offsets.at(k + 1));
+                            int const r =
+                                p.first + static_cast<int>(offsets.at(k));
+                            int const c =
+                                p.second + static_cast<int>(offsets.at(k + 1));
                             if (r >= 0 && r < rows && c >= 0 && c < cols &&
                                 grid.at(r).at(c) == '1') {
                                 // cout << "visited within: " << r << "," << c
@@ -113,7 +116,8 @@ grid.at(i).at(j) = '0';
         while (st.size()) {
             auto [i, j] = st.top();
             st.pop();
-            if (i < 0 || j < 0 || i >= static_cast<int>(grid.size()) || j >= static_cast<int>(grid.at(0).size())) {
+            if (i < 0 || j < 0 || i >= static_cast<int>(grid.size()) ||
+                j >= static_cast<int>(grid.at(0).size())) {
                 continue;
             }
 
@@ -135,7 +139,8 @@ grid.at(i).at(j) = '0';
         while (q.size()) {
             auto [i, j] = q.front();
             q.pop();
-            if (i < 0 || j < 0 || i >= static_cast<int>(grid.size()) || j >= static_cast<int>(grid.at(0).size())) {
+            if (i < 0 || j < 0 || i >= static_cast<int>(grid.size()) ||
+                j >= static_cast<int>(grid.at(0).size())) {
                 continue;
             }
 

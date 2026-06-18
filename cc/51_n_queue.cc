@@ -36,16 +36,20 @@ class Solution {
         int const n = static_cast<int>(board.size());
         for (int i = 0; i < n; i++) {
             if (board.at(i).at(col) == 'Q') return false;
-            if (row - i >= 0 && col - i >= 0 && board.at(row - i).at(col - i) == 'Q') {
+            if (row - i >= 0 && col - i >= 0 &&
+                board.at(row - i).at(col - i) == 'Q') {
                 return false;
             }
-            if (row - i >= 0 && col + i < n && board.at(row - i).at(col + i) == 'Q') {
+            if (row - i >= 0 && col + i < n &&
+                board.at(row - i).at(col + i) == 'Q') {
                 return false;
             }
-            if (row + i < n && col - i >= 0 && board.at(row + i).at(col - i) == 'Q') {
+            if (row + i < n && col - i >= 0 &&
+                board.at(row + i).at(col - i) == 'Q') {
                 return false;
             }
-            if (row + i < n && col + i < n && board.at(row + i).at(col + i) == 'Q') {
+            if (row + i < n && col + i < n &&
+                board.at(row + i).at(col + i) == 'Q') {
                 return false;
             }
         }

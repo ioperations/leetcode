@@ -33,7 +33,8 @@ class Solution {
         int const n = static_cast<int>(env.size());
         vector<pair<int, int>> vec;
         vec.reserve(n);
-        for (int i = 0; i < n; i++) vec.emplace_back(env.at(i).at(0), env.at(i).at(1));
+        for (int i = 0; i < n; i++)
+            vec.emplace_back(env.at(i).at(0), env.at(i).at(1));
         sort(vec.begin(), vec.end(), Comp);
         vector<int> t;
 

@@ -46,7 +46,10 @@ class Solution {
             return merged.at(static_cast<size_t>((size - 1) / 2));
         }
 
-        return (static_cast<double>(merged.at(static_cast<size_t>((size - 1) / 2)) + merged.at(static_cast<size_t>(size) / 2))) / 2;
+        return (static_cast<double>(
+                   merged.at(static_cast<size_t>((size - 1) / 2)) +
+                   merged.at(static_cast<size_t>(size) / 2))) /
+               2;
     }
 
    private:

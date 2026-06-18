@@ -57,7 +57,8 @@ class Solution {
             j = i + 1;
             k = n - 1;
             while (j < k) {
-                const int d = abs(target - (nums.at(i) + nums.at(j) + nums.at(k)));
+                const int d =
+                    abs(target - (nums.at(i) + nums.at(j) + nums.at(k)));
                 if (diff >= d) {
                     diff = d;
                     sum = nums.at(i) + nums.at(j) + nums.at(k);

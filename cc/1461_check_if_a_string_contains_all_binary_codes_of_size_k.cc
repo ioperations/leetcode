@@ -28,7 +28,8 @@ class Solution {
 
         if (static_cast<int>(s.size()) < k) return false;
         unordered_set<string> st;
-        for (int i = 0; i <= static_cast<int>(s.size()) - k; i++) st.insert(s.substr(i, k));
+        for (int i = 0; i <= static_cast<int>(s.size()) - k; i++)
+            st.insert(s.substr(i, k));
         return st.size() == static_cast<int>(pow(2, k));
     }
 };

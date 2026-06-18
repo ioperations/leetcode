@@ -45,7 +45,8 @@ class Solution {
         };
         std::function<bool(pair<int, int>, pair<int, int>)> const mycompaire =
             [&matrix](pair<int, int> a, pair<int, int> b) -> bool {
-            return matrix.at(a.first).at(a.second) > matrix.at(b.first).at(b.second);
+            return matrix.at(a.first).at(a.second) >
+                   matrix.at(b.first).at(b.second);
         };
 
         std::priority_queue<pair<int, int>, std::vector<pair<int, int>>, Tt> q;
@@ -106,7 +107,9 @@ class Solution {
     int KthSmallestOn2(vector<vector<int>>& matrix, int k) {
         // pass
 
-        vector<int> z(static_cast<int>(matrix.size()) * static_cast<int>(matrix.size()), 0);
+        vector<int> z(
+            static_cast<int>(matrix.size()) * static_cast<int>(matrix.size()),
+            0);
         for (int i = 0; i < static_cast<int>(matrix.size()); i++) {
             for (int j = 0; j < static_cast<int>(matrix.size()); j++) {
                 z.at(i + j) = matrix.at(i).at(j);

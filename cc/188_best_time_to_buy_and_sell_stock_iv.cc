@@ -30,8 +30,10 @@ class Solution {
         for (int i = 0; i <= k; i++) dp.at(i).at(0) = INT_MAX;
         for (auto& price : prices) {
             for (int i = 1; i <= k; i++) {
-                dp.at(i).at(0) = std::min(dp.at(i).at(0), price - dp.at(i - 1).at(1));
-                dp.at(i).at(1) = std::max(dp.at(i).at(1), price - dp.at(i).at(0));
+                dp.at(i).at(0) =
+                    std::min(dp.at(i).at(0), price - dp.at(i - 1).at(1));
+                dp.at(i).at(1) =
+                    std::max(dp.at(i).at(1), price - dp.at(i).at(0));
             }
         }
         return dp.at(k).at(1);
@@ -50,10 +52,10 @@ class Solution {
             // 选择不采取这个动作 买/卖, 在下一天决定
             int const v1 = fun(day + 1, next_action, value, k_times);
             // 选择采取这个动作 买/卖 今天就买/卖
-            int const v2 = fun(
-                day + 1, !next_action,
-                next_action ? (value - (prices.at(day))) : (value + (prices.at(day))),
-                next_action ? (k_times) : --k_times);
+            int const v2 = fun(day + 1, !next_action,
+                               next_action ? (value - (prices.at(day)))
+                                           : (value + (prices.at(day))),
+                               next_action ? (k_times) : --k_times);
 
             return max(v1, v2);
         };

@@ -34,7 +34,7 @@ class LfuCache {
 
 template <typename K, typename V>
 LfuCache<K, V>::LfuCache(int capablity)
-    : m_capablity(capablity){
+    : m_capablity(capablity) {
 
       };
 

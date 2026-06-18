@@ -110,7 +110,8 @@ class Solution {
     }
 
     double ImplV3(vector<int>& nums1, vector<int>& nums2) {
-        int const m = static_cast<int>(nums1.size()), n = static_cast<int>(nums2.size());
+        int const m = static_cast<int>(nums1.size()),
+                  n = static_cast<int>(nums2.size());
 
         if (!m) {
             return n & 1 ? nums2.at(n / 2)

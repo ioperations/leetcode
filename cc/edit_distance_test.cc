@@ -12,7 +12,8 @@ namespace {
 class Solution {
    public:
     int MinDistance(const std::string& word1, const std::string& word2) {
-        int const n1 = static_cast<int>(word1.size()), n2 = static_cast<int>(word2.size());
+        int const n1 = static_cast<int>(word1.size()),
+                  n2 = static_cast<int>(word2.size());
 
         std::vector<std::vector<int>> dp(n1 + 1, std::vector<int>(n2 + 1, 0));
         // int dp[n1 + 1][n2 + 1];
@@ -24,9 +25,10 @@ class Solution {
                 if (word1.at(i - 1) == word2.at(j - 1)) {
                     dp.at(i).at(j) = dp.at(i - 1).at(j - 1);
                 } else {
-                    dp.at(i).at(j) = std::min({dp.at(i - 1).at(j - 1), dp.at(i - 1).at(j),
-                                         dp.at(i).at(j - 1)}) +
-                               1;
+                    dp.at(i).at(j) =
+                        std::min({dp.at(i - 1).at(j - 1), dp.at(i - 1).at(j),
+                                  dp.at(i).at(j - 1)}) +
+                        1;
                 }
             }
         }

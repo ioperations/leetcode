@@ -88,7 +88,9 @@ Node* ConstructTreeNode(vector<optional<int>>& elements) {
         }
         q.pop();
         i++;
-        if (i >= static_cast<int>(elements.size())) { continue_loop = false; }
+        if (i >= static_cast<int>(elements.size())) {
+            continue_loop = false;
+        }
     }
 
     return ptr;

@@ -34,7 +34,8 @@ class Solution {
         int const mod = 1e9 + 7;
         vector<pair<int, int>> candidates(n);
         // we build the pair { efficiency, speed } so that we can sort it later
-        for (int i = 0; i < n; i++) candidates.at(i) = {efficiency.at(i), speed.at(i)};
+        for (int i = 0; i < n; i++)
+            candidates.at(i) = {efficiency.at(i), speed.at(i)};
         // sort candidates in descending order
         sort(candidates.rbegin(), candidates.rend());
         // Using Example 1:
@@ -55,9 +56,9 @@ class Solution {
             // hence if the queue size is greater than k
             // we need to remove a candidate
             if (static_cast<int>(pq.size()) > k) {
-              // who to remove? of course the one with smallest speed
-              speed_sum -= pq.top();
-              pq.pop();
+                // who to remove? of course the one with smallest speed
+                speed_sum -= pq.top();
+                pq.pop();
             }
             // a team is formed now, calculate the performance
             ans = max(ans, speed_sum * e);

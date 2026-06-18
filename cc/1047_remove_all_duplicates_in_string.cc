@@ -31,14 +31,14 @@ class Solution {
 
         stack<pair<char, int>> stk;
         for (int i = 0; i < n; ++i) {
-          if (stk.empty() || stk.top().first != s.at(i)) {
-            stk.emplace(s.at(i), 1);
-          } else {
-            auto const prev = stk.top();
-            stk.pop();
-            stk.emplace(s.at(i), prev.second + 1);
-          }
-          if (stk.top().second == k) {
+            if (stk.empty() || stk.top().first != s.at(i)) {
+                stk.emplace(s.at(i), 1);
+            } else {
+                auto const prev = stk.top();
+                stk.pop();
+                stk.emplace(s.at(i), prev.second + 1);
+            }
+            if (stk.top().second == k) {
                 stk.pop();
             }
         }

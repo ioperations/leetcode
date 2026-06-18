@@ -27,7 +27,8 @@ class Solution {
    public:
     bool IsSubsequence(const string& s1, const string& s2) {
         if (m_cache.count(s1)) return m_cache.at(s1);
-        int const n = static_cast<int>(s1.length()), m = static_cast<int>(s2.length());
+        int const n = static_cast<int>(s1.length()),
+                  m = static_cast<int>(s2.length());
         int i = 0, j = 0;
         while (i < n && j < m) {
             if (s1.at(i) == s2.at(j)) i++;
@@ -57,7 +58,7 @@ class Solution {
         }
 
         for (const auto& word : words) {  // for each word
-            int prev_index = -1;   // initialize upper_bound to -1
+            int prev_index = -1;          // initialize upper_bound to -1
             count++;  // first we will consider it as valid subsequence, then we
                       // prove it is correct or not. If it is not, then don't
                       // worry, we are going to decrement the count later

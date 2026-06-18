@@ -30,16 +30,19 @@ class Solution {
 
         for (int i = 0; i < static_cast<int>(strings.size()); i++) {
             string now = strings.at(i);
-            int const zeros = static_cast<int>(count(now.begin(), now.end(), '0'));
-            int const ones = static_cast<int>(count(now.begin(), now.end(), '1'));
+            int const zeros =
+                static_cast<int>(count(now.begin(), now.end(), '0'));
+            int const ones =
+                static_cast<int>(count(now.begin(), now.end(), '1'));
 
             for (int j = 0; j <= m; j++) {
                 for (int k = 0; k <= n; k++) {
                     if (i == 0 || (j == 0 && k == 0)) {
                         arr.at(i).at(j).at(k) = 0;
                     } else if (zeros <= j && ones <= k) {
-                        arr.at(i).at(j).at(k) = max(1 + arr.at(i - 1).at(j - zeros).at(k - ones),
-                                                   arr.at(i - 1).at(j).at(k));
+                        arr.at(i).at(j).at(k) =
+                            max(1 + arr.at(i - 1).at(j - zeros).at(k - ones),
+                                arr.at(i - 1).at(j).at(k));
                     } else {
                         arr.at(i).at(j).at(k) = arr.at(i - 1).at(j).at(k);
                     }

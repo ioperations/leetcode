@@ -143,7 +143,7 @@ TEST(getResult, t3) {
 TEST(getResult, t4) {
     std::vector<vector<int>> queries = std::vector<std::vector<int>>{
         std::vector<int>{1, 4}, std::vector<int>{2, 1, 2}};
-    std::vector<bool> output = std::vector<bool>{true}; // wrong answer
+    std::vector<bool> output = std::vector<bool>{true};  // wrong answer
 
     Solution sl;
     auto ret = sl.GetResults(queries);

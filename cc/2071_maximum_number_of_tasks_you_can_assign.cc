@@ -59,12 +59,15 @@ class Solution {
                                         // pill. Needs to be in descending order
 
         while (t < static_cast<int>(tasks.size())) {
-            while (w < static_cast<int>(workers.size()) && workers.at(w) == -1) {
+            while (w < static_cast<int>(workers.size()) &&
+                   workers.at(w) == -1) {
                 w++;
             }  // Find next worker that has not already been processed
 
-            if (w >= static_cast<int>(workers
-                         .size()))  // If we've run out of workers, look to see
+            if (w >=
+                static_cast<int>(
+                    workers
+                        .size()))  // If we've run out of workers, look to see
                                    // if any in the queue can solve the task.
             {
                 if (!workers_q.empty() && workers_q.top() > tasks.at(t)) {
@@ -73,7 +76,7 @@ class Solution {
                 }
             } else if (workers.at(w) >=
                        tasks.at(t))  // If the current worker can solve the task
-                                  // without a pill, use her.
+                                     // without a pill, use her.
             {
                 workers.at(w) = -1;
                 w++;
@@ -106,8 +109,8 @@ class Solution {
 
                 // If we have equal or more workers assigned to the queue than
                 // pills, see if we can pull one out to finish this task
-                if (static_cast<int>(workers_q.size()) >= pills && !workers_q.empty() &&
-                    workers_q.top() >= tasks.at(t)) {
+                if (static_cast<int>(workers_q.size()) >= pills &&
+                    !workers_q.empty() && workers_q.top() >= tasks.at(t)) {
                     completed_tasks++;
                     workers_q.pop();
                 }

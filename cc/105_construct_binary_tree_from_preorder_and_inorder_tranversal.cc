@@ -38,11 +38,11 @@ class Solution {
     TreeNode<T>* BuildTree(vector<T>& preorder, vector<T>& inorder) {
         unordered_map<int, int> inorder_map;
         for (int i = 0; i < static_cast<int>(inorder.size()); i++) {
-          inorder_map[inorder.at(static_cast<size_t>(i))] = i;
+            inorder_map[inorder.at(static_cast<size_t>(i))] = i;
         }
 
-        return Build(preorder, 0, static_cast<int>(preorder.size()) - 1, inorder_map, 0,
-                     static_cast<int>(inorder.size()) - 1);
+        return Build(preorder, 0, static_cast<int>(preorder.size()) - 1,
+                     inorder_map, 0, static_cast<int>(inorder.size()) - 1);
     }
 };
 

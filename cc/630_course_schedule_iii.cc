@@ -21,8 +21,9 @@ using namespace std;
 namespace {
 class Solution {
     bool static Comp(vector<int>& course1, vector<int>& course2) {
-        return (course1.at(1) != course2.at(1)) ? (course1.at(1) < course2.at(1))
-                                          : (course1.at(0) < course2.at(0));
+        return (course1.at(1) != course2.at(1))
+                   ? (course1.at(1) < course2.at(1))
+                   : (course1.at(0) < course2.at(0));
     }
 
    public:

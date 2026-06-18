@@ -58,7 +58,7 @@ class Solution {
             DFS(current->left, path, target, found);  // recurse
             if (!found) {  // If the target has been found, keep the path
                            // constant.
-              path.pop_back();
+                path.pop_back();
             }
         }
 
@@ -76,9 +76,9 @@ class Solution {
         while (!path.empty()) {
             // Now iterating from the opposite side of the queue.
             if (path.front()) {  // True == left
-              current = current->left;
+                current = current->left;
             } else {  // False == right
-              current = current->right;
+                current = current->right;
             }
             path.pop_front();
         }

@@ -26,7 +26,8 @@ class Solution {
         if (n == 0 || goal == 0) return 0;
         if (dp.at(n).at(goal) != -1) return dp.at(n).at(goal);
         ll const pick{Solve(n - 1, goal - 1, k, dp) * n};
-        ll const notpick{Solve(n, goal - 1, k, dp) * static_cast<ll>(max(n - k, 0))};
+        ll const notpick{Solve(n, goal - 1, k, dp) *
+                         static_cast<ll>(max(n - k, 0))};
         return dp.at(n).at(goal) = static_cast<int>((pick + notpick) % m_mod);
     }
 

@@ -73,8 +73,9 @@ class Solution {
                 if (direction_t != 1) {
                     int const z = fun(i + 1, j, -1);
                     if (z != candidate1) {
-                        candidate1 =
-                            std::max(abs(heights.at(i + 1).at(j) - heights.at(i).at(j)), z);
+                        candidate1 = std::max(
+                            abs(heights.at(i + 1).at(j) - heights.at(i).at(j)),
+                            z);
                     }
                 }
             }
@@ -83,8 +84,9 @@ class Solution {
                 if (direction_t != -1) {
                     int const z = fun(i - 1, j, 1);
                     if (z != candidate2) {
-                        candidate2 =
-                            std::max(abs(heights.at(i - 1).at(j) - heights.at(i).at(j)), z);
+                        candidate2 = std::max(
+                            abs(heights.at(i - 1).at(j) - heights.at(i).at(j)),
+                            z);
                     }
                 }
             }
@@ -93,9 +95,9 @@ class Solution {
                 if (direction_t != -2) {
                     int const z = fun(i, j + 1, 2);
                     if (z != candidate3) {
-                        candidate3 =
-                            std::max(abs(heights.at(i).at(j + 1) - heights.at(i).at(j)),
-                                     fun(i, j + 1, 2));
+                        candidate3 = std::max(
+                            abs(heights.at(i).at(j + 1) - heights.at(i).at(j)),
+                            fun(i, j + 1, 2));
                     }
                 }
             }
@@ -104,8 +106,9 @@ class Solution {
                 if (direction_t != 2) {
                     int const z = fun(i, j - 1, -2);
                     if (z != candidate4) {
-                        candidate4 =
-                            std::max(abs(heights.at(i).at(j - 1) - heights.at(i).at(j)), z);
+                        candidate4 = std::max(
+                            abs(heights.at(i).at(j - 1) - heights.at(i).at(j)),
+                            z);
                     }
                 }
             }
@@ -161,9 +164,10 @@ class Solution {
                 }
 
                 dp.at(px).at(py) =
-                    min(dp.at(px).at(py), max(dp.at(temp.first).at(temp.second),
-                                        abs(heights.at(temp.first).at(temp.second) -
-                                            heights.at(px).at(py))));
+                    min(dp.at(px).at(py),
+                        max(dp.at(temp.first).at(temp.second),
+                            abs(heights.at(temp.first).at(temp.second) -
+                                heights.at(px).at(py))));
                 q.emplace(px, py);
             }
         }

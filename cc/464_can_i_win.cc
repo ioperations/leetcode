@@ -25,7 +25,8 @@ namespace {
 class Solution {
    private:
     vector<vector<int>> m_dp;
-    bool Backtrack(int curr, int const max_int, int const desire, int mask, int player) {
+    bool Backtrack(int curr, int const max_int, int const desire, int mask,
+                   int player) {
         if (m_dp.at(player).at(mask) != -1) {
             return m_dp.at(player).at(mask);
         }

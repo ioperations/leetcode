@@ -42,7 +42,8 @@ class Solution {
                 third = max(third, k);
             }
 
-            if ((nums.at(static_cast<size_t>(i)) > second) && (nums.at(static_cast<size_t>(i)) < third)) {
+            if ((nums.at(static_cast<size_t>(i)) > second) &&
+                (nums.at(static_cast<size_t>(i)) < third)) {
                 second = nums.at(static_cast<size_t>(i));
             }
 
