@@ -35,7 +35,7 @@ class Solution {
     Solution() { BuildMap(); }
     string MapWordWeights(vector<string>& words, vector<int>& weights) {
         std::string ret = "";
-        ret.resize(words.size());
+        ret.reserve(words.size());
         for (auto& p : words) {
             int v = 0;
             for (auto& q : p) {
