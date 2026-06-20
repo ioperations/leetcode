@@ -15,7 +15,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    [[nodiscard]] int FirstUniqChar(string s) const {
+    [[nodiscard]] int FirstUniqChar(const string& s) const {
         unordered_map<char, pair<int, int>> m;
         int idx = static_cast<int>(s.size());
         for (int i = 0; i < static_cast<int>(s.size()); i++) {

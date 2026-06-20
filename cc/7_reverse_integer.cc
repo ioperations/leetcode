@@ -49,7 +49,7 @@ class Solution {
         }
 
         auto str = std::to_string(std::abs(x));
-        auto ret = Reverse(str);
+        auto ret = Reverse(std::move(str));
 
         if (OutOfRange(ret)) {
             return 0;

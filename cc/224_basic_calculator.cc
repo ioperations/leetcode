@@ -138,7 +138,7 @@ class Solution {
 
 class SolutionV2 {
    public:
-    int Calculate(std::string s) {
+    int Calculate(const std::string& s) {
         constexpr int k_base = 10;
         int res = 0;
         int sign = 1;
@@ -176,7 +176,7 @@ class SolutionV2 {
 
 class SolutionV3 {
    public:
-    int Calculate(std::string s) {
+    int Calculate(const std::string& s) {
         constexpr int k_base = 10;
         // Stack to store numbers
         std::stack<int> nums;

@@ -24,7 +24,7 @@ class Solution {
         unordered_map<string, int> mp;
         return MinCut(std::move(s), mp) - 1;
     }
-    int MinCut(string s, unordered_map<string, int>& mp) {
+    int MinCut(const string& s, unordered_map<string, int>& mp) {
         if (s.size() == 0) return 0;
 
         if (mp.find(s) != mp.end()) return mp[s];

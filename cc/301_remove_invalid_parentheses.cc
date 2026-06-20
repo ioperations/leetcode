@@ -22,7 +22,7 @@ class Solution {
    public:
     unordered_map<string, int> m_mp;
 
-    void Helper(string s, int minrem, vector<string>& st) {
+    void Helper(const string& s, int minrem, vector<string>& st) {
         if (m_mp[s] != 0) return;
         m_mp[s]++;
         if (minrem < 0) return;
@@ -71,7 +71,7 @@ class Solution {
         return static_cast<int>(stack.size());
     }
 
-    vector<string> RemoveInvalidParentheses(string s) {
+    vector<string> RemoveInvalidParentheses(const string& s) {
         int const minrems = RemovalsV2(s);
         vector<string> ans;
         Helper(s, minrems, ans);

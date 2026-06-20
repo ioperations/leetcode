@@ -42,7 +42,7 @@ class Solution {
         }
         return s;
     }
-    string ReverseWords(string s) {
+    string ReverseWords(const string& s) {
         // pass
         string ret;
         stack<char> stack;

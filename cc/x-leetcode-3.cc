@@ -11,7 +11,7 @@
 namespace {
 class Solution {
    public:
-    int LengthOfLongestSubstring(std::string s) {
+    int LengthOfLongestSubstring(const std::string& s) {
         std::set<char> visited{};
         int max = 0;
         int continued = 0;

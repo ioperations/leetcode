@@ -26,7 +26,6 @@ class Solution {
     /// 从 @left 到 @right反转链表
     ListNode* ReverseBetween(ListNode* head, int left, int right) {
         ListNode* this_head = head;
-        ListNode const this_tail_node;
         ListNode *this_tail = nullptr, *this_list = nullptr, *it = head;
 
         int i = 1;
@@ -72,11 +71,12 @@ class Solution {
         }
 
         it = this_list;
-        while (it->next != nullptr) {
-            it = it->next;
+        if (it != nullptr) {
+            while (it->next != nullptr) {
+                it = it->next;
+            }
+            it->next = this_tail;
         }
-
-        it->next = this_tail;
 
         return this_head;
     }

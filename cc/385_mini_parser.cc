@@ -101,7 +101,7 @@ class Solution {
     }
 
     [[nodiscard]]
-    NestedInteger DeserializeV1(std::string s) const {
+    NestedInteger DeserializeV1(const std::string& s) const {
         constexpr int k_base = 10;
         std::stack<NestedInteger> stk({NestedInteger()});
         for (size_t i = 0; i < s.size(); ++i) {

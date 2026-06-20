@@ -20,7 +20,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    int CountSubstrings(string s) {
+    int CountSubstrings(const string& s) {
         int count = static_cast<int>(s.size());
         for (int i = 0; i < static_cast<int>(s.size()); i++) {
             for (int j = i + 1; j < static_cast<int>(s.size()); j++) {
@@ -31,7 +31,7 @@ class Solution {
         }
         return count;
     }
-    bool IsParlindromic(std::string& s, int i, int j) {
+    bool IsParlindromic(const std::string& s, int i, int j) {
         while (i < j) {
             if (s.at(i) == s.at(j)) {
                 i++;
@@ -43,7 +43,7 @@ class Solution {
         return true;
     }
 
-    int CountSubstringsV1(string s) {
+    int CountSubstringsV1(const string& s) {
         int count = 0;
         std::size_t const n = s.size();
         if (n == 1) return 1;

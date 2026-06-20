@@ -58,7 +58,7 @@ class UndergroundSystem {
             m_wait.begin(), m_wait.end(),
             [&](const std::pair<int, Node>& n) { return id == n.first; });
         if (it == m_wait.end()) return;
-        Node const n = it->second;
+        Node const& n = it->second;
         std::string const s =
             n.m_station >= station_name ? n.m_station : station_name;
         std::string const d =
@@ -112,7 +112,7 @@ class Solution2 {
 
     void CheckOut(int id, const string& station_name, int t) {
         auto& info = m_in_transit[id];
-        string const start_station = info.first;
+        string const& start_station = info.first;
         int const start_time = info.second;
         string const key = start_station + ":" + station_name;
         int const time = t - start_time;

@@ -19,7 +19,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    int Lcs(std::string string1, std::string string2) {
+    int Lcs(const std::string& string1, const std::string& string2) {
         int const n1 = static_cast<int>(string1.length());
         int const n2 = static_cast<int>(string2.length());
         vector<vector<int>> dp(n1 + 1, vector<int>(n2 + 1, 0));

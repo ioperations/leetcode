@@ -21,7 +21,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    int MinimumRecolors(string blocks, int k) {
+    int MinimumRecolors(const string& blocks, int k) {
         /*
          * n == blocks.length
          * 1 <= n <= 100

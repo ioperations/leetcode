@@ -35,7 +35,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    [[nodiscard]] std::string SimplifyPath(std::string path) const {
+    [[nodiscard]] std::string SimplifyPath(const std::string& path) const {
         std::stack<std::string> st;
         std::string res;
 

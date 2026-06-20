@@ -37,8 +37,8 @@ class Solution {
             auto tuple = make_tuple(left, right, k);
             if (map.count(tuple)) return map[tuple];
 
-            int left_res = -1;
-            int right_res = -1;
+            int left_res;
+            int right_res;
 
             left_res = card_points.at(left) + fun(left + 1, right, k - 1);
             right_res = card_points.at(right) + fun(left, right - 1, k - 1);

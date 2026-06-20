@@ -24,7 +24,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    bool CanReach(string s, int min_jump, int max_jump) {
+    bool CanReach(const string& s, int min_jump, int max_jump) {
         // pass
         if (s.at(s.size() - 1) != '0') return false;
         vector<int> list;

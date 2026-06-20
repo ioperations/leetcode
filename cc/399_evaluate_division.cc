@@ -63,7 +63,7 @@ class Solution {
             m_unmp[eq.at(i).at(1)].insert({eq.at(i).at(0), 1 / values.at(i)});
         }
         vector<double> ans;
-        for (auto it : queries) {
+        for (const auto& it : queries) {
             m_visited.clear();  // we clear visited array for each dfs
             ans.push_back(
                 Dfs(it.at(0),

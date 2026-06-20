@@ -27,7 +27,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    bool CanReplace(string& stamp, string& target, int pos) {
+    bool CanReplace(const string& stamp, string& target, int pos) {
         int const m = static_cast<int>(stamp.size());
         for (int i = 0; i < m; i++) {
             if (target.at(i + pos) != '?' and target.at(i + pos) != stamp.at(i))
@@ -36,7 +36,7 @@ class Solution {
         return true;
     }
 
-    int Replace(string& stamp, string& target, int pos) {
+    int Replace(const string& stamp, string& target, int pos) {
         int cnt = 0;
         int const m = static_cast<int>(stamp.size());
         for (int i = 0; i < m; i++) {
@@ -48,7 +48,7 @@ class Solution {
         return cnt;
     }
 
-    vector<int> MovesToStamp(string stamp, string target) {
+    vector<int> MovesToStamp(const string& stamp, string target) {
         vector<int> ans;
 
         int const m = static_cast<int>(stamp.size());

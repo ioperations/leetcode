@@ -26,7 +26,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    int RemovePalindromeSub(string s) {
+    int RemovePalindromeSub(const string& s) {
         // pass
         int const end = s.length() - 1;
         for (int i = 0; end > i && i < static_cast<int>(s.length()); i++) {

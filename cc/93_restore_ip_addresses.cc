@@ -28,7 +28,7 @@ class Solution {
         return ret;
     }
     vector<std::string> m_v;
-    void Check(string s, string ans, int len, int index) {
+    void Check(const string& s, string ans, int len, int index) {
         const int size = static_cast<int>(s.length());
         if (size == index && len == 0) {
             ans.pop_back();

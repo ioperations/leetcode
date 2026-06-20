@@ -19,11 +19,11 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    [[nodiscard]] bool BackspaceCompare(string s, string t) const {
+    [[nodiscard]] bool BackspaceCompare(const string& s, const string& t) const {
         return Real(s) == Real(t);
     }
 
-    [[nodiscard]] std::string Real(std::string s) const {
+    [[nodiscard]] std::string Real(const std::string& s) const {
         std::string ret;
         std::stack<char> stack;
         for (auto& ptr : s) {

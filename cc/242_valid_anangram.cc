@@ -30,7 +30,7 @@ TEST(validV, t1) {
     string s = "anagram", t = "nagaram";
     bool const output = true;
     Solution const sl;
-    bool const ret = sl.IsAnagram(s, t);
+    bool const ret = sl.IsAnagram(std::move(s), std::move(t));
     EXPECT_EQ(output, ret);
 }
 
@@ -38,7 +38,7 @@ TEST(validV, t2) {
     string s = "rat", t = "car";
     bool const output = false;
     Solution const sl;
-    bool const ret = sl.IsAnagram(s, t);
+    bool const ret = sl.IsAnagram(std::move(s), std::move(t));
     EXPECT_EQ(output, ret);
 }
 

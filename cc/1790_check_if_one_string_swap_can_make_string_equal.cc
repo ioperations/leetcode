@@ -16,7 +16,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    bool AreAlmostEqual(string s1, string s2) {
+    bool AreAlmostEqual(string s1, const string& s2) {
         /*
          * 1 <= s1.length, s2.length <= 100
          * s1.length == s2.length

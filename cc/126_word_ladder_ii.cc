@@ -28,7 +28,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    bool Able(string s, string t) {
+    bool Able(const string& s, const string& t) {
         if (s.length() != t.length()) return false;
         int c = 0;
         for (int i = 0; i < static_cast<int>(s.length()); i++) {
@@ -99,7 +99,7 @@ class Solution {
         }
         Bfs(g, parent, n, sr, ds);
         ShortestPaths(paths, path, parent, ds);
-        for (auto u : paths) {
+        for (const auto& u : paths) {
             vector<string> now;
             now.reserve(static_cast<int>(u.size()) - 1);
             for (int i = 0; i < static_cast<int>(u.size()) - 1; i++) {

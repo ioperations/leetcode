@@ -19,7 +19,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    bool IsMatch(string s, string p) {
+    bool IsMatch(const string& s, const string& p) {
         // 0 <= s.length, p.length <= 2000
         // s contains only lowercase English letters.
         // p contains only lowercase English letters, '?' or '*'.

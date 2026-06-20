@@ -29,7 +29,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    string DecodeString(string encoded_string) {
+    string DecodeString(const string& encoded_string) {
         stack<string> st;
         string curr = "";
         string num = "";

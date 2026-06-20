@@ -21,7 +21,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    void Solve(vector<vector<char> >& v, vector<string>& ans, string digits,
+    void Solve(vector<vector<char> >& v, vector<string>& ans, const string& digits,
                int pos, string s) {
         if (pos == static_cast<int>(digits.size())) {
             if (s != "") {
@@ -37,7 +37,7 @@ class Solution {
         }
     }
     // clang-format off
-    vector<string> LetterCombinations(string digits) {
+    vector<string> LetterCombinations(const string& digits) {
         // clang-format off
         vector<vector<char> > v{{}, {}, {'a', 'b', 'c'}, {'d', 'e', 'f'},
                                 {'g', 'h', 'i'}, {'j', 'k', 'l'},

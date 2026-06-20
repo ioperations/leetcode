@@ -50,7 +50,7 @@ class Solution {
     }
 
    private:
-    int Backtrack(vector<int> nums, int tar, int index) {
+    int Backtrack(const vector<int>& nums, int tar, int index) {
         if (index >= static_cast<int>(nums.size())) return 0;
         if (tar == 0) return 1;
 

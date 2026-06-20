@@ -34,8 +34,7 @@ class Solution {
         // pick
         int const ele = nums.at(ind);
         temp.push_back(ele);
-        Solve(ans, temp, ind + 1, nums);
-        temp.pop_back();  // backtracking to reverse in original manner
+        Solve(ans, std::move(temp), ind + 1, nums);
     }
     vector<vector<int>> Subsets(vector<int> const& nums) const {
         vector<vector<int>> ans;
@@ -61,7 +60,7 @@ class SolutionV1 {
         // pick
         int const ele = nums.at(ind);
         temp.push_back(ele);
-        Solve(ans, temp, ind + 1, nums);
+        Solve(ans, std::move(temp), ind + 1, nums);
     }
     vector<vector<int>> Subsets(vector<int> const& nums) {
         vector<vector<int>> ans;

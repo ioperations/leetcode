@@ -55,7 +55,7 @@ class LoserTree {
         }
         int const lwinner_idx = Build(node_idx << 1);
         int const rwinner_idx = Build(node_idx << 1 | 1);
-        int winner_idx = -1;
+        int winner_idx;
         // 父节点存loser
         if ((*this->m_base).at(lwinner_idx) < (*this->m_base).at(rwinner_idx)) {
             this->m_ls.at(node_idx) = rwinner_idx;
@@ -197,9 +197,6 @@ class Solution {
             }
 
             // 现在当前的candidate的node需要向下一格
-            if (candidate->next) {
-                candidate = candidate->next;
-            }
         }
 
         return head;

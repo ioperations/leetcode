@@ -16,7 +16,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    int LongestValidParentheses(string s) const {
+    int LongestValidParentheses(const string& s) const {
         stack<int> st;
         int maxi = 0;
         st.push(-1);

@@ -32,7 +32,7 @@ class Solution {
         return ret;
     }
     [[nodiscard]]
-    std::string Multiply(std::string num1, std::string num2) const {
+    std::string Multiply(const std::string& num1, const std::string& num2) const {
         if (num1 == "0" || num2 == "0") {
             return "0";
         }

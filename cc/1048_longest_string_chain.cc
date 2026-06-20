@@ -45,7 +45,6 @@ class Solution {
         return cnt <= 1;
     }
     int LongestStrChain(vector<string>& words) const {
-        int ans = 1;
         vector<int> dp(words.size(), 1);
         sort(words.begin(), words.end(),
              [](const string& s1, const string& s2) {
@@ -68,7 +67,7 @@ class Solution {
             }
         }
 
-        ans = *std::max_element(dp.cbegin(), dp.cend());
+        int ans = *std::max_element(dp.cbegin(), dp.cend());
         return ans;
     }
 };

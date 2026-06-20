@@ -23,7 +23,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    string MinWindow(string s, string t) {
+    string MinWindow(const string& s, const string& t) {
         // This result variable will store the string which we will return
         string result;
 

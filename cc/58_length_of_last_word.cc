@@ -10,7 +10,7 @@ namespace {
 class Solution {
    public:
     [[nodiscard]]
-    int LengthOfLastWord(string s) const {
+    int LengthOfLastWord(const string& s) const {
         int size = 0;
         for (auto it = s.rbegin(); it < s.rend(); it++) {
             if (*it == ' ') {

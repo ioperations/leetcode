@@ -96,6 +96,7 @@ class Solution {
             int val = t.first, i = t.second.first, j = t.second.second;
             if (++cnt == k) return val;
             if (j + 1 < n) pq.push({matrix.at(i).at(j + 1), {i, j + 1}});
+            (void)i;
         }
         return -1;
     }

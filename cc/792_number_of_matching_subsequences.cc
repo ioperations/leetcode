@@ -36,7 +36,7 @@ class Solution {
         }
         return m_cache[s1] = i == n;
     }
-    int NumMatchingSubseqV1(string s, vector<string>& words) {
+    int NumMatchingSubseqV1(const string& s, vector<string>& words) {
         // pass
         int sum = 0;
         for (auto& ptr : words) {
@@ -45,7 +45,7 @@ class Solution {
         return sum;
     }
 
-    int NumMatchingSubseq(string s, vector<string>& words) {
+    int NumMatchingSubseq(const string& s, vector<string>& words) {
         unordered_map<char, vector<int>>
             ump;  // unordered_map with character as key and its index position
                   // vector generated from string s

@@ -97,7 +97,7 @@ class Solution {
 
         // mark 1st loc 0
         grid.at(r).at(c) = '0';
-        for (auto off : offsets) {
+        for (const auto& off : offsets) {
             int const r_x = r + off.at(0);
             int const c_x = c + off.at(1);
             // cout << "r_: " << r_ << "\n";

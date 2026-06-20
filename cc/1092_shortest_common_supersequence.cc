@@ -17,7 +17,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    string ShortestCommonSupersequence(string str1, string str2) {
+    string ShortestCommonSupersequence(const string& str1, const string& str2) {
         /*
          * 1 <= str1.length, str2.length <= 1000
          * str1 and str2 consist of lowercase English letters.

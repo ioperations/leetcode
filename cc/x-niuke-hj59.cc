@@ -10,7 +10,7 @@ using namespace std;
 
 namespace {
 /// output the first char existing only once
-void Process(std::string str) {
+void Process(const std::string& str) {
     const int size = static_cast<int>(str.size());
     for (int i = 0; i < size; i++) {
         if (str.find_first_of(str[i]) == str.find_last_of(str[i])) {

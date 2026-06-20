@@ -12,7 +12,7 @@ namespace {
 
 class Solution {
    public:
-    [[nodiscard]] int LengthOfLongestSubstring(std::string s) const {
+    [[nodiscard]] int LengthOfLongestSubstring(const std::string& s) const {
         int const n = static_cast<int>(s.size());
         int ans = std::numeric_limits<int>::min(), i = 0, j = 0;
         std::unordered_map<char, int> m;

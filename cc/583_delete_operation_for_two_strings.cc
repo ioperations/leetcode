@@ -19,7 +19,7 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    int Lcs(std::string s, std::string t) {
+    int Lcs(const std::string& s, const std::string& t) {
         int const n = static_cast<int>(s.length());
         int const m = static_cast<int>(t.length());
 
