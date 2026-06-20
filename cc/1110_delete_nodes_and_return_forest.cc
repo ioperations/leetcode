@@ -83,6 +83,7 @@ TEST(T, t1) {
         Tree::FreeTreeNode(n);
     });
 
+    ASSERT_NE(nullptr, n);
     std::array<TreeNode, 3> expected = {*n, TreeNode{6}, TreeNode{7}};
     Solution sl;
     auto ret = sl.DelNodes(binary_tree, {3, 5});

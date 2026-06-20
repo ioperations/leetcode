@@ -53,11 +53,11 @@ class Solution {
         string temp2 = s;
         if (l > 0) {
             temp1 += "(";
-            Parentheses(pvec, temp1, l - 1, r + 1);
+            Parentheses(pvec, std::move(temp1), l - 1, r + 1);
         }
         if (r > 0) {
             temp2 += ")";
-            Parentheses(pvec, temp2, l, r - 1);
+            Parentheses(pvec, std::move(temp2), l, r - 1);
         } else if (l == 0 && r == 0) {
             pvec.push_back(s);
         }

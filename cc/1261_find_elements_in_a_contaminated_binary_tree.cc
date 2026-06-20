@@ -95,6 +95,8 @@ TEST(T0, t2) {
     // Explanation
     auto* root = Tree::ConstructBinaryTree(
         std::vector<std::optional<int>>{-1, -1, -1, -1, -1});
+    ASSERT_NE(nullptr, root);
+
     FindElements find_elements(root);
     auto ret = find_elements.Find(1);  // return False
     EXPECT_TRUE(ret);
@@ -113,6 +115,7 @@ TEST(T0, t3) {
     // Explanation
     auto* root = Tree::ConstructBinaryTree(
         std::vector<std::optional<int>>{-1, null, -1});
+    ASSERT_NE(nullptr, root);
     {
         auto* root2 =
             Tree::ConstructBinaryTree(std::vector<std::optional<int>>{-1, -1});

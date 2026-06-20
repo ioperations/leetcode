@@ -158,6 +158,7 @@ TEST(CopyListWithRandomPointer, t1) {
     Node* node = ConstructNode(head);
     Solution sl;
     Node* ret = sl.CopyRandomList(node);
+    ASSERT_NE(nullptr, ret);
     auto vec = RestoreNode(ret);
     RestoreNode(node);  // do the free things
     EXPECT_EQ(vec, output);
@@ -171,6 +172,7 @@ TEST(CopyListWithRandomPointer, t2) {
     Node* node = ConstructNode(head);
     Solution sl;
     Node* ret = sl.CopyRandomList(node);
+    ASSERT_NE(nullptr, ret);
     auto vec = RestoreNode(ret);
     RestoreNode(node);  // do the free things
     EXPECT_EQ(vec, output);
@@ -186,6 +188,7 @@ TEST(CopyListWithRandomPointer, t3) {
     Node* node = ConstructNode(head);
     Solution sl;
     Node* ret = sl.CopyRandomList(node);
+    ASSERT_NE(nullptr, ret);
     auto vec = RestoreNode(ret);
     RestoreNode(node);  // do the free things
     EXPECT_EQ(vec, output);
