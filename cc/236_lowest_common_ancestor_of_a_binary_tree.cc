@@ -56,7 +56,9 @@ TEST(LowestCommonAncestorOfABinaryTree, t1) {
     ASSERT_NE(nullptr, qn);
     auto* ret = sl.LowestCommonAncestor(node, pn, qn);
     ASSERT_NE(nullptr, ret);
-    EXPECT_EQ(output, ret->val);
+    if (ret != nullptr) {
+        EXPECT_EQ(output, ret->val);
+    }
     FreeTreeNode(node);
 }
 
@@ -74,7 +76,9 @@ TEST(LowestCommonAncestorOfABinaryTree, t2) {
     ASSERT_NE(nullptr, qn);
     auto* ret = sl.LowestCommonAncestor(node, pn, qn);
     ASSERT_NE(nullptr, ret);
-    EXPECT_EQ(output, ret->val);
+    if (ret != nullptr) {
+        EXPECT_EQ(output, ret->val);
+    }
     FreeTreeNode(node);
 }
 
@@ -92,7 +96,9 @@ TEST(LowestCommonAncestorOfABinaryTree, t3) {
     ASSERT_NE(nullptr, qn);
     auto* ret = sl.LowestCommonAncestor(node, pn, qn);
     ASSERT_NE(nullptr, ret);
-    EXPECT_EQ(output, ret->val);
+    if (ret != nullptr) {
+        EXPECT_EQ(output, ret->val);
+    }
     FreeTreeNode(node);
 }
 

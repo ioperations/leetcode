@@ -130,6 +130,7 @@ TEST(LowestCommonAncestorOfABinarySearchTree, t1) {
     TreeNode *p_node = FindTreeNode(root, p), *q_node = FindTreeNode(root, q);
     ASSERT_NE(nullptr, p_node);
     ASSERT_NE(nullptr, q_node);
+    if (p_node == nullptr || q_node == nullptr) return;
 
     auto* ret = s.LowestCommonAncestor(root, p_node, q_node);
     ASSERT_NE(nullptr, ret);
@@ -169,6 +170,7 @@ TEST(LowestCommonAncestorOfABinarySearchTree, t2) {
     TreeNode *p_node = FindTreeNode(root, p), *q_node = FindTreeNode(root, q);
     ASSERT_NE(nullptr, p_node);
     ASSERT_NE(nullptr, q_node);
+    if (p_node == nullptr || q_node == nullptr) return;
 
     auto* ret = s.LowestCommonAncestor(root, p_node, q_node);
     ASSERT_NE(nullptr, ret);
@@ -201,6 +203,7 @@ TEST(LowestCommonAncestorOfABinarySearchTree, t3) {
     TreeNode *p_node = FindTreeNode(root, p), *q_node = FindTreeNode(root, q);
     ASSERT_NE(nullptr, p_node);
     ASSERT_NE(nullptr, q_node);
+    if (p_node == nullptr || q_node == nullptr) return;
 
     auto* ret = s.LowestCommonAncestor(root, p_node, q_node);
     ASSERT_NE(nullptr, ret);

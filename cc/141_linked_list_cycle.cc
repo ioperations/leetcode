@@ -68,6 +68,7 @@ TEST(LinkedListCycle, t1) {
     ListNode* it = head;
     ListNode* it2 = head;
 
+    ASSERT_NE(nullptr, it);
     it = it->next;
 
     while (it2->next != nullptr) {
@@ -101,6 +102,7 @@ TEST(LinkedListCycle, t2) {
     ListNode* it = head;
     ListNode* it2 = head;
 
+    ASSERT_NE(nullptr, it2);
     while (it2->next != nullptr) {
         it2 = it2->next;
     }

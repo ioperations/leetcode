@@ -132,7 +132,9 @@ TEST(FindACorrespondingNodeOfABinaryTreeInACloneOfThatTree, t1) {
     auto* target_node = FindNodeInBinaryTree(head, target);
     auto* ret = sl.GetTargetCopy(head, head2, target_node);
     ASSERT_NE(nullptr, ret);
-    EXPECT_EQ(target, ret->val);
+    if (ret != nullptr) {
+        EXPECT_EQ(target, ret->val);
+    }
 
     FreeTreeNode(head);
     FreeTreeNode(head2);
@@ -149,7 +151,9 @@ TEST(FindACorrespondingNodeOfABinaryTreeInACloneOfThatTree, t2) {
     auto* target_node = FindNodeInBinaryTree(head, target);
     auto* ret = sl.GetTargetCopy(head, head2, target_node);
     ASSERT_NE(nullptr, ret);
-    EXPECT_EQ(target, ret->val);
+    if (ret != nullptr) {
+        EXPECT_EQ(target, ret->val);
+    }
 
     FreeTreeNode(head);
     FreeTreeNode(head2);
@@ -166,8 +170,9 @@ TEST(FindACorrespondingNodeOfABinaryTreeInACloneOfThatTree, t3) {
     auto* target_node = FindNodeInBinaryTree(head, target);
     auto* ret = sl.GetTargetCopy(head, head2, target_node);
     ASSERT_NE(nullptr, ret);
-
-    EXPECT_EQ(target, ret->val);
+    if (ret != nullptr) {
+        EXPECT_EQ(target, ret->val);
+    }
 
     FreeTreeNode(head);
     FreeTreeNode(head2);

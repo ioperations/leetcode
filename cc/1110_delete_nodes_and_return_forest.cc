@@ -48,6 +48,7 @@ class Solution {
         return root;
     }
     vector<TreeNode*> DelNodes(TreeNode* root, const vector<int>& targets) {
+        if (root == nullptr) return {};
         for (const int& target : targets) m_us.insert(target);
         if (m_us.find(root->val) == m_us.end()) m_ans.push_back(root);
         Solve(root);
@@ -84,6 +85,7 @@ TEST(T, t1) {
     });
 
     ASSERT_NE(nullptr, n);
+    if (n == nullptr) return;
     std::array<TreeNode, 3> expected = {*n, TreeNode{6}, TreeNode{7}};
     Solution sl;
     auto ret = sl.DelNodes(binary_tree, {3, 5});

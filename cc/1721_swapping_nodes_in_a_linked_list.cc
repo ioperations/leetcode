@@ -68,6 +68,7 @@ TEST(SwappingNodesInALinkedList, t1) {
 
     ListNode* head = List::ConstructList(v);
     ASSERT_NE(nullptr, head);
+    if (head == nullptr) return;
     Solution sl;
     head = sl.SwapNodes(head, k);
 
@@ -81,6 +82,7 @@ TEST(SwappingNodesInALinkedList, t2) {
 
     ListNode* head = List::ConstructList(v);
     ASSERT_NE(nullptr, head);
+    if (head == nullptr) return;
     Solution sl;
     head = sl.SwapNodes(head, k);
 
@@ -94,6 +96,7 @@ TEST(SwappingNodesInALinkedList, t3) {
 
     ListNode* head = List::ConstructList(v);
     ASSERT_NE(nullptr, head);
+    if (head == nullptr) return;
     Solution sl;
     head = sl.SwapNodes(head, k);
 
@@ -107,6 +110,7 @@ TEST(SwappingNodesInALinkedList, t4) {
 
     ListNode* head = List::ConstructList(v);
     ASSERT_NE(nullptr, head);
+    if (head == nullptr) return;
     Solution sl;
     head = sl.SwapNodes(head, k);
 

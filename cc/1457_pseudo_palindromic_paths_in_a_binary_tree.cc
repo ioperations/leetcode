@@ -49,6 +49,7 @@ class Solution {
     }
     template <typename T>
     int PseudoPalindromicPaths(TreeNode<T>* root) {
+        if (root == nullptr) return 0;
         vector<int> const mpp(10, 0);
         Dfs(root, mpp);
         return m_count;

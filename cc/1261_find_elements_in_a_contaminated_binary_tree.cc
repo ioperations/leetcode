@@ -48,6 +48,7 @@ class FindElements {
 
    private:
     void Gen(TreeNode* root, int v) {
+        if (root == nullptr) return;
         m_s.emplace(v);
 
         if (root->left) {
@@ -116,10 +117,13 @@ TEST(T0, t3) {
     auto* root = Tree::ConstructBinaryTree(
         std::vector<std::optional<int>>{-1, null, -1});
     ASSERT_NE(nullptr, root);
+    if (root == nullptr) return;
     {
         auto* root2 =
             Tree::ConstructBinaryTree(std::vector<std::optional<int>>{-1, -1});
-        root->right->left = root2;
+        if (root->right != nullptr) {
+            root->right->left = root2;
+        }
     }
     FindElements find_elements(root);
     auto ret = find_elements.Find(2);  // return False

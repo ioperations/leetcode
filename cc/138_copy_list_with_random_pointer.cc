@@ -68,6 +68,8 @@ class Solution {
             i++;
         }
 
+        if (dummy_new.m_next == nullptr) return dummy_new.m_next;
+
         return dummy_new.m_next;
     }
 };
