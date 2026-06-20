@@ -166,6 +166,7 @@ TEST(SerializeAndDeserializeBinaryTree2, t2) {
     string const data = cl.Serialize(head);
     EXPECT_EQ("", data);
     TreeNode<int>* ret = cl.Deserialize(data);
+    ASSERT_EQ(nullptr, ret);
 
     std::vector<int> vec;
     BfsSearch(ret, vec);

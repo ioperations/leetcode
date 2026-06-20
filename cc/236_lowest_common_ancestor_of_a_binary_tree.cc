@@ -47,11 +47,15 @@ TEST(LowestCommonAncestorOfABinaryTree, t1) {
     int p = 5, q = 1;
     int const output = 3;
     auto* node = ConstructBinaryTree(root);
+    ASSERT_NE(nullptr, node);
     // Explanation: The LCA of nodes 5 and 1 is 3.
     Solution sl;
     auto* pn = FindInTree(node, p);
     auto* qn = FindInTree(node, q);
+    ASSERT_NE(nullptr, pn);
+    ASSERT_NE(nullptr, qn);
     auto* ret = sl.LowestCommonAncestor(node, pn, qn);
+    ASSERT_NE(nullptr, ret);
     EXPECT_EQ(output, ret->val);
     FreeTreeNode(node);
 }
@@ -61,11 +65,15 @@ TEST(LowestCommonAncestorOfABinaryTree, t2) {
     int p = 5, q = 4;
     int const output = 5;
     auto* node = ConstructBinaryTree(root);
+    ASSERT_NE(nullptr, node);
     // Explanation: The LCA of nodes 5 and 1 is 3.
     Solution sl;
     auto* pn = FindInTree(node, p);
     auto* qn = FindInTree(node, q);
+    ASSERT_NE(nullptr, pn);
+    ASSERT_NE(nullptr, qn);
     auto* ret = sl.LowestCommonAncestor(node, pn, qn);
+    ASSERT_NE(nullptr, ret);
     EXPECT_EQ(output, ret->val);
     FreeTreeNode(node);
 }
@@ -75,11 +83,15 @@ TEST(LowestCommonAncestorOfABinaryTree, t3) {
     int p = 1, q = 2;
     int const output = 1;
     auto* node = ConstructBinaryTree(root);
+    ASSERT_NE(nullptr, node);
     // Explanation: The LCA of nodes 5 and 1 is 3.
     Solution sl;
     auto* pn = FindInTree(node, p);
     auto* qn = FindInTree(node, q);
+    ASSERT_NE(nullptr, pn);
+    ASSERT_NE(nullptr, qn);
     auto* ret = sl.LowestCommonAncestor(node, pn, qn);
+    ASSERT_NE(nullptr, ret);
     EXPECT_EQ(output, ret->val);
     FreeTreeNode(node);
 }

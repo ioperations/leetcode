@@ -138,6 +138,7 @@ TEST(PseudoPalindromicPathsInABinaryTree, t1) {
     std::vector<optional<int>> const root = {2, 3, 1, 3, 1, null, 1};
     int const output = 2;
     auto* node = ConstructBinaryTree(root);
+    ASSERT_NE(nullptr, node);
 
     // Explanation: The figure above represents the given binary tree. There are
     // three paths going from the root node to leaf nodes: the red path [2,3,3],
@@ -177,6 +178,7 @@ TEST(PseudoPalindromicPathsInABinaryTree, t2) {
 
     int const output = 1;
     auto* node = ConstructBinaryTree(root);
+    ASSERT_NE(nullptr, node);
     // The figure above represents the given binary tree. There are three paths
     // going from the root node to leaf nodes: the green path [2,1,1], the path
     // [2,1,3,1], and the path [2,1]. Among these paths only the green path is
@@ -193,6 +195,7 @@ TEST(PseudoPalindromicPathsInABinaryTree, t3) {
     std::vector<optional<int>> const root = {9};
     int const output = 1;
     auto* node = ConstructBinaryTree(root);
+    ASSERT_NE(nullptr, node);
 
     Solution sl;
     int const ret = sl.PseudoPalindromicPaths(node);
@@ -220,6 +223,7 @@ TEST(PseudoPalindromicPathsInABinaryTreeV2, t1) {
     std::vector<optional<int>> const root = {2, 3, 1, 3, 1, null, 1};
     int const output = 2;
     auto* node = ConstructBinaryTree(root);
+    ASSERT_NE(nullptr, node);
 
     // Explanation: The figure above represents the given binary tree. There are
     // three paths going from the root node to leaf nodes: the red path [2,3,3],
@@ -259,6 +263,7 @@ TEST(PseudoPalindromicPathsInABinaryTreeV2, t2) {
 
     int const output = 1;
     auto* node = ConstructBinaryTree(root);
+    ASSERT_NE(nullptr, node);
     // The figure above represents the given binary tree. There are three paths
     // going from the root node to leaf nodes: the green path [2,1,1], the path
     // [2,1,3,1], and the path [2,1]. Among these paths only the green path is
@@ -275,6 +280,7 @@ TEST(PseudoPalindromicPathsInABinaryTreeV2, t3) {
     std::vector<optional<int>> const root = {9};
     int const output = 1;
     auto* node = ConstructBinaryTree(root);
+    ASSERT_NE(nullptr, node);
 
     Solution sl;
     int const ret = sl.PseudoPalindromicPathsV1(node);

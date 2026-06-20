@@ -63,6 +63,7 @@ TEST(LinkedListCycle, t1) {
     */
 
     ListNode* head = ConstructList(std::vector<int>{3, 2, 0, -4});
+    ASSERT_NE(nullptr, head);
 
     ListNode* it = head;
     ListNode* it2 = head;
@@ -95,6 +96,7 @@ TEST(LinkedListCycle, t2) {
     */
 
     ListNode* head = ConstructList(std::vector<int>{1, 2});
+    ASSERT_NE(nullptr, head);
 
     ListNode* it = head;
     ListNode* it2 = head;

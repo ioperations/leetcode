@@ -124,11 +124,15 @@ TEST(LowestCommonAncestorOfABinarySearchTree, t1) {
     int const expeced = 3;
 
     TreeNode* root = ConstructTree(list);
+    ASSERT_NE(nullptr, root);
     Solution s;
 
     TreeNode *p_node = FindTreeNode(root, p), *q_node = FindTreeNode(root, q);
+    ASSERT_NE(nullptr, p_node);
+    ASSERT_NE(nullptr, q_node);
 
     auto* ret = s.LowestCommonAncestor(root, p_node, q_node);
+    ASSERT_NE(nullptr, ret);
     EXPECT_EQ(expeced, ret->val);
     FreeRoot(root);
 }
@@ -159,11 +163,15 @@ TEST(LowestCommonAncestorOfABinarySearchTree, t2) {
     int const expeced = 5;
 
     TreeNode* root = ConstructTree(list);
+    ASSERT_NE(nullptr, root);
     Solution s;
 
     TreeNode *p_node = FindTreeNode(root, p), *q_node = FindTreeNode(root, q);
+    ASSERT_NE(nullptr, p_node);
+    ASSERT_NE(nullptr, q_node);
 
     auto* ret = s.LowestCommonAncestor(root, p_node, q_node);
+    ASSERT_NE(nullptr, ret);
     EXPECT_EQ(expeced, ret->val);
     FreeRoot(root);
 }
@@ -187,11 +195,15 @@ TEST(LowestCommonAncestorOfABinarySearchTree, t3) {
     int const expeced = 1;
 
     TreeNode* root = ConstructTree(list);
+    ASSERT_NE(nullptr, root);
     Solution s;
 
     TreeNode *p_node = FindTreeNode(root, p), *q_node = FindTreeNode(root, q);
+    ASSERT_NE(nullptr, p_node);
+    ASSERT_NE(nullptr, q_node);
 
     auto* ret = s.LowestCommonAncestor(root, p_node, q_node);
+    ASSERT_NE(nullptr, ret);
     EXPECT_EQ(expeced, ret->val);
     FreeRoot(root);
 }

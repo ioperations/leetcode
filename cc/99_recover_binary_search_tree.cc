@@ -24,7 +24,9 @@ class Solution {
     TreeNode<T>* m_second = nullptr;
     void RecoverTree(TreeNode<T>* root) {
         Inorder(root);
-        std::swap(m_first->val, m_second->val);
+        if (m_first != nullptr && m_second != nullptr) {
+            std::swap(m_first->val, m_second->val);
+        }
     }
 
     void Inorder(TreeNode<T>* root) {
@@ -57,6 +59,7 @@ TEST(RecoverBinarySearchTree, t1) {
     vector<int> in;
     {
         auto* input = ConstructBinaryTree(root);
+        ASSERT_NE(nullptr, input);
         Solution<int> sl;
         sl.RecoverTree(input);
         BfsSearch(input, in);
@@ -65,7 +68,8 @@ TEST(RecoverBinarySearchTree, t1) {
 
     vector<int> ou;
     {
-        TreeNode<int>* out = ConstructBinaryTree(output);
+        auto* out = ConstructBinaryTree(output);
+        ASSERT_NE(nullptr, out);
         BfsSearch(out, ou);
         FreeTreeNode(out);
     }
@@ -81,6 +85,7 @@ TEST(RecoverBinarySearchTree, t2) {
     vector<int> in;
     {
         auto* input = ConstructBinaryTree(root);
+        ASSERT_NE(nullptr, input);
         Solution<int> sl;
         sl.RecoverTree(input);
         BfsSearch(input, in);
@@ -90,6 +95,7 @@ TEST(RecoverBinarySearchTree, t2) {
     vector<int> ou;
     {
         auto* out = ConstructBinaryTree(output);
+        ASSERT_NE(nullptr, out);
         BfsSearch(out, ou);
         FreeTreeNode(out);
     }

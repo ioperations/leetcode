@@ -71,6 +71,7 @@ TEST(LinkedListCycleIi, t1) {
     */
 
     ListNode* head = List::ConstructList(std::vector<int>{3, 2, 0, -4});
+    ASSERT_NE(nullptr, head);
 
     ListNode* it = head;
     ListNode* it2 = head;
@@ -85,6 +86,7 @@ TEST(LinkedListCycleIi, t1) {
 
     Solution s;
     ListNode const* ret = s.DetectCycle(head);
+    ASSERT_NE(nullptr, ret);
     EXPECT_EQ(2, ret->val);
 
     it2->next = nullptr;
@@ -103,6 +105,7 @@ TEST(LinkedListCycleIi, t2) {
     */
 
     ListNode* head = List::ConstructList(std::vector<int>{1, 2});
+    ASSERT_NE(nullptr, head);
 
     ListNode* it = head;
     ListNode* it2 = head;
@@ -115,6 +118,7 @@ TEST(LinkedListCycleIi, t2) {
 
     Solution s;
     ListNode const* ret = s.DetectCycle(head);
+    ASSERT_NE(nullptr, ret);
     EXPECT_EQ(1, ret->val);
 
     it2->next = nullptr;

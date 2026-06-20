@@ -114,6 +114,8 @@ TEST(IntersectionOfTwoLinkedLists, t1) {
 
     ListNode* first = List::ConstructList(std::vector<int>{4, 1, 8, 4, 5});
     ListNode* second = List::ConstructList(std::vector<int>{5, 6, 1});
+    ASSERT_NE(nullptr, first);
+    ASSERT_NE(nullptr, second);
     ListNode* first_it = first;
     for (int i = 0; i < 2; i++) {
         first_it = first_it->next;
@@ -160,6 +162,8 @@ TEST(IntersectionOfTwoLinkedLists, t2) {
 
     ListNode* first = List::ConstructList(std::vector<int>{1, 9, 1, 2, 4});
     ListNode* second = List::ConstructList(std::vector<int>{3});
+    ASSERT_NE(nullptr, first);
+    ASSERT_NE(nullptr, second);
     ListNode* first_it = first;
     for (int i = 0; i < 3; i++) {
         first_it = first_it->next;
