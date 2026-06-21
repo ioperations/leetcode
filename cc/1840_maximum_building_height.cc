@@ -103,17 +103,21 @@ class Solution {
         return max;
     }
 
-   public:
-    int MaxBuilding(int n, std::vector<std::vector<int>>& restrictions) {
+    void BuildAndSort(int n, std::vector<std::vector<int>>& restrictions) {
         restrictions.insert(restrictions.begin(), std::vector<int>{1, 0});
         auto it = std::find_if(
             restrictions.begin(), restrictions.end(),
             [n](const std::vector<int>& p) { return p[0] == n - 1; });
         if (it == restrictions.end()) {
-            restrictions.insert(restrictions.begin(), std::vector<int>{n, n});
+            restrictions.insert(restrictions.end(), std::vector<int>{n, n});
         }
         std::sort(restrictions.begin(), restrictions.end(),
                   [](const auto& l, const auto& r) { return l[0] < r[0]; });
+    }
+
+   public:
+    int MaxBuilding(int n, std::vector<std::vector<int>>& restrictions) {
+        BuildAndSort(n, restrictions);
 
         PropagateLeftToRight(restrictions);
         PropagateRightToLeft(restrictions);
