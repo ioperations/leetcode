@@ -158,6 +158,7 @@ TEST(CopyListWithRandomPointer, t1) {
         std::vector<std::vector<std::optional<int>>>{
             {7, null}, {13, 0}, {11, 4}, {10, 2}, {1, 0}};
     Node* node = ConstructNode(head);
+    ASSERT_NE(nullptr, node);
     Solution sl;
     Node* ret = sl.CopyRandomList(node);
     ASSERT_NE(nullptr, ret);
@@ -172,6 +173,7 @@ TEST(CopyListWithRandomPointer, t2) {
     std::vector<std::vector<std::optional<int>>> const output =
         std::vector<std::vector<std::optional<int>>>{{1, 1}, {2, 1}};
     Node* node = ConstructNode(head);
+    ASSERT_NE(nullptr, node);
     Solution sl;
     Node* ret = sl.CopyRandomList(node);
     ASSERT_NE(nullptr, ret);
@@ -188,6 +190,7 @@ TEST(CopyListWithRandomPointer, t3) {
         std::vector<std::vector<std::optional<int>>>{
             {3, null}, {3, 0}, {3, null}};
     Node* node = ConstructNode(head);
+    ASSERT_NE(nullptr, node);
     Solution sl;
     Node* ret = sl.CopyRandomList(node);
     ASSERT_NE(nullptr, ret);

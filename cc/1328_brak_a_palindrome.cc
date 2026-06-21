@@ -26,20 +26,20 @@ using namespace std;
 namespace {
 class Solution {
    public:
-    string BreakPalindrome(string palindrome) {
+    string BreakPalindrome(string& palindrome) {
         string& ret = palindrome;
         int const original_size = static_cast<int>(palindrome.size());
         int const size = original_size / 2;
-        for (int i = 0; i < size; i++) {
-            if (ret.at(i) != 'a') {
-                ret.at(i) = 'a';
+        for (size_t i = 0; i < size; i++) {
+            if (ret[i] != 'a') {
+                ret[i] = 'a';
                 return ret;
             }
         }
         if (original_size > 1) {
             for (int i = 0; i < size; i++) {
-                if (ret.at(i) == 'a') {
-                    ret.at(original_size - (i + 1)) = 'b';
+                if (ret[i] == 'a') {
+                    ret[original_size - (i + 1)] = 'b';
                     return ret;
                 }
             }
@@ -49,33 +49,33 @@ class Solution {
 };
 
 TEST(BrakAPalindrome, t1) {
-    string const palindrome = "abccba";
+    string palindrome = "abccba";
     string const output = "aaccba";
     // Explanation: There are many ways to make "abccba" not a palindrome, such
     // as "zbccba", "aaccba", and "abacba". Of all the ways, "aaccba" is the
     // lexicographically smallest.
     Solution sl;
-    auto const ret = sl.BreakPalindrome(palindrome);
+    const auto& ret = sl.BreakPalindrome(palindrome);
     EXPECT_EQ(output, ret);
 }
 
 TEST(BrakAPalindrome, t2) {
-    string const palindrome = "a";
+    string palindrome = "a";
     string const output = "";
     // There is no way to replace a single character to make "a" not a
     // palindrome, so return an empty string.
     Solution sl;
-    auto const ret = sl.BreakPalindrome(palindrome);
+    const auto& ret = sl.BreakPalindrome(palindrome);
     EXPECT_EQ(output, ret);
 }
 
 TEST(BrakAPalindrome, t3) {
-    string const palindrome = "aa";
+    string palindrome = "aa";
     string const output = "ab";
     // There is no way to replace a single character to make "a" not a
     // palindrome, so return an empty string.
     Solution sl;
-    auto const ret = sl.BreakPalindrome(palindrome);
+    const auto& ret = sl.BreakPalindrome(palindrome);
     EXPECT_EQ(output, ret);
 }
 }  // namespace
