@@ -20,7 +20,7 @@ FetchContent_MakeAvailable(gtest)
 FetchContent_Declare(
     gbench
     GIT_REPOSITORY https://github.com/google/benchmark.git
-    GIT_TAG v1.8.3
+    GIT_TAG v1.9.5
     SYSTEM
 )
 set(BENCHMARK_ENABLE_TESTING OFF)
