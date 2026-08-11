@@ -46,7 +46,6 @@ impl Solution {
 #[cfg(test)]
 mod tests {
     use super::super::leetcode_binary_tree::build_binary_tree;
-    use std::usize;
 
     use super::*;
 
