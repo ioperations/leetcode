@@ -13,7 +13,7 @@ enum Direction {
 impl Solution {
     #[allow(unused)]
     pub fn spiral_order(matrix: &[Vec<i32>]) -> Vec<i32> {
-        assert!(!matrix.is_empty());
+        assert_ne!(matrix, <&[Vec<i32>]>::default());
         let row = matrix.len() as i32;
         let column = matrix[0].len() as i32;
         let mut dir = Direction::Right;

@@ -56,7 +56,7 @@ impl<T> LinkedList<T> {
     pub fn push_front(&mut self, elem: T) {
         // SAFETY: it's a linked-list, what do you want?
         unsafe {
-            let new = NonNull::new_unchecked(Box::into_raw(Box::new(Node {
+            let new = NonNull::from_mut(Box::leak(Box::new(Node {
                 front: None,
                 back: None,
                 elem,
@@ -79,7 +79,7 @@ impl<T> LinkedList<T> {
     pub fn push_back(&mut self, elem: T) {
         // SAFETY: it's a linked-list, what do you want?
         unsafe {
-            let new = NonNull::new_unchecked(Box::into_raw(Box::new(Node {
+            let new = NonNull::from_mut(Box::leak(Box::new(Node {
                 back: None,
                 front: None,
                 elem,
