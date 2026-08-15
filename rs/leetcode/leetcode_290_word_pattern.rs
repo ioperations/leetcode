@@ -20,10 +20,10 @@ impl Solution {
         }
 
         for (i, c) in pattern.chars().enumerate() {
-            if let Some(value) = bijection_mapping.get(&c) {
-                if value != &words[i] {
-                    return false;
-                }
+            if let Some(value) = bijection_mapping.get(&c)
+                && value != &words[i]
+            {
+                return false;
             }
             bijection_mapping.insert(c, words[i]);
         }

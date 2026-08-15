@@ -75,10 +75,10 @@ impl WordDictionary {
         match ch {
             ANY => {
                 for ele in &node.next {
-                    if let Some(child) = &(*ele).clone() {
-                        if Self::dfs(idx + 1, word, child) {
-                            return true;
-                        }
+                    if let Some(child) = &(*ele).clone()
+                        && Self::dfs(idx + 1, word, child)
+                    {
+                        return true;
                     }
                 }
             }

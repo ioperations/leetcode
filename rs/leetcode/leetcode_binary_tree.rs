@@ -144,7 +144,7 @@ pub fn expect_binary_tree<T: std::cmp::PartialEq + std::fmt::Debug + Copy>(
         }
         if let Some(v) = &n1.as_ref().borrow().right {
             q.push_back(v.clone());
-        };
+        }
     }
 
     assert_eq!(i, size);

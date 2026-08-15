@@ -34,7 +34,7 @@ impl Solution {
                 start += 1;
             }
 
-            cnt = cnt.max((end as i32) - (start as i32) as i32 + 1);
+            cnt = cnt.max((end as i32) - (start as i32) + 1);
             end += 1;
         }
         cnt as u32

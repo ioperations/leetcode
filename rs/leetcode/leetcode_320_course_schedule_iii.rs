@@ -13,10 +13,10 @@ impl Solution {
         for course in &courses {
             bh.push(course[0]);
             total += course[0];
-            if total > course[1] {
-                if let Some(max) = bh.pop() {
-                    total -= max;
-                }
+            if total > course[1]
+                && let Some(max) = bh.pop()
+            {
+                total -= max;
             }
         }
         bh.len() as i32

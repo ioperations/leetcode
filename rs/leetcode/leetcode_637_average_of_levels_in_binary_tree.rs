@@ -33,7 +33,7 @@ impl Solution {
                 }
                 if let Some(n) = z.0.as_ref().borrow_mut().right.take() {
                     qu.push_back((n, cur_level + 1));
-                };
+                }
             }
             if cur_count != 0 {
                 v.push(cur_sum / f64::from(cur_count));
