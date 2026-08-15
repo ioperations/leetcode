@@ -162,7 +162,7 @@ mod tests {
         assert_eq!(left.len(), right.len());
         left.iter().zip(right.iter()).for_each(|(left, right)| {
             match (left, right) {
-                (Some(ref left), Some(ref right)) => {
+                (Some(left), Some(right)) => {
                     assert_eq!(left, right);
                     true
                 }
