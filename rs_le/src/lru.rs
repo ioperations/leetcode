@@ -1,6 +1,6 @@
 use proc_macro::TokenStream;
 use quote::quote;
-use syn::{parse_macro_input, FnArg, ItemFn, LitInt, Pat, ReturnType};
+use syn::{FnArg, ItemFn, LitInt, Pat, ReturnType, parse_macro_input};
 
 pub fn lru_cache_impl(attr: TokenStream, item: TokenStream) -> TokenStream {
     // 1. 解析缓存容量大小
@@ -21,13 +21,13 @@ pub fn lru_cache_impl(attr: TokenStream, item: TokenStream) -> TokenStream {
     let mut arg_names = Vec::new();
 
     for arg in &sig.inputs {
-        if let FnArg::Typed(pat_type) = arg {
-            if let Pat::Ident(pat_ident) = &*pat_type.pat {
-                let name = &pat_ident.ident;
-                let ty = &pat_type.ty;
-                arg_names.push(quote! { #name.clone() });
-                key_types.push(quote! { #ty });
-            }
+        if let FnArg::Typed(pat_type) = arg
+            && let Pat::Ident(pat_ident) = &*pat_type.pat
+        {
+            let name = &pat_ident.ident;
+            let ty = &pat_type.ty;
+            arg_names.push(quote! { #name.clone() });
+            key_types.push(quote! { #ty });
         }
     }
 
