@@ -12,7 +12,7 @@ struct Solution;
 
 impl Solution {
     #[allow(unused)]
-    pub fn max_rotate_function(nums: Vec<i32>) -> i32 {
+    pub fn max_rotate_function(nums: &[i32]) -> i32 {
         let mut first: i64 = 0;
 
         let len = nums.len();
@@ -42,7 +42,7 @@ mod tests {
     fn case1_test() {
         let nums = vec![4, 3, 2, 6];
         let output = 26;
-        let ret = Solution::max_rotate_function(nums);
+        let ret = Solution::max_rotate_function(&nums);
         assert_eq!(output, ret);
         // Explanation:
         // F(0) = (0 * 4) + (1 * 3) + (2 * 2) + (3 * 6) = 0 + 3 + 4 + 18 = 25
@@ -56,7 +56,7 @@ mod tests {
     fn case2_test() {
         let nums = vec![100];
         let output = 0;
-        let ret = Solution::max_rotate_function(nums);
+        let ret = Solution::max_rotate_function(&nums);
         assert_eq!(output, ret);
     }
 
@@ -662,7 +662,7 @@ mod tests {
         ];
 
         let output = -2147411546;
-        let ret = Solution::max_rotate_function(nums);
+        let ret = Solution::max_rotate_function(&nums);
         assert_eq!(output, ret);
     }
 }
