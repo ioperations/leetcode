@@ -16,13 +16,12 @@ impl Solution {
         let cnt = numbers.len();
 
         let mut v: Vec<Vec<i32>> = Vec::with_capacity(cnt);
-        let mut p = vec![];
-        p.resize(32, 0);
+        let p = vec![0; 32];
 
         v.resize(cnt, p);
         for (idx, mut value) in numbers.into_iter().enumerate() {
             for i in 0..32 {
-                v[idx][32 - 1 - i] = if value % 2 == 0 { 0 } else { 1 };
+                v[idx][32 - 1 - i] = i32::from(value % 2 != 0);
 
                 value /= 2;
             }
@@ -32,7 +31,7 @@ impl Solution {
         for i in 0..32 {
             let mut size = 0;
             for j in 0..cnt {
-                size += if v[j][i] == 1 { 1 } else { 0 };
+                size += i32::from(v[j][i] == 1);
             }
 
             if (size % 2 == 1) {
