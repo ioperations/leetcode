@@ -1,0 +1,7 @@
+{
+  "version": "0.2",
+  "language": "en,en-US",
+  "ignoreRegExpList": ["[\u4e00-\u9fa5]"],
+  "words": [],
+  "ignorePaths": ["node_modules", "dist", "build"]
+}
