@@ -1,6 +1,7 @@
 use std::{cell::RefCell, collections::VecDeque, rc::Rc};
 
 /// Definition for a binary tree node.
+#[derive(Debug)]
 pub struct TreeNode<T> {
     pub val: T,
     pub left: Option<Rc<RefCell<TreeNode<T>>>>,
