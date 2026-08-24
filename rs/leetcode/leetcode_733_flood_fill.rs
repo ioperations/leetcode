@@ -53,11 +53,10 @@ impl Solution {
             return false;
         }
         let origin = image[sr as usize][sc as usize];
-        if let Some(v) = origin_var {
-            if v != origin {
+        if let Some(v) = origin_var
+            && v != origin {
                 return false;
             }
-        }
         if origin == color {
             return false;
         }
