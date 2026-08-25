@@ -34,11 +34,7 @@ impl Solution {
 
         let sum = sum(n);
         let product = product(n);
-        if n % (sum + product) != 0 {
-            return false;
-        }
-
-        true
+        n % (sum + product) == 0
     }
 }
 

@@ -14,9 +14,9 @@ struct Solution;
 
 impl Solution {
     #[allow(unused)]
-    pub fn missing_multiple(nums: Vec<i32>, k: i32) -> i32 {
+    pub fn missing_multiple(nums: &[i32], k: i32) -> i32 {
         let mut hm = HashMap::new();
-        for &v in nums.iter() {
+        for &v in nums {
             hm.entry(v)
                 .and_modify(|v| {
                     *v += 1;
@@ -44,7 +44,7 @@ mod tests {
         let nums = [8, 2, 3, 4, 6];
         let k = 2;
         let output = 10;
-        let ret = Solution::missing_multiple(nums.into(), k);
+        let ret = Solution::missing_multiple(&nums, k);
         assert_eq!(output, ret);
         // The multiples of k = 2 are 2, 4, 6, 8, 10, 12... and the smallest
         // multiple missing from nums is 10.
@@ -55,7 +55,7 @@ mod tests {
         let nums = [1, 4, 7, 10, 15];
         let k = 5;
         let output = 5;
-        let ret = Solution::missing_multiple(nums.into(), k);
+        let ret = Solution::missing_multiple(&nums, k);
         assert_eq!(output, ret);
         // The multiples of k = 5 are 5, 10, 15, 20... and the smallest multiple
         // missing from nums is 5.

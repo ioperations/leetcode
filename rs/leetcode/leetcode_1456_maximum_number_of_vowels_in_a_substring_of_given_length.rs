@@ -34,10 +34,7 @@ impl Solution {
     }
 
     fn is_vowel(c: char) -> bool {
-        if c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' {
-            return true;
-        }
-        false
+        c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u'
     }
 }
 
