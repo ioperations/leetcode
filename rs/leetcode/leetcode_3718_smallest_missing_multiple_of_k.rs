@@ -26,7 +26,7 @@ impl Solution {
 
         for i in 1.. {
             let v = i * k;
-            if hm.get(&v).is_none() {
+            if !hm.contains_key(&v) {
                 return v;
             }
         }
