@@ -149,6 +149,5 @@ mod tests {
         let output = "1";
         let ret = Solution::shortest_beautiful_substring(&s, k);
         assert_eq!(output, ret);
-        // There are no beautiful substrings in this example.
     }
 }
