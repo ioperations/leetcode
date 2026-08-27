@@ -51,29 +51,26 @@ impl Solution {
                     vec.push((start, end));
                 }
 
-                while cur_len == k {
-                    let c = chars[start];
-                    if c == '1' {
-                        cur_len -= 1;
-                        start += 1;
-                    } else {
-                        start += 1;
-                        let min_len = end - start + 1;
-                        if min_len < cur_min_len {
-                            vec.clear();
-                            cur_min_len = min_len;
-                            vec.push((start, end));
-                        } else if min_len == cur_min_len {
-                            vec.push((start, end));
-                        }
-                    }
-                }
-                end += 1;
-                continue;
+                Self::move_right(
+                    &mut cur_len,
+                    k,
+                    &chars,
+                    &mut start,
+                    end,
+                    &mut cur_min_len,
+                    &mut vec,
+                );
             }
             end += 1;
         }
 
+        Self::lexicographically_smallest_beautiful(&mut vec, &chars)
+    }
+
+    fn lexicographically_smallest_beautiful(
+        vec: &mut [(usize, usize)],
+        chars: &[char],
+    ) -> String {
         vec.sort_by(|l, r| {
             let lhs = &chars[l.0..=l.1];
             let rhs = &chars[r.0..=r.1];
@@ -88,6 +85,34 @@ impl Solution {
             });
         }
         String::new()
+    }
+
+    fn move_right(
+        cur_len: &mut i32,
+        k: i32,
+        chars: &[char],
+        start: &mut usize,
+        end: usize,
+        cur_min_len: &mut usize,
+        vec: &mut Vec<(usize, usize)>,
+    ) {
+        while *cur_len == k {
+            let c = chars[*start];
+            if c == '1' {
+                *cur_len -= 1;
+                *start += 1;
+            } else {
+                *start += 1;
+                let min_len = end - *start + 1;
+                if min_len < *cur_min_len {
+                    vec.clear();
+                    *cur_min_len = min_len;
+                    vec.push((*start, end));
+                } else if min_len == *cur_min_len {
+                    vec.push((*start, end));
+                }
+            }
+        }
     }
 }
 
