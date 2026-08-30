@@ -19,7 +19,7 @@ struct Solution;
 
 impl Solution {
     #[allow(unused)]
-    pub fn minimum_deletions(nums: Vec<i32>) -> i32 {
+    pub fn minimum_deletions(nums: &[i32]) -> i32 {
         let mut min = (i32::MAX, 0);
         let mut max = (i32::MIN, 0);
 
@@ -64,7 +64,7 @@ mod tests {
         // from the front and 3 elements from the back. This results in
         // 2 + 3 = 5 deletions, which is the minimum number possible.
 
-        let ret = Solution::minimum_deletions(nums);
+        let ret = Solution::minimum_deletions(&nums);
         assert_eq!(output, ret);
     }
 
@@ -79,7 +79,7 @@ mod tests {
         // the minimum number possible.
         //
 
-        let ret = Solution::minimum_deletions(nums);
+        let ret = Solution::minimum_deletions(&nums);
         assert_eq!(output, ret);
     }
 
@@ -91,7 +91,7 @@ mod tests {
         // minimum and maximum element. We can remove it with 1
         // deletion.
 
-        let ret = Solution::minimum_deletions(nums);
+        let ret = Solution::minimum_deletions(&nums);
         assert_eq!(output, ret);
     }
 }
