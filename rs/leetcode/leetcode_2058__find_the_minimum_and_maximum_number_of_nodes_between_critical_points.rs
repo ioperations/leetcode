@@ -31,13 +31,13 @@ struct Solution;
 impl Solution {
     #[allow(unused)]
     pub fn nodes_between_critical_points(
-        head: Option<&Box<ListNode>>,
+        head: Option<&ListNode>,
     ) -> Vec<i32> {
         let mut first = -1;
         let mut last = -1;
         let mut min_dist = i32::MAX;
 
-        let Some(head_ref) = head.as_ref() else {
+        let Some(head_ref) = head else {
             return vec![-1, -1];
         };
         let mut prev_val = head_ref.val;
@@ -82,7 +82,7 @@ mod tests {
         let output = vec![-1, -1];
         // There are no critical points in [3,1].
         let list = build_list_from_vec(&head);
-        let ret = Solution::nodes_between_critical_points(list.as_ref());
+        let ret = Solution::nodes_between_critical_points(list.as_deref());
         assert_eq!(output, ret);
         // There are no critical points in [3,1].
     }
@@ -93,7 +93,7 @@ mod tests {
         let output = vec![1, 3];
         // There are no critical points in [3,1].
         let list = build_list_from_vec(&head);
-        let ret = Solution::nodes_between_critical_points(list.as_ref());
+        let ret = Solution::nodes_between_critical_points(list.as_deref());
         assert_eq!(output, ret);
         // There are three critical points:
         // - [5,3,1,2,5,1,2]: The third node is a local minima because 1 is less
@@ -113,7 +113,7 @@ mod tests {
         let output = vec![3, 3];
         // There are no critical points in [3,1].
         let list = build_list_from_vec(&head);
-        let ret = Solution::nodes_between_critical_points(list.as_ref());
+        let ret = Solution::nodes_between_critical_points(list.as_deref());
         assert_eq!(output, ret);
         // There are two critical points:
         // - [1,3,2,2,3,2,2,2,7]: The second node is a local maxima because 3 is
@@ -1826,7 +1826,7 @@ mod tests {
         // Large random array; verified 10471 critical points. min distance = 1,
         // max distance between first and last critical point = 15707.
         let list = build_list_from_vec(&head);
-        let ret = Solution::nodes_between_critical_points(list.as_ref());
+        let ret = Solution::nodes_between_critical_points(list.as_deref());
         assert_eq!(output, ret);
     }
 }
