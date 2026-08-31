@@ -31,15 +31,14 @@ struct Solution;
 impl Solution {
     #[allow(unused)]
     pub fn nodes_between_critical_points(
-        head: Option<Box<ListNode>>,
+        head: Option<&Box<ListNode>>,
     ) -> Vec<i32> {
         let mut first = -1;
         let mut last = -1;
         let mut min_dist = i32::MAX;
 
-        let head_ref = match head.as_ref() {
-            Some(n) => n,
-            None => return vec![-1, -1],
+        let Some(head_ref) = head.as_ref() else {
+            return vec![-1, -1];
         };
         let mut prev_val = head_ref.val;
         let mut curr = head_ref.next.as_deref();
@@ -47,17 +46,16 @@ impl Solution {
 
         while let Some(node) = curr {
             let next_val = node.next.as_ref().map(|n| n.val);
-            if let Some(nv) = next_val {
-                if (prev_val < node.val && node.val > nv)
-                    || (prev_val > node.val && node.val < nv)
-                {
-                    if first == -1 {
-                        first = index;
-                    } else {
-                        min_dist = min_dist.min(index - last);
-                    }
-                    last = index;
+            if let Some(nv) = next_val
+                && ((prev_val < node.val && node.val > nv)
+                    || (prev_val > node.val && node.val < nv))
+            {
+                if first == -1 {
+                    first = index;
+                } else {
+                    min_dist = min_dist.min(index - last);
                 }
+                last = index;
             }
             prev_val = node.val;
             curr = node.next.as_deref();
@@ -84,7 +82,7 @@ mod tests {
         let output = vec![-1, -1];
         // There are no critical points in [3,1].
         let list = build_list_from_vec(&head);
-        let ret = Solution::nodes_between_critical_points(list);
+        let ret = Solution::nodes_between_critical_points(list.as_ref());
         assert_eq!(output, ret);
         // There are no critical points in [3,1].
     }
@@ -95,7 +93,7 @@ mod tests {
         let output = vec![1, 3];
         // There are no critical points in [3,1].
         let list = build_list_from_vec(&head);
-        let ret = Solution::nodes_between_critical_points(list);
+        let ret = Solution::nodes_between_critical_points(list.as_ref());
         assert_eq!(output, ret);
         // There are three critical points:
         // - [5,3,1,2,5,1,2]: The third node is a local minima because 1 is less
@@ -115,7 +113,7 @@ mod tests {
         let output = vec![3, 3];
         // There are no critical points in [3,1].
         let list = build_list_from_vec(&head);
-        let ret = Solution::nodes_between_critical_points(list);
+        let ret = Solution::nodes_between_critical_points(list.as_ref());
         assert_eq!(output, ret);
         // There are two critical points:
         // - [1,3,2,2,3,2,2,2,7]: The second node is a local maxima because 3 is
@@ -1828,7 +1826,7 @@ mod tests {
         // Large random array; verified 10471 critical points. min distance = 1,
         // max distance between first and last critical point = 15707.
         let list = build_list_from_vec(&head);
-        let ret = Solution::nodes_between_critical_points(list);
+        let ret = Solution::nodes_between_critical_points(list.as_ref());
         assert_eq!(output, ret);
     }
 }
