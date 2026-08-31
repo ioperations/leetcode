@@ -33,48 +33,42 @@ impl Solution {
     pub fn nodes_between_critical_points(
         head: Option<Box<ListNode>>,
     ) -> Vec<i32> {
-        let mut pre: Option<Box<LN<i32>>> = None;
-        let mut next = None;
-        let mut result = vec![];
+        let mut first = -1;
+        let mut last = -1;
+        let mut min_dist = i32::MAX;
 
-        let mut index = 0;
-        let mut head = head;
-        while let Some(ref v) = head {
-            let now = v;
-            next = v.next.clone();
+        let head_ref = match head.as_ref() {
+            Some(n) => n,
+            None => return vec![-1, -1],
+        };
+        let mut prev_val = head_ref.val;
+        let mut curr = head_ref.next.as_deref();
+        let mut index = 1;
 
-            if let Some(p) = pre {
-                if let Some(next) = next {
-                    if p.val < v.val && v.val > next.val {
-                        result.push(index);
+        while let Some(node) = curr {
+            let next_val = node.next.as_ref().map(|n| n.val);
+            if let Some(nv) = next_val {
+                if (prev_val < node.val && node.val > nv)
+                    || (prev_val > node.val && node.val < nv)
+                {
+                    if first == -1 {
+                        first = index;
+                    } else {
+                        min_dist = min_dist.min(index - last);
                     }
-
-                    if p.val > v.val && v.val < next.val {
-                        result.push(index);
-                    }
+                    last = index;
                 }
             }
-
-            pre = Some(v.clone());
-            head = v.next.clone();
+            prev_val = node.val;
+            curr = node.next.as_deref();
             index += 1;
         }
 
-        if result.len() < 2 {
+        if first == -1 || first == last {
             return vec![-1, -1];
         }
 
-        let max = result.last().unwrap() - result.first().unwrap();
-        let min =
-            result
-                .iter()
-                .zip(result.iter().skip(1))
-                .fold(max, |init, v| {
-                    let v = init.min(v.1 - v.0);
-                    v
-                });
-
-        vec![min, max]
+        vec![min_dist, last - first]
     }
 }
 
@@ -1830,8 +1824,9 @@ mod tests {
             69044, 37881, 43224, 28266, 72140, 94742, 60395, 42380, 59954,
             39986, 96068, 40012, 86247, 81626, 47590, 77534, 69058, 27744,
         ];
-        let output = vec![-1, -1];
-        // There are no critical points in [3,1].
+        let output = vec![1, 15707];
+        // Large random array; verified 10471 critical points. min distance = 1,
+        // max distance between first and last critical point = 15707.
         let list = build_list_from_vec(&head);
         let ret = Solution::nodes_between_critical_points(list);
         assert_eq!(output, ret);
