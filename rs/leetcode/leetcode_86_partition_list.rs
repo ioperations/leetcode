@@ -27,29 +27,24 @@ impl Solution {
         head: Option<Box<ListNode<i32>>>,
         x: i32,
     ) -> Option<Box<ListNode<i32>>> {
-        let mut queue_less = VecDeque::new();
-        let mut queue_more = VecDeque::new();
-        let mut head = head;
+        let mut less_dummy = Box::new(ListNode::new(0));
+        let mut less_tail = &mut *less_dummy;
+        let mut more_dummy = Box::new(ListNode::new(0));
+        let mut more_tail = &mut *more_dummy;
+        let mut current = head;
 
-        while let Some(mut v) = head.take() {
-            head = v.next.take();
-            if v.val < x {
-                queue_less.push_back(v);
+        while let Some(mut node) = current.take() {
+            current = node.next.take();
+            if node.val < x {
+                less_tail.next = Some(node);
+                less_tail = less_tail.next.as_mut().unwrap();
             } else {
-                queue_more.push_back(v);
+                more_tail.next = Some(node);
+                more_tail = more_tail.next.as_mut().unwrap();
             }
         }
-        let mut dummy = Box::new(ListNode::new(0));
-        let mut p = &mut dummy;
-        while let Some(v) = queue_less.pop_front() {
-            p.next = Some(v);
-            p = p.next.as_mut().unwrap();
-        }
-        while let Some(v) = queue_more.pop_front() {
-            p.next = Some(v);
-            p = p.next.as_mut().unwrap();
-        }
-        dummy.next
+        less_tail.next = more_dummy.next;
+        less_dummy.next
     }
 }
 
