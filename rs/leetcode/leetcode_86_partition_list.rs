@@ -19,8 +19,6 @@ use super::leetcode_linklist::ListNode;
 #[allow(unused)]
 struct Solution;
 
-use std::collections::VecDeque;
-
 impl Solution {
     #[allow(unused)]
     pub fn partition(
