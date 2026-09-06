@@ -6,7 +6,7 @@
 
 use super::leetcode_binary_tree::TreeNode;
 
-type TN = TreeNode<i32>;
+type TN<T> = TreeNode<T>;
 
 use std::cell::RefCell;
 use std::collections::BinaryHeap;
@@ -17,27 +17,32 @@ struct Solution;
 
 impl Solution {
     #[allow(unused)]
-    pub fn largest_values(root: Option<Rc<RefCell<TN>>>) -> Vec<i32> {
-        struct Node {
-            node: Rc<RefCell<TN>>,
+    pub fn largest_values<T>(root: Option<Rc<RefCell<TN<T>>>>) -> Vec<T>
+    where
+        T: Ord,
+        T: Default,
+        T: Copy,
+    {
+        struct Node<T> {
+            node: Rc<RefCell<TN<T>>>,
             level: i32,
         };
 
-        impl PartialEq for Node {
+        impl<T> PartialEq for Node<T> {
             fn eq(&self, other: &Self) -> bool {
                 self.level == other.level
             }
         }
 
-        impl Eq for Node {}
-        impl Ord for Node {
+        impl<T> Eq for Node<T> {}
+        impl<T> Ord for Node<T> {
             fn cmp(&self, other: &Self) -> std::cmp::Ordering {
                 self.level.cmp(&other.level)
             }
         }
 
         #[allow(clippy::non_canonical_partial_ord_impl)]
-        impl PartialOrd for Node {
+        impl<T> PartialOrd for Node<T> {
             fn partial_cmp(&self, other: &Self) -> Option<std::cmp::Ordering> {
                 Some(self.cmp(other).reverse())
             }
@@ -55,7 +60,7 @@ impl Solution {
         });
 
         let mut current_level = 1;
-        let mut current_max = i32::MIN;
+        let mut current_max = T::default(); // should be MIN
         let mut ret = vec![];
         while let Some(v) = binary_heap.pop() {
             if v.level == current_level {
