@@ -1,0 +1,19 @@
+name: Main Config
+version: 1.0.0
+schema: v1
+models: 
+  - name: ggml-org/gemma-4-26B-A4B-it-GGUF:Q4_0
+    provider: siliconflow
+    apiBase: http://0.0.0.0:9931/v1
+    model: ggml-org/gemma-4-26B-A4B-it-GGUF:Q4_0
+    apiKey: sk-xxxxxxxxxx_your_api_key_xxxxxxxxxxxxxxxxxxxxxx
+context:
+  - provider: code
+  - provider: docs
+  - provider: diff
+  - provider: terminal
+  - provider: problems
+  - provider: folder
+  - provider: codebase
+
+
