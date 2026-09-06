@@ -18,12 +18,6 @@ struct Solution;
 impl Solution {
     #[allow(unused)]
     pub fn largest_values(root: Option<Rc<RefCell<TN>>>) -> Vec<i32> {
-        if root.is_none() {
-            return vec![];
-        }
-
-        let mut root = root;
-
         struct Node {
             node: Rc<RefCell<TN>>,
             level: i32,
@@ -31,7 +25,7 @@ impl Solution {
 
         impl PartialEq for Node {
             fn eq(&self, other: &Self) -> bool {
-                return self.level == other.level;
+                self.level == other.level
             }
         }
 
@@ -42,12 +36,18 @@ impl Solution {
             }
         }
 
+        #[allow(clippy::non_canonical_partial_ord_impl)]
         impl PartialOrd for Node {
             fn partial_cmp(&self, other: &Self) -> Option<std::cmp::Ordering> {
-                Some(other.level.cmp(&self.level))
+                Some(self.cmp(other).reverse())
             }
         }
 
+        if root.is_none() {
+            return vec![];
+        }
+
+        let mut root = root;
         let mut binary_heap = BinaryHeap::new();
         binary_heap.push(Node {
             node: root.take().unwrap(),
