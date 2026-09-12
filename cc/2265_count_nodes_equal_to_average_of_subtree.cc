@@ -1,22 +1,22 @@
 /*
  * Given the root of a binary tree, return the number of nodes where the value
  * of the node is equal to the average of the values in its subtree.
- * 
+ *
  * Note:
- * 
- * The average of n elements is the sum of the n elements divided by n and rounded
- * down to the nearest integer. A subtree of root is a tree consisting of root and
- * all of its descendants.
+ *
+ * The average of n elements is the sum of the n elements divided by n and
+ * rounded down to the nearest integer. A subtree of root is a tree consisting
+ * of root and all of its descendants.
  * */
 
-#include <cstdio>
+#include <gtest/gtest.h>
+
 #include <optional>
 #include <vector>
 
 #include "datastruct_base.hh"
-// #include <gtest/gtest.h>
 using TN = Tree::TreeNode<int>;
-namespace  {
+namespace {
 
 class Solution {
    public:
@@ -47,23 +47,16 @@ class Solution {
             result++;
         }
 
-        return {leftsum + rightsum + root->val, leftcount + rightcount +1};
+        return {leftsum + rightsum + root->val, leftcount + rightcount + 1};
     }
 
    private:
     int result = 0;
 };
-} // namespace
-
-#define EXPECT_EQ(v, q)       \
-    {                         \
-        if ((v) != (q)) {     \
-            printf("error %d != %d,\n", v, q); \
-        }                     \
-    }
+}  // namespace
 
 #define null std::nullopt
-void TEST(int AverageOfSubtree, int t1) {
+TEST(AverageOfSubtree, t1) {
     std::vector<std::optional<int>> root = {4, 8, 5, 0, 1, null, 6};
     auto* tree = Tree::ConstructBinaryTree(root);
     int output = 5;
@@ -77,19 +70,16 @@ subtree is 0 / 1 = 0. For the node with value 1: The average of its subtree is 1
 / 1 = 1. For the node with value 6: The average of its subtree is 6 / 1 = 6.*/
 }
 
-void TEST1(int AverageOfSubtree, int t2) {
+TEST(AverageOfSubtree, t2) {
     std::vector<std::optional<int>> root = {1};
     auto* tree = Tree::ConstructBinaryTree(root);
     int output = 1;
     Solution sl;
     int ret = sl.AverageOfSubtree(tree);
     EXPECT_EQ(output, ret);
-    /**/
 }
 
 int main(int argc, char* argv[]) {
-    // testing::InitGoogleTest(&argc,argv);
-    // return RUN_ALL_TESTS();
-    TEST(0, 0);
-    TEST1(0, 0);
+    testing::InitGoogleTest(&argc, argv);
+    return RUN_ALL_TESTS();
 }
