@@ -25,7 +25,7 @@ struct Solution;
 
 impl Solution {
     #[allow(unused)]
-    pub fn eventual_safe_nodes(graph: Vec<Vec<i32>>) -> Vec<i32> {
+    pub fn eventual_safe_nodes(graph: &[Vec<i32>]) -> Vec<i32> {
         fn is_safe(
             hm: &mut HashMap<i32, bool>,
             graph: &[Vec<i32>],
@@ -52,12 +52,12 @@ impl Solution {
         let mut ret = Vec::new();
 
         for i in 0..len {
-            if is_safe(&mut hm, &graph, i as i32) {
+            if is_safe(&mut hm, graph, i as i32) {
                 ret.push(i as i32);
             }
         }
 
-        ret.sort();
+        ret.sort_unstable();
         ret
     }
 }
@@ -78,7 +78,7 @@ mod tests {
             vec![],
         ];
         let output = vec![2, 4, 5, 6];
-        let ret = Solution::eventual_safe_nodes(graph);
+        let ret = Solution::eventual_safe_nodes(&graph);
         assert_eq!(output, ret);
         //  The given graph is shown above.
         // Nodes 5 and 6 are terminal nodes as there are no outgoing edges from
@@ -91,7 +91,7 @@ mod tests {
         let graph =
             vec![vec![1, 2, 3, 4], vec![1, 2], vec![3, 4], vec![0, 4], vec![]];
         let output = vec![4];
-        let ret = Solution::eventual_safe_nodes(graph);
+        let ret = Solution::eventual_safe_nodes(&graph);
         assert_eq!(output, ret);
         // Only node 4 is a terminal node, and every path starting at node 4
         // leads to node 4.

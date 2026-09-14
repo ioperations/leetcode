@@ -17,7 +17,7 @@ impl Solution {
     pub fn total_numbers(digits: Vec<i32>) -> i32 {
         // Use brute force to try all possibilities
         let mut digits = digits;
-        digits.sort();
+        digits.sort_unstable();
 
         let len = digits.len();
         let ret = digits.iter().permutations(len);
