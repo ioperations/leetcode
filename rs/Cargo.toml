@@ -26,6 +26,7 @@ tracing = "0"
 tracing-subscriber = { version = "0"}
 ctor = "1"
 rs_le = { path = "../rs_le"}
+itertools = "0.15"
 
 #
 #[[bin]]
