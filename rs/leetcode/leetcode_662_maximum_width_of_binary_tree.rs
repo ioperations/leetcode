@@ -20,14 +20,14 @@ use std::cell::RefCell;
 use std::collections::VecDeque;
 use std::rc::Rc;
 
-type TN = TreeNode<i32>;
-
 #[allow(unused)]
 struct Solution;
 
 impl Solution {
     #[allow(unused)]
-    pub fn width_of_binary_tree(root: Option<Rc<RefCell<TN>>>) -> i32 {
+    pub fn width_of_binary_tree<T>(
+        root: Option<Rc<RefCell<TreeNode<T>>>>,
+    ) -> i32 {
         let mut queue = VecDeque::new();
 
         if let Some(v) = root {
