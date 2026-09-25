@@ -96,7 +96,7 @@ impl Solution {
         let mut result = HashSet::with_capacity(a.len() * b.len());
         for x in a {
             for y in b {
-                result.insert(format!("{}{}", x, y));
+                result.insert(format!("{x}{y}"));
             }
         }
         result
