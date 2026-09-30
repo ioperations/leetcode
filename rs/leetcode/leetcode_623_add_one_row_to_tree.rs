@@ -137,7 +137,7 @@ mod tests {
     #[test]
     fn case1_test() {
         let root: Vec<Option<i32>> =
-            [4, 2, 6, 3, 1, 5].into_iter().map(|i| Some(i)).collect();
+            [4, 2, 6, 3, 1, 5].into_iter().map(Some).collect();
         let val = 1;
         let depth = 2;
         let binary_tree = build_binary_tree(&root);
@@ -173,7 +173,7 @@ mod tests {
     #[test]
     fn case1_test_v1() {
         let root: Vec<Option<i32>> =
-            [4, 2, 6, 3, 1, 5].into_iter().map(|i| Some(i)).collect();
+            [4, 2, 6, 3, 1, 5].into_iter().map(Some).collect();
         let val = 1;
         let depth = 2;
         let binary_tree = build_binary_tree(&root);

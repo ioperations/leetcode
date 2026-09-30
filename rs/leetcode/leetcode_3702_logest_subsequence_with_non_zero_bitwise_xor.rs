@@ -11,40 +11,24 @@ struct Solution;
 
 impl Solution {
     #[allow(unused)]
-    pub fn longest_subsequence(numbers: Vec<i32>) -> i32 {
-        // 展开为2进制，每一竖排1的个数为奇数 直接返回当前的长度
-        let cnt = numbers.len();
+    pub fn longest_subsequence(numbers: &[i32]) -> i32 {
+        // XOR of every element equals XOR of any subsequence that keeps all of
+        // them, so if the total XOR is non-zero the whole array already works.
+        let total_xor = numbers.iter().fold(0i32, |acc, &x| acc ^ x);
+        let cnt = numbers.len() as i32;
 
-        let mut v: Vec<Vec<i32>> = Vec::with_capacity(cnt);
-        let p = vec![0; 32];
-
-        v.resize(cnt, p);
-        for (idx, mut value) in numbers.into_iter().enumerate() {
-            for i in 0..32 {
-                v[idx][32 - 1 - i] = i32::from(value % 2 != 0);
-
-                value /= 2;
-            }
+        if total_xor != 0 {
+            return cnt;
         }
 
-        let mut q = false;
-        for i in 0..32 {
-            let mut size = 0;
-            for j in 0..cnt {
-                size += i32::from(v[j][i] == 1);
-            }
-
-            if (size % 2 == 1) {
-                return cnt as i32;
-            } else if (size != 0) {
-                q = true;
-            }
+        // Dropping exactly one element flips its bits, which turns a zero XOR
+        // into that element's value. So dropping any non-zero element works.
+        if numbers.iter().any(|&x| x != 0) {
+            return cnt - 1;
         }
 
-        if (q) {
-            return (cnt as i32) - 1;
-        }
-
+        // Every element is zero, so no non-empty subsequence can have a
+        // non-zero XOR.
         0
     }
 }
@@ -57,7 +41,7 @@ mod tests {
     fn case1_test() {
         let numbers = [1, 2, 3];
         let output = 2;
-        let ret = Solution::longest_subsequence(numbers.into());
+        let ret = Solution::longest_subsequence(&numbers);
         assert_eq!(output, ret);
         // One longest subsequence is [2, 3]. The bitwise XOR is computed as 2
         // XOR 3 = 1, which is non-zero.
@@ -67,7 +51,7 @@ mod tests {
     fn case2_test() {
         let numbers = [2, 3, 4];
         let output = 3;
-        let ret = Solution::longest_subsequence(numbers.into());
+        let ret = Solution::longest_subsequence(&numbers);
         assert_eq!(output, ret);
         // The longest subsequence is [2, 3, 4]. The bitwise XOR is computed as
         // 2 XOR 3 XOR 4 = 5, which is non-zero.

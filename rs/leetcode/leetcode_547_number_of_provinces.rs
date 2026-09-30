@@ -25,26 +25,18 @@ struct Solution;
 impl Solution {
     #[allow(unused)]
     pub fn find_circle_num(is_connected: &[Vec<i32>]) -> i32 {
-        let mut v = vec![];
         let len = is_connected.len();
-        (0..len).for_each(|i| {
-            v.push(i);
-        });
+        let mut v: Vec<usize> = (0..len).collect();
 
-        for i in 0..len {
-            for j in (i + 1)..len {
-                if is_connected[i][j] == 1 {
+        for (i, row) in is_connected.iter().enumerate() {
+            for (j, &connected) in row.iter().enumerate().skip(i + 1) {
+                if connected == 1 {
                     Self::update(&mut v, i, j);
                 }
             }
         }
 
-        v.iter().enumerate().fold(0, |acc, i| {
-            if i.0 == *i.1 {
-                return acc + 1;
-            }
-            acc
-        })
+        (0..len).filter(|&i| v[i] == i).count() as i32
     }
 
     #[allow(unused)]

@@ -8,16 +8,19 @@ struct Solution;
 
 impl Solution {
     #[allow(unused)]
-    pub fn average(salary: Vec<i32>) -> f64 {
+    pub fn average(salary: &[i32]) -> f64 {
         // 3 <= salary.length <= 100
         // 1000 <= salary[i] <= 106
         // All the integers of salary are unique.
-        let mut salary = salary;
-        salary.sort_unstable();
-        salary.remove(0);
-        salary.remove(salary.len() - 1);
-        let len = salary.len();
-        salary.into_iter().fold(0.0, |acc, x| acc + x as f64) / len as f64
+        let len = salary.len() as i64;
+        let (mut min, mut max) = (i32::MAX, i32::MIN);
+        let mut sum = 0_i64;
+        for &x in salary {
+            min = min.min(x);
+            max = max.max(x);
+            sum += x as i64;
+        }
+        (sum - min as i64 - max as i64) as f64 / (len - 2) as f64
     }
 }
 
@@ -32,8 +35,8 @@ mod test {
         // Explanation: Minimum salary and maximum salary are 1000 and 4000
         // respectively. Average salary excluding minimum and maximum
         // salary is (2000+3000) / 2 = 2500
-        let ret = Solution::average(salary.into());
-        assert!(ret - output < f64::EPSILON);
+        let ret = Solution::average(&salary);
+        assert!((ret - output).abs() < f64::EPSILON);
     }
 
     #[test]
@@ -44,7 +47,7 @@ mod test {
         // Average salary excluding minimum and maximum salary is (2000) / 1 =
         // 2000
 
-        let ret = Solution::average(salary.into());
-        assert!(ret - output < f64::EPSILON);
+        let ret = Solution::average(&salary);
+        assert!((ret - output).abs() < f64::EPSILON);
     }
 }

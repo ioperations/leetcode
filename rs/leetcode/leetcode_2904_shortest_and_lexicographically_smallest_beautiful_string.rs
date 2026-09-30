@@ -124,7 +124,7 @@ mod tests {
         let s = "100011001";
         let k = 3;
         let output = "11001";
-        let ret = Solution::shortest_beautiful_substring(&s, k);
+        let ret = Solution::shortest_beautiful_substring(s, k);
         assert_eq!(output, ret);
 
         // here are 7 beautiful substrings in this example:
@@ -146,7 +146,7 @@ mod tests {
         let s = "1011";
         let k = 2;
         let output = "11";
-        let ret = Solution::shortest_beautiful_substring(&s, k);
+        let ret = Solution::shortest_beautiful_substring(s, k);
         assert_eq!(output, ret);
         // There are 3 beautiful substrings in this example:
         // 1. The substring "[101]1".
@@ -162,7 +162,7 @@ mod tests {
         let s = "000";
         let k = 1;
         let output = "";
-        let ret = Solution::shortest_beautiful_substring(&s, k);
+        let ret = Solution::shortest_beautiful_substring(s, k);
         assert_eq!(output, ret);
         // There are no beautiful substrings in this example.
     }
@@ -172,7 +172,7 @@ mod tests {
         let s = "11000111";
         let k = 1;
         let output = "1";
-        let ret = Solution::shortest_beautiful_substring(&s, k);
+        let ret = Solution::shortest_beautiful_substring(s, k);
         assert_eq!(output, ret);
     }
 }

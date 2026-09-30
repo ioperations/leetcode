@@ -79,7 +79,7 @@ mod tests {
         let limit = 2;
         let output = vec![1, 3, 5, 8, 9];
         let ret =
-            Solution::lexicographically_smallest_array(nums.into(), limit);
+            Solution::lexicographically_smallest_array(nums, limit);
         assert_eq!(output, ret);
         // Apply the operation 2 times:
         // - Swap nums[1] with nums[2]. The array becomes [1,3,5,9,8]
@@ -95,7 +95,7 @@ mod tests {
         let limit = 2;
         let output = vec![1, 6, 7, 18, 1, 2];
         let ret =
-            Solution::lexicographically_smallest_array(nums.into(), limit);
+            Solution::lexicographically_smallest_array(nums, limit);
         assert_eq!(output, ret);
         // Apply the operation 3 times:
         // - Swap nums[1] with nums[2]. The array becomes [1,6,7,18,2,1]
@@ -111,7 +111,7 @@ mod tests {
         let limit = 3;
         let output = vec![1, 7, 28, 19, 10];
         let ret =
-            Solution::lexicographically_smallest_array(nums.into(), limit);
+            Solution::lexicographically_smallest_array(nums, limit);
         assert_eq!(output, ret);
         // [1,7,28,19,10] is the lexicographically smallest array we can obtain
         // because we cannot apply the operation on any two indices.

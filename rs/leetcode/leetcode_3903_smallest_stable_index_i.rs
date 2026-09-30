@@ -24,19 +24,23 @@ impl Solution {
     #[allow(unused)]
     pub fn first_stable_index(nums: &[i32], k: i32) -> i32 {
         let n = nums.len();
-        for i in 0..n {
-            let mut max_value = nums[i];
-            let mut min_value = nums[i];
-            for j in 0..i {
-                max_value = max_value.max(nums[j]);
-            }
-            for j in i + 1..n {
-                min_value = min_value.min(nums[j]);
-            }
-            if max_value - min_value <= k {
+
+        // suffix_min[i] = min(nums[i..n]); suffix_min[n] is a sentinel.
+        let mut suffix_min = vec![i32::MAX; n + 1];
+        for (i, &x) in nums.iter().enumerate().rev() {
+            suffix_min[i] = suffix_min[i + 1].min(x);
+        }
+
+        // prefix_max tracks max(nums[0..=i]) as we walk forward, so the first
+        // index that satisfies the bound is the smallest one.
+        let mut prefix_max = i32::MIN;
+        for (i, &x) in nums.iter().enumerate() {
+            prefix_max = prefix_max.max(x);
+            if prefix_max - suffix_min[i] <= k {
                 return i as i32;
             }
         }
+
         -1
     }
 }

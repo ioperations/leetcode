@@ -61,7 +61,7 @@ mod tests {
         T: std::string::ToString,
     {
         fn to_vec_str(&self) -> Vec<String> {
-            self.into_iter()
+            self.iter()
                 .map(std::string::ToString::to_string)
                 .collect::<Vec<String>>()
         }
@@ -72,7 +72,7 @@ mod tests {
         T: std::string::ToString,
     {
         fn to_hash_str(&self) -> HashSet<String> {
-            self.into_iter()
+            self.iter()
                 .map(std::string::ToString::to_string)
                 .collect::<HashSet<String>>()
         }
@@ -80,7 +80,7 @@ mod tests {
 
     impl ToHashSet for Vec<String> {
         fn to_hash_str(&self) -> HashSet<String> {
-            self.into_iter()
+            self.iter()
                 .map(std::string::String::to_string)
                 .collect::<HashSet<String>>()
         }

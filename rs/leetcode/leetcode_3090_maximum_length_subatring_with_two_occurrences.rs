@@ -50,7 +50,7 @@ mod tests {
     fn case1_test() {
         let s = "bcbbbcba";
         let output = 4;
-        let ret = Solution::maximum_length_substring(&s);
+        let ret = Solution::maximum_length_substring(s);
         assert_eq!(output, ret);
     }
 
@@ -58,7 +58,7 @@ mod tests {
     fn case2_test() {
         let s = "aaaa";
         let output = 2;
-        let ret = Solution::maximum_length_substring(&s);
+        let ret = Solution::maximum_length_substring(s);
         assert_eq!(output, ret);
         // The following substring has a length of 2 and contains at most two
         // occurrences of each character: "aa".

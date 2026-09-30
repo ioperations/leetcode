@@ -10,12 +10,6 @@
 struct Solution;
 
 #[allow(unused)]
-struct Context {
-    nodes: Vec<Node>,
-    len: usize,
-}
-
-#[allow(unused)]
 struct Node {
     start_time: i32,
     end_time: i32,
@@ -29,64 +23,30 @@ impl Solution {
         end_time: &[i32],
         profit: &[i32],
     ) -> i32 {
-        //
         let len = start_time.len();
-        let mut nodes = vec![];
+        let mut nodes: Vec<Node> = start_time
+            .iter()
+            .zip(end_time)
+            .zip(profit)
+            .map(|((&s, &e), &p)| Node {
+                start_time: s,
+                end_time: e,
+                profit: p,
+            })
+            .collect();
+        nodes.sort_unstable_by_key(|n| n.end_time);
 
-        for i in 0..len {
-            nodes.push(Node {
-                start_time: start_time[i],
-                end_time: end_time[i],
-                profit: profit[i],
-            });
+        // jobs[0..i] are sorted by end time, so every job that finishes at or
+        // before a given start time is a prefix and can be located by bisect.
+        let ends: Vec<i32> = nodes.iter().map(|n| n.end_time).collect();
+        // dp[i] = best profit using only jobs[0..i]
+        let mut dp = vec![0_i32; len + 1];
+        for (i, node) in nodes.iter().enumerate() {
+            let compatible = ends.partition_point(|&e| e <= node.start_time);
+            dp[i + 1] = dp[i].max(dp[compatible] + node.profit);
         }
 
-        nodes.sort_by_key(|n| n.start_time);
-
-        let context = Context { nodes, len };
-        Self::helper(&context, 0, 0, 0)
-    }
-
-    // in [start_time] and with [choosen] , how mach profit can we get
-    #[allow(unused)]
-    pub fn helper(
-        context: &Context,
-        minimum_start_time: i32,
-        job_minimium: usize,
-        profit: i32,
-    ) -> i32 {
-        if job_minimium >= context.len {
-            return profit;
-        }
-        // first get all possible start job
-        let mut candidate = vec![];
-        {
-            for i in job_minimium..context.len {
-                if context.nodes[i].start_time >= minimum_start_time {
-                    candidate.push(i);
-                }
-            }
-        }
-
-        let mut max = profit;
-        for i in candidate {
-            // choose the i'th candiate
-            max = max.max(Self::helper(
-                context,
-                context.nodes[i].end_time,
-                i + 1,
-                profit + context.nodes[i].profit,
-            ));
-            // do not choose the i'th candidate
-            max = max.max(Self::helper(
-                context,
-                minimum_start_time,
-                i + 1,
-                profit,
-            ));
-        }
-
-        max
+        dp[len]
     }
 }
 

@@ -29,7 +29,7 @@ mod tests {
     #[test]
     fn case1_test() {
         let s = "abc";
-        let ret = Solution::reverse_degree(&s);
+        let ret = Solution::reverse_degree(s);
         let output = 148;
         // Letter	Index in Reversed Alphabet	Index in String	Product
         // 'a'	26	1	26
@@ -44,7 +44,7 @@ mod tests {
     #[test]
     fn case2_test() {
         let s = "zaza";
-        let ret = Solution::reverse_degree(&s);
+        let ret = Solution::reverse_degree(s);
         let output = 160;
         // Letter	Index in Reversed Alphabet	Index in String	Product
         // 'z'	1	1	1

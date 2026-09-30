@@ -29,19 +29,17 @@ impl Solution {
         left.reserve(size);
         right.reserve(size);
 
-        for v in 2..size {
+        for &v in &nums[2..size] {
             if left_back > right_back {
-                left.push(nums[v]);
-                left_back = nums[v];
+                left.push(v);
+                left_back = v;
             } else {
-                right.push(nums[v]);
-                right_back = nums[v];
+                right.push(v);
+                right_back = v;
             }
         }
 
-        for v in right {
-            left.push(v);
-        }
+        left.extend(right);
         left
     }
 }

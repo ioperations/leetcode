@@ -41,8 +41,8 @@ impl Solution {
             count += 1;
 
             // 从邻接表里面访问，把从该顶点出发所能到达人顶点的入度减一
-            for i in (0..adjacency_list[point].len()) {
-                let pre_course = adjacency_list[point][i] as usize;
+            for &neighbor in &adjacency_list[point] {
+                let pre_course = neighbor as usize;
                 indegress[pre_course] -= 1;
                 // 入度为0则加入队列
                 if indegress[pre_course] == 0 {

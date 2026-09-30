@@ -79,7 +79,7 @@ mod tests {
     fn case1_test() {
         let image = [[1, 1, 1], [1, 1, 0], [1, 0, 1]]
             .into_iter()
-            .map(|v| Vec::from(v))
+            .map(Vec::from)
             .collect::<Vec<Vec<_>>>();
         let sr = 1;
         let sc = 1;
@@ -95,7 +95,7 @@ mod tests {
 
         let output = [[2, 2, 2], [2, 2, 0], [2, 0, 1]]
             .into_iter()
-            .map(|v| Vec::from(v))
+            .map(Vec::from)
             .collect::<Vec<Vec<_>>>();
 
         let ret = Solution::flood_fill(image, sr, sc, color);
@@ -106,7 +106,7 @@ mod tests {
     fn case2_test() {
         let image = [[0, 0, 0], [0, 0, 0]]
             .into_iter()
-            .map(|v| Vec::from(v))
+            .map(Vec::from)
             .collect::<Vec<Vec<_>>>();
         let sr = 0;
         let sc = 0;
@@ -117,7 +117,7 @@ mod tests {
 
         let output = [[0, 0, 0], [0, 0, 0]]
             .into_iter()
-            .map(|v| Vec::from(v))
+            .map(Vec::from)
             .collect::<Vec<Vec<_>>>();
 
         let ret = Solution::flood_fill(image, sr, sc, color);
