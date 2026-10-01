@@ -47,7 +47,6 @@ class Solution {
 
     bool ExistV(vector<vector<char>>& board, int x, int y, const string& word) {
         std::stack<std::pair<int, int>> stack;
-        // std::set<std::pair<int, int>> seen;
 
         // 这个点的 下一个点 已经走过的位置
         std::map<std::pair<int, int>, std::set<std::pair<int, int>>> next;
@@ -219,8 +218,6 @@ class SolutionV2 {
 
     bool Dfs(int i, int j, vector<vector<char>>& board,
              vector<vector<bool>>& visited, const string& word) {
-        // int step[4][2] = {{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
-
         stack<std::array<int, 4>> st;
         st.push({i, j, 0, 0});
 

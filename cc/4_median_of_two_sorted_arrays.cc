@@ -51,8 +51,6 @@ class Solution {
                    merged.at(static_cast<size_t>(size) / 2))) /
                2;
     }
-
-   private:
 };
 
 TEST(MedianOfTwoSortedArrays, t1) {

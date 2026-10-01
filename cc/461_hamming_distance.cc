@@ -40,7 +40,6 @@ class Solution {
             x /= 2;
             i++;
         }
-        // std::reverse(ret.begin(), ret.end());
         return ret;
     }
     int HammingWeight(int n) {

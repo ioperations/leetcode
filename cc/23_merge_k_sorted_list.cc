@@ -3,7 +3,6 @@
 // https://pvs-studio.com
 
 #include <cmath>
-#include <limits>
 #include <queue>
 #include <utility>
 #include <vector>
@@ -160,26 +159,26 @@ class Solution {
     ///* 听说用最小堆,还可以用败者树
     MyListNode* MergeKLists(vector<MyListNode*>& lists) {
         // 我们记录这一路 走到了什么位置
-        std::vector<MyListNode*> const& cursors = lists;
+        // 用一份本地副本,避免把调用方的 lists 游标全部耗尽
+        std::vector<MyListNode*> cursors = lists;
 
         // 对于每一路我们拿出值最小的那个值(这个node !=
         // nullptr)，并将这一路的游标向右移动一格
 
-        MyListNode* head = nullptr;
-        MyListNode* pre = nullptr;
+        MyListNode head, *tail = &head;
 
-        bool first = true;
-
-        int const val{std::numeric_limits<int>::max()};
         while (true) {
             // 所以现在的问题是怎样确定这个candidate
             MyListNode* candidate = nullptr;
-            for (auto& cur_cursor : cursors) {
-                if (cur_cursor == nullptr) {
+            std::size_t chosen = 0;
+            for (std::size_t i = 0; i < cursors.size(); ++i) {
+                if (cursors.at(i) == nullptr) {
                     continue;
                 }
-                if (cur_cursor->val < val) {
-                    candidate = cur_cursor;
+                if (candidate == nullptr ||
+                    cursors.at(i)->val < candidate->val) {
+                    candidate = cursors.at(i);
+                    chosen = i;
                 }
             }
 
@@ -187,19 +186,14 @@ class Solution {
                 break;
             }
 
-            if (first) {
-                head = candidate;
-                pre = head;
-                first = false;
-            } else {
-                pre->next = candidate;
-                pre = pre->next;
-            }
-
             // 现在当前的candidate的node需要向下一格
+            tail->next = candidate;
+            tail = tail->next;
+            cursors.at(chosen) = candidate->next;
         }
 
-        return head;
+        tail->next = nullptr;
+        return head.next;
     }
 };
 }  // namespace
@@ -253,10 +247,14 @@ void ExpectEqList(MyListNode* list, std::vector<int> const& elemets) {
     int count = 0;
     MyListNode const* ptr = list;
     while (ptr != nullptr) {
-        EXPECT_EQ(elemets.at(count), ptr->val);
+        ASSERT_LT(static_cast<size_t>(count), elemets.size())
+            << "actual list is longer than expected";
+        EXPECT_EQ(elemets.at(static_cast<size_t>(count)), ptr->val);
         ptr = ptr->next;
         count++;
     }
+    EXPECT_EQ(static_cast<size_t>(count), elemets.size())
+        << "actual list is shorter than expected";
 }
 
 TEST(MergeKSortedListV2, priorityQueue) {
@@ -308,6 +306,42 @@ TEST(MergeKSortedListV2, null2) {
     EXPECT_EQ(nullptr, ret);
 
     FreeList(n1);
+}
+
+TEST(MergeKSortedListV2, nonEmpty) {
+    std::vector<int> const list1{1, 4, 5};
+    std::vector<int> const list2{1, 3, 4};
+    std::vector<int> const list3{2, 6};
+
+    MyListNode* n1 = ConstructList(list1);
+    MyListNode* n2 = ConstructList(list2);
+    MyListNode* n3 = ConstructList(list3);
+
+    std::vector<MyListNode*> merge_list{n1, n2, n3};
+
+    Solution s;
+    auto* ret = s.MergeKLists(merge_list);
+
+    std::vector<int> const expected{1, 1, 2, 3, 4, 4, 5, 6};
+    ExpectEqList(ret, expected);
+    FreeList(ret);
+}
+
+TEST(MergeKSortedListV2, someEmpty) {
+    std::vector<int> const list1{};
+    std::vector<int> const list2{5, 6, 7};
+
+    MyListNode* n1 = ConstructList(list1);
+    MyListNode* n2 = ConstructList(list2);
+
+    std::vector<MyListNode*> merge_list{n1, nullptr, n2};
+
+    Solution s;
+    auto* ret = s.MergeKLists(merge_list);
+
+    std::vector<int> const expected{5, 6, 7};
+    ExpectEqList(ret, expected);
+    FreeList(ret);
 }
 
 }  // namespace

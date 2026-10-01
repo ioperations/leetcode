@@ -58,22 +58,6 @@ class Solution {
             reverse(matrix.at(static_cast<size_t>(i)).begin(),
                     matrix.at(static_cast<size_t>(i)).end());
         }
-        return;
-        for (size_t i = 0; i < matrix.size(); i++) {
-            for (size_t j = 0; j < matrix.size(); j++) {
-                /*
-                    (0,0) => (0,2)
-                    (0,1) => (1,2)
-                    (0,2) => (2,2)
-                    (1,0) => (0,1)
-                    (1,1) => (1,1)
-                    (1,2) => (2,1)
-                    (2,0) => (0,0)
-                    (2,1) => (1,0)
-                    (2,2) => (2,0)
-                */
-            }
-        }
     }
 };
 

@@ -9,21 +9,18 @@
 namespace {
 class Solution {
    public:
-    std::vector<int> TwoSum(std::vector<int>& nums, int target) const {
-        std::vector<int> ret;
-        for (size_t i = 0; i < nums.size(); ++i) {
-            for (size_t j = i + 1; j < nums.size(); j++) {
-                if (nums[i] + nums[j] == target) {
-                    return std::vector<int>{static_cast<int>(i),
-                                            static_cast<int>(j)};
-                }
-            }
-        }
+     std::vector<int> TwoSum(std::vector<int>& nums, int target) const {
+         for (size_t i = 0; i < nums.size(); ++i) {
+             for (size_t j = i + 1; j < nums.size(); j++) {
+                 if (nums[i] + nums[j] == target) {
+                     return std::vector<int>{static_cast<int>(i),
+                                             static_cast<int>(j)};
+                 }
+             }
+         }
 
-        return ret;
-    }
-
-   private:
+         return {};
+     }
 };
 
 TEST(twosumV2, t1) {
