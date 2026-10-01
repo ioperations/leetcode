@@ -19,7 +19,6 @@ else()
         -Wpointer-arith
         -Wno-sign-compare
         -fno-omit-frame-pointer
-        -fno-plt
         -Wall
         -Wpedantic
         -ggdb
@@ -52,6 +51,8 @@ foreach (CXX_SRC ${source_list})
     add_executable(${T})
     target_sources(${T} PUBLIC ${CXX_SRC})
     target_compile_options(${T} PUBLIC ${CXX_FLAGS})
+
+    target_link_options(${T} PUBLIC "-fno-plt")
 
     if (${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
         target_compile_options(${T} PRIVATE "-stdlib=libc++")
