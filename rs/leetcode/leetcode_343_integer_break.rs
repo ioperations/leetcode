@@ -62,7 +62,7 @@ mod tests {
     #[test]
     fn case3_test() {
         let n = 58;
-        let output = 1549681956;
+        let output = 1_549_681_956;
         let ret = Solution::integer_break(n);
         assert_eq!(ret, output);
     }

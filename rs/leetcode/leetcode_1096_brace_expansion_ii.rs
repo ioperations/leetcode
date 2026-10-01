@@ -112,7 +112,7 @@ mod tests {
         let expression = "{a,b}{c,{d,e}}".to_string();
         let output = ["ac", "ad", "ae", "bc", "bd", "be"]
             .iter()
-            .map(|v| v.to_string())
+            .map(|&v| v.to_string())
             .collect::<Vec<_>>();
         let ret = Solution::brace_expansion_ii(&expression);
         assert_eq!(output, ret);
@@ -123,7 +123,7 @@ mod tests {
         let expression = "{{a,z},a{b,c},{ab,z}}".to_string();
         let output = ["a", "ab", "ac", "z"]
             .iter()
-            .map(|v| v.to_string())
+            .map(|&v| v.to_string())
             .collect::<Vec<_>>();
         let ret = Solution::brace_expansion_ii(&expression);
         assert_eq!(output, ret);

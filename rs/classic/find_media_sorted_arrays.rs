@@ -57,7 +57,7 @@ pub mod tests {
 
         let ret = find_median_sorted_arrays(&mut nums1, &nums2);
         let expected = vec![1, 2, 3, 4, 5, 6];
-        assert!(ret == expected);
+        assert_eq!(ret, expected);
     }
 
     #[test]

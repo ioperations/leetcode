@@ -70,7 +70,7 @@ mod test {
     }
 
     // https://github.com/rust-lang/rust  9bad7ba324099d124c
-    #[ignore]
+    #[ignore = "known to be slow / TODO: optimize"]
     #[test]
     fn case2_test() {
         let spells = [3, 1, 2];

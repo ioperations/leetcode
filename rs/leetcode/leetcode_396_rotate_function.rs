@@ -661,7 +661,7 @@ mod tests {
             -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
         ];
 
-        let output = -2147411546;
+        let output = -2_147_411_546;
         let ret = Solution::max_rotate_function(&nums);
         assert_eq!(output, ret);
     }

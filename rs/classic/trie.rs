@@ -89,9 +89,9 @@ mod tests {
         assert_eq!(v2, Some(4));
     }
 
-    #[ignore]
+    #[ignore = "demonstrates panic behavior"]
     #[test]
-    #[should_panic]
+    #[should_panic(expected = "key exists")]
     fn insert_panics_if_exists() {
         let mut t = Trie::new();
         t.insert(&[1], 3);

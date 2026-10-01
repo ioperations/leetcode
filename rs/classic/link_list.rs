@@ -962,15 +962,15 @@ mod test {
     fn test_eq() {
         let mut n: LinkedList<u8> = list_from(&[]);
         let mut m = list_from(&[]);
-        assert!(n == m);
+        assert_eq!(n, m);
         n.push_front(1);
-        assert!(n != m);
+        assert_ne!(n, m);
         m.push_back(1);
-        assert!(n == m);
+        assert_eq!(n, m);
 
         let n = list_from(&[2, 3, 4]);
         let m = list_from(&[1, 2, 3]);
-        assert!(n != m);
+        assert_ne!(n, m);
     }
 
     #[test]

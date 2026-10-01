@@ -6,7 +6,7 @@ use std::time::Duration;
 // Cache up to 10 unique argument pairs
 #[lru_cache(10)]
 fn expensive_calculation(x: u32, y: u32) -> u32 {
-    println!("Calculating values for ({}, {})... (Cache Miss)", x, y);
+    println!("Calculating values for ({x}, {y})... (Cache Miss)");
     thread::sleep(Duration::from_millis(500)); // Simulate hard workload
     x + y
 }
