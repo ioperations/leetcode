@@ -34,10 +34,13 @@ if(ENABLE_COVERAGE)
     if(UNIX)
         if (CMAKE_CXX_COMPILER_ID MATCHES "Clang")
             # using Clang
-            SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} --coverage")
+            add_compile_options(--coverage)
+            # the coverage runtime is only pulled in when the link step sees it too
+            add_link_options(--coverage)
         elseif (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
             # using GCC
-            SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fprofile-arcs -ftest-coverage")
+            add_compile_options(-fprofile-arcs -ftest-coverage)
+            add_link_options(-fprofile-arcs -ftest-coverage)
         endif()
     endif()
 endif()
