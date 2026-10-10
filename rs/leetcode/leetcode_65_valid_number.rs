@@ -103,7 +103,7 @@ impl Parser {
 
     #[allow(unused)]
     fn parse_digitail(s: &[char]) -> Option<&[char]> {
-        let s = Self::consume_plus_or_minus(s).unwrap_or_else(|| s);
+        let s = Self::consume_plus_or_minus(s).unwrap_or(s);
         if let Some(s) = Self::consume_dot(s) {
             if let Some(left) = Self::consume_all_digits(s) {
                 return Some(left);
