@@ -13,7 +13,7 @@ impl Solution {
         let len = nums.len();
         nums.iter()
             .enumerate()
-            .filter(|(idx, value)| len % (*idx + 1) == 0)
+            .filter(|(idx, value)| len.is_multiple_of(*idx + 1))
             .map(|(idx, value)| value * value)
             .sum()
     }
