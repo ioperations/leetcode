@@ -22,11 +22,11 @@ impl Solution {
                 }
                 p => {
                     let ret = stack.pop().unwrap_or('*');
-                    match p {
-                        ')' => return ret == '(',
-                        ']' => return ret == '[',
-                        '}' => return ret == '{',
-                        _ => return false,
+                    return match p {
+                        ')' => ret == '(',
+                        ']' => ret == '[',
+                        '}' => ret == '{',
+                        _ => false,
                     }
                 }
             }
