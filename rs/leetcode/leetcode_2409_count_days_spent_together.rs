@@ -21,10 +21,10 @@ struct Solution;
 impl Solution {
     #[allow(unused)]
     pub fn count_days_together(
-        arrive_alice: String,
-        leave_alice: String,
-        arrive_bob: String,
-        leave_bob: String,
+        arrive_alice: &str,
+        leave_alice: &str,
+        arrive_bob: &str,
+        leave_bob: &str,
     ) -> i32 {
         fn month_to_day(num: i32) -> i32 {
             let d = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
@@ -33,7 +33,7 @@ impl Solution {
 
         fn get_day(str: &str) -> i32 {
             let p = str
-                .split("-")
+                .split('-')
                 .collect::<Vec<_>>()
                 .iter()
                 .map(|v| v.parse::<i32>().unwrap())
@@ -42,10 +42,10 @@ impl Solution {
             month_to_day(p[0]) + p[1]
         }
 
-        let arrive_alice = get_day(&arrive_alice);
-        let leave_alice = get_day(&leave_alice);
-        let arrive_bob = get_day(&arrive_bob);
-        let leave_bob = get_day(&leave_bob);
+        let arrive_alice = get_day(arrive_alice);
+        let leave_alice = get_day(leave_alice);
+        let arrive_bob = get_day(arrive_bob);
+        let leave_bob = get_day(leave_bob);
 
         0.max(leave_alice.min(leave_bob) - arrive_alice.max(arrive_bob) + 1)
     }
@@ -57,10 +57,10 @@ mod tests {
 
     #[test]
     fn case1_test() {
-        let arrive_alice = "08-15".to_string();
-        let leave_alice = "08-18".to_string();
-        let arrive_bob = "08-16".to_string();
-        let leave_bob = "08-19".to_string();
+        let arrive_alice = "08-15";
+        let leave_alice = "08-18";
+        let arrive_bob = "08-16";
+        let leave_bob = "08-19";
         let output = 3;
         let ret = Solution::count_days_together(
             arrive_alice,
@@ -76,10 +76,10 @@ mod tests {
 
     #[test]
     fn case2_test() {
-        let arrive_alice = "10-01".to_string();
-        let leave_alice = "10-31".to_string();
-        let arrive_bob = "11-01".to_string();
-        let leave_bob = "12-31".to_string();
+        let arrive_alice = "10-01";
+        let leave_alice = "10-31";
+        let arrive_bob = "11-01";
+        let leave_bob = "12-31";
         let output = 0;
         let ret = Solution::count_days_together(
             arrive_alice,
