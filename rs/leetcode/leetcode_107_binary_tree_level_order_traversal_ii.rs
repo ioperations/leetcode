@@ -12,6 +12,7 @@ struct Solution;
 
 impl Solution {
     #[allow(unused)]
+    #[allow(clippy::new_instead_of_clear)]
     pub fn level_order_bottom<T>(
         root: Option<Rc<RefCell<TreeNode<T>>>>,
     ) -> Vec<Vec<T>>

@@ -51,7 +51,7 @@ impl Solution {
             if i == ')' {
                 let result = hm.get(&cur).unwrap_or(&question_string);
                 res.push_str(result);
-                cur = String::new();
+                cur.clear();
                 capture = false;
             } else if capture {
                 cur.push(i);
